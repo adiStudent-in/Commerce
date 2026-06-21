@@ -1,0 +1,42 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 500' width='700' height='500'>
+  <rect width='700' height='500' fill='white'/>
+  <text x='350' y='30' text-anchor='middle' font-size='18' font-weight='bold' fill='#1a237e'>Rotation in PPF</text>
+  <g transform='translate(20,50)'>
+    <text x='170' y='30' text-anchor='middle' font-size='14' font-weight='bold' fill='#333'>Rotation on X-Axis (Good X changes)</text>
+    <line x1='50' y1='350' x2='350' y2='350' stroke='black' stroke-width='2'/>
+    <line x1='50' y1='350' x2='50' y2='30' stroke='black' stroke-width='2'/>
+    <polygon points='345,346 355,350 345,354' fill='black'/>
+    <polygon points='46,35 50,25 54,35' fill='black'/>
+    <text x='200' y='385' text-anchor='middle' font-size='12'>Good X</text>
+    <text x='15' y='190' text-anchor='middle' font-size='12' transform='rotate(-90,15,190)'>Good Y</text>
+    <path d='M 50,330 Q 150,250 240,60' fill='none' stroke='#1565c0' stroke-width='3'/>
+    <text x='245' y='55' font-size='11' fill='#1565c0'>Original</text>
+    <path d='M 50,330 Q 200,250 330,60' fill='none' stroke='#2e7d32' stroke-width='3'/>
+    <text x='330' y='90' font-size='11' fill='#2e7d32'>Rightward</text>
+    <path d='M 50,330 Q 110,280 150,60' fill='none' stroke='#c62828' stroke-width='3'/>
+    <text x='50' y='120' font-size='11' fill='#c62828'>Leftward</text>
+  </g>
+  <g transform='translate(320,50)'>
+    <text x='170' y='30' text-anchor='middle' font-size='14' font-weight='bold' fill='#333'>Rotation on Y-Axis (Good Y changes)</text>
+    <line x1='50' y1='350' x2='350' y2='350' stroke='black' stroke-width='2'/>
+    <line x1='50' y1='350' x2='50' y2='30' stroke='black' stroke-width='2'/>
+    <polygon points='345,346 355,350 345,354' fill='black'/>
+    <polygon points='46,35 50,25 54,35' fill='black'/>
+    <text x='200' y='385' text-anchor='middle' font-size='12'>Good X</text>
+    <text x='15' y='190' text-anchor='middle' font-size='12' transform='rotate(-90,15,190)'>Good Y</text>
+    <path d='M 50,330 Q 150,250 240,60' fill='none' stroke='#1565c0' stroke-width='3'/>
+    <text x='245' y='55' font-size='11' fill='#1565c0'>Original</text>
+    <path d='M 50,330 Q 150,200 240,30' fill='none' stroke='#2e7d32' stroke-width='3'/>
+    <text x='245' y='25' font-size='11' fill='#2e7d32'>Upward</text>
+    <path d='M 50,350 Q 150,280 240,60' fill='none' stroke='#c62828' stroke-width='3'/>
+    <text x='245' y='80' font-size='11' fill='#c62828'>Downward</text>
+  </g>
+  <rect x='120' y='435' width='460' height='55' rx='5' fill='#f5f5f5' stroke='#ccc'/>
+  <line x1='140' y1='450' x2='170' y2='450' stroke='#1565c0' stroke-width='3'/>
+  <text x='180' y='454' font-size='11' fill='#333'>Original PPF</text>
+  <line x1='310' y1='450' x2='340' y2='450' stroke='#2e7d32' stroke-width='3'/>
+  <text x='350' y='454' font-size='11' fill='#333'>Outward Rotation (Increase in one good)</text>
+  <line x1='140' y1='475' x2='170' y2='475' stroke='#c62828' stroke-width='3'/>
+  <text x='180' y='479' font-size='11' fill='#333'>Inward Rotation (Decrease in one good)</text>
+  <text x='310' y='479' font-size='11' fill='#555'>Rotation happens when only ONE good's resources/technology changes</text>
+</svg>

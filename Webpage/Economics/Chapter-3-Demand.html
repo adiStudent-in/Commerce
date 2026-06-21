@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 3 — Demand | Economics Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --border: #e8e4de;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --callout-bg: #fff8e5;
+      --callout-border: #d4a12a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.75;
+      padding-top: 60px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    img { max-width: 100%; height: auto; display: block; border-radius: 8px; margin: 24px auto; }
+
+    .mermaid { margin: 24px 0; text-align: center; background: var(--surface); padding: 16px; border-radius: 8px; border: 1px solid var(--border); }
+
+    .top-nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 60px; z-index: 100;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      background: rgba(250,248,245,0.85);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px;
+    }
+    .top-nav .logo {
+      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 18px;
+      color: var(--accent); letter-spacing: -0.02em;
+    }
+    .top-nav .meta { font-size: 13px; color: var(--text-muted); }
+
+    .progress-bar {
+      position: fixed; top: 60px; left: 0; height: 2px; z-index: 99;
+      background: var(--accent); width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    .wrapper {
+      display: flex; max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      gap: 40px;
+    }
+
+    .sidebar-toc {
+      width: var(--sidebar-width); flex-shrink: 0;
+      position: sticky; top: 80px; max-height: calc(100vh - 100px);
+      overflow-y: auto; padding: 8px 0;
+    }
+    .sidebar-toc::-webkit-scrollbar { width: 4px; }
+    .sidebar-toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .sidebar-toc::-webkit-scrollbar-track { background: transparent; }
+
+    .sidebar-toc .toc-label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); margin-bottom: 12px; font-weight: 600;
+    }
+    .sidebar-toc a {
+      display: block; font-size: 13.5px; color: var(--text-muted);
+      padding: 5px 0 5px 16px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+    .sidebar-toc a:hover, .sidebar-toc a.active {
+      color: var(--accent); border-left-color: var(--accent); text-decoration: none;
+    }
+    .sidebar-toc a.sub { padding-left: 40px; font-size: 13px; }
+
+    .toc-toggle {
+      display: none; position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--accent); color: #fff; border: none;
+      font-size: 20px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      align-items: center; justify-content: center;
+    }
+    .toc-drawer {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 190;
+      background: var(--surface); border-radius: 16px 16px 0 0;
+      box-shadow: 0 -8px 32px rgba(0,0,0,0.12);
+      max-height: 60vh; overflow-y: auto; padding: 20px 24px 32px;
+      transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    .toc-drawer.open { transform: translateY(0); }
+    .toc-drawer .toc-label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); margin-bottom: 12px; font-weight: 600;
+    }
+    .toc-drawer a {
+      display: block; font-size: 14px; color: var(--text-muted);
+      padding: 6px 0; border-bottom: 1px solid var(--border);
+    }
+    .toc-drawer a:last-child { border-bottom: none; }
+    .toc-drawer a.sub { padding-left: 20px; font-size: 13.5px; }
+    .toc-drawer-overlay {
+      display: none; position: fixed; inset: 0; z-index: 180;
+      background: rgba(0,0,0,0.3);
+    }
+    .toc-drawer-overlay.open { display: block; }
+
+    .main-content {
+      flex: 1; max-width: var(--max-width); padding: 40px 0 80px;
+    }
+
+    .hero { margin-bottom: 48px; }
+    .hero .badge {
+      display: inline-block; background: var(--accent-light); color: var(--accent);
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 38px;
+      line-height: 1.2; letter-spacing: -0.025em; color: var(--text); margin-bottom: 12px;
+    }
+    .hero .subtitle {
+      font-size: 16px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 26px;
+      color: var(--text); margin-top: 48px; margin-bottom: 16px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    }
+    h3 {
+      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px;
+      color: var(--text); margin-top: 32px; margin-bottom: 12px;
+    }
+    h4 {
+      font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 15.5px;
+      color: var(--text); margin-top: 24px; margin-bottom: 8px;
+    }
+
+    p { margin-bottom: 16px; }
+
+    .table-wrap {
+      overflow-x: auto; border: 1px solid var(--border); border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03); margin: 20px 0 28px;
+    }
+    .table-wrap table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+    }
+    .table-wrap thead {
+      background: var(--accent-light);
+    }
+    .table-wrap th {
+      font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--accent); font-weight: 600; padding: 12px 14px; text-align: left;
+      white-space: nowrap;
+    }
+    .table-wrap td {
+      padding: 11px 14px; vertical-align: top; border-top: 1px solid var(--border);
+    }
+    .table-wrap tbody tr:hover { background: #f5f3ef; }
+    .table-wrap td:first-child { font-weight: 600; white-space: nowrap; }
+
+    blockquote {
+      background: var(--accent-light); border-left: 3px solid var(--accent);
+      padding: 16px 20px; margin: 20px 0 24px; border-radius: 0 6px 6px 0;
+      font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px;
+      color: var(--text); line-height: 1.6;
+    }
+    blockquote p { margin-bottom: 0; }
+    blockquote p + p { margin-top: 8px; }
+
+    .callout {
+      background: var(--callout-bg); border-left: 3px solid var(--callout-border);
+      padding: 16px 20px; margin: 20px 0 24px; border-radius: 0 6px 6px 0;
+      font-size: 15px; line-height: 1.6;
+    }
+    .callout strong:first-child { color: #8b6914; }
+
+    pre {
+      background: #1a1a2e; color: #e4e4f0; padding: 20px 24px; margin: 20px 0 24px;
+      border-radius: 8px; font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 13.5px; line-height: 1.65; overflow-x: auto; white-space: pre;
+    }
+    code { font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace; font-size: 13.5px; }
+    p code { background: #f0ede8; padding: 1px 6px; border-radius: 4px; color: var(--accent); }
+
+    ul, ol { padding-left: 24px; margin-bottom: 16px; }
+    li { margin-bottom: 4px; }
+    ul ul, ol ol { margin-bottom: 0; }
+
+    .terms-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px; margin: 20px 0 28px;
+    }
+    .term-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 16px 18px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s ease;
+    }
+    .term-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .term-card .term-name { font-weight: 600; color: var(--accent); font-size: 14.5px; margin-bottom: 4px; }
+    .term-card .term-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+
+    hr {
+      border: none; height: 1px; background: var(--border); margin: 40px 0;
+    }
+
+    .footer {
+      margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+      font-size: 13px; color: var(--text-muted); text-align: center;
+    }
+
+    .fade-in {
+      opacity: 0; transform: translateY(12px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+    section:nth-of-type(5) { animation-delay: 0.35s; }
+    section:nth-of-type(6) { animation-delay: 0.4s; }
+    section:nth-of-type(7) { animation-delay: 0.45s; }
+    section:nth-of-type(8) { animation-delay: 0.5s; }
+    section:nth-of-type(9) { animation-delay: 0.55s; }
+    section:nth-of-type(10) { animation-delay: 0.6s; }
+    section:nth-of-type(11) { animation-delay: 0.65s; }
+    section:nth-of-type(12) { animation-delay: 0.7s; }
+    section:nth-of-type(13) { animation-delay: 0.75s; }
+    section:nth-of-type(14) { animation-delay: 0.8s; }
+
+    @media (max-width: 900px) {
+      .sidebar-toc { display: none; }
+      .toc-toggle { display: flex; }
+      .wrapper { padding: 0 20px; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      h2 { font-size: 22px; }
+      .table-wrap td { font-size: 13px; padding: 8px 10px; }
+      .table-wrap th { font-size: 12px; padding: 8px 10px; }
+      pre { font-size: 12.5px; padding: 16px; }
+      .terms-grid { grid-template-columns: 1fr; }
+      .top-nav .meta { display: none; }
+      .top-nav { padding: 0 16px; }
+      .wrapper { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <span class="logo">Economics Notes</span>
+    <span class="meta">Class 11 · Chapter 3</span>
+  </nav>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <div class="wrapper">
+
+    <aside class="sidebar-toc" id="sidebarToc">
+      <div class="toc-label">On this page</div>
+      <a href="#meaning">Meaning of Demand</a>
+      <a href="#types">Types of Demand</a>
+      <a href="#demand-function">Demand Function</a>
+      <a href="#factors-individual" class="sub">Factors Affecting Individual Demand</a>
+      <a href="#law-of-demand">Law of Demand</a>
+      <a href="#demand-schedule">Demand Schedule</a>
+      <a href="#demand-curve">Demand Curve</a>
+      <a href="#movement">Movement along Demand Curve</a>
+      <a href="#shift">Shift in Demand Curve</a>
+      <a href="#exceptions">Exceptions to Law of Demand</a>
+      <a href="#comparison">Movement vs Shift Comparison</a>
+      <a href="#flowchart">Types of Demand — Flowchart</a>
+      <a href="#exam-questions">Exam Questions</a>
+      <a href="#glossary">Key Terms Glossary</a>
+    </aside>
+
+    <main class="main-content">
+
+      <div class="hero fade-in">
+        <div class="badge">Chapter 3</div>
+        <h1>Demand</h1>
+        <p class="subtitle">Understanding the meaning of demand, the Law of Demand, factors affecting demand, movements and shifts along the demand curve, and exceptions.</p>
+      </div>
+
+      <!-- 1. Meaning of Demand -->
+      <section id="meaning" class="fade-in">
+        <h2>1. Meaning of Demand</h2>
+
+        <h3>What is Demand?</h3>
+        <blockquote><strong>Demand</strong> refers to the <strong>quantity of a commodity</strong> that a consumer is <strong>willing and able to buy</strong> at a <strong>given price</strong> during a <strong>given period of time</strong>.</blockquote>
+
+        <h3>Desire vs Want vs Demand</h3>
+        <p>Many students confuse these three terms. Let's understand the difference:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Term</th><th>Meaning</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Desire (इच्छा)</strong></td><td>Just a wish — no ability or willingness to pay</td><td>"I want a Ferrari" (but can't afford it)</td></tr>
+              <tr><td><strong>Want (चाह)</strong></td><td>Desire + ability to pay, but no willingness</td><td>"I can buy a ₹50,000 phone" (but don't need it)</td></tr>
+              <tr><td><strong>Demand (मांग)</strong></td><td>Desire + ability + willingness to pay</td><td>"I need a ₹5,000 phone and I'll buy it today"</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Three Essential Conditions for Demand:</h3>
+        <blockquote>For anything to be called <strong>Demand</strong> in Economics, ALL three conditions must be satisfied:<br>
+        1. <strong>Desire</strong> – You want the good<br>
+        2. <strong>Ability</strong> – You have enough money to buy it<br>
+        3. <strong>Willingness</strong> – You are ready to spend money on it</blockquote>
+
+        <h3>Real Life Example (From Lecture):</h3>
+        <blockquote>"Bachpan se maa-baap se koi na koi demand chalti rehti hai. Mela gaya → teen pahiye wali cycle dilao, Kinder Joy dilao, jhula jhulao. Jis din mana kar diya — wahi fail gaye!"</blockquote>
+
+        <div class="callout">
+          <strong>Key Point:</strong> इच्छा (Desire) ≠ चाह (Want) ≠ मांग (Demand)<br>
+          Demand = Desire + Ability to Pay + Willingness to Pay
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 2. Types of Demand -->
+      <section id="types" class="fade-in">
+        <h2>2. Types of Demand</h2>
+
+        <p>Economics studies demand at <strong>two levels</strong>:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Type</th><th>Definition</th><th>Who?</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Individual Demand</strong></td><td>Quantity demanded by <strong>ONE consumer</strong></td><td>A single person</td></tr>
+              <tr><td><strong>Market Demand</strong></td><td>Total quantity demanded by <strong>ALL consumers</strong></td><td>Everyone in the market</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Example:</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Price</th><th>Individual A</th><th>Individual B</th><th>Individual C</th><th><strong>Market Demand</strong></th></tr>
+            </thead>
+            <tbody>
+              <tr><td>10</td><td>5</td><td>3</td><td>2</td><td><strong>10</strong></td></tr>
+              <tr><td>8</td><td>7</td><td>5</td><td>4</td><td><strong>16</strong></td></tr>
+              <tr><td>6</td><td>10</td><td>7</td><td>6</td><td><strong>23</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <blockquote><strong>Market Demand = Sum of all Individual Demands</strong></blockquote>
+
+        <h3>Real Life (From Lecture):</h3>
+        <blockquote>"Rohit Sir (accounts wale) — woh doodh wale hain, milkman hain. Ek ghar mein 2 litre, doosre mein 3, teesre mein 5 — har ghar ki individual demand alag. Pura mohalla collect karo — woh market demand hai."</blockquote>
+      </section>
+
+      <hr>
+
+      <!-- 3 & 4. Demand Function & Factors -->
+      <section id="demand-function" class="fade-in">
+        <h2>3. Demand Function</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Demand Function</strong> shows the <strong>relationship</strong> between demand for a commodity and the <strong>factors affecting it</strong>.</blockquote>
+
+        <h3>Individual Demand Function:</h3>
+        <pre>Dx = f(Px, Pr, Y, T, E)</pre>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Factor</th><th>Symbol</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Price of the commodity</strong></td><td>Px</td><td>Price of Good X itself</td></tr>
+              <tr><td><strong>Price of related goods</strong></td><td>Pr</td><td>Price of Substitutes &amp; Complements</td></tr>
+              <tr><td><strong>Income of consumer</strong></td><td>Y</td><td>Consumer's income level</td></tr>
+              <tr><td><strong>Taste &amp; preferences</strong></td><td>T</td><td>Liking, fashion, habits</td></tr>
+              <tr><td><strong>Future expectations</strong></td><td>E</td><td>Expected future prices/income</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 4. Factors Affecting Individual Demand -->
+      <section id="factors-individual" class="fade-in">
+        <h2>4. Factors Affecting Individual Demand</h2>
+
+        <h3>Factor 1: Price of the Commodity (Px)</h3>
+        <blockquote><strong>Law of Demand:</strong> Price ↑ → Demand ↓ and Price ↓ → Demand ↑ (Inverse relationship)</blockquote>
+
+        <h3>Factor 2: Price of Related Goods (Pr)</h3>
+        <p>Two types of related goods:</p>
+
+        <h4>a) Substitute Goods (विकल्प वस्तुएँ)</h4>
+        <blockquote>Goods that can be <strong>used in place of each other</strong>.</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Example</th><th>If Tea Price ↑</th><th>Effect on Coffee Demand</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Tea ↔ Coffee</td><td>Tea becomes costly</td><td>People shift to Coffee → Coffee Demand ↑</td></tr>
+              <tr><td>Pepsi ↔ Coke</td><td>Pepsi becomes costly</td><td>People buy Coke → Coke Demand ↑</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <blockquote><strong>Direct relationship:</strong> Price of Substitute ↑ → Demand for the good ↑</blockquote>
+
+        <h4>b) Complementary Goods (पूरक वस्तुएँ)</h4>
+        <blockquote>Goods that are <strong>used together</strong>.</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Example</th><th>If Car Price ↑</th><th>Effect on Petrol Demand</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Car ↔ Petrol</td><td>Car becomes costly</td><td>Fewer cars bought → Petrol Demand ↓</td></tr>
+              <tr><td>Printer ↔ Ink</td><td>Printer costly</td><td>Fewer printers → Ink Demand ↓</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <blockquote><strong>Inverse relationship:</strong> Price of Complement ↑ → Demand for the good ↓</blockquote>
+
+        <h3>Factor 3: Income of Consumer (Y)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Type of Good</th><th>Income ↑</th><th>Income ↓</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Normal Goods</strong> (most goods)</td><td>Demand ↑</td><td>Demand ↓</td></tr>
+              <tr><td><strong>Inferior Goods</strong> (cheap alternatives)</td><td>Demand ↓</td><td>Demand ↑</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Factor 4: Taste &amp; Preferences (T)</h3>
+        <blockquote>Fashion, seasons, habits, advertisements all affect demand.</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Factor</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Fashion</strong></td><td>Bell-bottom jeans went out of fashion → Demand ↓</td></tr>
+              <tr><td><strong>Season</strong></td><td>Winter → Woolen clothes Demand ↑</td></tr>
+              <tr><td><strong>Advertisements</strong></td><td>Good ad → More people want the product</td></tr>
+              <tr><td><strong>Habits</strong></td><td>Tea drinkers will always prefer tea</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Factor 5: Future Expectations (E)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Expectation</th><th>Effect on Demand Now</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Price will ↑ in future</strong></td><td>Demand ↑ NOW (buy before price rise)</td></tr>
+              <tr><td><strong>Price will ↓ in future</strong></td><td>Demand ↓ NOW (wait for lower price)</td></tr>
+              <tr><td><strong>Income will ↑ in future</strong></td><td>Demand ↑ NOW (confident spending)</td></tr>
+              <tr><td><strong>Shortage expected</strong></td><td>Demand ↑ NOW (panic buying)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Market Demand Function:</h3>
+        <pre>Dm = f(Px, Pr, Y, T, E, N, D)</pre>
+        <p>Additional factors: <strong>N</strong> (Number of consumers) and <strong>D</strong> (Distribution of income)</p>
+      </section>
+
+      <hr>
+
+      <!-- 5. Law of Demand -->
+      <section id="law-of-demand" class="fade-in">
+        <h2>5. Law of Demand</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Law of Demand</strong> states that — <strong>other factors remaining constant</strong> — there is an <strong>inverse relationship</strong> between the <strong>price</strong> of a commodity and its <strong>quantity demanded</strong>.</blockquote>
+
+        <h3>In Simple Words:</h3>
+        <pre>Price ↑ → Quantity Demanded ↓
+Price ↓ → Quantity Demanded ↑</pre>
+
+        <h3>Assumptions of Law of Demand:</h3>
+        <blockquote>This law works only when <strong>other things remain the same (ceteris paribus)</strong>:</blockquote>
+        <ol>
+          <li><strong>No change in consumer's income</strong></li>
+          <li><strong>No change in price of related goods</strong> (substitutes &amp; complements)</li>
+          <li><strong>No change in taste/preferences</strong></li>
+          <li><strong>No change in future expectations</strong></li>
+          <li><strong>No change in number of consumers</strong> (for market demand)</li>
+        </ol>
+
+        <h3>Reasons for Law of Demand (Why does demand curve slope downward?)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Reason</th><th>Explanation</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>1. Law of Diminishing MU</strong></td><td>As we buy more, MU ↓ → we only buy more if price ↓</td></tr>
+              <tr><td><strong>2. Income Effect</strong></td><td>Price ↓ → Real income ↑ → Can buy more</td></tr>
+              <tr><td><strong>3. Substitution Effect</strong></td><td>Price ↓ → Good becomes cheaper relative to substitutes → People switch</td></tr>
+              <tr><td><strong>4. New Consumers</strong></td><td>Price ↓ → More people can now afford the good</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>CRITICAL:</strong> "Law of Demand is VERY VERY VERY IMPORTANT!" — Sanidhya Sir
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 6. Demand Schedule -->
+      <section id="demand-schedule" class="fade-in">
+        <h2>6. Demand Schedule</h2>
+
+        <h3>Individual Demand Schedule:</h3>
+        <blockquote>A <strong>table</strong> showing the quantity demanded by <strong>one consumer</strong> at different prices.</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Price (₹)</th><th>Quantity Demanded (units)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>10</td><td>1</td></tr>
+              <tr><td>8</td><td>2</td></tr>
+              <tr><td>6</td><td>3</td></tr>
+              <tr><td>4</td><td>4</td></tr>
+              <tr><td>2</td><td>5</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <blockquote>As price falls → quantity demanded rises (Inverse relationship)</blockquote>
+
+        <h3>Market Demand Schedule:</h3>
+        <blockquote>A <strong>table</strong> showing the <strong>total quantity demanded</strong> by <strong>all consumers</strong> at different prices.</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Price (₹)</th><th>Individual A</th><th>Individual B</th><th>Individual C</th><th><strong>Market Demand</strong></th></tr>
+            </thead>
+            <tbody>
+              <tr><td>10</td><td>1</td><td>2</td><td>1</td><td><strong>4</strong></td></tr>
+              <tr><td>8</td><td>2</td><td>3</td><td>2</td><td><strong>7</strong></td></tr>
+              <tr><td>6</td><td>3</td><td>5</td><td>3</td><td><strong>11</strong></td></tr>
+              <tr><td>4</td><td>5</td><td>7</td><td>5</td><td><strong>17</strong></td></tr>
+              <tr><td>2</td><td>7</td><td>9</td><td>7</td><td><strong>23</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 7. Demand Curve -->
+      <section id="demand-curve" class="fade-in">
+        <h2>7. Demand Curve</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Demand Curve</strong> is the <strong>graphical representation</strong> of the demand schedule.</blockquote>
+
+        <h3>Individual Demand Curve:</h3>
+        <img src="Individual_Demand_Curve.png" alt="Individual Demand Curve showing inverse relationship between price and quantity demanded">
+
+        <ul>
+          <li><strong>X-axis:</strong> Quantity Demanded</li>
+          <li><strong>Y-axis:</strong> Price</li>
+          <li><strong>Shape:</strong> Downward sloping from left to right</li>
+        </ul>
+
+        <h3>Market Demand Curve:</h3>
+        <img src="Market_Demand_Curve.png" alt="Market Demand Curve compared with Individual Demand Curve">
+
+        <blockquote>Market demand curve is <strong>flatter</strong> than individual demand curve (more elastic) because it represents the sum of all individual demands.</blockquote>
+
+        <h3>Why is Demand Curve Downward Sloping?</h3>
+        <ol>
+          <li><strong>Law of DMU</strong> — Marginal utility ↓ as consumption ↑</li>
+          <li><strong>Income effect</strong> — Price ↓ = Real income ↑</li>
+          <li><strong>Substitution effect</strong> — Good becomes cheaper relative to substitutes</li>
+          <li><strong>New buyers enter</strong> — Lower price attracts more consumers</li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <!-- 8. Movement along Demand Curve -->
+      <section id="movement" class="fade-in">
+        <h2>8. Movement along Demand Curve</h2>
+
+        <h3>Meaning:</h3>
+        <blockquote><strong>Movement along the same demand curve</strong> happens when quantity demanded changes <strong>due to change in PRICE only</strong> — all other factors remain constant.</blockquote>
+
+        <p>There are <strong>two types</strong> of movement:</p>
+
+        <h3>A) Expansion (Extension) of Demand</h3>
+        <blockquote><strong>Expansion of Demand</strong> = Rise in quantity demanded due to <strong>fall in price</strong>.</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Situation</th><th>Before</th><th>After</th><th>Change</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Price</strong></td><td>₹20</td><td>₹15</td><td>↓</td></tr>
+              <tr><td><strong>Quantity</strong></td><td>100</td><td>150</td><td>↑ (Expansion)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Also called:</strong> Extension of Demand, Increase in Quantity Demanded, Downward Movement along the Same Demand Curve</p>
+
+        <h3>B) Contraction of Demand</h3>
+        <blockquote><strong>Contraction of Demand</strong> = Fall in quantity demanded due to <strong>rise in price</strong>.</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Situation</th><th>Before</th><th>After</th><th>Change</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Price</strong></td><td>₹15</td><td>₹20</td><td>↑</td></tr>
+              <tr><td><strong>Quantity</strong></td><td>150</td><td>100</td><td>↓ (Contraction)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Movement along Demand Curve:</h3>
+        <img src="Expansion_Contraction_Demand.png" alt="Movement along Demand Curve showing Expansion and Contraction">
+
+        <h3>Summary:</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Movement</th><th>Cause</th><th>Effect</th><th>Direction on Curve</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Expansion</strong></td><td>Price ↓</td><td>Quantity ↑</td><td><strong>Downward</strong> movement</td></tr>
+              <tr><td><strong>Contraction</strong></td><td>Price ↑</td><td>Quantity ↓</td><td><strong>Upward</strong> movement</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>Key Point:</strong> In movement — the <strong>Demand Curve itself does NOT shift</strong>. We simply move from one point to <strong>another point on the SAME curve</strong>.
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 9. Shift in Demand Curve -->
+      <section id="shift" class="fade-in">
+        <h2>9. Shift in Demand Curve</h2>
+
+        <h3>Meaning:</h3>
+        <blockquote><strong>Shift in Demand Curve</strong> happens when quantity demanded changes <strong>due to factors OTHER THAN price</strong> (income, taste, related goods price, etc.)</blockquote>
+
+        <p>There are <strong>two types</strong> of shift:</p>
+
+        <h3>A) Increase in Demand</h3>
+        <blockquote><strong>Increase in Demand</strong> = Demand rises <strong>at the same price</strong> due to change in other factors.</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Situation</th><th>Before</th><th>After</th><th>Change</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Price (constant)</strong></td><td>₹10</td><td>₹10</td><td>Same</td></tr>
+              <tr><td><strong>Quantity Demanded</strong></td><td>100</td><td>150</td><td>↑</td></tr>
+              <tr><td><strong>Demand Curve</strong></td><td>D₁</td><td>D₂</td><td><strong>Rightward Shift</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Causes of Increase in Demand (Rightward Shift):</strong></p>
+        <ul>
+          <li>Income ↑ (for normal goods)</li>
+          <li>Price of substitute ↑</li>
+          <li>Price of complement ↓</li>
+          <li>Taste shifts in favor</li>
+          <li>Future price expected to ↑</li>
+          <li>Population ↑ (for market demand)</li>
+        </ul>
+
+        <h3>B) Decrease in Demand</h3>
+        <blockquote><strong>Decrease in Demand</strong> = Demand falls <strong>at the same price</strong> due to change in other factors.</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Situation</th><th>Before</th><th>After</th><th>Change</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Price (constant)</strong></td><td>₹10</td><td>₹10</td><td>Same</td></tr>
+              <tr><td><strong>Quantity Demanded</strong></td><td>100</td><td>50</td><td>↓</td></tr>
+              <tr><td><strong>Demand Curve</strong></td><td>D₁</td><td>D₃</td><td><strong>Leftward Shift</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Causes of Decrease in Demand (Leftward Shift):</strong></p>
+        <ul>
+          <li>Income ↓ (for normal goods)</li>
+          <li>Price of substitute ↓</li>
+          <li>Price of complement ↑</li>
+          <li>Taste shifts away (out of fashion)</li>
+          <li>Future price expected to ↓</li>
+          <li>Population ↓ (for market demand)</li>
+        </ul>
+
+        <h3>Shift in Demand Curve — Diagram:</h3>
+        <img src="Shift_in_Demand.png" alt="Shift in Demand Curve showing Increase (rightward shift) and Decrease (leftward shift)">
+
+        <h3>Real Life Understanding (From Lecture):</h3>
+        <blockquote>"Bhaiya, jab sirf PRICE badalta hai — toh hum same curve pe upar-neeche ghoomte hain. Lekin jab TASTE badal gayi, INCOME badal gayi, ya SUBSTITUTE ka price badal gaya — tab toh poori curve hi shift ho jati hai!"</blockquote>
+      </section>
+
+      <hr>
+
+      <!-- 10. Exceptions to Law of Demand -->
+      <section id="exceptions" class="fade-in">
+        <h2>10. Exceptions to Law of Demand</h2>
+
+        <h3>Meaning:</h3>
+        <blockquote><strong>Exceptions</strong> are situations where the Law of Demand <strong>fails</strong> — price goes up but demand does NOT go down, or price goes down but demand does NOT go up.</blockquote>
+
+        <h3>Exception 1: Giffen Goods</h3>
+        <blockquote>Named after <strong>Sir Robert Giffen</strong>. These are <strong>special inferior goods</strong> whose demand <strong>increases when price rises</strong>.</blockquote>
+        <p><strong>Characteristics of Giffen Goods:</strong></p>
+        <ul>
+          <li>They are <strong>staple foods</strong> (basic necessities)</li>
+          <li>They are <strong>inferior goods</strong> (cheap)</li>
+          <li>They have <strong>no close substitutes</strong></li>
+          <li>Example: Bread, Potatoes, Rice (for poor families)</li>
+        </ul>
+        <p><strong>How it works (The Giffen Paradox):</strong></p>
+        <blockquote>"Agar andaaz ka price ₹5 se ₹7 ho gaya — gareeb aadmi ab mehenga andaaz nahi le sakta, toh use aur zyada andaaz khareedna padega kyunki woh meat/vegetables nahi le sakta!"</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Effect</th><th>Normal Good</th><th>Giffen Good</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Price ↑</strong></td><td>Demand ↓</td><td><strong>Demand ↑</strong></td></tr>
+              <tr><td><strong>Price ↓</strong></td><td>Demand ↑</td><td><strong>Demand ↓</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Exception 2: Veblen / Status Goods (Conspicuous Consumption)</h3>
+        <blockquote>Named after <strong>Thorstein Veblen</strong>. These are <strong>luxury/status goods</strong> whose demand <strong>increases with price</strong> because high price = high status.</blockquote>
+        <p><strong>Examples:</strong> Designer clothes (Gucci, Louis Vuitton), Luxury cars (Rolls Royce, Ferrari), Diamonds, jewelry, Premium gadgets (iPhone)</p>
+        <blockquote>"Aurat logon se nahi lad sakte! Unka jo favorite top hai, woh ₹100 ka bhi ho ya ₹10,000 ka — unhe chahiye! Fashion related goods mein price high = more demand!"</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Good</th><th>Price ₹500</th><th>Price ₹50,000</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Normal shirt</strong></td><td>Would buy more</td><td>Would buy less</td></tr>
+              <tr><td><strong>Designer shirt</strong></td><td>"Cheap — not interested"</td><td>"Wow — exclusive! Must buy!"</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Exception 3: Basic Necessities</h3>
+        <blockquote>Goods that are <strong>essential for survival</strong> — people buy them <strong>regardless of price</strong>.</blockquote>
+        <p><strong>Examples:</strong> Food grains, salt, sugar, milk, medicines</p>
+        <blockquote>"Daal-roti koi nahi chhodta! Chahe kitna bhi mehnga ho jaye — insaan ko khana toh khana hai!"</blockquote>
+
+        <h3>Exception 4: Emergency / Shortage / Panic</h3>
+        <blockquote>During emergencies, people buy more even at higher prices.</blockquote>
+        <p><strong>Examples:</strong> During floods → People buy food/water at any price; During war → Panic buying; During shortage → Hoarding</p>
+        <blockquote>"Jab shortage hoti hai — insaan ₹100 ki roti bhi kharid leta hai!"</blockquote>
+
+        <h3>Exception 5: Future Price Expectations</h3>
+        <blockquote>If people expect prices to <strong>rise further</strong> — they buy <strong>more NOW</strong> even at high prices.</blockquote>
+        <blockquote>"Gold ka price badh raha hai? Aur kharido! Kal aur mehnga hoga!"</blockquote>
+
+        <h3>Exception 6: Ignorance / Habit</h3>
+        <blockquote>Sometimes consumers are unaware of price changes or have <strong>brand loyalty</strong>.</blockquote>
+        <blockquote>"Ek aadmi roz Subway ka sandwich khaata hai. Price badh gaya — woh phir bhi khaega. Aadat hai!"</blockquote>
+
+        <h3>Summary of Exceptions:</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Exception</th><th>What Happens?</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Giffen Goods</strong></td><td>Price ↑ → Demand ↑</td><td>Cheap staple food (potatoes)</td></tr>
+              <tr><td><strong>Veblen/Status Goods</strong></td><td>Price ↑ → Demand ↑</td><td>Luxury cars, designer clothes</td></tr>
+              <tr><td><strong>Basic Necessities</strong></td><td>Price ↑ → Demand same</td><td>Salt, medicines</td></tr>
+              <tr><td><strong>Emergency</strong></td><td>Price ↑ → Demand ↑</td><td>Food during floods</td></tr>
+              <tr><td><strong>Future Expectations</strong></td><td>Price ↑ → Demand ↑ NOW</td><td>Expected further price rise</td></tr>
+              <tr><td><strong>Habit/Addiction</strong></td><td>Price ↑ → Demand same</td><td>Cigarettes, brand loyalty</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 11. Movement vs Shift Comparison -->
+      <section id="comparison" class="fade-in">
+        <h2>11. Summary: Movement vs Shift Comparison</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Aspect</th><th>Movement Along Curve</th><th>Shift of Curve</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Cause</strong></td><td>Change in <strong>own price</strong></td><td>Change in <strong>other factors</strong></td></tr>
+              <tr><td><strong>Effect on Demand</strong></td><td>Quantity demanded changes</td><td><strong>Whole demand</strong> changes</td></tr>
+              <tr><td><strong>Graph</strong></td><td>Point moves on same curve</td><td>Curve moves to new position</td></tr>
+              <tr><td><strong>Types</strong></td><td>Expansion &amp; Contraction</td><td>Increase &amp; Decrease</td></tr>
+              <tr><td><strong>Direction</strong></td><td>Upward or downward</td><td>Rightward or leftward</td></tr>
+              <tr><td><strong>Other factors</strong></td><td>Constant</td><td>Change</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 12. Flowchart -->
+      <section id="flowchart" class="fade-in">
+        <h2>12. Types of Demand — Complete Flowchart</h2>
+
+        <div class="mermaid">
+          flowchart TD
+            A["DEMAND"] --> B["INDIVIDUAL DEMAND<br/>(1 consumer)"]
+            A --> C["MARKET DEMAND<br/>(All consumers)"]
+
+            B --> D["Dx = f(Px, Pr, Y, T, E)"]
+            C --> E["Dm = f(Px, Pr, Y, T, E, N, D)"]
+
+            D --> F["Affected by:<br/>• Own Price<br/>• Related Goods Price<br/>• Income<br/>• Taste/Preferences<br/>• Future Expectations"]
+            E --> G["Also affected by:<br/>• Number of consumers<br/>• Income distribution"]
+
+            B --> H["LAW OF DEMAND<br/>P ↑ → D ↓<br/>P ↓ → D ↑"]
+            C --> H
+
+            H --> I["MOVEMENT ALONG<br/>(Price change)"]
+            H --> J["SHIFT OF CURVE<br/>(Other factors)"]
+
+            I --> K["EXPANSION<br/>(P↓ → D↑)"]
+            I --> L["CONTRACTION<br/>(P↑ → D↓)"]
+
+            J --> M["INCREASE<br/>(Rightward)"]
+            J --> N["DECREASE<br/>(Leftward)"]
+
+            style A fill:#1a5e4a,color:#fff,stroke:#1a5e4a,stroke-width:2px
+            style H fill:#1a5e4a,color:#fff,stroke:#1a5e4a,stroke-width:2px
+            style B fill:#e8f0ec,stroke:#1a5e4a,stroke-width:1px
+            style C fill:#e8f0ec,stroke:#1a5e4a,stroke-width:1px
+            style D fill:#f0ede8,stroke:#6b6b6b,stroke-width:1px
+            style E fill:#f0ede8,stroke:#6b6b6b,stroke-width:1px
+            style F fill:#f0ede8,stroke:#6b6b6b,stroke-width:1px
+            style G fill:#f0ede8,stroke:#6b6b6b,stroke-width:1px
+            style I fill:#fff8e5,stroke:#d4a12a,stroke-width:1px
+            style J fill:#fff8e5,stroke:#d4a12a,stroke-width:1px
+            style K fill:#27ae60,color:#fff,stroke:#1a5e4a,stroke-width:1px
+            style L fill:#c0392b,color:#fff,stroke:#1a5e4a,stroke-width:1px
+            style M fill:#27ae60,color:#fff,stroke:#1a5e4a,stroke-width:1px
+            style N fill:#c0392b,color:#fff,stroke:#1a5e4a,stroke-width:1px
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 13. Exam Questions -->
+      <section id="exam-questions" class="fade-in">
+        <h2>Important Exam Questions</h2>
+
+        <h3>Short Questions (2-3 Marks):</h3>
+        <ol>
+          <li><strong>Define Demand.</strong> State the three conditions essential for demand.</li>
+          <li><strong>Distinguish between Desire and Demand.</strong> Give an example.</li>
+          <li><strong>State the Law of Demand.</strong> What are its assumptions?</li>
+          <li><strong>What is a Demand Schedule?</strong> Distinguish between Individual and Market Demand Schedule.</li>
+          <li><strong>What is Demand Function?</strong> Explain any two factors affecting demand.</li>
+          <li><strong>Distinguish between Movement along and Shift of Demand Curve.</strong></li>
+          <li><strong>What is Expansion of Demand?</strong> What causes it?</li>
+          <li><strong>Define Giffen Goods.</strong> Give an example.</li>
+          <li><strong>What is meant by Substitute Goods?</strong> Give an example.</li>
+          <li><strong>Distinguish between Normal Goods and Inferior Goods.</strong></li>
+        </ol>
+
+        <h3>Long Questions (4-6 Marks):</h3>
+        <ol>
+          <li><strong>Explain the Law of Demand</strong> with the help of a demand schedule and demand curve. Discuss its assumptions and reasons.</li>
+          <li><strong>Explain the factors affecting demand</strong> for a commodity (Demand Function) in detail.</li>
+          <li><strong>Distinguish between Movement along Demand Curve and Shift in Demand Curve</strong> with the help of diagrams.</li>
+          <li><strong>Explain the Expansion and Contraction of Demand</strong> with the help of a diagram.</li>
+          <li><strong>What are the exceptions to the Law of Demand?</strong> Explain any four in detail.</li>
+          <li><strong>Distinguish between Individual Demand and Market Demand.</strong> How is market demand curve derived?</li>
+          <li><strong>Explain the effect of change in price of related goods</strong> on demand for a commodity. Give examples.</li>
+          <li><strong>Explain how Increase in Demand is different from Expansion of Demand</strong> with diagrams.</li>
+        </ol>
+
+        <h3>Numericals and Diagrams:</h3>
+        <ol>
+          <li>
+            <strong>Draw a Market Demand Schedule</strong> from the following individual demand schedules:
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Price</th><th>Individual X</th><th>Individual Y</th><th>Individual Z</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>5</td><td>10</td><td>8</td><td>6</td></tr>
+                  <tr><td>4</td><td>12</td><td>10</td><td>8</td></tr>
+                  <tr><td>3</td><td>15</td><td>12</td><td>10</td></tr>
+                  <tr><td>2</td><td>18</td><td>15</td><td>12</td></tr>
+                  <tr><td>1</td><td>20</td><td>18</td><td>14</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Calculate Market Demand at each price level.</p>
+          </li>
+          <li>
+            <strong>Graph Questions:</strong>
+            <ul>
+              <li>Draw an <strong>Individual Demand Curve</strong> for the given schedule</li>
+              <li>Show <strong>Expansion</strong> when price falls from ₹10 to ₹6</li>
+              <li>Show <strong>Contraction</strong> when price rises from ₹6 to ₹12</li>
+            </ul>
+          </li>
+          <li>A consumer's demand for tea is 10 cups at ₹5 per cup. If the price of coffee (substitute) rises from ₹8 to ₹12, what will happen to the demand for tea? Show with a diagram.</li>
+        </ol>
+
+        <div class="callout">
+          <strong>Tip:</strong> Demand is the FOUNDATION of Microeconomics. Every topic ahead — Supply, Equilibrium, Elasticity — builds on this chapter. Master Demand first!
+        </div>
+
+        <div class="callout">
+          <strong>Graph Tip:</strong> Practice drawing these 4 graphs:<br>
+          1. Individual Demand Curve (downward sloping)<br>
+          2. Market Demand Curve (flatter, sum of individuals)<br>
+          3. Expansion &amp; Contraction (movement along same curve)<br>
+          4. Increase &amp; Decrease (shift of entire curve)
+        </div>
+
+        <blockquote><strong>Remember:</strong> Movement = Price change. Shift = Other factor change. Never confuse these two!</blockquote>
+      </section>
+
+      <hr>
+
+      <!-- 14. Key Terms Glossary -->
+      <section id="glossary" class="fade-in">
+        <h2>13. Key Terms Glossary</h2>
+
+        <div class="terms-grid">
+          <div class="term-card">
+            <div class="term-name">Demand</div>
+            <div class="term-desc">Quantity willing and able to buy at a given price</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Desire</div>
+            <div class="term-desc">Just a wish, no ability to pay</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Individual Demand</div>
+            <div class="term-desc">Demand of ONE consumer</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Market Demand</div>
+            <div class="term-desc">Sum of all individual demands</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Demand Function</div>
+            <div class="term-desc">Relationship between demand and its factors</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Substitute Goods</div>
+            <div class="term-desc">Goods used in place of each other</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Complementary Goods</div>
+            <div class="term-desc">Goods used together</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Normal Goods</div>
+            <div class="term-desc">Demand ↑ when income ↑</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Inferior Goods</div>
+            <div class="term-desc">Demand ↓ when income ↑</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Law of Demand</div>
+            <div class="term-desc">Price ↑ → Demand ↓ (inverse relationship)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Expansion of Demand</div>
+            <div class="term-desc">Demand ↑ due to price ↓</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Contraction of Demand</div>
+            <div class="term-desc">Demand ↓ due to price ↑</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Increase in Demand</div>
+            <div class="term-desc">Demand ↑ at same price (curve shifts right)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Decrease in Demand</div>
+            <div class="term-desc">Demand ↓ at same price (curve shifts left)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Giffen Goods</div>
+            <div class="term-desc">Inferior goods where P ↑ → D ↑</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Veblen Goods</div>
+            <div class="term-desc">Status goods where P ↑ → D ↑</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">
+        <p>Economics Notes · Class 11 · Chapter 3 — Demand</p>
+      </div>
+
+    </main>
+  </div>
+
+  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">☰</button>
+  <div class="toc-drawer-overlay" id="tocOverlay"></div>
+  <div class="toc-drawer" id="tocDrawer">
+    <div class="toc-label">On this page</div>
+    <a href="#meaning">Meaning of Demand</a>
+    <a href="#types">Types of Demand</a>
+    <a href="#demand-function">Demand Function</a>
+    <a href="#factors-individual" class="sub">Factors Affecting Individual Demand</a>
+    <a href="#law-of-demand">Law of Demand</a>
+    <a href="#demand-schedule">Demand Schedule</a>
+    <a href="#demand-curve">Demand Curve</a>
+    <a href="#movement">Movement along Demand Curve</a>
+    <a href="#shift">Shift in Demand Curve</a>
+    <a href="#exceptions">Exceptions to Law of Demand</a>
+    <a href="#comparison">Movement vs Shift Comparison</a>
+    <a href="#exam-questions">Exam Questions</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' }
+    });
+
+    const progressBar = document.getElementById('progressBar');
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    });
+
+    const tocLinks = document.querySelectorAll('.sidebar-toc a');
+    const sections = [];
+    tocLinks.forEach(function(link) {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const section = document.getElementById(href.substring(1));
+        if (section) sections.push({ el: section, link: link });
+      }
+    });
+    window.addEventListener('scroll', function() {
+      const scrollPos = window.scrollY + 120;
+      let current = null;
+      sections.forEach(function(item) {
+        if (item.el.offsetTop <= scrollPos) current = item;
+      });
+      sections.forEach(function(item) { item.link.classList.remove('active'); });
+      if (current) current.link.classList.add('active');
+    });
+
+    const toggleBtn = document.getElementById('tocToggle');
+    const drawer = document.getElementById('tocDrawer');
+    const overlay = document.getElementById('tocOverlay');
+    function openDrawer() { drawer.classList.add('open'); overlay.classList.add('open'); }
+    function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); }
+    toggleBtn.addEventListener('click', openDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeDrawer); });
+  </script>
+</body>
+</html>

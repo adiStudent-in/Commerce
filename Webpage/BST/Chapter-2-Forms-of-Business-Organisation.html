@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 2 — Forms of Business Organisation | BST Class 11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+
+    nav.top-nav .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .wrapper {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      gap: 40px;
+    }
+
+    aside.toc {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    aside.toc h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    aside.toc a {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    aside.toc a:hover,
+    aside.toc a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    main.content {
+      flex: 1;
+      max-width: var(--max-width);
+    }
+
+    .hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .hero .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    section { margin-bottom: 48px; }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.35;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    section h4 {
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    section p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    blockquote {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    blockquote strong { font-weight: 600; }
+
+    .callout {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: #5a4a1a;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    table thead {
+      background: var(--accent-light);
+    }
+
+    table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    table tbody tr:first-child td { border-top: none; }
+
+    table tbody tr:hover { background: #f5f3ef; }
+
+    table td:first-child { font-weight: 500; white-space: nowrap; }
+
+    pre {
+      background: #1a1a2e;
+      color: #e4e4f0;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    section ul, section ol {
+      margin: 12px 0 16px;
+      padding-left: 24px;
+    }
+
+    section li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    section ul ul { margin: 4px 0 4px 16px; }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .terms-grid .term {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
+
+    .terms-grid .term strong {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .terms-grid .term span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      height: 2px;
+      z-index: 99;
+      background: transparent;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
+    section p strong { color: var(--accent); font-weight: 600; }
+
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        top: auto;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150;
+        transition: max-height 0.35s ease;
+        padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      aside.toc h3 { margin-bottom: 12px; }
+      .toc-toggle { display: block; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .terms-grid { grid-template-columns: 1fr; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="#" class="logo">BST <span>Notes</span></a>
+    <span class="meta">Class 11 · Chapter 2</span>
+  </nav>
+
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
+
+  <div class="wrapper">
+
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#overview" class="toc-h2">Overview</a>
+      <a href="#sole-proprietorship" class="toc-h2">Sole Proprietorship</a>
+      <a href="#jhf-business" class="toc-h2">Joint Hindu Family Business</a>
+      <a href="#partnership" class="toc-h2">Partnership</a>
+      <a href="#types-of-partners" class="toc-h3">Types of Partners</a>
+      <a href="#types-of-partnerships" class="toc-h3">Types of Partnerships</a>
+      <a href="#partnership-deed" class="toc-h3">Partnership Deed</a>
+      <a href="#cooperative-society" class="toc-h2">Cooperative Society</a>
+      <a href="#types-of-cooperatives" class="toc-h3">Types of Cooperatives</a>
+      <a href="#joint-stock-company" class="toc-h2">Joint Stock Company</a>
+      <a href="#private-vs-public" class="toc-h3">Private vs Public Co.</a>
+      <a href="#choice-of-form" class="toc-h2">Choice of Form</a>
+      <a href="#comparative-summary" class="toc-h2">Comparative Summary</a>
+      <a href="#key-terms" class="toc-h2">Key Terms</a>
+    </aside>
+
+    <main class="content">
+
+      <header class="hero fade-in">
+        <span class="chapter-badge">Chapter 2</span>
+        <h1>Forms of Business Organisation</h1>
+        <p class="subtitle">Class 11 Business Studies — Quick Revision Notes</p>
+      </header>
+
+      <!-- Overview -->
+      <section id="overview" class="fade-in">
+        <h2>&#x1f4cc; Overview of Forms</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Form</th></tr></thead>
+            <tbody>
+              <tr><td>a</td><td>Sole Proprietorship</td></tr>
+              <tr><td>b</td><td>Joint Hindu Family Business</td></tr>
+              <tr><td>c</td><td>Partnership</td></tr>
+              <tr><td>d</td><td>Cooperative Society</td></tr>
+              <tr><td>e</td><td>Joint Stock Company</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 1. Sole Proprietorship -->
+      <section id="sole-proprietorship" class="fade-in">
+        <h2>1. &#x1f9cd; Sole Proprietorship</h2>
+
+        <blockquote>
+          Owned, managed and controlled by <strong>one individual</strong> who bears all risks and receives all profits.
+        </blockquote>
+
+        <h3>Features</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td>Formation & Closure</td><td>No separate law; minimal legal formalities; easy to start & close</td></tr>
+              <tr><td>Liability</td><td><strong>Unlimited</strong> – personal assets can be used to pay business debts</td></tr>
+              <tr><td>Risk & Profit</td><td>Sole risk bearer AND sole profit recipient</td></tr>
+              <tr><td>Control</td><td>Absolute control with the owner</td></tr>
+              <tr><td>Separate Entity</td><td><strong>No</strong> – owner and business are the same in law</td></tr>
+              <tr><td>Continuity</td><td><strong>No</strong> – death/insanity/bankruptcy ends the business</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>&#x2705; Merits</h4>
+        <ul>
+          <li>Quick decision making</li>
+          <li>Confidentiality of information (not bound to publish accounts)</li>
+          <li>Direct incentive (keeps all profits)</li>
+          <li>Sense of accomplishment</li>
+          <li>Ease of formation and closure</li>
+        </ul>
+
+        <h4>&#x274c; Limitations</h4>
+        <ul>
+          <li>Limited resources (personal savings + borrowings only)</li>
+          <li>Limited life of business (depends on owner's existence)</li>
+          <li>Unlimited liability</li>
+          <li>Limited managerial ability (one person handles all functions)</li>
+        </ul>
+
+        <div class="callout">
+          <strong>&#x1f4a1; Best suited for:</strong> small-scale businesses & personalised services (beauty parlours, retail shops)
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 2. Joint Hindu Family Business -->
+      <section id="jhf-business" class="fade-in">
+        <h2>2. &#x1f3e0; Joint Hindu Family Business</h2>
+
+        <blockquote>
+          Business owned and carried on by members of a <strong>Hindu Undivided Family (HUF)</strong>.<br>
+          Governed by <strong>Hindu Law</strong> | Eldest member = <strong>Karta</strong> | Members = <strong>Co-parceners</strong>
+        </blockquote>
+
+        <h3>Features</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td>Formation</td><td>Min. 2 members + ancestral property; NO agreement needed; membership by <strong>birth</strong></td></tr>
+              <tr><td>Governed by</td><td>Hindu Succession Act, 1956</td></tr>
+              <tr><td>Liability</td><td>Karta = <strong>Unlimited</strong> | Other members = <strong>Limited</strong> (to their share)</td></tr>
+              <tr><td>Control</td><td>Karta takes all decisions; binding on others</td></tr>
+              <tr><td>Continuity</td><td>Continues after Karta's death (next eldest becomes Karta)</td></tr>
+              <tr><td>Minor Members</td><td>Minors CAN be members (membership by birth)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>&#x2705; Merits</h4>
+        <ul>
+          <li>Effective control (no conflict; Karta decides)</li>
+          <li>Continued business existence</li>
+          <li>Limited liability of members (except Karta)</li>
+          <li>Increased loyalty and cooperation</li>
+        </ul>
+
+        <h4>&#x274c; Limitations</h4>
+        <ul>
+          <li>Limited resources (depends on ancestral property)</li>
+          <li>Unlimited liability of Karta</li>
+          <li>Dominance of Karta (may cause conflict)</li>
+          <li>Limited managerial skills of Karta</li>
+        </ul>
+
+        <div class="callout">
+          <strong>&#x1f4c9; On the decline</strong> due to decreasing number of joint Hindu families in India.
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 3. Partnership -->
+      <section id="partnership" class="fade-in">
+        <h2>3. &#x1f91d; Partnership</h2>
+
+        <blockquote>
+          Defined by <strong>Indian Partnership Act, 1932</strong> as:<br>
+          <em>"The relation between persons who have agreed to share the profit of the business carried on by all or any one of them acting for all."</em>
+        </blockquote>
+
+        <h3>Features</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td>Formation</td><td>Governed by Indian Partnership Act, 1932; formed via <strong>legal agreement</strong></td></tr>
+              <tr><td>Liability</td><td><strong>Unlimited</strong> – jointly AND individually liable</td></tr>
+              <tr><td>Risk Bearing</td><td>Shared among partners in agreed ratio</td></tr>
+              <tr><td>Decision Making</td><td>Joint; mutual consent</td></tr>
+              <tr><td>Continuity</td><td><strong>Lacks continuity</strong> – ends on death/retirement/insolvency/insanity of a partner</td></tr>
+              <tr><td>No. of Partners</td><td>Min: <strong>2</strong> | Max: <strong>50</strong> (as per Companies Misc. Rules 2014)</td></tr>
+              <tr><td>Mutual Agency</td><td>Every partner is both <strong>agent</strong> and <strong>principal</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>&#x2705; Merits</h4>
+        <ul>
+          <li>Ease of formation and closure</li>
+          <li>Balanced decision making (partners have different expertise)</li>
+          <li>More funds than sole proprietorship</li>
+          <li>Sharing of risks</li>
+          <li>Secrecy (not required to publish accounts)</li>
+        </ul>
+
+        <h4>&#x274c; Limitations</h4>
+        <ul>
+          <li>Unlimited liability (joint and several)</li>
+          <li>Limited resources (max 50 partners)</li>
+          <li>Possibility of conflicts</li>
+          <li>Lack of continuity</li>
+          <li>Lack of public confidence</li>
+        </ul>
+
+        <hr>
+
+        <!-- 3.1 Types of Partners -->
+        <h3 id="types-of-partners">3.1 Types of Partners</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Capital</th><th>Management</th><th>Profit/Loss Share</th><th>Liability</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Active</strong></td><td>&#x2705;</td><td>&#x2705;</td><td>&#x2705;</td><td>Unlimited</td></tr>
+              <tr><td><strong>Sleeping/Dormant</strong></td><td>&#x2705;</td><td>&#x274c;</td><td>&#x2705;</td><td>Unlimited</td></tr>
+              <tr><td><strong>Secret</strong></td><td>&#x2705;</td><td>&#x2705; (secretly)</td><td>&#x2705;</td><td>Unlimited</td></tr>
+              <tr><td><strong>Nominal</strong></td><td>&#x274c;</td><td>&#x274c;</td><td>&#x274c; (generally)</td><td>Unlimited</td></tr>
+              <tr><td><strong>Partner by Estoppel</strong></td><td>&#x274c;</td><td>&#x274c;</td><td>&#x274c;</td><td>Unlimited</td></tr>
+              <tr><td><strong>Partner by Holding Out</strong></td><td>&#x274c;</td><td>&#x274c;</td><td>&#x274c;</td><td>Unlimited</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>&#x1f4a1;</strong> <strong>Partner by Estoppel</strong> – Person who gives impression of being a partner through own conduct/behaviour.<br>
+          <strong>Partner by Holding Out</strong> – Person who knowingly allows himself to be represented as a partner.
+        </div>
+
+        <h4>Minor as Partner</h4>
+        <ul>
+          <li>Cannot become a full partner (incompetent to contract)</li>
+          <li>Can be <strong>admitted to benefits</strong> with consent of all partners</li>
+          <li>Liability limited to capital contributed</li>
+          <li>Cannot participate in management</li>
+          <li>On attaining majority &rarr; must decide within <strong>6 months</strong>; if no notice given &rarr; becomes full partner with unlimited liability</li>
+        </ul>
+
+        <hr>
+
+        <!-- 3.2 Types of Partnerships -->
+        <h3 id="types-of-partnerships">3.2 Types of Partnerships</h3>
+
+        <h4>On basis of Duration:</h4>
+        <ul>
+          <li><strong>Partnership at Will</strong> – Exists as long as partners want; ends when any partner gives withdrawal notice</li>
+          <li><strong>Particular Partnership</strong> – Formed for a specific project/time period; dissolves on completion</li>
+        </ul>
+
+        <h4>On basis of Liability:</h4>
+        <ul>
+          <li><strong>General Partnership</strong> – All partners have unlimited and joint liability; registration optional</li>
+          <li><strong>Limited Partnership</strong> – At least one partner has unlimited liability; rest may have limited liability; limited partners cannot manage; registration <strong>compulsory</strong></li>
+        </ul>
+
+        <hr>
+
+        <!-- 3.3 Partnership Deed -->
+        <h3 id="partnership-deed">3.3 Partnership Deed</h3>
+        <p>Written agreement containing: name of firm, nature & location of business, duration, capital contribution, profit/loss ratio, duties, salaries, admission/retirement/expulsion terms, dissolution procedure, dispute resolution method.</p>
+
+        <h4>3.4 Registration</h4>
+        <ul>
+          <li><strong>Optional</strong> but highly advisable</li>
+          <li>Unregistered firm <strong>cannot</strong>:
+            <ul>
+              <li>File suit against the firm or other partners</li>
+              <li>File suit against third parties</li>
+              <li>File case against partners</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <!-- 4. Cooperative Society -->
+      <section id="cooperative-society" class="fade-in">
+        <h2>4. &#x1f932; Cooperative Society</h2>
+
+        <blockquote>
+          Voluntary association of persons for mutual welfare; driven by <strong>service motive</strong>.<br>
+          Registration <strong>compulsory</strong>.
+        </blockquote>
+
+        <h3>Features</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td>Membership</td><td>Voluntary; open to all (any religion, caste, gender)</td></tr>
+              <tr><td>Legal Status</td><td>Compulsory registration; separate legal entity</td></tr>
+              <tr><td>Liability</td><td><strong>Limited</strong> (to capital contributed)</td></tr>
+              <tr><td>Control</td><td>Elected <strong>managing committee</strong>; principle of <strong>"one man one vote"</strong></td></tr>
+              <tr><td>Service Motive</td><td>Welfare of members; surplus distributed as dividend</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>&#x2705; Merits</h4>
+        <ul>
+          <li>Equality in voting (one man, one vote)</li>
+          <li>Limited liability</li>
+          <li>Stable existence (not affected by death/insanity of members)</li>
+          <li>Economy in operations (eliminates middlemen)</li>
+          <li>Government support (low taxes, subsidies, low interest loans)</li>
+          <li>Ease of formation</li>
+        </ul>
+
+        <h4>&#x274c; Limitations</h4>
+        <ul>
+          <li>Limited resources (low dividend deters investment)</li>
+          <li>Inefficiency in management (honorary/unpaid volunteers manage)</li>
+          <li>Lack of secrecy (open discussions + disclosure obligations)</li>
+          <li>Government control (heavy compliance requirements)</li>
+          <li>Differences of opinion among members</li>
+        </ul>
+
+        <hr>
+
+        <!-- 4.1 Types of Cooperative Societies -->
+        <h3 id="types-of-cooperatives">4.1 Types of Cooperative Societies</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Consumer's</strong></td><td>Protect consumers; buy in bulk from wholesalers; eliminate middlemen</td></tr>
+              <tr><td><strong>Producer's</strong></td><td>Protect small producers; supply raw materials; buy members' output</td></tr>
+              <tr><td><strong>Marketing</strong></td><td>Help small producers sell products; pools output; handles transport/warehousing</td></tr>
+              <tr><td><strong>Farmer's</strong></td><td>Protect farmers; provide seeds/fertilisers/machinery; large-scale farming benefits</td></tr>
+              <tr><td><strong>Credit</strong></td><td>Provide easy loans at low interest; protect from exploitative lenders</td></tr>
+              <tr><td><strong>Housing</strong></td><td>Help low-income people construct houses at reasonable cost; instalment option</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 5. Joint Stock Company -->
+      <section id="joint-stock-company" class="fade-in">
+        <h2>5. &#x1f3e2; Joint Stock Company</h2>
+
+        <blockquote>
+          An <strong>artificial person</strong> with separate legal entity, perpetual succession and a common seal.<br>
+          Governed by <strong>Companies Act, 2013</strong>.
+        </blockquote>
+
+        <h3>Features</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td>Artificial Person</td><td>Created by law; can own property, sue/be sued; cannot breathe/eat/run</td></tr>
+              <tr><td>Separate Legal Entity</td><td>Distinct from its members from day of incorporation</td></tr>
+              <tr><td>Formation</td><td>Complex, time-consuming, expensive; compulsory incorporation</td></tr>
+              <tr><td>Perpetual Succession</td><td>Continues regardless of members' death/exit; ends only by <strong>winding up</strong></td></tr>
+              <tr><td>Control</td><td><strong>Board of Directors</strong> manages; shareholders elect the board</td></tr>
+              <tr><td>Liability</td><td><strong>Limited</strong> – only unpaid share amount</td></tr>
+              <tr><td>Risk Bearing</td><td>Spread over large number of shareholders</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>&#x2705; Merits</h4>
+        <ul>
+          <li>Limited liability</li>
+          <li>Easy transfer of interest (shares freely transferable in public company)</li>
+          <li>Perpetual existence</li>
+          <li>Scope for expansion (large capital from public)</li>
+          <li>Professional management</li>
+        </ul>
+
+        <h4>&#x274c; Limitations</h4>
+        <ul>
+          <li>Complexity in formation</li>
+          <li>Lack of secrecy (public disclosure required)</li>
+          <li>Impersonal work environment</li>
+          <li>Numerous regulations (SEBI, Registrar, audits, reports)</li>
+          <li>Delay in decision making</li>
+          <li>Oligarchic management (directors may act against shareholders' interests)</li>
+          <li>Conflict of interests (employees vs shareholders vs consumers)</li>
+        </ul>
+
+        <hr>
+
+        <!-- 5.1 Private vs Public Company -->
+        <h3 id="private-vs-public">5.1 Private vs Public Company</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Public Company</th><th>Private Company</th></tr></thead>
+            <tbody>
+              <tr><td>Min. Members</td><td>7</td><td>2</td></tr>
+              <tr><td>Max. Members</td><td>Unlimited</td><td>200 (excl. past/present employees)</td></tr>
+              <tr><td>Min. Directors</td><td>3</td><td>2</td></tr>
+              <tr><td>Max. Directors</td><td>15</td><td>15</td></tr>
+              <tr><td>Index of Members</td><td>Compulsory</td><td>Not compulsory</td></tr>
+              <tr><td>Transfer of Shares</td><td>No restriction</td><td>Restricted</td></tr>
+              <tr><td>Public Invitation</td><td>Can invite public</td><td>Cannot invite public</td></tr>
+              <tr><td>Name suffix</td><td>"Limited"</td><td>"Private Limited"</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>&#x1f4a1;</strong> A <strong>private company subsidiary of a public company</strong> is also treated as a <strong>public company</strong>.
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 6. Choice of Form of Organisation -->
+      <section id="choice-of-form" class="fade-in">
+        <h2>6. &#x2696;&#xfe0f; Choice of Form of Organisation</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Factor</th><th>Most Advantageous</th><th>Least Advantageous</th></tr></thead>
+            <tbody>
+              <tr><td>Availability of Capital</td><td>Company</td><td>Sole Proprietorship</td></tr>
+              <tr><td>Cost of Formation</td><td>Sole Proprietorship</td><td>Company</td></tr>
+              <tr><td>Ease of Formation</td><td>Sole Proprietorship</td><td>Company</td></tr>
+              <tr><td>Transfer of Ownership</td><td>Company (except private)</td><td>Partnership</td></tr>
+              <tr><td>Managerial Skills</td><td>Company</td><td>Sole Proprietorship</td></tr>
+              <tr><td>Regulations</td><td>Sole Proprietorship</td><td>Company</td></tr>
+              <tr><td>Flexibility</td><td>Sole Proprietorship</td><td>Company</td></tr>
+              <tr><td>Continuity</td><td>Company</td><td>Sole Proprietorship</td></tr>
+              <tr><td>Liability</td><td>Company</td><td>Sole Proprietorship</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Key Factors to Consider:</h4>
+        <ol>
+          <li><strong>Cost & ease of setup</strong> – Sole proprietorship cheapest; Company most expensive</li>
+          <li><strong>Liability</strong> – Company & cooperative = limited; Sole prop & partnership = unlimited</li>
+          <li><strong>Continuity</strong> – Company & cooperative most stable; Sole prop most unstable</li>
+          <li><strong>Management ability</strong> – Company (professionals); Sole prop (one person does all)</li>
+          <li><strong>Capital</strong> – Company can raise most; Sole prop most limited</li>
+          <li><strong>Degree of control</strong> – Want full control &rarr; sole prop; Okay sharing &rarr; partnership/company</li>
+          <li><strong>Nature of business</strong> – Personal contact needed &rarr; sole prop; Large manufacturing &rarr; company; Professional services &rarr; partnership</li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <!-- Comparative Summary Table -->
+      <section id="comparative-summary" class="fade-in">
+        <h2>&#x1f4ca; Comparative Summary Table</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Sole Prop.</th><th>Partnership</th><th>JHF Business</th><th>Cooperative</th><th>Company</th></tr></thead>
+            <tbody>
+              <tr><td>Formation</td><td>Easiest</td><td>Easy (optional reg.)</td><td>Easy (no reg.)</td><td>Compulsory reg.</td><td>Complex, compulsory reg.</td></tr>
+              <tr><td>Liability</td><td>Unlimited</td><td>Unlimited & joint</td><td>Karta=Unlimited, Others=Limited</td><td>Limited</td><td>Limited</td></tr>
+              <tr><td>Members</td><td>Only owner</td><td>Min 2, Max 50</td><td>Min 2, no max</td><td>Min 10 adults</td><td>Pvt: 2–200; Public: 7–unlimited</td></tr>
+              <tr><td>Capital</td><td>Very limited</td><td>Limited</td><td>Ancestral property</td><td>Limited</td><td>Large</td></tr>
+              <tr><td>Control</td><td>Owner</td><td>Partners (mutual consent)</td><td>Karta</td><td>Elected committee</td><td>Board of Directors</td></tr>
+              <tr><td>Continuity</td><td>Unstable</td><td>Affected by partner status</td><td>Stable</td><td>Stable</td><td>Very stable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Key Terms -->
+      <section id="key-terms" class="fade-in">
+        <h2>&#x1f4dd; Key Terms to Remember</h2>
+
+        <div class="terms-grid">
+          <div class="term"><strong>Karta</strong><span>Eldest member (male or female after 2005 Amendment) who controls JHF business</span></div>
+          <div class="term"><strong>Co-parceners</strong><span>Members of JHF with equal ownership rights over ancestral property</span></div>
+          <div class="term"><strong>Mutual Agency</strong><span>Every partner is both agent and principal</span></div>
+          <div class="term"><strong>Perpetual Succession</strong><span>Company continues despite changes in membership</span></div>
+          <div class="term"><strong>Artificial Person</strong><span>Company exists in law; has rights but not physical existence</span></div>
+          <div class="term"><strong>Partnership Deed</strong><span>Written document specifying all terms of partnership</span></div>
+          <div class="term"><strong>Winding Up</strong><span>Legal procedure to close/dissolve a company</span></div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Source: NCERT Business Studies Class XI, Chapter 2 &middot; Reprint 2026-27</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+
+    tocToggle.addEventListener('click', () => {
+      toc.classList.toggle('open');
+    });
+
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toc.classList.remove('open');
+      });
+    });
+
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+
+</body>
+</html>
