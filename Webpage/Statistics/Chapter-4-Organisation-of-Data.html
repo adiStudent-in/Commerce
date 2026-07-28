@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 4 — Organisation of Data | Statistics Class 11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+    <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+
+    nav.top-nav .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .wrapper {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      gap: 40px;
+    }
+
+    aside.toc {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    aside.toc h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    aside.toc a {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    aside.toc a:hover,
+    aside.toc a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    main.content {
+      flex: 1;
+      max-width: var(--max-width);
+    }
+
+    .hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .hero .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    section { margin-bottom: 48px; }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.35;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    section h4 {
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    section p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    blockquote {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    blockquote strong { font-weight: 600; }
+
+    .callout {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: #5a4a1a;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    table thead {
+      background: var(--accent-light);
+    }
+
+    table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    table tbody tr:first-child td { border-top: none; }
+
+    table tbody tr:hover { background: #f5f3ef; }
+
+    table td:first-child { font-weight: 500; white-space: nowrap; }
+
+    pre {
+      background: #1a1a2e;
+      color: #e4e4f0;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    section ul, section ol {
+      margin: 12px 0 16px;
+      padding-left: 24px;
+    }
+
+    section li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    section ul ul { margin: 4px 0 4px 16px; }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .terms-grid .term {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
+
+    .terms-grid .term strong {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .terms-grid .term span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      height: 2px;
+      z-index: 99;
+      background: transparent;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
+    section p strong { color: var(--accent); font-weight: 600; }
+
+    .mermaid-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      margin: 20px 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: center;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .mermaid-wrap svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .mermaid-wrap svg .nodeLabel {
+      font-family: var(--font-body) !important;
+      font-size: 13px !important;
+    }
+
+    .mermaid-wrap svg .edgeLabel {
+      font-family: var(--font-body) !important;
+      font-size: 12px !important;
+    }
+
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        top: auto;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150;
+        transition: max-height 0.35s ease;
+        padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      aside.toc h3 { margin-bottom: 12px; }
+      .toc-toggle { display: block; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .terms-grid { grid-template-columns: 1fr; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+  
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: zoom-out;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      background: #fff;
+      padding: 16px;
+      cursor: default;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 28px;
+      color: #fff;
+      font-size: 36px;
+      font-weight: 300;
+      cursor: pointer;
+      opacity: 0.8;
+      line-height: 1;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-caption {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      margin-top: 16px;
+      font-family: Outfit, sans-serif;
+    }
+    .mermaid-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: zoom-in;
+      transition: opacity 0.2s ease;
+    }
+    .mermaid-img:hover { opacity: 0.85; }
+</style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">&#x2190; Statistics <span>Notes</span></a>
+    <span class="meta">Class 11 · Chapter 4</span>
+  </nav>
+
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+<button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
+
+  <div class="wrapper">
+
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#introduction" class="toc-h2">1. Introduction</a>
+      <a href="#meaning-of-classification" class="toc-h2">2. Meaning of Classification</a>
+      <a href="#methods-of-classification" class="toc-h2">3. Methods of Classification</a>
+      <a href="#geographical-classification" class="toc-h3">3.1 Geographical Classification</a>
+      <a href="#chronological-classification" class="toc-h3">3.2 Chronological Classification</a>
+      <a href="#qualitative-classification" class="toc-h3">3.3 Qualitative Classification</a>
+      <a href="#quantitative-classification" class="toc-h3">3.4 Quantitative Classification</a>
+      <a href="#concept-of-variable" class="toc-h2">4. Concept of Variable</a>
+      <a href="#discrete-variable" class="toc-h3">4.1 Discrete Variable</a>
+      <a href="#continuous-variable" class="toc-h3">4.2 Continuous Variable</a>
+      <a href="#frequency-and-frequency-distribution" class="toc-h2">5. Frequency and Frequency Distribution</a>
+      <a href="#statistical-series" class="toc-h2">6. Statistical Series</a>
+      <a href="#terms-related-to-frequency-distribution" class="toc-h2">7. Terms Related to Frequency Distribution</a>
+      <a href="#types-of-continuous-series" class="toc-h2">8. Types of Continuous Series</a>
+      <a href="#exclusive-series" class="toc-h3">8.1 Exclusive Series</a>
+      <a href="#inclusive-series" class="toc-h3">8.2 Inclusive Series</a>
+      <a href="#open-end-distribution" class="toc-h3">8.3 Open-End Distribution</a>
+      <a href="#cumulative-frequency-distribution" class="toc-h3">8.4 Cumulative Frequency Distribution</a>
+      <a href="#equal-and-unequal-class-interval-series" class="toc-h3">8.5 Equal and Unequal Class-Interval Series</a>
+      <a href="#mid-value-series" class="toc-h3">8.6 Mid-Value Series</a>
+      <a href="#bivariate-frequency-distribution" class="toc-h2">9. Bivariate Frequency Distribution</a>
+      <a href="#key-terms" class="toc-h2">10. Key Terms — Quick Reference</a>
+      <a href="#practice-questions" class="toc-h2">11. Practice Questions</a>
+      <a href="#quick-revision-card" class="toc-h2">Chapter at a Glance — Quick Revision Card</a>
+    </aside>
+
+    <main class="content">
+
+      <header class="hero fade-in">
+        <span class="chapter-badge">Chapter 4</span>
+        <h1>Organisation of Data — Complete Revision Notes</h1>
+        <blockquote><strong>Subject:</strong> Statistics for Economics | <strong>Class 11</strong></blockquote>
+      </header>
+
+      <section id="introduction" class="fade-in">
+        <h2>1. Introduction</h2>
+        <p>The data collected from primary and secondary sources is referred to as <strong>'raw data'</strong> or <strong>'unclassified data'</strong>. This raw data is like a pile of bricks — it needs to be arranged systematically before it can be used constructively.</p>
+        <p><strong>Organisation of data</strong> means to present the data in a form which facilitates easy understanding and makes it suitable for further processing and interpretation.</p>
+        <pre>Raw Data → Organisation → Classification → Tabulation → Analysis → Interpretation</pre>
+      </section>
+
+      <hr>
+
+      <section id="meaning-of-classification" class="fade-in">
+        <h2>2. Meaning of Classification</h2>
+        <p><strong>Classification</strong> is the process of arranging data into sequences and groups according to their common characteristics or separating them into different but related parts.</p>
+        <p>In simple words — classification is the process of <strong>sorting data into groups</strong> based on shared features.</p>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch4-Organisation-of-Data_d01_flowchart_LR.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <h3>2.1 Objectives of Classification</h3>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch4-Organisation-of-Data_d02_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Objective</th><th>Explanation</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Simplify &amp; Condense</strong></td><td>Reduces huge data into manageable groups</td></tr>
+              <tr><td><strong>Explain Similarities &amp; Dissimilarities</strong></td><td>Shows which items are alike and which are different</td></tr>
+              <tr><td><strong>Facilitate Comparisons</strong></td><td>Makes it easy to compare different groups</td></tr>
+              <tr><td><strong>Study Relationships</strong></td><td>Helps understand how variables are related</td></tr>
+              <tr><td><strong>Prepare for Tabulation</strong></td><td>Classification is the first step before creating tables</td></tr>
+              <tr><td><strong>Present Mental Picture</strong></td><td>Gives a clear overall view of the data</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2.2 Requisites of a Good Classification</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Requisite</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Suitable</strong></td><td>The classification should serve the purpose of investigation</td></tr>
+              <tr><td><strong>Unambiguous &amp; Clear</strong></td><td>Each item should clearly belong to only one class</td></tr>
+              <tr><td><strong>Exhaustiveness</strong></td><td>Every observation must find a place in some class — no data should be left out</td></tr>
+              <tr><td><strong>Flexible</strong></td><td>Should be adaptable to different situations</td></tr>
+              <tr><td><strong>Mutually Exclusive</strong></td><td>Each observation must belong to only one class — no overlapping</td></tr>
+              <tr><td><strong>Stability</strong></td><td>Classification should be stable for comparison purposes</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="methods-of-classification" class="fade-in">
+        <h2>3. Methods of Classification</h2>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch4-Organisation-of-Data_d03_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <h3 id="geographical-classification">3.1 Geographical Classification (Spatial Classification)</h3>
+        <p>When data is classified according to <strong>geographical location or region</strong> (such as countries, states, districts, etc.), it is known as geographical classification.</p>
+        <p><strong>Example — Population of 5 States of India (Census 2011):</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>State</th><th>Andhra Pradesh</th><th>Tamil Nadu</th><th>Rajasthan</th><th>Karnataka</th><th>Gujarat</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Population (in '000)</strong></td><td>84,665</td><td>72,138</td><td>68,621</td><td>61,130</td><td>60,383</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted);"><em>Source: Census of India, 2011</em></p>
+
+        <h3 id="chronological-classification">3.2 Chronological Classification (Temporal Classification)</h3>
+        <p>When data is classified with respect to <strong>different periods of time</strong> (such as decade, years, months, etc.), it is known as chronological classification.</p>
+        <p><strong>Example — Population of Delhi (1951–2011):</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Year</th><th>1951</th><th>1961</th><th>1971</th><th>1981</th><th>1991</th><th>2001</th><th>2011</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Population (in '000)</strong></td><td>1,744</td><td>2,659</td><td>4,066</td><td>6,220</td><td>9,421</td><td>13,851</td><td>16,753</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted);"><em>Source: Census of India, 2011</em></p>
+
+        <h3 id="qualitative-classification">3.3 Qualitative Classification</h3>
+        <p>In qualitative classification, data is classified on the basis of <strong>descriptive characteristics</strong> or <strong>attributes</strong> like sex, literacy, region, caste, education, etc. — which cannot be measured quantitatively.</p>
+
+        <h4>(A) Simple Classification</h4>
+        <p>When facts are classified into <strong>two classes</strong> according to <strong>one attribute only</strong>, it is called simple classification.</p>
+        <p><strong>Example — Population classified by Gender:</strong></p>
+        <pre>        Population
+        /        \
+     Males     Females</pre>
+
+        <h4>(B) Manifold Classification</h4>
+        <p>When facts are classified according to <strong>more than one attribute</strong>, or when each class is <strong>sub-divided into more than two sub-classes</strong>, it is called manifold classification.</p>
+        <p><strong>Example — Population classified by Gender, Literacy &amp; Religion:</strong></p>
+        <pre>                        Population
+                      /            \
+                  Males             Females
+                 /      \          /        \
+           Literate  Illiterate  Literate  Illiterate
+           /     \     /    \    /    \     /       \
+         Hindu Non-Hindu ...   ...   ...   ...     ...</pre>
+
+        <h3 id="quantitative-classification">3.4 Quantitative Classification (Numerical Classification)</h3>
+        <p>In this classification, data is classified on the basis of characteristics which can be <strong>measured</strong> — such as height, weight, income, expenditure, production, or sales.</p>
+        <p><strong>Example — Age Distribution of Students:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Age (in Years)</th><th>Number of Students</th></tr></thead>
+            <tbody>
+              <tr><td>10–12</td><td>150</td></tr>
+              <tr><td>12–14</td><td>130</td></tr>
+              <tr><td>14–16</td><td>100</td></tr>
+              <tr><td>16–18</td><td>120</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>500</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>3.5 Methods of Classification — Comparison Table</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Geographical</th><th>Chronological</th><th>Qualitative</th><th>Quantitative</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Criteria</strong></td><td>Location/Region</td><td>Time Period</td><td>Attributes (non-measurable)</td><td>Quantities (measurable)</td></tr>
+              <tr><td><strong>Example</strong></td><td>States, Countries</td><td>Years, Months</td><td>Gender, Literacy</td><td>Height, Weight, Income</td></tr>
+              <tr><td><strong>Nature</strong></td><td>Spatial</td><td>Temporal</td><td>Descriptive</td><td>Numerical</td></tr>
+              <tr><td><strong>Further division</strong></td><td>—</td><td>—</td><td>Simple/Manifold</td><td>Discrete/Continuous</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="concept-of-variable" class="fade-in">
+        <h2>4. Concept of Variable</h2>
+        <p>A <strong>variable</strong> refers to a quantity or characteristic whose value <strong>varies</strong> from one investigation to another. The difference in value may be with respect to individuals, items, places, or time.</p>
+        <p>Each value within such a range is called a <strong>'variate'</strong>.</p>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch4-Organisation-of-Data_d04_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <h3 id="discrete-variable">4.1 Discrete Variable (Discontinuous Variable)</h3>
+        <p><strong>Definition:</strong> Variables which are capable of taking only <strong>exact or finite values</strong> and generally not any fractional value.</p>
+        <ul>
+          <li><strong>Change in value:</strong> Increases in complete numbers (1, 2, 3...)</li>
+          <li><strong>Data collection:</strong> Obtained by <strong>counting</strong></li>
+          <li><strong>Examples:</strong> Number of workers in a factory, number of students in a class, number of children in a family</li>
+        </ul>
+        <p><strong>Example — Number of Children in 40 Families:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Number of Children</th><th>Number of Families</th></tr></thead>
+            <tbody>
+              <tr><td>0</td><td>7</td></tr>
+              <tr><td>1</td><td>5</td></tr>
+              <tr><td>2</td><td>25</td></tr>
+              <tr><td>3</td><td>3</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>40</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">Note: You cannot have 2.5 children in a family — it must be a whole number.</div>
+
+        <h3 id="continuous-variable">4.2 Continuous Variable</h3>
+        <p><strong>Definition:</strong> Those variables which can take <strong>all possible values</strong> (integral as well as fractional) in a given specified range.</p>
+        <ul>
+          <li><strong>Change in value:</strong> Can increase in fractions as well as whole numbers</li>
+          <li><strong>Data collection:</strong> Obtained by <strong>measurement</strong></li>
+          <li><strong>Examples:</strong> Height of a person (5.6 ft, 5.7 ft), weight of individuals (42.7 kg, 55.3 kg), temperature</li>
+        </ul>
+        <p><strong>Example — Weight of 47 Students:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Weight (in kg)</th><th>Number of Students</th></tr></thead>
+            <tbody>
+              <tr><td>40–45</td><td>22</td></tr>
+              <tr><td>45–50</td><td>6</td></tr>
+              <tr><td>50–55</td><td>9</td></tr>
+              <tr><td>55–60</td><td>10</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>47</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">Note: Weight can be 42.7 kg, 55.3 kg — measurements can be in fractions.</div>
+
+        <h3>4.3 Discrete vs Continuous Variable — Comparison</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Discrete Variable</th><th>Continuous Variable</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Meaning</strong></td><td>Takes only exact/finite values, generally no fractions</td><td>Can take all possible values (integral + fractional)</td></tr>
+              <tr><td><strong>Change in Value</strong></td><td>Increases in complete numbers (1, 2, 3...)</td><td>Can increase in fractions as well</td></tr>
+              <tr><td><strong>Data Collection</strong></td><td>Obtained by <strong>counting</strong></td><td>Obtained by <strong>measurement</strong></td></tr>
+              <tr><td><strong>Examples</strong></td><td>Number of workers, number of students, number of cars</td><td>Height, weight, temperature, time</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="frequency-and-frequency-distribution" class="fade-in">
+        <h2>5. Frequency and Frequency Distribution</h2>
+
+        <h3>5.1 Frequency</h3>
+        <p><strong>Frequency</strong> refers to the number of times a given value appears in a distribution.</p>
+        <p><strong>Example:</strong> Suppose there are 20 students in a class:</p>
+        <ul>
+          <li>9 students scored 70 marks</li>
+          <li>6 students scored 85 marks</li>
+          <li>5 students scored 92 marks</li>
+        </ul>
+        <p>Here, frequencies are <strong>9, 6,</strong> and <strong>5</strong> respectively.</p>
+
+        <h3>5.2 Frequency Distribution</h3>
+        <p>A <strong>frequency distribution</strong> is a table in which the frequencies and the associated values of a variable are written side by side.</p>
+        <pre>Marks (Variable)  →  70    85    92
+Frequency         →   9     6     5</pre>
+      </section>
+
+      <hr>
+
+      <section id="statistical-series" class="fade-in">
+        <h2>6. Statistical Series</h2>
+        <p>The arrangement of classified data in some <strong>logical order</strong> — like according to size, according to time of occurrence, or according to some other measurable or non-measurable characteristics — is known as a <strong>Statistical Series</strong>.</p>
+
+        <h3>6.1 Kinds of Statistical Series</h3>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch4-Organisation-of-Data_d05_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <h3>6.2 On the Basis of Characteristics</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Description</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Time Series</strong></td><td>Values arranged in chronological order</td><td>Population of Delhi from 1951–2011</td></tr>
+              <tr><td><strong>Spatial Series</strong></td><td>Data arranged according to location/region</td><td>Population of different states</td></tr>
+              <tr><td><strong>Condition Series</strong></td><td>Data classified under certain conditions</td><td>Students passed under different grading systems</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>6.3 On the Basis of Construction</h3>
+
+        <h4>(A) Individual Series</h4>
+        <p>Individual series refers to that series in which items are listed <strong>singly</strong> — each item is given a separate value.</p>
+        <p><strong>Unorganised Individual Series (Raw Data):</strong><br>Marks of 10 students: 35, 40, 38, 17, 25, 45, 36, 29, 42, 22</p>
+        <p><strong>Organised Individual Series (Ordered):</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>S. No.</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Marks</strong></td><td>35</td><td>40</td><td>38</td><td>17</td><td>25</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>(B) Discrete Series (Ungrouped Frequency Distribution)</h4>
+        <p>A discrete series is that series where individual values differ from each other by a <strong>definite amount</strong> (usually by whole numbers).</p>
+        <p><strong>Construction using Tally Marks:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Marks</th><th>Tally Marks</th><th>Frequency</th></tr></thead>
+            <tbody>
+              <tr><td>10</td><td>||</td><td>2</td></tr>
+              <tr><td>15</td><td>||||</td><td>4</td></tr>
+              <tr><td>20</td><td>|||</td><td>3</td></tr>
+              <tr><td>25</td><td>||</td><td>2</td></tr>
+              <tr><td><strong>Total</strong></td><td></td><td><strong>11</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout"><strong>Tally marks:</strong> The symbol '|' denotes one value and '~~||||~~' (four lines crossed by a diagonal) represents 5 values.</div>
+
+        <h4>(C) Continuous Series (Grouped Frequency Distribution)</h4>
+        <p>A continuous series represents <strong>continuous variables</strong>, showing a <strong>range of values</strong> of different items of the series.</p>
+        <p><strong>Example:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Class Interval (Marks)</th><th>Frequency (Students)</th></tr></thead>
+            <tbody>
+              <tr><td>10–20</td><td>6</td></tr>
+              <tr><td>20–30</td><td>5</td></tr>
+              <tr><td>30–40</td><td>9</td></tr>
+              <tr><td>40–50</td><td>10</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>30</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="terms-related-to-frequency-distribution" class="fade-in">
+        <h2>7. Terms Related to Frequency Distribution</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Term</th><th>Meaning</th><th>Formula/Example</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Tally Marks</strong></td><td>A simple tool used to count frequencies. '|' = 1, '~~||||~~' = 5</td><td>Marks: 10, 10, 15, 15, 15</td></tr>
+              <tr><td><strong>Frequency</strong></td><td>Number of times a value appears</td><td>9 students scored 70 &rarr; frequency = 9</td></tr>
+              <tr><td><strong>Class Frequency</strong></td><td>Number of values in a particular class</td><td>Class 10–20 has frequency 6</td></tr>
+              <tr><td><strong>Class Limits</strong></td><td>Two extreme ends of a class</td><td>In 10–20: 10 = Lower, 20 = Upper</td></tr>
+              <tr><td><strong>Class Width/Interval</strong></td><td>Difference between upper and lower class limits</td><td>20 &minus; 10 = 10</td></tr>
+              <tr><td><strong>Class Mid-point</strong></td><td>Middle value of a class</td><td>(Upper Limit + Lower Limit) &divide; 2</td></tr>
+              <tr><td><strong>Class with Maximum Concentration</strong></td><td>Class with the highest frequency</td><td>Highest frequency tells where most data lies</td></tr>
+              <tr><td><strong>Class with Minimum Concentration</strong></td><td>Class with the lowest frequency</td><td>Lowest frequency tells where least data lies</td></tr>
+              <tr><td><strong>Relative Frequency</strong></td><td>Frequency of a group as a % of total frequency</td><td>(Group Frequency &divide; Total Frequency) &times; 100</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>7.1 Class Mid-point Formula</h3>
+        <pre>Class Mid-point = (Upper Class Limit + Lower Class Limit) / 2</pre>
+        <p><strong>Example:</strong> For class 20–30 &rarr; Mid-point = (30 + 20) / 2 = 25</p>
+
+        <h3>7.2 Relative Frequency Formula</h3>
+        <pre>Relative Frequency = (Frequency of a Group &divide; Total Frequency) &times; 100</pre>
+        <p><strong>Example — Shoe Sizes:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Shoe Size</th><th>Frequency</th><th>Relative Frequency</th></tr></thead>
+            <tbody>
+              <tr><td>7</td><td>4</td><td>(4/30) &times; 100 = 13.33%</td></tr>
+              <tr><td>8</td><td>7</td><td>(7/30) &times; 100 = 23.33%</td></tr>
+              <tr><td>9</td><td>9</td><td>(9/30) &times; 100 = 30%</td></tr>
+              <tr><td>10</td><td>6</td><td>(6/30) &times; 100 = 20%</td></tr>
+              <tr><td>Others</td><td>4</td><td>(4/30) &times; 100 = 13.33%</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>30</strong></td><td><strong>100%</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="types-of-continuous-series" class="fade-in">
+        <h2>8. Types of Continuous Series</h2>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch4-Organisation-of-Data_d06_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <h3 id="exclusive-series">8.1 Exclusive Series</h3>
+        <p><strong>Definition:</strong> Classes where the <strong>upper limit of one class-interval becomes the lower limit of the next class</strong> are known as exclusive classes.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Classes (Marks)</th><th>Frequency</th></tr></thead>
+            <tbody>
+              <tr><td>10–20</td><td>6</td></tr>
+              <tr><td>20–30</td><td>5</td></tr>
+              <tr><td>30–40</td><td>9</td></tr>
+              <tr><td>40–50</td><td>10</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>30</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout"><strong>Key rule:</strong> A student scoring 20 marks would be included in the class <strong>20–30</strong> (not 10–20). The upper limit is excluded from the current class and included in the next class.</div>
+        <p><strong>Also known as:</strong> Mutually exclusive classification — excludes the upper class limit but includes the lower class limit.</p>
+
+        <h3 id="inclusive-series">8.2 Inclusive Series</h3>
+        <p><strong>Definition:</strong> The series in which <strong>both lower and upper limits</strong> of a class-interval are included in the interval itself.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Classes</th><th>Frequency</th></tr></thead>
+            <tbody>
+              <tr><td>10–19</td><td>6</td></tr>
+              <tr><td>20–29</td><td>5</td></tr>
+              <tr><td>30–39</td><td>9</td></tr>
+              <tr><td>40–49</td><td>10</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>30</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout"><strong>Key rule:</strong> A student scoring 29 marks is included in 20–29, and a student scoring 39 is included in 30–39.</div>
+        <div class="callout"><strong>Note:</strong> For calculation purposes, inclusive series must be <strong>converted to exclusive series</strong> by adjusting class boundaries.</div>
+
+        <p><strong>Conversion Formula:</strong></p>
+        <pre>Correction Factor = (Upper Limit of 1st Class - Lower Limit of 2nd Class) / 2</pre>
+        <p>Then subtract the factor from lower limits and add to upper limits.</p>
+        <p><strong>Example — Converting Inclusive to Exclusive:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Inclusive</th><th>Exclusive (after conversion)</th></tr></thead>
+            <tbody>
+              <tr><td>10–19</td><td>9.5–19.5</td></tr>
+              <tr><td>20–29</td><td>19.5–29.5</td></tr>
+              <tr><td>30–39</td><td>29.5–39.5</td></tr>
+              <tr><td>40–49</td><td>39.5–49.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>8.3 Exclusive vs Inclusive Series — Comparison</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Exclusive Method</th><th>Inclusive Method</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Counting of upper limit</strong></td><td>Upper limit is counted in the <strong>next</strong> class</td><td>Upper limit is counted in the <strong>same</strong> class</td></tr>
+              <tr><td><strong>Overlap of limits</strong></td><td>Upper limit of one class = lower limit of next class</td><td>Upper limit and lower limit of next class are <strong>different</strong> (usually by 1)</td></tr>
+              <tr><td><strong>Conversion needed</strong></td><td>No conversion needed before calculation</td><td>Must be converted to exclusive method for calculation</td></tr>
+              <tr><td><strong>Example</strong></td><td>10–20, 20–30, 30–40</td><td>10–19, 20–29, 30–39</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="open-end-distribution">8.4 Open-End Distribution</h3>
+        <p><strong>Definition:</strong> In a frequency distribution, if the <strong>lower limit of the first class</strong> and/or the <strong>upper limit of the last class</strong> is not given, it is known as open-end distribution.</p>
+        <p><strong>Example:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Marks</th><th>Below 20</th><th>20–30</th><th>30–40</th><th>40–50</th><th>Above 50</th></tr></thead>
+            <tbody>
+              <tr><td><strong>No. of Students</strong></td><td>7</td><td>6</td><td>12</td><td>15</td><td>8</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout"><strong>Problem:</strong> Open-end classes create difficulty in graphic presentation of data.</div>
+
+        <h3 id="cumulative-frequency-distribution">8.5 Cumulative Frequency Distribution</h3>
+        <p>In cumulative frequency distribution, frequencies are presented in <strong>cumulative form</strong> either in increasing or decreasing order.</p>
+
+        <h4>(A) 'Less Than' Cumulative Frequency Distribution</h4>
+        <p>Frequencies of each class-interval are <strong>added successively from top to bottom</strong>.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Marks</th><th>No. of Students (c.f.)</th><th>Calculation</th></tr></thead>
+            <tbody>
+              <tr><td>Less than 10</td><td>2</td><td>2</td></tr>
+              <tr><td>Less than 20</td><td>7</td><td>2 + 5 = 7</td></tr>
+              <tr><td>Less than 30</td><td>17</td><td>2 + 5 + 10 = 17</td></tr>
+              <tr><td>Less than 40</td><td>29</td><td>2 + 5 + 10 + 12 = 29</td></tr>
+              <tr><td>Less than 50</td><td>46</td><td>2 + 5 + 10 + 12 + 17 = 46</td></tr>
+              <tr><td>Less than 60</td><td>50</td><td>2 + 5 + 10 + 12 + 17 + 4 = 50</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>(B) 'More Than' Cumulative Frequency Distribution</h4>
+        <p>Cumulative frequencies are obtained by finding totals starting from the <strong>highest value to the lowest value</strong>.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Marks</th><th>No. of Students (c.f.)</th><th>Calculation</th></tr></thead>
+            <tbody>
+              <tr><td>More than 0</td><td>50</td><td>2 + 5 + 10 + 12 + 17 + 4 = 50</td></tr>
+              <tr><td>More than 10</td><td>48</td><td>5 + 10 + 12 + 17 + 4 = 48</td></tr>
+              <tr><td>More than 20</td><td>43</td><td>10 + 12 + 17 + 4 = 43</td></tr>
+              <tr><td>More than 30</td><td>33</td><td>12 + 17 + 4 = 33</td></tr>
+              <tr><td>More than 40</td><td>21</td><td>17 + 4 = 21</td></tr>
+              <tr><td>More than 60</td><td>4</td><td>4</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="equal-and-unequal-class-interval-series">8.6 Equal and Unequal Class-Interval Series</h3>
+
+        <h4>(A) Equal Class-Interval Series</h4>
+        <p>When all classes in a series have the <strong>same interval</strong>.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Class-Interval</th><th>Frequency</th></tr></thead>
+            <tbody>
+              <tr><td>10–20</td><td>7</td></tr>
+              <tr><td>20–30</td><td>4</td></tr>
+              <tr><td>30–40</td><td>3</td></tr>
+              <tr><td>40–50</td><td>6</td></tr>
+              <tr><td>50–60</td><td>3</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>23</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>(B) Unequal Class-Interval Series</h4>
+        <p>When class-intervals are <strong>not equal</strong>.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Class-Interval</th><th>Frequency</th></tr></thead>
+            <tbody>
+              <tr><td>10–20</td><td>6</td></tr>
+              <tr><td>20–40</td><td>15</td></tr>
+              <tr><td>40–70</td><td>12</td></tr>
+              <tr><td>70–80</td><td>4</td></tr>
+              <tr><td>80–110</td><td>3</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>40</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="mid-value-series">8.7 Mid-Value Series</h3>
+        <p><strong>Mid-value</strong> or <strong>Mid-point</strong> is the middle value of a class-interval. When such mid-values are given instead of class limits, it is called a mid-value series.</p>
+        <p><strong>Steps to Convert Mid-Value Series to Continuous Series:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Step</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Step 1</strong></td><td>Calculate the <strong>difference</strong> between two consecutive mid-values</td></tr>
+              <tr><td><strong>Step 2</strong></td><td>Divide the difference by 2 to get half the difference</td></tr>
+              <tr><td><strong>Step 3</strong></td><td><strong>Subtract</strong> half the difference from each mid-value to get the lower limit</td></tr>
+              <tr><td><strong>Step 4</strong></td><td><strong>Add</strong> half the difference to each mid-value to get the upper limit</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Example:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Mid-Value</th><th>Half Difference</th><th>Lower Limit</th><th>Upper Limit</th><th>Class Interval</th><th>Frequency</th></tr></thead>
+            <tbody>
+              <tr><td>5</td><td>5</td><td>5 &minus; 5 = 0</td><td>5 + 5 = 10</td><td>0–10</td><td>4</td></tr>
+              <tr><td>15</td><td>5</td><td>15 &minus; 5 = 10</td><td>15 + 5 = 20</td><td>10–20</td><td>8</td></tr>
+              <tr><td>25</td><td>5</td><td>25 &minus; 5 = 20</td><td>25 + 5 = 30</td><td>20–30</td><td>10</td></tr>
+              <tr><td>35</td><td>5</td><td>35 &minus; 5 = 30</td><td>35 + 5 = 40</td><td>30–40</td><td>6</td></tr>
+              <tr><td>45</td><td>5</td><td>45 &minus; 5 = 40</td><td>45 + 5 = 50</td><td>40–50</td><td>2</td></tr>
+              <tr><td><strong>Total</strong></td><td></td><td></td><td></td><td></td><td><strong>30</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="bivariate-frequency-distribution" class="fade-in">
+        <h2>9. Bivariate Frequency Distribution</h2>
+
+        <h3>9.1 Univariate vs Bivariate Frequency Distribution</h3>
+        <p>When data is classified on the basis of <strong>two variables</strong> (such as height and weight, marks in Maths and Statistics, etc.), the distribution is known as <strong>Bivariate frequency distribution</strong> or <strong>Two-way frequency distribution</strong>.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Univariate Distribution</th><th>Bivariate Distribution</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Meaning</strong></td><td>Data classified on the basis of a <strong>single variable</strong></td><td>Data classified on the basis of <strong>two variables</strong></td></tr>
+              <tr><td><strong>Purpose</strong></td><td>Describes a particular variable</td><td>Determines empirical relationship between two variables</td></tr>
+              <tr><td><strong>Also known as</strong></td><td>One-way frequency distribution</td><td>Two-way frequency distribution</td></tr>
+              <tr><td><strong>Example</strong></td><td>Height of students in a class</td><td>Height <strong>and</strong> Weight of students in a class</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>9.2 Example — Bivariate Frequency Distribution</h3>
+        <p><strong>Marks of 15 Students in Accounts and Economics:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Accounts \ Economics</th><th>19</th><th>20</th><th>21</th><th>22</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td><strong>25</strong></td><td>3</td><td>—</td><td>—</td><td>—</td><td>3</td></tr>
+              <tr><td><strong>26</strong></td><td>—</td><td>4</td><td>—</td><td>—</td><td>4</td></tr>
+              <tr><td><strong>27</strong></td><td>—</td><td>—</td><td>6</td><td>—</td><td>6</td></tr>
+              <tr><td><strong>28</strong></td><td>—</td><td>—</td><td>—</td><td>2</td><td>2</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>3</strong></td><td><strong>4</strong></td><td><strong>6</strong></td><td><strong>2</strong></td><td><strong>15</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="key-terms" class="fade-in">
+        <h2>10. Key Terms — Quick Reference</h2>
+        <div class="terms-grid">
+          <div class="term"><strong>Raw Data</strong><span>Data collected directly from sources, unprocessed</span></div>
+          <div class="term"><strong>Classification</strong><span>Grouping data based on common characteristics</span></div>
+          <div class="term"><strong>Variable</strong><span>A characteristic whose value varies</span></div>
+          <div class="term"><strong>Discrete Variable</strong><span>Takes only whole numbers (obtained by counting)</span></div>
+          <div class="term"><strong>Continuous Variable</strong><span>Takes any value, including fractions (obtained by measurement)</span></div>
+          <div class="term"><strong>Frequency</strong><span>Number of times a value occurs</span></div>
+          <div class="term"><strong>Frequency Distribution</strong><span>Table showing values and their frequencies</span></div>
+          <div class="term"><strong>Tally Marks</strong><span>Visual tool for counting frequencies</span></div>
+          <div class="term"><strong>Class Limits</strong><span>Lower and upper values of a class interval</span></div>
+          <div class="term"><strong>Class Width</strong><span>Difference between upper and lower class limits</span></div>
+          <div class="term"><strong>Class Mid-point</strong><span>Middle value of a class</span></div>
+          <div class="term"><strong>Relative Frequency</strong><span>Frequency expressed as a percentage of total</span></div>
+          <div class="term"><strong>Cumulative Frequency</strong><span>Running total of frequencies (less than / more than)</span></div>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="practice-questions" class="fade-in">
+        <h2>11. Practice Questions</h2>
+
+        <h3>11.1 Multiple Choice Questions</h3>
+
+        <p><strong>Q1.</strong> Upper limit of any class is:</p>
+        <ul>
+          <li>(a) Same as the lower limit of the next class in exclusive series</li>
+          <li>(b) Different in inclusive series</li>
+          <li>(c) Both (a) and (b)</li>
+          <li><strong>(d) None of these</strong></li>
+        </ul>
+
+        <p><strong>Q2.</strong> In inclusive class-intervals of a frequency distribution:</p>
+        <ul>
+          <li>(a) Upper limit of each class-interval is included</li>
+          <li>(b) Lower limit of each class-interval is included</li>
+          <li><strong>(c) Both (a) and (b)</strong></li>
+          <li>(d) None of these</li>
+        </ul>
+
+        <p><strong>Q3.</strong> For determining class frequencies, it is necessary that these classes are:</p>
+        <ul>
+          <li><strong>(a) Mutually exclusive</strong></li>
+          <li>(b) Not mutually exclusive</li>
+          <li>(c) Independent</li>
+          <li>(d) None of these</li>
+        </ul>
+
+        <p><strong>Q4.</strong> The lower class boundary is:</p>
+        <ul>
+          <li>(a) An upper limit to Lower Class Limit</li>
+          <li><strong>(b) A lower limit to Lower Class Limit</strong></li>
+          <li>(c) Both (a) and (b)</li>
+          <li>(d) None of these</li>
+        </ul>
+
+        <p><strong>Q5.</strong> In an individual series, each variate value has:</p>
+        <ul>
+          <li>(a) Same frequency</li>
+          <li><strong>(b) Frequency one</strong></li>
+          <li>(c) Varied frequency</li>
+          <li>(d) Frequency two</li>
+        </ul>
+
+        <p><strong>Q6.</strong> Drinking habit of a person is:</p>
+        <ul>
+          <li><strong>(a) An attribute</strong></li>
+          <li>(b) A discrete variable</li>
+          <li>(c) A variable</li>
+          <li>(d) A continuous variable</li>
+        </ul>
+
+        <p><strong>Q7.</strong> The number of observations falling within a class is called:</p>
+        <ul>
+          <li>(a) Density</li>
+          <li><strong>(b) Frequency</strong></li>
+          <li>(c) Both (a) and (b)</li>
+          <li>(d) None of these</li>
+        </ul>
+
+        <p><strong>Q8.</strong> Annual income of a person is:</p>
+        <ul>
+          <li>(a) A continuous variable</li>
+          <li>(b) A discrete variable</li>
+          <li>(c) An attribute</li>
+          <li><strong>(d) Either (b) or (c)</strong></li>
+        </ul>
+
+        <p><strong>Q9.</strong> An open-end series is that series in which:</p>
+        <ul>
+          <li>(a) Lower limit of the first class-interval is missing</li>
+          <li>(b) Upper limit of the last class-interval is missing</li>
+          <li><strong>(c) Both (a) and (b)</strong></li>
+          <li>(d) Class-intervals are unequal</li>
+        </ul>
+
+        <p><strong>Q10.</strong> A frequency distribution can be:</p>
+        <ul>
+          <li>(a) Discrete</li>
+          <li>(b) Continuous</li>
+          <li><strong>(c) Both (a) and (b)</strong></li>
+          <li>(d) None of these</li>
+        </ul>
+
+        <p><strong>Q11.</strong> Mutually exclusive classification:</p>
+        <ul>
+          <li><strong>(a) Excludes the upper class limit but includes the lower class limit</strong></li>
+          <li>(b) Excludes both the class limits</li>
+          <li>(c) Includes the upper class limit but excludes the lower class limit</li>
+          <li>(d) Either (b) or (c)</li>
+        </ul>
+
+        <p><strong>Q12.</strong> Which of the following is a cumulative frequency distribution?</p>
+        <ul>
+          <li>(a) Less than Series</li>
+          <li>(b) More than Series</li>
+          <li><strong>(c) Both (a) and (b)</strong></li>
+          <li>(d) Open-end Series</li>
+        </ul>
+
+        <p><strong>Q13.</strong> Class-interval is measured as:</p>
+        <ul>
+          <li>(a) Half of the sum of lower and upper limit</li>
+          <li>(b) The sum of the upper and lower limit</li>
+          <li>(c) Half of difference between upper and lower limit</li>
+          <li><strong>(d) The difference between upper and lower limit</strong></li>
+        </ul>
+
+        <p><strong>Q14.</strong> The data given as 5, 7, 12, 17, 79, 84, 91 will be called as:</p>
+        <ul>
+          <li>(a) A continuous series</li>
+          <li>(b) A discrete series</li>
+          <li><strong>(c) An individual series</strong></li>
+          <li>(d) Time series</li>
+        </ul>
+
+        <hr>
+
+        <h3>11.2 Assertion-Reason Questions</h3>
+
+        <p><strong>Q15.</strong></p>
+        <p><strong>Assertion (A):</strong> In case of Inclusive Series, the value of upper limit of a class never equals the value of lower limit of the next class.</p>
+        <p><strong>Reason (R):</strong> Class frequencies are same in both exclusive and inclusive series, although the class-intervals are apparently different in the two cases.</p>
+        <p><strong>Alternatives:</strong></p>
+        <ul>
+          <li>(a) Both (A) &amp; (R) are True &amp; (R) is the correct explanation of (A)</li>
+          <li><strong>(b) Both (A) &amp; (R) are True &amp; (R) is NOT the correct explanation of (A)</strong></li>
+          <li>(c) (A) is True but (R) is False</li>
+          <li>(d) (A) is False but (R) is True</li>
+        </ul>
+
+        <p><strong>Q16.</strong></p>
+        <p><strong>Assertion (A):</strong> Exclusive Series ensures continuity of data.</p>
+        <p><strong>Reason (R):</strong> In case of exclusive series, upper limit of one class is the lower limit of succeeding class.</p>
+        <p><strong>Alternatives:</strong></p>
+        <ul>
+          <li><strong>(a) Both (A) &amp; (R) are True &amp; (R) is the correct explanation of (A)</strong></li>
+          <li>(b) Both (A) &amp; (R) are True &amp; (R) is not the correct explanation of (A)</li>
+          <li>(c) (A) is True but (R) is False</li>
+          <li>(d) (A) is False but (R) is True</li>
+        </ul>
+
+        <p><strong>Q17.</strong></p>
+        <p><strong>Assertion (A):</strong> Population of different states of India as per Census 2011 is an example of Temporal Classification.</p>
+        <p><strong>Reason (R):</strong> In case of Temporal Classification, data is classified with respect to different periods of time.</p>
+        <p><strong>Alternatives:</strong></p>
+        <ul>
+          <li>(a) Both (A) &amp; (R) are True &amp; (R) is the correct explanation of (A)</li>
+          <li>(b) Both (A) &amp; (R) are True &amp; (R) is not the correct explanation of (A)</li>
+          <li>(c) (A) is True but (R) is False</li>
+          <li><strong>(d) (A) is False but (R) is True</strong></li>
+        </ul>
+
+        <hr>
+
+        <h3>11.3 Statement-Based Questions</h3>
+
+        <p><strong>Q18.</strong> Read the following statements carefully and choose the correct alternative:</p>
+        <p><strong>Statement 1:</strong> Classification facilitates grouping of data according to certain similarities and dissimilarities.<br>
+        <strong>Statement 2:</strong> Classification provides a basis for tabulation and further statistical processing.</p>
+        <p><strong>Alternatives:</strong></p>
+        <ul>
+          <li><strong>(a) Both the statements are true</strong></li>
+          <li>(b) Both the statements are false</li>
+          <li>(c) Statement 1 is true &amp; Statement 2 is false</li>
+          <li>(d) Statement 2 is true &amp; Statement 1 is false</li>
+        </ul>
+
+        <p><strong>Q19.</strong> Read the following statements carefully and choose the correct alternative:</p>
+        <p><strong>Statement 1:</strong> Discrete Variables are capable of taking exact value as well as fractional value.<br>
+        <strong>Statement 2:</strong> In case of discrete variable, data is obtained by measurement.</p>
+        <p><strong>Alternatives:</strong></p>
+        <ul>
+          <li>(a) Both the statements are true</li>
+          <li><strong>(b) Both the statements are false</strong></li>
+          <li>(c) Statement 1 is true &amp; Statement 2 is false</li>
+          <li>(d) Statement 2 is true &amp; Statement 1 is false</li>
+        </ul>
+
+        <p><strong>Q20.</strong> Read the following statements carefully and choose the correct alternative:</p>
+        <p><strong>Statement 1:</strong> In case of open-end distribution, upper limit of first class and lower limit of last class is not given.<br>
+        <strong>Statement 2:</strong> Open-end classes create problem in the graphic presentation of the data.</p>
+        <p><strong>Alternatives:</strong></p>
+        <ul>
+          <li><strong>(a) Both the statements are true</strong></li>
+          <li>(b) Both the statements are false</li>
+          <li>(c) Statement 1 is true &amp; Statement 2 is false</li>
+          <li>(d) Statement 2 is true &amp; Statement 1 is false</li>
+        </ul>
+
+        <hr>
+
+        <h3>11.4 Numerical Questions</h3>
+
+        <p><strong>Q21.</strong> The following are the marks of 30 students in Statistics. Prepare a frequency distribution taking the class-intervals:</p>
+        <pre>12, 33, 23, 25, 18, 35, 37, 49, 54, 51,
+37, 15, 33, 42, 45, 47, 55, 69, 65, 63,
+46, 29, 18, 37, 46, 59, 29, 35, 45, 27</pre>
+        <p><strong>Answer:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Class Interval</th><th>Tally Marks</th><th>Frequency</th></tr></thead>
+            <tbody>
+              <tr><td>10–20</td><td>||||</td><td>4</td></tr>
+              <tr><td>20–30</td><td>||||</td><td>4</td></tr>
+              <tr><td>30–40</td><td>|||| ||||</td><td>9</td></tr>
+              <tr><td>40–50</td><td>|||| |||</td><td>8</td></tr>
+              <tr><td>50–60</td><td>||||</td><td>4</td></tr>
+              <tr><td>60–70</td><td>|||</td><td>3</td></tr>
+              <tr><td><strong>Total</strong></td><td></td><td><strong>30</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Q22.</strong> Prepare a frequency table taking class intervals 20–24, 25–29, 30–34 and so on, from the following data:</p>
+        <pre>21, 20, 55, 39, 48, 46, 36, 54, 42, 30,
+29, 42, 32, 40, 34, 31, 35, 37, 52, 44,
+39, 45, 37, 33, 51, 53, 52, 46, 43, 47,
+41, 26, 52, 48, 25, 34, 37, 33, 36, 27,
+54, 36, 41, 33, 23, 39, 28, 44, 45, 38</pre>
+        <p class="callout"><em>(Hint: Use inclusive classes and then convert if needed)</em></p>
+
+        <p><strong>Q23.</strong> From the following data, identify the lower limit of the first class and upper limit of the last class:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Daily Wages</th><th>Less than 120</th><th>120–140</th><th>140–160</th><th>160–180</th><th>Above 180</th></tr></thead>
+            <tbody>
+              <tr><td><strong>No. of Workers</strong></td><td>35</td><td>12</td><td>10</td><td>40</td><td>13</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Answer:</strong></p>
+        <ul>
+          <li>Lower limit of first class = <strong>0</strong> (or not given — open-end)</li>
+          <li>Upper limit of last class = <strong>not given</strong> — open-end distribution</li>
+        </ul>
+
+        <p><strong>Q24.</strong> Convert the following 'more than' cumulative frequency distribution into a 'less than' cumulative frequency distribution:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Class-Interval (More than)</th><th>10</th><th>20</th><th>30</th><th>40</th><th>50</th><th>60</th><th>70</th><th>80</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Frequency</strong></td><td>124</td><td>119</td><td>107</td><td>84</td><td>55</td><td>31</td><td>12</td><td>2</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Q25.</strong> Prepare a frequency distribution from the following mid-value data:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Mid Point</th><th>25</th><th>35</th><th>45</th><th>55</th><th>65</th><th>75</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Frequency</strong></td><td>6</td><td>10</td><td>9</td><td>12</td><td>8</td><td>5</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Answer:</strong></p>
+        <p>Here, difference between mid-values = 10, half difference = 5.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Mid Point</th><th>Lower Limit</th><th>Upper Limit</th><th>Class Interval</th><th>Frequency</th></tr></thead>
+            <tbody>
+              <tr><td>25</td><td>25&minus;5=20</td><td>25+5=30</td><td>20–30</td><td>6</td></tr>
+              <tr><td>35</td><td>35&minus;5=30</td><td>35+5=40</td><td>30–40</td><td>10</td></tr>
+              <tr><td>45</td><td>45&minus;5=40</td><td>45+5=50</td><td>40–50</td><td>9</td></tr>
+              <tr><td>55</td><td>55&minus;5=50</td><td>55+5=60</td><td>50–60</td><td>12</td></tr>
+              <tr><td>65</td><td>65&minus;5=60</td><td>65+5=70</td><td>60–70</td><td>8</td></tr>
+              <tr><td>75</td><td>75&minus;5=70</td><td>75+5=80</td><td>70–80</td><td>5</td></tr>
+              <tr><td><strong>Total</strong></td><td></td><td></td><td></td><td><strong>50</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Q26.</strong> Prepare a bivariate frequency distribution for the following data for 20 students:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Marks in Maths</th><th>10</th><th>11</th><th>10</th><th>11</th><th>11</th><th>14</th><th>12</th><th>12</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Marks in Stats</strong></td><td>20</td><td>21</td><td>22</td><td>21</td><td>23</td><td>23</td><td>22</td><td>21</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Marks in Maths</th><th>13</th><th>12</th><th>11</th><th>12</th><th>10</th><th>14</th><th>14</th><th>12</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Marks in Stats</strong></td><td>24</td><td>23</td><td>22</td><td>23</td><td>22</td><td>22</td><td>24</td><td>20</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Answer:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Maths \ Stats</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td><strong>10</strong></td><td>1</td><td>—</td><td>2</td><td>—</td><td>—</td><td>3</td></tr>
+              <tr><td><strong>11</strong></td><td>—</td><td>2</td><td>1</td><td>1</td><td>—</td><td>4</td></tr>
+              <tr><td><strong>12</strong></td><td>1</td><td>1</td><td>1</td><td>1</td><td>—</td><td>4</td></tr>
+              <tr><td><strong>13</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td>1</td><td>1</td></tr>
+              <tr><td><strong>14</strong></td><td>—</td><td>—</td><td>1</td><td>1</td><td>1</td><td>3</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>2</strong></td><td><strong>3</strong></td><td><strong>5</strong></td><td><strong>3</strong></td><td><strong>2</strong></td><td><strong>15</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="quick-revision-card" class="fade-in">
+        <h2>Chapter at a Glance — Quick Revision Card</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Topic</th><th>Key Point</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Classification</strong></td><td>Arranging data into groups based on common characteristics</td></tr>
+              <tr><td><strong>4 Methods of Classification</strong></td><td>Geographical, Chronological, Qualitative (Simple/Manifold), Quantitative</td></tr>
+              <tr><td><strong>Variable</strong></td><td>Characteristic whose value varies — Discrete (counting) or Continuous (measurement)</td></tr>
+              <tr><td><strong>Frequency</strong></td><td>Number of times a value appears in a distribution</td></tr>
+              <tr><td><strong>Statistical Series</strong></td><td>Logical arrangement of classified data</td></tr>
+              <tr><td><strong>Individual Series</strong></td><td>Each item listed singly (unorganised or organised)</td></tr>
+              <tr><td><strong>Discrete Series</strong></td><td>Ungrouped frequency distribution — values differ by definite amounts</td></tr>
+              <tr><td><strong>Continuous Series</strong></td><td>Grouped frequency distribution — shows range of values</td></tr>
+              <tr><td><strong>Exclusive Series</strong></td><td>Upper limit excluded &rarr; goes to next class (10–20, 20–30)</td></tr>
+              <tr><td><strong>Inclusive Series</strong></td><td>Both limits included (10–19, 20–29) — must convert for calculations</td></tr>
+              <tr><td><strong>Open-end Distribution</strong></td><td>First class lower limit or last class upper limit missing</td></tr>
+              <tr><td><strong>Cumulative Frequency</strong></td><td>Running total — 'Less than' (top&rarr;bottom) or 'More than' (bottom&rarr;top)</td></tr>
+              <tr><td><strong>Mid-Value Series</strong></td><td>Given mid-points &rarr; convert by adding/subtracting half the difference</td></tr>
+              <tr><td><strong>Bivariate Distribution</strong></td><td>Classification based on two variables (two-way table)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <script id="chapter-terms-data" type="application/json">[{"term":"Classification","definition":"Arranging data into groups based on common characteristics"},{"term":"4 Methods of Classification","definition":"Geographical, Chronological, Qualitative (Simple/Manifold), Quantitative"},{"term":"Variable","definition":"Characteristic whose value varies — Discrete (counting) or Continuous (measurement)"},{"term":"Frequency","definition":"Number of times a value appears in a distribution"},{"term":"Statistical Series","definition":"Logical arrangement of classified data"},{"term":"Individual Series","definition":"Each item listed singly (unorganised or organised)"},{"term":"Discrete Series","definition":"Ungrouped frequency distribution — values differ by definite amounts"},{"term":"Continuous Series","definition":"Grouped frequency distribution — shows range of values"},{"term":"Exclusive Series","definition":"Upper limit excluded, goes to next class (10–20, 20–30)"},{"term":"Inclusive Series","definition":"Both limits included (10–19, 20–29) — must convert for calculations"},{"term":"Open-end Distribution","definition":"First class lower limit or last class upper limit missing"},{"term":"Cumulative Frequency","definition":"Running total — Less than (top to bottom) or More than (bottom to top)"},{"term":"Mid-Value Series","definition":"Given mid-points — convert by adding/subtracting half the difference"},{"term":"Bivariate Distribution","definition":"Classification based on two variables (two-way table)"}]</script>
+
+      <footer>
+        <p>Source: NCERT Class 11 Statistics for Economics &middot; Chapter 4</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        'background': '#ffffff',
+        'primaryColor': '#e8f0ec',
+        'primaryTextColor': '#1b1b1b',
+        'primaryBorderColor': '#1a5e4a',
+        'lineColor': '#1a5e4a',
+        'secondaryColor': '#faf8f5',
+        'fontFamily': 'Outfit, -apple-system, sans-serif',
+        'fontSize': '13px',
+        'edgeLabelBackground': '#ffffff',
+        'nodeBorder': '#1a5e4a',
+      },
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'basis',
+        padding: 12,
+      },
+      securityLevel: 'loose',
+    });
+
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+
+    tocToggle.addEventListener('click', () => {
+      toc.classList.toggle('open');
+    });
+
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toc.classList.remove('open');
+      });
+    });
+
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Enlarged diagram">
+    <div class="lightbox-caption">Click anywhere or press Esc to close</div>
+  </div>
+
+  <script>
+    function openLightbox(img) {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      lbImg.src = img.src;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      var lb = document.getElementById('lightbox');
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+  <script src="../assets/study-os.js"></script>
+</body>
+</html>

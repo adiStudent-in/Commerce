@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
   <style>
     :root {
       --accent: #1a5e4a;
@@ -276,7 +277,7 @@
 
   <div class="progress-bar" id="progressBar"></div>
 
-  <div class="wrapper">
+<div class="wrapper">
 
     <aside class="sidebar-toc" id="sidebarToc">
       <div class="toc-label">On this page</div>
@@ -980,6 +981,9 @@ Since Ed = 2 > 1 → Relatively Elastic Demand</pre>
         </div>
       </section>
 
+  <script id="chapter-terms-data" type="application/json">
+  [{"term":"Price Elasticity of Demand","definition":"Percentage change in quantity demanded divided by percentage change in Price"},{"term":"Perfectly Inelastic (Ed = 0)","definition":"No change in demand despite price change"},{"term":"Relatively Inelastic (0<Ed<1)","definition":"Demand changes less than price"},{"term":"Unitary Elastic (Ed = 1)","definition":"Demand changes equal to price"},{"term":"Relatively Elastic (1<Ed<∞)","definition":"Demand changes more than price"},{"term":"Perfectly Elastic (Ed = ∞)","definition":"Infinite demand at a given price"},{"term":"Percentage Method","definition":"Ed = (percentage change in Qd) / (percentage change in P), given by Marshall"},{"term":"Total Expenditure Method","definition":"Uses P x Q relationship to find elasticity"},{"term":"Cross Elasticity","definition":"Percentage change in Qd of X / Percentage change in price of Y"},{"term":"Income Elasticity","definition":"Percentage change in Qd / Percentage change in income"},{"term":"Substitute Goods","definition":"Cross elasticity > 0"},{"term":"Complementary Goods","definition":"Cross elasticity < 0"},{"term":"Normal Goods","definition":"Income elasticity > 0"},{"term":"Inferior Goods","definition":"Income elasticity < 0"}]
+  </script>
       <div class="footer">
         <p>Economics Notes · Class 11 · Chapter 4 — Elasticity of Demand</p>
       </div>
@@ -1038,5 +1042,7 @@ Since Ed = 2 > 1 → Relatively Elastic Demand</pre>
     overlay.addEventListener('click', closeDrawer);
     drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeDrawer); });
   </script>
+
+  <script src="../assets/study-os.js"></script>
 </body>
 </html>

@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 3 — Collection of Data | Statistics Class 11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+    <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+
+    nav.top-nav .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .wrapper {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      gap: 40px;
+    }
+
+    aside.toc {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    aside.toc h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    aside.toc a {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    aside.toc a:hover,
+    aside.toc a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    main.content {
+      flex: 1;
+      max-width: var(--max-width);
+    }
+
+    .hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .hero .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    section { margin-bottom: 48px; }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.35;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    section h4 {
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    section p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    blockquote {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    blockquote strong { font-weight: 600; }
+
+    .callout {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: #5a4a1a;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    table thead {
+      background: var(--accent-light);
+    }
+
+    table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    table tbody tr:first-child td { border-top: none; }
+
+    table tbody tr:hover { background: #f5f3ef; }
+
+    table td:first-child { font-weight: 500; white-space: nowrap; }
+
+    pre {
+      background: #1a1a2e;
+      color: #e4e4f0;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    section ul, section ol {
+      margin: 12px 0 16px;
+      padding-left: 24px;
+    }
+
+    section li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    section ul ul { margin: 4px 0 4px 16px; }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .terms-grid .term {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
+
+    .terms-grid .term strong {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .terms-grid .term span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      height: 2px;
+      z-index: 99;
+      background: transparent;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
+    section p strong { color: var(--accent); font-weight: 600; }
+
+    .mermaid-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      margin: 20px 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: center;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .mermaid-wrap svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .mermaid-wrap svg .nodeLabel {
+      font-family: var(--font-body) !important;
+      font-size: 13px !important;
+    }
+
+    .mermaid-wrap svg .edgeLabel {
+      font-family: var(--font-body) !important;
+      font-size: 12px !important;
+    }
+
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        top: auto;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150;
+        transition: max-height 0.35s ease;
+        padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      aside.toc h3 { margin-bottom: 12px; }
+      .toc-toggle { display: block; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .terms-grid { grid-template-columns: 1fr; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+  
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: zoom-out;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      background: #fff;
+      padding: 16px;
+      cursor: default;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 28px;
+      color: #fff;
+      font-size: 36px;
+      font-weight: 300;
+      cursor: pointer;
+      opacity: 0.8;
+      line-height: 1;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-caption {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      margin-top: 16px;
+      font-family: Outfit, sans-serif;
+    }
+    .mermaid-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: zoom-in;
+      transition: opacity 0.2s ease;
+    }
+    .mermaid-img:hover { opacity: 0.85; }
+</style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">&#x2190; Statistics <span>Notes</span></a>
+    <span class="meta">Class 11 · Chapter 3</span>
+  </nav>
+
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+<button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
+
+  <div class="wrapper">
+
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#introduction" class="toc-h2">1. Introduction</a>
+      <a href="#sources-of-data" class="toc-h2">2. Sources of Data</a>
+      <a href="#types-of-data" class="toc-h2">3. Types of Data: Primary vs Secondary</a>
+      <a href="#primary-data" class="toc-h3">3.1 Primary Data</a>
+      <a href="#secondary-data" class="toc-h3">3.2 Secondary Data</a>
+      <a href="#comparison-table" class="toc-h3">3.3 Primary vs Secondary Data — Comparison Table</a>
+      <a href="#methods-primary" class="toc-h2">4. Methods of Collecting Primary Data</a>
+      <a href="#direct-personal" class="toc-h3">4.1 Direct Personal Investigation</a>
+      <a href="#indirect-oral" class="toc-h3">4.2 Indirect Oral Investigation</a>
+      <a href="#direct-vs-indirect" class="toc-h3">4.3 Direct Personal vs Indirect Oral Investigation</a>
+      <a href="#correspondents" class="toc-h3">4.4 Information from Correspondents</a>
+      <a href="#telephonic" class="toc-h3">4.5 Telephonic Interviews</a>
+      <a href="#mailed-questionnaire" class="toc-h3">4.6 Mailed Questionnaire Method</a>
+      <a href="#enumerators" class="toc-h3">4.7 Questionnaire Filled by Enumerators</a>
+      <a href="#quick-compare" class="toc-h3">4.8 Quick Comparison — All 6 Methods</a>
+      <a href="#questionnaire" class="toc-h2">5. Construction of a Good Questionnaire</a>
+      <a href="#census-vs-sampling" class="toc-h2">6. Census Method vs Sampling Method</a>
+      <a href="#census" class="toc-h3">6.1 Census Method</a>
+      <a href="#sampling" class="toc-h3">6.2 Sampling Method</a>
+      <a href="#sample-size" class="toc-h3">6.3 Factors Affecting Sample Size</a>
+      <a href="#good-sample" class="toc-h3">6.4 Requisites of a Good Sample</a>
+      <a href="#census-sampling-table" class="toc-h3">6.5 Census vs Sampling — Comparison Table</a>
+      <a href="#principles" class="toc-h2">7. Principles of Sampling</a>
+      <a href="#types-sampling" class="toc-h2">8. Types of Sampling</a>
+      <a href="#random-sampling" class="toc-h3">8.1 Random Sampling</a>
+      <a href="#non-random-sampling" class="toc-h3">8.2 Non-Random Sampling</a>
+      <a href="#statistical-errors" class="toc-h2">9. Statistical Errors</a>
+      <a href="#secondary-data-sources" class="toc-h2">10. Secondary Data — Sources and Precautions</a>
+      <a href="#organisations" class="toc-h2">11. Important Organisations</a>
+      <a href="#practice-questions" class="toc-h2">12. Practice Questions</a>
+      <a href="#quick-revision" class="toc-h2">Chapter at a Glance — Quick Revision Card</a>
+    </aside>
+
+    <main class="content">
+
+      <header class="hero fade-in">
+        <span class="chapter-badge">Chapter 3</span>
+        <h1>Collection of Data — Complete Revision Notes</h1>
+        <blockquote><strong>Subject:</strong> Statistics for Economics | <strong>Class 11</strong></blockquote>
+      </header>
+
+      <section id="introduction" class="fade-in">
+        <h2>1. Introduction</h2>
+        <p>The purpose of collecting data is to gather evidence for reaching a sound and clear solution to a problem. Data collection is the first and most important step in any statistical investigation.</p>
+        <pre>Problem → Need for Evidence → Collect Data → Analyse → Solution</pre>
+      </section>
+
+      <hr>
+
+      <section id="sources-of-data" class="fade-in">
+        <h2>2. Sources of Data</h2>
+        <p>Data can be obtained from two types of sources:</p>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch3-Collection-of-Data_d01_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Source</th><th>Meaning</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Internal Source</strong></td><td>Data collected from an organisation's own reports and records</td><td>Employee records (name, age, gender), sales data, annual reports</td></tr>
+              <tr><td><strong>External Source</strong></td><td>Data collected from outside the organisation</td><td>Tourism data gathered from external agencies for UP Tourism</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="types-of-data" class="fade-in">
+        <h2>3. Types of Data: Primary vs Secondary</h2>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch3-Collection-of-Data_d02_flowchart_LR.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <h3 id="primary-data">3.1 Primary Data</h3>
+        <p><strong>Definition:</strong> Data originally collected by an investigator or agency from its source of origin for the first time for a specific purpose.</p>
+        <ul>
+          <li><strong>Key characteristics:</strong> Original, first-hand, collected for a specific purpose</li>
+          <li><strong>Example:</strong> Population census conducted by the Government of India — data is collected directly from people</li>
+        </ul>
+
+        <h3 id="secondary-data">3.2 Secondary Data</h3>
+        <p><strong>Definition:</strong> Data which is not directly collected but obtained from published or unpublished sources. It has already been collected and processed by someone else. Also known as <strong>Second-hand Data</strong>.</p>
+        <ul>
+          <li><strong>Key characteristics:</strong> Already collected, obtained from published/unpublished sources, ready for use</li>
+          <li><strong>Example:</strong> A researcher using data from The Times of India for their study</li>
+        </ul>
+
+        <h3 id="comparison-table">3.3 Primary vs Secondary Data — Comparison Table</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Primary Data</th><th>Secondary Data</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Originality</strong></td><td>Original — collected by the investigator themselves</td><td>Not original — uses data collected by others</td></tr>
+              <tr><td><strong>Source</strong></td><td>Collected directly using methods of data collection</td><td>Already collected and processed by someone else</td></tr>
+              <tr><td><strong>Time required</strong></td><td>Longer time needed for collection</td><td>Less time required</td></tr>
+              <tr><td><strong>Cost</strong></td><td>Expensive — requires money, personnel, and planning</td><td>Cheaper — obtained from published or unpublished material</td></tr>
+              <tr><td><strong>Accuracy</strong></td><td>High</td><td>Moderate — precautions needed before use</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="methods-primary" class="fade-in">
+        <h2>4. Methods of Collecting Primary Data</h2>
+        <p>There are <strong>six methods</strong> of collecting primary data:</p>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch3-Collection-of-Data_d03_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <hr>
+
+        <h3 id="direct-personal">4.1 Direct Personal Investigation (Personal Interview)</h3>
+        <p><strong>What it is:</strong> The investigator collects data through direct contact with the informant and conducts on-the-spot enquiry.</p>
+        <p><strong>Suitable when:</strong></p>
+        <ul>
+          <li>Detailed information is required</li>
+          <li>The area of investigation is limited</li>
+          <li>The nature of enquiry is confidential</li>
+          <li>Maximum accuracy is needed</li>
+          <li>Originality is important</li>
+        </ul>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Originality of data</td><td>Not suitable for wide areas</td></tr>
+              <tr><td>Reliable and accurate</td><td>Expensive and time-consuming</td></tr>
+              <tr><td>Flexibility — questions can be adapted</td><td>Personal bias/prejudice possible</td></tr>
+              <tr><td>Uniformity in data</td><td>Requires trained personnel</td></tr>
+              <tr><td>Suitable for all types of questions</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+        <h3 id="indirect-oral">4.2 Indirect Oral Investigation</h3>
+        <p><strong>What it is:</strong> The investigator approaches third parties who possess information about the subject of enquiry, rather than the informants themselves.</p>
+        <p><strong>Suitable when:</strong></p>
+        <ul>
+          <li>Informants are unable to give information due to ignorance or unwillingness</li>
+          <li>The area of investigation is very large</li>
+          <li>Secret or sensitive information needs to be gathered</li>
+          <li>The problem is complex and requires expert opinion</li>
+        </ul>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Wide coverage</td><td>Indirect information — not original</td></tr>
+              <tr><td>Economical</td><td>Lack of accuracy</td></tr>
+              <tr><td>Free from investigator bias</td><td>Possibility of witness partiality</td></tr>
+              <tr><td>Expert opinion can be obtained</td><td>Lack of interest from informants</td></tr>
+              <tr><td></td><td>Lack of uniformity</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="direct-vs-indirect">4.3 Direct Personal vs Indirect Oral Investigation</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Direct Personal Investigation</th><th>Indirect Oral Investigation</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Coverage</strong></td><td>Suitable for limited areas</td><td>Can cover wide areas</td></tr>
+              <tr><td><strong>Originality</strong></td><td>Data is original</td><td>Lacks originality</td></tr>
+              <tr><td><strong>Reliability</strong></td><td>More reliable and accurate</td><td>Less reliable and accurate</td></tr>
+              <tr><td><strong>Cost</strong></td><td>Expensive</td><td>Economical</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+        <h3 id="correspondents">4.4 Information from Correspondents</h3>
+        <p><strong>What it is:</strong> Local agents or correspondents are appointed and trained to collect information from respondents.</p>
+        <p><strong>Real-life example:</strong> News channels like CNN or News 18 have correspondents in different cities who collect and report news.</p>
+        <p><strong>Suitable when:</strong></p>
+        <ul>
+          <li>Regular and continuous information is required</li>
+          <li>The area of investigation is very large</li>
+          <li>A high degree of accuracy is not required</li>
+        </ul>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Wide coverage</td><td>Lack of originality</td></tr>
+              <tr><td>Economical</td><td>Lack of uniformity</td></tr>
+              <tr><td>Suitable for special purposes</td><td>Risk of partiality</td></tr>
+              <tr><td>Continuity of data</td><td>Lacks high degree of accuracy</td></tr>
+              <tr><td></td><td>Time-consuming</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+        <h3 id="telephonic">4.5 Telephonic Interviews</h3>
+        <p><strong>What it is:</strong> Data is collected through an interview over the telephone with the interviewer.</p>
+        <p><strong>Suitable when:</strong></p>
+        <ul>
+          <li>Respondents have a telephone connection</li>
+          <li>Data needs to be collected quickly</li>
+        </ul>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Wide coverage</td><td>Limited use — not everyone has a telephone</td></tr>
+              <tr><td>Economical</td><td>Visual feedback is not possible</td></tr>
+              <tr><td>Doubts can be clarified</td><td>Respondents may be confused</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+        <h3 id="mailed-questionnaire">4.6 Mailed Questionnaire Method</h3>
+        <p><strong>What it is:</strong> The investigator prepares a questionnaire with a covering letter and sends it to respondents by mail. Respondents fill it out themselves and return it.</p>
+        <p><strong>Suitable when:</strong></p>
+        <ul>
+          <li>The field of investigation is very large</li>
+          <li>Respondents are literate and likely to cooperate</li>
+        </ul>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Wide coverage</td><td>Limited scope — only for literate respondents</td></tr>
+              <tr><td>Economical</td><td>Less accuracy — questions may be misunderstood</td></tr>
+              <tr><td>Originality — respondent fills it themselves</td><td>Lack of interest — respondents may not return it</td></tr>
+              <tr><td>Free from investigator bias</td><td>Risk of misinterpretation</td></tr>
+              <tr><td>Maintains secrecy (can be anonymous)</td><td>Time-consuming</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+        <h3 id="enumerators">4.7 Questionnaire Filled by Enumerators</h3>
+        <p><strong>What it is:</strong> The enumerator personally visits informants with a questionnaire, asks questions, and records their replies in their own language.</p>
+        <p><strong>Suitable when:</strong></p>
+        <ul>
+          <li>Adequate finance and trained enumerators are available</li>
+          <li>A wide area needs to be covered</li>
+          <li>Accuracy of results is important</li>
+        </ul>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Wide coverage</td><td>Costly method</td></tr>
+              <tr><td>Accurate and reliable information</td><td>Time-consuming</td></tr>
+              <tr><td>Better response due to personal contact</td><td>Risk of partiality</td></tr>
+              <tr><td>Limited chance of bias</td><td>Inability of untrained enumerators</td></tr>
+              <tr><td>Useful for illiterate respondents</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <blockquote><strong>Note:</strong> A <strong>questionnaire</strong> is filled by the informant themselves, whereas a <strong>schedule</strong> is filled by the enumerator.</blockquote>
+
+        <hr>
+
+        <h3 id="quick-compare">4.8 Quick Comparison — All 6 Methods</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Method</th><th>Coverage</th><th>Cost</th><th>Accuracy</th><th>Speed</th><th>Best For</th></tr></thead>
+            <tbody>
+              <tr><td>Direct Personal</td><td>Limited</td><td>High</td><td>Very High</td><td>Slow</td><td>Confidential/small areas</td></tr>
+              <tr><td>Indirect Oral</td><td>Wide</td><td>Low</td><td>Moderate</td><td>Medium</td><td>Sensitive info, expert opinion</td></tr>
+              <tr><td>Information from Correspondents</td><td>Wide</td><td>Low</td><td>Moderate</td><td>Medium</td><td>Regular/continuous data</td></tr>
+              <tr><td>Telephonic Interviews</td><td>Wide</td><td>Low</td><td>Moderate</td><td>Fast</td><td>Quick surveys</td></tr>
+              <tr><td>Mailed Questionnaire</td><td>Wide</td><td>Low</td><td>Moderate</td><td>Slow</td><td>Literate respondents, large area</td></tr>
+              <tr><td>Questionnaire by Enumerators</td><td>Wide</td><td>High</td><td>High</td><td>Slow</td><td>Illiterate respondents, accuracy needed</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="questionnaire" class="fade-in">
+        <h2>5. Construction of a Good Questionnaire</h2>
+        <p>The following principles should be followed when constructing a questionnaire:</p>
+        <ol>
+          <li><strong>Covering Letter</strong> — Attach a letter explaining the purpose of the survey</li>
+          <li><strong>Simple and Short Questions</strong> — Avoid long and complicated questions</li>
+          <li><strong>Logical Arrangement</strong> — Start with simple questions, difficult ones later</li>
+          <li><strong>Avoid Personal Questions</strong> — People are reluctant to answer personal questions</li>
+          <li><strong>Avoid Leading Questions</strong> — Do not suggest an answer (e.g., "Do you also think this product is good?")</li>
+          <li><strong>Avoid Double Negatives</strong> — Questions like "Do you not disagree?" create confusion</li>
+          <li><strong>Avoid Questions Requiring Calculations</strong> — Respondents generally avoid calculations</li>
+          <li><strong>Clear Instructions</strong> — Explain clearly how to fill the questionnaire</li>
+          <li><strong>Pre-testing (Pilot Survey)</strong> — Test the questionnaire on a small sample first</li>
+          <li><strong>Attractive Appearance</strong> — A well-designed questionnaire gets better responses</li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <section id="census-vs-sampling" class="fade-in">
+        <h2>6. Census Method vs Sampling Method</h2>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch3-Collection-of-Data_d04_flowchart_LR.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <hr>
+
+        <h3 id="census">6.1 Census Method (Complete Enumeration)</h3>
+        <p><strong>What it is:</strong> Data is collected from each and every element of the population. Also known as <strong>Complete Enumeration</strong>, <strong>100% Enumeration</strong>, or <strong>Complete Survey</strong>.</p>
+        <p><strong>Example:</strong> The Census of India is conducted every 10 years. Every household and every individual is surveyed.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Provides intensive and in-depth information</td><td>Very expensive, especially for large populations</td></tr>
+              <tr><td>Highly accurate and reliable</td><td>Requires more time and manpower</td></tr>
+              <tr><td>Suitable for heterogeneous populations</td><td>Cannot be used for infinite populations</td></tr>
+              <tr><td></td><td>Cannot be used if the study involves destruction (e.g., testing tyres on road)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+        <h3 id="sampling">6.2 Sampling Method</h3>
+        <p><strong>What it is:</strong> Only a few representative items (a sample) are selected from the population, and data collected from them is used to draw conclusions about the entire population.</p>
+        <p><strong>Example:</strong> To find the average monthly wages of 600 workers, we survey only 60 workers instead of all 600. The average of the 60 workers is taken as representative of all 600.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Reduced cost — cheaper than census</td><td>100% accuracy cannot be achieved</td></tr>
+              <tr><td>Greater speed — faster data collection</td><td>Sample may not be representative</td></tr>
+              <tr><td>Greater accuracy — if done scientifically, can be more accurate than census</td><td>Risk of bias in sample selection</td></tr>
+              <tr><td>Greater scope — possible even with specialised equipment</td><td>Requires specialised knowledge</td></tr>
+              <tr><td>Detailed enquiry — smaller size allows deeper study</td><td>Not suitable for heterogeneous populations</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+        <h3 id="sample-size">6.3 Factors Affecting Sample Size</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Factor</th><th>If this is HIGH</th><th>Sample Size</th></tr></thead>
+            <tbody>
+              <tr><td>Population Size</td><td>Large population</td><td>Larger sample</td></tr>
+              <tr><td>Accuracy Desired</td><td>More accuracy needed</td><td>Larger sample</td></tr>
+              <tr><td>Heterogeneity</td><td>Population is diverse</td><td>Larger sample</td></tr>
+              <tr><td>Nature of Study</td><td>Extensive (non-repeated) study</td><td>Larger sample</td></tr>
+              <tr><td>Non-cooperation</td><td>Many respondents may not cooperate</td><td>Larger sample</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+        <h3 id="good-sample">6.4 Requisites of a Good Sample</h3>
+        <ol>
+          <li><strong>Representative</strong> — Randomly selected so that every unit has an equal chance of being chosen</li>
+          <li><strong>Adequacy</strong> — Large enough to represent all characteristics of the population</li>
+          <li><strong>Homogeneity</strong> — The more homogeneous the population, the better the sample</li>
+          <li><strong>Independence</strong> — Selection of each item should be independent of others</li>
+          <li><strong>Matches Objective</strong> — The sample should serve the purpose of the investigation</li>
+        </ol>
+
+        <hr>
+
+        <h3 id="census-sampling-table">6.5 Census vs Sampling — Comparison Table</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Census Method</th><th>Sampling Method</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Nature of Enquiry</strong></td><td>Extensive — every unit is studied</td><td>Limited — only a few units are studied</td></tr>
+              <tr><td><strong>Economy</strong></td><td>High cost, time, and labour</td><td>Less cost, time, and labour</td></tr>
+              <tr><td><strong>Suitability</strong></td><td>Suitable for heterogeneous populations</td><td>Suitable for homogeneous populations</td></tr>
+              <tr><td><strong>Reliability and Accuracy</strong></td><td>Quite reliable and accurate</td><td>Less reliable and accurate</td></tr>
+              <tr><td><strong>Nature of Error</strong></td><td>Only error of bias possible</td><td>Sampling error in addition to bias error</td></tr>
+              <tr><td><strong>Organisation and Supervision</strong></td><td>Difficult to organise and supervise</td><td>Comparatively easier to organise and supervise</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="principles" class="fade-in">
+        <h2>7. Principles of Sampling</h2>
+        <p>The theory of sampling is based on two important principles:</p>
+
+        <h3>7.1 Law of Statistical Regularity</h3>
+        <blockquote>If a random sample of adequate size is selected from a large population, it tends to possess the same characteristics as those of the population.</blockquote>
+        <p><strong>In simple terms:</strong> A properly selected random sample of sufficient size will accurately represent the entire population.</p>
+
+        <h3>7.2 Law of Inertia of Large Numbers</h3>
+        <blockquote>The aggregates or averages obtained from a large group are more stable than those obtained from a small group. The larger the sample size, the more accurate the results are likely to be.</blockquote>
+        <p><strong>In simple terms:</strong> More data leads to more stable and reliable results. Smaller groups have greater fluctuations.</p>
+      </section>
+
+      <hr>
+
+      <section id="types-sampling" class="fade-in">
+        <h2>8. Types of Sampling</h2>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch3-Collection-of-Data_d05_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <hr>
+
+        <h3 id="random-sampling">8.1 Random Sampling (Probability Sampling)</h3>
+        <p>Every item in the universe has a known chance of being chosen for the sample. No discrimination is involved.</p>
+
+        <h4>(A) Simple Random Sampling (Unrestricted Random Sampling)</h4>
+        <p>Every item of the population has an equal chance of being selected.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Method</th><th>How it Works</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Lottery Method</strong></td><td>Write names/numbers on slips, fold them, place in a bowl, mix thoroughly, and pick randomly</td></tr>
+              <tr><td><strong>Random Number Table</strong></td><td>Use a random number table to select items scientifically</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>No personal bias</td><td>Unsuitable for small sampling</td></tr>
+              <tr><td>Based on probability — scientific</td><td>Difficult to prepare a sampling frame (complete list required)</td></tr>
+              <tr><td>Accuracy can be assessed</td><td>Time-consuming</td></tr>
+              <tr><td>Increasingly representative of the population</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>(B) Restricted Random Sampling</h4>
+        <p>A random sample is selected under certain restrictions. Important methods include:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Explanation</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Stratified Random</strong></td><td>Population is divided into groups (strata), and items are randomly selected from each group</td><td>Divide school students by class (6th, 7th, 8th...) then randomly select students from each class</td></tr>
+              <tr><td><strong>Systematic</strong></td><td>From a complete list, every nth item is selected</td><td>From a list of 1000, select every 10th item (10, 20, 30...)</td></tr>
+              <tr><td><strong>Cluster</strong></td><td>Population is divided into clusters, and a given number of clusters are chosen at random</td><td>School has 100 sections, randomly pick 10 sections, survey all students in those sections</td></tr>
+              <tr><td><strong>Multistage</strong></td><td>An extension of cluster sampling carried out in multiple stages</td><td>Country → 3 States → 2 Cities → 10 Localities → Households</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+        <h3 id="non-random-sampling">8.2 Non-Random Sampling (Non-Probability Sampling)</h3>
+        <p>The selection of a sample depends on the judgement and convenience of the investigator rather than on chance.</p>
+
+        <h4>(A) Judgement Sampling</h4>
+        <p>The sample items are chosen based exclusively on the judgement of the investigator. The investigator must be well-trained and knowledgeable about the population.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Simple and easy — no complicated procedures</td><td>Personal prejudice/bias may affect selection</td></tr>
+              <tr><td>Proper representation (if investigator is skilled and unbiased)</td><td>Error of judgement possible</td></tr>
+              <tr><td>Avoids irrelevant items — only important ones selected</td><td>Not an objective method — sampling error cannot be measured</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>(B) Quota Sampling</h4>
+        <p>The population is subdivided into various groups, and a quota (number of items to be selected from each subgroup) is fixed. Within the quota, selection depends on the investigator's judgement.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Reliable results (if investigators are skilled)</td><td>Risk of personal prejudice</td></tr>
+              <tr><td>Economical — low cost of preparation and fieldwork</td><td>Sampling error cannot be estimated</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>(C) Convenience Sampling</h4>
+        <p>The investigator selects sample units based on convenience and accessibility.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merits</th><th>Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Economical — less expensive and time-consuming</td><td>Sample does not represent the population</td></tr>
+              <tr><td>Easy to locate and contact respondents</td><td>Prone to bias by nature</td></tr>
+              <tr><td>Suitable for pilot surveys and pre-testing</td><td>Results are often unsatisfactory and misleading</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <blockquote><strong>Key Difference:</strong> In <strong>random sampling</strong>, chance decides who is selected. In <strong>non-random sampling</strong>, the investigator decides who is selected.</blockquote>
+      </section>
+
+      <hr>
+
+      <section id="statistical-errors" class="fade-in">
+        <h2>9. Statistical Errors</h2>
+
+        <h3>9.1 Sources of Statistical Errors</h3>
+        <p><strong>Statistical Error</strong> refers to the difference between the collected data and the actual value of facts. (Note: A <strong>mistake</strong> is a wrong calculation or use of an inappropriate method.)</p>
+        <p><strong>Sources of errors:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Error Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Error of Origin</strong></td><td>Arises from improper definition of the subject, investigator bias, defective questionnaire, improper sampling, or inherent instability of data</td></tr>
+              <tr><td><strong>Error of Manipulation</strong></td><td>Arises from errors in counting, measurement, description, and approximation of figures</td></tr>
+              <tr><td><strong>Error of Inadequacy</strong></td><td>Arises from incomplete or unrepresentative data, or from careless or unqualified investigators</td></tr>
+              <tr><td><strong>Error of Interpretation</strong></td><td>Occurs when data is misinterpreted</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>9.2 Types of Statistical Errors</h3>
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch3-Collection-of-Data_d06_flowchart_LR.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <h3>9.3 Measures of Statistical Errors</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Formula</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Absolute Error</strong></td><td>|Actual Value - Estimated Value|</td><td>Actual = ₹1000, Estimated = ₹880 → Error = ₹120</td></tr>
+              <tr><td><strong>Relative Error</strong></td><td>Absolute Error ÷ Actual Value</td><td>120 ÷ 1000 = 0.12 or 12%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="secondary-data-sources" class="fade-in">
+        <h2>10. Secondary Data — Sources and Precautions</h2>
+
+        <h3>10.1 Sources of Secondary Data</h3>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch3-Collection-of-Data_d07_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <p><strong>Important Published Sources in India:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Source</th><th>Examples</th></tr></thead>
+            <tbody>
+              <tr><td>Central and State Governments</td><td>Economic Survey, Five-Year Plans, Census of India, India Annual Book</td></tr>
+              <tr><td>Semi-Government</td><td>Municipalities, District Boards — data on birth, death, education</td></tr>
+              <tr><td>International</td><td>UNO, WHO, IMF, World Bank reports</td></tr>
+              <tr><td>Trade Associations</td><td>Institute of Chartered Accountants, Trade Unions</td></tr>
+              <tr><td>Newspapers and Magazines</td><td>Economic Times, Financial Express, Business Today</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>10.2 Limitations of Secondary Data</h3>
+        <ol>
+          <li>No proper procedure may have been followed to collect the data</li>
+          <li>May be influenced by the prejudices of the original investigator</li>
+          <li>Sometimes lacks standard of accuracy</li>
+          <li>May not cover the full period required for investigation</li>
+        </ol>
+
+        <h3>10.3 Precautions Before Using Secondary Data</h3>
+        <ol>
+          <li><strong>Reliability</strong> — Who collected the data? What method was used?</li>
+          <li><strong>Suitability</strong> — Is the data suitable for the current purpose?</li>
+          <li><strong>Adequacy and Accuracy</strong> — Is the data sufficient and accurate?</li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <section id="organisations" class="fade-in">
+        <h2>11. Important Organisations</h2>
+
+        <h3>11.1 Census of India</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td><strong>What it is</strong></td><td>The most complete and continuous demographic record of India's population</td></tr>
+              <tr><td><strong>Frequency</strong></td><td>Every 10 years (conducted continuously since 1881)</td></tr>
+              <tr><td><strong>First census after independence</strong></td><td>1951</td></tr>
+              <tr><td><strong>Most recent census</strong></td><td>2011 (15th Indian census, 7th after independence)</td></tr>
+              <tr><td><strong>Responsible authority</strong></td><td>Office of the Registrar General and Census Commissioner, India (Ministry of Home Affairs)</td></tr>
+              <tr><td><strong>Data collected</strong></td><td>Size, density, sex ratio, literacy, migration, rural-urban distribution</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>11.2 National Sample Survey Office (NSSO)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Established</strong></td><td>1950 as the National Sample Survey (NSS)</td></tr>
+              <tr><td><strong>Recommended by</strong></td><td>National Income Committee headed by Prof. P. C. Mahalanobis</td></tr>
+              <tr><td><strong>Reorganised as NSSO</strong></td><td>March 1970</td></tr>
+              <tr><td><strong>Purpose</strong></td><td>To fill gaps in statistical data for computation of national income, especially for the unorganised/household sector</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Types of surveys conducted by NSSO:</strong></p>
+        <ol>
+          <li>Socio-economic surveys</li>
+          <li>Annual Survey of Industries</li>
+          <li>Agricultural surveys</li>
+        </ol>
+
+        <p><strong>Divisions of NSSO:</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Division</th><th>Function</th></tr></thead>
+            <tbody>
+              <tr><td><strong>SDRD</strong></td><td>Survey Design and Research Division</td></tr>
+              <tr><td><strong>FOD</strong></td><td>Field Operations Division</td></tr>
+              <tr><td><strong>DPD</strong></td><td>Data Processing Division</td></tr>
+              <tr><td><strong>CPD</strong></td><td>Co-ordination and Publication Division</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Key Activities:</strong></p>
+        <ul>
+          <li>Conducts multi-subject integrated socio-economic surveys</li>
+          <li>Undertakes field work for the Annual Survey of Industries</li>
+          <li>Conducts sample checks on area enumeration and crop estimation surveys</li>
+          <li>Prepares urban frames for drawing urban samples</li>
+          <li>Collects price data from rural and urban sectors</li>
+          <li>Conducts ad-hoc surveys and pilot enquiries for methodological studies</li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <section id="practice-questions" class="fade-in">
+        <h2>12. Practice Questions</h2>
+
+        <h3>12.1 Multiple Choice Questions</h3>
+
+        <p><strong>Q1.</strong> A good questionnaire should have:</p>
+        <ul>
+          <li>(a) Minimum questions</li>
+          <li>(b) Concise wording</li>
+          <li>(c) Clear language</li>
+          <li><strong>(d) All of the above</strong></li>
+        </ul>
+
+        <p><strong>Q2.</strong> In random sampling:</p>
+        <ul>
+          <li><strong>(a) Each element has an equal chance of being selected</strong></li>
+          <li>(b) The sample is always full of bias</li>
+          <li>(c) The cost involved is very low</li>
+          <li>(d) The cost involved is high</li>
+        </ul>
+
+        <p><strong>Q3.</strong> The quickest method of collecting primary data is:</p>
+        <ul>
+          <li>(a) Direct Personal Investigation</li>
+          <li>(b) Indirect Oral Investigation</li>
+          <li><strong>(c) Telephonic Interview</strong></li>
+          <li>(d) Mailed Questionnaire Method</li>
+        </ul>
+
+        <p><strong>Q4.</strong> Stratified sampling is preferred when:</p>
+        <ul>
+          <li>(a) The population is perfectly homogeneous</li>
+          <li><strong>(b) The population is non-homogeneous (heterogeneous)</strong></li>
+          <li>(c) Random sampling is not possible</li>
+          <li>(d) Small samples are required</li>
+        </ul>
+
+        <p><strong>Q5.</strong> Data collected from 'The Times of India' is an example of:</p>
+        <ul>
+          <li>(a) Primary Data</li>
+          <li><strong>(b) Secondary Data</strong></li>
+          <li>(c) Census data</li>
+        </ul>
+
+        <p><strong>Q6.</strong> After every ten years, information about the population of India is collected through:</p>
+        <ul>
+          <li><strong>(a) Census</strong></li>
+          <li>(b) Sample survey</li>
+          <li>(c) Both (a) and (b)</li>
+          <li>(d) Neither (a) nor (b)</li>
+        </ul>
+
+        <hr>
+
+        <h3>12.2 Assertion-Reason Questions</h3>
+
+        <p><strong>Q7.</strong></p>
+        <p><strong>Assertion (A):</strong> The results of Indirect Oral Investigation are very accurate.</p>
+        <p><strong>Reason (R):</strong> In Indirect Oral Investigation, information is obtained from other persons, not directly from the informants.</p>
+        <p><strong>Alternatives:</strong></p>
+        <ul>
+          <li>(a) Both A and R are true, and R is the correct explanation of A</li>
+          <li>(b) Both A and R are true, but R is NOT the correct explanation of A</li>
+          <li>(c) A is true but R is false</li>
+          <li><strong>(d) A is false but R is true</strong> <em>(Indirect Oral Investigation is NOT very accurate)</em></li>
+        </ul>
+
+        <p><strong>Q8.</strong></p>
+        <p><strong>Assertion (A):</strong> Census method is also known as '100% Enumeration'.</p>
+        <p><strong>Reason (R):</strong> Data is collected from each and every element of the population under the census method.</p>
+        <p><strong>Alternatives:</strong></p>
+        <ul>
+          <li><strong>(a) Both A and R are true, and R is the correct explanation of A</strong></li>
+        </ul>
+
+        <hr>
+
+        <h3>12.3 True or False Questions</h3>
+
+        <p><strong>Q9.</strong> State whether the following statements are True or False:</p>
+        <ul>
+          <li>(i) There are many sources of data. → <strong>False</strong> (There are only two: Primary and Secondary)</li>
+          <li>(ii) Telephone survey is the most suitable method when the population is literate and spread over a large area. → <strong>False</strong> (Mailed Questionnaire is more suitable for literate populations)</li>
+          <li>(iii) Data collected by the investigator is called secondary data. → <strong>False</strong> (It is called primary data)</li>
+          <li>(iv) There is a certain bias involved in non-random selection of samples. → <strong>True</strong></li>
+        </ul>
+
+        <hr>
+
+        <h3>12.4 Identify the Method</h3>
+
+        <p><strong>Q10.</strong> Identify the appropriate method of collecting primary data:</p>
+        <ul>
+          <li>(i) Local agents are appointed and trained to collect information → <strong>Information from Correspondents</strong></li>
+          <li>(ii) Investigator collects data through direct contact with the informant → <strong>Direct Personal Investigation</strong></li>
+          <li>(iii) Data collected through a telephone interview → <strong>Telephonic Interviews</strong></li>
+          <li>(iv) Enumerator personally visits informants with a questionnaire → <strong>Questionnaire Filled by Enumerators</strong></li>
+          <li>(v) Investigator approaches third parties for information → <strong>Indirect Oral Investigation</strong></li>
+          <li>(vi) Questionnaire sent to respondents by mail → <strong>Mailed Questionnaire Method</strong></li>
+        </ul>
+
+        <hr>
+
+        <h3>12.5 Application Questions</h3>
+
+        <p><strong>Q11.</strong> In a village of 200 farms, a study was conducted to find the cropping pattern. Out of 50 farms surveyed, 50% grew only wheat. What are the population and sample size?</p>
+        <p><strong>Answer:</strong> Population = <strong>200 farms</strong> | Sample = <strong>50 farms</strong></p>
+
+        <p><strong>Q12.</strong> Which method gives better results — Census or Sampling?</p>
+        <p><strong>Answer:</strong> In terms of <strong>accuracy</strong>, the <strong>Census method</strong> is better because it studies every unit of the population. However, it is very time-consuming, expensive, and sometimes not feasible.</p>
+        <p><strong>Sampling</strong> is considered a better method in practice because:</p>
+        <ol>
+          <li><strong>Reduced cost</strong> — data collection is limited to a fraction of the population</li>
+          <li><strong>Greater speed</strong> — only representative units are approached</li>
+          <li><strong>Greater accuracy</strong> — when conducted scientifically, it can be more accurate than census</li>
+          <li><strong>Greater scope</strong> — possible even when specialised investigators or equipment are limited</li>
+        </ol>
+
+        <p><strong>Q13.</strong> Explain how you would use the lottery method to select 3 students out of 10.</p>
+        <p><strong>Answer:</strong></p>
+        <ol>
+          <li>Write the names of all 10 students on separate slips of paper of identical size and shape</li>
+          <li>Fold the slips and place them in a bowl</li>
+          <li>Mix the slips thoroughly</li>
+          <li>Ask a blindfolded or unbiased person to pick three slips, one by one</li>
+          <li>The names on the three drawn slips are the selected students</li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <section id="quick-revision" class="fade-in">
+        <h2>Chapter at a Glance — Quick Revision Card</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Topic</th><th>Key Point</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Primary Data</strong></td><td>First-hand, original, collected by the investigator</td></tr>
+              <tr><td><strong>Secondary Data</strong></td><td>Already collected, from published or unpublished sources</td></tr>
+              <tr><td><strong>6 Collection Methods</strong></td><td>Direct, Indirect, Correspondents, Telephonic, Mailed, Enumerators</td></tr>
+              <tr><td><strong>Census</strong></td><td>100% enumeration, accurate but expensive and time-consuming</td></tr>
+              <tr><td><strong>Sampling</strong></td><td>Few representative units, economical and fast</td></tr>
+              <tr><td><strong>Random Sampling</strong></td><td>Equal chance — includes Simple, Stratified, Systematic, Cluster, Multistage</td></tr>
+              <tr><td><strong>Non-Random Sampling</strong></td><td>Based on judgement — includes Judgement, Quota, Convenience</td></tr>
+              <tr><td><strong>Law of Statistical Regularity</strong></td><td>A random, adequate sample reflects population characteristics</td></tr>
+              <tr><td><strong>Law of Inertia of Large Numbers</strong></td><td>Larger samples give more stable results</td></tr>
+              <tr><td><strong>NSSO</strong></td><td>Set up in 1950 on recommendation of National Income Committee headed by P.C. Mahalanobis</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <script id="chapter-terms-data" type="application/json">[{"term":"Primary Data","definition":"First-hand, original, collected by the investigator"},{"term":"Secondary Data","definition":"Already collected, from published or unpublished sources"},{"term":"6 Collection Methods","definition":"Direct, Indirect, Correspondents, Telephonic, Mailed, Enumerators"},{"term":"Census Method","definition":"100% enumeration, accurate but expensive and time-consuming"},{"term":"Sampling Method","definition":"Few representative units, economical and fast"},{"term":"Random Sampling","definition":"Equal chance — includes Simple, Stratified, Systematic, Cluster, Multistage"},{"term":"Non-Random Sampling","definition":"Based on judgement — includes Judgement, Quota, Convenience"},{"term":"Law of Statistical Regularity","definition":"A random, adequate sample reflects population characteristics"},{"term":"Law of Inertia of Large Numbers","definition":"Larger samples give more stable results"},{"term":"NSSO","definition":"Set up in 1950 on recommendation of National Income Committee headed by P.C. Mahalanobis"}]</script>
+
+      <footer>
+        <p>Source: NCERT Class 11 Statistics for Economics — Chapter 2: Collection of Data &amp; verified against official records</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        'background': '#ffffff',
+        'primaryColor': '#e8f0ec',
+        'primaryTextColor': '#1b1b1b',
+        'primaryBorderColor': '#1a5e4a',
+        'lineColor': '#1a5e4a',
+        'secondaryColor': '#faf8f5',
+        'fontFamily': 'Outfit, -apple-system, sans-serif',
+        'fontSize': '13px',
+        'edgeLabelBackground': '#ffffff',
+        'nodeBorder': '#1a5e4a',
+      },
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'basis',
+        padding: 12,
+      },
+      securityLevel: 'loose',
+    });
+
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+
+    tocToggle.addEventListener('click', () => {
+      toc.classList.toggle('open');
+    });
+
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toc.classList.remove('open');
+      });
+    });
+
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Enlarged diagram">
+    <div class="lightbox-caption">Click anywhere or press Esc to close</div>
+  </div>
+
+  <script>
+    function openLightbox(img) {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      lbImg.src = img.src;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      var lb = document.getElementById('lightbox');
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+  <script src="../assets/study-os.js"></script>
+</body>
+</html>

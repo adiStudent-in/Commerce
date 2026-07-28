@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 5 — Tabular Presentation | Statistics Class 11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+    <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+
+    nav.top-nav .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .wrapper {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      gap: 40px;
+    }
+
+    aside.toc {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    aside.toc h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    aside.toc a {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    aside.toc a:hover,
+    aside.toc a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    main.content {
+      flex: 1;
+      max-width: var(--max-width);
+    }
+
+    .hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .hero .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    section { margin-bottom: 48px; }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.35;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    section h4 {
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    section p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    blockquote {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    blockquote strong { font-weight: 600; }
+
+    .callout {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: #5a4a1a;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    table thead {
+      background: var(--accent-light);
+    }
+
+    table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    table tbody tr:first-child td { border-top: none; }
+
+    table tbody tr:hover { background: #f5f3ef; }
+
+    table td:first-child { font-weight: 500; white-space: nowrap; }
+
+    pre {
+      background: #1a1a2e;
+      color: #e4e4f0;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    section ul, section ol {
+      margin: 12px 0 16px;
+      padding-left: 24px;
+    }
+
+    section li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    section ul ul { margin: 4px 0 4px 16px; }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .terms-grid .term {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
+
+    .terms-grid .term strong {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .terms-grid .term span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      height: 2px;
+      z-index: 99;
+      background: transparent;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
+    section p strong { color: var(--accent); font-weight: 600; }
+
+    .mermaid-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      margin: 20px 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: center;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .mermaid-wrap svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .mermaid-wrap svg .nodeLabel {
+      font-family: var(--font-body) !important;
+      font-size: 13px !important;
+    }
+
+    .mermaid-wrap svg .edgeLabel {
+      font-family: var(--font-body) !important;
+      font-size: 12px !important;
+    }
+
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        top: auto;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150;
+        transition: max-height 0.35s ease;
+        padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      aside.toc h3 { margin-bottom: 12px; }
+      .toc-toggle { display: block; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .terms-grid { grid-template-columns: 1fr; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+  
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: zoom-out;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      background: #fff;
+      padding: 16px;
+      cursor: default;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 28px;
+      color: #fff;
+      font-size: 36px;
+      font-weight: 300;
+      cursor: pointer;
+      opacity: 0.8;
+      line-height: 1;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-caption {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      margin-top: 16px;
+      font-family: Outfit, sans-serif;
+    }
+    .mermaid-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: zoom-in;
+      transition: opacity 0.2s ease;
+    }
+    .mermaid-img:hover { opacity: 0.85; }
+</style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">&#x2190; Statistics <span>Notes</span></a>
+    <span class="meta">Class 11 · Chapter 5</span>
+  </nav>
+
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+<button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
+
+  <div class="wrapper">
+
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#introduction" class="toc-h2">1. Introduction</a>
+      <a href="#textual-presentation" class="toc-h2">2. Textual Presentation</a>
+      <a href="#tabular-presentation" class="toc-h2">3. Tabular Presentation</a>
+      <a href="#parts-of-a-table" class="toc-h2">4. Parts of a Table</a>
+      <a href="#format-of-a-table" class="toc-h2">5. Format of a Table</a>
+      <a href="#types-of-tables" class="toc-h2">6. Types of Tables</a>
+      <a href="#tabulation-vs-classification" class="toc-h2">7. Tabulation vs Classification</a>
+      <a href="#practice-questions" class="toc-h2">8. Practice Questions</a>
+      <a href="#quick-revision-card" class="toc-h2">Chapter at a Glance — Quick Revision Card</a>
+    </aside>
+
+    <main class="content">
+
+      <header class="hero fade-in">
+        <span class="chapter-badge">Chapter 5</span>
+        <h1>Tabular Presentation</h1>
+        <blockquote><strong>Subject:</strong> Statistics for Economics | <strong>Class 11</strong></blockquote>
+      </header>
+
+      <section id="introduction" class="fade-in">
+        <h2>1. Introduction</h2>
+        <p>After data has been <strong>collected</strong> (Chapter 3) and <strong>organised/classified</strong> (Chapter 4), the next step is <strong>presentation</strong> of data. Presentation of data means the data should be presented in such a way that the facts and figures are clearly understood and are capable of being analysed.</p>
+
+        <h3>1.1 Four Forms of Presentation of Data</h3>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch5-Tabular-Presentation_d01_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Form</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Textual / Descriptive</strong></td><td>Data is presented in the form of text/paragraphs</td></tr>
+              <tr><td><strong>Tabular</strong></td><td>Data is presented in rows and columns (tables)</td></tr>
+              <tr><td><strong>Diagrammatic</strong></td><td>Data is presented using diagrams (bar charts, pie charts, etc.)</td></tr>
+              <tr><td><strong>Graphical</strong></td><td>Data is presented using graphs (frequency curves, ogives, etc.)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="textual-presentation" class="fade-in">
+        <h2>2. Textual Presentation of Data</h2>
+        <p>In textual or descriptive presentation, data is presented in the form of <strong>text</strong> or written description.</p>
+
+        <h3>2.1 Example of Textual Presentation</h3>
+
+        <blockquote><em>"In 2022, out of a total of 2,000 applicants in a college, 1,200 were from Commerce background. The number of girls were 750, out of which 330 were from Science stream. In 2023, the total number of applicants were 3,500 of which 2,200 were boys. The number of students from Science stream were 1,100 of which 610 were girls."</em></blockquote>
+
+        <h3>2.2 Limitations of Textual Presentation</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Limitation</th><th>Explanation</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Time-consuming</strong></td><td>One has to go through the complete text for comprehension</td></tr>
+              <tr><td><strong>Difficult to compare</strong></td><td>Finding specific figures requires reading everything</td></tr>
+              <tr><td><strong>Not visually appealing</strong></td><td>Large blocks of text discourage reading</td></tr>
+              <tr><td><strong>Prone to confusion</strong></td><td>Complex data in paragraphs can be hard to follow</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <blockquote><strong>Key Point:</strong> Textual presentation is useful only for small amounts of data. For large datasets, tabular or diagrammatic presentation is preferred.</blockquote>
+      </section>
+
+      <hr>
+
+      <section id="tabular-presentation" class="fade-in">
+        <h2>3. Tabular Presentation of Data</h2>
+        <p>In tabular presentation, data is <strong>systematically presented in rows (horizontally) and columns (vertically)</strong> in the form of a table. This process is known as <strong>Tabulation</strong>.</p>
+
+        <h3>3.1 Tabulation — Definition</h3>
+
+        <blockquote><strong>Tabulation</strong> is the systematic presentation of numerical data in rows and columns.</blockquote>
+
+        <h3>3.2 Example — Text vs Table Comparison</h3>
+        <p>The same data from the textual example above, when presented in a table:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Year</th><th>Stream</th><th>Boys</th><th>Girls</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td>2022</td><td>Commerce</td><td>470</td><td>480</td><td>950</td></tr>
+              <tr><td></td><td>Science</td><td>330</td><td>420</td><td>750</td></tr>
+              <tr><td>2023</td><td>Commerce</td><td>780</td><td>440</td><td>1,220</td></tr>
+              <tr><td></td><td>Science</td><td>490</td><td>610</td><td>1,100</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <blockquote><strong>Notice how much easier it is to compare figures in the table than in the paragraph!</strong></blockquote>
+
+        <h3>3.3 Objectives of Tabulation</h3>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch5-Tabular-Presentation_d02_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Objective</th><th>Explanation</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Simplify complex data</strong></td><td>Large amounts of data are condensed into an easy-to-read format</td></tr>
+              <tr><td><strong>Economise space</strong></td><td>Tables present more information in less space than text</td></tr>
+              <tr><td><strong>Facilitate comparison</strong></td><td>Related figures are placed side by side for easy comparison</td></tr>
+              <tr><td><strong>Facilitate statistical analysis</strong></td><td>Tables make it easy to calculate totals, averages, percentages, etc.</td></tr>
+              <tr><td><strong>Provide reference</strong></td><td>Tables can be numbered and referred to easily</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>3.4 Requisites of a Good Table</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Requisite</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Title</strong></td><td>Every table must have a clear, short, and complete title</td></tr>
+              <tr><td><strong>Manageable Size</strong></td><td>Table should not be too large or too small</td></tr>
+              <tr><td><strong>Attractive</strong></td><td>Should be visually appealing and well-organised</td></tr>
+              <tr><td><strong>Special Emphasis</strong></td><td>Important figures may be highlighted</td></tr>
+              <tr><td><strong>Simplicity</strong></td><td>Should be simple and easy to understand</td></tr>
+              <tr><td><strong>Comparison of Data</strong></td><td>Should facilitate comparison of figures</td></tr>
+              <tr><td><strong>Columns &amp; Rows Numbered</strong></td><td>For easy reference</td></tr>
+              <tr><td><strong>Clarity</strong></td><td>Should be self-explanatory and unambiguous</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="parts-of-a-table" class="fade-in">
+        <h2>4. Parts of a Table</h2>
+        <p>A well-constructed table consists of the following parts:</p>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch5-Tabular-Presentation_d03_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <h3>4.1 Table Number</h3>
+        <ul>
+          <li>Tables should be <strong>numbered</strong> so they can be used for easy reference</li>
+          <li>Numbers can be <strong>integral</strong> (Table 1, 2, 3) or <strong>subscribed</strong> (Table 3.1, 2.4)</li>
+          <li>Usually placed at the <strong>top</strong> of the table</li>
+        </ul>
+
+        <h3>4.2 Title of the Table</h3>
+        <ul>
+          <li>A brief explanation of the contents of the table</li>
+          <li>A good title should be <strong>short, clear, and complete</strong> in all respects</li>
+          <li>Answers: <strong>What? Where? When?</strong> — the subject, place, and time of the data</li>
+        </ul>
+        <p><strong>Example:</strong> <em>"Population of Delhi (1951–2011)"</em> — What (Population), Where (Delhi), When (1951–2011)</p>
+
+        <h3>4.3 Head Note</h3>
+        <ul>
+          <li>If the title does not provide complete information, a <strong>head note</strong> supplements it</li>
+          <li>Usually placed just <strong>below the title</strong> in brackets</li>
+          <li>Explains the unit of measurement or any special feature</li>
+        </ul>
+        <p><strong>Example:</strong> Title: <em>"Literacy in Bihar by Sex &amp; Location"</em><br>Head Note: <em>(Percent)</em> — indicates the figures are in percentages</p>
+
+        <h3>4.4 Column Heading (Caption)</h3>
+        <ul>
+          <li>A word or phrase that explains the contents of a <strong>column</strong> in a table</li>
+          <li>The complete top row containing column headings is called the <strong>caption</strong> area</li>
+        </ul>
+
+        <h3>4.5 Stubs (Row Headings)</h3>
+        <ul>
+          <li><strong>Stubs</strong> are the titles of the <strong>rows</strong> of a table</li>
+          <li>They indicate the information contained in each row</li>
+          <li>The complete <strong>left column</strong> is called the <strong>stub column</strong></li>
+        </ul>
+
+        <blockquote><strong>Memory trick:</strong> Caption = Column headings (top), Stubs = Row headings (left side)</blockquote>
+
+        <h3>4.6 Body of the Table</h3>
+        <ul>
+          <li>The body means the <strong>sum total of items</strong> in the table</li>
+          <li>It indicates the <strong>values</strong> of various items</li>
+          <li>Each individual item in the body is called a <strong>'cell'</strong></li>
+        </ul>
+
+        <h3>4.7 Unit of Measurement</h3>
+        <ul>
+          <li>The unit of measurement of the figures should always be stated</li>
+          <li>Placed along with the title (if uniform throughout the table)</li>
+          <li>Example: &#8377; (Rupees), kg, %, tons, '000, etc.</li>
+        </ul>
+
+        <h3>4.8 Footnote</h3>
+        <ul>
+          <li>Explains any specific feature of the table content that is <strong>not self-explanatory</strong></li>
+          <li>Used to:
+            <ol>
+              <li>Point out any <strong>exceptions</strong> to the data</li>
+              <li>Mention any <strong>special circumstances</strong> affecting the data</li>
+            </ol>
+          </li>
+        </ul>
+
+        <h3>4.9 Source Note</h3>
+        <ul>
+          <li>When tables are based on <strong>secondary data</strong>, the source must be given</li>
+          <li>Specified <strong>below the footnote</strong></li>
+          <li>Example: <em>Source: Census of India, 2011</em></li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <section id="format-of-a-table" class="fade-in">
+        <h2>5. Format of a Table — Complete Specimen</h2>
+
+        <pre>Table 5.1  &lt;-- Table Number
+─────────────────────────────────────────────────
+  Title of the Table           &lt;-- Title
+  (Head Note, if any)          &lt;-- Head Note
+─────────────────────────────────────────────────
+           │ Caption (Column Heading) │
+Stub       ├──────────┬──────────┬─────┤
+(Row       │ Sub-Head │ Sub-Head │Total│
+Heading)   ├──────────┼──────────┼─────┤
+───────────┼──────────┼──────────┼─────┤
+Row        │Entries   │Entries   │     │ &lt;-- Body
+Entries    │(Cells)   │(Cells)   │     │
+───────────┼──────────┼──────────┼─────┤
+Total      │    X     │    X     │  X  │
+───────────┴──────────┴──────────┴─────┘
+Source Note: ___________________
+Footnote: _____________________</pre>
+
+        <h3>5.1 Example — Table with All Parts</h3>
+        <p><strong>Table 5.1: Literacy in Bihar by Sex &amp; Location</strong><br><em>(Percent)</em></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Location</th><th colspan="2">Sex</th><th>Row Total</th></tr></thead>
+            <tbody>
+              <tr><td></td><td><strong>Males</strong></td><td><strong>Females</strong></td><td></td></tr>
+              <tr><td>Rural</td><td>69.67</td><td>44.30</td><td>59.78</td></tr>
+              <tr><td>Urban</td><td>82.56</td><td>61.95</td><td>76.86</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>71.20</strong></td><td><strong>51.50</strong></td><td><strong>61.80</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><em>Source Note: Census of India 2011, Provisional Population Totals</em><br>
+        <em>Footnote: Figures are rounded to two digits after decimal.</em></p>
+      </section>
+
+      <hr>
+
+      <section id="types-of-tables" class="fade-in">
+        <h2>6. Types of Tables</h2>
+        <p>Tables can be classified in three ways:</p>
+
+            <div class="mermaid-wrap">
+      <img src="diagrams/Ch5-Tabular-Presentation_d04_flowchart_TD.png" alt="Diagram" class="mermaid-img" onclick="openLightbox(this)" loading="lazy">
+    </div>
+
+        <h3>6.1 Based on Objective or Purpose</h3>
+
+        <h4>(A) General Purpose Table</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Also known as</strong></td><td>Reference Table or Repository Table</td></tr>
+              <tr><td><strong>Purpose</strong></td><td>Represents raw data in great detail — covers variety of information on the same subject</td></tr>
+              <tr><td><strong>Nature</strong></td><td>No specific analytical purpose — just stores data</td></tr>
+              <tr><td><strong>Usage</strong></td><td>Used in reports of <strong>government departments</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>(B) Special Purpose Table</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Also known as</strong></td><td>Summary Table</td></tr>
+              <tr><td><strong>Purpose</strong></td><td>Represents data related to a <strong>specific enquiry</strong></td></tr>
+              <tr><td><strong>Nature</strong></td><td>Provides brief, focused information</td></tr>
+              <tr><td><strong>Usage</strong></td><td>Used to present results of data analysis — e.g., revenue figures of a particular firm over years</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>6.2 Based on Nature of Data</h3>
+
+        <h4>(A) Original Table</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Also known as</strong></td><td>Primary Table or Classification Table</td></tr>
+              <tr><td><strong>Purpose</strong></td><td>Contains statistical information in its <strong>original form</strong> — the way data was collected from primary source</td></tr>
+              <tr><td><strong>Nature</strong></td><td>No approximation — raw data as collected</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>(B) Derived Table</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Also known as</strong></td><td>Derivative Table</td></tr>
+              <tr><td><strong>Purpose</strong></td><td>Represents results derived from original data</td></tr>
+              <tr><td><strong>Nature</strong></td><td>Contains <strong>percentages, averages</strong>, etc. calculated from original tables</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>6.3 Based on Extent of Coverage</h3>
+
+        <h4>(A) Simple Table (One-way Table)</h4>
+        <ul>
+          <li>Represents data or information related to <strong>one variable only</strong></li>
+          <li>Represents <strong>uni-variate</strong> frequency distribution</li>
+          <li>Also known as <strong>one-way table</strong> or <strong>first order table</strong></li>
+        </ul>
+
+        <p><strong>Example — Number of Students in Different Streams of Class XI:</strong></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Sections</th><th>No. of Students</th></tr></thead>
+            <tbody>
+              <tr><td>Science (Medical)</td><td>20</td></tr>
+              <tr><td>Science (Non-medical)</td><td>35</td></tr>
+              <tr><td>Commerce (with Maths)</td><td>25</td></tr>
+              <tr><td>Commerce (without Maths)</td><td>20</td></tr>
+              <tr><td>Humanities</td><td>40</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>170</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>(B) Complex Table</h4>
+        <p>A complex table shows the relationship between <strong>two or more</strong> characteristics of data.</p>
+
+        <h5>(i) Two-Way Table (Double Table)</h5>
+        <ul>
+          <li>Gives information about <strong>two inter-related features</strong> of data</li>
+        </ul>
+
+        <p><strong>Example — Number of Students (Sex-wise) in Different Sections of Class X:</strong></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Sections</th><th>Boys</th><th>Girls</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td>X-A</td><td>20</td><td>15</td><td>35</td></tr>
+              <tr><td>X-B</td><td>25</td><td>10</td><td>35</td></tr>
+              <tr><td>X-C</td><td>30</td><td>20</td><td>50</td></tr>
+              <tr><td>X-D</td><td>20</td><td>25</td><td>45</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>95</strong></td><td><strong>70</strong></td><td><strong>165</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5>(ii) Three-Way Table (Treble Table)</h5>
+        <ul>
+          <li>Presents <strong>three characteristics</strong> of the data simultaneously</li>
+        </ul>
+
+        <p><strong>Example — Students (Sex-wise &amp; Mode of Transport) in Different Sections of Class X:</strong></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2">Sections</th>
+                <th colspan="3">Boys</th>
+                <th colspan="3">Girls</th>
+                <th rowspan="2">Total</th>
+              </tr>
+              <tr>
+                <th>School Transport</th>
+                <th>Private Transport</th>
+                <th>Total</th>
+                <th>School Transport</th>
+                <th>Private Transport</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>X-A</td><td>5</td><td>15</td><td>20</td><td>10</td><td>5</td><td>15</td><td>35</td></tr>
+              <tr><td>X-B</td><td>20</td><td>5</td><td>25</td><td>5</td><td>5</td><td>10</td><td>35</td></tr>
+              <tr><td>X-C</td><td>15</td><td>15</td><td>30</td><td>15</td><td>5</td><td>20</td><td>50</td></tr>
+              <tr><td>X-D</td><td>5</td><td>15</td><td>20</td><td>15</td><td>10</td><td>25</td><td>45</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>45</strong></td><td><strong>50</strong></td><td><strong>95</strong></td><td><strong>45</strong></td><td><strong>25</strong></td><td><strong>70</strong></td><td><strong>165</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5>(iii) Manifold Table</h5>
+        <ul>
+          <li>Used to present <strong>more than three characteristics</strong> of the data</li>
+        </ul>
+
+        <p><strong>Example — Population (Area-wise, Gender-wise &amp; Employment Type) in Various States:</strong></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="3">States</th>
+                <th colspan="4">Rural Area</th>
+                <th colspan="4">Urban Area</th>
+                <th rowspan="3">Total</th>
+              </tr>
+              <tr>
+                <th colspan="2">Male</th>
+                <th colspan="2">Female</th>
+                <th colspan="2">Male</th>
+                <th colspan="2">Female</th>
+              </tr>
+              <tr>
+                <th>Emp.</th><th>Unemp.</th><th>Emp.</th><th>Unemp.</th><th>Emp.</th><th>Unemp.</th><th>Emp.</th><th>Unemp.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Rajasthan</td><td>10</td><td>8</td><td>8</td><td>4</td><td>35</td><td>18</td><td>30</td><td>10</td><td><strong>123</strong></td></tr>
+              <tr><td>Haryana</td><td>15</td><td>7</td><td>7</td><td>3</td><td>40</td><td>17</td><td>35</td><td>15</td><td><strong>139</strong></td></tr>
+              <tr><td>Gujarat</td><td>12</td><td>4</td><td>13</td><td>7</td><td>44</td><td>20</td><td>40</td><td>12</td><td><strong>152</strong></td></tr>
+              <tr><td>Maharashtra</td><td>18</td><td>6</td><td>12</td><td>6</td><td>38</td><td>15</td><td>32</td><td>8</td><td><strong>135</strong></td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>55</strong></td><td><strong>25</strong></td><td><strong>40</strong></td><td><strong>20</strong></td><td><strong>157</strong></td><td><strong>70</strong></td><td><strong>137</strong></td><td><strong>45</strong></td><td><strong>549</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="tabulation-vs-classification" class="fade-in">
+        <h2>7. Tabulation vs Classification — Relationship</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Classification</th><th>Tabulation</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Order</strong></td><td>Precedes tabulation — happens first</td><td>Follows classification — happens after</td></tr>
+              <tr><td><strong>Meaning</strong></td><td>Grouping data based on common characteristics</td><td>Presenting grouped data in rows and columns</td></tr>
+              <tr><td><strong>Purpose</strong></td><td>To sort data into meaningful groups</td><td>To present data in a concise, comparable format</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout"><strong>Note:</strong> Tabulation <strong>follows</strong> classification. First you classify the data, then you present it in a table.</div>
+      </section>
+
+      <hr>
+
+      <section id="practice-questions" class="fade-in">
+        <h2>8. Practice Questions</h2>
+
+        <h3>8.1 Multiple Choice Questions</h3>
+
+        <p><strong>Q1.</strong> On the basis of Objective, tables are of two types:</p>
+        <ul>
+          <li><strong>(a) General Purpose Table and Special Purpose Table</strong></li>
+          <li>(b) Original Table and Derived Table</li>
+          <li>(c) Simple Table and Complex Table</li>
+          <li>(d) None of these</li>
+        </ul>
+
+        <p><strong>Q2.</strong> Treble Table presents __________ characteristics.</p>
+        <ul>
+          <li>(a) Two</li>
+          <li>(b) More than two</li>
+          <li><strong>(c) Three</strong></li>
+          <li>(d) Four</li>
+        </ul>
+
+        <p><strong>Q3.</strong> General Purpose Table is also known as:</p>
+        <ul>
+          <li>(a) Reference Table</li>
+          <li>(c) Repository Table</li>
+          <li><strong>(d) Both (a) and (c)</strong></li>
+          <li>(b) Derivative Table</li>
+        </ul>
+
+        <p><strong>Q4.</strong> Special Purpose Table is also known as:</p>
+        <ul>
+          <li>(a) Reference Table</li>
+          <li><strong>(b) Summary Table</strong></li>
+          <li>(c) Repository Table</li>
+          <li>(d) Original Table</li>
+        </ul>
+
+        <p><strong>Q5.</strong> A table showing only one characteristic of data is called:</p>
+        <ul>
+          <li>(a) Complex Table</li>
+          <li><strong>(b) Simple Table</strong></li>
+          <li>(c) Two-way Table</li>
+          <li>(d) Manifold Table</li>
+        </ul>
+
+        <p><strong>Q6.</strong> The heading of rows in a table is called:</p>
+        <ul>
+          <li>(a) Caption</li>
+          <li><strong>(b) Stub</strong></li>
+          <li>(c) Title</li>
+          <li>(d) Head Note</li>
+        </ul>
+
+        <p><strong>Q7.</strong> The heading of columns in a table is called:</p>
+        <ul>
+          <li><strong>(a) Caption</strong></li>
+          <li>(b) Stub</li>
+          <li>(c) Title</li>
+          <li>(d) Footnote</li>
+        </ul>
+
+        <p><strong>Q8.</strong> Which part of a table explains any exceptions to the data?</p>
+        <ul>
+          <li>(a) Source Note</li>
+          <li>(b) Title</li>
+          <li><strong>(c) Footnote</strong></li>
+          <li>(d) Head Note</li>
+        </ul>
+
+        <p><strong>Q9.</strong> Original Table is also known as:</p>
+        <ul>
+          <li>(a) Derivative Table</li>
+          <li>(b) Summary Table</li>
+          <li><strong>(c) Primary Table</strong></li>
+          <li>(d) Reference Table</li>
+        </ul>
+
+        <p><strong>Q10.</strong> Which of the following is NOT a form of data presentation?</p>
+        <ul>
+          <li>(a) Textual Presentation</li>
+          <li>(b) Tabular Presentation</li>
+          <li>(c) Diagrammatic Presentation</li>
+          <li><strong>(d) Classification of Data</strong> <em>(It is a step before presentation)</em></li>
+        </ul>
+
+        <hr>
+
+        <h3>8.2 Assertion-Reason Questions</h3>
+
+        <p><strong>Q11.</strong></p>
+        <p><strong>Assertion (A):</strong> Captions refer to the headings of horizontal rows.</p>
+        <p><strong>Reason (R):</strong> Source Note refers to the source from which information has been taken.</p>
+        <p><strong>Alternatives:</strong></p>
+        <ul>
+          <li>(a) Both (A) &amp; (R) are True &amp; (R) is the correct explanation of (A)</li>
+          <li>(b) Both (A) &amp; (R) are True &amp; (R) is not the correct explanation of (A)</li>
+          <li>(c) (A) is True but (R) is False</li>
+          <li><strong>(d) (A) is False but (R) is True</strong></li>
+        </ul>
+        <p><em>(Captions are headings of <strong>columns</strong>, not rows. Rows have <strong>Stubs</strong> as headings.)</em></p>
+
+        <p><strong>Q12.</strong></p>
+        <p><strong>Assertion (A):</strong> A simple table is also known as a one-way table.</p>
+        <p><strong>Reason (R):</strong> A simple table represents data related to only one variable.</p>
+        <p><strong>Alternatives:</strong></p>
+        <ul>
+          <li><strong>(a) Both (A) &amp; (R) are True &amp; (R) is the correct explanation of (A)</strong></li>
+          <li>(b) Both (A) &amp; (R) are True &amp; (R) is not the correct explanation of (A)</li>
+          <li>(c) (A) is True but (R) is False</li>
+          <li>(d) (A) is False but (R) is True</li>
+        </ul>
+
+        <p><strong>Q13.</strong></p>
+        <p><strong>Assertion (A):</strong> Tabulation precedes the process of classification.</p>
+        <p><strong>Reason (R):</strong> Both tabulation and classification are methods of statistical analysis.</p>
+        <p><strong>Alternatives:</strong></p>
+        <ul>
+          <li>(a) Both the statements are true</li>
+          <li><strong>(b) Both the statements are false</strong></li>
+          <li>(c) Statement 1 is true &amp; Statement 2 is false</li>
+          <li>(d) Statement 2 is true &amp; Statement 1 is false</li>
+        </ul>
+
+        <hr>
+
+        <h3>8.3 Short Questions</h3>
+
+        <p><strong>Q14.</strong> What is meant by tabulation?</p>
+        <p><strong>Answer:</strong> Tabulation is a systematic presentation of numerical data into rows and columns.</p>
+
+        <p><strong>Q15.</strong> Give two reasons to use footnotes in a table.</p>
+        <p><strong>Answer:</strong></p>
+        <ol>
+          <li>To point out any <strong>exceptions</strong> to the data</li>
+          <li>To mention any <strong>special circumstances</strong> affecting the data</li>
+        </ol>
+
+        <p><strong>Q16.</strong> State the meaning of a simple table.</p>
+        <p><strong>Answer:</strong> A table which shows only <strong>one characteristic</strong> of data is called a simple table.</p>
+
+        <p><strong>Q17.</strong> What is the importance of table number?</p>
+        <p><strong>Answer:</strong> Table number makes it easier to <strong>find out the relevant table</strong> and provides easy reference.</p>
+
+        <p><strong>Q18.</strong> What is the heading of rows called?</p>
+        <p><strong>Answer:</strong> <strong>Stub.</strong></p>
+
+        <p><strong>Q19.</strong> What are the four forms of data presentation?</p>
+        <p><strong>Answer:</strong></p>
+        <ol>
+          <li>Textual / Descriptive Presentation</li>
+          <li>Tabular Presentation</li>
+          <li>Diagrammatic Presentation</li>
+          <li>Graphical Presentation</li>
+        </ol>
+
+        <hr>
+
+        <h3>8.4 Tabulation Problems</h3>
+
+        <p><strong>Q20.</strong> In Class XI, there are 120 students, out of which 70 are boys. Out of total 70 boys, 30 belong to Science stream and 25 are students of Arts stream. There are 10 girls in Science stream and 35 in Commerce stream. Present these facts in a table.</p>
+
+        <p><strong>Answer:</strong></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Stream</th><th>Boys</th><th>Girls</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td>Science</td><td>30</td><td>10</td><td>40</td></tr>
+              <tr><td>Commerce</td><td>15</td><td>35</td><td>50</td></tr>
+              <tr><td>Arts</td><td>25</td><td>5</td><td>30</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>70</strong></td><td><strong>50</strong></td><td><strong>120</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><em>(Note: Girls in Arts = Total Girls &minus; Girls in Science &minus; Girls in Commerce = 50 &minus; 10 &minus; 35 = 5)</em></p>
+
+        <p><strong>Q21.</strong> Out of a total number of 5,000 people who applied for DDA flats, 2,950 were males. Out of total applicants, 3,500 were of service class and others, business class. The number of male applicants who belong to business class were 725. Tabulate the given information.</p>
+
+        <p><strong>Answer:</strong></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Category</th><th>Males</th><th>Females</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td>Business Class</td><td>725</td><td>775</td><td>1,500</td></tr>
+              <tr><td>Service Class</td><td>2,225</td><td>1,275</td><td>3,500</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>2,950</strong></td><td><strong>2,050</strong></td><td><strong>5,000</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Q22.</strong> There are 1,440 employees in a certain company. Of all the employees, one in three is a woman and one in twelve is a married woman. One in six of the men is a married man. Tabulate the above data in complete figures.</p>
+
+        <p><strong>Answer:</strong></p>
+        <ul>
+          <li>Total employees = 1,440</li>
+          <li>Total women = 1,440 &divide; 3 = <strong>480</strong></li>
+          <li>Total men = 1,440 &minus; 480 = <strong>960</strong></li>
+          <li>Married women = 1,440 &divide; 12 = <strong>120</strong></li>
+          <li>Married men = 960 &divide; 6 = <strong>160</strong></li>
+        </ul>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Marital Status</th><th>Men</th><th>Women</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td>Married</td><td>160</td><td>120</td><td>280</td></tr>
+              <tr><td>Unmarried</td><td>800</td><td>360</td><td>1,160</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>960</strong></td><td><strong>480</strong></td><td><strong>1,440</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="quick-revision-card" class="fade-in">
+        <h2>Chapter at a Glance — Quick Revision Card</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Topic</th><th>Key Point</th></tr></thead>
+            <tbody>
+              <tr><td><strong>4 Forms of Presentation</strong></td><td>Textual, Tabular, Diagrammatic, Graphical</td></tr>
+              <tr><td><strong>Tabulation</strong></td><td>Systematic presentation of data in rows &amp; columns</td></tr>
+              <tr><td><strong>Objectives of Tabulation</strong></td><td>Simplify, Economise space, Facilitate comparison &amp; analysis, Provide reference</td></tr>
+              <tr><td><strong>Parts of a Table</strong></td><td>Table No., Title, Head Note, Caption, Stubs, Body, Unit, Footnote, Source Note</td></tr>
+              <tr><td><strong>Caption</strong></td><td>Column headings (top of table)</td></tr>
+              <tr><td><strong>Stub</strong></td><td>Row headings (left side of table)</td></tr>
+              <tr><td><strong>General Purpose Table</strong></td><td>Reference/Repository Table</td></tr>
+              <tr><td><strong>Special Purpose Table</strong></td><td>Summary Table — specific enquiry</td></tr>
+              <tr><td><strong>Original Table</strong></td><td>Primary Table — data in original form</td></tr>
+              <tr><td><strong>Derived Table</strong></td><td>Derivative Table — percentages, averages</td></tr>
+              <tr><td><strong>Simple Table</strong></td><td>One-way table — one variable</td></tr>
+              <tr><td><strong>Two-Way Table</strong></td><td>Double table — two characteristics</td></tr>
+              <tr><td><strong>Three-Way Table</strong></td><td>Treble table — three characteristics</td></tr>
+              <tr><td><strong>Manifold Table</strong></td><td>More than three characteristics</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <script id="chapter-terms-data" type="application/json">[{"term":"4 Forms of Presentation","definition":"Textual, Tabular, Diagrammatic, Graphical"},{"term":"Tabulation","definition":"Systematic presentation of data in rows and columns"},{"term":"Objectives of Tabulation","definition":"Simplify, Economise space, Facilitate comparison and analysis, Provide reference"},{"term":"Parts of a Table","definition":"Table No., Title, Head Note, Caption, Stubs, Body, Unit, Footnote, Source Note"},{"term":"Caption","definition":"Column headings (top of table)"},{"term":"Stub","definition":"Row headings (left side of table)"},{"term":"General Purpose Table","definition":"Reference/Repository Table"},{"term":"Special Purpose Table","definition":"Summary Table — specific enquiry"},{"term":"Original Table","definition":"Primary Table — data in original form"},{"term":"Derived Table","definition":"Derivative Table — percentages, averages"},{"term":"Simple Table","definition":"One-way table — one variable"},{"term":"Two-Way Table","definition":"Double table — two characteristics"},{"term":"Three-Way Table","definition":"Treble table — three characteristics"},{"term":"Manifold Table","definition":"More than three characteristics"}]</script>
+
+      <footer>
+        <p>NCERT Class 11 Statistics for Economics · Chapter 5</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        'background': '#ffffff',
+        'primaryColor': '#e8f0ec',
+        'primaryTextColor': '#1b1b1b',
+        'primaryBorderColor': '#1a5e4a',
+        'lineColor': '#1a5e4a',
+        'secondaryColor': '#faf8f5',
+        'fontFamily': 'Outfit, -apple-system, sans-serif',
+        'fontSize': '13px',
+        'edgeLabelBackground': '#ffffff',
+        'nodeBorder': '#1a5e4a',
+      },
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'basis',
+        padding: 12,
+      },
+      securityLevel: 'loose',
+    });
+
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+
+    tocToggle.addEventListener('click', () => {
+      toc.classList.toggle('open');
+    });
+
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toc.classList.remove('open');
+      });
+    });
+
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Enlarged diagram">
+    <div class="lightbox-caption">Click anywhere or press Esc to close</div>
+  </div>
+
+  <script>
+    function openLightbox(img) {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      lbImg.src = img.src;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      var lb = document.getElementById('lightbox');
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+  <script src="../assets/study-os.js"></script>
+</body>
+</html>

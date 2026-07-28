@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
   <style>
     :root {
       --bg: #faf8f5;
@@ -25,11 +26,8 @@
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body: 'Outfit', -apple-system, sans-serif;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-
     body {
       font-family: var(--font-body);
       font-weight: 400;
@@ -39,8 +37,6 @@
       background: var(--bg);
       -webkit-font-smoothing: antialiased;
     }
-
-    /* ─── Navigation ─── */
     nav.top-nav {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 100;
@@ -54,7 +50,6 @@
       align-items: center;
       justify-content: space-between;
     }
-
     nav.top-nav .logo {
       font-family: var(--font-display);
       font-weight: 600;
@@ -63,16 +58,9 @@
       text-decoration: none;
       letter-spacing: -0.02em;
     }
-
     nav.top-nav .logo:hover { opacity: 0.7; }
     nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
-
-    nav.top-nav .meta {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* ─── Layout ─── */
+    nav.top-nav .meta { font-size: 13px; color: var(--text-muted); }
     .wrapper {
       display: flex;
       max-width: 1200px;
@@ -80,8 +68,6 @@
       padding: 80px 24px 60px;
       gap: 40px;
     }
-
-    /* ─── Sidebar (TOC) ─── */
     aside.toc {
       width: var(--sidebar-width);
       flex-shrink: 0;
@@ -92,10 +78,8 @@
       overflow-y: auto;
       padding-right: 8px;
     }
-
     aside.toc::-webkit-scrollbar { width: 4px; }
     aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
     aside.toc h3 {
       font-family: var(--font-display);
       font-size: 13px;
@@ -105,7 +89,6 @@
       margin-bottom: 16px;
       font-weight: 600;
     }
-
     aside.toc a {
       display: block;
       font-size: 13.5px;
@@ -118,29 +101,15 @@
       transition: all 0.2s ease;
       line-height: 1.4;
     }
-
-    aside.toc a:hover,
-    aside.toc a.active {
-      color: var(--accent);
-      border-left-color: var(--accent);
-    }
-
+    aside.toc a:hover, aside.toc a.active { color: var(--accent); border-left-color: var(--accent); }
     aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
     aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
-
-    /* ─── Main Content ─── */
-    main.content {
-      flex: 1;
-      max-width: var(--max-width);
-    }
-
-    /* ─── Hero ─── */
+    main.content { flex: 1; max-width: var(--max-width); }
     .hero {
       padding: 48px 0 40px;
       border-bottom: 1px solid var(--border);
       margin-bottom: 40px;
     }
-
     .hero .chapter-badge {
       display: inline-block;
       font-size: 11px;
@@ -153,7 +122,6 @@
       border-radius: 20px;
       margin-bottom: 16px;
     }
-
     .hero h1 {
       font-family: var(--font-display);
       font-weight: 700;
@@ -163,16 +131,8 @@
       color: var(--text);
       margin-bottom: 12px;
     }
-
-    .hero .subtitle {
-      font-size: 16px;
-      color: var(--text-muted);
-      font-weight: 400;
-    }
-
-    /* ─── Section Styling ─── */
+    .hero .subtitle { font-size: 16px; color: var(--text-muted); font-weight: 400; }
     section { margin-bottom: 48px; }
-
     section h2 {
       font-family: var(--font-display);
       font-weight: 600;
@@ -184,7 +144,6 @@
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
     }
-
     section h3 {
       font-family: var(--font-display);
       font-weight: 600;
@@ -194,7 +153,6 @@
       margin-top: 28px;
       margin-bottom: 12px;
     }
-
     section h4 {
       font-weight: 600;
       font-size: 15.5px;
@@ -202,13 +160,7 @@
       margin-top: 20px;
       margin-bottom: 8px;
     }
-
-    section p {
-      margin-bottom: 14px;
-      color: var(--text);
-    }
-
-    /* ─── Blockquote ─── */
+    section p { margin-bottom: 14px; color: var(--text); }
     blockquote {
       background: var(--accent-light);
       border-left: 3px solid var(--accent);
@@ -221,10 +173,7 @@
       line-height: 1.6;
       color: var(--text);
     }
-
     blockquote strong { font-weight: 600; }
-
-    /* ─── Callout box ─── */
     .callout {
       background: #fff8e5;
       border-left: 3px solid #d4a12a;
@@ -234,8 +183,6 @@
       font-size: 15px;
       color: #5a4a1a;
     }
-
-    /* ─── Tables ─── */
     .table-wrap {
       overflow-x: auto;
       margin: 20px 0;
@@ -244,18 +191,13 @@
       background: var(--surface);
       box-shadow: var(--shadow-sm);
     }
-
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 14px;
       line-height: 1.55;
     }
-
-    table thead {
-      background: var(--accent-light);
-    }
-
+    table thead { background: var(--accent-light); }
     table th {
       font-weight: 600;
       text-align: left;
@@ -267,21 +209,15 @@
       border-bottom: 1px solid var(--border);
       white-space: nowrap;
     }
-
     table td {
       padding: 10px 14px;
       border-top: 1px solid var(--border);
       color: var(--text);
       vertical-align: top;
     }
-
     table tbody tr:first-child td { border-top: none; }
-
     table tbody tr:hover { background: #f5f3ef; }
-
     table td:first-child { font-weight: 500; white-space: nowrap; }
-
-    /* ─── Code / Tree ─── */
     pre {
       background: #1a1a2e;
       color: #e4e4f0;
@@ -293,36 +229,16 @@
       margin: 20px 0;
       font-family: 'JetBrains Mono', 'Fira Code', monospace;
     }
-
-    /* ─── Lists ─── */
-    section ul, section ol {
-      margin: 12px 0 16px;
-      padding-left: 24px;
-    }
-
-    section li {
-      margin-bottom: 6px;
-      line-height: 1.6;
-    }
-
+    section ul, section ol { margin: 12px 0 16px; padding-left: 24px; }
+    section li { margin-bottom: 6px; line-height: 1.6; }
     section ul ul { margin: 4px 0 4px 16px; }
-
-    /* ─── Horizontal Rule ─── */
-    hr {
-      border: none;
-      height: 1px;
-      background: var(--border);
-      margin: 40px 0;
-    }
-
-    /* ─── Key Terms ─── */
+    hr { border: none; height: 1px; background: var(--border); margin: 40px 0; }
     .terms-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 12px;
       margin: 16px 0;
     }
-
     .terms-grid .term {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -331,53 +247,13 @@
       box-shadow: var(--shadow-sm);
       transition: box-shadow 0.2s ease;
     }
-
     .terms-grid .term:hover { box-shadow: var(--shadow-md); }
-
-    .terms-grid .term strong {
-      display: block;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 4px;
-      font-size: 14px;
-    }
-
-    .terms-grid .term span {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* ─── Footer ─── */
-    footer {
-      text-align: center;
-      padding: 32px 0 16px;
-      border-top: 1px solid var(--border);
-      margin-top: 24px;
-    }
-
-    footer p {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* ─── Progress ─── */
-    .progress-bar {
-      position: fixed;
-      top: 60px; left: 0; right: 0;
-      height: 2px;
-      z-index: 99;
-      background: transparent;
-    }
-
-    .progress-bar .fill {
-      height: 100%;
-      width: 0%;
-      background: var(--accent);
-      transition: width 0.1s linear;
-    }
-
-    /* ─── Mobile Toggle ─── */
+    .terms-grid .term strong { display: block; color: var(--accent); font-weight: 600; margin-bottom: 4px; font-size: 14px; }
+    .terms-grid .term span { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+    footer { text-align: center; padding: 32px 0 16px; border-top: 1px solid var(--border); margin-top: 24px; }
+    footer p { font-size: 13px; color: var(--text-muted); }
+    .progress-bar { position: fixed; top: 60px; left: 0; right: 0; height: 2px; z-index: 99; background: transparent; }
+    .progress-bar .fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.1s linear; }
     .toc-toggle {
       display: none;
       background: none;
@@ -396,35 +272,61 @@
       background: var(--surface);
       box-shadow: var(--shadow-md);
     }
-
     .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
-
-    /* ─── Highlights ─── */
     section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
     section p strong { color: var(--accent); font-weight: 600; }
-
-    /* ─── Responsive ─── */
+    .mermaid-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      margin: 20px 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: center;
+      -webkit-overflow-scrolling: touch;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; display: block; }
+    .mermaid-wrap svg .nodeLabel { font-family: var(--font-body) !important; font-size: 13px !important; }
+    .mermaid-wrap svg .edgeLabel { font-family: var(--font-body) !important; font-size: 12px !important; }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: zoom-out;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      background: #fff;
+      padding: 16px;
+      cursor: default;
+    }
+    .lightbox-close { position: absolute; top: 20px; right: 28px; color: #fff; font-size: 36px; font-weight: 300; cursor: pointer; opacity: 0.8; line-height: 1; }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-caption { color: rgba(255,255,255,0.7); font-size: 14px; margin-top: 16px; font-family: Outfit, sans-serif; }
+    .mermaid-img { max-width: 100%; height: auto; display: block; margin: 0 auto; cursor: zoom-in; transition: opacity 0.2s ease; }
+    .mermaid-img:hover { opacity: 0.85; }
     @media (max-width: 900px) {
       .wrapper { flex-direction: column; padding: 80px 16px 60px; }
-      aside.toc {
-        position: fixed;
-        bottom: 0; left: 0; right: 0;
-        top: auto;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        background: var(--surface);
-        border-top: 1px solid var(--border);
-        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
-        z-index: 150;
-        transition: max-height 0.35s ease;
-        padding: 0 20px;
-      }
+      aside.toc { position: fixed; bottom: 0; left: 0; right: 0; top: auto; width: 100%; max-height: 0; overflow: hidden; background: var(--surface); border-top: 1px solid var(--border); box-shadow: 0 -4px 20px rgba(0,0,0,0.08); z-index: 150; transition: max-height 0.35s ease; padding: 0 20px; }
       aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
       aside.toc h3 { margin-bottom: 12px; }
       .toc-toggle { display: block; }
     }
-
     @media (max-width: 600px) {
       .hero h1 { font-size: 28px; }
       .hero { padding: 32px 0 28px; }
@@ -437,18 +339,8 @@
       nav.top-nav .meta { display: none; }
       .terms-grid { grid-template-columns: 1fr; }
     }
-
-    /* ─── Animations ─── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.6s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    .fade-in { opacity: 0; transform: translateY(12px); animation: fadeUp 0.6s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .hero { animation-delay: 0.1s; }
     section:nth-of-type(1) { animation-delay: 0.15s; }
     section:nth-of-type(2) { animation-delay: 0.2s; }
@@ -458,86 +350,92 @@
 </head>
 <body>
 
-  <!-- Nav -->
   <nav class="top-nav">
     <a href="../index.html" class="logo">&larr; BST <span>Notes</span></a>
     <span class="meta">Class 11 &middot; Chapter 4</span>
   </nav>
 
-  <!-- Progress -->
   <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
 
-  <!-- Mobile TOC Toggle -->
-  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
+<button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
 
-  <!-- Layout -->
   <div class="wrapper">
-
-    <!-- Sidebar TOC -->
     <aside class="toc" id="toc">
       <h3>Contents</h3>
-      <a href="#big-picture" class="toc-h2">Big Picture</a>
-      <a href="#nature-of-services" class="toc-h2">Nature of Services (5 I's)</a>
-      <a href="#types-of-services" class="toc-h2">Types of Services</a>
-      <a href="#banking" class="toc-h2">Banking Services</a>
-      <a href="#bank-definition" class="toc-h3">Definition</a>
-      <a href="#types-of-banks" class="toc-h3">Types of Banks</a>
-      <a href="#bank-accounts" class="toc-h3">Types of Bank Accounts</a>
-      <a href="#functions-of-banks" class="toc-h3">Functions of Commercial Banks</a>
-      <a href="#e-banking" class="toc-h3">E-Banking</a>
-      <a href="#insurance" class="toc-h2">Insurance Services</a>
-      <a href="#insurance-definition" class="toc-h3">Definition &amp; Functions</a>
-      <a href="#principles-of-insurance" class="toc-h3">Principles of Insurance</a>
-      <a href="#types-of-insurance" class="toc-h3">Types of Insurance</a>
-      <a href="#insurance-comparison" class="toc-h3">Insurance Comparison</a>
-      <a href="#postal-telecom" class="toc-h2">Postal &amp; Telecom Services</a>
-      <a href="#transport" class="toc-h2">Transportation Services</a>
-      <a href="#warehousing" class="toc-h2">Warehousing Services</a>
-      <a href="#communication" class="toc-h2">Communication &amp; Business</a>
-      <a href="#key-terms" class="toc-h2">Key Terms</a>
-      <a href="#quick-recap" class="toc-h2">Quick Recap</a>
+      <a href="#introduction" class="toc-h2">1. Introduction</a>
+      <a href="#nature-of-services" class="toc-h2">2. Nature of Services</a>
+      <a href="#goods-vs-services" class="toc-h2">3. Goods vs Services</a>
+      <a href="#types-of-services" class="toc-h2">4. Types of Services</a>
+      <a href="#banking" class="toc-h2">5. Banking Services</a>
+      <a href="#bank-accounts" class="toc-h3">5.1 Types of Accounts</a>
+      <a href="#bank-services" class="toc-h3">5.2 Services by Banks</a>
+      <a href="#e-banking" class="toc-h3">5.3 E-Banking</a>
+      <a href="#insurance" class="toc-h2">6. Insurance Services</a>
+      <a href="#principles-of-insurance" class="toc-h3">6.1 Principles of Insurance</a>
+      <a href="#types-of-insurance" class="toc-h3">6.2 Types of Insurance</a>
+      <a href="#comparison-tables" class="toc-h3">6.3 Comparison Tables</a>
+      <a href="#communication" class="toc-h2">7. Communication Services</a>
+      <a href="#postal-services" class="toc-h3">7.1 Postal Services</a>
+      <a href="#telecom-services" class="toc-h3">7.2 Telecom Services</a>
+      <a href="#practice-questions" class="toc-h2">8. Practice Questions</a>
+      <a href="#quick-revision" class="toc-h2">9. Quick Revision</a>
     </aside>
 
-    <!-- Main Content -->
     <main class="content">
 
-      <!-- Hero -->
       <header class="hero fade-in">
         <span class="chapter-badge">Chapter 4</span>
         <h1>Business Services</h1>
-        <p class="subtitle">Class 11 Business Studies &mdash; Quick Revision Notes</p>
+        <p class="subtitle">Class 11 Business Studies &mdash; Complete Revision Notes</p>
       </header>
 
-      <!-- Big Picture -->
-      <section id="big-picture" class="fade-in">
-        <h2>&#x1f4cc; Big Picture</h2>
+      <!-- 1. Introduction -->
+      <section id="introduction" class="fade-in">
+        <h2>1. Introduction</h2>
         <blockquote>
-          <strong>Business Services</strong> = services used by business enterprises to conduct their daily activities (banking, insurance, transport, warehousing, communication).
+          The <strong>service sector</strong> includes all economic activities required for uninterrupted production and exchange of goods. It provides specialised services that remove various hindrances of trade.
         </blockquote>
-        <p>This chapter covers three major business services:</p>
-        <ol>
-          <li><strong>Banking</strong> &mdash; accepting deposits &amp; lending money</li>
-          <li><strong>Insurance</strong> &mdash; protection against financial loss</li>
-          <li><strong>Postal &amp; Telecom Services</strong> &mdash; communication &amp; parcel delivery</li>
-        </ol>
+
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph TD
+              S["<b>Service Sector</b><br/><i>Backbone of every business</i>"] --> B1["<b>Banking</b><br/>Financial support"]
+              S --> I["<b>Insurance</b><br/>Risk protection"]
+              S --> T["<b>Transportation</b><br/>Movement of goods"]
+              S --> W["<b>Warehousing</b><br/>Storage of goods"]
+              S --> C["<b>Communication</b><br/>Information exchange"]
+          </pre>
+        </div>
+
+        <p>Trade and industry cannot function without services. The service sector helps achieve <strong>twin goals</strong>: goods produced in time <em>and</em> goods reaching consumers at the right time.</p>
       </section>
 
       <hr>
 
-      <!-- 1. Nature of Services (5 I's) -->
+      <!-- 2. Nature of Services -->
       <section id="nature-of-services" class="fade-in">
-        <h2>1. &#x1f9e0; Nature of Services (5 I's)</h2>
-        <p>Services are <strong>intangible</strong> economic activities that provide satisfaction without transferring ownership.</p>
+        <h2>2. Nature of Services (Key Features)</h2>
+
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph LR
+              S["<b>Services</b>"] --> INT["<b>Intangibility</b><br/>Cannot see/touch"]
+              S --> INC["<b>Inconsistency</b><br/>Quality varies"]
+              S --> INV["<b>Inventory</b><br/>Cannot be stored"]
+              S --> INS["<b>Inseparability</b><br/>Service &amp; provider<br/>go together"]
+              S --> CP["<b>Customer<br/>Participation</b><br/>Customer must engage"]
+          </pre>
+        </div>
 
         <div class="table-wrap">
           <table>
-            <thead><tr><th>#</th><th>Characteristic</th><th>Meaning</th><th>Example</th></tr></thead>
+            <thead><tr><th>Feature</th><th>Explanation</th><th>Example</th></tr></thead>
             <tbody>
-              <tr><td>i</td><td><strong>Intangibility</strong></td><td>Cannot be seen/touched/smelled; only can be felt</td><td>Doctor's treatment, airline travel</td></tr>
-              <tr><td>ii</td><td><strong>Inconsistency</strong></td><td>Quality varies from provider to provider &amp; customer to customer</td><td>Experience at different salons</td></tr>
-              <tr><td>iii</td><td><strong>Inseparability</strong></td><td>Production &amp; consumption happen simultaneously</td><td>ATM needs customer to be present</td></tr>
-              <tr><td>iv</td><td><strong>Inventory (Perishability)</strong></td><td>Cannot be stored for future use</td><td>Empty hotel room = lost revenue forever</td></tr>
-              <tr><td>v</td><td><strong>Involvement</strong></td><td>Customer participation is essential</td><td>Customer must specify needs for customisation</td></tr>
+              <tr><td><strong>Intangibility</strong></td><td>Cannot be seen or touched. Quality only known after experiencing it.</td><td>You can't see/touch a doctor's treatment &mdash; you only feel better after it.</td></tr>
+              <tr><td><strong>Inconsistency</strong></td><td>Every service experience can differ. Varies by provider &amp; customer.</td><td>Banking at nationalised bank vs private bank feels very different.</td></tr>
+              <tr><td><strong>Inventory (Perishability)</strong></td><td>Consumed at same time as produced. Cannot be stored. If not used, it's wasted forever.</td><td>Empty seat on a flight cannot be sold later &mdash; revenue lost forever.</td></tr>
+              <tr><td><strong>Inseparability</strong></td><td>Cannot separate service from provider. Produced &amp; consumed at same place.</td><td>You cannot separate a doctor from their medical service.</td></tr>
+              <tr><td><strong>Customer Participation</strong></td><td>Customer must participate to experience the service.</td><td>Phone company provides service, but YOU make the call.</td></tr>
             </tbody>
           </table>
         </div>
@@ -545,17 +443,47 @@
 
       <hr>
 
-      <!-- 2. Types of Services -->
+      <!-- 3. Goods vs Services -->
+      <section id="goods-vs-services" class="fade-in">
+        <h2>3. Difference Between Goods and Services</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Services</th><th>Goods</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Tangibility</strong></td><td>Intangible &mdash; cannot be touched</td><td>Tangible &mdash; can be seen &amp; touched</td></tr>
+              <tr><td><strong>Inventory</strong></td><td>No need to maintain stock</td><td>Inventory must be maintained</td></tr>
+              <tr><td><strong>Separability</strong></td><td>Cannot be separated from provider</td><td>Can be separated from seller</td></tr>
+              <tr><td><strong>Standardisation</strong></td><td>Difficult to standardise quality</td><td>Can be standardised easily</td></tr>
+              <tr><td><strong>Nature</strong></td><td>Activity or process (e.g., watching a movie)</td><td>Physical object (e.g., car, TV)</td></tr>
+              <tr><td><strong>Type</strong></td><td>Heterogeneous (different each time)</td><td>Homogeneous (same every time)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 4. Types of Services -->
       <section id="types-of-services" class="fade-in">
-        <h2>2. &#x1f4cb; Types of Services</h2>
+        <h2>4. Types of Services</h2>
+
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph TD
+              S["<b>SERVICES</b>"] --> PS["<b>Personal Services</b><br/><i>Tourism, restaurants, salons</i>"]
+              S --> BS["<b>Business Services</b><br/><i>Banking, insurance,<br/>transport, warehousing, communication</i>"]
+              S --> SS["<b>Social Services</b><br/><i>Healthcare, education,<br/>sanitation for weaker sections</i>"]
+          </pre>
+        </div>
 
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Type</th><th>Meaning</th><th>Examples</th></tr></thead>
+            <thead><tr><th>Type</th><th>Explanation</th><th>Examples</th></tr></thead>
             <tbody>
-              <tr><td><strong>Business Services</strong></td><td>Used by enterprises for business activities</td><td>Banking, insurance, transport, warehousing, communication</td></tr>
-              <tr><td><strong>Social Services</strong></td><td>Provided voluntarily for social goals</td><td>NGO healthcare, education for weaker sections</td></tr>
-              <tr><td><strong>Personal Services</strong></td><td>Experienced differently per customer preferences</td><td>Tourism, restaurants, recreation, resorts</td></tr>
+              <tr><td><strong>Personal Services</strong></td><td>Experienced differently by different customers based on preferences</td><td>Tourism, restaurants, recreation</td></tr>
+              <tr><td><strong>Business Services</strong></td><td>Used by enterprises to carry out business activities smoothly</td><td>Banking, insurance, transport, warehousing, communication</td></tr>
+              <tr><td><strong>Social Services</strong></td><td>Performed voluntarily to achieve social goals or uplift society</td><td>Healthcare in slums, education for underprivileged</td></tr>
             </tbody>
           </table>
         </div>
@@ -563,167 +491,242 @@
 
       <hr>
 
-      <!-- 3. Banking Services -->
+      <!-- 5. Banking Services -->
       <section id="banking" class="fade-in">
-        <h2>3. &#x1f3e6; Banking Services</h2>
+        <h2>5. Banking Services</h2>
 
-        <h3 id="bank-definition">3.1 Definition of Bank</h3>
         <blockquote>
-          <strong>Bank</strong> = an institution that deals in money and credit. It accepts deposits from the public and lends money for profit.
-        </blockquote>
-        <p><strong>Banking</strong> (as per Banking Regulations Act, 1949):</p>
-        <blockquote>
-          <em>"Accepting for the purpose of lending or investment of deposits of money from the public, repayable on demand or otherwise, and may be withdrawn by cheque, draft or otherwise."</em>
+          <strong>Bank:</strong> An institution that attracts money as deposits from the public and lends it to industry/trade. Acts as a buyer and seller of money, earning profit from the margin between interest charged and interest paid.
         </blockquote>
 
-        <h3 id="types-of-banks">3.2 Types of Banks</h3>
+        <p><strong>Legal Definition</strong> (Indian Banking Regulation Act, 1949): <em>"Accepting deposits of money from the public for the purpose of lending or investments."</em></p>
+
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph LR
+              DP["<b>Depositors</b><br/>(Public)"] -->|deposit money| BK["<b>BANK</b>"]
+              BK -->|lends money| BR["<b>Borrowers</b><br/>(Industry/Trade)"]
+              BK -->|earns| PR["<b>Profit</b><br/>(Interest Margin)"]
+          </pre>
+        </div>
+
+        <!-- 5.1 Types of Accounts -->
+        <h3 id="bank-accounts">5.1 Types of Bank Accounts</h3>
+
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Type</th><th>Description</th><th>Examples</th></tr></thead>
+            <thead><tr><th>Account Type</th><th>Who Opens It?</th><th>Key Features</th><th>Interest Rate</th></tr></thead>
             <tbody>
-              <tr><td><strong>Central Bank</strong></td><td>Supervises all banks; controls money supply &amp; credit policy</td><td><strong>RBI</strong> (Reserve Bank of India) &mdash; established 1935</td></tr>
-              <tr><td><strong>Commercial Banks</strong></td><td>Accept deposits &amp; grant loans to businesses/individuals</td><td>SBI, PNB, ICICI, HDFC</td></tr>
-              <tr><td><strong>Cooperative Banks</strong></td><td>Based on cooperative principles; rural credit source</td><td>State Cooperative Banks, District Central Cooperative Banks</td></tr>
-              <tr><td><strong>Specialised Banks</strong></td><td>Render specific services</td><td>Industrial Banks (IDBI), Export-Import Banks (EXIM)</td></tr>
-              <tr><td><strong>Small Finance Banks</strong></td><td>Financial inclusion for underserved areas</td><td>AU Small Finance Bank, Equitas</td></tr>
-              <tr><td><strong>Payments Banks</strong></td><td>Small savings &amp; payment services (no lending)</td><td>Paytm Payments Bank, Airtel Payments Bank</td></tr>
+              <tr><td><strong>Savings Deposit</strong></td><td>General public, individuals</td><td>Small initial deposit, deposit/withdraw anytime, cheque book + passbook + debit card</td><td>Low</td></tr>
+              <tr><td><strong>Current Deposit</strong></td><td>Businessmen</td><td>Unlimited transactions, overdraft facility, no interest, service charge by bank</td><td>None</td></tr>
+              <tr><td><strong>Recurring Deposit (RD)</strong></td><td>Regular savers</td><td>Fixed amount every month, fixed period, paid on maturity</td><td>Higher than savings</td></tr>
+              <tr><td><strong>Fixed Deposit (FD)</strong></td><td>Investors</td><td>Locked for 6 months to 5 years, FD receipt issued, longer = higher rate</td><td>Highest</td></tr>
+              <tr><td><strong>Multiple Option Deposit</strong></td><td>Those wanting flexibility</td><td>Combines savings/current with FD, excess auto-transfers to FD</td><td>Like FD</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h3 id="bank-accounts">3.3 Types of Bank Accounts</h3>
+        <!-- 5.2 Services by Banks -->
+        <h3 id="bank-services">5.2 Services Provided by Banks</h3>
+
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Account Type</th><th>Features</th><th>Suited For</th></tr></thead>
+            <thead><tr><th>Service</th><th>Description</th></tr></thead>
             <tbody>
-              <tr><td><strong>Savings Account</strong></td><td>Limited withdrawals; interest on deposits; no overdraft</td><td>Individuals saving money</td></tr>
-              <tr><td><strong>Current Account</strong></td><td>Unlimited transactions; no interest; overdraft facility</td><td>Businesspersons, firms, companies</td></tr>
-              <tr><td><strong>Fixed Deposit (FD)</strong></td><td>Money locked for fixed period; highest interest; penalty for early withdrawal</td><td>Investors wanting higher returns</td></tr>
-              <tr><td><strong>Recurring Deposit (RD)</strong></td><td>Monthly deposits for fixed period; interest similar to FD</td><td>Salaried persons saving regularly</td></tr>
+              <tr><td><strong>Demand Draft (DD)</strong></td><td>Financial instrument to send money. Never dishonoured. Bank charges commission.</td></tr>
+              <tr><td><strong>Banker's Cheque (Pay Order)</strong></td><td>Local version of DD. Payable within same town. Lower commission.</td></tr>
+              <tr><td><strong>Overdraft</strong></td><td>Current account holders can withdraw more than balance. Interest on amount overdrawn.</td></tr>
+              <tr><td><strong>Cash Credit</strong></td><td>Borrow up to a limit against security (shares, bonds). For working capital needs.</td></tr>
+              <tr><td><strong>Short/Medium/Long-term Loans</strong></td><td>Lump sum advance, repayable in instalments. Secured or unsecured.</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h3 id="functions-of-banks">3.4 Functions of Commercial Banks</h3>
-        <h4>A. Primary Functions</h4>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Function</th><th>Explanation</th></tr></thead>
+            <thead><tr><th>Loan Type</th><th>Duration</th></tr></thead>
             <tbody>
-              <tr><td><strong>Accepting Deposits</strong></td><td>Accept savings, current, fixed, and recurring deposits</td></tr>
-              <tr><td><strong>Granting Loans &amp; Advances</strong></td><td>Provide loans &mdash; overdraft, cash credit, term loans, bill discounting</td></tr>
-              <tr><td><strong>Credit Creation</strong></td><td>Bank creates credit by lending more than deposits held</td></tr>
+              <tr><td>Short-term</td><td>Less than 1 year</td>
+              <tr><td>Medium-term</td><td>1 to 5 years</td></tr>
+              <tr><td>Long-term</td><td>More than 5 years</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h4>B. Secondary Functions</h4>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Function</th><th>Details</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Agency Functions</strong></td><td>Collect cheques/drafts/bills; pay insurance premiums, rent, taxes; remit funds; buy/sell securities</td></tr>
-              <tr><td><strong>General Utility Functions</strong></td><td>Locker facility, traveller's cheques, debit/credit cards, ATM, foreign exchange, letter of credit, bank guarantee</td></tr>
-            </tbody>
-          </table>
-        </div>
+        <!-- 5.3 E-Banking -->
+        <h3 id="e-banking">5.3 Digital Payment / E-Banking Services</h3>
 
-        <h3 id="e-banking">3.5 E-Banking</h3>
         <blockquote>
-          Electronic banking = banking services through electronic channels (no physical visit).
+          <strong>E-Banking:</strong> Making online payments without physical exchange of money. Money transfers from payer's account to receiver's account via internet.
         </blockquote>
 
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Form</th><th>Description</th></tr></thead>
+            <thead><tr><th>Method</th><th>What It Is</th></tr></thead>
             <tbody>
-              <tr><td><strong>ATM</strong></td><td>Automated Teller Machine &mdash; 24x7 cash withdrawal, balance enquiry</td></tr>
-              <tr><td><strong>Internet Banking</strong></td><td>Online fund transfer, bill payment, account viewing</td></tr>
-              <tr><td><strong>Mobile Banking</strong></td><td>Banking via smartphone apps</td></tr>
-              <tr><td><strong>Debit Card</strong></td><td>Direct deduction from bank account at POS</td></tr>
-              <tr><td><strong>Credit Card</strong></td><td>Borrow now, pay later (interest charged on outstanding)</td></tr>
-              <tr><td><strong>RTGS / NEFT / IMPS</strong></td><td>Electronic fund transfer systems</td></tr>
+              <tr><td><strong>Debit Card</strong></td><td>Pay directly from your bank balance. Instant transfer to seller's account.</td></tr>
+              <tr><td><strong>Credit Card</strong></td><td>"Buy now, pay later." Overdraft up to a fixed limit. Interest charged on unpaid amount.</td></tr>
+              <tr><td><strong>NEFT</strong></td><td>National Electronic Fund Transfer. No minimum amount. Batch settlement (not real-time).</td></tr>
+              <tr><td><strong>RTGS</strong></td><td>Real Time Gross Settlement. Minimum &mdash;2,00,000. Real-time, final, irrevocable.</td></tr>
+              <tr><td><strong>ATM</strong></td><td>24x7 cash withdrawal, deposits. Card + PIN.</td></tr>
+              <tr><td><strong>E-cash / Digital Cash</strong></td><td>Digital wallets (Paytm, PhonePe, BHIM). Via internet/mobile.</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="callout">
-          <strong>&#x1f4a1;</strong> <strong>RTGS</strong> = Real Time Gross Settlement (minimum &#x20b9;2 lakh, real-time)<br>
-          <strong>NEFT</strong> = National Electronic Funds Transfer (any amount, batch-based)<br>
-          <strong>IMPS</strong> = Immediate Payment Service (24x7, instant)
+          <strong>&#x26a1; NEFT vs RTGS:</strong><br>
+          <strong>NEFT</strong> = Net settlement (batches), No minimum amount, Not real-time<br>
+          <strong>RTGS</strong> = Gross settlement (real-time), Minimum &mdash;2,00,000, Final &amp; irrevocable
+        </div>
+
+        <h4>Benefits of E-Banking:</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>For Customers</th><th>For Banks</th></tr></thead>
+            <tbody>
+              <tr><td>24x7 services &mdash; bank anytime</td><td>Competitive advantage</td></tr>
+              <tr><td>Convenience &mdash; transact from anywhere</td><td>Unlimited network (any PC/phone)</td></tr>
+              <tr><td>Financial discipline &mdash; every transaction tracked</td><td>Reduced load on branches</td></tr>
+              <tr><td>Safe &mdash; no need to carry cash</td><td>Centralised database</td></tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
       <hr>
 
-      <!-- 4. Insurance Services -->
+      <!-- 6. Insurance Services -->
       <section id="insurance" class="fade-in">
-        <h2>4. &#x1f6e1;&#xfe0f; Insurance Services</h2>
+        <h2>6. Insurance Services</h2>
 
-        <h3 id="insurance-definition">4.1 Definition</h3>
         <blockquote>
-          <strong>Insurance</strong> = a contract in writing (policy) whereby one party (insurer) agrees, in consideration of premium, to indemnify the other party (insured) against loss/damage from a specified event.
+          <strong>Insurance:</strong> A contract between the <strong>Insurer</strong> (Insurance Company) and the <strong>Insured</strong> (Person/Firm). The insured pays regular <strong>Premium</strong>. The written agreement is the <strong>Insurance Policy</strong>.
         </blockquote>
 
-        <h4>Functions of Insurance</h4>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Function</th><th>Explanation</th></tr></thead>
+            <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
             <tbody>
-              <tr><td><strong>Risk Sharing</strong></td><td>Spreads risk among many people exposed to similar perils</td></tr>
-              <tr><td><strong>Risk Evaluation</strong></td><td>Assesses risk before accepting &amp; determines premium</td></tr>
-              <tr><td><strong>Capital Formation</strong></td><td>Premiums collected are invested in productive assets</td></tr>
-              <tr><td><strong>Economic Stability</strong></td><td>Provides compensation, preventing financial collapse</td></tr>
-              <tr><td><strong>Providing Certainty</strong></td><td>Converts uncertain loss into certain (small) premium payment</td></tr>
+              <tr><td><strong>Insurer</strong></td><td>The insurance company that compensates the loss</td></tr>
+              <tr><td><strong>Insured</strong></td><td>The person/firm who gets compensation</td></tr>
+              <tr><td><strong>Premium</strong></td><td>Regular payment made by insured (monthly/quarterly/yearly)</td></tr>
+              <tr><td><strong>Policy</strong></td><td>The written contract with terms &amp; conditions</td></tr>
+              <tr><td><strong>Happening of Event</strong></td><td>The specific loss covered under the policy</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h3 id="principles-of-insurance">4.2 Principles of Insurance (7 Principles)</h3>
+        <!-- 6.1 Principles -->
+        <h3 id="principles-of-insurance">6.1 Principles of Insurance (7 Principles)</h3>
+
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph TD
+              PI["<b>7 Principles<br/>of Insurance</b>"] --> P1["1. Utmost Good Faith"]
+              PI --> P2["2. Insurable Interest"]
+              PI --> P3["3. Indemnity"]
+              PI --> P4["4. Contribution"]
+              PI --> P5["5. Subrogation"]
+              PI --> P6["6. Causa Proxima"]
+              PI --> P7["7. Mitigation of Loss"]
+          </pre>
+        </div>
+
         <div class="table-wrap">
           <table>
-            <thead><tr><th>#</th><th>Principle</th><th>Explanation</th></tr></thead>
+            <thead><tr><th>#</th><th>Principle</th><th>Explanation</th><th>Example</th></tr></thead>
             <tbody>
-              <tr><td>i</td><td><strong>Utmost Good Faith</strong> (Uberrimae Fidei)</td><td>Both parties must disclose all material facts truthfully</td></tr>
-              <tr><td>ii</td><td><strong>Insurable Interest</strong></td><td>Insured must have financial interest in the subject matter (existing at time of contract for life insurance; at time of loss for others)</td></tr>
-              <tr><td>iii</td><td><strong>Indemnity</strong></td><td>Compensation cannot exceed actual loss (not applicable to life insurance)</td></tr>
-              <tr><td>iv</td><td><strong>Proximate Cause</strong></td><td>Nearest / immediate cause of loss determines claim liability</td></tr>
-              <tr><td>v</td><td><strong>Subrogation</strong></td><td>After paying claim, insurer gets insured's rights over damaged property (not for life insurance)</td></tr>
-              <tr><td>vi</td><td><strong>Contribution</strong></td><td>If multiple insurers, each contributes proportionally; insured cannot profit</td></tr>
-              <tr><td>vii</td><td><strong>Mitigation</strong></td><td>Insured must take reasonable steps to minimise loss</td></tr>
+              <tr><td>1</td><td><strong>Utmost Good Faith</strong></td><td>Both parties must disclose ALL material facts truthfully. No hiding!</td><td>If you hide a heart disease while taking life insurance, company can refuse claim.</td></tr>
+              <tr><td>2</td><td><strong>Insurable Interest</strong></td><td>Insured must have financial interest in the subject matter.</td><td>You can insure your spouse/children but NOT a stranger.</td></tr>
+              <tr><td>3</td><td><strong>Indemnity</strong></td><td>Insurance is NOT for profit. Compensation = actual loss (whichever is less).</td><td>Insured for &mdash;2 lakh, loss = &mdash;1 lakh &rarr; get &mdash;1 lakh only.</td></tr>
+              <tr><td>4</td><td><strong>Contribution</strong></td><td>If multiple insurers, each contributes proportionally. Insured cannot claim full from each.</td><td>A pays (Sum A / Total) &times; Loss, B pays (Sum B / Total) &times; Loss</td></tr>
+              <tr><td>5</td><td><strong>Subrogation</strong></td><td>After compensation, insurer gets ownership of damaged property.</td><td>Half-burnt goods sold for &mdash;10,000 &rarr; money goes to insurer, not insured.</td></tr>
+              <tr><td>6</td><td><strong>Causa Proxima</strong></td><td>The nearest/direct cause of loss must be the insured risk.</td><td>Rat spoiling wheat = no claim. Rat making hole + sea water spoiling = claim!</td></tr>
+              <tr><td>7</td><td><strong>Mitigation of Loss</strong></td><td>Insured must take reasonable care to protect the property.</td><td>Can't just watch your house burn &mdash; must try to stop the fire!</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="callout">
-          <strong>&#x1f4a1;</strong> <strong>Life Insurance</strong> &mdash; NOT a contract of indemnity (human life cannot be indemnified). Insurable interest must exist only at the time of taking the policy.
+          <strong>&#x1f9e0; Mnemonic: "GU ICC SM"</strong><br>
+          <strong>G</strong>ood Faith &bull; <strong>I</strong>nsurable Interest &bull; <strong>C</strong>ontribution &bull; <strong>C</strong>ausa Proxima &bull; <strong>S</strong>ubrogation &bull; <strong>M</strong>itigation
         </div>
 
-        <h3 id="types-of-insurance">4.3 Types of Insurance</h3>
+        <h4>Applicability of Principles to Life Insurance:</h4>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Type</th><th>Sub-types</th><th>Key Points</th></tr></thead>
+            <thead><tr><th>Principle</th><th>Applicable to Life Insurance?</th></tr></thead>
             <tbody>
-              <tr><td><strong>Life Insurance</strong></td><td>Whole Life, Endowment, Term, ULIP, Money-back</td><td>Covers human life; sum assured paid on death/maturity; savings + protection</td></tr>
-              <tr><td><strong>Fire Insurance</strong></td><td>Standard Fire, Comprehensive</td><td>Covers loss/damage by fire; indemnity contract; insurable interest at time of loss</td></tr>
-              <tr><td><strong>Marine Insurance</strong></td><td>Hull, Cargo, Freight, Liability</td><td>Covers ship (hull), goods (cargo), freight charges; indemnity contract</td></tr>
-              <tr><td><strong>Health Insurance</strong></td><td>Mediclaim, Critical Illness, Top-up</td><td>Covers medical/hospitalisation expenses</td></tr>
-              <tr><td><strong>Motor Insurance</strong></td><td>Third-party, Comprehensive</td><td>Required by law (Motor Vehicles Act); TP covers third-party liability</td></tr>
-              <tr><td><strong>Burglary/Theft</strong></td><td>&mdash;</td><td>Covers loss from theft, housebreaking</td></tr>
+              <tr><td>Utmost Good Faith</td><td>&#x2705; Yes</td></tr>
+              <tr><td>Insurable Interest</td><td>&#x2705; Yes (at time of taking policy only)</td></tr>
+              <tr><td>Indemnity</td><td>&#x274c; No (human life can't be valued)</td></tr>
+              <tr><td>Contribution</td><td>&#x274c; No</td></tr>
+              <tr><td>Subrogation</td><td>&#x274c; No</td></tr>
+              <tr><td>Causa Proxima</td><td>&#x2705; Yes</td></tr>
+              <tr><td>Mitigation of Loss</td><td>&#x2705; Yes</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h3 id="insurance-comparison">4.4 Fire Insurance vs Life Insurance vs Marine Insurance</h3>
+        <!-- 6.2 Types of Insurance -->
+        <h3 id="types-of-insurance">6.2 Types of Insurance</h3>
+
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph TD
+              INS["<b>INSURANCE</b>"] --> LI["<b>Life Insurance</b><br/><i>Contract of Assurance</i>"]
+              INS --> FI["<b>Fire Insurance</b><br/><i>Indemnity Contract</i>"]
+              INS --> MI["<b>Marine Insurance</b><br/><i>Sea perils cover</i>"]
+              INS --> HI["<b>Health Insurance</b><br/><i>Medical expenses</i>"]
+          </pre>
+        </div>
+
+        <h4>A. Life Insurance</h4>
+        <p>Covers two risks: (i) Dying too early &rarr; family gets support (ii) Living too long &rarr; old age financial support. Sum assured paid at <strong>death</strong> or <strong>maturity</strong> &mdash; whichever comes first. Also called <strong>Contract of Assurance</strong>.</p>
+
+        <h4>B. Fire Insurance</h4>
+        <p>Covers financial loss due to fire during a specific period. Usually <strong>1 year</strong> (renewed annually). Partial loss also covered. Follows Principle of Indemnity strictly.</p>
+
+        <p><strong>Marine Insurance Types:</strong></p>
+        <ul>
+          <li><strong>Cargo Insurance:</strong> Goods in the ship + belongings of crew/passengers</li>
+          <li><strong>Hull Insurance:</strong> The ship itself + equipment (machinery, fuel, engine)</li>
+          <li><strong>Freight Insurance:</strong> Loss of freight charges if ship is lost</li>
+        </ul>
+
+        <h4>C. Health Insurance</h4>
+        <p>Covers: Basic Medical Expenses (hospitalisation + doctor), Major Medical Expenses (catastrophic illness), Long-term Hospitalisation (elderly nursing), Disability Income (income replacement).</p>
+
+        <!-- 6.3 Comparison Tables -->
+        <h3 id="comparison-tables">6.3 Comparison Tables</h3>
+
+        <h4>Life Insurance vs General Insurance</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Life Insurance</th><th>General Insurance</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Risk</strong></td><td>Certain (death is sure)</td><td>Uncertain (loss may/may not happen)</td></tr>
+              <tr><td><strong>Nature</strong></td><td>Contract of <strong>Assurance</strong></td><td>Contract of <strong>Indemnity</strong></td></tr>
+              <tr><td><strong>Elements</strong></td><td>Protection + Investment</td><td>Protection only</td></tr>
+              <tr><td><strong>Duration</strong></td><td>Long (15-20 years or whole life)</td><td>Short (usually 1 year)</td></tr>
+              <tr><td><strong>Surrender Value</strong></td><td>Has surrender value</td><td>No surrender value</td></tr>
+              <tr><td><strong>Medical Exam</strong></td><td>Required</td><td>Not required</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Life vs Fire vs Marine Insurance</h4>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Basis</th><th>Life Insurance</th><th>Fire Insurance</th><th>Marine Insurance</th></tr></thead>
             <tbody>
-              <tr><td>Nature</td><td>Protection + Investment</td><td>Indemnity</td><td>Indemnity</td></tr>
-              <tr><td>Period</td><td>Long-term (10&ndash;30 yrs)</td><td>Short-term (1 yr, renewable)</td><td>Voyage-based or time-based</td></tr>
-              <tr><td>Insurable Interest</td><td>At time of taking policy</td><td>At time of loss</td><td>At time of loss</td></tr>
-              <tr><td>Payment</td><td>Certain (death/maturity)</td><td>Contingent (only on fire)</td><td>Contingent (only on loss)</td></tr>
-              <tr><td>Profit Element</td><td>Yes (bonus/dividend)</td><td>No</td><td>No</td></tr>
+              <tr><td><strong>Subject Matter</strong></td><td>Human life</td><td>Physical property/assets</td><td>Ship, cargo, freight</td></tr>
+              <tr><td><strong>Element</strong></td><td>Protection + Investment</td><td>Protection only</td><td>Protection only</td></tr>
+              <tr><td><strong>Insurable Interest</strong></td><td>At time of taking policy</td><td>At policy time AND at loss</td><td>At time of loss only</td></tr>
+              <tr><td><strong>Duration</strong></td><td>5 to 30 years or whole life</td><td>1 year only</td><td>1 year or voyage period</td></tr>
+              <tr><td><strong>Indemnity</strong></td><td>&#x274c; Not applicable</td><td>&#x2705; Applicable</td><td>&#x2705; Applicable</td></tr>
+              <tr><td><strong>Surrender Value</strong></td><td>&#x2705; Yes</td><td>&#x274c; No</td><td>&#x274c; No</td></tr>
             </tbody>
           </table>
         </div>
@@ -731,175 +734,196 @@
 
       <hr>
 
-      <!-- 5. Postal & Telecom Services -->
-      <section id="postal-telecom" class="fade-in">
-        <h2>5. &#x1f4ee; Postal &amp; Telecom Services</h2>
-
-        <h3>5.1 Postal Services (India Post)</h3>
-        <h4>A. Mail Services:</h4>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Service</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><strong>First Class Mail</strong></td><td>Air mail postcards, envelopes &mdash; fastest, highest priority</td></tr>
-              <tr><td><strong>Second Class Mail</strong></td><td>Book packets, registered newspapers, periodicals &mdash; slower</td></tr>
-              <tr><td><strong>Speed Post</strong></td><td>Express parcel/letter delivery (national &amp; international)</td></tr>
-              <tr><td><strong>Registered Post</strong></td><td>Proof of posting &amp; delivery; security</td></tr>
-              <tr><td><strong>Parcel Post</strong></td><td>For sending goods/merchandise</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h4>B. Other Postal Services:</h4>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Service</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Money Order</strong></td><td>Safe transfer of money</td></tr>
-              <tr><td><strong>Postal Order</strong></td><td>Pre-paid payment instrument</td></tr>
-              <tr><td><strong>Savings Bank</strong></td><td>Post office savings accounts (small savings)</td></tr>
-              <tr><td><strong>E-Post</strong></td><td>Digital delivery of physical mail</td></tr>
-              <tr><td><strong>Business Post</strong></td><td>Bulk mailing solution for businesses</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>5.2 Telecom Services</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Service Type</th><th>Description</th><th>Examples</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Wireline/Fixed Line</strong></td><td>Landline telephone connection</td><td>BSNL landline</td></tr>
-              <tr><td><strong>Wireless/Mobile</strong></td><td>Cellular mobile services</td><td>Jio, Airtel, Vi, BSNL</td></tr>
-              <tr><td><strong>Internet Services</strong></td><td>Broadband, fibre optic, 4G/5G</td><td>JioFiber, Airtel Broadband</td></tr>
-              <tr><td><strong>VSAT</strong></td><td>Satellite-based communication</td><td>Business networks, remote areas</td></tr>
-              <tr><td><strong>DTH / Cable TV</strong></td><td>Television broadcasting</td><td>Tata Play, Dish TV</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h4>Importance for Business:</h4>
-        <ul>
-          <li>Instant communication with customers, suppliers, employees</li>
-          <li>Enables e-commerce, video conferencing, online banking</li>
-          <li>Connects businesses across cities, countries, and continents</li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <!-- 6. Transportation Services -->
-      <section id="transport" class="fade-in">
-        <h2>6. &#x1f69a; Transportation Services</h2>
-        <blockquote>
-          <strong>Transport</strong> = movement of goods/persons from one place to another. Removes <strong>hindrance of place</strong>.
-        </blockquote>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Mode</th><th>Best For</th><th>Examples</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Road</strong></td><td>Short distances, door-to-door flexibility</td><td>Trucks, lorries, tempos</td></tr>
-              <tr><td><strong>Railways</strong></td><td>Heavy/bulky goods over long distances (land)</td><td>Indian Railways freight</td></tr>
-              <tr><td><strong>Water</strong></td><td>International trade, bulky goods (cheapest)</td><td>Ships, cargo vessels</td></tr>
-              <tr><td><strong>Air</strong></td><td>Perishable/urgent goods (fastest, costliest)</td><td>Cargo flights</td></tr>
-              <tr><td><strong>Pipeline</strong></td><td>Liquids &amp; gases</td><td>Oil, natural gas pipelines</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <hr>
-
-      <!-- 7. Warehousing Services -->
-      <section id="warehousing" class="fade-in">
-        <h2>7. &#x1f3ea; Warehousing Services</h2>
-        <blockquote>
-          <strong>Warehousing</strong> = storage of goods from production until consumption. Removes <strong>hindrance of time</strong>.
-        </blockquote>
-
-        <h4>Types of Warehouses:</h4>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Type</th><th>Purpose</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Private</strong></td><td>Owned by producers/traders for own goods</td></tr>
-              <tr><td><strong>Public</strong></td><td>Operated by government/agencies; available for rent; licence required</td></tr>
-              <tr><td><strong>Bonded</strong></td><td>Stores imported goods until customs duty paid</td></tr>
-              <tr><td><strong>Cold Storage</strong></td><td>Perishable items (fruits, vegetables, meat, dairy)</td></tr>
-              <tr><td><strong>Godowns</strong></td><td>Small-scale rural storage (agricultural produce)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h4>Functions of Warehousing:</h4>
-        <ul>
-          <li>Scientific storage &amp; preservation</li>
-          <li>Protection from theft, damage, weather</li>
-          <li>Regular supply throughout the year</li>
-          <li>Inventory management &amp; financing</li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <!-- 8. Communication Services & Business -->
+      <!-- 7. Communication Services -->
       <section id="communication" class="fade-in">
-        <h2>8. &#x1f4e1; Communication Services &amp; Business</h2>
+        <h2>7. Communication Services</h2>
+
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph TD
+              COM["<b>Communication<br/>Services</b>"] --> POST["<b>Postal Services</b><br/><i>Govt controlled</i>"]
+              COM --> TEL["<b>Telecom Services</b><br/><i>Backbone of business</i>"]
+              POST --> PS1["Mail Services"]
+              POST --> PS2["Financial Services"]
+              POST --> PS3["Speed Post"]
+              TEL --> TS1["Cellular Mobile"]
+              TEL --> TS2["Fixed Line"]
+              TEL --> TS3["VSAT / DTH"]
+          </pre>
+        </div>
+
+        <!-- 7.1 Postal Services -->
+        <h3 id="postal-services">7.1 Postal Services</h3>
+
+        <p><strong>Features:</strong> Government controlled, national &amp; international service, also offers financial services (PPF, Kisan Vikas Patra, NSC), Speed Post started, highly reliable.</p>
+
+        <h4>Drawbacks:</h4>
+        <ul>
+          <li>&#x274c; Slow in speed compared to private couriers</li>
+          <li>&#x274c; Bureaucratic &mdash; lots of official procedures</li>
+          <li>&#x1f4a1; Solution: Private courier services &mdash; faster, Desk-to-Desk service</li>
+        </ul>
+
+        <h4>Services Offered by Post Office:</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Service</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Mail Services</strong></td><td>Sending letters &amp; parcels from one place to another</td></tr>
+              <tr><td><strong>Financial Services</strong></td><td>Savings schemes (PPF, KVP, NSC, MIS, Savings Account)</td></tr>
+              <tr><td><strong>Registered Post</strong></td><td>Secure delivery &mdash; receiver signs, sender gets receipt</td></tr>
+              <tr><td><strong>Parcel Post</strong></td><td>Most economical way to send parcels across India &amp; abroad</td></tr>
+              <tr><td><strong>Speed Post</strong></td><td>Time-bound fast delivery; higher charges than ordinary mail</td></tr>
+              <tr><td><strong>Courier Services</strong></td><td>Private, faster, Desk-to-Desk service</td></tr>
+              <tr><td><strong>Other</strong></td><td>International money transfer, e-bill post, etc.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 7.2 Telecom Services -->
+        <h3 id="telecom-services">7.2 Telecom Services</h3>
+
         <blockquote>
-          <strong>Communication</strong> = transfer of information, ideas, instructions. Removes <strong>hindrance of information</strong>.
+          <strong>Backbone of every business activity</strong> &mdash; without telecom, business cannot function!
         </blockquote>
 
-        <p><strong>For business, communication services enable:</strong></p>
-        <ul>
-          <li>Marketing &amp; advertising</li>
-          <li>Customer support &amp; feedback</li>
-          <li>Coordination with suppliers &amp; distributors</li>
-          <li>Digital payments &amp; e-commerce</li>
-          <li>Remote work &amp; video conferencing</li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <!-- Key Terms -->
-      <section id="key-terms" class="fade-in">
-        <h2>&#x1f4dd; Key Terms to Remember</h2>
-
-        <div class="terms-grid">
-          <div class="term"><strong>Business Services</strong><span>Services used by enterprises for conducting business (banking, insurance, transport, warehousing, communication)</span></div>
-          <div class="term"><strong>5 I's of Services</strong><span>Intangibility, Inconsistency, Inseparability, Inventory (Perishability), Involvement</span></div>
-          <div class="term"><strong>Insurable Interest</strong><span>Financial interest that the insured has in the subject matter of insurance</span></div>
-          <div class="term"><strong>Indemnity</strong><span>Compensation limited to actual loss suffered</span></div>
-          <div class="term"><strong>Subrogation</strong><span>Insurer's right to claim from third party after paying insured</span></div>
-          <div class="term"><strong>Contribution</strong><span>Sharing of loss among multiple insurers</span></div>
-          <div class="term"><strong>Premium</strong><span>Periodic payment made by insured to insurer</span></div>
-          <div class="term"><strong>Utmost Good Faith</strong><span>Duty to disclose all material facts truthfully</span></div>
-          <div class="term"><strong>RTGS</strong><span>Real Time Gross Settlement &mdash; instant fund transfer (min &#x20b9;2 lakh)</span></div>
-          <div class="term"><strong>NEFT</strong><span>National Electronic Funds Transfer &mdash; batch-based transfer</span></div>
-          <div class="term"><strong>RBI</strong><span>Reserve Bank of India &mdash; India's Central Bank (est. 1935)</span></div>
-          <div class="term"><strong>E-Banking</strong><span>Banking through electronic channels (ATM, internet, mobile)</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Service</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Cellular Mobile</strong></td><td>Voice calls, SMS, data &mdash; interconnect with any network</td></tr>
+              <tr><td><strong>Radio Paging</strong></td><td>Affordable communication (tone, numeric, alphanumeric)</td></tr>
+              <tr><td><strong>Fixed Line</strong></td><td>Landline phones connected through fibre optic cables</td></tr>
+              <tr><td><strong>Cable Services</strong></td><td>Entertainment + two-way communication within licensed area</td></tr>
+              <tr><td><strong>VSAT</strong></td><td>Satellite-based communication &mdash; works in urban &amp; remote areas. Used for newspaper online, market rates, tele-education</td></tr>
+              <tr><td><strong>DTH (Direct to Home)</strong></td><td>Satellite TV &mdash; dish antenna + set-top box (Tata Sky, Dish TV)</td></tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
       <hr>
 
-      <!-- Quick Recap -->
-      <section id="quick-recap" class="fade-in">
-        <h2>&#x1f504; Quick Recap: Services at a Glance</h2>
+      <!-- 8. Practice Questions -->
+      <section id="practice-questions" class="fade-in">
+        <h2>8. Practice Questions</h2>
+
+        <h3>Multiple Choice Questions</h3>
+
+        <p><strong>Q1.</strong> Which is NOT a characteristic of services?</p>
+        <ul>
+          <li>(a) Intangibility</li>
+          <li><strong>(b) Inventory &#x2714;&#xfe0f;</strong></li>
+          <li>(c) Inconsistency</li>
+          <li>(d) Inseparability</li>
+        </ul>
+
+        <p><strong>Q2.</strong> Primary function of a commercial bank is:</p>
+        <ul>
+          <li>(a) Manufacturing goods</li>
+          <li><strong>(b) Accepting deposits and lending money &#x2714;&#xfe0f;</strong></li>
+          <li>(c) Transporting goods</li>
+          <li>(d) Providing insurance</li>
+        </ul>
+
+        <p><strong>Q3.</strong> Which feature means quality may vary from person to person?</p>
+        <ul>
+          <li>(a) Intangibility</li>
+          <li><strong>(b) Inconsistency &#x2714;&#xfe0f;</strong></li>
+          <li>(c) Inventory</li>
+          <li>(d) Perishability</li>
+        </ul>
+
+        <p><strong>Q4.</strong> 'Utmost Good Faith' means:</p>
+        <ul>
+          <li>(a) Both parties act dishonestly</li>
+          <li>(b) Only insurer must disclose</li>
+          <li><strong>(c) Both parties must disclose all material facts truthfully &#x2714;&#xfe0f;</strong></li>
+          <li>(d) No need to disclose anything</li>
+        </ul>
+
+        <p><strong>Q5.</strong> Which service provides protection from risk?</p>
+        <ul>
+          <li>(a) Banking</li>
+          <li>(b) Transportation</li>
+          <li><strong>(c) Insurance &#x2714;&#xfe0f;</strong></li>
+          <li>(d) Postal</li>
+        </ul>
+
+        <p><strong>Q6.</strong> Which is also known as a contract of Assurance?</p>
+        <ul>
+          <li>(a) Fire Insurance</li>
+          <li>(b) Marine Insurance</li>
+          <li><strong>(c) Life Insurance &#x2714;&#xfe0f;</strong></li>
+          <li>(d) Health Insurance</li>
+        </ul>
+
+        <p><strong>Q7.</strong> Drawback of postal services is:</p>
+        <ul>
+          <li><strong>(a) Slow in nature &#x2714;&#xfe0f;</strong></li>
+          <li>(b) Expensive</li>
+          <li>(c) Lengthy</li>
+          <li>(d) Not for common citizens</li>
+        </ul>
+
+        <h3>Case Study: Bank Accounts</h3>
+        <p>Rakesh (businessman) opens an account with unlimited transactions. His mother opens a savings account with cheque facility. His sister Reema deposits &mdash;2,000/month for 2 years.</p>
+        <p><strong>Identify the accounts:</strong></p>
+        <ul>
+          <li>Rakesh &rarr; <strong>Current Account</strong></li>
+          <li>Mother &rarr; <strong>Savings Account</strong></li>
+          <li>Reema &rarr; <strong>Recurring Deposit Account</strong></li>
+        </ul>
+
+        <h3>Case Study: RTGS</h3>
+        <p>Mr. Modi wants to transfer &mdash;50,000 immediately. Bank manager says minimum for immediate transfer is &mdash;2,00,000.</p>
+        <p><strong>Concept:</strong> RTGS (Real Time Gross Settlement)</p>
+        <p><strong>Features:</strong> Controlled by RBI, real-time settlement, minimum &mdash;2,00,000, final &amp; irrevocable, no physical money exchange.</p>
+
+        <h3>Case Study: Insurance Principles</h3>
+        <p><strong>Case A:</strong> Priya insures her boutique AND her friend's boutique. Fire damages friend's boutique. Company rejects claim.</p>
+        <p><strong>Violated:</strong> Principle of <strong>Insurable Interest</strong></p>
+
+        <p><strong>Case B:</strong> Harish takes fire insurance for his factory but doesn't disclose explosive chemicals. Fire damages factory. Company refuses.</p>
+        <p><strong>Violated:</strong> Principle of <strong>Utmost Good Faith</strong></p>
+      </section>
+
+      <hr>
+
+      <!-- 9. Quick Revision -->
+      <section id="quick-revision" class="fade-in">
+        <h2>9. Quick Revision &mdash; Chapter at a Glance</h2>
 
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Type of Service</th><th>Key Hindrance Removed</th><th>Main Benefit</th></tr></thead>
+            <thead><tr><th>Topic</th><th>Key Point</th></tr></thead>
             <tbody>
-              <tr><td>Banking</td><td>Finance</td><td>Capital availability for business</td></tr>
-              <tr><td>Insurance</td><td>Risk</td><td>Protection against financial loss</td></tr>
-              <tr><td>Transport</td><td>Place</td><td>Movement of goods from production to market</td></tr>
-              <tr><td>Warehousing</td><td>Time</td><td>Storage &amp; preservation of goods</td></tr>
-              <tr><td>Communication</td><td>Information</td><td>Quick information exchange</td></tr>
-              <tr><td>Postal</td><td>Distance</td><td>Parcel &amp; document delivery</td></tr>
+              <tr><td><strong>Services</strong></td><td>Backbone of every business</td></tr>
+              <tr><td><strong>5 I's of Services</strong></td><td>Intangibility, Inconsistency, Inseparability, Inventory, Involvement</td></tr>
+              <tr><td><strong>Savings A/c</strong></td><td>For personal savings, low interest</td></tr>
+              <tr><td><strong>Current A/c</strong></td><td>For business, no interest, overdraft facility</td></tr>
+              <tr><td><strong>FD</strong></td><td>Highest interest rate, locked period</td></tr>
+              <tr><td><strong>RD</strong></td><td>Monthly deposit, higher than savings</td></tr>
+              <tr><td><strong>RTGS</strong></td><td>Minimum &mdash;2,00,000, real-time</td></tr>
+              <tr><td><strong>NEFT</strong></td><td>No minimum, batch settlement</td></tr>
+              <tr><td><strong>Utmost Good Faith</strong></td><td>Disclose all material facts</td></tr>
+              <tr><td><strong>Insurable Interest</strong></td><td>Must have financial interest in subject</td></tr>
+              <tr><td><strong>Indemnity</strong></td><td>No profit from insurance</td></tr>
+              <tr><td><strong>Life Insurance</strong></td><td>Contract of Assurance &mdash; death is certain</td></tr>
+              <tr><td><strong>Fire Insurance</strong></td><td>Indemnity contract, 1 year</td></tr>
+              <tr><td><strong>Marine Insurance</strong></td><td>Covers sea perils only</td></tr>
+              <tr><td><strong>Postal</strong></td><td>Slow but reliable, govt controlled</td></tr>
+              <tr><td><strong>Telecom</strong></td><td>Backbone of business &mdash; cellular, VSAT, DTH</td></tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="callout">
+          <strong>&#x1f9e0; Memory Aids:</strong><br>
+          <strong>7 Principles of Insurance:</strong> <strong>GU ICC SM</strong> (Good faith, Insurable interest, Indemnity, Contribution, Causa Proxima, Subrogation, Mitigation)<br>
+          <strong>Life Insurance &ne; Indemnity</strong> (human life can't be valued)<br>
+          <strong>Fire Insurance = Indemnity</strong> (property loss measurable)<br>
+          <strong>Marine Insurance = Indemnity</strong> (ship/cargo loss measurable)
         </div>
       </section>
 
@@ -910,22 +934,38 @@
     </main>
   </div>
 
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Enlarged diagram">
+    <div class="lightbox-caption">Click anywhere or press Esc to close</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
-    // Mobile TOC toggle
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        'background': '#ffffff',
+        'primaryColor': '#e8f0ec',
+        'primaryTextColor': '#1b1b1b',
+        'primaryBorderColor': '#1a5e4a',
+        'lineColor': '#1a5e4a',
+        'secondaryColor': '#faf8f5',
+        'fontFamily': 'Outfit, -apple-system, sans-serif',
+        'fontSize': '13px',
+        'edgeLabelBackground': '#ffffff',
+        'nodeBorder': '#1a5e4a',
+      },
+      flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis', padding: 12 },
+      securityLevel: 'loose',
+    });
+
     const tocToggle = document.getElementById('tocToggle');
     const toc = document.getElementById('toc');
+    tocToggle.addEventListener('click', () => { toc.classList.toggle('open'); });
+    toc.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { toc.classList.remove('open'); }); });
 
-    tocToggle.addEventListener('click', () => {
-      toc.classList.toggle('open');
-    });
-
-    toc.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        toc.classList.remove('open');
-      });
-    });
-
-    // Scroll Progress
     const progressFill = document.getElementById('progressFill');
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
@@ -934,29 +974,50 @@
       progressFill.style.width = progress + '%';
     });
 
-    // Active TOC link on scroll
     const sections = document.querySelectorAll('section[id]');
     const tocLinks = document.querySelectorAll('.toc a');
-
     function updateActiveLink() {
       let current = '';
-      sections.forEach(section => {
-        const top = section.offsetTop - 120;
-        if (window.scrollY >= top) {
-          current = section.getAttribute('id');
-        }
-      });
-      tocLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
+      sections.forEach(section => { const top = section.offsetTop - 120; if (window.scrollY >= top) current = section.getAttribute('id'); });
+      tocLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === '#' + current) link.classList.add('active'); });
     }
-
     window.addEventListener('scroll', updateActiveLink);
     updateActiveLink();
+
+    // Lightbox functions
+    function openLightbox(el) {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      var svg = el.tagName === 'IMG' ? null : el.querySelector('svg');
+      if (svg) {
+        var cloned = svg.cloneNode(true);
+        cloned.removeAttribute('style');
+        var serializer = new XMLSerializer();
+        var svgStr = serializer.serializeToString(cloned);
+        lbImg.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgStr);
+      } else if (el.tagName === 'IMG') {
+        lbImg.src = el.src;
+      }
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() { var lb = document.getElementById('lightbox'); lb.classList.remove('active'); document.body.style.overflow = ''; }
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+
+    // After mermaid renders, make all mermaid-wrap clickable for zoom
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.querySelectorAll('.mermaid-wrap').forEach(function(wrap) {
+          wrap.style.cursor = 'zoom-in';
+          wrap.addEventListener('click', function(e) {
+            if (e.target.closest('a, button')) return;
+            openLightbox(this);
+          });
+        });
+      }, 1000);
+    });
   </script>
 
+  <script src="../assets/study-os.js"></script>
 </body>
 </html>

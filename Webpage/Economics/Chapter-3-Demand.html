@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
   <style>
     :root {
       --accent: #1a5e4a;
@@ -277,7 +278,7 @@
 
   <div class="progress-bar" id="progressBar"></div>
 
-  <div class="wrapper">
+<div class="wrapper">
 
     <aside class="sidebar-toc" id="sidebarToc">
       <div class="toc-label">On this page</div>
@@ -1052,6 +1053,9 @@ Price ↓ → Quantity Demanded ↑</pre>
         </div>
       </section>
 
+  <script id="chapter-terms-data" type="application/json">
+  [{"term":"Demand","definition":"Quantity willing and able to buy at a given price"},{"term":"Desire","definition":"Just a wish, no ability to pay"},{"term":"Individual Demand","definition":"Demand of ONE consumer"},{"term":"Market Demand","definition":"Sum of all individual demands"},{"term":"Demand Function","definition":"Relationship between demand and its factors"},{"term":"Substitute Goods","definition":"Goods used in place of each other"},{"term":"Complementary Goods","definition":"Goods used together"},{"term":"Normal Goods","definition":"Demand increases when income increases"},{"term":"Inferior Goods","definition":"Demand decreases when income increases"},{"term":"Law of Demand","definition":"Price increases leads to Demand decreases (inverse relationship)"},{"term":"Expansion of Demand","definition":"Demand increases due to Price decrease"},{"term":"Contraction of Demand","definition":"Demand decreases due to Price increase"},{"term":"Increase in Demand","definition":"Demand increases at same price (curve shifts right)"},{"term":"Decrease in Demand","definition":"Demand decreases at same price (curve shifts left)"},{"term":"Giffen Goods","definition":"Inferior goods where Price increases leads to Demand increases"},{"term":"Veblen Goods","definition":"Status goods where Price increases leads to Demand increases"}]
+  </script>
       <div class="footer">
         <p>Economics Notes · Class 11 · Chapter 3 — Demand</p>
       </div>
@@ -1120,5 +1124,7 @@ Price ↓ → Quantity Demanded ↑</pre>
     overlay.addEventListener('click', closeDrawer);
     drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeDrawer); });
   </script>
+
+  <script src="../assets/study-os.js"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
   <style>
     :root {
       --bg: #faf8f5;
@@ -16,6 +17,7 @@
       --accent: #1a5e4a;
       --accent-light: #e8f0ec;
       --border: #e8e4de;
+      --code-bg: #f0ede8;
       --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
       --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
       --radius: 8px;
@@ -24,11 +26,8 @@
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body: 'Outfit', -apple-system, sans-serif;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-
     body {
       font-family: var(--font-body);
       font-weight: 400;
@@ -38,7 +37,6 @@
       background: var(--bg);
       -webkit-font-smoothing: antialiased;
     }
-
     nav.top-nav {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 100;
@@ -52,7 +50,6 @@
       align-items: center;
       justify-content: space-between;
     }
-
     nav.top-nav .logo {
       font-family: var(--font-display);
       font-weight: 600;
@@ -61,15 +58,9 @@
       text-decoration: none;
       letter-spacing: -0.02em;
     }
-
     nav.top-nav .logo:hover { opacity: 0.7; }
     nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
-
-    nav.top-nav .meta {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
+    nav.top-nav .meta { font-size: 13px; color: var(--text-muted); }
     .wrapper {
       display: flex;
       max-width: 1200px;
@@ -77,7 +68,6 @@
       padding: 80px 24px 60px;
       gap: 40px;
     }
-
     aside.toc {
       width: var(--sidebar-width);
       flex-shrink: 0;
@@ -88,10 +78,8 @@
       overflow-y: auto;
       padding-right: 8px;
     }
-
     aside.toc::-webkit-scrollbar { width: 4px; }
     aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
     aside.toc h3 {
       font-family: var(--font-display);
       font-size: 13px;
@@ -101,7 +89,6 @@
       margin-bottom: 16px;
       font-weight: 600;
     }
-
     aside.toc a {
       display: block;
       font-size: 13.5px;
@@ -114,27 +101,15 @@
       transition: all 0.2s ease;
       line-height: 1.4;
     }
-
-    aside.toc a:hover,
-    aside.toc a.active {
-      color: var(--accent);
-      border-left-color: var(--accent);
-    }
-
+    aside.toc a:hover, aside.toc a.active { color: var(--accent); border-left-color: var(--accent); }
     aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
     aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
-
-    main.content {
-      flex: 1;
-      max-width: var(--max-width);
-    }
-
+    main.content { flex: 1; max-width: var(--max-width); }
     .hero {
       padding: 48px 0 40px;
       border-bottom: 1px solid var(--border);
       margin-bottom: 40px;
     }
-
     .hero .chapter-badge {
       display: inline-block;
       font-size: 11px;
@@ -147,7 +122,6 @@
       border-radius: 20px;
       margin-bottom: 16px;
     }
-
     .hero h1 {
       font-family: var(--font-display);
       font-weight: 700;
@@ -157,15 +131,8 @@
       color: var(--text);
       margin-bottom: 12px;
     }
-
-    .hero .subtitle {
-      font-size: 16px;
-      color: var(--text-muted);
-      font-weight: 400;
-    }
-
+    .hero .subtitle { font-size: 16px; color: var(--text-muted); font-weight: 400; }
     section { margin-bottom: 48px; }
-
     section h2 {
       font-family: var(--font-display);
       font-weight: 600;
@@ -177,7 +144,6 @@
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
     }
-
     section h3 {
       font-family: var(--font-display);
       font-weight: 600;
@@ -187,7 +153,6 @@
       margin-top: 28px;
       margin-bottom: 12px;
     }
-
     section h4 {
       font-weight: 600;
       font-size: 15.5px;
@@ -195,12 +160,7 @@
       margin-top: 20px;
       margin-bottom: 8px;
     }
-
-    section p {
-      margin-bottom: 14px;
-      color: var(--text);
-    }
-
+    section p { margin-bottom: 14px; color: var(--text); }
     blockquote {
       background: var(--accent-light);
       border-left: 3px solid var(--accent);
@@ -213,9 +173,7 @@
       line-height: 1.6;
       color: var(--text);
     }
-
     blockquote strong { font-weight: 600; }
-
     .callout {
       background: #fff8e5;
       border-left: 3px solid #d4a12a;
@@ -225,7 +183,6 @@
       font-size: 15px;
       color: #5a4a1a;
     }
-
     .table-wrap {
       overflow-x: auto;
       margin: 20px 0;
@@ -234,16 +191,13 @@
       background: var(--surface);
       box-shadow: var(--shadow-sm);
     }
-
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 14px;
       line-height: 1.55;
     }
-
     table thead { background: var(--accent-light); }
-
     table th {
       font-weight: 600;
       text-align: left;
@@ -255,44 +209,36 @@
       border-bottom: 1px solid var(--border);
       white-space: nowrap;
     }
-
     table td {
       padding: 10px 14px;
       border-top: 1px solid var(--border);
       color: var(--text);
       vertical-align: top;
     }
-
     table tbody tr:first-child td { border-top: none; }
     table tbody tr:hover { background: #f5f3ef; }
     table td:first-child { font-weight: 500; white-space: nowrap; }
-
-    section ul, section ol {
-      margin: 12px 0 16px;
-      padding-left: 24px;
+    pre {
+      background: #1a1a2e;
+      color: #e4e4f0;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
     }
-
-    section li {
-      margin-bottom: 6px;
-      line-height: 1.6;
-    }
-
+    section ul, section ol { margin: 12px 0 16px; padding-left: 24px; }
+    section li { margin-bottom: 6px; line-height: 1.6; }
     section ul ul { margin: 4px 0 4px 16px; }
-
-    hr {
-      border: none;
-      height: 1px;
-      background: var(--border);
-      margin: 40px 0;
-    }
-
+    hr { border: none; height: 1px; background: var(--border); margin: 40px 0; }
     .terms-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 12px;
       margin: 16px 0;
     }
-
     .terms-grid .term {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -301,50 +247,13 @@
       box-shadow: var(--shadow-sm);
       transition: box-shadow 0.2s ease;
     }
-
     .terms-grid .term:hover { box-shadow: var(--shadow-md); }
-
-    .terms-grid .term strong {
-      display: block;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 4px;
-      font-size: 14px;
-    }
-
-    .terms-grid .term span {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    footer {
-      text-align: center;
-      padding: 32px 0 16px;
-      border-top: 1px solid var(--border);
-      margin-top: 24px;
-    }
-
-    footer p {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .progress-bar {
-      position: fixed;
-      top: 60px; left: 0; right: 0;
-      height: 2px;
-      z-index: 99;
-      background: transparent;
-    }
-
-    .progress-bar .fill {
-      height: 100%;
-      width: 0%;
-      background: var(--accent);
-      transition: width 0.1s linear;
-    }
-
+    .terms-grid .term strong { display: block; color: var(--accent); font-weight: 600; margin-bottom: 4px; font-size: 14px; }
+    .terms-grid .term span { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+    footer { text-align: center; padding: 32px 0 16px; border-top: 1px solid var(--border); margin-top: 24px; }
+    footer p { font-size: 13px; color: var(--text-muted); }
+    .progress-bar { position: fixed; top: 60px; left: 0; right: 0; height: 2px; z-index: 99; background: transparent; }
+    .progress-bar .fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.1s linear; }
     .toc-toggle {
       display: none;
       background: none;
@@ -363,33 +272,61 @@
       background: var(--surface);
       box-shadow: var(--shadow-md);
     }
-
     .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
-
     section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
     section p strong { color: var(--accent); font-weight: 600; }
-
+    .mermaid-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      margin: 20px 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: center;
+      -webkit-overflow-scrolling: touch;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; display: block; }
+    .mermaid-wrap svg .nodeLabel { font-family: var(--font-body) !important; font-size: 13px !important; }
+    .mermaid-wrap svg .edgeLabel { font-family: var(--font-body) !important; font-size: 12px !important; }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: zoom-out;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      background: #fff;
+      padding: 16px;
+      cursor: default;
+    }
+    .lightbox-close { position: absolute; top: 20px; right: 28px; color: #fff; font-size: 36px; font-weight: 300; cursor: pointer; opacity: 0.8; line-height: 1; }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-caption { color: rgba(255,255,255,0.7); font-size: 14px; margin-top: 16px; font-family: Outfit, sans-serif; }
+    .mermaid-img { max-width: 100%; height: auto; display: block; margin: 0 auto; cursor: zoom-in; transition: opacity 0.2s ease; }
+    .mermaid-img:hover { opacity: 0.85; }
     @media (max-width: 900px) {
       .wrapper { flex-direction: column; padding: 80px 16px 60px; }
-      aside.toc {
-        position: fixed;
-        bottom: 0; left: 0; right: 0;
-        top: auto;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        background: var(--surface);
-        border-top: 1px solid var(--border);
-        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
-        z-index: 150;
-        transition: max-height 0.35s ease;
-        padding: 0 20px;
-      }
+      aside.toc { position: fixed; bottom: 0; left: 0; right: 0; top: auto; width: 100%; max-height: 0; overflow: hidden; background: var(--surface); border-top: 1px solid var(--border); box-shadow: 0 -4px 20px rgba(0,0,0,0.08); z-index: 150; transition: max-height 0.35s ease; padding: 0 20px; }
       aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
       aside.toc h3 { margin-bottom: 12px; }
       .toc-toggle { display: block; }
     }
-
     @media (max-width: 600px) {
       .hero h1 { font-size: 28px; }
       .hero { padding: 32px 0 28px; }
@@ -397,21 +334,13 @@
       section { margin-bottom: 36px; }
       table { font-size: 13px; }
       table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
       nav.top-nav { padding: 0 16px; }
       nav.top-nav .meta { display: none; }
       .terms-grid { grid-template-columns: 1fr; }
     }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.6s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    .fade-in { opacity: 0; transform: translateY(12px); animation: fadeUp 0.6s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .hero { animation-delay: 0.1s; }
     section:nth-of-type(1) { animation-delay: 0.15s; }
     section:nth-of-type(2) { animation-delay: 0.2s; }
@@ -422,89 +351,88 @@
 <body>
 
   <nav class="top-nav">
-    <a href="../index.html" class="logo">← BST <span>Notes</span></a>
-    <span class="meta">Class 11 · Chapter 3</span>
+    <a href="../index.html" class="logo">&larr; BST <span>Notes</span></a>
+    <span class="meta">Class 11 &middot; Chapter 3</span>
   </nav>
 
   <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
 
-  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
+<button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
 
   <div class="wrapper">
-
     <aside class="toc" id="toc">
       <h3>Contents</h3>
-      <a href="#private-sector" class="toc-h2">Private Sector Enterprises</a>
-      <a href="#public-sector" class="toc-h2">Public Sector Enterprises</a>
-      <a href="#departmental-undertakings" class="toc-h3">Departmental Undertakings</a>
-      <a href="#statutory-corporations" class="toc-h3">Statutory Corporations</a>
-      <a href="#government-companies" class="toc-h3">Government Companies</a>
-      <a href="#comparison-public-forms" class="toc-h3">Comparison of Public Forms</a>
-      <a href="#global-enterprises" class="toc-h2">Global Enterprises (MNCs)</a>
-      <a href="#forms-of-global" class="toc-h2">Forms of Global Enterprises</a>
-      <a href="#ppp" class="toc-h2">Public-Private Partnership</a>
-      <a href="#comparison-private-public" class="toc-h2">Private vs Public Sector</a>
-      <a href="#comparison-public-global" class="toc-h2">Public vs Global Enterprise</a>
-      <a href="#key-terms" class="toc-h2">Key Terms</a>
-      <a href="#chapter-at-a-glance" class="toc-h2">Chapter at a Glance</a>
+      <a href="#introduction" class="toc-h2">1. Introduction</a>
+      <a href="#private-vs-public" class="toc-h2">2. Private Sector vs Public Sector</a>
+      <a href="#forms-public-sector" class="toc-h2">3. Forms of Public Sector Enterprises</a>
+      <a href="#departmental-undertaking" class="toc-h3">3.1 Departmental Undertaking</a>
+      <a href="#statutory-corporation" class="toc-h3">3.2 Statutory Corporation</a>
+      <a href="#government-company" class="toc-h3">3.3 Government Company</a>
+      <a href="#comparison-forms" class="toc-h3">3.4 Comparison Table</a>
+      <a href="#global-enterprises" class="toc-h2">4. Global Enterprises (MNCs)</a>
+      <a href="#joint-venture" class="toc-h2">5. Joint Venture</a>
+      <a href="#ppp" class="toc-h2">6. Public-Private Partnership (PPP)</a>
+      <a href="#practice-questions" class="toc-h2">7. Practice Questions</a>
+      <a href="#quick-revision" class="toc-h2">8. Quick Revision</a>
     </aside>
 
     <main class="content">
 
       <header class="hero fade-in">
         <span class="chapter-badge">Chapter 3</span>
-        <h1>Private, Public and Global Enterprises</h1>
-        <p class="subtitle">Class 11 Business Studies (NCERT)</p>
+        <h1>Private, Public &amp; Global Enterprises</h1>
+        <p class="subtitle">Class 11 Business Studies &mdash; Complete Revision Notes</p>
       </header>
 
-      <!-- 1. Private Sector Enterprises -->
-      <section id="private-sector" class="fade-in">
-        <h2>1. Private Sector Enterprises</h2>
+      <!-- 1. Introduction -->
+      <section id="introduction" class="fade-in">
+        <h2>1. Introduction</h2>
+        <p>After independence in <strong>1947</strong>, India adopted a <strong>Socialistic Pattern of Economy</strong>. This led to the emergence of a <strong>Mixed Economy</strong> &mdash; where both <strong>Public Sector</strong> (government) and <strong>Private Sector</strong> (individuals) play their respective roles in economic development.</p>
 
-        <p><strong>Definition:</strong> A business unit owned, controlled, and managed by private individuals or a group of individuals.</p>
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph TD
+              IE["<b>Indian Economy</b><br/>(Mixed Economy)"] --> PS["Private Sector<br/><i>Owned by individuals/groups</i>"]
+              IE --> PU["Public Sector<br/><i>Owned by Government</i>"]
+              PS --> SP["Sole Proprietorship"]
+              PS --> JHF["Joint Hindu Family"]
+              PS --> PT["Partnership"]
+              PS --> CS["Cooperative Society"]
+              PS --> JSC["Joint Stock Company"]
+              PU --> DU["Departmental Undertaking"]
+              PU --> SC["Statutory Corporation"]
+              PU --> GC["Government Company"]
+          </pre>
+        </div>
 
-        <h3>Key Features</h3>
-        <ul>
-          <li>Ownership and capital come from private individuals / groups</li>
-          <li>Managed by owners or professional managers hired by them</li>
-          <li>Primary motive = <strong>profit maximisation</strong> (along with growth & goodwill)</li>
-          <li>Decisions taken independently by the owners / Board</li>
-          <li>Subject only to general laws of the country (e.g., Companies Act, taxes)</li>
-          <li>No direct government interference in day-to-day working</li>
-        </ul>
-
-        <p><strong>Examples:</strong> Tata Sons, Reliance Industries, Aditya Birla Group, ITC, Hindustan Unilever, Mahindra & Mahindra, Infosys.</p>
+        <div class="callout">
+          <strong>&#x1f4d7; Key Timeline:</strong><br>
+          <strong>1948 &amp; 1956</strong> &rarr; Public sector dominance. Industries reserved for government.<br>
+          <strong>1991</strong> &rarr; Industrial Policy Reforms &rarr; Disinvestment, enhanced private sector role, encouraged FDI.
+        </div>
       </section>
 
       <hr>
 
-      <!-- 2. Public Sector Enterprises -->
-      <section id="public-sector" class="fade-in">
-        <h2>2. Public Sector Enterprises</h2>
+      <!-- 2. Private vs Public Sector -->
+      <section id="private-vs-public" class="fade-in">
+        <h2>2. Private Sector vs Public Sector</h2>
 
-        <p><strong>Definition:</strong> A business unit owned, controlled, and managed by the government — Central, State or Local body.</p>
-
-        <h3>Background Factors for Growth</h3>
-        <ul>
-          <li>Need for rapid industrialisation</li>
-          <li>Balanced regional development</li>
-          <li>Control of commanding heights of the economy</li>
-          <li>Public welfare & equitable distribution of wealth</li>
-          <li>Self-reliance in key sectors</li>
-          <li>Industrial Policy Resolutions of <strong>1948</strong> and <strong>1956</strong> gave major thrust</li>
-        </ul>
-
-        <h3>Key Features</h3>
-        <ul>
-          <li>Government is the major stake-holder</li>
-          <li>Aims at <strong>public welfare / service motive</strong>, not just profit</li>
-          <li>Often pioneer sectors — heavy, basic & defence industries</li>
-          <li>Provides goods & services at reasonable prices</li>
-          <li>Source of revenue to government</li>
-          <li>Supports weaker sections (e.g., reservations in employment)</li>
-        </ul>
-
-        <p><strong>Examples:</strong> Indian Railways, LIC, ONGC, NTPC, BHEL, SAIL, Coal India.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Private Sector</th><th>Public Sector</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Meaning</strong></td><td>Owned &amp; managed by individuals or groups</td><td>Owned &amp; managed partly/wholly by Central/State Government</td></tr>
+              <tr><td><strong>Objective</strong></td><td>Main goal = <strong>Earning Profit</strong></td><td>Main goal = <strong>Providing services to public</strong></td></tr>
+              <tr><td><strong>Ownership</strong></td><td>Private individuals or corporate bodies</td><td>Central/State Government(s)</td></tr>
+              <tr><td><strong>Capital</strong></td><td>From private investors/owners</td><td>Entire or at least 51% from government</td></tr>
+              <tr><td><strong>Management</strong></td><td>Owners + Professional managers</td><td>Board of Directors &mdash; government representatives</td></tr>
+              <tr><td><strong>Freedom</strong></td><td>Little interference</td><td>Political interference common</td></tr>
+              <tr><td><strong>Flexibility</strong></td><td>Can easily modify policies</td><td>Rigid policies &mdash; need government approval</td></tr>
+              <tr><td><strong>Examples</strong></td><td>Tata, Reliance, ITC, Infosys</td><td>Railways, LIC, NTPC, BHEL</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <hr>
@@ -513,148 +441,163 @@
       <section id="forms-public-sector" class="fade-in">
         <h2>3. Forms of Public Sector Enterprises</h2>
 
-        <p>There are <strong>three</strong> major forms:</p>
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph TD
+              PSE["<b>Public Sector Enterprises</b>"] --> DU["<b>Departmental Undertaking</b><br/><i>Oldest form, part of govt</i>"]
+              PSE --> SC["<b>Statutory Corporation</b><br/><i>Created by Special Act</i>"]
+              PSE --> GC["<b>Government Company</b><br/><i>51%+ govt ownership</i>"]
+              DU --> DUE["Examples:<br/>Railways, Post Office,<br/>Defence, Doordarshan"]
+              SC --> SCE["Examples:<br/>RBI, LIC, FCI, Air India"]
+              GC --> GCE["Examples:<br/>SAIL, BHEL, BSNL, IOCL"]
+          </pre>
+        </div>
 
-        <!-- A. Departmental Undertakings -->
-        <h3 id="departmental-undertakings">A. Departmental Undertakings</h3>
+        <!-- 3.1 Departmental Undertaking -->
+        <h3 id="departmental-undertaking">3.1 Departmental Undertaking</h3>
 
-        <p><strong>Definition:</strong> Public enterprises set up as part of a Government Department and run by government officials (civil servants).</p>
+        <blockquote>
+          <strong>Definition:</strong> The oldest and most traditional form of public enterprise. It is considered as <strong>one of the departments of the government</strong> &mdash; no separate existence apart from government.
+        </blockquote>
 
-        <h4>Key Features</h4>
-        <ol>
-          <li>Established as a wing of a Government department / ministry</li>
-          <li>Financed from the <strong>annual government budget</strong></li>
-          <li>Employees are <strong>government servants</strong> (paid as per government rules)</li>
-          <li><strong>No separate legal entity</strong> — the department itself is the enterprise</li>
-          <li>Directly accountable to the concerned Minister, who is responsible to Parliament</li>
-          <li>Subject to <strong>budgetary, audit & parliamentary control</strong></li>
-          <li>Annual statement of accounts is laid before Parliament</li>
-        </ol>
+        <p><strong>Examples:</strong> Indian Railways, Defence, Post &amp; Telegraph, Broadcasting (Doordarshan), All India Radio</p>
 
-        <p><strong>Examples:</strong> Indian Railways, Postal Department, Defence, Currency & Coinage, All India Radio, Doordarshan, Government Printing Press.</p>
+        <h4>Features:</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Explanation</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Finance</strong></td><td>Funded through Annual Budget. Revenue goes to Government Treasury</td></tr>
+              <tr><td><strong>Accounting</strong></td><td>Subject to same audit controls as other government activities</td></tr>
+              <tr><td><strong>Management</strong></td><td>Managed by govt department under direct ministry control</td></tr>
+              <tr><td><strong>Employees</strong></td><td>Government employees &mdash; terms set by government</td></tr>
+              <tr><td><strong>Accountability</strong></td><td>Accountable to Minister &rarr; Parliament</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-        <h4>Advantages</h4>
+        <h4>Merits &amp; Limitations</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>&#x2705; Merits</th><th>&#x274c; Limitations</th></tr></thead>
+            <tbody>
+              <tr><td>Complete government control</td><td>Lack of flexibility</td></tr>
+              <tr><td>Answerable to Parliament</td><td>Delay in decision-making</td></tr>
+              <tr><td>Revenue goes to govt treasury</td><td>Red tapism &amp; bureaucracy</td></tr>
+              <tr><td>Suitable for national security</td><td>Political interference</td></tr>
+              <tr><td>&nbsp;</td><td>Indifferent to consumer needs</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Suitability:</h4>
         <ul>
-          <li>Direct control ensures accountability</li>
-          <li>Suitable for <strong>strategic / essential / defence-related</strong> services</li>
-          <li>Secure employment for staff</li>
-          <li>Income & expenditure already reflected in government budget</li>
-        </ul>
-
-        <h4>Disadvantages</h4>
-        <ul>
-          <li>Slow decisions — red-tapism & bureaucratic delays</li>
-          <li>Lack of flexibility & autonomy</li>
-          <li>Inefficient and time-consuming procedures</li>
-          <li>No professional or business-like approach</li>
-          <li>Limited scope for innovation</li>
-        </ul>
-
-        <hr>
-
-        <!-- B. Statutory Corporations -->
-        <h3 id="statutory-corporations">B. Statutory Corporations</h3>
-
-        <p><strong>Definition:</strong> A public enterprise created by a <strong>Special Act of Parliament</strong> (or State Legislature), having a separate legal entity.</p>
-
-        <h4>Key Features</h4>
-        <ol>
-          <li>Created by a <strong>Special Act</strong> of Parliament / State Legislature</li>
-          <li><strong>Separate legal entity</strong> — can sue and be sued in its own name</li>
-          <li>Government provides initial capital; can also raise its own funds</li>
-          <li><strong>Autonomous in day-to-day operations</strong></li>
-          <li>Managed by a Board of Directors / Governing Body nominated by the Government</li>
-          <li>Employees are <strong>not</strong> government servants</li>
-          <li>Subject to <strong>legislative & judicial control</strong>, not direct executive control</li>
-          <li>Power, duties & scope clearly defined in the parent Act</li>
-        </ol>
-
-        <p><strong>Examples:</strong> LIC (Life Insurance Corporation), ONGC, SBI (State Bank of India), FCI (Food Corporation of India), IDBI, UTI, Indian Airlines (older).</p>
-
-        <h4>Advantages</h4>
-        <ul>
-          <li>Operates with flexibility & autonomy</li>
-          <li>Better quality of management & professionalism</li>
-          <li>Faster decisions than departmental undertakings</li>
-          <li>Can raise its own funds through public deposits / debentures</li>
-          <li>Marketing & pricing flexibility</li>
-        </ul>
-
-        <h4>Disadvantages</h4>
-        <ul>
-          <li>Power may be misused by the Board of Directors</li>
-          <li>Scope for favouritism, nepotism & corruption</li>
-          <li>Sometimes does not take timely decisions on critical matters</li>
-          <li>Persistent interference from the concerned Ministry</li>
+          <li>Where <strong>utmost secrecy</strong> required (defence, atomic power)</li>
+          <li>Where <strong>absolute government control</strong> needed (broadcasting)</li>
+          <li>Where private sector cannot enter due to <strong>huge capital</strong> (iron &amp; steel)</li>
+          <li>Where undertaking is a <strong>source of revenue</strong> (Indian Railways)</li>
         </ul>
 
         <hr>
 
-        <!-- C. Government Companies -->
-        <h3 id="government-companies">C. Government Companies</h3>
+        <!-- 3.2 Statutory Corporation -->
+        <h3 id="statutory-corporation">3.2 Statutory Corporation (Public Corporation)</h3>
 
-        <p><strong>Definition:</strong> A company registered under the Companies Act, 2013 in which <strong>at least 51% of the paid-up share capital</strong> is held by:</p>
-        <ul>
-          <li>Central Government, or</li>
-          <li>State Government, or</li>
-          <li>Any combination of the two, or</li>
-          <li>One or more Government companies.</li>
-        </ul>
+        <blockquote>
+          <strong>Definition:</strong> A corporate body with a <strong>separate legal existence</strong>, set up under a <strong>Special Act of Parliament</strong> or State Legislature. The Act defines its powers, functions, rules, and regulations.
+        </blockquote>
 
-        <h4>Key Features</h4>
-        <ol>
-          <li>Registered under the <strong>Companies Act</strong></li>
-          <li><strong>&ge; 51% shareholding</strong> by government (Central / State / quasi-government bodies)</li>
-          <li>Can be a Public Limited or Private Limited Company</li>
-          <li>Has a <strong>separate legal entity</strong></li>
-          <li>Operates like any other joint-stock company (subject to Companies Act)</li>
-          <li>Managed by a Board of Directors appointed by shareholders (mostly government)</li>
-          <li>Funded by share capital, government grants, borrowings & retained earnings</li>
-        </ol>
+        <p><strong>Examples:</strong> RBI, LIC, FCI, Air India, ICAI, ICSI</p>
 
-        <p><strong>Examples:</strong> NTPC, BHEL, SAIL, BEL (Bharat Electronics), GAIL, Coal India, Indian Oil Corporation, HAL, Air India (after takeover).</p>
+        <h4>Features:</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Explanation</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Formation</strong></td><td>By a <strong>Special Act of Parliament</strong></td></tr>
+              <tr><td><strong>Ownership</strong></td><td>Wholly owned by government</td></tr>
+              <tr><td><strong>Legal Status</strong></td><td><strong>Separate legal entity</strong> &mdash; can sue and be sued</td></tr>
+              <tr><td><strong>Finance</strong></td><td>Financially independent &mdash; borrows from govt or from revenues</td></tr>
+              <tr><td><strong>Accounting</strong></td><td>Not subject to govt budgetary rules</td></tr>
+              <tr><td><strong>Staff</strong></td><td>Not govt employees &mdash; own recruitment rules</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-        <h4>Advantages</h4>
-        <ul>
-          <li>Fast, professional decisions</li>
-          <li>High operational & financial flexibility</li>
-          <li>Easy to privatise (just transfer shares)</li>
-          <li>Scope for better utilisation of resources</li>
-          <li>Accountability through audit & annual reports</li>
-        </ul>
-
-        <h4>Disadvantages</h4>
-        <ul>
-          <li>Often used for political rather than business objectives</li>
-          <li>Inefficiency due to bureaucratic habits</li>
-          <li>No competitive pressure &rarr; may perform poorly</li>
-          <li>Survival becomes difficult if government withdraws support</li>
-          <li>Difficult to wind up once set up</li>
-        </ul>
+        <h4>Merits &amp; Limitations</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>&#x2705; Merits</th><th>&#x274c; Limitations</th></tr></thead>
+            <tbody>
+              <tr><td>Operational flexibility</td><td>Theoretical autonomy &mdash; freedom only on paper</td></tr>
+              <tr><td>Freedom from govt interference</td><td>Bureaucratic &amp; political interference in reality</td></tr>
+              <tr><td>Autonomous set-up</td><td>Officials may misuse autonomy (corruption)</td></tr>
+              <tr><td>Facilitates economic growth</td><td>Rigid structure &mdash; changing Act is time-consuming</td></tr>
+            </tbody>
+          </table>
+        </div>
 
         <hr>
 
-        <!-- Comparison Table -->
-        <h3 id="comparison-public-forms">Comparison — Three Forms of Public Sector Enterprises</h3>
+        <!-- 3.3 Government Company -->
+        <h3 id="government-company">3.3 Government Company</h3>
+
+        <blockquote>
+          <strong>Definition:</strong> Under Section 2(45) of Companies Act, 2013 &mdash; any company in which <strong>not less than 51%</strong> of paid-up capital is held by Central/State Government(s). Includes subsidiaries of govt companies.
+        </blockquote>
+
+        <p><strong>Examples:</strong> SAIL, BHEL, BEML, BSNL, IOCL, HPCL, BEL, GAIL</p>
+
+        <div class="callout">
+          <strong>&#x1f4a1; Key Point:</strong> Shares of government companies are purchased in the name of the <strong>President of India</strong>.
+        </div>
+
+        <h4>Features:</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Explanation</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Incorporation</strong></td><td>Under Companies Act, 2013 &mdash; executive decision, not legislation</td></tr>
+              <tr><td><strong>Legal Entity</strong></td><td>Separate legal existence independent of government</td></tr>
+              <tr><td><strong>Management</strong></td><td>Board of Directors nominated by government</td></tr>
+              <tr><td><strong>Finance</strong></td><td>At least 51% from govt; rest from capital market</td></tr>
+              <tr><td><strong>Audit</strong></td><td>Free from govt budgetary controls; Annual Report to Parliament</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Merits &amp; Limitations</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>&#x2705; Merits</th><th>&#x274c; Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Easy formation &mdash; no separate Act needed</td><td>Freedom only in name &mdash; govt controls everything</td></tr>
+              <tr><td>Operational autonomy</td><td>Lack of accountability</td></tr>
+              <tr><td>Separate legal entity</td><td>Defeats purpose of registering under Companies Act</td></tr>
+              <tr><td>Good quality products at reasonable prices</td><td>&nbsp;</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+        <!-- 3.4 Comparison Table -->
+        <h3 id="comparison-forms">3.4 Comparison &mdash; Three Forms of PSEs</h3>
 
         <div class="table-wrap">
           <table>
-            <thead>
-              <tr>
-                <th>Basis</th>
-                <th>Departmental Undertaking</th>
-                <th>Statutory Corporation</th>
-                <th>Government Company</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Basis</th><th>Departmental Undertaking</th><th>Statutory Corporation</th><th>Government Company</th></tr></thead>
             <tbody>
-              <tr><td>Establishing Instrument</td><td>Government order / resolution</td><td>Special Act of Parliament</td><td>Registered under Companies Act</td></tr>
-              <tr><td>Legal Status</td><td>No separate entity</td><td>Separate legal body</td><td>Separate legal body</td></tr>
-              <tr><td>Source of Capital</td><td>Government budget</td><td>Government + own funds</td><td>Share capital (&ge; 51% govt)</td></tr>
-              <tr><td>Managerial Control</td><td>Civil servants (full govt control)</td><td>Board of Directors (autonomy)</td><td>Board of Directors (autonomy)</td></tr>
-              <tr><td>Mode of Operation</td><td>Government rules & procedures</td><td>As defined in parent Act</td><td>As per Companies Act</td></tr>
-              <tr><td>Audit By</td><td>CAG</td><td>CAG</td><td>CAG + Private Auditors</td></tr>
-              <tr><td>Example</td><td>Indian Railways, Posts</td><td>LIC, SBI, ONGC</td><td>NTPC, BHEL, SAIL</td></tr>
+              <tr><td><strong>Formation</strong></td><td>By government order &mdash; attached to ministry</td><td>By Special Act of Parliament</td><td>Under Companies Act, 2013</td></tr>
+              <tr><td><strong>Legal Status</strong></td><td>No separate legal entity</td><td>Separate legal entity</td><td>Separate legal entity</td></tr>
+              <tr><td><strong>Management</strong></td><td>Government officials</td><td>Board of Directors appointed by govt</td><td>Board of Directors nominated by govt</td></tr>
+              <tr><td><strong>Finance</strong></td><td>100% from govt budget</td><td>Borrowings from govt or revenue</td><td>At least 51% from govt</td></tr>
+              <tr><td><strong>Ownership</strong></td><td>Wholly by govt</td><td>Wholly by govt</td><td>At least 51% by govt</td></tr>
+              <tr><td><strong>Staff</strong></td><td>Government employees</td><td>Not govt employees (contract)</td><td>Not govt employees (contract)</td></tr>
+              <tr><td><strong>Flexibility</strong></td><td>No flexibility</td><td>Considerable flexibility</td><td>Significant flexibility</td></tr>
+              <tr><td><strong>Autonomy</strong></td><td>None &mdash; strict govt control</td><td>Considerable (interference exists)</td><td>Substantial</td></tr>
+              <tr><td><strong>Accountability</strong></td><td>To public &amp; ministry</td><td>To Parliament</td><td>To concerned Ministry</td></tr>
+              <tr><td><strong>Examples</strong></td><td>Railways, Post &amp; Telegraph</td><td>RBI, LIC, FCI, Air India</td><td>SAIL, BHEL, BSNL</td></tr>
             </tbody>
           </table>
         </div>
@@ -662,201 +605,251 @@
 
       <hr>
 
-      <!-- 4. Global Enterprises -->
+      <!-- 4. Global Enterprises / MNCs -->
       <section id="global-enterprises" class="fade-in">
-        <h2>4. Global Enterprises (Multinational Corporations)</h2>
+        <h2>4. Global Enterprises (Multinational Companies / MNCs)</h2>
 
-        <p><strong>Definition:</strong> An enterprise that <strong>operates in more than one country</strong> with its home base in one country and branches / subsidiaries / affiliates in others. Also called <em>Multinational Company (MNC)</em> or <em>Transnational Company (TNC)</em>.</p>
+        <blockquote>
+          <strong>Definition:</strong> A company whose business operations extend beyond the country in which it is incorporated. Also known as <strong>'Supernatural Companies'</strong> or <strong>'Transnational Companies'</strong>.
+        </blockquote>
 
-        <h3>Key Features</h3>
-        <ol>
-          <li>Operates in many countries through branches / subsidiaries</li>
-          <li>Centralised ownership & control; headquarters located in the home country</li>
-          <li>Usually a very large industrial / business house</li>
-          <li>Expands through <strong>mergers, acquisitions & takeovers</strong></li>
-          <li>Brings in <strong>advanced technology & managerial expertise</strong></li>
-          <li>Spreads business risk across different countries</li>
-          <li>Uses local resources, labour & markets of host countries</li>
-          <li>Has significant economic & political influence</li>
-          <li>Promotes world-wide brand identity</li>
-        </ol>
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph LR
+              HC["<b>Home Country</b><br/><i>Head Office</i>"] -->|Controls| HC1["Branch in Country A"]
+              HC -->|Controls| HC2["Branch in Country B"]
+              HC -->|Controls| HC3["Branch in Country C"]
+              HC1 & HC2 & HC3 --> HO["<b>Host Countries</b>"]
+          </pre>
+        </div>
 
-        <p><strong>Examples:</strong> Microsoft, Apple, Google, Coca-Cola, Nestle, Toyota, IBM, Samsung, Sony, Unilever, Procter & Gamble.</p>
+        <p><strong>Examples:</strong> Coca-Cola, McDonald's, Intel, Sony, Apple, Google, Samsung, Nestle</p>
 
-        <h4>Benefits to the Host Country</h4>
-        <ul>
-          <li>Brings latest technology & R&D</li>
-          <li>Generates large-scale employment</li>
-          <li>Raises the standard of living</li>
-          <li>Quality goods at competitive prices</li>
-          <li>Boosts exports & earns foreign exchange</li>
-          <li>Provides training to local managers</li>
-          <li>Promotes industrial growth</li>
-        </ul>
+        <div class="callout">
+          <strong>&#x1f35f; McDonald's Example:</strong> USA = Home Country. India, Pakistan, etc. = Host Countries. They make India-specific products like <strong>McAloo Tikki</strong> and <strong>McMaharaja Mac</strong>!
+        </div>
 
-        <h4>Concerns / Limitations for the Host Country</h4>
-        <ul>
-          <li>May drain resources & repatriate profits</li>
-          <li>Local competition may be crushed (anti-competitive)</li>
-          <li>Threat to domestic industries / small firms</li>
-          <li>Cultural & political interference</li>
-          <li>May ignore environmental / labour norms</li>
-          <li>Limited transfer of core / latest technology</li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <!-- 5. Forms of Global Enterprises -->
-      <section id="forms-of-global" class="fade-in">
-        <h2>5. Forms in Which Global Enterprises Operate</h2>
-
+        <h4>Features of MNCs:</h4>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Form</th><th>Meaning</th></tr></thead>
+            <thead><tr><th>Feature</th><th>Explanation</th></tr></thead>
             <tbody>
-              <tr><td><strong>Branch / Subsidiary</strong></td><td>MNC opens a branch or makes a separate subsidiary in the host country for manufacturing / selling.</td></tr>
-              <tr><td><strong>Joint Venture</strong></td><td>Two or more parties (often a domestic & foreign firm) pool resources & share ownership for a common goal.</td></tr>
-              <tr><td><strong>Licensing</strong></td><td>MNC allows a host-country firm to use its patent, brand or technology for a fee / royalty.</td></tr>
-              <tr><td><strong>Franchising</strong></td><td>MNC gives another firm the right to use its brand & business model in return for fees.</td></tr>
-              <tr><td><strong>Strategic Alliance</strong></td><td>Two or more firms cooperate on a specific project while remaining independent.</td></tr>
-              <tr><td><strong>Public&ndash;Private Partnership (PPP)</strong></td><td>Government and private firm jointly develop / operate public infrastructure.</td></tr>
+              <tr><td><strong>Huge Capital Resources</strong></td><td>Massive financial resources &mdash; can raise funds globally</td></tr>
+              <tr><td><strong>Centralised Control</strong></td><td>Head Office in home country controls all operations</td></tr>
+              <tr><td><strong>Foreign Collaboration</strong></td><td>Collaborate with local companies for production &amp; technology</td></tr>
+              <tr><td><strong>Advanced Technology</strong></td><td>Use latest, capital-intensive technology &amp; innovative techniques</td></tr>
+              <tr><td><strong>Product Innovation</strong></td><td>Continuously engaged in R&D for new products</td></tr>
+              <tr><td><strong>Aggressive Marketing</strong></td><td>Use aggressive strategies &amp; up-to-date market info</td></tr>
+              <tr><td><strong>Expanded Market</strong></td><td>Operate globally through subsidiaries &amp; affiliates</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h4>Examples of Joint Ventures in India</h4>
+        <h4>Benefits &amp; Concerns:</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>&#x2705; Benefits to Host Country</th><th>&#x274c; Concerns / Demerits</th></tr></thead>
+            <tbody>
+              <tr><td>Employment opportunities</td><td>Disregard of national priorities</td></tr>
+              <tr><td>Advanced technology transfer</td><td>Creation of monopoly &amp; kill local businesses</td></tr>
+              <tr><td>Inflow of foreign capital</td><td>Depletion of natural resources</td></tr>
+              <tr><td>Improved standard of living</td><td>Obsolete technology dumping</td></tr>
+              <tr><td>Growth of domestic firms</td><td>Threat to national sovereignty</td></tr>
+              <tr><td>Healthy competition</td><td>Profit repatriation</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 5. Joint Venture -->
+      <section id="joint-venture" class="fade-in">
+        <h2>5. Joint Venture</h2>
+
+        <blockquote>
+          <strong>Definition:</strong> When two or more firms join together to establish a new enterprise. They contribute capital and participate in management. <strong>In simple words: A partnership between two firms.</strong>
+        </blockquote>
+
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph TD
+              JV["<b>Joint Venture</b>"] --> P1["Partner 1<br/><i>e.g., Maruti (India)</i>"]
+              JV --> P2["Partner 2<br/><i>e.g., Suzuki (Japan)</i>"]
+              P1 --> C1["Contributes:<br/>Labour, Human Resources,<br/>Local Market Knowledge"]
+              P2 --> C2["Contributes:<br/>Financial Resources,<br/>Technology, Brand"]
+              C1 & C2 --> NJ["<b>New Enterprise</b><br/><i>Maruti Suzuki India Ltd.</i>"]
+          </pre>
+        </div>
+
+        <p><strong>Examples:</strong></p>
         <ul>
-          <li>Maruti Suzuki (Suzuki + GOI)</li>
-          <li>Hero Honda</li>
-          <li>Tata Starbucks</li>
-          <li>Tata Volkswagen</li>
-          <li>IBM India</li>
-          <li>Mahindra Renault</li>
-          <li>Air India + Singapore Airlines (Tata-SIA)</li>
+          <li><strong>Maruti Suzuki</strong> (India + Japan)</li>
+          <li><strong>Hero Honda</strong> (India + Japan)</li>
+          <li><strong>ICICI Prudential</strong> (India + US)</li>
+          <li><strong>TATA Starbucks</strong> (India + US)</li>
         </ul>
 
-        <h4>Examples of Franchise Models in India</h4>
-        <p>McDonald's, Subway, Pizza Hut, KFC, Dominos, Baskin-Robbins.</p>
+        <h4>Features:</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Explanation</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Increased Resources</strong></td><td>Both firms bring financial &amp; human resources &rarr; faster growth</td></tr>
+              <tr><td><strong>Access to New Markets</strong></td><td>Foreign companies get access to vast Indian market</td></tr>
+              <tr><td><strong>Access to Technology</strong></td><td>Advanced techniques &rarr; better quality, lower cost</td></tr>
+              <tr><td><strong>Innovations</strong></td><td>New ideas &amp; technology &rarr; innovative products</td></tr>
+              <tr><td><strong>Low Cost of Production</strong></td><td>Benefit from India's low-cost raw material &amp; labour</td></tr>
+              <tr><td><strong>Established Brand Name</strong></td><td>One partner benefits from other's goodwill &amp; brand</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <hr>
 
       <!-- 6. PPP -->
       <section id="ppp" class="fade-in">
-        <h2>6. Public&ndash;Private Partnership (PPP)</h2>
+        <h2>6. Public Private Partnership (PPP)</h2>
 
-        <p><strong>Definition:</strong> A long-term contractual arrangement in which a <strong>government agency</strong> and a <strong>private company</strong> collaborate to design, build, finance, operate and/or maintain infrastructure or public services.</p>
+        <blockquote>
+          <strong>Definition:</strong> A legally binding contract between the government (public) and a private business firm for the provision of public assets/services for public benefit.
+        </blockquote>
 
-        <h4>Common PPP Models</h4>
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph LR
+              GOV["<b>Public Sector</b><br/>Government"] -->|Provides:<br/>Funds, Land,<br/>Approvals, Permissions| PPP["<b>PPP</b><br/>Project"]
+              PRI["<b>Private Sector</b><br/>Company"] -->|Provides:<br/>Technology, Expertise,<br/>Management| PPP
+              PPP --> OUT["<b>Result</b><br/>Public Infrastructure<br/>&amp; Services<br/><i>e.g., DMRC</i>"]
+          </pre>
+        </div>
+
+        <p><strong>Example:</strong> <strong>Delhi Metro Rail Corporation (DMRC)</strong> &mdash; government provided land &amp; approvals, private sector brought technology &amp; management.</p>
+
+        <h4>Features of PPP:</h4>
         <ul>
-          <li><strong>BOT</strong> — Build, Operate, Transfer</li>
-          <li><strong>BOOT</strong> — Build, Own, Operate, Transfer</li>
-          <li><strong>BOO</strong> — Build, Own, Operate</li>
-          <li><strong>LOMT</strong> — Lease, Operate, Maintain, Transfer</li>
-          <li><strong>OMT</strong> — Operate, Maintain, Transfer</li>
-        </ul>
-
-        <p><strong>Examples:</strong> Delhi Metro (partial PPP), Mumbai International Airport, National Highways (NHAI), Bangalore Metro, Hyderabad Metro.</p>
-      </section>
-
-      <hr>
-
-      <!-- 7. Private vs Public Sector -->
-      <section id="comparison-private-public" class="fade-in">
-        <h2>7. Comparison — Private Sector vs Public Sector</h2>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Basis</th><th>Private Sector</th><th>Public Sector</th></tr></thead>
-            <tbody>
-              <tr><td>Ownership</td><td>Private individuals / groups</td><td>Central / State / Local Govt</td></tr>
-              <tr><td>Motive</td><td>Profit</td><td>Public welfare + Profit</td></tr>
-              <tr><td>Capital</td><td>Private savings, capital market</td><td>Govt treasury & capital market</td></tr>
-              <tr><td>Management</td><td>Owners / professionals</td><td>Govt officials / Board of Directors</td></tr>
-              <tr><td>Areas</td><td>Consumer & light goods</td><td>Heavy, basic & strategic sectors</td></tr>
-              <tr><td>Example</td><td>Tata, Reliance, Birla</td><td>Railways, LIC, NTPC</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <hr>
-
-      <!-- 8. Public Sector vs Global Enterprise -->
-      <section id="comparison-public-global" class="fade-in">
-        <h2>8. Comparison — Public Sector Enterprise vs Global Enterprise</h2>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Basis</th><th>Public Sector Enterprise</th><th>Global Enterprise (MNC)</th></tr></thead>
-            <tbody>
-              <tr><td>Ownership</td><td>Government</td><td>Private (usually foreign)</td></tr>
-              <tr><td>Objective</td><td>Public welfare + profit</td><td>Profit maximisation</td></tr>
-              <tr><td>Area of Operation</td><td>Within own country</td><td>Across multiple countries</td></tr>
-              <tr><td>Control</td><td>Centralised (Government)</td><td>Headquarters in home country</td></tr>
-              <tr><td>Audit / Accountability</td><td>Govt + CAG</td><td>Mostly private audit (less govt influence)</td></tr>
-              <tr><td>Examples</td><td>NTPC, SAIL, BHEL</td><td>Microsoft, Nestle, Coca-Cola</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <hr>
-
-      <!-- 9. Key Terms -->
-      <section id="key-terms" class="fade-in">
-        <h2>9. Key Terms — Quick Reference</h2>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Privatisation</strong></td><td>Transfer of ownership from public sector to private sector</td></tr>
-              <tr><td><strong>Disinvestment</strong></td><td>Government selling its stake in a public enterprise</td></tr>
-              <tr><td><strong>Liberalisation</strong></td><td>Removal of unnecessary controls / restrictions on business</td></tr>
-              <tr><td><strong>Globalisation</strong></td><td>Integration of the domestic economy with the world economy</td></tr>
-              <tr><td><strong>MNC / TNC</strong></td><td>Multinational / Transnational Company</td></tr>
-              <tr><td><strong>Joint Venture</strong></td><td>Two or more parties pooling resources for mutual benefit</td></tr>
-              <tr><td><strong>PPP</strong></td><td>Public-Private Partnership</td></tr>
-              <tr><td><strong>CAG</strong></td><td>Comptroller and Auditor General of India</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <hr>
-
-      <!-- 10. Chapter at a Glance -->
-      <section id="chapter-at-a-glance" class="fade-in">
-        <h2>10. Chapter at a Glance</h2>
-
-        <ul>
-          <li><strong>Private sector</strong> — privately owned, profit-driven, minimum govt interference.</li>
-          <li><strong>Public sector</strong> — government owned, service + welfare motive.</li>
-          <li><strong>Three forms of Public sector</strong> — Departmental Undertakings (no separate entity), Statutory Corporations (created by Special Act, separate body), Government Companies (registered under Companies Act, &ge; 51% govt holding).</li>
-          <li><strong>Global Enterprises / MNCs</strong> — operate in multiple countries; bring technology, jobs, capital, but also raise concerns about competition, profit repatriation and political influence.</li>
-          <li><strong>PPPs</strong> — joint arrangements of government + private firms for infrastructure and public services.</li>
+          <li><strong>Public Partner:</strong> Government entities (ministries, municipalities, state-owned enterprises)</li>
+          <li><strong>Private Partner:</strong> Local/foreign investors with technical or financial expertise</li>
+          <li><strong>Role of Public:</strong> Ensure social obligations are fulfilled</li>
+          <li><strong>Role of Private:</strong> Bring expertise in operations, management &amp; innovation</li>
+          <li><strong>Contract:</strong> Private party bears financial, technical &amp; operational risk</li>
+          <li><strong>Cost:</strong> Borne by users (not taxpayers) in some cases</li>
+          <li><strong>Capital Subsidy:</strong> Government may give a one-time grant</li>
+          <li><strong>Revenue Sharing:</strong> Revenue shared in agreed ratio</li>
         </ul>
       </section>
 
       <hr>
 
-      <!-- 11. Exam-Ready Answer Pattern -->
-      <section id="exam-pattern" class="fade-in">
-        <h2>11. Exam-Ready Answer Pattern</h2>
+      <!-- 7. Practice Questions -->
+      <section id="practice-questions" class="fade-in">
+        <h2>7. Practice Questions</h2>
 
-        <p>When asked to <strong>"Distinguish between&hellip;"</strong>, structure the answer as:</p>
-        <blockquote>
-          <strong>Basis | Private Sector | Public Sector</strong> — give 4-5 points with headings.
-        </blockquote>
+        <h3>Multiple Choice Questions</h3>
 
-        <p>When asked to <strong>"Discuss advantages / disadvantages of any form of public enterprise"</strong>, structure as:</p>
-        <blockquote>
-          One short intro line &rarr; list of points under clear headings &rarr; two real-life examples.
-        </blockquote>
+        <p><strong>Q1.</strong> When utmost secrecy is required, which public sector enterprise is suitable?</p>
+        <ul>
+          <li>(a) Public Corporation</li>
+          <li>(b) Government Company</li>
+          <li><strong>(c) Departmental Undertaking &#x2714;&#xfe0f;</strong></li>
+          <li>(d) Public Private Partnership</li>
+        </ul>
 
-        <p>When asked about <strong>Global Enterprises / MNCs</strong>, mention features &rarr; benefits to host country &rarr; at least 3 concerns &rarr; example.</p>
+        <p><strong>Q2.</strong> Which is the oldest form of organisation in the public sector?</p>
+        <ul>
+          <li>(a) Public Sector Undertaking</li>
+          <li>(b) Multi-National Corporation</li>
+          <li><strong>(c) Departmental Undertaking &#x2714;&#xfe0f;</strong></li>
+          <li>(d) Statutory Corporation</li>
+        </ul>
+
+        <p><strong>Q3.</strong> Which statement is <strong>NOT</strong> true?</p>
+        <ul>
+          <li>(a) Air India is a limited company but not owned by Government of India</li>
+          <li><strong>(b) Reliance Industries is a public limited company owned by the government &#x2714;&#xfe0f;</strong></li>
+          <li>(c) LIC is a government company</li>
+          <li>(d) India Post is a departmental undertaking</li>
+        </ul>
+
+        <p><strong>Q4.</strong> "In the Railway Budget, the minister provides for more trains for his home state." Which limitation does this reflect?</p>
+        <ul>
+          <li>(a) Insensitive towards consumers</li>
+          <li><strong>(b) Political Interference &#x2714;&#xfe0f;</strong></li>
+          <li>(c) Lack of flexibility</li>
+          <li>(d) Red tapism</li>
+        </ul>
+
+        <p><strong>Q5.</strong> Centralised control in MNCs implies control exercised by:</p>
+        <ul>
+          <li>(a) Branches</li>
+          <li>(b) Subsidiaries</li>
+          <li><strong>(c) Headquarters &#x2714;&#xfe0f;</strong></li>
+          <li>(d) Parliament</li>
+        </ul>
+
+        <h3>Assertion-Reason Questions</h3>
+
+        <p><strong>Q6.</strong> <strong>Assertion (A):</strong> Statutory Corporation gets funds from public through its issue of shares.<br>
+        <strong>Reason (R):</strong> Statutory Corporation is established under a Special Act of Parliament.</p>
+        <ul>
+          <li><strong>(d) (A) is False but (R) is True &#x2714;&#xfe0f;</strong></li>
+        </ul>
+
+        <p><strong>Q7.</strong> <strong>Assertion (A):</strong> Separate legislation of Parliament is needed for a Government Company.<br>
+        <strong>Reason (R):</strong> Government Company can be established under the Companies Act.</p>
+        <ul>
+          <li><strong>(d) (A) is False but (R) is True &#x2714;&#xfe0f;</strong></li>
+        </ul>
+
+        <h3>Case Study: Indian Railways</h3>
+        <p>Indian Railway is part of the Railway Ministry. Finances come from govt treasury, revenue deposited there. Employees recruited like civil servants.</p>
+        <p><strong>Questions:</strong></p>
+        <ol>
+          <li><strong>Type of enterprise?</strong> &rarr; Departmental Undertaking</li>
+          <li><strong>Status of employees?</strong> &rarr; Government employees</li>
+          <li><strong>How does it get finance?</strong> &rarr; Budget allocations from govt treasury</li>
+          <li><strong>What about revenue?</strong> &rarr; Deposited into govt treasury</li>
+        </ol>
+
+        <h3>Case Study: GAIL</h3>
+        <p>Gas Authority of India Ltd. Majority shares held by GOI. Registered under Companies Act, 2013.</p>
+        <p><strong>Questions:</strong></p>
+        <ol>
+          <li><strong>Type of enterprise?</strong> &rarr; Government Company</li>
+          <li><strong>Shares bought in whose name?</strong> &rarr; President of India</li>
+          <li><strong>Where are reports submitted?</strong> &rarr; Lok Sabha and Rajya Sabha</li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <!-- 8. Quick Revision -->
+      <section id="quick-revision" class="fade-in">
+        <h2>8. Quick Revision &mdash; Chapter at a Glance</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Topic</th><th>Key Point</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Mixed Economy</strong></td><td>Both Private &amp; Public sector operate together</td></tr>
+              <tr><td><strong>Departmental Undertaking</strong></td><td>Oldest form &mdash; part of govt, no separate identity (Railways, Post)</td></tr>
+              <tr><td><strong>Statutory Corporation</strong></td><td>Created by Special Act &mdash; separate legal entity (RBI, LIC, FCI)</td></tr>
+              <tr><td><strong>Government Company</strong></td><td>51%+ govt ownership &mdash; under Companies Act (SAIL, BHEL)</td></tr>
+              <tr><td><strong>MNC</strong></td><td>Head office in one country, operations in many</td></tr>
+              <tr><td><strong>Joint Venture</strong></td><td>Two firms &rarr; one new company (Maruti + Suzuki)</td></tr>
+              <tr><td><strong>PPP</strong></td><td>Government + Private company &rarr; public welfare projects (DMRC)</td></tr>
+              <tr><td><strong>President of India</strong></td><td>Shares of government companies bought in this name</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>&#x1f9e0; Mnemonic: "Do See Great"</strong><br>
+          <strong>D</strong>epartmental Undertaking &bull; <strong>S</strong>tatutory Corporation &bull; <strong>G</strong>overnment Company<br><br>
+          <strong>MNC Features: "HCAT MP"</strong><br>
+          <strong>H</strong>uge Capital, <strong>C</strong>entralised Control, <strong>A</strong>dvanced Tech, <strong>M</strong>arketing, <strong>P</strong>roduct Innovation
+        </div>
       </section>
 
       <footer>
@@ -866,19 +859,37 @@
     </main>
   </div>
 
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Enlarged diagram">
+    <div class="lightbox-caption">Click anywhere or press Esc to close</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        'background': '#ffffff',
+        'primaryColor': '#e8f0ec',
+        'primaryTextColor': '#1b1b1b',
+        'primaryBorderColor': '#1a5e4a',
+        'lineColor': '#1a5e4a',
+        'secondaryColor': '#faf8f5',
+        'fontFamily': 'Outfit, -apple-system, sans-serif',
+        'fontSize': '13px',
+        'edgeLabelBackground': '#ffffff',
+        'nodeBorder': '#1a5e4a',
+      },
+      flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis', padding: 12 },
+      securityLevel: 'loose',
+    });
+
     const tocToggle = document.getElementById('tocToggle');
     const toc = document.getElementById('toc');
-
-    tocToggle.addEventListener('click', () => {
-      toc.classList.toggle('open');
-    });
-
-    toc.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        toc.classList.remove('open');
-      });
-    });
+    tocToggle.addEventListener('click', () => { toc.classList.toggle('open'); });
+    toc.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { toc.classList.remove('open'); }); });
 
     const progressFill = document.getElementById('progressFill');
     window.addEventListener('scroll', () => {
@@ -890,26 +901,49 @@
 
     const sections = document.querySelectorAll('section[id]');
     const tocLinks = document.querySelectorAll('.toc a');
-
     function updateActiveLink() {
       let current = '';
-      sections.forEach(section => {
-        const top = section.offsetTop - 120;
-        if (window.scrollY >= top) {
-          current = section.getAttribute('id');
-        }
-      });
-      tocLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
+      sections.forEach(section => { const top = section.offsetTop - 120; if (window.scrollY >= top) current = section.getAttribute('id'); });
+      tocLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === '#' + current) link.classList.add('active'); });
     }
-
     window.addEventListener('scroll', updateActiveLink);
     updateActiveLink();
+
+    // Lightbox functions
+    function openLightbox(el) {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      var svg = el.tagName === 'IMG' ? null : el.querySelector('svg');
+      if (svg) {
+        var cloned = svg.cloneNode(true);
+        cloned.removeAttribute('style');
+        var xmlns = 'http://www.w3.org/2000/svg';
+        var serializer = new XMLSerializer();
+        var svgStr = serializer.serializeToString(cloned);
+        lbImg.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgStr);
+      } else if (el.tagName === 'IMG') {
+        lbImg.src = el.src;
+      }
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() { var lb = document.getElementById('lightbox'); lb.classList.remove('active'); document.body.style.overflow = ''; }
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+
+    // After mermaid renders, make all mermaid-wrap clickable
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.querySelectorAll('.mermaid-wrap').forEach(function(wrap) {
+          wrap.style.cursor = 'zoom-in';
+          wrap.addEventListener('click', function(e) {
+            if (e.target.closest('a, button')) return;
+            openLightbox(this);
+          });
+        });
+      }, 1000);
+    });
   </script>
 
+  <script src="../assets/study-os.js"></script>
 </body>
 </html>
