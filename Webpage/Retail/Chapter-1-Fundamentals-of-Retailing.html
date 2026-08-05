@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 1 — Fundamentals of Retailing | Retail Class 11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navigation ─── */
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+
+    nav.top-nav .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── Layout ─── */
+    .wrapper {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      gap: 40px;
+    }
+
+    /* ─── Sidebar (TOC) ─── */
+    aside.toc {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    aside.toc h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    aside.toc a {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    aside.toc a:hover,
+    aside.toc a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    /* ─── Main Content ─── */
+    main.content {
+      flex: 1;
+      max-width: var(--max-width);
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .hero .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ─── Section Styling ─── */
+    section { margin-bottom: 48px; }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.35;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    section h4 {
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    section p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    /* ─── Blockquote ─── */
+    blockquote {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    blockquote strong { font-weight: 600; }
+
+    /* ─── Callout box ─── */
+    .callout {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: #5a4a1a;
+    }
+
+    /* ─── Tables ─── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    table thead {
+      background: var(--accent-light);
+    }
+
+    table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    table tbody tr:first-child td { border-top: none; }
+
+    table tbody tr:hover { background: #f5f3ef; }
+
+    table td:first-child { font-weight: 500; white-space: nowrap; }
+
+    /* ─── Code / Tree ─── */
+    pre {
+      background: #1a1a2e;
+      color: #e4e4f0;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    /* ─── Lists ─── */
+    section ul, section ol {
+      margin: 12px 0 16px;
+      padding-left: 24px;
+    }
+
+    section li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    section ul ul { margin: 4px 0 4px 16px; }
+
+    /* ─── Horizontal Rule ─── */
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* ─── Key Terms ─── */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .terms-grid .term {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
+
+    .terms-grid .term strong {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .terms-grid .term span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── Progress ─── */
+    .progress-bar {
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      height: 2px;
+      z-index: 99;
+      background: transparent;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    /* ─── Mobile Toggle ─── */
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ─── Highlights ─── */
+    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
+    section p strong { color: var(--accent); font-weight: 600; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        top: auto;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150;
+        transition: max-height 0.35s ease;
+        padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      aside.toc h3 { margin-bottom: 12px; }
+      .toc-toggle { display: block; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .terms-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Animations ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">← Retail <span>Notes</span></a>
+    <span class="meta">Class 11 · Chapter 1</span>
+  </nav>
+
+  <!-- Progress -->
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+<!-- Mobile TOC Toggle -->
+  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">☰ Contents</button>
+
+  <!-- Layout -->
+  <div class="wrapper">
+
+    <!-- Sidebar TOC -->
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#big-picture" class="toc-h2">Big Picture</a>
+      <a href="#basics" class="toc-h2">1. Basics of Retailing</a>
+      <a href="#meaning-significance" class="toc-h3">1.1 Meaning &amp; Significance</a>
+      <a href="#organised-unorganised" class="toc-h3">1.2 Organised vs Unorganised</a>
+      <a href="#types-establishments" class="toc-h3">1.3 Types of Establishments</a>
+      <a href="#functions" class="toc-h3">1.4 Functions of a Retailer</a>
+      <a href="#requirements" class="toc-h3">1.5 Essential Requirements</a>
+      <a href="#customer-services" class="toc-h2">2. Sales Associate &amp; Customer Services</a>
+      <a href="#customer-types" class="toc-h3">2.1 Customer vs Consumer</a>
+      <a href="#4ps" class="toc-h3">2.2 The 4 Ps of Customer Service</a>
+      <a href="#satisfaction" class="toc-h3">2.3 Customer Satisfaction</a>
+      <a href="#skills" class="toc-h2">3. Skills for Handling Retail Business</a>
+      <a href="#duties" class="toc-h2">4. Duties &amp; Responsibilities</a>
+      <a href="#key-terms" class="toc-h2">Key Terms</a>
+      <a href="#quick-recap" class="toc-h2">Quick Recap</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- Hero -->
+      <header class="hero fade-in">
+        <span class="chapter-badge">Chapter 1</span>
+        <h1>Fundamentals of Retailing</h1>
+        <p class="subtitle">Class 11 Retail (Sales Associate) — Quick Revision Notes</p>
+      </header>
+
+      <!-- Big Picture -->
+      <section id="big-picture" class="fade-in">
+        <h2>&#x1f4cc; Big Picture</h2>
+        <blockquote>
+          <strong>Retail</strong> = selling goods directly to the <strong>final customer (end-user)</strong> for their own use.<br>
+          Retail industry is the <strong>2nd largest employer</strong> in India (after agriculture) and the <strong>5th largest industry</strong>.
+        </blockquote>
+      </section>
+
+      <hr>
+
+      <!-- 1. Basics of Retailing -->
+      <section id="basics" class="fade-in">
+        <h2>1. &#x1f6d2; Basics of Retailing</h2>
+
+        <!-- 1.1 Meaning & Significance -->
+        <h3 id="meaning-significance">1.1 Meaning &amp; Significance of Retail Business</h3>
+
+        <blockquote>
+          A <strong>retailer</strong> is a merchant (or agent / business enterprise) whose main business is <strong>selling directly to the ultimate consumer</strong>.
+        </blockquote>
+
+        <ul>
+          <li>The retailer sits <strong>between the producer/wholesaler and the consumer</strong> in the marketing channel.</li>
+          <li>Retailers perform many tasks: <strong>buying, selling, grading</strong>, and gathering information about customer wants.</li>
+          <li>They stay in <strong>direct contact with the customer</strong> — that is their key strength.</li>
+          <li>Reasons for the retail boom: rising income, better living standards, more new products &amp; services, and growing competition.</li>
+        </ul>
+
+        <h4>Distribution Channel (who sells to whom)</h4>
+        <pre>Manufacturer &#8594; Wholesaler &#8594; Retailer &#8594; Consumer</pre>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Intermediary</th><th>What they do</th></tr></thead>
+            <tbody>
+              <tr><td>Wholesaler</td><td>Buys goods in <strong>large quantities</strong> from manufacturers; sells in <strong>small quantities</strong> to retailers</td></tr>
+              <tr><td>Retailer</td><td>Buys from wholesalers and sells <strong>directly</strong> to the final consumer</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>&#x1f4a1; Key Trend:</strong> Earlier people bought from small <strong>neighbourhood kirana shops</strong>. Today supermarkets, departmental stores, malls, and <strong>e-retailing (online shopping)</strong> are growing fast.
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 1.2 Organised vs Unorganised -->
+      <section id="organised-unorganised" class="fade-in">
+        <h3>1.2 Organised vs Unorganised Retailing</h3>
+
+        <ul>
+          <li><strong>Unorganised retailing</strong> = Traditional, low-cost shops → kirana, paan shop, handcart vendors, mandi/haats.
+            <ul>
+              <li>Poor infrastructure, lack of funds/technology, few skilled workers, <strong>not registered by law</strong>, no regular accounts.</li>
+            </ul>
+          </li>
+          <li><strong>Organised retailing</strong> = <strong>Licensed</strong> retailers registered for sales tax/income tax (corporate chains, malls, supermarkets).
+            <ul>
+              <li>More convenience, choice &amp; control; a comfortable, fast shopping experience.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Base</th><th>Organised Retail</th><th>Unorganised Retail</th></tr></thead>
+            <tbody>
+              <tr><td>Concept</td><td>Modern, scientific; many items under one roof</td><td>Traditional family stores; poor infra, less tech</td></tr>
+              <tr><td>Registration</td><td>Compulsory by law</td><td>Not compulsory</td></tr>
+              <tr><td>Items</td><td>Many items &amp; varieties</td><td>Few items, limited variety</td></tr>
+              <tr><td>Size &amp; layout</td><td>Large, attractive layout</td><td>Small, unorganised layout</td></tr>
+              <tr><td>Employees</td><td>Many, with specialisations</td><td>Few, doing varied tasks</td></tr>
+              <tr><td>Capital</td><td>High</td><td>Low</td></tr>
+              <tr><td>Job security</td><td>Regular; governed by law</td><td>Weak; outside govt. control</td></tr>
+              <tr><td>Business style</td><td>Corporate</td><td>Sole trader / partnership</td></tr>
+              <tr><td>Network</td><td>Many branches in many places</td><td>One unit, one locality</td></tr>
+              <tr><td>Examples</td><td>Supermarkets, malls, hypermarkets, teleshopping, Internet</td><td>Cobbler, baniya, kirana, paanwala, mandi vendors</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 1.3 Types of Establishments -->
+      <section id="types-establishments" class="fade-in">
+        <h3>1.3 Types of Retail Business Establishments</h3>
+
+        <h4>&#x1f5c4;&#xfe0f; (A) Based on merchandise offered</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>What it is</th></tr></thead>
+            <tbody>
+              <tr><td>Convenience store</td><td>Small shop near homes; daily-need items (milk, bread, eggs); open long hours</td></tr>
+              <tr><td>Supermarket</td><td>Self-service shop; wide variety of food &amp; household products kept in aisles</td></tr>
+              <tr><td>Hypermarket</td><td>Very big store = department store + grocery supermarket (appliances, clothes, food)</td></tr>
+              <tr><td>Specialty store</td><td>Sells one specialised category only (electronics, jewellery, books, sports)</td></tr>
+              <tr><td>Departmental store</td><td>Wide range of goods split into departments; high capital; decentralised buying + centralised selling; home delivery</td></tr>
+              <tr><td>Catalogue showroom</td><td>Customers pick from a catalogue, fill an order form; goods fetched from warehouse (hard goods)</td></tr>
+              <tr><td>Discount store</td><td>Sells products at prices lower than normal</td></tr>
+              <tr><td>Shopping mall</td><td>Complex of many shops under one roof with connected walkways</td></tr>
+              <tr><td>General store</td><td>Small-town / rural store with varied goods + groceries and household items</td></tr>
+              <tr><td>Warehouse store</td><td>Large food &amp; grocery store with deeper discounts; may charge a membership fee</td></tr>
+              <tr><td>Variety store</td><td>Sells a wide range of inexpensive household goods</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>&#x1f3e2; (B) Based on ownership</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>What it is</th><th>Examples</th></tr></thead>
+            <tbody>
+              <tr><td>Independent retailer</td><td>Small business owned by one person; direct contact with customers</td><td>Baniya, kirana, paanwala</td></tr>
+              <tr><td>Corporate retail chain</td><td>Group of stores under same ownership &amp; management</td><td>Reliance, Bata, Food World</td></tr>
+              <tr><td>Franchising</td><td>Franchiser grants franchisee the right to use its brand &amp; systems</td><td>McDonald's, Pizza Hut, Van Heusen</td></tr>
+              <tr><td>Consumer cooperative</td><td>Store owned &amp; run by the consumers themselves</td><td>Apna Bazaar, Mumbai</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>&#x1f4bb; Modern / Non-store retailers</h4>
+        <ul>
+          <li><strong>E-retailers</strong> – online selling (Amazon, Flipkart); payment online or at delivery.</li>
+          <li><strong>Vending machines</strong> – insert money, pick a product, machine dispenses it.</li>
+          <li><strong>Automated retail stores</strong> – 24&times;7 kiosks that accept cards (Zoom Shops, RedBox).</li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <!-- 1.4 Functions of a Retailer -->
+      <section id="functions" class="fade-in">
+        <h3>1.4 Functions of a Retailer (5)</h3>
+
+        <ol>
+          <li><strong>Breaking bulk into small quantities</strong> – splits large packages into small quantities for customers.</li>
+          <li><strong>Providing product information</strong> – shows how a product solves a customer's need.</li>
+          <li><strong>Providing customer services</strong> – home delivery, gift wrapping, credit facility, after-sales service.</li>
+          <li><strong>Creating a convenient, pleasant shopping experience</strong> – friendly staff, good lighting, easy movement, soft music.</li>
+          <li><strong>Providing feedback to producers</strong> – passing on customer needs and preferences.</li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <!-- 1.5 Essential Requirements -->
+      <section id="requirements" class="fade-in">
+        <h3>1.5 Essential Requirements of Retailers</h3>
+
+        <ul>
+          <li>Establish the shop where customers are attracted.</li>
+          <li>Stock the goods which are needed by the customers.</li>
+          <li>Sell quality goods at competitive prices.</li>
+          <li>Be up-to-date about the latest market trends.</li>
+          <li>Ensure window and counter display to promote sales.</li>
+          <li>Always be accessible to customers.</li>
+        </ul>
+
+        <h4>Services retailers give to customers</h4>
+        <ul>
+          <li>Selling goods in small quantities at reasonable prices.</li>
+          <li>Meeting consumer demand and keeping required stock.</li>
+          <li>Providing necessary buying information.</li>
+          <li>Guiding on replacement conditions for damaged goods.</li>
+          <li>Displaying and demonstrating goods to attract customers.</li>
+          <li>Offering credit facility to regular, reliable customers.</li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <!-- 2. Sales Associate & Customer Services -->
+      <section id="customer-services" class="fade-in">
+        <h2>2. &#x1f3ad; Sales Associate Services to Customers</h2>
+
+        <!-- 2.1 Customer vs Consumer -->
+        <h3 id="customer-types">2.1 Customer vs Consumer</h3>
+
+        <blockquote>
+          A <strong>customer</strong> is one who <strong>buys</strong> the product; a <strong>consumer</strong> is one who <strong>uses</strong> the product.<br>
+          You can be both — e.g., you buy and eat a chocolate.
+        </blockquote>
+
+        <h4>Types of customers</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Behaviour</th></tr></thead>
+            <tbody>
+              <tr><td>Loyal</td><td>Few in number, but give most repeat sales &amp; profit; keep in regular touch</td></tr>
+              <tr><td>Discount</td><td>Come often only when discounts are offered, or buy low-cost items</td></tr>
+              <tr><td>Impulsive</td><td>Not planning to buy; buy what looks good at that moment (hard to handle)</td></tr>
+              <tr><td>Need-based</td><td>Buy only what they habitually need; frequent but hard to satisfy</td></tr>
+              <tr><td>Wandering</td><td>New to the industry; only compare products, rarely buy</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 2.2 The 4 Ps -->
+      <section id="4ps" class="fade-in">
+        <h3>2.2 The 4 Ps of Customer Service</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>P</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td>Promptness</td><td>Deliver products on time; no delays in delivery or cancellation</td></tr>
+              <tr><td>Politeness</td><td>Put the customer first; be welcoming, respectful, and listen</td></tr>
+              <tr><td>Professionalism</td><td>Be knowledgeable, competent, confident; avoid anxiety, frustration, weakness</td></tr>
+              <tr><td>Personalisation</td><td>Remember the customer's name, preferences, and unique needs</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>&#x1f4a1; Customer service functions:</strong> Customer support (answering queries) &middot; Pre-sales (info about products) &middot; Marketing (mails, telemarketing, surveys) &middot; Sales (physical + e-selling) &middot; Technical support (data verification, problem resolution) &middot; Social media service (Facebook, Twitter).
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 2.3 Customer Satisfaction -->
+      <section id="satisfaction" class="fade-in">
+        <h3>2.3 Customer Satisfaction &amp; Its Importance</h3>
+
+        <blockquote>
+          <strong>Customer satisfaction</strong> = when the <strong>value and service provided meet or exceed</strong> the customer's expectations.
+        </blockquote>
+
+        <h4>Values / benefits of customer satisfaction</h4>
+        <ul>
+          <li>Indicates repeat purchase &amp; loyalty.</li>
+          <li>Shows a point of discrimination from competitors.</li>
+          <li>Reduces customer loss (retrenchment).</li>
+          <li>Increases the lifetime value of a customer.</li>
+          <li>Reduces negative word-of-mouth.</li>
+          <li>Helps in retaining customers.</li>
+        </ul>
+
+        <h4>Customer retention strategies</h4>
+        <ul>
+          <li>Write blogs to educate customers.</li>
+          <li>Send emails for special promotions.</li>
+          <li>Conduct customer satisfaction surveys.</li>
+          <li>Offer a personalised experience.</li>
+          <li>Set customer expectations early.</li>
+          <li>Use social media to build an engaged customer community.</li>
+          <li>Learn and improve from the best.</li>
+          <li>Develop questionnaires and conduct surveys.</li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <!-- 3. Skills for Handling Retail Business -->
+      <section id="skills" class="fade-in">
+        <h2>3. &#x1f4a1; Skills for Handling Retail Business</h2>
+
+        <blockquote>
+          <strong>Skill</strong> = the ability to do a task with a pre-determined result within a given time, energy, or both.
+        </blockquote>
+
+        <h4>Essentials of skill development</h4>
+        <ul>
+          <li><strong>Take stock</strong> – know where you stand; assess your assets and abilities.</li>
+          <li><strong>Create a plan</strong> – set a roadmap to reach your goals.</li>
+          <li><strong>Create an environment for development</strong> – practice consistently, note mistakes, interact professionally, watch your health.</li>
+        </ul>
+
+        <h4>Skills a sales associate needs</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Skill</th><th>What it means</th></tr></thead>
+            <tbody>
+              <tr><td>Patience</td><td>Stay calm and diffuse tough situations with difficult customers</td></tr>
+              <tr><td>Attentiveness</td><td>Pay close attention to detail; accurate transactions and displays</td></tr>
+              <tr><td>Communication</td><td>Listen effectively and explain product benefits clearly</td></tr>
+              <tr><td>Product knowledge</td><td>Know your products fully to answer questions correctly</td></tr>
+              <tr><td>Positive language</td><td>Use words that create happy customers</td></tr>
+              <tr><td>Acting skills</td><td>Handle boring, angry, and complaining customers professionally</td></tr>
+              <tr><td>Time management</td><td>Solve customer problems within limited time</td></tr>
+              <tr><td>Goal oriented</td><td>Focus on tasks and end results</td></tr>
+              <tr><td>Resilience</td><td>Think clearly, decide quickly, and not take things personally</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 4. Duties & Responsibilities -->
+      <section id="duties" class="fade-in">
+        <h2>4. &#x1f4cb; Duties &amp; Responsibilities of a Sales Associate</h2>
+
+        <blockquote>
+          A sales associate is responsible for all sales activities — from greeting customers to answering questions, offering assistance, suggesting items, and providing product information.
+        </blockquote>
+
+        <h4>Duties</h4>
+        <ul>
+          <li><strong>Handling problems</strong> – resolve/process customer complaints within the bounds of authority.</li>
+          <li><strong>Assisting sales</strong> – help customers buy, restock and merchandise to boost sales.</li>
+          <li><strong>Clerical tasks</strong> – receive goods, total bills, accept payments, take orders.</li>
+          <li><strong>Job-specific responsibilities</strong> – greet customers, answer queries, run cash registers, manage transactions, balance drawers.</li>
+        </ul>
+
+        <h4>Responsibilities</h4>
+        <ul>
+          <li>Interact with customers (in person, phone, email, or chat — even remotely).</li>
+          <li>Work directly with customers in the store.</li>
+          <li>Resolve customer issues (wrong price, returns, etc.).</li>
+          <li>Listen to customers — good listening solves problems fast.</li>
+          <li>Remain friendly and polite.</li>
+        </ul>
+
+        <h4>Special activities</h4>
+        <ul>
+          <li>Prepare for and respond to customer inquiries; document them.</li>
+          <li>Improve quality of service.</li>
+          <li>Identify new products and update job knowledge.</li>
+          <li>Participate in educational opportunities.</li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <!-- Key Terms -->
+      <section id="key-terms" class="fade-in">
+        <h2>&#x1f4dd; Key Terms to Remember</h2>
+
+        <div class="terms-grid">
+          <div class="term"><strong>Retailer</strong><span>Sells goods directly to the end-user</span></div>
+          <div class="term"><strong>Wholesaler</strong><span>Sells in bulk to retailers</span></div>
+          <div class="term"><strong>Distribution Channel</strong><span>Manufacturer → Wholesaler → Retailer → Consumer</span></div>
+          <div class="term"><strong>Kirana store</strong><span>Traditional unorganised neighbourhood shop</span></div>
+          <div class="term"><strong>Organised retail</strong><span>Registered, modern, big stores / malls</span></div>
+          <div class="term"><strong>Consumer</strong><span>One who uses / consumes the goods</span></div>
+          <div class="term"><strong>Customer satisfaction</strong><span>Service meets or exceeds expectations</span></div>
+          <div class="term"><strong>4 Ps of service</strong><span>Promptness, Politeness, Professionalism, Personalisation</span></div>
+          <div class="term"><strong>Franchising</strong><span>Franchiser grants a franchisee rights to its brand &amp; systems</span></div>
+          <div class="term"><strong>E-retailing</strong><span>Sale of goods/services through the Internet</span></div>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Quick Recap -->
+      <section id="quick-recap" class="fade-in">
+        <h2>&#x1f504; Quick Recap: Retail in One Glance</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Topic</th><th>One-liner</th></tr></thead>
+            <tbody>
+              <tr><td>Retail</td><td>Selling directly to the final consumer</td></tr>
+              <tr><td>Channel</td><td>Manufacturer → Wholesaler → Retailer → Consumer</td></tr>
+              <tr><td>Unorganised retail</td><td>Traditional, unregistered, small shops (kirana, baniya)</td></tr>
+              <tr><td>Organised retail</td><td>Registered, modern, big stores (malls, supermarkets)</td></tr>
+              <tr><td>Customer</td><td>One who buys</td></tr>
+              <tr><td>Consumer</td><td>One who uses</td></tr>
+              <tr><td>4 Ps</td><td>Promptness, Politeness, Professionalism, Personalisation</td></tr>
+              <tr><td>Sales associate skills</td><td>Patience, attentiveness, communication, product knowledge</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <script>
+        const KEY_TERMS_DATA = [{"term":"Retailer","definition":"Sells goods directly to the end-user"},{"term":"Wholesaler","definition":"Sells in bulk to retailers"},{"term":"Distribution Channel","definition":"Manufacturer → Wholesaler → Retailer → Consumer"},{"term":"Kirana store","definition":"Traditional unorganised neighbourhood shop"},{"term":"Organised retail","definition":"Registered, modern, big stores / malls"},{"term":"Consumer","definition":"One who uses / consumes the goods"},{"term":"Customer satisfaction","definition":"Service meets or exceeds expectations"},{"term":"4 Ps of service","definition":"Promptness, Politeness, Professionalism, Personalisation"},{"term":"Franchising","definition":"Franchiser grants a franchisee rights to its brand & systems"},{"term":"E-retailing","definition":"Sale of goods/services through the Internet"}];
+      </script>
+
+      <footer>
+        <p>Source: NCERT Retail Sales Associate Class XI, Unit 1 &middot; Fundamentals of Retailing</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    // ─── Mobile TOC toggle ───
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+
+    tocToggle.addEventListener('click', () => {
+      toc.classList.toggle('open');
+    });
+
+    // Close TOC on link click (mobile)
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toc.classList.remove('open');
+      });
+    });
+
+    // ─── Scroll Progress ───
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    // ─── Active TOC link on scroll ───
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+
+  <script src="../assets/study-os.js"></script>
+</body>
+</html>
