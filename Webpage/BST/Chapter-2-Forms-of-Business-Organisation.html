@@ -26,11 +26,8 @@
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body: 'Outfit', -apple-system, sans-serif;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-
     body {
       font-family: var(--font-body);
       font-weight: 400;
@@ -40,7 +37,6 @@
       background: var(--bg);
       -webkit-font-smoothing: antialiased;
     }
-
     nav.top-nav {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 100;
@@ -54,7 +50,6 @@
       align-items: center;
       justify-content: space-between;
     }
-
     nav.top-nav .logo {
       font-family: var(--font-display);
       font-weight: 600;
@@ -63,15 +58,9 @@
       text-decoration: none;
       letter-spacing: -0.02em;
     }
-
     nav.top-nav .logo:hover { opacity: 0.7; }
     nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
-
-    nav.top-nav .meta {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
+    nav.top-nav .meta { font-size: 13px; color: var(--text-muted); }
     .wrapper {
       display: flex;
       max-width: 1200px;
@@ -79,7 +68,6 @@
       padding: 80px 24px 60px;
       gap: 40px;
     }
-
     aside.toc {
       width: var(--sidebar-width);
       flex-shrink: 0;
@@ -90,10 +78,8 @@
       overflow-y: auto;
       padding-right: 8px;
     }
-
     aside.toc::-webkit-scrollbar { width: 4px; }
     aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
     aside.toc h3 {
       font-family: var(--font-display);
       font-size: 13px;
@@ -103,7 +89,6 @@
       margin-bottom: 16px;
       font-weight: 600;
     }
-
     aside.toc a {
       display: block;
       font-size: 13.5px;
@@ -116,27 +101,15 @@
       transition: all 0.2s ease;
       line-height: 1.4;
     }
-
-    aside.toc a:hover,
-    aside.toc a.active {
-      color: var(--accent);
-      border-left-color: var(--accent);
-    }
-
+    aside.toc a:hover, aside.toc a.active { color: var(--accent); border-left-color: var(--accent); }
     aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
     aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
-
-    main.content {
-      flex: 1;
-      max-width: var(--max-width);
-    }
-
+    main.content { flex: 1; max-width: var(--max-width); }
     .hero {
       padding: 48px 0 40px;
       border-bottom: 1px solid var(--border);
       margin-bottom: 40px;
     }
-
     .hero .chapter-badge {
       display: inline-block;
       font-size: 11px;
@@ -149,7 +122,6 @@
       border-radius: 20px;
       margin-bottom: 16px;
     }
-
     .hero h1 {
       font-family: var(--font-display);
       font-weight: 700;
@@ -159,15 +131,8 @@
       color: var(--text);
       margin-bottom: 12px;
     }
-
-    .hero .subtitle {
-      font-size: 16px;
-      color: var(--text-muted);
-      font-weight: 400;
-    }
-
+    .hero .subtitle { font-size: 16px; color: var(--text-muted); font-weight: 400; }
     section { margin-bottom: 48px; }
-
     section h2 {
       font-family: var(--font-display);
       font-weight: 600;
@@ -179,7 +144,6 @@
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
     }
-
     section h3 {
       font-family: var(--font-display);
       font-weight: 600;
@@ -189,7 +153,6 @@
       margin-top: 28px;
       margin-bottom: 12px;
     }
-
     section h4 {
       font-weight: 600;
       font-size: 15.5px;
@@ -197,12 +160,7 @@
       margin-top: 20px;
       margin-bottom: 8px;
     }
-
-    section p {
-      margin-bottom: 14px;
-      color: var(--text);
-    }
-
+    section p { margin-bottom: 14px; color: var(--text); }
     blockquote {
       background: var(--accent-light);
       border-left: 3px solid var(--accent);
@@ -215,9 +173,7 @@
       line-height: 1.6;
       color: var(--text);
     }
-
     blockquote strong { font-weight: 600; }
-
     .callout {
       background: #fff8e5;
       border-left: 3px solid #d4a12a;
@@ -227,7 +183,6 @@
       font-size: 15px;
       color: #5a4a1a;
     }
-
     .table-wrap {
       overflow-x: auto;
       margin: 20px 0;
@@ -236,18 +191,13 @@
       background: var(--surface);
       box-shadow: var(--shadow-sm);
     }
-
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 14px;
       line-height: 1.55;
     }
-
-    table thead {
-      background: var(--accent-light);
-    }
-
+    table thead { background: var(--accent-light); }
     table th {
       font-weight: 600;
       text-align: left;
@@ -259,20 +209,15 @@
       border-bottom: 1px solid var(--border);
       white-space: nowrap;
     }
-
     table td {
       padding: 10px 14px;
       border-top: 1px solid var(--border);
       color: var(--text);
       vertical-align: top;
     }
-
     table tbody tr:first-child td { border-top: none; }
-
     table tbody tr:hover { background: #f5f3ef; }
-
     table td:first-child { font-weight: 500; white-space: nowrap; }
-
     pre {
       background: #1a1a2e;
       color: #e4e4f0;
@@ -284,33 +229,16 @@
       margin: 20px 0;
       font-family: 'JetBrains Mono', 'Fira Code', monospace;
     }
-
-    section ul, section ol {
-      margin: 12px 0 16px;
-      padding-left: 24px;
-    }
-
-    section li {
-      margin-bottom: 6px;
-      line-height: 1.6;
-    }
-
+    section ul, section ol { margin: 12px 0 16px; padding-left: 24px; }
+    section li { margin-bottom: 6px; line-height: 1.6; }
     section ul ul { margin: 4px 0 4px 16px; }
-
-    hr {
-      border: none;
-      height: 1px;
-      background: var(--border);
-      margin: 40px 0;
-    }
-
+    hr { border: none; height: 1px; background: var(--border); margin: 40px 0; }
     .terms-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 12px;
       margin: 16px 0;
     }
-
     .terms-grid .term {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -319,50 +247,13 @@
       box-shadow: var(--shadow-sm);
       transition: box-shadow 0.2s ease;
     }
-
     .terms-grid .term:hover { box-shadow: var(--shadow-md); }
-
-    .terms-grid .term strong {
-      display: block;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 4px;
-      font-size: 14px;
-    }
-
-    .terms-grid .term span {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    footer {
-      text-align: center;
-      padding: 32px 0 16px;
-      border-top: 1px solid var(--border);
-      margin-top: 24px;
-    }
-
-    footer p {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .progress-bar {
-      position: fixed;
-      top: 60px; left: 0; right: 0;
-      height: 2px;
-      z-index: 99;
-      background: transparent;
-    }
-
-    .progress-bar .fill {
-      height: 100%;
-      width: 0%;
-      background: var(--accent);
-      transition: width 0.1s linear;
-    }
-
+    .terms-grid .term strong { display: block; color: var(--accent); font-weight: 600; margin-bottom: 4px; font-size: 14px; }
+    .terms-grid .term span { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+    footer { text-align: center; padding: 32px 0 16px; border-top: 1px solid var(--border); margin-top: 24px; }
+    footer p { font-size: 13px; color: var(--text-muted); }
+    .progress-bar { position: fixed; top: 60px; left: 0; right: 0; height: 2px; z-index: 99; background: transparent; }
+    .progress-bar .fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.1s linear; }
     .toc-toggle {
       display: none;
       background: none;
@@ -381,33 +272,61 @@
       background: var(--surface);
       box-shadow: var(--shadow-md);
     }
-
     .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
-
     section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
     section p strong { color: var(--accent); font-weight: 600; }
-
+    .mermaid-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      margin: 20px 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: center;
+      -webkit-overflow-scrolling: touch;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; display: block; }
+    .mermaid-wrap svg .nodeLabel { font-family: var(--font-body) !important; font-size: 13px !important; }
+    .mermaid-wrap svg .edgeLabel { font-family: var(--font-body) !important; font-size: 12px !important; }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: zoom-out;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      background: #fff;
+      padding: 16px;
+      cursor: default;
+    }
+    .lightbox-close { position: absolute; top: 20px; right: 28px; color: #fff; font-size: 36px; font-weight: 300; cursor: pointer; opacity: 0.8; line-height: 1; }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-caption { color: rgba(255,255,255,0.7); font-size: 14px; margin-top: 16px; font-family: Outfit, sans-serif; }
+    .mermaid-img { max-width: 100%; height: auto; display: block; margin: 0 auto; cursor: zoom-in; transition: opacity 0.2s ease; }
+    .mermaid-img:hover { opacity: 0.85; }
     @media (max-width: 900px) {
       .wrapper { flex-direction: column; padding: 80px 16px 60px; }
-      aside.toc {
-        position: fixed;
-        bottom: 0; left: 0; right: 0;
-        top: auto;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        background: var(--surface);
-        border-top: 1px solid var(--border);
-        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
-        z-index: 150;
-        transition: max-height 0.35s ease;
-        padding: 0 20px;
-      }
+      aside.toc { position: fixed; bottom: 0; left: 0; right: 0; top: auto; width: 100%; max-height: 0; overflow: hidden; background: var(--surface); border-top: 1px solid var(--border); box-shadow: 0 -4px 20px rgba(0,0,0,0.08); z-index: 150; transition: max-height 0.35s ease; padding: 0 20px; }
       aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
       aside.toc h3 { margin-bottom: 12px; }
       .toc-toggle { display: block; }
     }
-
     @media (max-width: 600px) {
       .hero h1 { font-size: 28px; }
       .hero { padding: 32px 0 28px; }
@@ -420,17 +339,8 @@
       nav.top-nav .meta { display: none; }
       .terms-grid { grid-template-columns: 1fr; }
     }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.6s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    .fade-in { opacity: 0; transform: translateY(12px); animation: fadeUp 0.6s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .hero { animation-delay: 0.1s; }
     section:nth-of-type(1) { animation-delay: 0.15s; }
     section:nth-of-type(2) { animation-delay: 0.2s; }
@@ -441,8 +351,8 @@
 <body>
 
   <nav class="top-nav">
-    <a href="../index.html" class="logo">← BST <span>Notes</span></a>
-    <span class="meta">Class 11 · Chapter 2</span>
+    <a href="../index.html" class="logo">&larr; BST <span>Notes</span></a>
+    <span class="meta">Class 11 &middot; Chapter 2</span>
   </nav>
 
   <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
@@ -450,23 +360,25 @@
 <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
 
   <div class="wrapper">
-
     <aside class="toc" id="toc">
       <h3>Contents</h3>
       <a href="#overview" class="toc-h2">Overview</a>
-      <a href="#sole-proprietorship" class="toc-h2">Sole Proprietorship</a>
-      <a href="#jhf-business" class="toc-h2">Joint Hindu Family Business</a>
-      <a href="#partnership" class="toc-h2">Partnership</a>
-      <a href="#types-of-partners" class="toc-h3">Types of Partners</a>
-      <a href="#types-of-partnerships" class="toc-h3">Types of Partnerships</a>
-      <a href="#partnership-deed" class="toc-h3">Partnership Deed</a>
-      <a href="#cooperative-society" class="toc-h2">Cooperative Society</a>
-      <a href="#types-of-cooperatives" class="toc-h3">Types of Cooperatives</a>
-      <a href="#joint-stock-company" class="toc-h2">Joint Stock Company</a>
-      <a href="#private-vs-public" class="toc-h3">Private vs Public Co.</a>
-      <a href="#choice-of-form" class="toc-h2">Choice of Form</a>
-      <a href="#comparative-summary" class="toc-h2">Comparative Summary</a>
-      <a href="#key-terms" class="toc-h2">Key Terms</a>
+      <a href="#sole-proprietorship" class="toc-h2">1. Sole Proprietorship</a>
+      <a href="#jhf-business" class="toc-h2">2. Joint Hindu Family Business</a>
+      <a href="#partnership" class="toc-h2">3. Partnership</a>
+      <a href="#types-of-partners" class="toc-h3">3.1 Types of Partners</a>
+      <a href="#types-of-partnerships" class="toc-h3">3.2 Types of Partnerships</a>
+      <a href="#partnership-deed" class="toc-h3">3.3 Partnership Deed &amp; Registration</a>
+      <a href="#cooperative-society" class="toc-h2">4. Cooperative Society</a>
+      <a href="#types-of-cooperatives" class="toc-h3">4.1 Types of Cooperatives</a>
+      <a href="#joint-stock-company" class="toc-h2">5. Joint Stock Company</a>
+      <a href="#types-of-companies" class="toc-h3">5.1 Types of Companies</a>
+      <a href="#formation-of-company" class="toc-h2">6. Formation of a Company</a>
+      <a href="#difference-tables" class="toc-h2">7. Difference Tables</a>
+      <a href="#comparative-summary" class="toc-h2">8. Comparative Summary</a>
+      <a href="#choice-of-form" class="toc-h2">9. Factors Affecting Choice</a>
+      <a href="#key-terms" class="toc-h2">10. Key Terms</a>
+      <a href="#quick-revision" class="toc-h2">11. One-Liners</a>
     </aside>
 
     <main class="content">
@@ -474,24 +386,32 @@
       <header class="hero fade-in">
         <span class="chapter-badge">Chapter 2</span>
         <h1>Forms of Business Organisation</h1>
-        <p class="subtitle">Class 11 Business Studies — Quick Revision Notes</p>
+        <p class="subtitle">Class 11 Business Studies &mdash; Quick Revision Notes</p>
       </header>
 
       <!-- Overview -->
       <section id="overview" class="fade-in">
         <h2>&#x1f4cc; Overview of Forms</h2>
 
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>#</th><th>Form</th></tr></thead>
-            <tbody>
-              <tr><td>a</td><td>Sole Proprietorship</td></tr>
-              <tr><td>b</td><td>Joint Hindu Family Business</td></tr>
-              <tr><td>c</td><td>Partnership</td></tr>
-              <tr><td>d</td><td>Cooperative Society</td></tr>
-              <tr><td>e</td><td>Joint Stock Company</td></tr>
-            </tbody>
-          </table>
+        <blockquote>
+          Business activities cannot be performed in isolation. Choosing the <strong>right form of organisation</strong> is one of the most important decisions while starting or expanding a business.
+          The best form is chosen by <strong>weighing the merits and limitations of each type against one's own requirements</strong> (capital, risk, control, continuity, secrecy).
+        </blockquote>
+
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph TD
+              FBO["<b>Forms of Business Organisation</b>"] --> SP["1. Sole Proprietorship"]
+              FBO --> HUF["2. Joint Hindu Family (HUF)"]
+              FBO --> PN["3. Partnership"]
+              FBO --> CS["4. Cooperative Society"]
+              FBO --> JSC["5. Joint Stock Company"]
+          </pre>
+        </div>
+
+        <div class="callout">
+          <strong>&#x1f4a1; Why each new form emerged:</strong>
+          Sole proprietorship &rarr; too little capital &amp; skills &rarr; <strong>HUF</strong> &rarr; limited resources &amp; Karta's dominance &rarr; <strong>Partnership</strong> &rarr; limited resources &amp; unlimited liability &rarr; <strong>Cooperative</strong> (service motive) &amp; <strong>Company</strong> (large-scale needs).
         </div>
       </section>
 
@@ -502,7 +422,8 @@
         <h2>1. &#x1f9cd; Sole Proprietorship</h2>
 
         <blockquote>
-          Owned, managed and controlled by <strong>one individual</strong> who bears all risks and receives all profits.
+          <strong>Definition:</strong> A form of business organisation which is <strong>owned, managed and controlled by an individual</strong> who is the recipient of all profits and bearer of all risks.<br>
+          It is the <strong>oldest and simplest</strong> form of business organisation.
         </blockquote>
 
         <h3>Features</h3>
@@ -510,35 +431,35 @@
           <table>
             <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
             <tbody>
-              <tr><td>Formation & Closure</td><td>No separate law; minimal legal formalities; easy to start & close</td></tr>
-              <tr><td>Liability</td><td><strong>Unlimited</strong> – personal assets can be used to pay business debts</td></tr>
-              <tr><td>Risk & Profit</td><td>Sole risk bearer AND sole profit recipient</td></tr>
-              <tr><td>Control</td><td>Absolute control with the owner</td></tr>
-              <tr><td>Separate Entity</td><td><strong>No</strong> – owner and business are the same in law</td></tr>
-              <tr><td>Continuity</td><td><strong>No</strong> – death/insanity/bankruptcy ends the business</td></tr>
+              <tr><td>Formation &amp; Closure</td><td>Very easy to start; <strong>no legal formalities</strong>, no separate law governs it; can be dissolved at the will of the owner</td></tr>
+              <tr><td>Liability</td><td><strong>Unlimited</strong> &ndash; personal property may be sold to pay business debts if business assets are insufficient</td></tr>
+              <tr><td>Sole Risk Bearer &amp; Profit Recipient</td><td>Owns all business affairs; bears all risk alone; receives all profits as reward</td></tr>
+              <tr><td>Control</td><td>One-man show; all decisions lie with the proprietor; no need to consult anyone</td></tr>
+              <tr><td>No Separate Entity</td><td>No legal distinction between firm and owner; owner is responsible for all business activities</td></tr>
+              <tr><td>Lack of Business Continuity</td><td>Death, physical ailment or insolvency of owner directly affects business &ndash; may even close it</td></tr>
             </tbody>
           </table>
         </div>
 
         <h4>&#x2705; Merits</h4>
         <ul>
-          <li>Quick decision making</li>
-          <li>Confidentiality of information (not bound to publish accounts)</li>
-          <li>Direct incentive (keeps all profits)</li>
-          <li>Sense of accomplishment</li>
-          <li>Ease of formation and closure</li>
+          <li><strong>Quick decision making</strong> &ndash; complete freedom, no consultation needed</li>
+          <li><strong>Confidentiality of information</strong> &ndash; sole authority keeps business info secret</li>
+          <li><strong>Direct incentive</strong> &ndash; keeps all profits; no sharing</li>
+          <li><strong>Sense of accomplishment</strong> &ndash; personal satisfaction &amp; confidence for self-employed</li>
+          <li><strong>Ease of formation and closure</strong> &ndash; minimum legal formalities</li>
         </ul>
 
         <h4>&#x274c; Limitations</h4>
         <ul>
-          <li>Limited resources (personal savings + borrowings only)</li>
-          <li>Limited life of business (depends on owner's existence)</li>
-          <li>Unlimited liability</li>
-          <li>Limited managerial ability (one person handles all functions)</li>
+          <li><strong>Limited resources</strong> &ndash; only personal savings + borrowings; small size, low growth rate</li>
+          <li><strong>Unlimited liability</strong> &ndash; creditors can recover dues from personal assets too</li>
+          <li><strong>Limited life of business</strong> &ndash; illness, death, insolvency of owner affects the business</li>
+          <li><strong>Limited managerial ability</strong> &ndash; one person cannot be expert in all areas</li>
         </ul>
 
         <div class="callout">
-          <strong>&#x1f4a1; Best suited for:</strong> small-scale businesses & personalised services (beauty parlours, retail shops)
+          <strong>&#x1f4a1; Best suited for:</strong> small-scale businesses &amp; personalised services (retail shops, beauty parlours, medical shops) where limited capital is needed and personal contact with customers matters.
         </div>
       </section>
 
@@ -546,46 +467,63 @@
 
       <!-- 2. Joint Hindu Family Business -->
       <section id="jhf-business" class="fade-in">
-        <h2>2. &#x1f3e0; Joint Hindu Family Business</h2>
+        <h2>2. &#x1f3e0; Joint Hindu Family (HUF) Business</h2>
 
         <blockquote>
-          Business owned and carried on by members of a <strong>Hindu Undivided Family (HUF)</strong>.<br>
-          Governed by <strong>Hindu Law</strong> | Eldest member = <strong>Karta</strong> | Members = <strong>Co-parceners</strong>
+          <strong>Definition:</strong> A unique form of business organisation <strong>found only in India</strong>, owned and carried on by members of the <strong>Hindu Undivided Family</strong>.<br>
+          Governed by the <strong>Hindu Law (Hindu Succession Act, 1956)</strong>; one of the oldest forms in the country.
         </blockquote>
+
+        <h3>Key Members</h3>
+        <ul>
+          <li><strong>Karta (Manager)</strong> &ndash; the eldest male member; manages &amp; controls the business; his decisions are <strong>binding on all members</strong></li>
+          <li><strong>Co-parceners</strong> &ndash; all members having equal ownership right over ancestral property</li>
+          <li>Membership basis = <strong>birth</strong> in the family; up to <strong>3 successive generations</strong> can be members</li>
+        </ul>
+
+        <h3>Two Systems of Inheritance (Hindu Law)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>System</th><th>Where Prevails</th><th>Who Can Be Co-parcener</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Dayabhaga</strong></td><td>West Bengal &amp; Assam only</td><td>Both <strong>male and female</strong> members</td></tr>
+              <tr><td><strong>Mitakshara</strong></td><td>All over India <strong>except</strong> West Bengal &amp; Assam</td><td><strong>Only male</strong> members; right acquired by <strong>birth</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
 
         <h3>Features</h3>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
             <tbody>
-              <tr><td>Formation</td><td>Min. 2 members + ancestral property; NO agreement needed; membership by <strong>birth</strong></td></tr>
-              <tr><td>Governed by</td><td>Hindu Succession Act, 1956</td></tr>
-              <tr><td>Liability</td><td>Karta = <strong>Unlimited</strong> | Other members = <strong>Limited</strong> (to their share)</td></tr>
-              <tr><td>Control</td><td>Karta takes all decisions; binding on others</td></tr>
-              <tr><td>Continuity</td><td>Continues after Karta's death (next eldest becomes Karta)</td></tr>
-              <tr><td>Minor Members</td><td>Minors CAN be members (membership by birth)</td></tr>
+              <tr><td>Formation</td><td>At least <strong>2 members</strong> + <strong>ancestral property</strong> inherited; <strong>no agreement</strong> needed</td></tr>
+              <tr><td>Liability</td><td>Karta = <strong>unlimited</strong> (self-acquired property can be attached) | Co-parceners = <strong>limited</strong> (to their share in coparcenary property)</td></tr>
+              <tr><td>Control</td><td>Lies with Karta; decisions binding on all members</td></tr>
+              <tr><td>Continuity</td><td>Not affected by death of members; next eldest male becomes Karta</td></tr>
+              <tr><td>Minor Members</td><td>Minors <strong>can</strong> be members (inclusion by birth)</td></tr>
             </tbody>
           </table>
         </div>
 
         <h4>&#x2705; Merits</h4>
         <ul>
-          <li>Effective control (no conflict; Karta decides)</li>
-          <li>Continued business existence</li>
-          <li>Limited liability of members (except Karta)</li>
-          <li>Increased loyalty and cooperation</li>
+          <li><strong>Effective control</strong> &ndash; Karta's absolute decision-making avoids conflicts</li>
+          <li><strong>Continued business existence</strong> &ndash; death of Karta doesn't stop business</li>
+          <li><strong>Limited liability of members</strong> &ndash; risk of co-parceners is well-defined and precise</li>
+          <li><strong>Increased loyalty &amp; cooperation</strong> &ndash; family members work together</li>
         </ul>
 
         <h4>&#x274c; Limitations</h4>
         <ul>
-          <li>Limited resources (depends on ancestral property)</li>
-          <li>Unlimited liability of Karta</li>
-          <li>Dominance of Karta (may cause conflict)</li>
-          <li>Limited managerial skills of Karta</li>
+          <li><strong>Limited resources</strong> &ndash; depends mainly on ancestral property; limited scope for expansion</li>
+          <li><strong>Unlimited liability of Karta</strong> &ndash; burdened with decisions + full liability</li>
+          <li><strong>Dominance of Karta</strong> &ndash; may cause conflict, even breakdown of the family unit</li>
+          <li><strong>Limited managerial skills</strong> &ndash; Karta can't be expert in all areas; unwise decisions &rarr; losses</li>
         </ul>
 
         <div class="callout">
-          <strong>&#x1f4c9; On the decline</strong> due to decreasing number of joint Hindu families in India.
+          <strong>&#x1f4c9; On the decline</strong> in modern India due to shrinking joint-family system.
         </div>
       </section>
 
@@ -596,8 +534,9 @@
         <h2>3. &#x1f91d; Partnership</h2>
 
         <blockquote>
-          Defined by <strong>Indian Partnership Act, 1932</strong> as:<br>
-          <em>"The relation between persons who have agreed to share the profit of the business carried on by all or any one of them acting for all."</em>
+          <strong>Definition (Indian Partnership Act, 1932):</strong><br>
+          <em>"Partnership is the relation between persons who have agreed to share the profit of the business carried on by all or any one of them acting for all."</em><br><br>
+          Partnership emerged from the limitations of Sole Proprietorship and HUF &ndash; it answers the needs of <strong>greater capital, varied skills and sharing of risks</strong>.
         </blockquote>
 
         <h3>Features</h3>
@@ -605,33 +544,32 @@
           <table>
             <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
             <tbody>
-              <tr><td>Formation</td><td>Governed by Indian Partnership Act, 1932; formed via <strong>legal agreement</strong></td></tr>
-              <tr><td>Liability</td><td><strong>Unlimited</strong> – jointly AND individually liable</td></tr>
-              <tr><td>Risk Bearing</td><td>Shared among partners in agreed ratio</td></tr>
-              <tr><td>Decision Making</td><td>Joint; mutual consent</td></tr>
-              <tr><td>Continuity</td><td><strong>Lacks continuity</strong> – ends on death/retirement/insolvency/insanity of a partner</td></tr>
-              <tr><td>No. of Partners</td><td>Min: <strong>2</strong> | Max: <strong>50</strong> (as per Companies Misc. Rules 2014)</td></tr>
-              <tr><td>Mutual Agency</td><td>Every partner is both <strong>agent</strong> and <strong>principal</strong></td></tr>
+              <tr><td>Formation</td><td>Governed by <strong>Indian Partnership Act, 1932</strong>; comes into existence through a <strong>legal agreement</strong> (terms, profit-sharing, manner of business)</td></tr>
+              <tr><td>Liability</td><td><strong>Unlimited</strong> &ndash; personal assets usable for debts; partners liable <strong>jointly AND individually</strong> (a paying partner can recover proportionate share from others)</td></tr>
+              <tr><td>Risk Bearing</td><td>Risks borne as a team; profits &amp; losses shared in <strong>agreed ratio</strong></td></tr>
+              <tr><td>Decision-Making &amp; Control</td><td>Shared among partners; decisions by <strong>mutual consent</strong></td></tr>
+              <tr><td>Membership</td><td>Min: <strong>2</strong> (Sec 464, Companies Act 2013) | Max: <strong>50</strong> (Rule 10, Companies (Miscellaneous) Rules, 2014)</td></tr>
+              <tr><td>Mutual Agency</td><td>Every partner acts as <strong>agent</strong> (binds others) <strong>and principal</strong> (bound by others' acts)</td></tr>
             </tbody>
           </table>
         </div>
 
         <h4>&#x2705; Merits</h4>
         <ul>
-          <li>Ease of formation and closure</li>
-          <li>Balanced decision making (partners have different expertise)</li>
-          <li>More funds than sole proprietorship</li>
-          <li>Sharing of risks</li>
-          <li>Secrecy (not required to publish accounts)</li>
+          <li><strong>Ease of formation &amp; closure</strong> &ndash; agreement-based; can start even without registration</li>
+          <li><strong>Balanced decision-making</strong> &ndash; varied knowledge, skills &amp; experience; division of work</li>
+          <li><strong>More funds</strong> &ndash; capital from many partners; larger resources than sole proprietorship</li>
+          <li><strong>Sharing of risks</strong> &ndash; reduces anxiety and burden on individual partners</li>
+          <li><strong>Secrecy</strong> &ndash; not required to publish accounts</li>
         </ul>
 
         <h4>&#x274c; Limitations</h4>
         <ul>
-          <li>Unlimited liability (joint and several)</li>
-          <li>Limited resources (max 50 partners)</li>
-          <li>Possibility of conflicts</li>
-          <li>Lack of continuity</li>
-          <li>Lack of public confidence</li>
+          <li><strong>Unlimited liability</strong> &ndash; joint &amp; individual; a wealthy partner may have to repay entire debts if others fail</li>
+          <li><strong>Limited resources</strong> &ndash; legal ceiling on partners restricts large-scale growth</li>
+          <li><strong>Possibility of conflicts</strong> &ndash; differences of opinion; one wrong decision can ruin all</li>
+          <li><strong>Lack of continuity</strong> &ndash; ends on death/insolvency/insanity of a partner (fresh agreement needed to continue)</li>
+          <li><strong>Lack of public confidence</strong> &ndash; accounts not published; true financial status unknown</li>
         </ul>
 
         <hr>
@@ -641,30 +579,34 @@
 
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Type</th><th>Capital</th><th>Management</th><th>Profit/Loss Share</th><th>Liability</th></tr></thead>
+            <thead><tr><th>Type</th><th>Capital</th><th>Management</th><th>Shares P/L</th><th>Liability</th></tr></thead>
             <tbody>
-              <tr><td><strong>Active</strong></td><td>&#x2705;</td><td>&#x2705;</td><td>&#x2705;</td><td>Unlimited</td></tr>
-              <tr><td><strong>Sleeping/Dormant</strong></td><td>&#x2705;</td><td>&#x274c;</td><td>&#x2705;</td><td>Unlimited</td></tr>
-              <tr><td><strong>Secret</strong></td><td>&#x2705;</td><td>&#x2705; (secretly)</td><td>&#x2705;</td><td>Unlimited</td></tr>
-              <tr><td><strong>Nominal</strong></td><td>&#x274c;</td><td>&#x274c;</td><td>&#x274c; (generally)</td><td>Unlimited</td></tr>
-              <tr><td><strong>Partner by Estoppel</strong></td><td>&#x274c;</td><td>&#x274c;</td><td>&#x274c;</td><td>Unlimited</td></tr>
-              <tr><td><strong>Partner by Holding Out</strong></td><td>&#x274c;</td><td>&#x274c;</td><td>&#x274c;</td><td>Unlimited</td></tr>
+              <tr><td><strong>Active (Working)</strong></td><td>&#x2705;</td><td>&#x2705; takes active part</td><td>&#x2705;</td><td>Unlimited</td></tr>
+              <tr><td><strong>Sleeping (Dormant)</strong></td><td>&#x2705;</td><td>&#x274c; no day-to-day role</td><td>&#x2705;</td><td>Unlimited (jointly &amp; individually)</td></tr>
+              <tr><td><strong>Secret</strong></td><td>&#x2705;</td><td>&#x2705; (takes part, identity unknown to public)</td><td>&#x2705;</td><td>Unlimited</td></tr>
+              <tr><td><strong>Nominal</strong></td><td>&#x274c; (lends name &amp; goodwill only)</td><td>&#x274c;</td><td>&#x274c; (does not share profits)</td><td>Unlimited</td></tr>
+              <tr><td><strong>Partner by Estoppel</strong></td><td>&#x274c;</td><td>&#x274c;</td><td>&#x274c;</td><td>Unlimited (liable as partner in eyes of third party)</td></tr>
+              <tr><td><strong>Partner by Holding Out</strong></td><td>&#x274c;</td><td>&#x274c;</td><td>&#x274c;</td><td>Unlimited (liable to outsiders who lent money/sold goods on credit based on that impression)</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="callout">
-          <strong>&#x1f4a1;</strong> <strong>Partner by Estoppel</strong> – Person who gives impression of being a partner through own conduct/behaviour.<br>
-          <strong>Partner by Holding Out</strong> – Person who knowingly allows himself to be represented as a partner.
+          <strong>&#x1f511; Estoppel vs Holding Out:</strong>
+          Estoppel = person <strong>himself creates</strong> the impression of being a partner.
+          Holding Out = person <strong>knowingly does not deny</strong> being represented as a partner.
+        </div>
+
+        <div class="callout">
+          <strong>&#x1f4a1; Types of partners &mdash; quick MCQs:</strong>
+          Lends name &amp; goodwill &rarr; <strong>Nominal</strong> | Contributes capital, no day-to-day role &rarr; <strong>Sleeping</strong> | Capital + management, identity hidden &rarr; <strong>Secret</strong>
         </div>
 
         <h4>Minor as Partner</h4>
         <ul>
-          <li>Cannot become a full partner (incompetent to contract)</li>
-          <li>Can be <strong>admitted to benefits</strong> with consent of all partners</li>
-          <li>Liability limited to capital contributed</li>
-          <li>Cannot participate in management</li>
-          <li>On attaining majority &rarr; must decide within <strong>6 months</strong>; if no notice given &rarr; becomes full partner with unlimited liability</li>
+          <li>A minor <strong>cannot be a full partner</strong> (incompetent to contract), but <strong>can be admitted to benefits</strong> with consent of all partners</li>
+          <li>Liability limited to his capital contribution; cannot take part in management</li>
+          <li>On attaining majority &rarr; must decide within <strong>6 months</strong> whether to remain a partner; if no notice given &rarr; becomes a <strong>full partner with unlimited liability</strong></li>
         </ul>
 
         <hr>
@@ -673,34 +615,61 @@
         <h3 id="types-of-partnerships">3.2 Types of Partnerships</h3>
 
         <h4>On basis of Duration:</h4>
-        <ul>
-          <li><strong>Partnership at Will</strong> – Exists as long as partners want; ends when any partner gives withdrawal notice</li>
-          <li><strong>Particular Partnership</strong> – Formed for a specific project/time period; dissolves on completion</li>
-        </ul>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Partnership at Will</strong></td><td>Life depends on will of partners; can be dissolved by any partner on giving <strong>notice</strong>; not for a fixed period or specific venture</td></tr>
+              <tr><td><strong>Particular Partnership</strong></td><td>Formed for a <strong>particular project / specified period</strong>; dissolves automatically on completion/expiry</td></tr>
+            </tbody>
+          </table>
+        </div>
 
         <h4>On basis of Liability:</h4>
-        <ul>
-          <li><strong>General Partnership</strong> – All partners have unlimited and joint liability; registration optional</li>
-          <li><strong>Limited Partnership</strong> – At least one partner has unlimited liability; rest may have limited liability; limited partners cannot manage; registration <strong>compulsory</strong></li>
-        </ul>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td><strong>General Partnership</strong></td><td>Liability of <strong>every partner unlimited</strong>; all may take active part in management; acts of each bind the firm</td></tr>
+              <tr><td><strong>Limited Partnership</strong></td><td><strong>At least one partner unlimited</strong>; rest may be limited; limited partners <strong>cannot manage</strong> (their acts don't bind the firm); registration <strong>compulsory</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
 
         <hr>
 
-        <!-- 3.3 Partnership Deed -->
+        <!-- 3.3 Partnership Deed + Registration -->
         <h3 id="partnership-deed">3.3 Partnership Deed</h3>
-        <p>Written agreement containing: name of firm, nature & location of business, duration, capital contribution, profit/loss ratio, duties, salaries, admission/retirement/expulsion terms, dissolution procedure, dispute resolution method.</p>
-
-        <h4>3.4 Registration</h4>
+        <p>Written agreement specifying terms &amp; conditions of partnership, including:</p>
         <ul>
-          <li><strong>Optional</strong> but highly advisable</li>
-          <li>Unregistered firm <strong>cannot</strong>:
-            <ul>
-              <li>File suit against the firm or other partners</li>
-              <li>File suit against third parties</li>
-              <li>File case against partners</li>
-            </ul>
-          </li>
+          <li>Name of the firm</li>
+          <li>Nature &amp; location of business</li>
+          <li>Duration of business</li>
+          <li>Investment by each partner</li>
+          <li>Distribution of profits &amp; losses</li>
+          <li>Duties &amp; obligations of partners</li>
+          <li>Salaries &amp; withdrawals; interest on capital &amp; drawings</li>
+          <li>Procedure for dissolution</li>
+          <li>Preparation &amp; auditing of accounts</li>
+          <li>Method of solving disputes</li>
+          <li>Terms of admission, retirement &amp; expulsion</li>
         </ul>
+
+        <div class="callout">
+          <strong>&#x1f4a1; The agreement may be verbal or written</strong> &mdash; written is advisable as it is evidence of agreed conditions.
+        </div>
+
+        <h3>3.4 Registration of Partnership Firm</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Aspect</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td>Nature</td><td><strong>Optional</strong> but highly advisable; registration gives conclusive proof of existence</td></tr>
+              <tr><td>Procedure</td><td>&#x2460; Submit application to <strong>Registrar of Firms</strong> (name, location, other business places, date of joining, names &amp; addresses of partners, duration) &rarr; &#x2461; deposit fees &rarr; &#x2462; entry in register &rarr; &#x2463; certificate of registration</td></tr>
+              <tr><td>Consequences of non-registration</td><td>Partner <strong>cannot file suit</strong> against firm/other partners; firm <strong>cannot file suit</strong> against third parties; firm <strong>cannot file case</strong> against partners. (Outsiders <em>can</em> sue the unregistered firm.)</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <hr>
@@ -710,8 +679,8 @@
         <h2>4. &#x1f932; Cooperative Society</h2>
 
         <blockquote>
-          Voluntary association of persons for mutual welfare; driven by <strong>service motive</strong>.<br>
-          Registration <strong>compulsory</strong>.
+          <strong>Definition:</strong> A <strong>voluntary association of persons</strong> who join together with the motive of <strong>welfare of the members</strong> &ndash; an association of <strong>persons, not of capital</strong>.<br>
+          Registration under <strong>Cooperative Societies Act, 1912</strong> is <strong>compulsory</strong>. Minimum <strong>10 adult persons</strong> required.
         </blockquote>
 
         <h3>Features</h3>
@@ -719,32 +688,32 @@
           <table>
             <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
             <tbody>
-              <tr><td>Membership</td><td>Voluntary; open to all (any religion, caste, gender)</td></tr>
-              <tr><td>Legal Status</td><td>Compulsory registration; separate legal entity</td></tr>
-              <tr><td>Liability</td><td><strong>Limited</strong> (to capital contributed)</td></tr>
-              <tr><td>Control</td><td>Elected <strong>managing committee</strong>; principle of <strong>"one man one vote"</strong></td></tr>
-              <tr><td>Service Motive</td><td>Welfare of members; surplus distributed as dividend</td></tr>
+              <tr><td>Voluntary Membership</td><td>Open to anyone 18+ with common interest; no force, no bar on religion/caste/gender</td></tr>
+              <tr><td>Legal Status</td><td>Separate legal entity after registration; can own property, make contracts, sue &amp; be sued in own name; unaffected by entry/exit of members</td></tr>
+              <tr><td>Limited Liability</td><td>Limited to capital contributed; max risk = subscribed share capital</td></tr>
+              <tr><td>Control</td><td>Democratic pattern; members elect a <strong>managing committee</strong>; <strong>one-man-one-vote</strong></td></tr>
+              <tr><td>Service Motive</td><td>Formed for service, not profit maximisation; surplus distributed as <strong>dividend</strong></td></tr>
             </tbody>
           </table>
         </div>
 
         <h4>&#x2705; Merits</h4>
         <ul>
-          <li>Equality in voting (one man, one vote)</li>
-          <li>Limited liability</li>
-          <li>Stable existence (not affected by death/insanity of members)</li>
-          <li>Economy in operations (eliminates middlemen)</li>
-          <li>Government support (low taxes, subsidies, low interest loans)</li>
-          <li>Ease of formation</li>
+          <li><strong>Equality in voting status</strong> &ndash; one vote per member irrespective of capital</li>
+          <li><strong>Limited liability</strong> &ndash; risk limited and known</li>
+          <li><strong>Stable existence</strong> &ndash; corporate body; not affected by death/insolvency/insanity of members</li>
+          <li><strong>Economy in operations</strong> &ndash; managed on honorary basis; eliminates middlemen</li>
+          <li><strong>Support from government</strong> &ndash; low taxes, subsidies, low interest loans</li>
+          <li><strong>Ease of formation</strong> &ndash; just 10 adult members; governed by Cooperative Societies Act, 1912</li>
         </ul>
 
         <h4>&#x274c; Limitations</h4>
         <ul>
-          <li>Limited resources (low dividend deters investment)</li>
-          <li>Inefficiency in management (honorary/unpaid volunteers manage)</li>
-          <li>Lack of secrecy (open discussions + disclosure obligations)</li>
-          <li>Government control (heavy compliance requirements)</li>
-          <li>Differences of opinion among members</li>
+          <li><strong>Limited resources</strong> &ndash; members have limited means; low dividend deters capital</li>
+          <li><strong>Inefficiency in management</strong> &ndash; can't pay experts; committee not professionally equipped</li>
+          <li><strong>Lack of secrecy</strong> &ndash; affairs discussed openly in meetings</li>
+          <li><strong>Government control</strong> &ndash; bound by rules on auditing, submission of accounts, etc.</li>
+          <li><strong>Differences of opinion</strong> &ndash; internal quarrels; difficulty in decision-making</li>
         </ul>
 
         <hr>
@@ -756,12 +725,12 @@
           <table>
             <thead><tr><th>Type</th><th>Purpose</th></tr></thead>
             <tbody>
-              <tr><td><strong>Consumer's</strong></td><td>Protect consumers; buy in bulk from wholesalers; eliminate middlemen</td></tr>
-              <tr><td><strong>Producer's</strong></td><td>Protect small producers; supply raw materials; buy members' output</td></tr>
-              <tr><td><strong>Marketing</strong></td><td>Help small producers sell products; pools output; handles transport/warehousing</td></tr>
-              <tr><td><strong>Farmer's</strong></td><td>Protect farmers; provide seeds/fertilisers/machinery; large-scale farming benefits</td></tr>
-              <tr><td><strong>Credit</strong></td><td>Provide easy loans at low interest; protect from exploitative lenders</td></tr>
-              <tr><td><strong>Housing</strong></td><td>Help low-income people construct houses at reasonable cost; instalment option</td></tr>
+              <tr><td><strong>Consumers'</strong></td><td>Formed by consumers for good quality products at reasonable prices; buys in bulk from manufacturers/wholesalers to eliminate middlemen; surplus shared by capital contribution or purchases</td></tr>
+              <tr><td><strong>Producers' (Industrial)</strong></td><td>Formed by small producers to procure inputs for production; fights big capitalists, enhances bargaining power; 2 types &ndash; (i) supplies raw materials/equipment, (ii) sells members' produced goods; profits by contribution to total pool</td></tr>
+              <tr><td><strong>Marketing</strong></td><td>Voluntary association of small producers to sell output through one centralised agency; pools production, eliminates middlemen; performs transport, warehousing, packaging; profits by contribution to common pool</td></tr>
+              <tr><td><strong>Farmers' (Agricultural)</strong></td><td>Farmers jointly take up farming for large-scale benefits; provides quality seeds, fertilisers, machinery; consolidates fragmented holdings into viable economic holdings</td></tr>
+              <tr><td><strong>Credit</strong></td><td>Short-term loans to members at low interest; protects from exploitative lenders charging high rates; lends out of capital &amp; deposits collected</td></tr>
+              <tr><td><strong>Housing</strong></td><td>Helps people with limited income construct houses at reasonable cost; constructs flats or provides plots; payment in instalments</td></tr>
             </tbody>
           </table>
         </div>
@@ -774,8 +743,8 @@
         <h2>5. &#x1f3e2; Joint Stock Company</h2>
 
         <blockquote>
-          An <strong>artificial person</strong> with separate legal entity, perpetual succession and a common seal.<br>
-          Governed by <strong>Companies Act, 2013</strong>.
+          <strong>Definition:</strong> An association of persons formed for carrying out business activities, having a <strong>legal status independent of its members</strong>.<br>
+          The most suitable form for <strong>large-scale business</strong>. Governed by <strong>Companies Act, 2013</strong>.
         </blockquote>
 
         <h3>Features</h3>
@@ -783,68 +752,335 @@
           <table>
             <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
             <tbody>
-              <tr><td>Artificial Person</td><td>Created by law; can own property, sue/be sued; cannot breathe/eat/run</td></tr>
-              <tr><td>Separate Legal Entity</td><td>Distinct from its members from day of incorporation</td></tr>
-              <tr><td>Formation</td><td>Complex, time-consuming, expensive; compulsory incorporation</td></tr>
-              <tr><td>Perpetual Succession</td><td>Continues regardless of members' death/exit; ends only by <strong>winding up</strong></td></tr>
-              <tr><td>Control</td><td><strong>Board of Directors</strong> manages; shareholders elect the board</td></tr>
-              <tr><td>Liability</td><td><strong>Limited</strong> – only unpaid share amount</td></tr>
-              <tr><td>Risk Bearing</td><td>Spread over large number of shareholders</td></tr>
+              <tr><td>Artificial Person</td><td>Created by law &ndash; no body, soul, conscience; can't breathe/eat/run/talk, BUT can own property, borrow, contract, sue &amp; be sued</td></tr>
+              <tr><td>Separate Legal Entity</td><td>On incorporation, assets &amp; liabilities are separate from owners</td></tr>
+              <tr><td>Formation</td><td>Time-consuming, expensive, complicated; several documents &amp; legal requirements; registration <strong>compulsory</strong></td></tr>
+              <tr><td>Perpetual Succession</td><td>Not affected by death/insolvency/entry/exit of members; <em>"Members may come, members may go, but the company remains forever"</em>; ends only through legal <strong>winding up</strong></td></tr>
+              <tr><td>Control</td><td>Ownership (shareholders) &amp; management (Board of Directors) in different hands; directors are legal representatives accountable to shareholders; shareholders can't manage day-to-day</td></tr>
+              <tr><td>Liability</td><td><strong>Limited</strong> to amount unpaid on shares held. <em>e.g. 500 shares of &#8377;10, &#8377;7 paid &rarr; liability only &#8377;3 &#215; 500 = &#8377;1,500</em></td></tr>
+              <tr><td>Common Seal</td><td>Company acts through directors using the <strong>common seal</strong> as its signature; if no seal, signing person must be authorised by board resolution</td></tr>
+              <tr><td>Risk Bearing</td><td>Risk spread over a large number of shareholders</td></tr>
+              <tr><td>Transfer of Shares</td><td>Shareholders can transfer shares in open market/stock exchange at prevailing price</td></tr>
             </tbody>
           </table>
         </div>
 
         <h4>&#x2705; Merits</h4>
         <ul>
-          <li>Limited liability</li>
-          <li>Easy transfer of interest (shares freely transferable in public company)</li>
-          <li>Perpetual existence</li>
-          <li>Scope for expansion (large capital from public)</li>
-          <li>Professional management</li>
+          <li><strong>Limited liability</strong> &ndash; personal assets safe; debts settled only from company assets</li>
+          <li><strong>Transfer of interest</strong> &ndash; free transfer of shares avoids blockage of investment</li>
+          <li><strong>Perpetual existence</strong> &ndash; not affected by death/retirement/insolvency/insanity of members; liquidated only per Companies Act</li>
+          <li><strong>Scope for expansion</strong> &ndash; large financial resources; capital from public + banks</li>
+          <li><strong>Professional management</strong> &ndash; specialists head each department; balanced, rational decisions</li>
         </ul>
 
         <h4>&#x274c; Limitations</h4>
         <ul>
-          <li>Complexity in formation</li>
-          <li>Lack of secrecy (public disclosure required)</li>
-          <li>Impersonal work environment</li>
-          <li>Numerous regulations (SEBI, Registrar, audits, reports)</li>
-          <li>Delay in decision making</li>
-          <li>Oligarchic management (directors may act against shareholders' interests)</li>
-          <li>Conflict of interests (employees vs shareholders vs consumers)</li>
+          <li><strong>Complexity in formation</strong> &ndash; time, effort, legal knowledge required</li>
+          <li><strong>Lack of secrecy</strong> &ndash; information filed with Registrar available to public</li>
+          <li><strong>Impersonal work environment</strong> &ndash; no direct link between effort and reward; no personal contact</li>
+          <li><strong>Numerous regulations</strong> &ndash; audit, voting, filing of reports, certificates; time-consuming &amp; expensive</li>
+          <li><strong>Delay in decision-making</strong> &ndash; important decisions by Board/general meeting; opportunities lost</li>
+          <li><strong>Oligarchic management</strong> &ndash; democracy in theory, rule by a few in practice; scattered shareholders take little interest; directors may act against their interests</li>
+          <li><strong>Conflict of interests</strong> &ndash; employees want higher salaries, consumers want low prices, shareholders want high dividends</li>
         </ul>
 
         <hr>
 
-        <!-- 5.1 Private vs Public Company -->
-        <h3 id="private-vs-public">5.1 Private vs Public Company</h3>
+        <!-- 5.1 Types of Companies -->
+        <h3 id="types-of-companies">5.1 Types of Companies (on basis of ownership)</h3>
 
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Basis</th><th>Public Company</th><th>Private Company</th></tr></thead>
-            <tbody>
-              <tr><td>Min. Members</td><td>7</td><td>2</td></tr>
-              <tr><td>Max. Members</td><td>Unlimited</td><td>200 (excl. past/present employees)</td></tr>
-              <tr><td>Min. Directors</td><td>3</td><td>2</td></tr>
-              <tr><td>Max. Directors</td><td>15</td><td>15</td></tr>
-              <tr><td>Index of Members</td><td>Compulsory</td><td>Not compulsory</td></tr>
-              <tr><td>Transfer of Shares</td><td>No restriction</td><td>Restricted</td></tr>
-              <tr><td>Public Invitation</td><td>Can invite public</td><td>Cannot invite public</td></tr>
-              <tr><td>Name suffix</td><td>"Limited"</td><td>"Private Limited"</td></tr>
-            </tbody>
-          </table>
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph TD
+              CO["<b>Types of Companies</b><br/>(on basis of ownership)"] --> OPC["One Person Company<br/><i>Sec 2(62) &middot; 1 member</i>"]
+              CO --> PVT["Private Company<br/><i>Sec 2(68) &middot; 2&ndash;200 members</i>"]
+              CO --> PUB["Public Company<br/><i>Sec 2(71) &middot; min 7, no max</i>"]
+          </pre>
         </div>
 
-        <div class="callout">
-          <strong>&#x1f4a1;</strong> A <strong>private company subsidiary of a public company</strong> is also treated as a <strong>public company</strong>.
+        <h4>A. One Person Company (OPC) &ndash; Section 2(62)</h4>
+        <ul>
+          <li>Only <strong>one person as member</strong>; incorporated as a private company</li>
+          <li>Avails benefits of private company: separate legal entity, protection of personal assets, perpetual succession</li>
+          <li>Only a <strong>natural person, Indian citizen &amp; resident</strong> (stay &ge; 182 days in preceding calendar year) can incorporate/be nominee</li>
+          <li>One person cannot have more than one OPC or be nominee in more than one</li>
+          <li><strong>No minor</strong> can be member/nominee</li>
+          <li>Cannot be incorporated under <strong>Section 8</strong>; cannot do financial investment in other corporations</li>
+          <li>Cannot convert voluntarily into any other kind of company until <strong>2 years</strong> from incorporation, unless paid-up capital crosses &#8377;50 lakh or average annual turnover exceeds &#8377;2 crore</li>
+          <li>Words <strong>"One Person Company"</strong> must appear in brackets below its name</li>
+        </ul>
+
+        <h4>B. Private Company &ndash; Section 2(68)</h4>
+        <p>By its Articles of Association:</p>
+        <ul>
+          <li><strong>Restricts transfer of shares</strong></li>
+          <li><strong>Min 2, Max 200 members</strong> (excluding past/present employees who are members)</li>
+          <li><strong>Prohibits invitation</strong> to public to subscribe for shares</li>
+          <li>Must use <strong>"Private Limited"</strong> in name</li>
+          <li>Contravening any provision &rarr; ceases to be private company, loses all privileges</li>
+        </ul>
+
+        <h4>C. Public Company &ndash; Section 2(71)</h4>
+        <ul>
+          <li>Any company which is <strong>not a private company</strong></li>
+          <li><strong>Min 7 members, no maximum limit</strong></li>
+          <li><strong>No restriction</strong> on transfer of shares</li>
+          <li><strong>Can invite</strong> subscription from general public</li>
+          <li>A private company which is a <strong>subsidiary of a public company</strong> is also treated as a public company</li>
+        </ul>
+
+        <h4>5.2 Privileges of Private Company over Public Company</h4>
+        <ul>
+          <li>Can be started with just <strong>2 members</strong> (public needs 7)</li>
+          <li><strong>No prospectus</strong> needed</li>
+          <li>Can allot shares <strong>without minimum subscription</strong></li>
+          <li>Can start work <strong>right after certificate of incorporation</strong></li>
+          <li>Only <strong>2 directors</strong> needed (public needs 3)</li>
+          <li>No need to keep <strong>index of members</strong></li>
+          <li>Can lend money/give guarantee to directors <strong>without government approval</strong></li>
+        </ul>
+
+        <h4>5.3 Comparison: OPC vs Private vs Public</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>OPC</th><th>Private Company</th><th>Public Company</th></tr></thead>
+            <tbody>
+              <tr><td>No. of Members</td><td>1</td><td>Min 2, Max 200</td><td>Min 7, no max</td></tr>
+              <tr><td>No. of Directors</td><td>Min 1, Max 15</td><td>Min 2</td><td>Min 3</td></tr>
+              <tr><td>Public Deposits</td><td>Cannot invite</td><td>Cannot invite</td><td>Can invite</td></tr>
+              <tr><td>Transfer of Shares</td><td>Not applicable</td><td>Restricted</td><td>No restriction</td></tr>
+              <tr><td>Invitation to Public</td><td>No</td><td>No</td><td>Yes (shares &amp; debentures)</td></tr>
+              <tr><td>Name</td><td>"One Person Company" in brackets</td><td>"Private Limited"</td><td>"Limited"</td></tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
       <hr>
 
-      <!-- 6. Choice of Form of Organisation -->
+      <!-- 6. Formation of a Company -->
+      <section id="formation-of-company" class="fade-in">
+        <h2>6. &#x1f4c4; Formation of a Company (4 Stages)</h2>
+
+        <blockquote>
+          Formation of a company is <strong>complex &amp; lengthy</strong> &ndash; unlike sole proprietorship or partnership. The 4 stages:
+        </blockquote>
+
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+            graph LR
+              S1["1. PROMOTION"] --> S2["2. INCORPORATION"]
+              S2 --> S3["3. CAPITAL SUBSCRIPTION<br/><i>public company only</i>"]
+              S3 --> S4["4. COMMENCEMENT OF BUSINESS"]
+          </pre>
+        </div>
+
+        <div class="callout">
+          <strong>&#x26a0;&#xfe0f; Stage order:</strong> Promotion &rarr; Incorporation &rarr; Capital Subscription &rarr; Commencement of Business. A private company can start work <strong>right after incorporation</strong>. Preliminary contracts are signed <strong>before incorporation</strong>.
+        </div>
+
+        <h3>Stage 1: Promotion</h3>
+        <p>Identification of business opportunity, analysis of its prospects, steps to implement it.</p>
+        <ul>
+          <li>The person performing these tasks = <strong>Promoter</strong> (individual, group or institution); conceives the idea, takes all initiatives</li>
+        </ul>
+
+        <h4>Functions of a Promoter (6 Steps):</h4>
+        <ol>
+          <li><strong>Identification of Business Opportunity</strong> &ndash; new business / expansion / merger; preliminary analysis of profitability, risk, resources</li>
+          <li><strong>Feasibility Studies</strong> (before investing money):
+            <ul>
+              <li><em>Technical</em> &ndash; can it be implemented? (technology, raw materials availability)</li>
+              <li><em>Financial</em> &ndash; can funds be arranged within available means?</li>
+              <li><em>Economic</em> &ndash; will it be profitable?</li>
+            </ul>
+          </li>
+          <li><strong>Name Approval</strong> &ndash; select name, get it approved from <strong>Registrar of Companies</strong>; must not be identical/too close to an existing name (3 names given in order of preference)</li>
+          <li><strong>Fixing up Signatories to Memorandum of Association</strong> &ndash; signatories usually become first directors; written consent to act as director &amp; buy qualification shares; MOA signed by <strong>min 7 persons (public) / 2 persons (private)</strong></li>
+          <li><strong>Appointment of Professionals</strong> &ndash; merchant bankers, auditors, etc. to prepare &amp; submit documents</li>
+          <li><strong>Preparation of Necessary Documents</strong> &ndash; MOA, AOA, consent of directors, etc.</li>
+        </ol>
+
+        <h3>Stage 2: Incorporation (Important Documents)</h3>
+
+        <h4>Documents submitted to Registrar:</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Document</th><th>What It Is</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Memorandum of Association (MOA)</strong></td><td>Principal document = <strong>"Charter of the Company"</strong>; contains powers &amp; objectives; defines scope of operations; company works within limits laid down in it</td></tr>
+              <tr><td><strong>Articles of Association (AOA)</strong></td><td>Rules &amp; regulations for <strong>internal management</strong>; subsidiary to MOA; cannot include powers prohibited by MOA</td></tr>
+              <tr><td><strong>Consent of Proposed Directors</strong></td><td>Written consent to act as directors &amp; buy qualification shares</td></tr>
+              <tr><td><strong>Agreement</strong></td><td>If company appoints Managing Director/Whole-time Director/Manager</td></tr>
+              <tr><td><strong>Statutory Declaration</strong></td><td>That all legal requirements of incorporation are complied with; signed by Advocate (HC/SC), practising CA/CS, director named in articles, or manager/secretary</td></tr>
+              <tr><td><strong>Fees</strong></td><td>Filing + registration fees (based on authorised share capital)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Forms of MOA (Schedule 1, Companies Act):</h4>
+        <ul>
+          <li>Table A &ndash; company limited by shares</li>
+          <li>Table B &ndash; limited by guarantee &amp; not having share capital</li>
+          <li>Table C &ndash; limited by guarantee &amp; having share capital</li>
+          <li>Table D &ndash; unlimited &amp; not having share capital</li>
+          <li>Table E &ndash; unlimited &amp; having share capital</li>
+        </ul>
+
+        <h4>Forms of AOA:</h4>
+        <ul>
+          <li>Table F &ndash; company limited by shares</li>
+          <li>Table G &ndash; limited by guarantee &amp; having share capital</li>
+          <li>Table H &ndash; limited by guarantee &amp; NOT having share capital</li>
+          <li>Table I &ndash; unlimited &amp; having share capital</li>
+          <li>Table J &ndash; unlimited &amp; NOT having share capital</li>
+        </ul>
+
+        <h4>Contents of MOA (6 Clauses):</h4>
+        <ol>
+          <li><strong>Name Clause</strong> &ndash; name of company</li>
+          <li><strong>Registered Office Clause</strong> &ndash; state where registered office is situated</li>
+          <li><strong>Objects Clause</strong> &ndash; purpose; company can't do business not authorised by it (divided into <em>Main Objects</em> and <em>Other Objects</em>)</li>
+          <li><strong>Liability Clause</strong> &ndash; liability limited to unpaid amount on shares</li>
+          <li><strong>Capital Clause</strong> &ndash; maximum (<strong>authorised</strong>) capital; e.g. &#8377;2 crore divided into 20 lakh shares of &#8377;10</li>
+          <li><strong>Association Clause</strong> &ndash; signatories state intention to be associated + consent to buy qualification shares; signed by min 7 (public) / 2 (private)</li>
+        </ol>
+
+        <h4>MOA vs AOA:</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>MOA</th><th>AOA</th></tr></thead>
+            <tbody>
+              <tr><td>Objectives</td><td>Defines objects for which company is formed</td><td>Rules of internal management; how objectives are achieved</td></tr>
+              <tr><td>Position</td><td>Main document; subordinate to Companies Act</td><td>Subsidiary; subordinate to both MOA &amp; Companies Act</td></tr>
+              <tr><td>Necessity</td><td>Filing <strong>compulsory</strong></td><td>Not compulsory for public company (may adopt Table F)</td></tr>
+              <tr><td>Alteration</td><td>Difficult, lengthy; government approval needed</td><td>Easy &ndash; by special resolution</td></tr>
+              <tr><td>Validity</td><td>Acts beyond MOA invalid &ndash; can't be ratified even unanimously</td><td>Acts beyond AOA can be ratified by special resolution (if not violating MOA)</td></tr>
+              <tr><td>Relationship</td><td>Company &#8596; outsiders</td><td>Members &#8596; management</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Stage 3: Capital Subscription (only for public companies)</h3>
+        <ul>
+          <li>Invitation to public through <strong>Prospectus</strong> (document inviting general public to subscribe to shares)</li>
+          <li>Private companies &amp; OPCs <strong>cannot</strong> issue prospectus</li>
+        </ul>
+
+        <h3>Stage 4: Commencement of Business</h3>
+        <ul>
+          <li>Company obtains <strong>Certificate of Commencement of Business</strong> and starts operations</li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <!-- 7. Difference Tables -->
+      <section id="difference-tables" class="fade-in">
+        <h2>7. &#x2696;&#xfe0f; Difference Tables (Exam Favourites)</h2>
+
+        <div class="callout">
+          <strong>&#x1f4a1; MCQ corner:</strong> Who elects the Board of Directors? &rarr; <strong>Shareholders</strong>. Who are the real owners of a company? &rarr; <strong>Shareholders</strong> (not debenture holders/creditors).
+        </div>
+
+        <h3>7.1 Partnership vs Sole Proprietorship</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Partnership</th><th>Sole Proprietorship</th></tr></thead>
+            <tbody>
+              <tr><td>Governing body</td><td>Indian Partnership Act, 1932</td><td>No separate act</td></tr>
+              <tr><td>Registration</td><td>Optional but desirable</td><td>No need</td></tr>
+              <tr><td>No. of members</td><td>Min 2, Max 50</td><td>One person</td></tr>
+              <tr><td>Agreement</td><td>Express or implied</td><td>Not required</td></tr>
+              <tr><td>Capital</td><td>Contributed by partners</td><td>Owner contributes entire capital</td></tr>
+              <tr><td>Sharing of P/L</td><td>In agreed ratio</td><td>Owner takes all profits &amp; losses</td></tr>
+              <tr><td>Risk bearing</td><td>Jointly &amp; individually</td><td>Owner bears all risks</td></tr>
+              <tr><td>Secrecy</td><td>Difficult &ndash; known to all partners</td><td>Complete &ndash; one man show</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>7.2 Partnership vs HUF Business</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Partnership</th><th>HUF Business</th></tr></thead>
+            <tbody>
+              <tr><td>Governing body</td><td>Indian Partnership Act, 1932</td><td>Hindu Succession Act, 1956</td></tr>
+              <tr><td>Male/Female</td><td>Female can be active partner</td><td>Female cannot be active member (Mitakshara)</td></tr>
+              <tr><td>No. of members</td><td>Min 2, Max 50</td><td>Min 2, <strong>no limit</strong></td></tr>
+              <tr><td>Agreement</td><td>Express or implied</td><td>Not required</td></tr>
+              <tr><td>Liability</td><td>Unlimited (all partners)</td><td>Except Karta, all limited</td></tr>
+              <tr><td>Profit-sharing ratio</td><td>Fixed (unless changed by mutual consent)</td><td>Keeps changing with birth &amp; death in family</td></tr>
+              <tr><td>Minor</td><td>Can't become partner (may share benefits)</td><td>Becomes coparcener by birth</td></tr>
+              <tr><td>Legal existence</td><td>Dissolved on death/insolvency of any partner</td><td>Continues even after death of Karta</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>7.3 Company vs Partnership</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Company</th><th>Partnership</th></tr></thead>
+            <tbody>
+              <tr><td>Formation</td><td>Registration under Companies Act, 2013</td><td>Agreement by partners; registration not compulsory</td></tr>
+              <tr><td>No. of members</td><td>Public: min 7, no max; Private: min 2, max 200</td><td>Min 2, Max 50</td></tr>
+              <tr><td>Liability</td><td>Limited to unpaid capital</td><td>Unlimited</td></tr>
+              <tr><td>Management</td><td>Board of Directors</td><td>All partners</td></tr>
+              <tr><td>Transfer of interest</td><td>Possible (public company)</td><td>Not possible</td></tr>
+              <tr><td>Legal status</td><td>Separate legal entity</td><td>No separate legal entity</td></tr>
+              <tr><td>Stability</td><td>Not affected by death/insolvency</td><td>Dissolved with death/insolvency of a partner</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>7.4 Company vs Cooperative Society</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Company</th><th>Cooperative Society</th></tr></thead>
+            <tbody>
+              <tr><td>Formation</td><td>Companies Act, 2013</td><td>Cooperative Societies Act, 1912</td></tr>
+              <tr><td>No. of members</td><td>Public: min 7; Private: 2&ndash;200</td><td>Min 10, no max</td></tr>
+              <tr><td>Management</td><td>Board of Directors</td><td>Elected managing committee</td></tr>
+              <tr><td>Motive</td><td>Profit</td><td>Service to members</td></tr>
+              <tr><td>Government support</td><td>No special support</td><td>Low taxes, subsidies, etc.</td></tr>
+              <tr><td>Transfer of shares</td><td>Free (public company)</td><td>Not permitted</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 8. Comparative Summary -->
+      <section id="comparative-summary" class="fade-in">
+        <h2>8. &#x1f3c1; Comparative Summary (All 5 Forms)</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Sole Prop.</th><th>HUF</th><th>Partnership</th><th>Cooperative</th><th>Company</th></tr></thead>
+            <tbody>
+              <tr><td>Formation</td><td>Easiest (no formalities)</td><td>Easy (no agreement)</td><td>Easy (agreement; reg. optional)</td><td>Compulsory reg. (10 adults)</td><td>Complex; compulsory reg.</td></tr>
+              <tr><td>Liability</td><td>Unlimited</td><td>Karta unlimited, others limited</td><td>Unlimited (joint &amp; several)</td><td>Limited</td><td>Limited</td></tr>
+              <tr><td>Members</td><td>1</td><td>Min 2, no max</td><td>Min 2, Max 50</td><td>Min 10 adults</td><td>Pvt 2&ndash;200; Public 7&ndash;&#8734;; OPC 1</td></tr>
+              <tr><td>Capital</td><td>Very limited</td><td>Ancestral property</td><td>Limited</td><td>Limited</td><td>Large</td></tr>
+              <tr><td>Control</td><td>Owner</td><td>Karta</td><td>Partners (mutual consent)</td><td>Elected committee</td><td>Board of Directors</td></tr>
+              <tr><td>Continuity</td><td>Unstable</td><td>Stable</td><td>Dissolves on partner's death</td><td>Stable</td><td>Very stable (perpetual)</td></tr>
+              <tr><td>Registration</td><td>Not needed</td><td>Not needed</td><td>Optional</td><td>Compulsory</td><td>Compulsory</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 9. Choice of Form -->
       <section id="choice-of-form" class="fade-in">
-        <h2>6. &#x2696;&#xfe0f; Choice of Form of Organisation</h2>
+        <h2>9. &#x1f3af; Factors Affecting the Choice of Form of Organisation</h2>
+
+        <blockquote>
+          The best form is chosen by <strong>weighing the merits and limitations of each type against one's own requirements</strong>. Key factors:
+        </blockquote>
 
         <div class="table-wrap">
           <table>
@@ -865,78 +1101,106 @@
 
         <h4>Key Factors to Consider:</h4>
         <ol>
-          <li><strong>Cost & ease of setup</strong> – Sole proprietorship cheapest; Company most expensive</li>
-          <li><strong>Liability</strong> – Company & cooperative = limited; Sole prop & partnership = unlimited</li>
-          <li><strong>Continuity</strong> – Company & cooperative most stable; Sole prop most unstable</li>
-          <li><strong>Management ability</strong> – Company (professionals); Sole prop (one person does all)</li>
-          <li><strong>Capital</strong> – Company can raise most; Sole prop most limited</li>
-          <li><strong>Degree of control</strong> – Want full control &rarr; sole prop; Okay sharing &rarr; partnership/company</li>
-          <li><strong>Nature of business</strong> – Personal contact needed &rarr; sole prop; Large manufacturing &rarr; company; Professional services &rarr; partnership</li>
+          <li><strong>Cost &amp; ease of setup</strong> &ndash; sole proprietorship cheapest; company most expensive</li>
+          <li><strong>Liability</strong> &ndash; company &amp; cooperative = limited; sole proprietorship &amp; partnership = unlimited</li>
+          <li><strong>Continuity</strong> &ndash; company &amp; cooperative most stable; sole proprietorship most unstable</li>
+          <li><strong>Management ability</strong> &ndash; company (professionals) vs sole proprietorship (one person does all)</li>
+          <li><strong>Capital</strong> &ndash; company can raise the most; sole proprietorship the least</li>
+          <li><strong>Degree of control</strong> &ndash; want full control &rarr; sole proprietorship; okay sharing &rarr; partnership/company</li>
+          <li><strong>Nature of business</strong> &ndash; personal contact needed &rarr; sole proprietorship; large-scale manufacturing &rarr; company; professional services &rarr; partnership</li>
         </ol>
       </section>
 
       <hr>
 
-      <!-- Comparative Summary Table -->
-      <section id="comparative-summary" class="fade-in">
-        <h2>&#x1f4ca; Comparative Summary Table</h2>
+      <!-- 10. Key Terms -->
+      <section id="key-terms" class="fade-in">
+        <h2>10. &#x1f4dd; Key Terms to Remember</h2>
 
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Basis</th><th>Sole Prop.</th><th>Partnership</th><th>JHF Business</th><th>Cooperative</th><th>Company</th></tr></thead>
-            <tbody>
-              <tr><td>Formation</td><td>Easiest</td><td>Easy (optional reg.)</td><td>Easy (no reg.)</td><td>Compulsory reg.</td><td>Complex, compulsory reg.</td></tr>
-              <tr><td>Liability</td><td>Unlimited</td><td>Unlimited & joint</td><td>Karta=Unlimited, Others=Limited</td><td>Limited</td><td>Limited</td></tr>
-              <tr><td>Members</td><td>Only owner</td><td>Min 2, Max 50</td><td>Min 2, no max</td><td>Min 10 adults</td><td>Pvt: 2–200; Public: 7–unlimited</td></tr>
-              <tr><td>Capital</td><td>Very limited</td><td>Limited</td><td>Ancestral property</td><td>Limited</td><td>Large</td></tr>
-              <tr><td>Control</td><td>Owner</td><td>Partners (mutual consent)</td><td>Karta</td><td>Elected committee</td><td>Board of Directors</td></tr>
-              <tr><td>Continuity</td><td>Unstable</td><td>Affected by partner status</td><td>Stable</td><td>Stable</td><td>Very stable</td></tr>
-            </tbody>
-          </table>
+        <div class="terms-grid">
+          <div class="term"><strong>Karta</strong><span>Eldest male member managing the HUF business; unlimited liability</span></div>
+          <div class="term"><strong>Co-parceners</strong><span>Members of HUF with equal ownership right over ancestral property</span></div>
+          <div class="term"><strong>Mutual Agency</strong><span>Every partner is both agent and principal</span></div>
+          <div class="term"><strong>Partnership Deed</strong><span>Written agreement specifying terms of partnership</span></div>
+          <div class="term"><strong>Partnership at Will</strong><span>Dissolves on notice by any partner</span></div>
+          <div class="term"><strong>Particular Partnership</strong><span>For a specific project/period</span></div>
+          <div class="term"><strong>Prospectus</strong><span>Invitation to general public to subscribe to shares (public company)</span></div>
+          <div class="term"><strong>Memorandum of Association</strong><span>"Charter of the Company"; defines objectives &amp; powers</span></div>
+          <div class="term"><strong>Articles of Association</strong><span>Rules for internal management</span></div>
+          <div class="term"><strong>Artificial Person</strong><span>Company exists in law; has rights but no physical existence</span></div>
+          <div class="term"><strong>Perpetual Succession</strong><span>Company continues despite changes in membership</span></div>
+          <div class="term"><strong>Winding Up</strong><span>Legal procedure to close a company</span></div>
+          <div class="term"><strong>Oligarchy</strong><span>Rule by a few (directors in practice, in a company)</span></div>
+          <div class="term"><strong>OPC</strong><span>One Person Company (Section 2(62)); nominee must be Indian citizen &amp; resident</span></div>
         </div>
       </section>
 
       <hr>
 
-      <!-- Key Terms -->
-      <section id="key-terms" class="fade-in">
-        <h2>&#x1f4dd; Key Terms to Remember</h2>
+      <!-- 11. One-Liners -->
+      <section id="quick-revision" class="fade-in">
+        <h2>11. &#x1f3af; One-Liners for Quick Revision</h2>
 
-        <div class="terms-grid">
-          <div class="term"><strong>Karta</strong><span>Eldest member (male or female after 2005 Amendment) who controls JHF business</span></div>
-          <div class="term"><strong>Co-parceners</strong><span>Members of JHF with equal ownership rights over ancestral property</span></div>
-          <div class="term"><strong>Mutual Agency</strong><span>Every partner is both agent and principal</span></div>
-          <div class="term"><strong>Perpetual Succession</strong><span>Company continues despite changes in membership</span></div>
-          <div class="term"><strong>Artificial Person</strong><span>Company exists in law; has rights but not physical existence</span></div>
-          <div class="term"><strong>Partnership Deed</strong><span>Written document specifying all terms of partnership</span></div>
-          <div class="term"><strong>Winding Up</strong><span>Legal procedure to close/dissolve a company</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Clue</th><th>Answer</th></tr></thead>
+            <tbody>
+              <tr><td>Oldest &amp; simplest form</td><td><strong>Sole Proprietorship</strong></td></tr>
+              <tr><td>Unique to India; governed by Hindu Law</td><td><strong>HUF</strong></td></tr>
+              <tr><td>"Carried on by all or any one of them acting for all"</td><td><strong>Partnership (mutual agency)</strong></td></tr>
+              <tr><td>Association of persons, not of capital</td><td><strong>Cooperative Society</strong></td></tr>
+              <tr><td>"Members may come, members may go, but company remains forever"</td><td><strong>Perpetual succession</strong></td></tr>
+              <tr><td>Most suitable for large-scale business</td><td><strong>Joint Stock Company</strong></td></tr>
+              <tr><td>Chosen form depends on</td><td>weighing <strong>merits &amp; limitations vs one's own requirements</strong></td></tr>
+              <tr><td>Charter of the company</td><td><strong>Memorandum of Association</strong></td></tr>
+              <tr><td>Invitation to general public to subscribe to shares</td><td><strong>Prospectus</strong> (issued only by a public company)</td></tr>
+              <tr><td>Table F (Companies Act)</td><td><strong>AOA of a company limited by shares</strong>; public company need not file AOA, may adopt Table F</td></tr>
+              <tr><td>Preliminary contracts are signed</td><td><strong>before incorporation</strong></td></tr>
+              <tr><td>Documents submitted to Registrar</td><td><strong>MOA, AOA, Consent of Proposed Directors, Agreement, Statutory Declaration + fees</strong></td></tr>
+              <tr><td>Statutory Declaration signed by</td><td><strong>Advocate (HC/SC) or practising CA/CS or director named in articles or manager/secretary</strong></td></tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
-      <script>
-        const KEY_TERMS_DATA = [{"term":"Karta","definition":"Eldest member (male or female after 2005 Amendment) who controls JHF business"},{"term":"Co-parceners","definition":"Members of JHF with equal ownership rights over ancestral property"},{"term":"Mutual Agency","definition":"Every partner is both agent and principal"},{"term":"Perpetual Succession","definition":"Company continues despite changes in membership"},{"term":"Artificial Person","definition":"Company exists in law; has rights but not physical existence"},{"term":"Partnership Deed","definition":"Written document specifying all terms of partnership"},{"term":"Winding Up","definition":"Legal procedure to close/dissolve a company"}];
-      </script>
-
       <footer>
-        <p>Source: NCERT Business Studies Class XI, Chapter 2 &middot; Reprint 2026-27</p>
+        <p>Source: NCERT Business Studies Class XI, Chapter 2 &middot; Next Toppers Lecture Series &middot; Reprint 2026-27</p>
       </footer>
 
     </main>
   </div>
 
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Enlarged diagram">
+    <div class="lightbox-caption">Click anywhere or press Esc to close</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        'background': '#ffffff',
+        'primaryColor': '#e8f0ec',
+        'primaryTextColor': '#1b1b1b',
+        'primaryBorderColor': '#1a5e4a',
+        'lineColor': '#1a5e4a',
+        'secondaryColor': '#faf8f5',
+        'fontFamily': 'Outfit, -apple-system, sans-serif',
+        'fontSize': '13px',
+        'edgeLabelBackground': '#ffffff',
+        'nodeBorder': '#1a5e4a',
+      },
+      flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis', padding: 12 },
+      securityLevel: 'loose',
+    });
+
     const tocToggle = document.getElementById('tocToggle');
     const toc = document.getElementById('toc');
-
-    tocToggle.addEventListener('click', () => {
-      toc.classList.toggle('open');
-    });
-
-    toc.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        toc.classList.remove('open');
-      });
-    });
+    tocToggle.addEventListener('click', () => { toc.classList.toggle('open'); });
+    toc.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { toc.classList.remove('open'); }); });
 
     const progressFill = document.getElementById('progressFill');
     window.addEventListener('scroll', () => {
@@ -948,25 +1212,47 @@
 
     const sections = document.querySelectorAll('section[id]');
     const tocLinks = document.querySelectorAll('.toc a');
-
     function updateActiveLink() {
       let current = '';
-      sections.forEach(section => {
-        const top = section.offsetTop - 120;
-        if (window.scrollY >= top) {
-          current = section.getAttribute('id');
-        }
-      });
-      tocLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
+      sections.forEach(section => { const top = section.offsetTop - 120; if (window.scrollY >= top) current = section.getAttribute('id'); });
+      tocLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === '#' + current) link.classList.add('active'); });
     }
-
     window.addEventListener('scroll', updateActiveLink);
     updateActiveLink();
+
+    // Lightbox functions
+    function openLightbox(el) {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      var svg = el.tagName === 'IMG' ? null : el.querySelector('svg');
+      if (svg) {
+        var cloned = svg.cloneNode(true);
+        cloned.removeAttribute('style');
+        var xmlns = 'http://www.w3.org/2000/svg';
+        var serializer = new XMLSerializer();
+        var svgStr = serializer.serializeToString(cloned);
+        lbImg.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgStr);
+      } else if (el.tagName === 'IMG') {
+        lbImg.src = el.src;
+      }
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() { var lb = document.getElementById('lightbox'); lb.classList.remove('active'); document.body.style.overflow = ''; }
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+
+    // After mermaid renders, make all mermaid-wrap clickable
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.querySelectorAll('.mermaid-wrap').forEach(function(wrap) {
+          wrap.style.cursor = 'zoom-in';
+          wrap.addEventListener('click', function(e) {
+            if (e.target.closest('a, button')) return;
+            openLightbox(this);
+          });
+        });
+      }, 1000);
+    });
   </script>
 
   <script src="../assets/study-os.js"></script>
