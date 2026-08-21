@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Notes &middot; Hornbill Class XI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#1a5e4a;--accent-light:#e8f0ec;--bg:#faf8f5;--surface:#ffffff;--text:#1b1b1b;--muted:#6b6b6b;--border:#e8e4de}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15.5px}
+.nav{position:fixed;top:0;left:0;right:0;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(250,248,245,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:300}
+.logo{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;color:var(--accent);text-decoration:none}
+.meta{font-size:13px;color:var(--muted)}
+#progress{position:fixed;top:60px;left:0;height:2px;width:0;background:var(--accent);z-index:300}
+.wrap{display:flex;gap:44px;max-width:1200px;margin:0 auto;padding:104px 28px 40px}
+aside{width:260px;flex-shrink:0;position:sticky;top:84px;max-height:calc(100vh - 110px);overflow-y:auto;padding-right:6px}
+aside::-webkit-scrollbar{width:4px}
+aside::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+aside .toc-title{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:0 12px 10px;font-weight:600}
+aside a{display:block;padding:6px 12px;font-size:13.5px;color:var(--muted);text-decoration:none;border-left:2px solid transparent;line-height:1.45}
+aside a.sub{padding-left:26px;font-size:12.8px}
+aside a:hover,aside a.active{color:var(--accent);border-left-color:var(--accent)}
+main{flex:1;min-width:0;max-width:820px}
+.hero{margin-bottom:36px}
+.badge{display:inline-block;background:var(--accent-light);color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;padding:5px 14px;border-radius:999px;margin-bottom:16px}
+h1{font-family:'Playfair Display',serif;font-weight:700;font-size:38px;letter-spacing:-.025em;line-height:1.2;margin-bottom:12px}
+.subtitle{font-size:16px;color:var(--muted)}
+section{scroll-margin-top:84px}
+h2{font-family:'Playfair Display',serif;font-weight:600;font-size:26px;border-bottom:1px solid var(--border);padding-bottom:10px;margin:14px 0 22px;line-height:1.3}
+h3{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;margin:30px 0 12px;line-height:1.35}
+p{margin:0 0 16px}
+ul{margin:0 0 16px;padding-left:22px}
+li{margin-bottom:8px}
+blockquote{background:var(--accent-light);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:16px;margin:18px 0;line-height:1.65}
+blockquote p{margin:0}
+.callout{background:#fff8e5;border-left:3px solid #d4a12a;padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0 18px;font-size:14.5px}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;box-shadow:0 1px 3px rgba(27,27,27,.05);margin:18px 0 22px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--accent-light);color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:.04em;text-align:left;padding:10px 14px}
+td{padding:10px 14px;vertical-align:top;border-top:1px solid var(--border)}
+tbody tr:hover td{background:#f5f3ef}
+td:first-child{font-weight:600;white-space:nowrap}
+hr{border:none;height:1px;background:var(--border);margin:38px 0}
+footer{text-align:center;padding:34px 20px 42px;color:var(--muted);font-size:13px;border-top:1px solid var(--border)}
+.fade-in{animation:fadeUp .6s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+#tocBtn{display:none;position:fixed;bottom:22px;right:22px;width:50px;height:50px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:19px;z-index:320;box-shadow:0 4px 14px rgba(26,94,74,.35);cursor:pointer}
+@media(max-width:900px){
+ .wrap{flex-direction:column;padding:96px 20px 40px}
+ aside{position:fixed;left:0;right:0;bottom:0;top:auto;width:100%;max-height:58vh;background:var(--surface);border-top:1px solid var(--border);box-shadow:0 -6px 24px rgba(27,27,27,.12);transform:translateY(102%);transition:transform .3s ease;z-index:310;padding:14px 20px 22px}
+ aside.open{transform:none}
+ #tocBtn{display:block}
+}
+@media(max-width:600px){
+ h1{font-size:28px} h2{font-size:22px} h3{font-size:18px}
+ th,td{font-size:13px;padding:8px 10px}
+ .meta{display:none} body{font-size:15px}
+}
+.cards{display:grid;gap:18px}.card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 24px;text-decoration:none;color:var(--text);box-shadow:0 1px 3px rgba(27,27,27,.05);transition:box-shadow .2s}.card:hover{box-shadow:0 6px 18px rgba(27,27,27,.09)}h2{font-size:23px}</style>
+</head>
+<body>
+<nav class="nav"><span class="logo">English Notes</span><span class="meta">Class XI &middot; Hornbill</span></nav>
+<div class="wrap" style="display:block;max-width:900px">
+<div class="hero fade-in" style="animation-delay:.05s">
+<span class="badge">NCERT Hornbill &middot; Class XI</span>
+<h1>English Chapter Notes</h1>
+<p class="subtitle">Rewritten study notes from the chapter PDFs &mdash; summaries, exam answers, vocabulary and themes.</p>
+</div>
+<div class="cards">
+<a class="card fade-in" style="animation-delay:.1s" href="Chapter-1-The-Portrait-of-a-Lady.html"><span class="badge">Chapter 1</span><h2 style="border:none;margin:10px 0 8px">The Portrait of a Lady (+ A Photograph)</h2><p style="margin:0;color:var(--muted);font-size:14px"><strong>Author:</strong> Khushwant Singh · <strong>Poem:</strong> <em>A Photograph</em> by Shirley Toulson · <strong>Book:</strong> Hornbill (Class 11) · <strong>Type:</strong> Real autobiographical account + memory poem</p></a>
+<a class="card fade-in" style="animation-delay:.2s" href="Chapter-2-Were-Not-Afraid-to-Die.html"><span class="badge">Chapter 2</span><h2 style="border:none;margin:10px 0 8px">"We're Not Afraid to Die… if We Can All Be Together"</h2><p style="margin:0;color:var(--muted);font-size:14px"></p></a>
+<a class="card fade-in" style="animation-delay:.3s" href="Chapter-3-Discovering-Tut.html"><span class="badge">Chapter 3</span><h2 style="border:none;margin:10px 0 8px">Discovering Tut: The Saga Continues (+ 2 Poems)</h2><p style="margin:0;color:var(--muted);font-size:14px"><strong>Author:</strong> A. R. Williams · <strong>Poems:</strong> <em>The Laburnum Top</em> (Ted Hughes), <em>The Voice of the Rain</em> (Walt Whitman) · <strong>Book:</strong> Hornbill (Class 11) · <strong>Type:</strong> Science-meets-history account + nature poems</p></a>
+</div>
+</div>
+<footer>Source: NCERT Hornbill (Class XI) chapter notes &middot; English Notes</footer>
+</body>
+</html>
