@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 6 — Cost | Economics Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+  <style>
+    :root {
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --border: #e8e4de;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --callout-bg: #fff8e5;
+      --callout-border: #d4a12a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.75;
+      padding-top: 60px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    img { max-width: 100%; height: auto; display: block; border-radius: 8px; margin: 24px auto; }
+
+    .mermaid { margin: 24px 0; text-align: center; background: var(--surface); padding: 16px; border-radius: 8px; border: 1px solid var(--border); }
+
+    .top-nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 60px; z-index: 100;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      background: rgba(250,248,245,0.85);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px;
+    }
+    .top-nav .logo {
+      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 18px;
+      color: var(--accent); letter-spacing: -0.02em; text-decoration: none;
+    }
+    .top-nav .logo:hover { opacity: 0.7; }
+    .top-nav .meta { font-size: 13px; color: var(--text-muted); }
+
+    .progress-bar {
+      position: fixed; top: 60px; left: 0; height: 2px; z-index: 99;
+      background: var(--accent); width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    .wrapper {
+      display: flex; max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      gap: 40px;
+    }
+
+    .sidebar-toc {
+      width: var(--sidebar-width); flex-shrink: 0;
+      position: sticky; top: 80px; max-height: calc(100vh - 100px);
+      overflow-y: auto; padding: 8px 0;
+    }
+    .sidebar-toc::-webkit-scrollbar { width: 4px; }
+    .sidebar-toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .sidebar-toc::-webkit-scrollbar-track { background: transparent; }
+
+    .sidebar-toc .toc-label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); margin-bottom: 12px; font-weight: 600;
+    }
+    .sidebar-toc a {
+      display: block; font-size: 13.5px; color: var(--text-muted);
+      padding: 5px 0 5px 12px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+    .sidebar-toc a:hover, .sidebar-toc a.active {
+      color: var(--accent); border-left-color: var(--accent); text-decoration: none;
+    }
+    .sidebar-toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    .sidebar-toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    .toc-toggle {
+      display: none; position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--accent); color: #fff; border: none;
+      font-size: 20px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      align-items: center; justify-content: center;
+    }
+    .toc-drawer {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 190;
+      background: var(--surface); border-radius: 16px 16px 0 0;
+      box-shadow: 0 -8px 32px rgba(0,0,0,0.12);
+      max-height: 60vh; overflow-y: auto; padding: 20px 24px 32px;
+      transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    .toc-drawer.open { transform: translateY(0); }
+    .toc-drawer .toc-label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); margin-bottom: 12px; font-weight: 600;
+    }
+    .toc-drawer a {
+      display: block; font-size: 14px; color: var(--text-muted);
+      padding: 6px 0; border-bottom: 1px solid var(--border);
+    }
+    .toc-drawer a:last-child { border-bottom: none; }
+    .toc-drawer a.sub { padding-left: 20px; font-size: 13.5px; }
+    .toc-drawer a.toc-h3 { padding-left: 20px; font-size: 13.5px; }
+    .toc-drawer-overlay {
+      display: none; position: fixed; inset: 0; z-index: 180;
+      background: rgba(0,0,0,0.3);
+    }
+    .toc-drawer-overlay.open { display: block; }
+
+    .main-content {
+      flex: 1; max-width: var(--max-width); padding: 40px 0 80px;
+    }
+
+    .hero { margin-bottom: 48px; }
+    .hero .badge {
+      display: inline-block; background: var(--accent-light); color: var(--accent);
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 38px;
+      line-height: 1.2; letter-spacing: -0.025em; color: var(--text); margin-bottom: 12px;
+    }
+    .hero .subtitle {
+      font-size: 16px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 26px;
+      color: var(--text); margin-top: 48px; margin-bottom: 16px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    }
+    h3 {
+      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px;
+      color: var(--text); margin-top: 32px; margin-bottom: 12px;
+    }
+    h4 {
+      font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 15.5px;
+      color: var(--text); margin-top: 24px; margin-bottom: 8px;
+    }
+
+    p { margin-bottom: 16px; }
+
+    .table-wrap {
+      overflow-x: auto; border: 1px solid var(--border); border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03); margin: 20px 0 28px;
+    }
+    .table-wrap table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+    }
+    .table-wrap thead {
+      background: var(--accent-light);
+    }
+    .table-wrap th {
+      font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--accent); font-weight: 600; padding: 12px 14px; text-align: left;
+      white-space: nowrap;
+    }
+    .table-wrap td {
+      padding: 11px 14px; vertical-align: top; border-top: 1px solid var(--border);
+    }
+    .table-wrap tbody tr:hover { background: #f5f3ef; }
+    .table-wrap td:first-child { font-weight: 600; white-space: nowrap; }
+
+    blockquote {
+      background: var(--accent-light); border-left: 3px solid var(--accent);
+      padding: 16px 20px; margin: 20px 0 24px; border-radius: 0 6px 6px 0;
+      font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px;
+      color: var(--text); line-height: 1.6;
+    }
+    blockquote p { margin-bottom: 0; }
+    blockquote p + p { margin-top: 8px; }
+
+    .callout {
+      background: var(--callout-bg); border-left: 3px solid var(--callout-border);
+      padding: 16px 20px; margin: 20px 0 24px; border-radius: 0 6px 6px 0;
+      font-size: 15px; line-height: 1.6;
+    }
+    .callout strong:first-child { color: #8b6914; }
+
+    pre {
+      background: #1a1a2e; color: #e4e4f0; padding: 20px 24px; margin: 20px 0 24px;
+      border-radius: 8px; font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 13.5px; line-height: 1.65; overflow-x: auto; white-space: pre;
+    }
+    code { font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace; font-size: 13.5px; }
+    p code { background: #f0ede8; padding: 1px 6px; border-radius: 4px; color: var(--accent); }
+
+    ul, ol { padding-left: 24px; margin-bottom: 16px; }
+    li { margin-bottom: 4px; }
+    ul ul, ol ol { margin-bottom: 0; }
+
+    .terms-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px; margin: 20px 0 28px;
+    }
+    .term-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 16px 18px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s ease;
+    }
+    .term-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .term-card .term-name { font-weight: 600; color: var(--accent); font-size: 14.5px; margin-bottom: 4px; }
+    .term-card .term-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+
+    hr {
+      border: none; height: 1px; background: var(--border); margin: 40px 0;
+    }
+
+    .footer {
+      margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+      font-size: 13px; color: var(--text-muted); text-align: center;
+    }
+
+    .fade-in {
+      opacity: 0; transform: translateY(12px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+    section:nth-of-type(5) { animation-delay: 0.35s; }
+    section:nth-of-type(6) { animation-delay: 0.4s; }
+    section:nth-of-type(7) { animation-delay: 0.45s; }
+    section:nth-of-type(8) { animation-delay: 0.5s; }
+    section:nth-of-type(9) { animation-delay: 0.55s; }
+    section:nth-of-type(10) { animation-delay: 0.6s; }
+    section:nth-of-type(11) { animation-delay: 0.65s; }
+    section:nth-of-type(12) { animation-delay: 0.7s; }
+    section:nth-of-type(13) { animation-delay: 0.75s; }
+    section:nth-of-type(14) { animation-delay: 0.8s; }
+
+    @media (max-width: 900px) {
+      .sidebar-toc { display: none; }
+      .toc-toggle { display: flex; }
+      .wrapper { padding: 0 20px; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      h2 { font-size: 22px; }
+      .table-wrap td { font-size: 13px; padding: 8px 10px; }
+      .table-wrap th { font-size: 12px; padding: 8px 10px; }
+      pre { font-size: 12.5px; padding: 16px; }
+      .terms-grid { grid-template-columns: 1fr; }
+      .top-nav .meta { display: none; }
+      .top-nav { padding: 0 16px; }
+      .wrapper { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">← Economics Notes</a>
+    <span class="meta">Class 11 · Chapter 6</span>
+  </nav>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+<div class="wrapper">
+
+    <aside class="sidebar-toc" id="sidebarToc">
+      <div class="toc-label">Contents</div>
+      <a href="#introduction" class="toc-h2">Introduction — The Big Idea</a>
+      <a href="#meaning-of-cost" class="toc-h2">Meaning of Cost</a>
+      <a href="#explicit-implicit" class="toc-h2">Explicit Cost &amp; Implicit Cost</a>
+      <a href="#explicit-cost" class="toc-h3">Explicit Cost</a>
+      <a href="#implicit-cost" class="toc-h3">Implicit Cost</a>
+      <a href="#explicit-implicit-table" class="toc-h3">Difference — Table</a>
+      <a href="#cost-function" class="toc-h2">Cost Function</a>
+      <a href="#opportunity-cost" class="toc-h2">Opportunity Cost</a>
+      <a href="#tfc-tvc" class="toc-h2">Total Fixed &amp; Variable Cost</a>
+      <a href="#tfc" class="toc-h3">Total Fixed Cost (TFC)</a>
+      <a href="#tvc" class="toc-h3">Total Variable Cost (TVC)</a>
+      <a href="#tvc-tfc-table" class="toc-h3">Difference — Table</a>
+      <a href="#total-cost" class="toc-h2">Total Cost (TC)</a>
+      <a href="#afc" class="toc-h2">Average Fixed Cost (AFC)</a>
+      <a href="#avc" class="toc-h2">Average Variable Cost (AVC)</a>
+      <a href="#ac" class="toc-h2">Average Cost (AC)</a>
+      <a href="#ac-avc-afc" class="toc-h2">AC, AVC &amp; AFC Relationship</a>
+      <a href="#mc" class="toc-h2">Marginal Cost (MC)</a>
+      <a href="#mc-ac" class="toc-h2">MC &amp; AC Relationship</a>
+      <a href="#mc-ac-avc" class="toc-h2">MC, AC &amp; AVC Relationship</a>
+      <a href="#tc-mc" class="toc-h2">TC &amp; MC, TVC &amp; MC Relationship</a>
+      <a href="#tc-mc-relation" class="toc-h3">TC &amp; MC</a>
+      <a href="#tvc-mc-relation" class="toc-h3">TVC &amp; MC</a>
+      <a href="#glance" class="toc-h2">All Cost Curves at a Glance</a>
+      <a href="#mcqs" class="toc-h2">MCQs</a>
+      <a href="#qa" class="toc-h2">Questions &amp; Answers</a>
+      <a href="#numericals" class="toc-h2">Numericals</a>
+      <a href="#graphs" class="toc-h2">Graphs to Practice</a>
+      <a href="#glossary" class="toc-h2">Key Terms Glossary</a>
+    </aside>
+
+    <main class="main-content">
+
+      <div class="hero fade-in">
+        <div class="badge">Chapter 6</div>
+        <h1>Cost</h1>
+        <p class="subtitle">Producer ki lagat — Explicit &amp; Implicit cost se lekar TFC, TVC, TC, AFC, AVC, AC aur MC tak, saare cost curves aur unke relationships.</p>
+      </div>
+
+      <!-- 1. Introduction -->
+      <section id="introduction" class="fade-in">
+        <h2>1. Introduction — The Big Idea</h2>
+
+        <h3>The Big Idea:</h3>
+        <blockquote>Ab tak humne <strong>consumer</strong> (kharidne wala) ki taraf se padha — <strong>Demand, Utility, Elasticity</strong>. Phir <strong>producer</strong> (banane wala) ki taraf gaye — <strong>Production Function</strong> (Ch-5). Ab producer ke <strong>ek aur angle</strong> par aate hain — <strong>COST</strong> (Lagat)!<br><br>
+        <strong>Cost</strong> = production karne mein jo <strong>paisa kharcha</strong> hota hai (money value of inputs used in production).</blockquote>
+
+        <h3>Simple Flow (From Lecture):</h3>
+        <pre>Production Function  →  Output produce karne ke liye inputs lagte hain
+                                    ↓
+                             INPUTS KI VALUE = COST (Lagat)</pre>
+
+        <div class="callout">
+          <strong>Key Point:</strong> Jahan Production Function ne bataya <strong>kitna output</strong> milega, wahan <strong>Cost</strong> batata hai — us output ke liye <strong>kitna paisa</strong> lagega.
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 2. Meaning of Cost -->
+      <section id="meaning-of-cost" class="fade-in">
+        <h2>2. Meaning of Cost</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Cost in economics</strong> includes the <strong>actual expenditure on inputs</strong> (i.e. <strong>Explicit Cost</strong>) and the <strong>imputed value of the inputs supplied by the owners</strong> (i.e. <strong>Implicit Cost</strong>).</blockquote>
+
+        <h3>In Simple Words:</h3>
+        <pre>COST = Explicit Cost + Implicit Cost</pre>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Type</th><th>Kya hai?</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Explicit Cost</strong></td><td>Jo paisa <strong>bahar</strong> (outsiders) ko diya — actual kharcha</td></tr>
+              <tr><td><strong>Implicit Cost</strong></td><td>Jo owner ka <strong>apna</strong> input laga — uski <strong>estimated value</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>Lecture Line:</strong> "Lagat = Money. Tujhe jo bhi paisa dena padta hai production ke liye — wahi cost hai. Aur apna khud ka lagaya saman bhi cost hai — kyunki uski bhi value hoti hai!"
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 3. Explicit & Implicit Cost -->
+      <section id="explicit-implicit" class="fade-in">
+        <h2>3. Explicit Cost &amp; Implicit Cost</h2>
+
+        <h3 id="explicit-cost">A) Explicit Cost</h3>
+        <blockquote><strong>Explicit Cost</strong> is the <strong>actual money expenditure</strong> on inputs or <strong>payment made to outsiders</strong> for hiring their factor services.</blockquote>
+
+        <p><strong>Examples:</strong></p>
+        <ul>
+          <li>Employees ki salary → ₹10,000</li>
+          <li>Raw material → ₹2,00,000</li>
+          <li>Payment of wages, rent, insurance premium, etc.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Lecture Line:</strong> "Mera paisa chahiye mereko, paisa do!" — Jo bhi bahar wale ko paisa diya, woh <strong>explicit</strong> hai.
+        </div>
+
+        <h3 id="implicit-cost">B) Implicit Cost</h3>
+        <blockquote><strong>Implicit Cost</strong> is the <strong>estimated value of the inputs supplied by the owners</strong> — including <strong>normal profit</strong>.</blockquote>
+
+        <ul>
+          <li>Owner ki apni zameen ka estimated rent → ₹50,000</li>
+          <li>Interest on own capital</li>
+          <li>Rent of own land, owner ka khud ka labour</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Lecture Line:</strong> Apna shop, apna saman, apna kaam — woh free nahi hota! Uski <strong>estimated value</strong> lagao = implicit cost.
+        </div>
+
+        <h3>Example (From Lecture):</h3>
+        <blockquote>Rakesh apni <strong>own shop</strong> mein business karta hai. Usko employees ko ₹10,000 aur raw material pe ₹2,00,000 <strong>cash</strong> dena padta hai = <strong>Explicit Cost</strong>. Par uski shop ka jo rent hota (agar kisi aur ko deta, ₹50,000) — woh <strong>Implicit Cost</strong> hai, kyunki woh <strong>estimated</strong> hai, kisi ko diya nahi.</blockquote>
+
+        <h3 id="explicit-implicit-table">Difference Between Explicit Cost &amp; Implicit Cost:</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Basis</th><th>Explicit Cost</th><th>Implicit Cost</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Meaning</strong></td><td>Payment made to <strong>outsiders</strong> for hiring factor services</td><td>Cost of <strong>self-supplied</strong> factors (owner ke apne inputs)</td></tr>
+              <tr><td><strong>Money Payment</strong></td><td>Involves <strong>actual money payment</strong> on buying and hiring inputs</td><td>Involves <strong>imputed value</strong> of factors owned by the firm — <strong>no money payment</strong> involved</td></tr>
+              <tr><td><strong>Example</strong></td><td>Payment of wages, rent, insurance premium</td><td>Interest on own capital, rent of own land</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 4. Cost Function -->
+      <section id="cost-function" class="fade-in">
+        <h2>4. Cost Function</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Cost function</strong> refers to the <strong>functional relationship between cost and output</strong>.</blockquote>
+
+        <h3>Formula:</h3>
+        <pre>C = f(q)
+
+Where:
+C = Cost of production
+q = Quantity of output
+f = Functional relationship</pre>
+
+        <div class="callout">
+          <strong>Memory Trick:</strong> Production Function <code>Q = f(L, K)</code> output ko inputs se jodta hai. Cost Function <code>C = f(q)</code> cost ko <strong>output</strong> se jodta hai — output badhega, cost badhegi (par hamesha same rate pe nahi!).
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 5. Opportunity Cost -->
+      <section id="opportunity-cost" class="fade-in">
+        <h2>5. Opportunity Cost</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Opportunity cost</strong> is the <strong>cost of the next best alternative foregone</strong>.</blockquote>
+
+        <h3>In Simple Words:</h3>
+        <blockquote>Jab do cheezein choose karni hon aur ek chuno — jo <strong>doosri best cheez chhodni</strong> padi, uski value = <strong>opportunity cost</strong>.</blockquote>
+
+        <h3>Example (From Lecture):</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Situation</th><th>Choice</th><th>Opportunity Cost</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Kisan ki zameen</strong></td><td>Wheat ugao <strong>ya</strong> Rice</td><td>Jo bhi chhoda (rice/wheat) uski value</td></tr>
+              <tr><td><strong>Student ka time</strong></td><td>Padhai <strong>ya</strong> movie</td><td>Movie ka maza chhod ke padhai chuni = movie opportunity cost</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>Lecture Line:</strong> "Wheat ugaoge toh rice kahan se? Jo chhoda, wahi opportunity cost!" — Hum har decision mein kuch na kuch <strong>chhodte</strong> hain — wahi asli cost hai.
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 6. TFC & TVC -->
+      <section id="tfc-tvc" class="fade-in">
+        <h2>6. Total Fixed Cost (TFC) &amp; Total Variable Cost (TVC)</h2>
+
+        <h3 id="tfc">A) Total Fixed Cost (TFC) or Fixed Cost (FC)</h3>
+        <blockquote><strong>Fixed costs</strong> refer to those costs which <strong>do not vary directly</strong> with the level of output.</blockquote>
+
+        <h4>TFC Schedule (From Lecture — TFC = ₹12):</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (in units)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>TFC (₹)</strong></td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>TFC Curve:</h4>
+        <blockquote><strong>TFC curve is a horizontal straight line parallel to the X-axis</strong> — kyunki TFC <strong>har level of output par same</strong> (₹12) rehta hai. Chahe output 0 ho ya maximum!</blockquote>
+
+        <p><strong>Examples:</strong> Factory rent, interest on capital, salary of permanent staff, insurance premium, building rent.</p>
+
+        <div class="callout">
+          <strong>Lecture Line:</strong> "Rent dena padta hai chahe production karo ya na karo — khao maa kasam!" 😄
+        </div>
+
+        <h3 id="tvc">B) Total Variable Cost (TVC) or Variable Cost (VC)</h3>
+        <blockquote><strong>Variable costs</strong> refer to those costs which <strong>vary directly</strong> with the level of output.</blockquote>
+
+        <h4>TVC Schedule (From Lecture):</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (in units)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>TVC (₹)</strong></td><td>0</td><td>6</td><td>10</td><td>15</td><td>24</td><td>35</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>TVC Curve:</h4>
+        <blockquote><strong>TVC curve is inversely S-shaped</strong> — initially TVC increases at a <strong>decreasing rate</strong>, phir at an <strong>increasing rate</strong> (kyunki Law of Variable Proportions ka hi asar hai).<br><br>
+        <strong>TVC is zero at zero level of output</strong> — production hi nahi, variable input bhi nahi!</blockquote>
+
+        <p><strong>Examples:</strong> Wages of casual labour, payment for raw material, fuel.</p>
+
+        <h3 id="tvc-tfc-table">C) Difference Between TVC &amp; TFC:</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Basis</th><th>Total Variable Cost (TVC)</th><th>Total Fixed Cost (TFC)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Meaning</strong></td><td>Costs which <strong>vary directly</strong> with the level of output</td><td>Costs which <strong>do not vary directly</strong> with the level of output</td></tr>
+              <tr><td><strong>Time Period</strong></td><td>Can be <strong>changed in the short run</strong></td><td><strong>Cannot be changed</strong> in the short run</td></tr>
+              <tr><td><strong>Cost at zero output</strong></td><td><strong>Zero</strong> when there is no production</td><td><strong>Never zero</strong>, even if there is no production</td></tr>
+              <tr><td><strong>Factors of Production</strong></td><td>Incurred on <strong>variable factors</strong> (labour, raw material)</td><td>Incurred on <strong>fixed factors</strong> (land, building)</td></tr>
+              <tr><td><strong>Shape of Curve</strong></td><td><strong>Inversely S-shaped</strong> (increasing at decreasing → constant → increasing rate)</td><td><strong>Horizontal straight line</strong> parallel to X-axis</td></tr>
+              <tr><td><strong>Example</strong></td><td>Wages of casual labour, payment for raw material</td><td>Salary of permanent staff, insurance premium, building rent</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 7. Total Cost -->
+      <section id="total-cost" class="fade-in">
+        <h2>7. Total Cost (TC)</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Total Cost (TC)</strong> is the <strong>total expenditure incurred by a firm</strong> on the factors of production required for the production of a commodity.</blockquote>
+
+        <h3>Formula:</h3>
+        <pre>TC = TFC + TVC</pre>
+
+        <h3>TC Schedule (From Lecture):</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (units)</th><th>TFC (₹)</th><th>TVC (₹)</th><th><strong>TC (₹)</strong> = TFC + TVC</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>12</td><td>0</td><td><strong>12</strong></td></tr>
+              <tr><td>1</td><td>12</td><td>6</td><td><strong>18</strong></td></tr>
+              <tr><td>2</td><td>12</td><td>10</td><td><strong>22</strong></td></tr>
+              <tr><td>3</td><td>12</td><td>15</td><td><strong>27</strong></td></tr>
+              <tr><td>4</td><td>12</td><td>24</td><td><strong>36</strong></td></tr>
+              <tr><td>5</td><td>12</td><td>35</td><td><strong>47</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>TC Curve:</h3>
+        <img src="Cost_TC_TFC_TVC.png" alt="Total Cost, Total Variable Cost and Total Fixed Cost curves — TC starts at TFC level and stays parallel to TVC">
+
+        <blockquote>- TC curve is also <strong>inversely S-shaped</strong> — kyunki TC apna shape <strong>TVC se derive</strong> karti hai.<br>
+        - <strong>TC = TFC at zero output</strong> (12) — fixed cost to dena hi hai!<br>
+        - <strong>TC aur TVC curves parallel</strong> rehti hain — kyunki unke beech vertical distance = <strong>TFC</strong> (12), jo har level par constant hai.</blockquote>
+
+        <div class="callout">
+          <strong>Lecture Line:</strong> "TC = TFC + TVC — 150 rupiya dega!" 😄 (total paisa = fixed + variable)
+        </div>
+
+        <h3>Relationship Between TC, TFC &amp; TVC (Summary):</h3>
+        <blockquote>1. <strong>TC = TFC + TVC</strong><br>
+        2. <strong>TFC remains constant</strong> regardless of the level of output<br>
+        3. <strong>TVC increases</strong> as output increases<br>
+        4. <strong>TC is always greater than or equal to TFC</strong> — kyunki TVC hamesha add hota hai<br>
+        5. <strong>TC starts at the level of TFC</strong> when output is zero, and increases with TVC as production grows</blockquote>
+
+        <div class="callout">
+          <strong>Summary:</strong> TFC is fixed, TVC changes with output, and TC is their sum.
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 8. AFC -->
+      <section id="afc" class="fade-in">
+        <h2>8. Average Fixed Cost (AFC)</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Average Fixed Cost (AFC)</strong> refers to the <strong>per unit fixed cost</strong> of production.</blockquote>
+
+        <h3>Formula:</h3>
+        <pre>AFC = TFC ÷ Q</pre>
+
+        <h3>AFC Schedule (From Lecture — TFC = ₹12):</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (in units)</th><th>TFC (₹)</th><th><strong>AFC (₹)</strong> = TFC ÷ Q</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>12</td><td>12 ÷ 1 = <strong>12</strong></td></tr>
+              <tr><td>2</td><td>12</td><td>12 ÷ 2 = <strong>6</strong></td></tr>
+              <tr><td>3</td><td>12</td><td>12 ÷ 3 = <strong>4</strong></td></tr>
+              <tr><td>4</td><td>12</td><td>12 ÷ 4 = <strong>3</strong></td></tr>
+              <tr><td>5</td><td>12</td><td>12 ÷ 5 = <strong>2.40</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>AFC Curve — 4 Important Properties:</h3>
+        <img src="Cost_AFC_Curve.png" alt="Average Fixed Cost curve — downward sloping rectangular hyperbola that never touches the axes">
+
+        <blockquote>1. <strong>AFC curve slopes downwards</strong> — AFC <strong>falls with increase in output</strong> (same TFC, zyada units pe divide).<br>
+        2. <strong>AFC curve is a rectangular hyperbola</strong> — area under the curve (TFC) remains <strong>same at all points</strong>.<br>
+        3. <strong>AFC curve never touches the X-axis</strong> — kyunki <strong>TFC can never be zero</strong>, aur TFC ÷ Q kabhi zero nahi ho sakta.<br>
+        4. <strong>AFC curve never touches the Y-axis</strong> — kyunki at zero output, TFC is a <strong>positive value</strong> divided by zero = <strong>infinite value</strong>.</blockquote>
+
+        <div class="callout">
+          <strong>Lecture Tip:</strong> "AFC ko TOUCH NHI KARNA — na X-axis, na Y-axis!" AFC hamesha girta hi rehta hai par <strong>zero kabhi nahi</strong> hota.
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 9. AVC -->
+      <section id="avc" class="fade-in">
+        <h2>9. Average Variable Cost (AVC)</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Average Variable Cost (AVC)</strong> refers to the <strong>per unit variable cost</strong> of production.</blockquote>
+
+        <h3>Formula:</h3>
+        <pre>AVC = TVC ÷ Q</pre>
+
+        <h3>AVC Schedule (From Lecture):</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (in units)</th><th>TVC (₹)</th><th><strong>AVC (₹)</strong> = TVC ÷ Q</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>6</td><td>6 ÷ 1 = <strong>6</strong></td></tr>
+              <tr><td>2</td><td>10</td><td>10 ÷ 2 = <strong>5</strong></td></tr>
+              <tr><td>3</td><td>15</td><td>15 ÷ 3 = <strong>5</strong></td></tr>
+              <tr><td>4</td><td>24</td><td>24 ÷ 4 = <strong>6</strong></td></tr>
+              <tr><td>5</td><td>35</td><td>35 ÷ 5 = <strong>7</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>AVC Curve:</h3>
+        <blockquote><strong>AVC curve is U-shaped</strong> — pehle girti hai, phir badhti hai — due to the application of the <strong>Law of Variable Proportions</strong> (Phase I mein falling, Phase II mein rising).</blockquote>
+      </section>
+
+      <hr>
+
+      <!-- 10. AC -->
+      <section id="ac" class="fade-in">
+        <h2>10. Average Cost (AC) / Average Total Cost (ATC)</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Average Cost</strong> refers to the <strong>per unit total cost</strong> of production.</blockquote>
+
+        <h3>Formula:</h3>
+        <pre>AC = TC ÷ Q
+AC = AFC + AVC</pre>
+
+        <blockquote><strong>Average cost is also defined as the sum of Average Fixed Cost (AFC) and Average Variable Cost (AVC):</strong> <code>AC = AFC + AVC</code></blockquote>
+
+        <h3>AC Schedule (From Lecture — TFC = 12):</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (units)</th><th>TVC (₹)</th><th>AVC (₹)</th><th>AFC (₹)</th><th><strong>AC (₹)</strong> = AFC + AVC</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>6</td><td>6</td><td>12</td><td>12 + 6 = <strong>18</strong></td></tr>
+              <tr><td>2</td><td>10</td><td>5</td><td>6</td><td>6 + 5 = <strong>11</strong></td></tr>
+              <tr><td>3</td><td>15</td><td>5</td><td>4</td><td>4 + 5 = <strong>9</strong></td></tr>
+              <tr><td>4</td><td>24</td><td>6</td><td>3</td><td>3 + 6 = <strong>9</strong></td></tr>
+              <tr><td>5</td><td>35</td><td>7</td><td>2.40</td><td>2.40 + 7 = <strong>9.40</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>AC Curve:</h3>
+        <blockquote><strong>AC curve is also U-shaped</strong> — pehle girti hai (economies), minimum pe, phir badhti hai (diseconomies).</blockquote>
+      </section>
+
+      <hr>
+
+      <!-- 11. Relationship AC, AVC & AFC -->
+      <section id="ac-avc-afc" class="fade-in">
+        <h2>11. Relationship Between AC, AVC &amp; AFC</h2>
+
+        <blockquote>1. <strong>AC curve always lies ABOVE the AVC curve</strong> — kyunki at all levels of output, AC includes both AVC <strong>and</strong> AFC.<br>
+        2. <strong>Vertical distance between AC and AVC = AFC.</strong> Jaise output badhta hai, AFC girti hai → <strong>gap kam hota jaata hai</strong>.<br>
+        3. <strong>AC and AVC never intersect each other</strong> — kyunki gap = AFC, aur <strong>AFC can never be zero</strong>.<br>
+        4. <strong>AVC reaches its minimum point (point B) at a LOWER level of output</strong> than AC (point A) — kyunki jab AVC minimum hota hai, tab bhi AC <strong>girti rehti hai</strong> due to <strong>falling AFC</strong>.<br>
+        5. <strong>Both AC and AVC are U-shaped</strong> due to Law of Variable Proportions.</blockquote>
+
+        <h3>Quick Memory Table:</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Property</th><th>Result</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>AC vs AVC position</td><td>AC hamesha <strong>upar</strong></td></tr>
+              <tr><td>Gap between AC &amp; AVC</td><td>= <strong>AFC</strong> (girti jaati hai)</td></tr>
+              <tr><td>Do AC &amp; AVC meet?</td><td><strong>Never</strong> — AFC kabhi zero nahi</td></tr>
+              <tr><td>Minimum of AVC vs AC</td><td><strong>AVC ka minimum pehle</strong> (left), AC ka baad mein (right)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 12. MC -->
+      <section id="mc" class="fade-in">
+        <h2>12. Marginal Cost (MC)</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Marginal Cost</strong> refers to the <strong>addition to total cost</strong> when <strong>one more unit of output</strong> is produced.</blockquote>
+
+        <h3>Formula:</h3>
+        <pre>MC = TCn − TCn−1
+
+Or,  MC = ΔTC / ΔQ  (Change in Total Cost ÷ Change in units of output)
+
+Where:
+MCn    = Marginal Cost of nth unit
+TCn    = Total Cost of n units
+TCn−1  = Total Cost of (n−1) units</pre>
+
+        <h3>MC Schedule (From Lecture):</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (units)</th><th>TFC (₹)</th><th>TVC (₹)</th><th>TC (₹)</th><th><strong>MC (₹)</strong> = TCn − TCn−1</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>12</td><td>0</td><td>12</td><td>—</td></tr>
+              <tr><td>1</td><td>12</td><td>6</td><td>18</td><td>18 − 12 = <strong>6</strong></td></tr>
+              <tr><td>2</td><td>12</td><td>10</td><td>22</td><td>22 − 18 = <strong>4</strong></td></tr>
+              <tr><td>3</td><td>12</td><td>15</td><td>27</td><td>27 − 22 = <strong>5</strong></td></tr>
+              <tr><td>4</td><td>12</td><td>24</td><td>36</td><td>36 − 27 = <strong>9</strong></td></tr>
+              <tr><td>5</td><td>12</td><td>35</td><td>47</td><td>47 − 36 = <strong>11</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>MC Curve:</h3>
+        <blockquote><strong>MC curve is U-shaped</strong> (due to Law of Variable Proportions) — pehle girti hai, minimum pe, phir badhti hai.</blockquote>
+
+        <h3>Most Important Point:</h3>
+        <blockquote><strong>MC is NOT affected by Fixed Costs.</strong> MC is affected <strong>only by TVC</strong> — kyunki TFC constant rehta hai, toh <code>TCn − TCn−1</code> mein TFC cancel ho jaata hai (sirf TVC ka change bachta hai).<br><br>
+        Isliye: <strong>MC can be (directly) derived from TVC</strong> — <code>MCn = TVCn − TVCn−1</code></blockquote>
+      </section>
+
+      <hr>
+
+      <!-- 13. Relationship MC & AC -->
+      <section id="mc-ac" class="fade-in">
+        <h2>13. Relationship Between MC &amp; AC</h2>
+
+        <h3>Rules:</h3>
+        <blockquote>1. <strong>When MC &lt; AC → AC is falling</strong><br>
+        2. <strong>When MC = AC → AC is at its minimum point</strong> (neither rising nor falling)<br>
+        3. <strong>When MC &gt; AC → AC is rising</strong><br>
+        4. <strong>MC curve cuts AC curve at its minimum point.</strong></blockquote>
+
+        <h3>Schedule (From Lecture):</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (units)</th><th>TC (₹)</th><th>AC (₹)</th><th>MC (₹)</th><th>Phase</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>12</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>1</td><td>18</td><td>18</td><td>6</td><td><strong>I (MC &lt; AC)</strong> → AC falling</td></tr>
+              <tr><td>2</td><td>22</td><td>11</td><td>4</td><td><strong>I (MC &lt; AC)</strong> → AC falling</td></tr>
+              <tr><td>3</td><td>27</td><td>9</td><td>5</td><td><strong>I (MC &lt; AC)</strong> → AC falling</td></tr>
+              <tr><td>4</td><td>36</td><td>9</td><td>9</td><td><strong>II (MC = AC)</strong> → AC minimum</td></tr>
+              <tr><td>5</td><td>47</td><td>9.40</td><td>11</td><td><strong>III (MC &gt; AC)</strong> → AC rising</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>Lecture Memory Trick:</strong> MC ko "danda" maano jo AC ko uske <strong>minimum point</strong> pe pakadti hai. Jab tak MC, AC se neeche (kam) — AC girti hai. Jab MC = AC — AC ruk jaati hai (minimum). Jab MC upar — AC chadhti hai!
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 14. Relationship MC, AC & AVC -->
+      <section id="mc-ac-avc" class="fade-in">
+        <h2>14. Relationship Between MC, AC &amp; AVC (All Three)</h2>
+
+        <img src="Cost_AC_AVC_MC.png" alt="Average Cost, Average Variable Cost and Marginal Cost curves — MC cuts both AVC and AC at their minimum points">
+
+        <blockquote>1. <strong>MC curve cuts AVC and AC curves at their minimum points.</strong><br>
+        2. <strong>Minimum point of AC (point A) lies always to the RIGHT of minimum point of AVC (point B)</strong> — kyunki AC continues to fall due to decreasing AFC even after AVC starts rising.<br>
+        3. <strong>AC is greater than AVC by the amount of AFC.</strong> Vertical distance between AC and AVC continues to <strong>fall</strong> with increase in output (gap = AFC, jo girti hai).<br>
+        4. <strong>AC and AVC never intersect</strong> — AFC can never be zero.<br>
+        5. <strong>Both AC and AVC curves are U-shaped</strong> due to Law of Variable Proportions.<br>
+        6. <strong>MC bhi U-shaped</strong> — isliye MC AVC ko uske minimum pe aur AC ko uske minimum pe cut karti hai.</blockquote>
+
+        <h3>Memory Table:</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Condition</th><th>Effect</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>MC &lt; AVC</td><td>AVC falling</td></tr>
+              <tr><td>MC = AVC</td><td>AVC minimum (MC cuts AVC)</td></tr>
+              <tr><td>MC &gt; AVC</td><td>AVC rising</td></tr>
+              <tr><td>MC &lt; AC</td><td>AC falling</td></tr>
+              <tr><td>MC = AC</td><td>AC minimum (MC cuts AC)</td></tr>
+              <tr><td>MC &gt; AC</td><td>AC rising</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>Exam Point:</strong> MC curve dono ko — pehle <strong>AVC</strong> ko, phir <strong>AC</strong> ko — unke minimum points pe cut karti hai. Order yaad rakho: <strong>MC → AVC (pehle) → AC (baad mein).</strong>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 15. Relationship TC & MC, TVC & MC -->
+      <section id="tc-mc" class="fade-in">
+        <h2>15. Relationship Between TC &amp; MC, and TVC &amp; MC</h2>
+
+        <h3 id="tc-mc-relation">A) TC &amp; MC:</h3>
+        <blockquote>1. <strong>When TC rises at a diminishing rate</strong> (upto point Q) → <strong>MC declines</strong>.<br>
+        2. <strong>TC stops increasing at a decreasing rate</strong> (point of inflexion) → <strong>MC is at its minimum point</strong> (point E).<br>
+        3. <strong>When TC rises at an increasing rate</strong> → <strong>MC is increasing</strong>.</blockquote>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>TC Behaviour</th><th>MC Behaviour</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>TC ↑ at diminishing rate</td><td>MC ↓</td></tr>
+              <tr><td>TC ke increasing-at-decreasing-rate ka end</td><td><strong>MC minimum</strong></td></tr>
+              <tr><td>TC ↑ at increasing rate</td><td>MC ↑</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="tvc-mc-relation">B) TVC &amp; MC:</h3>
+        <blockquote>- <strong>MC is the addition to TVC</strong> when one more unit of output is produced.<br>
+        - <strong>If output is assumed to be perfectly divisible, the total area under the MC curve is equal to TVC.</strong></blockquote>
+
+        <div class="callout">
+          <strong>Exam Point:</strong> "Area under MC curve = TVC" — yeh diagram-based question hamesha aata hai!
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 16. All Cost Curves at a Glance -->
+      <section id="glance" class="fade-in">
+        <h2>16. All Cost Curves at a Glance (Quick Revision)</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Curve</th><th>Formula</th><th>Shape</th><th>Reason / Property</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>TFC</strong></td><td>TFC = TC − TVC</td><td><strong>Horizontal straight line</strong> parallel to X-axis</td><td>TFC constant at all output levels</td></tr>
+              <tr><td><strong>TVC</strong></td><td>TVC = TC − TFC</td><td><strong>Inversely S-shaped</strong></td><td>Increases at decreasing rate, then increasing rate; zero at zero output</td></tr>
+              <tr><td><strong>TC</strong></td><td>TC = TFC + TVC</td><td><strong>Inversely S-shaped</strong></td><td>Starts at TFC level; parallel to TVC</td></tr>
+              <tr><td><strong>AFC</strong></td><td>AFC = TFC ÷ Q</td><td><strong>Downward sloping rectangular hyperbola</strong></td><td>Falls with output; never touches axes</td></tr>
+              <tr><td><strong>AVC</strong></td><td>AVC = TVC ÷ Q</td><td><strong>U-shaped</strong></td><td>Due to LVP</td></tr>
+              <tr><td><strong>AC</strong></td><td>AC = TC ÷ Q = AFC + AVC</td><td><strong>U-shaped</strong></td><td>Due to LVP; minimum right of AVC's minimum</td></tr>
+              <tr><td><strong>MC</strong></td><td>MC = TCn − TCn−1 = ΔTC/ΔQ</td><td><strong>U-shaped</strong></td><td>Due to LVP; cuts AVC &amp; AC at their minimums; not affected by TFC</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>Which curves are U-shaped?</strong> AVC, AC, MC — <strong>all except AFC!</strong><br><br>
+          <strong>Which curves are inversely S-shaped?</strong> TVC and TC.
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 17. MCQs -->
+      <section id="mcqs" class="fade-in">
+        <h2>17. MCQs (From Lecture)</h2>
+
+        <ol>
+          <li>
+            <strong>Identify the two cost curves which start from the same point on the Y-axis:</strong>
+            <ul>
+              <li>(a) TVC and TFC</li>
+              <li>(b) TFC and AVC</li>
+              <li>(c) TFC and TC ✔</li>
+              <li>(d) TFC and AFC</li>
+            </ul>
+            <p><strong>Reason:</strong> At zero output, TC = TFC (TVC = 0), isliye dono Y-axis ke same point se shuru hoti hain.</p>
+          </li>
+          <li>
+            <strong>The cost curve, which is inversely S-shaped is:</strong>
+            <ul>
+              <li>(a) Average Cost Curve</li>
+              <li>(b) Total Fixed Cost Curve</li>
+              <li>(c) Total Variable Cost Curve ✔</li>
+              <li>(d) Marginal Cost Curve</li>
+            </ul>
+          </li>
+          <li>
+            <strong>MC can be (directly) derived from:</strong>
+            <ul>
+              <li>(a) TFC</li>
+              <li>(b) TVC ✔</li>
+              <li>(c) AC</li>
+              <li>(d) AFC</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Average fixed cost:</strong>
+            <ul>
+              <li>(a) Remains same at all levels of output</li>
+              <li>(b) Increases as output increases</li>
+              <li>(c) Decreases as output increases ✔</li>
+              <li>(d) Initially increases and then decreases</li>
+            </ul>
+          </li>
+          <li>
+            <strong>All the curves except ___ are U shaped curves:</strong>
+            <ul>
+              <li>(a) Average Fixed Cost Curve ✔</li>
+              <li>(b) Average Variable Cost Curve</li>
+              <li>(c) Average Cost Curve</li>
+              <li>(d) Marginal Cost Curve</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Area under MC curve is equal to:</strong>
+            <ul>
+              <li>(a) TVC ✔</li>
+              <li>(b) AFC</li>
+              <li>(c) AVC</li>
+              <li>(d) AC</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Which formula is incorrect to determine the value of TC?</strong>
+            <ul>
+              <li>(a) TC = TVC + TFC</li>
+              <li>(b) TC = ΣMC ✔ (incorrect — missing TFC!)</li>
+              <li>(c) TC = AC × Output</li>
+              <li>(d) TC = ΣMC + TFC</li>
+            </ul>
+          </li>
+          <li>
+            <strong>The shape of total fixed cost curve is:</strong>
+            <ul>
+              <li>(a) U-shaped</li>
+              <li>(b) Downward sloping</li>
+              <li>(c) Inversely S-shaped</li>
+              <li>(d) Horizontal straight line parallel to x-axis ✔</li>
+            </ul>
+          </li>
+          <li>
+            <strong>AC, AVC and MC curves are U shaped because of:</strong>
+            <ul>
+              <li>(a) Law of Diminishing Marginal Utility</li>
+              <li>(b) Law of Diminishing Returns</li>
+              <li>(c) Law of Variable Proportions ✔</li>
+              <li>(d) None of these</li>
+            </ul>
+          </li>
+          <li>
+            <strong>AVC can fall even when MC is rising, provided:</strong>
+            <ul>
+              <li>(a) MC &lt; AVC ✔</li>
+              <li>(b) MC &gt; AVC</li>
+              <li>(c) MC = AVC</li>
+              <li>(d) None of these</li>
+            </ul>
+          </li>
+          <li>
+            <strong>When AC is rising, MC is:</strong>
+            <ul>
+              <li>(a) Equal to AC</li>
+              <li>(b) More than AC ✔</li>
+              <li>(c) Less than AC</li>
+              <li>(d) Constant</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Assertion (A): TFC curve is a vertical straight line parallel to the Y-axis.</strong><br>
+            <strong>Reason (R): TFC remains same at all levels of output, even if the output is zero.</strong>
+            <ul>
+              <li>(a) Both (A) and (R) are True and (R) is the correct explanation of (A)</li>
+              <li>(b) Both (A) and (R) are True and (R) is not the correct explanation of (A)</li>
+              <li>(c) (A) is True but (R) is False</li>
+              <li>(d) (A) is False but (R) is True ✔</li>
+            </ul>
+            <p><strong>Note:</strong> TFC curve <strong>horizontal</strong> hoti hai (X-axis ke parallel), vertical nahi! Isliye (A) False.</p>
+          </li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <!-- 18. Q&A -->
+      <section id="qa" class="fade-in">
+        <h2>18. Questions &amp; Answers (From Lecture)</h2>
+
+        <h3>Q1. How is MC related to TFC?</h3>
+        <blockquote><strong>MC is independent (not related) of TFC</strong> and is affected <strong>only by change in TVC</strong>.</blockquote>
+
+        <h3>Q2. What does the area under the marginal cost curve show?</h3>
+        <blockquote>Area under the marginal cost curve shows <strong>total variable cost (TVC)</strong>.</blockquote>
+
+        <h3>Q3. Why does average fixed cost fall as the output rises?</h3>
+        <blockquote>AFC falls with rise in output because of the <strong>inverse relationship between AFC and output</strong>. The <strong>same amount of TFC</strong>, jab <strong>rising units of output</strong> pe divide hota hai, toh har unit pe <strong>kam AFC</strong> aata hai. (AFC = TFC ÷ Q, Q badha → AFC gira.)</blockquote>
+
+        <h3>Q4. An owner withdraws ₹10,000 from his personal bank account and purchases a machinery for the business. Identify the explicit cost and implicit cost.</h3>
+        <blockquote>- <strong>Implicit cost:</strong> 'Imputed interest on amount withdrawn from bank' — kyunki agar paisa bank mein rehta toh owner ko <strong>interest</strong> milta. Woh interest chhod diya = implicit cost.<br>
+        - <strong>Explicit cost:</strong> 'Amount of ₹10,000 paid to purchase the machinery' — kyunki yeh <strong>actual money expenditure</strong> hai.</blockquote>
+
+        <h3>Q5. The gap between AC and AVC keeps on decreasing with rise in output, but they never meet each other. Comment.</h3>
+        <blockquote>Statement is <strong>correct</strong>. Gap between AC and AVC girti jaati hai kyunki difference = <strong>AFC</strong>, jo output badhne se girti hai. Par <strong>AFC can never be zero</strong> — isliye <strong>AC and AVC can never meet</strong>.</blockquote>
+
+        <h3>Q6. On the basis of the given diagram (AC, AVC, MC curves), answer:</h3>
+        <p><strong>(i) Identify the three short-run cost curves. (ii) Why all the three curves are U-shaped? (iii) Why does the distance between curve A and curve B fall with rise in output? Will they coincide? (iv) Why does the minimum point of curve A lie to the right of minimum point of curve B?</strong></p>
+        <blockquote>(i) Curve A = <strong>AC curve</strong>; Curve B = <strong>AVC curve</strong>; Curve C = <strong>MC curve</strong>.<br><br>
+        (ii) All three curves are U-shaped because of the <strong>Law of Variable Proportions</strong>.<br><br>
+        (iii) Distance between AC (A) and AVC (B) falls with rise in output kyunki gap = <strong>AFC</strong>, jo output ke saath girti jaati hai. <strong>AC and AVC will not coincide</strong> at any level of output — kyunki <strong>AFC can never be zero</strong>.<br><br>
+        (iv) Minimum point of AC (A) lies to the <strong>right</strong> of minimum point of AVC (B) kyunki <strong>AC continues to fall due to decreasing AFC even after AVC starts rising</strong>.</blockquote>
+
+        <h3>Q7. Why is AFC curve a rectangular hyperbola?</h3>
+        <blockquote>AFC is derived from <strong>TFC</strong>, jo har level of output par <strong>constant</strong> rehta hai (chahe output 0 ho ya 100). AFC = per unit TFC. Isliye <strong>area under the AFC curve remains constant</strong> at all levels of output (AFC × Q = TFC = constant). Result: AFC curve is a <strong>rectangular hyperbola</strong>.</blockquote>
+
+        <h3>Q8. State the relation between total cost and marginal cost.</h3>
+        <blockquote>(i) When <strong>MC is diminishing</strong>, TC increases at a <strong>diminishing rate</strong>.<br>
+        (ii) When <strong>MC is rising</strong>, TC increases at an <strong>increasing rate</strong>.<br>
+        (iii) When <strong>MC is constant</strong>, TC increases at a <strong>constant rate</strong>.<br>
+        Also, <strong>MCn = TCn − TCn−1</strong>.</blockquote>
+
+        <h3>Q9. Why is AC curve 'U' shaped?</h3>
+        <blockquote>Main reason = operation of the <strong>Law of Variable Proportions</strong>. Initial stages mein <strong>law of increasing returns</strong> operate hota hai — firm ko <strong>economies</strong> milti hain → <strong>AC declines</strong>. <strong>Point of optimum combination</strong> ke baad economies <strong>diseconomies</strong> mein badal jaati hain (stage of law of diminishing returns) → <strong>AC rises</strong>. Isliye AC pehle girti hai, phir badhti hai = <strong>U-shaped</strong>.</blockquote>
+
+        <h3>Q10. Giving reasons, state whether the following statements are true or false:</h3>
+        <p><strong>(i) Average product will increase only when marginal product increases. (ii) With increase in level of output, average fixed cost goes on falling till it reaches zero. (iii) Under diminishing returns to factor, total product continues to increase till marginal product reaches zero.</strong></p>
+        <blockquote>(i) <strong>False.</strong> AP tab bhi badh sakta hai jab MP girti ho — <strong>jab tak MP &gt; AP</strong> (MP girne par bhi AP upar ja sakta hai).<br><br>
+        (ii) <strong>False.</strong> AFC girti jaati hai par <strong>kabhi zero nahi hoti</strong> — kyunki TFC kabhi zero nahi hota.<br><br>
+        (iii) <strong>True.</strong> Diminishing returns ke phase mein TP <strong>tab tak badhta rehta hai jab tak MP zero nahi ho jaata</strong> — MP = 0 pe TP maximum.</blockquote>
+
+        <h3>Q11. Distinguish between fixed cost and variable cost with examples.</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Basis</th><th>Fixed Cost</th><th>Variable Cost</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Meaning</strong></td><td>Incurred on <strong>fixed factors</strong>; does <strong>not change</strong> with change in quantity of output</td><td>Incurred on <strong>variable factors</strong>; <strong>changes</strong> with change in quantity of output</td></tr>
+              <tr><td><strong>Output</strong></td><td>Remains same whether output is zero or maximum</td><td><strong>Zero when output is zero</strong>; increases with output, decreases with output</td></tr>
+              <tr><td><strong>Examples</strong></td><td>Rent of building, licence fee</td><td>Cost of raw material, wages of casual labour</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 19. Numericals -->
+      <section id="numericals" class="fade-in">
+        <h2>19. Numericals (From Lecture)</h2>
+
+        <h3>Numerical 1: Complete the table (find AVC and MC)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (Units)</th><th>TVC (₹)</th><th>AVC (₹) = TVC ÷ Q</th><th>MC (₹) = TVCn − TVCn−1</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>10</td><td>10</td><td>10</td></tr>
+              <tr><td>2</td><td>16</td><td>8</td><td>6</td></tr>
+              <tr><td>3</td><td>27</td><td>9</td><td>11</td></tr>
+              <tr><td>4</td><td>40</td><td>10</td><td>13</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <strong>Formulae used:</strong> TVC = ΣMC = AVC × Output; AVC = TVC ÷ Output; MCn = TVCn − TVCn−1
+        </div>
+
+        <h3>Numerical 2: Calculate TFC, TVC, ATC, AFC, AVC and MC</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (Units)</th><th>TC (₹)</th><th>TFC (₹)</th><th>TVC (₹)</th><th>ATC (₹)</th><th>AFC (₹)</th><th>AVC (₹)</th><th>MC (₹)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>60</td><td>60</td><td>0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>1</td><td>80</td><td>60</td><td>20</td><td>80</td><td>60</td><td>20</td><td>20</td></tr>
+              <tr><td>2</td><td>100</td><td>60</td><td>40</td><td>50</td><td>30</td><td>20</td><td>20</td></tr>
+              <tr><td>3</td><td>111</td><td>60</td><td>51</td><td>37</td><td>20</td><td>17</td><td>11</td></tr>
+              <tr><td>4</td><td>116</td><td>60</td><td>56</td><td>29</td><td>15</td><td>14</td><td>5</td></tr>
+              <tr><td>5</td><td>130</td><td>60</td><td>70</td><td>26</td><td>12</td><td>14</td><td>14</td></tr>
+              <tr><td>6</td><td>150</td><td>60</td><td>90</td><td>25</td><td>10</td><td>15</td><td>20</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <strong>Formulae used:</strong><br>
+          (i) TVC = TC − TFC<br>
+          (ii) ATC = TC ÷ Output<br>
+          (iii) AFC = TFC ÷ Output<br>
+          (iv) AVC = TVC ÷ Output<br>
+          (v) MCn = TCn − TCn−1<br>
+          (vi) <strong>TFC = TC at 0 level of output</strong> (yahan TC at 0 = 60, toh TFC = 60)
+        </div>
+
+        <h3>Numerical 3: TVC given, calculate TC (vertical distance between TVC &amp; TC fixed at ₹60)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (Units)</th><th>TVC (₹)</th><th>TFC (₹)</th><th><strong>TC (₹)</strong> = TFC + TVC</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>0</td><td>60</td><td><strong>60</strong></td></tr>
+              <tr><td>1</td><td>30</td><td>60</td><td><strong>90</strong></td></tr>
+              <tr><td>2</td><td>40</td><td>60</td><td><strong>100</strong></td></tr>
+              <tr><td>3</td><td>45</td><td>60</td><td><strong>105</strong></td></tr>
+              <tr><td>4</td><td>55</td><td>60</td><td><strong>115</strong></td></tr>
+              <tr><td>5</td><td>75</td><td>60</td><td><strong>135</strong></td></tr>
+              <tr><td>6</td><td>120</td><td>60</td><td><strong>180</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <strong>Hint:</strong> Vertical distance between TVC aur TC = TFC (hamesha constant) = ₹60.
+        </div>
+
+        <h3>Numerical 4: Find the missing figures</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (Units)</th><th>TC (₹) = TFC + TVC</th><th>TFC (₹)</th><th>TVC (₹) = TC − TFC</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>60</td><td>60</td><td>0</td></tr>
+              <tr><td>1</td><td>80</td><td>60</td><td>20</td></tr>
+              <tr><td>2</td><td>100</td><td>60</td><td>40</td></tr>
+              <tr><td>3</td><td>111</td><td>60</td><td>51</td></tr>
+              <tr><td>4</td><td>116</td><td>60</td><td>56</td></tr>
+              <tr><td>5</td><td>130</td><td>60</td><td>70</td></tr>
+              <tr><td>6</td><td>150</td><td>60</td><td>90</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Numerical 5: Calculate TFC and TVC from TC</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Output (Units)</th><th>TC (₹)</th><th>TFC (₹)</th><th><strong>TVC (₹)</strong> = TC − TFC</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>80</td><td>80</td><td>0</td></tr>
+              <tr><td>1</td><td>102</td><td>80</td><td>22</td></tr>
+              <tr><td>2</td><td>122</td><td>80</td><td>42</td></tr>
+              <tr><td>3</td><td>140</td><td>80</td><td>60</td></tr>
+              <tr><td>4</td><td>156</td><td>80</td><td>76</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <strong>Note:</strong> TFC = TC at zero output. Yahan output 0 pe TC = 80 → TFC = 80.
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 20. Graphs to Practice -->
+      <section id="graphs" class="fade-in">
+        <h2>20. Graphs to Practice (Draw These!)</h2>
+
+        <ol>
+          <li><strong>TFC curve</strong> — horizontal straight line parallel to X-axis</li>
+          <li><strong>TVC curve</strong> — inversely S-shaped (zero se shuru)</li>
+          <li><strong>TC curve</strong> — inversely S-shaped (TFC ke level se shuru, TVC ke parallel)</li>
+          <li><strong>AFC curve</strong> — downward sloping rectangular hyperbola (axes ko kabhi touch na kare)</li>
+          <li><strong>AVC, AC, MC curves</strong> — teeno U-shaped; MC dono ko unke minimum points pe cut kare; AC minimum, AVC minimum ke right mein</li>
+          <li><strong>AC &amp; AVC</strong> — gap = AFC, girti jaati hai, kabhi meet na kare</li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <!-- 21. Glossary -->
+      <section id="glossary" class="fade-in">
+        <h2>21. Key Terms Glossary</h2>
+
+        <div class="terms-grid">
+          <div class="term-card">
+            <div class="term-name">Cost</div>
+            <div class="term-desc">Money value of inputs used in production (Explicit + Implicit)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Explicit Cost</div>
+            <div class="term-desc">Actual money expenditure / payment made to outsiders</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Implicit Cost</div>
+            <div class="term-desc">Imputed value of inputs supplied by owners (incl. normal profit)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Cost Function</div>
+            <div class="term-desc">Functional relationship between cost and output: C = f(q)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Opportunity Cost</div>
+            <div class="term-desc">Cost of the next best alternative foregone</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Fixed Cost (TFC)</div>
+            <div class="term-desc">Costs that do not vary with output; never zero</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Variable Cost (TVC)</div>
+            <div class="term-desc">Costs that vary directly with output; zero at zero output</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Total Cost (TC)</div>
+            <div class="term-desc">TC = TFC + TVC; total expenditure on factors of production</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">AFC</div>
+            <div class="term-desc">Per unit fixed cost = TFC ÷ Q (falls, never zero)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">AVC</div>
+            <div class="term-desc">Per unit variable cost = TVC ÷ Q (U-shaped)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">AC (ATC)</div>
+            <div class="term-desc">Per unit total cost = TC ÷ Q = AFC + AVC (U-shaped)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Marginal Cost (MC)</div>
+            <div class="term-desc">Addition to TC when one more unit is produced = TCn − TCn−1</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Rectangular Hyperbola</div>
+            <div class="term-desc">AFC curve — area under curve (TFC) constant at all points</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Law of Variable Proportions</div>
+            <div class="term-desc">Reason for U-shape of AVC, AC, MC curves</div>
+          </div>
+        </div>
+      </section>
+
+      <script id="chapter-terms-data" type="application/json">
+      [{"term":"Cost","definition":"Money value of inputs used in production (Explicit + Implicit)"},{"term":"Explicit Cost","definition":"Actual money expenditure / payment made to outsiders"},{"term":"Implicit Cost","definition":"Imputed value of inputs supplied by owners (incl. normal profit)"},{"term":"Cost Function","definition":"Functional relationship between cost and output: C = f(q)"},{"term":"Opportunity Cost","definition":"Cost of the next best alternative foregone"},{"term":"Fixed Cost (TFC)","definition":"Costs that do not vary with output; never zero"},{"term":"Variable Cost (TVC)","definition":"Costs that vary directly with output; zero at zero output"},{"term":"Total Cost (TC)","definition":"TC = TFC + TVC; total expenditure on factors of production"},{"term":"AFC","definition":"Per unit fixed cost = TFC / Q (falls, never zero)"},{"term":"AVC","definition":"Per unit variable cost = TVC / Q (U-shaped)"},{"term":"AC (ATC)","definition":"Per unit total cost = TC / Q = AFC + AVC (U-shaped)"},{"term":"Marginal Cost (MC)","definition":"Addition to TC when one more unit is produced = TCn - TCn-1"},{"term":"Rectangular Hyperbola","definition":"AFC curve - area under curve (TFC) constant at all points"},{"term":"Law of Variable Proportions","definition":"Reason for U-shape of AVC, AC, MC curves"}]
+      </script>
+      <div class="footer">
+        <p>Economics Notes · Class 11 · Chapter 6 — Cost</p>
+      </div>
+
+    </main>
+  </div>
+
+  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">☰</button>
+  <div class="toc-drawer-overlay" id="tocOverlay"></div>
+  <div class="toc-drawer" id="tocDrawer">
+    <div class="toc-label">Contents</div>
+    <a href="#introduction" class="toc-h2">Introduction — The Big Idea</a>
+    <a href="#meaning-of-cost" class="toc-h2">Meaning of Cost</a>
+    <a href="#explicit-implicit" class="toc-h2">Explicit Cost &amp; Implicit Cost</a>
+    <a href="#explicit-cost" class="toc-h3">Explicit Cost</a>
+    <a href="#implicit-cost" class="toc-h3">Implicit Cost</a>
+    <a href="#explicit-implicit-table" class="toc-h3">Difference — Table</a>
+    <a href="#cost-function" class="toc-h2">Cost Function</a>
+    <a href="#opportunity-cost" class="toc-h2">Opportunity Cost</a>
+    <a href="#tfc-tvc" class="toc-h2">Total Fixed &amp; Variable Cost</a>
+    <a href="#tfc" class="toc-h3">Total Fixed Cost (TFC)</a>
+    <a href="#tvc" class="toc-h3">Total Variable Cost (TVC)</a>
+    <a href="#tvc-tfc-table" class="toc-h3">Difference — Table</a>
+    <a href="#total-cost" class="toc-h2">Total Cost (TC)</a>
+    <a href="#afc" class="toc-h2">Average Fixed Cost (AFC)</a>
+    <a href="#avc" class="toc-h2">Average Variable Cost (AVC)</a>
+    <a href="#ac" class="toc-h2">Average Cost (AC)</a>
+    <a href="#ac-avc-afc" class="toc-h2">AC, AVC &amp; AFC Relationship</a>
+    <a href="#mc" class="toc-h2">Marginal Cost (MC)</a>
+    <a href="#mc-ac" class="toc-h2">MC &amp; AC Relationship</a>
+    <a href="#mc-ac-avc" class="toc-h2">MC, AC &amp; AVC Relationship</a>
+    <a href="#tc-mc" class="toc-h2">TC &amp; MC, TVC &amp; MC Relationship</a>
+    <a href="#tc-mc-relation" class="toc-h3">TC &amp; MC</a>
+    <a href="#tvc-mc-relation" class="toc-h3">TVC &amp; MC</a>
+    <a href="#glance" class="toc-h2">All Cost Curves at a Glance</a>
+    <a href="#mcqs" class="toc-h2">MCQs</a>
+    <a href="#qa" class="toc-h2">Questions &amp; Answers</a>
+    <a href="#numericals" class="toc-h2">Numericals</a>
+    <a href="#graphs" class="toc-h2">Graphs to Practice</a>
+    <a href="#glossary" class="toc-h2">Key Terms Glossary</a>
+  </div>
+
+  <script>
+    const progressBar = document.getElementById('progressBar');
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    });
+
+    const tocLinks = document.querySelectorAll('.sidebar-toc a');
+    const sections = [];
+    tocLinks.forEach(function(link) {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const section = document.getElementById(href.substring(1));
+        if (section) sections.push({ el: section, link: link });
+      }
+    });
+    window.addEventListener('scroll', function() {
+      const scrollPos = window.scrollY + 120;
+      let current = null;
+      sections.forEach(function(item) {
+        if (item.el.offsetTop <= scrollPos) current = item;
+      });
+      sections.forEach(function(item) { item.link.classList.remove('active'); });
+      if (current) current.link.classList.add('active');
+    });
+
+    const toggleBtn = document.getElementById('tocToggle');
+    const drawer = document.getElementById('tocDrawer');
+    const overlay = document.getElementById('tocOverlay');
+    function openDrawer() { drawer.classList.add('open'); overlay.classList.add('open'); }
+    function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); }
+    toggleBtn.addEventListener('click', openDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeDrawer); });
+  </script>
+
+  <script src="../assets/study-os.js"></script>
+</body>
+</html>

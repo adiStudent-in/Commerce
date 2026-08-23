@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 7 – Sources of Business Finance | BST Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#1a5e4a;
+    --accent-light:#e8f0ec;
+    --bg:#faf8f5;
+    --surface:#ffffff;
+    --text:#1b1b1b;
+    --muted:#6b6b6b;
+    --border:#e8e4de;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Outfit',sans-serif;
+    font-size:16px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- Top Nav ---------- */
+  .topnav{
+    position:fixed;top:0;left:0;right:0;height:60px;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 28px;
+    background:rgba(250,248,245,0.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-logo{
+    font-family:'Playfair Display',serif;font-weight:600;font-size:20px;
+    color:var(--accent);text-decoration:none;letter-spacing:-0.01em;
+  }
+  .nav-meta{font-family:'Outfit',sans-serif;font-size:13px;color:var(--muted);letter-spacing:0.04em;}
+
+  /* ---------- Progress Bar ---------- */
+  #progress-bar{
+    position:fixed;top:59px;left:0;height:2px;width:0%;
+    background:var(--accent);z-index:101;transition:width 0.08s linear;
+  }
+
+  /* ---------- Layout ---------- */
+  .wrapper{
+    max-width:1200px;margin:0 auto;padding:104px 32px 40px;
+    display:flex;gap:48px;align-items:flex-start;
+  }
+  main{flex:1;max-width:820px;min-width:0;}
+
+  /* ---------- Sidebar TOC ---------- */
+  .sidebar{
+    width:260px;flex-shrink:0;position:sticky;top:80px;
+    max-height:calc(100vh - 100px);overflow-y:auto;
+  }
+  .sidebar::-webkit-scrollbar{width:4px;}
+  .sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+  .sidebar-title{
+    font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);
+    margin-bottom:14px;padding-left:12px;
+  }
+  .sidebar nav a{
+    display:block;text-decoration:none;color:var(--muted);
+    font-size:13.5px;line-height:1.5;padding:5px 12px;
+    border-left:2px solid transparent;transition:color 0.15s,border-color 0.15s;
+  }
+  .sidebar nav a:hover,.sidebar nav a.active{
+    color:var(--accent);border-left-color:var(--accent);
+  }
+  .sidebar nav a.sub{padding-left:24px;}
+
+  /* ---------- Hero ---------- */
+  .hero{margin-bottom:44px;}
+  .badge{
+    display:inline-block;background:var(--accent-light);color:var(--accent);
+    font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;
+    padding:5px 14px;border-radius:999px;margin-bottom:18px;
+  }
+  h1{
+    font-family:'Playfair Display',serif;font-weight:700;font-size:38px;
+    letter-spacing:-0.025em;line-height:1.15;margin-bottom:12px;
+  }
+  .subtitle{font-size:16px;color:var(--muted);}
+
+  /* ---------- Headings ---------- */
+  h2{
+    font-family:'Playfair Display',serif;font-weight:600;font-size:26px;
+    letter-spacing:-0.02em;margin:52px 0 20px;padding-bottom:10px;
+    border-bottom:1px solid var(--border);
+  }
+  h3{
+    font-family:'Playfair Display',serif;font-weight:600;font-size:20px;
+    margin:34px 0 14px;
+  }
+  h4{font-family:'Outfit',sans-serif;font-weight:600;font-size:15.5px;margin:24px 0 10px;}
+
+  p{margin-bottom:14px;}
+  ul,ol{margin:0 0 16px 22px;}
+  li{margin-bottom:7px;}
+  strong{font-weight:600;}
+  em{font-style:italic;}
+
+  hr{border:none;height:1px;background:var(--border);margin:40px 0;}
+
+  /* ---------- Tables ---------- */
+  .table-wrap{
+    overflow-x:auto;border:1px solid var(--border);border-radius:10px;
+    box-shadow:0 2px 8px rgba(27,27,27,0.04);margin:22px 0;background:var(--surface);
+  }
+  table{width:100%;border-collapse:collapse;min-width:520px;}
+  th{
+    background:var(--accent-light);color:var(--accent);
+    font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;
+    text-align:left;padding:12px 14px;white-space:nowrap;
+  }
+  td{
+    font-size:14px;padding:11px 14px;vertical-align:top;
+    border-top:1px solid var(--border);
+  }
+  tbody tr:hover{background:#f5f3ef;}
+  td:first-child{font-weight:600;white-space:nowrap;}
+
+  /* ---------- Blockquote ---------- */
+  blockquote{
+    background:var(--accent-light);border-left:3px solid var(--accent);
+    border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;
+    font-family:'Playfair Display',serif;font-style:italic;font-size:16px;
+    line-height:1.7;
+  }
+  blockquote p:last-child{margin-bottom:0;}
+
+  /* ---------- Callout ---------- */
+  .callout{
+    background:#fff8e5;border-left:3px solid #d4a12a;
+    border-radius:0 10px 10px 0;padding:14px 20px;margin:18px 0;
+    font-size:15px;
+  }
+  .callout p:last-child,.callout ul:last-child{margin-bottom:0;}
+  .callout ul{margin-left:20px;}
+
+  /* ---------- Pre / Code ---------- */
+  pre{
+    background:#1a1a2e;color:#e4e4f0;border-radius:10px;
+    padding:20px 22px;overflow-x:auto;margin:22px 0;
+    font-family:'JetBrains Mono','Fira Code',monospace;
+    font-size:13.5px;line-height:1.6;
+  }
+  code.inline{
+    background:var(--accent-light);color:var(--accent);
+    padding:2px 7px;border-radius:5px;
+    font-family:'JetBrains Mono',monospace;font-size:13.5px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--border);margin-top:70px;
+    padding:28px 32px 36px;text-align:center;
+    font-size:13px;color:var(--muted);letter-spacing:0.03em;
+  }
+
+  /* ---------- Animations ---------- */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+  .fade-in{animation:fadeUp 0.6s ease forwards;opacity:0;}
+
+  /* ---------- Mobile TOC toggle button ---------- */
+  .toc-toggle{
+    display:none;position:fixed;bottom:22px;right:22px;z-index:200;
+    width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;
+    background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(26,94,74,0.35);
+    align-items:center;justify-content:center;
+  }
+  .toc-toggle svg{width:22px;height:22px;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .wrapper{padding:96px 20px 40px;}
+    .sidebar{
+      position:fixed;left:0;right:0;bottom:-100%;top:auto;width:auto;
+      max-height:65vh;z-index:150;background:var(--surface);
+      border-top:1px solid var(--border);border-radius:18px 18px 0 0;
+      padding:24px 26px 30px;box-shadow:0 -8px 30px rgba(27,27,27,0.12);
+      transition:bottom 0.3s ease;
+    }
+    .sidebar.open{bottom:0;}
+    .toc-toggle{display:flex;}
+  }
+  @media (max-width:600px){
+    h1{font-size:28px;}
+    h2{font-size:22px;}
+    h3{font-size:18px;}
+    td,th{font-size:13px;padding:8px 10px;}
+    pre{font-size:12.5px;padding:16px;}
+    .nav-meta{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="nav-logo" href="#">BST Notes</a>
+  <span class="nav-meta">Class 11 · Chapter 7</span>
+</nav>
+<div id="progress-bar"></div>
+
+<div class="wrapper">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-title">On this page</div>
+    <nav id="toc">
+      <a href="#concept">Concept of Business Finance</a>
+      <a href="#nature">Nature of Business Finance</a>
+      <a href="#significance">Significance</a>
+      <a href="#sources">Sources of Finance</a>
+      <a href="#owners-fund">Owners' Fund</a>
+      <a href="#borrowed-fund">Borrowed Fund</a>
+      <a href="#owners-vs-borrowed">Owners' vs Borrowed Fund</a>
+      <a href="#issue-of-shares">Issue of Shares</a>
+      <a href="#equity-shares" class="sub">Equity Shares</a>
+      <a href="#preference-shares" class="sub">Preference Shares</a>
+      <a href="#equity-vs-preference" class="sub">Equity vs Preference</a>
+      <a href="#retained-earnings">Retained Earnings</a>
+      <a href="#borrowed-sources">Borrowed Fund Sources</a>
+      <a href="#trade-credit" class="sub">Trade Credit</a>
+      <a href="#public-deposits" class="sub">Public Deposits</a>
+      <a href="#debentures" class="sub">Debentures / Bonds</a>
+      <a href="#shares-vs-debentures" class="sub">Shares vs Debentures</a>
+      <a href="#commercial-banks" class="sub">Commercial Banks</a>
+      <a href="#pd-vs-bank" class="sub">Public Deposits vs Banks</a>
+      <a href="#financial-institutions" class="sub">Financial Institutions</a>
+      <a href="#icd" class="sub">Inter-Corporate Deposits</a>
+      <a href="#pointers">Quick Exam Pointers</a>
+    </nav>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main>
+
+    <!-- HERO -->
+    <header class="hero fade-in" style="animation-delay:0.05s;">
+      <span class="badge">Business Studies · Unit 1</span>
+      <h1>Sources of Business Finance</h1>
+      <p class="subtitle">Chapter 7 · Class 11 BST — complete revision notes</p>
+    </header>
+
+    <!-- CONCEPT -->
+    <section id="concept" class="fade-in" style="animation-delay:0.1s;">
+      <h2>📌 Concept of Business Finance</h2>
+      <p><strong>Business Finance</strong> = money required for carrying out business activities.</p>
+      <blockquote>
+        <p><strong>Definition:</strong> Business finance means <strong>planning, raising, managing and controlling</strong> all the money/capital funds used in connection with business.</p>
+        <p>Money needed for → raw materials, machines, salaries, rent, electricity bill, etc.</p>
+      </blockquote>
+    </section>
+
+    <!-- NATURE -->
+    <section id="nature" class="fade-in" style="animation-delay:0.15s;">
+      <h2>🧭 Nature of Business Finance</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Point</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td>Necessary for all businesses</td><td>Needed in every business — manufacturing or trading, large or small</td></tr>
+            <tr><td>Depends on nature &amp; size of business</td><td>Small firm → less funds; large firm → more funds</td></tr>
+            <tr><td>Includes all types of funds</td><td>Both <strong>Owners' Funds</strong> and <strong>Borrowed Funds</strong></td></tr>
+            <tr><td>Required on continuous basis</td><td>Needed throughout the life of the business</td></tr>
+            <tr><td>Wider term</td><td>Involves estimation, procurement, utilisation and investment of funds</td></tr>
+            <tr><td>Fluctuating nature</td><td>Need changes with inflation, demand, supply, fashion, technology, etc.</td></tr>
+            <tr><td>Determines size of business</td><td>More availability of funds → larger scale of operations</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SIGNIFICANCE -->
+    <section id="significance" class="fade-in" style="animation-delay:0.2s;">
+      <h2>⭐ Significance of Business Finance</h2>
+      <p>Every business needs money to start — called <strong>initial capital</strong> (depends on nature &amp; size).</p>
+      <p>Adequate finance lets the firm:</p>
+      <ul>
+        <li>Meet its <strong>liabilities on time</strong></li>
+        <li>Carry on business <strong>smoothly</strong></li>
+        <li>Adopt <strong>latest technology</strong> &amp; innovative production methods</li>
+        <li>Use its <strong>business opportunities</strong></li>
+        <li>Face <strong>competition</strong> strongly</li>
+        <li><strong>Replace assets/machinery</strong> whenever necessary</li>
+        <li>Face <strong>recession &amp; depression</strong> phases of trade cycle</li>
+      </ul>
+    </section>
+
+    <!-- SOURCES -->
+    <section id="sources" class="fade-in" style="animation-delay:0.25s;">
+      <h2>🔀 Sources of Finance (On the Basis of Ownership)</h2>
+<pre>              SOURCES OF FINANCE
+                    |
+        ┌───────────┴───────────┐
+   OWNERS' FUND            BORROWED FUND
+        |                       |
+  • Equity Shares         • Debentures
+  • Preference Shares     • Loans from Commercial Banks
+  • Retained Earnings     • Loans from Financial Institutions
+                          • Public Deposits
+                          • Trade Credit
+                          • Inter-Corporate Deposits (ICD)</pre>
+    </section>
+
+    <!-- OWNERS FUND -->
+    <section id="owners-fund" class="fade-in" style="animation-delay:0.3s;">
+      <h2>👑 Owners' Fund</h2>
+      <p>Funds provided by the <strong>owners</strong> of the enterprise. Remains with the company — <strong>no liability to return it</strong>. E.g., capital of sole trader or shareholders.</p>
+
+      <h3>Features</h3>
+      <ol>
+        <li><strong>Source of Permanent Capital</strong> — stays invested permanently, not refundable like a loan; available for all purposes throughout the life of the business.</li>
+        <li><strong>Risk Capital</strong> — return depends on company's earnings. Loss → no compulsion to pay any return; continued loss → owners may not even recover original investment. Prosperity → high return. Hence called <em>risky capital</em>.</li>
+        <li><strong>No Security Required</strong> — no asset pledged against ownership capital.</li>
+      </ol>
+
+      <h3>Sources of Owners' Fund</h3>
+      <ul>
+        <li><strong>Share Capital</strong> (Equity + Preference)</li>
+        <li><strong>Retained Earnings</strong> (accumulated profit)</li>
+      </ul>
+      <hr>
+    </section>
+
+    <!-- BORROWED FUND -->
+    <section id="borrowed-fund" class="fade-in" style="animation-delay:0.35s;">
+      <h2>💳 Borrowed Fund</h2>
+      <p>All funds available by way of <strong>loans or credit</strong>.</p>
+
+      <h3>Features</h3>
+      <ol>
+        <li>
+          <strong>Fixed Time</strong> — raised for specified periods:
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Type</th><th>Period</th></tr></thead>
+              <tbody>
+                <tr><td>Short-term</td><td>Upto 1 year</td></tr>
+                <tr><td>Medium-term</td><td>1 – 5 years</td></tr>
+                <tr><td>Long-term</td><td>5 years or more</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </li>
+        <li><strong>Security</strong> — usually obtained against the security of assets.</li>
+        <li><strong>Regular Payment of Interest</strong> — legal compulsion; interest + principal payable irrespective of earnings.</li>
+        <li><strong>Control</strong> — lenders get <strong>no right to control/manage</strong>; they can only sue the firm on default of payment.</li>
+        <li><strong>Sources</strong> — debentures, loans from commercial banks, loans from financial institutions, public deposits, inter-corporate deposits, trade credit, etc.</li>
+      </ol>
+    </section>
+
+    <!-- DIFF TABLE -->
+    <section id="owners-vs-borrowed" class="fade-in" style="animation-delay:0.4s;">
+      <h2>⚖️ Owners' Fund vs Borrowed Fund</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Basis</th><th>Owners' Fund</th><th>Borrowed Fund</th></tr></thead>
+          <tbody>
+            <tr><td>Meaning</td><td>Funds contributed by owners + retained earnings</td><td>Borrowings — loans or credit</td></tr>
+            <tr><td>Time Period</td><td>Permanent capital</td><td>Fixed period of time</td></tr>
+            <tr><td>Security</td><td>Not required</td><td>Generally secured by assets</td></tr>
+            <tr><td>Control</td><td>Contributors control the company</td><td>Lenders get no control</td></tr>
+            <tr><td>Sources</td><td>Share capital, retained earnings, GDR, ADR, IDR</td><td>Debentures, loans, trade credit, public deposits, etc.</td></tr>
+            <tr><td>Right to Return</td><td>No right to regular return</td><td>Legal right to regular return</td></tr>
+            <tr><td>Risk Bearer</td><td>Holders are <strong>primary risk bearers</strong></td><td>Bear no risk</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+    </section>
+
+    <!-- ISSUE OF SHARES -->
+    <section id="issue-of-shares" class="fade-in" style="animation-delay:0.45s;">
+      <h2>📈 Issue of Shares</h2>
+      <p><em>(Owners' Fund — Long-Term Source)</em></p>
+      <blockquote><p><strong>Share</strong> = smallest unit into which owner's capital of a company is divided; a measure of a shareholder's interest in the company.</p></blockquote>
+      <p>Per <strong>Companies Act</strong>, a public company can issue two types of shares:</p>
+      <ol>
+        <li>Equity Shares</li>
+        <li>Preference Shares</li>
+      </ol>
+    </section>
+
+    <!-- EQUITY SHARES -->
+    <section id="equity-shares" class="fade-in" style="animation-delay:0.5s;">
+      <h3>🅰️ Equity Shares</h3>
+      <p>Most important source of raising <strong>long-term capital</strong>. These shares carry <strong>no special/preferential rights</strong> in payment of annual dividend or repayment of capital. On winding up, equity capital is returned only <strong>after every claim is settled</strong>.</p>
+
+      <h4>Features</h4>
+      <ol>
+        <li><strong>Primary Risk Bearers</strong> — enjoy rewards as well as bear the risk of ownership.</li>
+        <li><strong>Claim over Residual Income</strong> — dividend paid only after claims of all creditors, outsiders and preference shareholders are satisfied.</li>
+        <li><strong>Maturity (Permanent Capital)</strong> — cannot be redeemed during the lifetime of the company.</li>
+        <li><strong>Return</strong> — called <strong>dividend</strong>; varies with the earnings of the company.</li>
+        <li><strong>Limited Liability</strong> — limited to the capital contributed by them.</li>
+        <li><strong>Voting Rights</strong> — vote in proportion to shares held (equity shareholders = real owners).</li>
+      </ol>
+    </section>
+
+    <!-- PREFERENCE SHARES -->
+    <section id="preference-shares" class="fade-in" style="animation-delay:0.55s;">
+      <h3>🅱️ Preference Shares</h3>
+      <p>Get preference over equity shares in respect of:</p>
+      <ol>
+        <li>Right to receive a <strong>fixed rate of dividend</strong></li>
+        <li>Right to receive <strong>repayment of capital</strong> before equity shareholders</li>
+      </ol>
+
+      <h4>Features</h4>
+      <ol>
+        <li><strong>Fixed Rate of Dividend</strong> — paid before any dividend to equity shareholders.</li>
+        <li><strong>No Security</strong> — no asset offered against preference shares; part of owner's fund capital.</li>
+        <li><strong>No Voting Rights</strong> under general conditions.</li>
+        <li>
+          <strong>Hybrid Security</strong> — combines features of both:
+          <ul>
+            <li>Like <strong>equity</strong>: dividend paid only when company earns profit</li>
+            <li>Like <strong>debentures</strong>: fixed rate of return (dividend)</li>
+          </ul>
+        </li>
+        <li><strong>No Fixed Liability</strong> — during loss there is no fixed liability to pay dividend (unlike loans).</li>
+      </ol>
+    </section>
+
+    <!-- EQUITY VS PREFERENCE -->
+    <section id="equity-vs-preference" class="fade-in" style="animation-delay:0.6s;">
+      <h2>⚖️ Equity Shares vs Preference Shares</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Basis</th><th>Equity Shares</th><th>Preference Shares</th></tr></thead>
+          <tbody>
+            <tr><td>Face Value</td><td>Generally low</td><td>Generally high</td></tr>
+            <tr><td>Dividend</td><td>Paid after paying dividend to all other shares</td><td>Fixed rate, paid <strong>before</strong> equity shareholders</td></tr>
+            <tr><td>Voting Rights</td><td>Get all voting rights</td><td>None normally; get voting right when dividend unpaid for <strong>two years</strong></td></tr>
+            <tr><td>Attraction</td><td>Bold &amp; adventurous investors</td><td>Cautious &amp; conservative investors</td></tr>
+            <tr><td>Risk</td><td>Primary risk bearers</td><td>Relatively less risk</td></tr>
+            <tr><td>Refund of Capital</td><td>At winding up, refunded only after preference shares are paid</td><td>Priority over equity at winding up</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+    </section>
+
+    <!-- RETAINED EARNINGS -->
+    <section id="retained-earnings" class="fade-in" style="animation-delay:0.65s;">
+      <h2>💰 Retained Earnings</h2>
+      <p><em>(Owners' Fund — Long-Term Finance)</em></p>
+      <blockquote><p>Undistributed profits left <strong>after payment of dividend and taxes</strong>, kept as reserve for future use.</p></blockquote>
+      <ul>
+        <li>Provides basis of <strong>expansion and growth</strong> of companies</li>
+        <li>Internally generated → known as <strong>self-financing</strong> (ploughing back of profits)</li>
+      </ul>
+
+      <h3>Features</h3>
+      <ol>
+        <li><strong>Cushion of Security</strong> — supports the company in adversity when outside finance is hard to arrange.</li>
+        <li><strong>Funds for New &amp; Innovative Projects</strong> — used for research work, expansion projects, risky ventures.</li>
+        <li><strong>No Dilution of Control</strong> — number of shareholders does not increase.</li>
+        <li><strong>Medium &amp; Long-term Finance</strong> — an ownership fund.</li>
+        <li><strong>Most Dependable Source</strong> — internal source; external sources depend on investors' preference and market conditions.</li>
+        <li><strong>Stability of Dividend</strong> — adequate surplus allows stable dividend even in years of insufficient profit.</li>
+      </ol>
+      <hr>
+    </section>
+
+    <!-- BORROWED SOURCES -->
+    <section id="borrowed-sources" class="fade-in" style="animation-delay:0.7s;">
+      <h2>🏦 Borrowed Funds — Sources</h2>
+
+      <h3 id="trade-credit">1️⃣ Trade Credit <em>(Short-Term Finance)</em></h3>
+      <p>Arrangement whereby a manufacturer is granted credit by the <strong>supplier</strong> of raw materials, inputs, spare parts, etc.</p>
+      <ul>
+        <li>General duration: <strong>3 to 6 months</strong></li>
+        <li>Availability depends on: <strong>nature, size, status/creditworthiness of the firm</strong></li>
+      </ul>
+
+      <h4>Features</h4>
+      <ol>
+        <li><strong>Readily Available</strong> — without special efforts.</li>
+        <li><strong>Flexible</strong> — no rigid rules/regulations.</li>
+        <li><strong>No Floatation Cost</strong>.</li>
+        <li><strong>No Interest Commitment</strong> — no interest payable.</li>
+        <li><strong>Legal Action</strong> — buyer issues a <strong>promissory note</strong>; supplier can sue if commitment fails.</li>
+        <li><strong>Promotes Sales</strong> of the organisation.</li>
+      </ol>
+      <hr>
+
+      <h3 id="public-deposits">2️⃣ Public Deposits <em>(Medium-Term Finance)</em></h3>
+      <p><strong>Unsecured deposits invited from the public</strong> — company places an advertisement in newspapers; anyone can deposit money with it.</p>
+
+      <h4>Features</h4>
+      <ol>
+        <li><strong>Unsecured</strong> — no assets mortgaged.</li>
+        <li><strong>No Loss of Control</strong> — depositors have no voting rights.</li>
+        <li><strong>Time Period</strong> — <strong>six months to 3 years</strong> (renewable → works as medium-term finance).</li>
+        <li><strong>Simple Procedure to Raise</strong> — just a newspaper ad; no restrictive conditions/legal formalities of loan agreements.</li>
+        <li><strong>Economical</strong> — cost lower than borrowings from banks &amp; financial institutions (interest paid &gt; bank deposit rates → attracts public).</li>
+        <li><strong>Limited Amount</strong> — cannot exceed <strong>25% of share capital and free reserves</strong>.</li>
+      </ol>
+      <hr>
+
+      <h3 id="debentures">3️⃣ Debentures / Bonds <em>(Long-Term Finance)</em></h3>
+      <blockquote><p>A <strong>document/certificate issued by a company under its seal</strong> as an acknowledgement of its debt. Instrument for raising <strong>long-term debt capital</strong>. Called <strong>creditorship securities</strong> — debenture holders are creditors of the company.</p></blockquote>
+
+      <h4>Features</h4>
+      <ol>
+        <li><strong>Borrowed Fund</strong> — holders are creditors.</li>
+        <li><strong>Fixed Rate of Interest</strong> — rate decided in the <strong>Annual General Meeting</strong>.</li>
+        <li><strong>Compulsory Payment of Interest</strong> — legal obligation, paid irrespective of profits.</li>
+        <li><strong>Appointment of Trustee</strong> — when debentures sold to general public, a trustee ensures the borrowing firm fulfils contractual obligations.</li>
+        <li><strong>Security</strong> — mostly issued against charge on some <strong>fixed assets</strong> of the company.</li>
+        <li><strong>Redeemable</strong> — always repaid on expiry of fixed period.</li>
+        <li><strong>No Voting Rights</strong> — no say in management.</li>
+      </ol>
+    </section>
+
+    <!-- SHARES VS DEBENTURES -->
+    <section id="shares-vs-debentures" class="fade-in" style="animation-delay:0.75s;">
+      <h2>⚖️ Shares vs Debentures</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Basis</th><th>Shares</th><th>Debentures</th></tr></thead>
+          <tbody>
+            <tr><td>Nature</td><td>Part of owner's fund</td><td>Part of borrowed fund</td></tr>
+            <tr><td>Status</td><td>Shareholders = <strong>owners</strong></td><td>Debenture holders = <strong>creditors</strong></td></tr>
+            <tr><td>Voting Rights</td><td>Yes</td><td>Never granted</td></tr>
+            <tr><td>Control</td><td>Lies with equity shareholders</td><td>No control over company affairs</td></tr>
+            <tr><td>Right to Return</td><td>No right to regular return in case of loss</td><td>Legal right to regular interest even in loss</td></tr>
+            <tr><td>Security</td><td>No assets mortgaged</td><td>Assets mortgaged as security</td></tr>
+            <tr><td>Redemption</td><td>Only redeemable preference shares are redeemable; others paid back at winding up after settling all claims</td><td>Generally redeemed on expiry of fixed period</td></tr>
+            <tr><td>Risk</td><td>Primary risk bearers</td><td>Minimum risk</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+    </section>
+
+    <!-- COMMERCIAL BANKS -->
+    <section id="commercial-banks" class="fade-in" style="animation-delay:0.8s;">
+      <h3 id="commercial-banks-h">4️⃣ Loan from Commercial Banks <em>(Short &amp; Medium-Term Finance)</em></h3>
+      <p>Institution that performs functions of <strong>accepting deposits, granting loans and making investments</strong> with the aim of earning profits. (E.g., SBI, PNB, Canara Bank.)</p>
+
+      <h4>Features</h4>
+      <ul>
+        <li>Provide funds <strong>as and when required</strong></li>
+        <li>Keep borrower information <strong>confidential</strong> → business secrecy maintained</li>
+        <li><strong>Easy &amp; economical</strong> — no prospectus/formalities like share issue</li>
+        <li><strong>Flexible</strong> — loan amount can be increased or decreased</li>
+        <li>Funds generally available for a <strong>short period</strong></li>
+        <li>Make <strong>detailed investigation</strong> of company's affairs &amp; financial structure before lending</li>
+        <li>May put <strong>restrictions and difficult terms &amp; conditions</strong></li>
+      </ul>
+    </section>
+
+    <!-- PD VS BANK -->
+    <section id="pd-vs-bank" class="fade-in" style="animation-delay:0.85s;">
+      <h2>⚖️ Public Deposits vs Loan from Commercial Banks</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Basis</th><th>Public Deposits</th><th>Loan from Commercial Banks</th></tr></thead>
+          <tbody>
+            <tr><td>Security</td><td>Not required</td><td>Generally required</td></tr>
+            <tr><td>Governed by</td><td>Companies Act provisions</td><td>Rules &amp; regulations of <strong>RBI</strong></td></tr>
+            <tr><td>Rate of Interest</td><td>Comparatively low</td><td>Comparatively higher</td></tr>
+            <tr><td>Period</td><td>Up to 3 years</td><td>Short and medium term</td></tr>
+            <tr><td>Suitability</td><td>Companies with good reputation &amp; financial standing</td><td>Suitable for all enterprises</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+    </section>
+
+    <!-- FINANCIAL INSTITUTIONS -->
+    <section id="financial-institutions" class="fade-in" style="animation-delay:0.9s;">
+      <h3>5️⃣ Loan from Financial Institutions <em>(Long-Term Finance)</em></h3>
+      <p>Public financial institutions = <strong>lending institutions / development banks</strong>. After Independence, Government of India realised commercial banks alone are <strong>not sufficient</strong> for economic development of the country.</p>
+
+      <h4>Features</h4>
+      <ol>
+        <li><strong>Medium &amp; Long-term Finance</strong>.</li>
+        <li><strong>Managerial Advice</strong> — provide managerial + financial advice on various matters.</li>
+        <li><strong>Source of Goodwill</strong> — borrowing from them raises the company's goodwill → easier to raise funds from other sources too.</li>
+        <li><strong>Finance even during Depression</strong> — funds available even in recession/depression.</li>
+        <li><strong>Loan in Foreign Currency</strong> — for importing machinery; also give guarantee for purchase of capital goods from foreign countries.</li>
+      </ol>
+      <hr>
+    </section>
+
+    <!-- ICD -->
+    <section id="icd" class="fade-in" style="animation-delay:0.95s;">
+      <h3>6️⃣ Inter-Corporate Deposits (ICD) <em>(Short-Term Finance)</em></h3>
+      <p><strong>Deposits made by one company with another company.</strong> Available to all public companies (with or without share capital). Includes:</p>
+      <ul>
+        <li>When a company acquires securities of another company</li>
+        <li>When a company gives a loan to another company</li>
+        <li>When a company gives guarantee to a person/institution providing loan to another company</li>
+      </ul>
+
+      <h4>Types of ICD</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Type</th><th>Detail</th><th>Interest Rate (p.a.)</th></tr></thead>
+          <tbody>
+            <tr><td>Three Months' Deposits</td><td>Most common — overcome short-term finance problem</td><td>12%</td></tr>
+            <tr><td>Six Months' Deposits</td><td>Made with first-class borrowers</td><td>15%</td></tr>
+            <tr><td>Call Deposits</td><td>Withdrawable by lender with <strong>one day notice</strong></td><td>10%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Features</h4>
+      <ol>
+        <li><strong>Secrecy</strong> — brokers never reveal their list of lenders/borrowers.</li>
+        <li>Solve <strong>short-term fund problems immediately</strong>.</li>
+        <li><strong>Free from bureaucratic and legal problems</strong>.</li>
+        <li><strong>Not suitable for long-term finance</strong>.</li>
+        <li><strong>High Risk</strong> — unsecured deposits.</li>
+        <li><strong>Higher rate of interest than banks</strong>.</li>
+      </ol>
+      <hr>
+    </section>
+
+    <!-- POINTERS -->
+    <section id="pointers" class="fade-in" style="animation-delay:1s;">
+      <h2>🎯 Quick Exam Pointers</h2>
+      <div class="callout"><p><strong>Hybrid security</strong> = Preference shares (features of equity + debentures).</p></div>
+      <div class="callout"><p>Company <strong>not bound</strong> to pay dividend/interest → <strong>Equity shares</strong>.</p></div>
+      <div class="callout"><p>Dividend to equity shareholders is <strong>NOT mandatory</strong> (payment is discretionary).</p></div>
+      <div class="callout"><p><strong>Debentures represent loan capital</strong> of the company.</p></div>
+      <div class="callout"><p>Fixed capital needs → buy premises, furniture, equipment; Working capital needs → day-to-day expenses (wages, salaries, electricity).</p></div>
+      <div class="callout"><p>Real owners of a company = <strong>Equity shareholders</strong>.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  Based on Class 11 BST · Chapter 7 lecture notes — Sources of Business Finance
+</footer>
+
+<button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <line x1="4" y1="6" x2="20" y2="6"/>
+    <line x1="4" y1="12" x2="20" y2="12"/>
+    <line x1="4" y1="18" x2="20" y2="18"/>
+  </svg>
+</button>
+
+<script>
+  // Scroll progress bar
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    bar.style.width = pct + '%';
+  }, {passive:true});
+
+  // Active TOC link on scroll
+  const links = Array.from(document.querySelectorAll('#toc a'));
+  const targets = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  function updateActive(){
+    let current = null;
+    for(const t of targets){
+      if(t.offsetTop - 120 <= window.scrollY) current = t;
+    }
+    links.forEach(l => l.classList.toggle('active', current && l.getAttribute('href') === '#' + current.id));
+  }
+  window.addEventListener('scroll', updateActive, {passive:true});
+  updateActive();
+
+  // Mobile TOC drawer
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.getElementById('tocToggle');
+  toggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', sidebar.classList.contains('open'));
+  });
+  links.forEach(l => l.addEventListener('click', () => sidebar.classList.remove('open')));
+  document.addEventListener('click', e => {
+    if(window.innerWidth <= 900 && sidebar.classList.contains('open')
+       && !sidebar.contains(e.target) && !toggle.contains(e.target)){
+      sidebar.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 3 — Mechanism for Customers to Choose Right Products | Retail Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navigation ─── */
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+
+    nav.top-nav .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── Layout ─── */
+    .wrapper {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      gap: 40px;
+    }
+
+    /* ─── Sidebar (TOC) ─── */
+    aside.toc {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    aside.toc h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    aside.toc a {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    aside.toc a:hover,
+    aside.toc a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    /* ─── Main Content ─── */
+    main.content {
+      flex: 1;
+      max-width: var(--max-width);
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .hero .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ─── Section Styling ─── */
+    section { margin-bottom: 48px; }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.35;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    section h4 {
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    section p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    /* ─── Blockquote ─── */
+    blockquote {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    blockquote strong { font-weight: 600; }
+
+    /* ─── Callout box ─── */
+    .callout {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: #5a4a1a;
+    }
+
+    /* ─── Tables ─── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    table thead {
+      background: var(--accent-light);
+    }
+
+    table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    table tbody tr:first-child td { border-top: none; }
+
+    table tbody tr:hover { background: #f5f3ef; }
+
+    table td:first-child { font-weight: 500; white-space: nowrap; }
+
+    /* ─── Code / Tree ─── */
+    pre {
+      background: #1a1a2e;
+      color: #e4e4f0;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    /* ─── Lists ─── */
+    section ul, section ol {
+      margin: 12px 0 16px;
+      padding-left: 24px;
+    }
+
+    section li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    section ul ul { margin: 4px 0 4px 16px; }
+
+    /* ─── Horizontal Rule ─── */
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* ─── Key Terms ─── */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .terms-grid .term {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
+
+    .terms-grid .term strong {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .terms-grid .term span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── Progress ─── */
+    .progress-bar {
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      height: 2px;
+      z-index: 99;
+      background: transparent;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    /* ─── Mobile Toggle ─── */
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ─── Highlights ─── */
+    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
+    section p strong { color: var(--accent); font-weight: 600; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        top: auto;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150;
+        transition: max-height 0.35s ease;
+        padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      aside.toc h3 { margin-bottom: 12px; }
+      .toc-toggle { display: block; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .terms-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Animations ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">← Retail <span>Notes</span></a>
+    <span class="meta">Class 11 · Chapter 4</span>
+  </nav>
+
+  <!-- Progress -->
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+  <!-- Mobile TOC Toggle -->
+  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">☰ Contents</button>
+
+  <!-- Layout -->
+  <div class="wrapper">
+
+    <!-- Sidebar TOC -->
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#big-picture" class="toc-h2">Big Picture</a>
+      <a href="#s1" class="toc-h2">1. Methods of Selling</a>
+      <a href="#s1-1" class="toc-h3">1.1 Selling Methods</a>
+      <a href="#s1-2" class="toc-h3">1.2 Arranging Products in Store</a>
+      <a href="#s1-3" class="toc-h3">1.3 Identifying Products for Sale</a>
+      <a href="#s2" class="toc-h2">2. Sales Promotional Activities</a>
+      <a href="#s2-1" class="toc-h3">2.1 Meaning, Types &amp; Objectives</a>
+      <a href="#s2-2" class="toc-h3">2.2 Promotion Techniques</a>
+      <a href="#s2-3" class="toc-h3">2.3 Influencing Customers &amp; Product Knowledge</a>
+      <a href="#s3" class="toc-h2">3. Responding to Questions and Comments</a>
+      <a href="#s3-1" class="toc-h3">3.1 Handling Questions &amp; Situations</a>
+      <a href="#s3-2" class="toc-h3">3.2 Defective Products &amp; Closing With Customer</a>
+      <a href="#s3-3" class="toc-h3">3.3 Dealing with Angry Customers</a>
+      <a href="#s4" class="toc-h2">4. Techniques of Closing a Sale</a>
+      <a href="#s4-1" class="toc-h3">4.1 Factors for Successful Closing</a>
+      <a href="#s4-2" class="toc-h3">4.2 Closing Techniques</a>
+      <a href="#key-terms" class="toc-h2">Key Terms</a>
+      <a href="#quick-recap" class="toc-h2">Quick Recap</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- Hero -->
+      <header class="hero fade-in">
+        <span class="chapter-badge">Chapter 4 · Retail</span>
+        <h1>Mechanism for Customers to Choose Right Products</h1>
+        <p class="subtitle">Class 11 Retail (Sales Associate) — Unit 3 · Quick Revision Notes</p>
+      </header>
+
+      <!-- Big Picture -->
+      <section id="big-picture" class="fade-in">
+        <h2>&#x1f4cc; Big Picture</h2>
+        <blockquote>
+          Products are put on display only after <strong>analysing customer demand</strong>. The more <strong>customers know about a product</strong>, the better they can make a <strong>purchase decision</strong>. The product with <strong>maximum demand</strong> must be available <strong>instantly</strong>.
+        </blockquote>
+        <p>A <strong>smart sales associate</strong> performs demonstrative procedures in a <strong>logical manner</strong> — giving customers maximum value (“maximum through minimum investments”) while getting the <strong>maximum sale turnover</strong> for the business.</p>
+        <div class="callout">
+          <strong>&#x1f4a1; Structure — 4 sessions:</strong> 1. Methods of Selling · 2. Sales Promotional Activities · 3. Responding to Questions and Comments · 4. Techniques of Closing a Sale
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Session 1 -->
+      <section id="s1" class="fade-in">
+        <h2>1. &#x1f6d2; Methods of Selling</h2>
+
+        <blockquote>
+          <strong>Sale</strong> = the <strong>act of selling a product in return for money</strong> — the beginning of a relation between customer and vendor (or an extension of that relationship).
+        </blockquote>
+
+        <h3 id="s1-1">1.1 Retail Selling Methods</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Method</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td>Direct sales</td><td>Direct <strong>personal demonstration and sale</strong> to the consumer. Two business models: <strong>single-level marketing</strong> and <strong>multilevel marketing</strong>.</td></tr>
+              <tr><td>Proforma sales</td><td>“Proforma” = a document done as a <strong>courtesy or formality</strong>; the proforma sale is a <strong>sales quote prepared in the form of a proforma invoice</strong>.</td></tr>
+              <tr><td>Agency-based</td><td>A <strong>contractual arrangement</strong> in which the <strong>agent</strong> has the right to negotiate on the sale of the <strong>principal's</strong> goods/services, and gets a <strong>commission or fee</strong> in exchange.</td></tr>
+              <tr><td>Travelling salesman</td><td>A <strong>representative of a firm</strong> who visits shops and businesses to show samples and gain orders — also called a <strong>commercial traveller, door-to-door salesman or hawker</strong>.</td></tr>
+              <tr><td>Auction sale</td><td>A <strong>public sale</strong> — goods are sold to the <strong>highest bidder</strong> (one who quoted the highest price).</td></tr>
+              <tr><td>B2B sale</td><td><strong>Business-to-business</strong> — sales made to another businessman rather than an individual customer (industrial/professional sale).</td></tr>
+              <tr><td>Electronic-based sales</td><td>A <strong>web-based sale</strong> — includes both B2B and B2C sales; uses <strong>EDI (Electronic Data Interchange)</strong>.</td></tr>
+              <tr><td>Indirect sales</td><td>Sale of a good or service by a <strong>third party</strong> (partner or affiliate) rather than the company's own personnel.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Types of agents in agency-based sales:</strong> Sales agents · Sales outsourcing through direct branded representation · Transaction sales · Consultative sales · Consignment sales · Telemarketing or telesales · Retail sales.</p>
+
+        <h3 id="s1-2">1.2 Arranging Products in the Store</h3>
+        <p>Products from different manufacturers are arranged <strong>systematically in shelves</strong> based on the space provided. Display is <strong>prioritised on the basis of the manufacturer's competitiveness</strong> — some manufacturers buy the <strong>display window section and floor space</strong> to promote their product.</p>
+        <p><strong>Need:</strong> products divided <strong>section-wise</strong> give a clear view of all products, make it easy for customers to pick products, and <strong>improve the profit</strong> of the store.</p>
+
+        <h4>Why rearrangement is done</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Reason</th><th>Explanation</th></tr></thead>
+            <tbody>
+              <tr><td>Repeat customers</td><td>Gives the store a <strong>fresh look</strong> — displays more products, so customers visit again and <strong>sales volume increases</strong>.</td></tr>
+              <tr><td>Sales promotions</td><td>Rearranging stock for sales promotion <strong>increases customers</strong>.</td></tr>
+              <tr><td>Brand image</td><td>Routine (monthly) rearrangement and changing colour schemes maintain a <strong>new, fresh style</strong>.</td></tr>
+              <tr><td>Seasonal</td><td>Products are rearranged to <strong>display seasonal products</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Procedure for arranging products — floor plans</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Floor plan</th><th>Features</th></tr></thead>
+            <tbody>
+              <tr><td>Straight floor plan</td><td>Products arranged in a <strong>straight line</strong>; <strong>most commonly used</strong> in Indian retail; <strong>economical</strong>.</td></tr>
+              <tr><td>Diagonal floor plan</td><td><strong>More visibility</strong> for staff and customers; requires a <strong>small space</strong>.</td></tr>
+              <tr><td>Angular floor plan</td><td>Gives a <strong>spacious look</strong>; used by <strong>high-value/high-end retailers</strong>; reduces display area and focuses on a few popular products.</td></tr>
+              <tr><td>Geometric floor plan</td><td>Uses <strong>racks and other fixtures</strong>; used for <strong>trendy products</strong> like cosmetics and watches.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="s1-3">1.3 Identifying the Products Responsible for Sale (CSA Steps)</h3>
+        <ol>
+          <li>The CSA must have <strong>full information</strong> about the retail store and the products being sold.</li>
+          <li>Must <strong>follow the instructions</strong> of the store manager/supervisor regarding stock received from different manufacturers.</li>
+          <li>The manager <strong>allocates product sections</strong> to the CSA (vegetable, housekeeping material, stationery, clothes sections, etc.).</li>
+          <li>The CSA is <strong>responsible for the allotted section</strong> and must hold a <strong>full record of stock</strong> from receipt till the product is sold.</li>
+          <li>The CSA must have <strong>complete knowledge</strong> of the product and the <strong>skills to sell it</strong>.</li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <!-- Session 2 -->
+      <section id="s2" class="fade-in">
+        <h2>2. &#x1f3c1; Sales Promotional Activities</h2>
+
+        <h3 id="s2-1">2.1 Meaning, Types &amp; Objectives</h3>
+        <blockquote>
+          <strong>Sales promotion</strong> = the <strong>fastest growing area</strong> of marketing activities — all activities which <strong>supplement, coordinate and make an effective effort of personal selling and advertising</strong>.
+        </blockquote>
+        <ul>
+          <li>It is a major component of <strong>promotion</strong> — communicating with an audience through a variety of <strong>non-personal and non-media channels</strong>.</li>
+          <li>The firm provides <strong>special offers</strong> (discounts, etc.); offers are a direct proposition that forms part of the deal.</li>
+          <li>It increases sales and <strong>stimulates consumers to buy more</strong>.</li>
+        </ul>
+
+        <h4>Types of sales promotion activities</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Target</th></tr></thead>
+            <tbody>
+              <tr><td>Consumer promotion</td><td>Final buyers</td></tr>
+              <tr><td>Business promotion</td><td>Business customers</td></tr>
+              <tr><td>Trade promotion</td><td>Wholesalers and retailers</td></tr>
+              <tr><td>Sales force promotion</td><td>Sales force members</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Objectives of sales promotion (a short-term tactic to boost sales)</h4>
+        <ol>
+          <li><strong>Stimulate inquiries</strong> from consumers asking for detailed information about a product.</li>
+          <li><strong>Increase product trials</strong> — expecting the trial leads to customer satisfaction.</li>
+          <li><strong>Encourage repurchase</strong> of goods and <strong>develop loyalty</strong> in the customer's mind.</li>
+          <li><strong>Initiate inventory building</strong> by retailers to give consumers a ready supply.</li>
+          <li><strong>Get dealers' promotional assistance</strong> by coordinating with personal selling.</li>
+        </ol>
+
+        <h3 id="s2-2">2.2 Sales Promotion Techniques</h3>
+        <h4>(a) Vendor or producer originated</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Technique</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td>In-store activities</td><td>Targeted to give <strong>cash or kind advantage</strong> to customers — price-off pack, premiums, small gifts, cooperative promotion, sampling, coupons, <strong>buy-one-get-one-free</strong>, multipacks, etc.</td></tr>
+              <tr><td>Point-of-sale display</td><td>Vendor materials placed <strong>near products customers often buy</strong> — special fixtures (paperback publishers' racks, dry battery stand, cold drink racks), display signs, leaflets, demonstrations.</td></tr>
+              <tr><td>Trade incentives</td><td><strong>Tradeoffs or cash incentives directly provided by vendors to retailers</strong> — cash discounts, special credit terms, goods in lieu of cash, staff incentives (benefit may not reach customers).</td></tr>
+              <tr><td>Direct promotion to customers</td><td>Vendor promotes <strong>at the consumer's doorsteps</strong> — distribution of <strong>coupons and free samples</strong>.</td></tr>
+              <tr><td>Pack design</td><td>One of the most important techniques — retailers support packs with a <strong>better package design</strong>, sometimes accepting the design over its contents.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>(b) Retailer originated</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Technique</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td>Window display</td><td>Displaying items in the <strong>shop window</strong> to attract customers to the store.</td></tr>
+              <tr><td>In-store display</td><td><strong>Mass display, multiple product promotion, demonstrations, store loyalty cards, free gifts, point-of-sale display, celebrity promotion, joint promotion with other retailers, incentives to staff</strong>, etc.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="s2-3">2.3 Influencing Customers &amp; Product Knowledge</h3>
+        <h4>Ways to influence customer buying</h4>
+        <ol>
+          <li><strong>Identify the prospective customer</strong> and start a dialogue in a <strong>friendly and humorous</strong> manner.</li>
+          <li><strong>Collect as much relevant information</strong> as possible about the product's sale presentation.</li>
+          <li><strong>Enlighten the product's features and advantages</strong> in comparison with the competitor's product.</li>
+          <li><strong>Present or demonstrate the product</strong> with patience, in an interesting manner.</li>
+          <li><strong>Attend to objections immediately</strong> and clarify the issues.</li>
+          <li><strong>Enlighten on the product's warranty period</strong> and assure other sales services if needed.</li>
+          <li><strong>Maintain continuous relations</strong> with customers to get feedback on product satisfaction.</li>
+          <li><strong>Improve selling skills</strong> — patience, good communication, reliability, politeness, caring for customers.</li>
+          <li><strong>Do not lose temper</strong> when dealing with aggressive behaviour of a potential consumer.</li>
+          <li><strong>Use sales promotion techniques</strong> if required, to convince customers to buy.</li>
+        </ol>
+
+        <h4>Knowledge of the nature of product</h4>
+        <p>The sales associate needs <strong>detailed knowledge of the product</strong> to attend to grievances, complaints or clarifications sought by the customer. <strong>Explicit characteristics</strong> = those over which there is a <strong>common agreement</strong> (existence and attributes); <strong>implicit characteristics</strong> = <strong>points of disagreement</strong> — every person sees the product differently.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Explicit characteristic</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td>Physical configuration</td><td>Every product has <strong>shape, size, density, odour, taste, texture, colour, weight</strong> and other physical attributes.</td></tr>
+              <tr><td>Associated service</td><td><strong>Before-sales</strong> service (product demonstration, informing about credit facilities) and <strong>after-sales</strong> service (delivery, installation, spare parts, repair service, warranties).</td></tr>
+              <tr><td>Package and brand name</td><td>Helps <strong>differentiate</strong> the product from competitors' brands and highlight product features.</td></tr>
+              <tr><td>Product size</td><td><strong>Width</strong> = product lines; <strong>depth</strong> = number of items in every line; <strong>consistency</strong> = similarity among product lines.</td></tr>
+              <tr><td>Product life cycle</td><td>Stages: <strong>introduction → growth → maturity → decline</strong>; the SA must know which stage the product is in to formulate selling strategies.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Implicit characteristic</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td>Product symbolism</td><td>A product is a <strong>symbol</strong> by virtue of form, size, colour and function — study it as <strong>status symbol, economy, performance</strong>, etc., in relation to customers' needs.</td></tr>
+              <tr><td>Communication media</td><td>The consumer's <strong>personal interpretation</strong> of symbols, mediated by culture groups, group influence and personality — whether product information is given or hidden; what the product is used for, at what rate, made by whom, and where available.</td></tr>
+              <tr><td>Product perception</td><td>Perception is a <strong>physio-psychological process</strong>; how consumers perceive products influences their <strong>marketability</strong>.</td></tr>
+              <tr><td>Product evaluation</td><td>Reveals <strong>consumer satisfaction</strong> — evaluation = comparing the <strong>efforts involved and rewards received</strong> by the consumer.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Session 3 -->
+      <section id="s3" class="fade-in">
+        <h2>3. &#x1f4ac; Responding to Questions and Comments</h2>
+
+        <blockquote>
+          The sales associate is the <strong>only person directly approached by the customer</strong> — training is needed to handle <strong>tough questions and situations</strong>, and gives the flexibility to adapt and add to their own personality.
+        </blockquote>
+
+        <h3 id="s3-1">3.1 Handling Questions &amp; Situations</h3>
+
+        <h4>When the sales associate is unable to answer a query</h4>
+        <ul>
+          <li><strong>Do not panic</strong> — the responsibility is to show firmness to make things right.</li>
+          <li><strong>Never say "I don't know"</strong> — instead say: <em>"It is a valid question, let me find out the right thing for you."</em></li>
+          <li>Place the <strong>customer's need as important</strong> over the situation of not knowing the answer.</li>
+          <li>Take the question to the <strong>concerned staff or superior</strong>, find the answer, and respond.</li>
+        </ul>
+
+        <h4>When an item is not available</h4>
+        <p>The main skill is the use of <strong>positive language</strong> — it avoids nasty or rash reactions:</p>
+        <ul>
+          <li><strong>With positive language:</strong> <em>"The product will be available next month and I will place an order for you, if needed."</em></li>
+          <li><strong>Without positive language:</strong> <em>"The product required is unavailable."</em></li>
+        </ul>
+        <div class="callout"><strong>&#x1f4a1; Tip:</strong> Positive language <strong>replaces negative phrases</strong> ("I can't…").</div>
+
+        <h4>When transferring a call</h4>
+        <p>Transfer the customer's call to the <strong>concerned department</strong> to help them — customers feel <strong>happy if their concerns are properly addressed</strong>.</p>
+
+        <h4>Comments made on the product</h4>
+        <ul>
+          <li>Customers may have <strong>valuable comments and suggestions</strong> on usage and improvement, but <strong>holding the product's vision is the responsibility of the sales associate</strong>.</li>
+          <li>Do <strong>NOT</strong> respond <em>"We will take a look"</em> — it gives <strong>false hope</strong> to customers and may disappoint them later.</li>
+        </ul>
+
+        <h4>Favours that cannot be granted</h4>
+        <ul>
+          <li>Most requests are reasonable — make every effort to make the customer happy.</li>
+          <li>For difficult requests, respond using <strong>positive language and very politely</strong>.</li>
+          <li><strong>Showing possible alternatives is one of the best ways to say 'No'.</strong></li>
+        </ul>
+
+        <h3 id="s3-2">3.2 Defective Products &amp; Closing With a Customer</h3>
+        <h4>When a product is defective</h4>
+        <p>Receiving a defective product is very discouraging to the customer — <strong>showing empathy is very important</strong>.</p>
+        <blockquote>
+          <em>"I am so sorry to disappoint you. There was a mistake in the manufacturing process or shipping. Can I send a new one to you?"</em>
+        </blockquote>
+        <p>Such a response completes two objectives: (a) <strong>understanding the customer's frustrating experience</strong> — explains what the problem is and how an immediate solution is given; (b) depending on the product and business, the SA can offer <strong>"Should I send you a full refund?"</strong></p>
+
+        <h4>Closing with a customer</h4>
+        <p>A sales associate should always aim to <strong>'close' a conversation</strong> — this does <strong>NOT</strong> mean closing the sale; it means the <strong>customer is happy about the product</strong>. Three important things:</p>
+        <ol>
+          <li><strong>Care about getting what the customer requires.</strong></li>
+          <li>Provide the <strong>right information</strong> if they need any query answered.</li>
+          <li>The <strong>customer determines what is needed</strong> and that the need is met in the right way.</li>
+        </ol>
+        <p>End conversations with phrases like <strong>"I am happy to help you, Sir or Ma'am"</strong> or <strong>"We are happy to serve you"</strong> — they make a big impact.</p>
+
+        <h3 id="s3-3">3.3 Dealing with Angry Customers</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Step</th><th>What to do</th></tr></thead>
+            <tbody>
+              <tr><td>Apologise sincerely</td><td>"I am sorry" is a <strong>mandatory</strong> response — make a <strong>personal apology</strong> for the ugly experience.</td></tr>
+              <tr><td>Sympathise</td><td>Angry customers need to be <strong>empathised with</strong> — <em>"I understand how upsetting that must have been."</em></td></tr>
+              <tr><td>Accept responsibility</td><td>Accept responsibility for the customer's <strong>unhappiness</strong> — it does <strong>not</strong> make the SA 'at fault'.</td></tr>
+              <tr><td>Prepare to help</td><td><strong>Fix the problem</strong> — place a replacement order; even if handled perfectly, if a customer cannot calm down, still try to make the <strong>best effort</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Session 4 -->
+      <section id="s4" class="fade-in">
+        <h2>4. &#x2705; Techniques of Closing a Sale</h2>
+
+        <blockquote>
+          <strong>Closing a sale</strong> = completing a sales transaction — the <strong>final step</strong> while making a sales call. Effectively, it is the <strong>customer signing on the dotted line</strong> of the agreement. The sales process is <strong>adaptive</strong> — each situation may be different.
+        </blockquote>
+
+        <h3 id="s4-1">4.1 Factors Influencing Successful Closing of Sales</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Factor</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td>Salesman's personality</td><td>The <strong>sum total of everything</strong> about the sales person that influences prospects favourably — <strong>physical</strong> (sound health, neat appearance, voice), <strong>mental</strong> (alertness, confidence, enthusiasm, observation), <strong>social</strong> (friendly appearance, courtesy, cooperation, well-mannered) and <strong>character</strong>.</td></tr>
+              <tr><td>Awareness of company policies</td><td>Knowledge of the company's <strong>history, origin and later changes, current affairs, reputation, philosophy and policies</strong> — helps clarify all queries and induce purchases.</td></tr>
+              <tr><td>Product information</td><td>Every possible information about the product — <strong>models, size, weight, ingredients, packaging, quality, price, discount offered, benefits, replacement, after-sales service</strong>, etc.</td></tr>
+              <tr><td>Need of customer</td><td>Study the prospective customer's <strong>buying behaviour, likes, dislikes, nature and type</strong> to adopt suitable strategies.</td></tr>
+              <tr><td>Information on competing products</td><td>Knowledge of product availability and competitors helps <strong>highlight relative merits</strong> — closing becomes an easy task.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="s4-2">4.2 Techniques of Closing a Sale</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Technique</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td>Natural close</td><td>Also called the <strong>'ask for it' close</strong> — the customer should not sense a special formula; closing appears as a <strong>natural development</strong> from the sales conversation.</td></tr>
+              <tr><td>The order form close</td><td>Questions asked are <strong>not in direct reference to the purchase</strong>; sound natural and avoid rejection — e.g., <em>"Sir, shall I make the invoice or bill?"</em></td></tr>
+              <tr><td>The alternative close</td><td>Assumes the customer <strong>will definitely buy</strong> — only design, colour, style, shape are undecided; present <strong>alternative options</strong> to provoke a <strong>final choice</strong>; product presentation is very important.</td></tr>
+              <tr><td>The summary close</td><td>The SA <strong>summarises the list of benefits</strong> — <em>"We have reached the end of sale, so may I highlight the main points so that we could close a deal."</em> One of the most natural methods — used for <strong>unpredictable customers</strong>.</td></tr>
+              <tr><td>The cautionary tale close</td><td><strong>Motivates undecided customers</strong> to take a purchase decision by showing the <strong>implication of failing to decide at that very moment</strong>; the SA tries <strong>not to make up stories</strong>.</td></tr>
+              <tr><td>The final objection close</td><td>The customer may have an <strong>objection right at the end</strong> of the sale process and feel hesitant to mention it; the SA must persuade the customer to <strong>communicate the objection point</strong>.</td></tr>
+              <tr><td>The conditional close</td><td>For customers <strong>very slow in making decisions</strong> who find excuses to delay — the SA <strong>assures and develops confidence</strong>, offering help in a <strong>subtle way</strong>.</td></tr>
+              <tr><td>The lost sales approach</td><td>Don't feel the sale is lost with hesitant or objecting customers — lost sales can be <strong>converted into actual sales</strong> with further conversation and additional selling efforts; maintain a sense of balance.</td></tr>
+              <tr><td>The assumption close</td><td>The customer's <strong>manners, body language or comments</strong> may indicate a decision to buy — the SA makes an assumption close, giving the customer a chance to make a <strong>painless decision</strong>.</td></tr>
+              <tr><td>The balance sheet close</td><td>The SA assists an <strong>indecisive prospect</strong> to list on paper the <strong>'arguments for' and 'arguments against'</strong> a particular product choice.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Key Terms -->
+      <section id="key-terms" class="fade-in">
+        <h2>&#x1f4dd; Key Terms to Remember</h2>
+
+        <div class="terms-grid">
+          <div class="term"><strong>Sale</strong><span>Act of selling a product in return for money</span></div>
+          <div class="term"><strong>Direct sales</strong><span>Personal demonstration and sale directly to the consumer (single-level / multilevel marketing)</span></div>
+          <div class="term"><strong>Proforma sales</strong><span>Sales quote prepared in the form of a proforma invoice</span></div>
+          <div class="term"><strong>Auction sale</strong><span>Public sale to the highest bidder</span></div>
+          <div class="term"><strong>B2B sale</strong><span>Sale from one business to another</span></div>
+          <div class="term"><strong>EDI</strong><span>Electronic Data Interchange — used in electronic-based sales</span></div>
+          <div class="term"><strong>Sales promotion</strong><span>Activities supplementing, coordinating and making effective the efforts of personal selling and advertising</span></div>
+          <div class="term"><strong>Point-of-sale display</strong><span>Vendor materials placed near products customers often buy</span></div>
+          <div class="term"><strong>Trade incentives</strong><span>Cash incentives given by vendors to retailers</span></div>
+          <div class="term"><strong>Product life cycle</strong><span>Introduction, growth, maturity, decline</span></div>
+          <div class="term"><strong>Explicit characteristics</strong><span>Product attributes with common agreement (physical configuration, service, package, size, life cycle)</span></div>
+          <div class="term"><strong>Implicit characteristics</strong><span>Product aspects where perceptions differ (symbolism, media, perception, evaluation)</span></div>
+          <div class="term"><strong>Closing a sale</strong><span>Final step of the sales process — completing the sales transaction</span></div>
+          <div class="term"><strong>Five factors of closing</strong><span>Personality, company policy, product info, customer need, competitor info</span></div>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Quick Recap -->
+      <section id="quick-recap" class="fade-in">
+        <h2>&#x1f504; Quick Recap: Choosing Right Products in One Glance</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Topic</th><th>One-liner</th></tr></thead>
+            <tbody>
+              <tr><td>Selling methods</td><td>Direct, proforma, agency, travelling salesman, auction, B2B, electronic (EDI), indirect</td></tr>
+              <tr><td>Floor plans</td><td>Straight, diagonal, angular, geometric</td></tr>
+              <tr><td>Sales promotion</td><td>Short-term tactic to boost sales; supplements personal selling &amp; advertising</td></tr>
+              <tr><td>Promotion techniques</td><td>Vendor-originated (in-store, POS, trade incentives, direct, pack design) + retailer-originated (window, in-store display)</td></tr>
+              <tr><td>Product characteristics</td><td>Explicit (common agreement) vs implicit (perceptions differ)</td></tr>
+              <tr><td>Never say</td><td>"I don't know" — say "It is a valid question, let me find out"</td></tr>
+              <tr><td>Positive language</td><td>Replaces negative phrases ("I can't…")</td></tr>
+              <tr><td>Defective product</td><td>Show empathy — apologise, explain, offer replacement/refund</td></tr>
+              <tr><td>Angry customer</td><td>Apologise — sympathise — accept responsibility — prepare to help</td></tr>
+              <tr><td>Closing techniques</td><td>Natural, order form, alternative, summary, cautionary tale, final objection, conditional, lost sales, assumption, balance sheet</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <script>
+        const KEY_TERMS_DATA = [{"term":"Sale","definition":"Act of selling a product in return for money"},{"term":"Direct sales","definition":"Personal demonstration and sale directly to the consumer (single-level / multilevel marketing)"},{"term":"Proforma sales","definition":"Sales quote prepared in the form of a proforma invoice"},{"term":"Auction sale","definition":"Public sale to the highest bidder"},{"term":"B2B sale","definition":"Sale from one business to another"},{"term":"EDI","definition":"Electronic Data Interchange - used in electronic-based sales"},{"term":"Sales promotion","definition":"Activities supplementing, coordinating and making effective the efforts of personal selling and advertising"},{"term":"Point-of-sale display","definition":"Vendor materials placed near products customers often buy"},{"term":"Trade incentives","definition":"Cash incentives given by vendors to retailers"},{"term":"Product life cycle","definition":"Introduction, growth, maturity, decline"},{"term":"Explicit characteristics","definition":"Product attributes with common agreement (physical configuration, service, package, size, life cycle)"},{"term":"Implicit characteristics","definition":"Product aspects where perceptions differ (symbolism, media, perception, evaluation)"},{"term":"Closing a sale","definition":"Final step of the sales process - completing the sales transaction"},{"term":"Five factors of closing","definition":"Personality, company policy, product info, customer need, competitor info"}];
+      </script>
+
+      <footer>
+        <p>Source: NCERT Retail Sales Associate Class XI, Unit 3 · Mechanism for Customers to Choose Right Products</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    // ─── Mobile TOC toggle ───
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+
+    tocToggle.addEventListener('click', () => {
+      toc.classList.toggle('open');
+    });
+
+    // Close TOC on link click (mobile)
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toc.classList.remove('open');
+      });
+    });
+
+    // ─── Scroll Progress ───
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    // ─── Active TOC link on scroll ───
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+
+  <script src="../assets/study-os.js"></script>
+</body>
+</html>

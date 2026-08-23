@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 2 — Process of Credit Application | Retail Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navigation ─── */
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+
+    nav.top-nav .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── Layout ─── */
+    .wrapper {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      gap: 40px;
+    }
+
+    /* ─── Sidebar (TOC) ─── */
+    aside.toc {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    aside.toc h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    aside.toc a {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    aside.toc a:hover,
+    aside.toc a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    /* ─── Main Content ─── */
+    main.content {
+      flex: 1;
+      max-width: var(--max-width);
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .hero .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ─── Section Styling ─── */
+    section { margin-bottom: 48px; }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.35;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    section h4 {
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    section p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    /* ─── Blockquote ─── */
+    blockquote {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    blockquote strong { font-weight: 600; }
+
+    /* ─── Callout box ─── */
+    .callout {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: #5a4a1a;
+    }
+
+    /* ─── Tables ─── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    table thead {
+      background: var(--accent-light);
+    }
+
+    table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    table tbody tr:first-child td { border-top: none; }
+
+    table tbody tr:hover { background: #f5f3ef; }
+
+    table td:first-child { font-weight: 500; white-space: nowrap; }
+
+    /* ─── Code / Tree ─── */
+    pre {
+      background: #1a1a2e;
+      color: #e4e4f0;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    /* ─── Lists ─── */
+    section ul, section ol {
+      margin: 12px 0 16px;
+      padding-left: 24px;
+    }
+
+    section li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    section ul ul { margin: 4px 0 4px 16px; }
+
+    /* ─── Horizontal Rule ─── */
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* ─── Key Terms ─── */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .terms-grid .term {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
+
+    .terms-grid .term strong {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .terms-grid .term span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── Progress ─── */
+    .progress-bar {
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      height: 2px;
+      z-index: 99;
+      background: transparent;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    /* ─── Mobile Toggle ─── */
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ─── Highlights ─── */
+    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
+    section p strong { color: var(--accent); font-weight: 600; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        top: auto;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150;
+        transition: max-height 0.35s ease;
+        padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      aside.toc h3 { margin-bottom: 12px; }
+      .toc-toggle { display: block; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .terms-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Animations ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">← Retail <span>Notes</span></a>
+    <span class="meta">Class 11 · Chapter 3</span>
+  </nav>
+
+  <!-- Progress -->
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+  <!-- Mobile TOC Toggle -->
+  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">☰ Contents</button>
+
+  <!-- Layout -->
+  <div class="wrapper">
+
+    <!-- Sidebar TOC -->
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#big-picture" class="toc-h2">Big Picture</a>
+      <a href="#s1" class="toc-h2">1. Features &amp; Conditions for Credit Sales</a>
+      <a href="#s1-1" class="toc-h3">1.1 Meaning &amp; Benefits</a>
+      <a href="#s1-2" class="toc-h3">1.2 Agreement &amp; Credit Facility</a>
+      <a href="#s1-3" class="toc-h3">1.3 Contract of Sale</a>
+      <a href="#s1-4" class="toc-h3">1.4 Condition vs Warranty</a>
+      <a href="#s2" class="toc-h2">2. Credit Checks &amp; Authorisation</a>
+      <a href="#s2-1" class="toc-h3">2.1 Meaning &amp; Need</a>
+      <a href="#s2-2" class="toc-h3">2.2 Procedure &amp; Legal Steps</a>
+      <a href="#s2-3" class="toc-h3">2.3 Steps Before Granting Credit</a>
+      <a href="#s3" class="toc-h2">3. Processing Credit Requisitions</a>
+      <a href="#s3-1" class="toc-h3">3.1 Requisition &amp; Credit Limit</a>
+      <a href="#s3-2" class="toc-h3">3.2 Info Required &amp; Process</a>
+      <a href="#s4" class="toc-h2">4. Techniques for Determining Creditworthiness</a>
+      <a href="#s4-1" class="toc-h3">4.1 Meaning &amp; Improving Score</a>
+      <a href="#s4-2" class="toc-h3">4.2 The Five Cs of Credit</a>
+      <a href="#key-terms" class="toc-h2">Key Terms</a>
+      <a href="#quick-recap" class="toc-h2">Quick Recap</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- Hero -->
+      <header class="hero fade-in">
+        <span class="chapter-badge">Chapter 3 · Retail</span>
+        <h1>Process of Credit Application</h1>
+        <p class="subtitle">Class 11 Retail (Sales Associate) — Unit 2 · Quick Revision Notes</p>
+      </header>
+
+      <!-- Big Picture -->
+      <section id="big-picture" class="fade-in">
+        <h2>&#x1f4cc; Big Picture</h2>
+        <blockquote>
+          <strong>Credit sale</strong> = goods supplied now, payment <strong>deferred</strong> for a period after supply.<br>
+          Offering credit <strong>increases the risk</strong> of being paid late (or not at all) → for <strong>new customers</strong>, always consider <strong>upfront or on-delivery</strong> payment.
+        </blockquote>
+
+        <p><strong>Steps the sales associate follows while granting customer credit:</strong></p>
+        <ol>
+          <li>Create credit policy</li>
+          <li>Obtain credit application</li>
+          <li>Check customer references</li>
+          <li>Get a personal guarantee</li>
+          <li>Run a credit check</li>
+          <li>Set limits of credit and payment terms</li>
+        </ol>
+
+        <div class="callout">
+          <strong>&#x1f4a1; Structure — 4 sessions:</strong> 1. Features &amp; Conditions for Credit Sales · 2. Credit Checks &amp; Getting Authorisation · 3. Processing Credit Requisitions · 4. Techniques for Determining Credit Worthiness
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Session 1 -->
+      <section id="s1" class="fade-in">
+        <h2>1. &#x1f4b3; Features and Conditions for Credit Sales</h2>
+
+        <h3 id="s1-1">1.1 Meaning &amp; Benefits of Credit Sales</h3>
+        <p><strong>Credit sales</strong> refer to sales that involve <strong>extending credit</strong> to the customer — the customer <strong>takes the product now</strong> and <strong>agrees to pay later</strong>.</p>
+        <ul>
+          <li>Credit sales are a type of <strong>trade credit</strong>; they create <strong>receivables</strong> (money owed to the company from customers).</li>
+          <li>Terms often require payment <strong>within one month of the invoice date</strong>; longer periods are also possible.</li>
+          <li>The due amount may be collected in different forms: <strong>lump-sum payment</strong>, <strong>Hire Purchase system</strong>, <strong>Installment Purchase System</strong>.</li>
+        </ul>
+
+        <h4>Why retail firms sell goods on credit — benefits</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Benefit</th><th>Explanation</th></tr></thead>
+            <tbody>
+              <tr><td>Meet the competition</td><td>When competitors sell on credit, a business must do the same just to stay competitive.</td></tr>
+              <tr><td>Increase in sales</td><td>If competitors do NOT offer credit terms, you gain sales by offering them — customers buy from you instead of paying cash to competitors.</td></tr>
+              <tr><td>Better customer loyalty</td><td>Offering credit shows you <strong>respect and trust</strong> customers to pay before due dates; customers reward this confidence by continuing to buy.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Characteristics of credit sales</h4>
+        <ul>
+          <li>The <strong>transferor</strong> normally deals in <strong>goods and services</strong>.</li>
+          <li>The <strong>title of the goods lies with the seller</strong> before it is sold on credit.</li>
+          <li>There are <strong>fewer formalities</strong>, especially in case of an <strong>open account</strong>.</li>
+          <li>It is usually extended for <strong>three months</strong>.</li>
+          <li>It depends on <strong>terms imposed by the seller</strong>.</li>
+          <li><strong>No security</strong> is required.</li>
+          <li>It can be facilitated with different <strong>financial institutions</strong> with easy terms and at a continuous rate.</li>
+          <li>Almost <strong>half of the short financial requirement</strong> of retail is met by this type of mutual trust and good relation.</li>
+        </ul>
+
+        <h3 id="s1-2">1.2 Credit Sale Agreement &amp; Retail Credit Facility</h3>
+        <p>A <strong>credit sale agreement</strong> is an agreement for the <strong>sale of goods</strong> under which the <strong>purchase price (or part of it) is payable by installments</strong>.</p>
+        <p><strong>Retail credit facility</strong> = a <strong>financing method</strong> that provides a <strong>loan facility</strong> to retail consumers for purchasing goods and services — it lends funds to customers who want high-valued items but are <strong>short on capital</strong>.</p>
+        <div class="callout">
+          <strong>&#x26a0;&#xfe0f; Risk of default</strong> is the main factor behind the <strong>high rate of interest</strong> charged by retail credit facilities.
+        </div>
+
+        <h4>Structure of a credit agreement</h4>
+        <p>The credit agreement details the <strong>borrower's responsibilities</strong> and includes:</p>
+        <ul>
+          <li><strong>Loan warranties</strong> · lending amounts · interest rates · loan duration</li>
+          <li><strong>Default penalties</strong> · repayment terms and conditions</li>
+          <li>Basic information of the customer, and the <strong>purpose of the loan</strong></li>
+        </ul>
+
+        <h4>Repayment terms of credit facility</h4>
+        <ul>
+          <li><strong>Term loan</strong> → interest rate and <strong>date for repayment</strong>.</li>
+          <li><strong>Revolving loan</strong> → <strong>minimum payment amount</strong> and <strong>recurring payment dates</strong>.</li>
+          <li>The agreement details whether interest rates <strong>may change</strong>, and specifies the date on which the loan <strong>matures</strong> (if applicable).</li>
+        </ul>
+
+        <h3 id="s1-3">1.3 Contract of Sale</h3>
+        <p>A <strong>contract of sale</strong> = a <strong>legal contract</strong> for the exchange of goods, services or property from seller to buyer for an agreed value in <strong>money paid</strong> or the <strong>promise to pay</strong> the same.</p>
+        <ul>
+          <li>It is made when there is <strong>both an offer as well as an agreement</strong> to buy or sell goods for a price.</li>
+          <li>It can be made <strong>in writing or by word of mouth</strong>.</li>
+          <li>It is a <strong>generic term</strong> which includes: (a) <strong>Sale</strong>, and (b) <strong>Agreement to sell</strong>.</li>
+        </ul>
+        <p><strong>Agreement to sell</strong> constitutes the <strong>terms and conditions of sale</strong> — the <strong>amount</strong> at which it is to be sold and the <strong>future date of full payment</strong>.</p>
+
+        <h4>Essential elements of a contract of sale</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Element</th><th>Explanation</th></tr></thead>
+            <tbody>
+              <tr><td>Essential elements of a contract</td><td>All essentials of a valid contract under the <strong>Indian Contract Act, 1872</strong> — competent parties, free consent, lawful object, etc.</td></tr>
+              <tr><td>Bilateral contract</td><td>At least <strong>two distinct parties</strong> — a seller and a buyer.</td></tr>
+              <tr><td>Transfer of property</td><td>Objective is to transfer the <strong>general property</strong> (ownership) of the goods from seller to buyer.</td></tr>
+              <tr><td>Goods</td><td>The <strong>subject-matter</strong> must be some goods; the purpose is to transfer property in these goods.</td></tr>
+              <tr><td>Price — the consideration</td><td>The consideration is <strong>price</strong>, which may be <strong>partly in money and partly in goods</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="s1-4">1.4 Difference Between Condition and Warranty</h3>
+        <p><strong>Condition</strong> = the <strong>fundamental stipulation</strong> of the contract of sale. <strong>Warranty</strong> = an <strong>additional stipulation</strong> — a written guarantee issued to the buyer by the manufacturer or seller to repair or replace the product within a specified time if required.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basis</th><th>Condition</th><th>Warranty</th></tr></thead>
+            <tbody>
+              <tr><td>Meaning</td><td>A requirement or event that should be performed <strong>before the completion of another action</strong>.</td><td>An <strong>assurance</strong> given by the seller to the buyer about the <strong>state of the product</strong> — that the prescribed facts are genuine.</td></tr>
+              <tr><td>Defined in</td><td>Section 12 (2) of Indian Sale of Goods Act, 1930</td><td>Section 12 (3) of Indian Sale of Goods Act, 1930</td></tr>
+              <tr><td>What is it?</td><td>Directly associated with the <strong>objective of the contract</strong>.</td><td>A <strong>subsidiary provision</strong> related to the object of the contract.</td></tr>
+              <tr><td>Result of breach</td><td><strong>Termination of contract</strong></td><td><strong>Claim damages</strong> for the breach</td></tr>
+              <tr><td>Violation</td><td>Violation of a condition can be regarded as a <strong>violation of the warranty</strong>.</td><td>Violation of a warranty <strong>does not affect</strong> the condition.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Session 2 -->
+      <section id="s2" class="fade-in">
+        <h2>2. &#x1f50e; Credit Checks and Getting Authorisation</h2>
+
+        <blockquote>
+          A retail store's primary objective is to <strong>enhance profits</strong>. Credit checks identify potential customers with <strong>repaying capacity</strong> → this reduces the <strong>risk of bad debts</strong>.
+        </blockquote>
+
+        <h3 id="s2-1">2.1 Meaning &amp; Need for Credit Checking</h3>
+        <p>A <strong>credit check</strong> = a sort of <strong>search</strong> performed by the retailer to <strong>evaluate a customer's creditworthiness</strong> — after the check, the retailer can assess whether the customer can handle money matters and fulfill the requirements for credit.</p>
+
+        <h4>Need for credit checking</h4>
+        <ul>
+          <li><strong>Protects the interests of parties</strong> — ensures each party has the <strong>capacity to enter into a transaction</strong>.</li>
+          <li>A credit check should be run <strong>whenever customers apply for</strong> a loan, hire purchase, credit card, store card or <strong>line of credit</strong>.</li>
+          <li>It provides information about the customer's <strong>mortgage, credit cards, arranged overdrafts, personal loans, car finance, hire purchases</strong>, and the <strong>repayment history</strong> of phone accounts, etc.</li>
+          <li>A <strong>credit record</strong> = an account of <strong>any type of credit</strong> given for the <strong>last six years</strong> — reveals how much money the customer accessed and whether the customer failed to make any obligations.</li>
+          <li>When applying for credit, the customer gives <strong>consent</strong> to check his/her credit file — this shows the customer's <strong>address, current commitments and reliability</strong>.</li>
+          <li>Criteria <strong>vary from customer to customer</strong> — based on <strong>financial profile and credit history</strong>.</li>
+        </ul>
+
+        <h4>Positive credit reporting</h4>
+        <ul>
+          <li>In the past, credit checks included only <strong>negative behaviour</strong> (when customers failed to meet obligations in financial dealings).</li>
+          <li>Now the <strong>credit score</strong> is calculated on this information <strong>together with other credit activity</strong> in the file — e.g., <strong>previous enquiries from credit providers</strong>.</li>
+          <li>This gives a clear picture of the customer's finances and shows if the customer has <strong>recovered from any credit difficulties</strong> in the past.</li>
+        </ul>
+
+        <h3 id="s2-2">2.2 Procedure for Credit Check &amp; Legal Authorisation</h3>
+        <p>Before extending credit, retailers get a <strong>credit application form filled and signed</strong> by the customer. Information collected from the customer for the credit check:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Info required</th><th>Why it matters</th></tr></thead>
+            <tbody>
+              <tr><td>Release of information</td><td>The retailer needs the customer's <strong>permission</strong> to do a complete credit check.</td></tr>
+              <tr><td>Signature</td><td>Means the customer has <strong>read, understood and agrees</strong> with all terms and conditions listed.</td></tr>
+              <tr><td>Address</td><td>A correct address ensures the credit check <strong>pulls up the right information</strong>.</td></tr>
+              <tr><td>Employment</td><td>Accurate employment info lets the retailer look into the customer's <strong>employment history</strong> (how long at each job).</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Legal and company procedures for getting authorisation</h4>
+        <p>A person's <strong>credit history is private</strong> — a retail firm must seek <strong>permission from the customer before accessing any information legally</strong>.</p>
+
+        <h4>How to get a credit report</h4>
+        <ul>
+          <li>Customers provide the necessary information for the credit purchase; the retailer accesses the information and makes a report.</li>
+          <li>The retailer can <strong>directly ask customers</strong> for their creditworthiness and write it in their credit report.</li>
+        </ul>
+
+        <h3 id="s2-3">2.3 Steps to Follow Before Granting a Credit</h3>
+        <ol>
+          <li><strong>Create credit policy</strong> — every retail store must create its credit policy; it includes <strong>payment policies and expectations</strong>.</li>
+          <li><strong>Customers must complete the credit application</strong> — the application should provide <strong>key information</strong> about the customers.</li>
+          <li><strong>Check the customer's references</strong> — asking customers to list references helps.</li>
+          <li><strong>Run credit check</strong> — reveals any <strong>outstanding payments</strong> against the customer.</li>
+          <li><strong>Request personal guarantee from customer</strong> — not necessary in the case of a retail store, but it is a personal guarantee from the customer.</li>
+          <li><strong>Take security interest in products</strong> — since customers can refuse to pay as agreed, a retailer should ideally charge security interests.</li>
+          <li><strong>Set credit limits and payment terms</strong> — set limits for customers who seem creditworthy; decide <strong>how many days after delivery</strong> the full payment is made.</li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <!-- Session 3 -->
+      <section id="s3" class="fade-in">
+        <h2>3. &#x1f4c4; Processing Credit Requisitions</h2>
+
+        <h3 id="s3-1">3.1 Requisition, Credit Requisition &amp; Credit Limit</h3>
+        <p><strong>Requisition</strong> = a <strong>formal request</strong> by a <strong>buyer</strong> to the <strong>seller</strong> to sell the desired goods on <strong>conditions agreed upon</strong> — it generally includes the <strong>brand and model name, quantity and the required delivery date</strong>, etc.</p>
+        <p><strong>Credit requisition</strong> = a <strong>request for credit</strong> — made when a buyer asks the seller to provide a <strong>credit facility</strong> for the purchase of goods. A valid credit requisition includes:</p>
+        <ul>
+          <li>The <strong>amount and type of credit</strong> requested</li>
+          <li>The applicant's <strong>credit score</strong> and <strong>report</strong></li>
+          <li><strong>Means of security</strong> for the loan</li>
+        </ul>
+        <p>The rules for availing credit facilities are normally provided by the <strong>organisation</strong>; normally, <strong>credit limits are prescribed by the vendor</strong>.</p>
+        <div class="callout">
+          <strong>&#x1f4a1; Credit limit</strong> = the <strong>maximum amount of money</strong> extended through a <strong>line of credit</strong>, and the maximum amount of credit allowed to a customer to purchase in a retail store.
+        </div>
+
+        <h3 id="s3-2">3.2 Information Required &amp; Process of Applications</h3>
+        <h4>Information required in a credit requisition document</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Required info</th><th>What it means</th></tr></thead>
+            <tbody>
+              <tr><td>Desired items or services</td><td>Customers seeking credit must mention the details of the items or services to be purchased on credit.</td></tr>
+              <tr><td>Possible vendors to fulfill order</td><td>Details of the possible vendors who can supply the required goods to the buyer.</td></tr>
+              <tr><td>Budget quotations or proposals received</td><td>The vendor's name and other details of quotations or proposals received.</td></tr>
+              <tr><td>Delivery instructions</td><td>Information about the delivery instructions of the goods.</td></tr>
+              <tr><td>Capture initial capital details</td><td>Detailed information about the initial capital.</td></tr>
+              <tr><td>Contact information</td><td>Buyers must mention their contact information in the requisition.</td></tr>
+              <tr><td>Related accounting detail</td><td>Information about related details of accounting.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Performance criteria for processing applications</h4>
+        <ol>
+          <li><strong>Identify the customer's needs</strong> and provide credit facilities.</li>
+          <li><strong>Clearly explain</strong> the features and conditions of credit facilities to the customer.</li>
+          <li>The customer should <strong>submit the application</strong>, and the requisition must be <strong>approved by the retailer</strong>.</li>
+          <li><strong>Promptly refer to difficulties</strong> in processing applications.</li>
+          <li>Once approved, the requisitions go to the <strong>Sales Manager for authorisation procedures</strong>.</li>
+        </ol>
+      </section>
+
+      <hr>
+
+      <!-- Session 4 -->
+      <section id="s4" class="fade-in">
+        <h2>4. &#x1f4af; Techniques for Determining Credit Worthiness</h2>
+
+        <h3 id="s4-1">4.1 Meaning &amp; Improving Credit Score</h3>
+        <p><strong>Creditworthiness</strong> = a <strong>valuation performed by the retailer</strong> that determines the <strong>possibility of a customer to default</strong> based on his/her <strong>earlier debt obligations</strong>. It considers factors like <strong>repayment history and credit score</strong>.</p>
+        <ul>
+          <li><strong>Credit reporting agencies</strong> measure the creditworthiness of customers.</li>
+          <li>Creditworthiness can also be determined by studying and analysing the <strong>income statement and balance sheet</strong> of the business.</li>
+        </ul>
+
+        <h4>How customers can improve their credit score</h4>
+        <ul>
+          <li><strong>Pay on time</strong></li>
+          <li><strong>Pay more than the minimum monthly payment</strong></li>
+          <li><strong>Pay their debt faster</strong></li>
+          <li><strong>Reduce the assessment of late fees</strong></li>
+        </ul>
+
+        <h4>How to check a customer's creditworthiness</h4>
+        <ol>
+          <li><strong>Require a credit application</strong> — every customer should fill the credit application.</li>
+          <li><strong>Check publicly available information</strong> — every retailer must check the customer's information before issuing credit.</li>
+          <li><strong>Use credit evaluation tools</strong> — to calculate the customer's creditworthiness.</li>
+        </ol>
+
+        <h3 id="s4-2">4.2 The Five Cs of Credit</h3>
+        <p>When retailers expand credit to customers, they are essentially providing <strong>credit equal to the amount of their purchases</strong>. The guidelines to be followed are inclusive of <strong>'The Five Cs of Credit'</strong>:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>C</th><th>What it refers to</th></tr></thead>
+            <tbody>
+              <tr><td>Character</td><td>The customer's <strong>integrity and willingness to repay</strong> the financial obligation.</td></tr>
+              <tr><td>Capacity</td><td>The customer's <strong>cash inflow and ability to repay</strong> the debt.</td></tr>
+              <tr><td>Capital</td><td>The customer's <strong>financial net worth</strong>.</td></tr>
+              <tr><td>Collateral</td><td>The <strong>security against credit</strong>.</td></tr>
+              <tr><td>Conditions</td><td>The <strong>economic, family and personal conditions</strong> of customers.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Key Terms -->
+      <section id="key-terms" class="fade-in">
+        <h2>&#x1f4dd; Key Terms to Remember</h2>
+
+        <div class="terms-grid">
+          <div class="term"><strong>Receivables</strong><span>Money owed to the company from customers</span></div>
+          <div class="term"><strong>Credit sale agreement</strong><span>Sale of goods where price (or part) is payable by installments</span></div>
+          <div class="term"><strong>Retail credit facility</strong><span>Financing method giving loans to retail consumers for buying goods/services</span></div>
+          <div class="term"><strong>Contract of sale</strong><span>Legal contract to transfer goods/services/property for money or promise to pay</span></div>
+          <div class="term"><strong>Condition</strong><span>Fundamental stipulation; Section 12(2), Sale of Goods Act 1930; breach → termination</span></div>
+          <div class="term"><strong>Warranty</strong><span>Additional stipulation/assurance; Section 12(3); breach → claim damages</span></div>
+          <div class="term"><strong>Credit check</strong><span>Search by the retailer to evaluate a customer's creditworthiness</span></div>
+          <div class="term"><strong>Credit record</strong><span>Account of any credit given for the last six years</span></div>
+          <div class="term"><strong>Requisition</strong><span>Formal request by buyer to seller for goods on agreed conditions</span></div>
+          <div class="term"><strong>Credit requisition</strong><span>A request for credit</span></div>
+          <div class="term"><strong>Credit limit</strong><span>Maximum amount of credit extended to a customer</span></div>
+          <div class="term"><strong>Five Cs of Credit</strong><span>Character, Capacity, Capital, Collateral, Conditions</span></div>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Quick Recap -->
+      <section id="quick-recap" class="fade-in">
+        <h2>&#x1f504; Quick Recap: Credit Application in One Glance</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Topic</th><th>One-liner</th></tr></thead>
+            <tbody>
+              <tr><td>Credit sale</td><td>Take product now, pay later — creates receivables</td></tr>
+              <tr><td>Credit sale agreement</td><td>Sale of goods, price payable by installments</td></tr>
+              <tr><td>Contract of sale</td><td>Includes sale + agreement to sell; can be in writing or oral</td></tr>
+              <tr><td>Condition</td><td>Fundamental stipulation — Section 12(2); breach = termination</td></tr>
+              <tr><td>Warranty</td><td>Additional stipulation — Section 12(3); breach = damages</td></tr>
+              <tr><td>Credit check</td><td>Informed decision about the risk of extending credit</td></tr>
+              <tr><td>Credit record</td><td>Account of any credit over the last six years</td></tr>
+              <tr><td>Credit limit</td><td>Maximum credit allowed to a customer — prescribed by vendor</td></tr>
+              <tr><td>Creditworthiness</td><td>Valuation of the possibility of a customer defaulting</td></tr>
+              <tr><td>Five Cs</td><td>Character, Capacity, Capital, Collateral, Conditions</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <script>
+        const KEY_TERMS_DATA = [{"term":"Receivables","definition":"Money owed to the company from customers"},{"term":"Credit sale agreement","definition":"Sale of goods where price (or part) is payable by installments"},{"term":"Retail credit facility","definition":"Financing method giving loans to retail consumers for buying goods/services"},{"term":"Contract of sale","definition":"Legal contract to transfer goods/services/property for money or promise to pay"},{"term":"Condition","definition":"Fundamental stipulation; Section 12(2) of Sale of Goods Act 1930; breach results in termination"},{"term":"Warranty","definition":"Additional stipulation/assurance; Section 12(3); breach results in claim for damages"},{"term":"Credit check","definition":"Search by the retailer to evaluate a customer's creditworthiness"},{"term":"Credit record","definition":"Account of any credit given for the last six years"},{"term":"Requisition","definition":"Formal request by buyer to seller for goods on agreed conditions"},{"term":"Credit requisition","definition":"A request for credit"},{"term":"Credit limit","definition":"Maximum amount of credit extended to a customer"},{"term":"Five Cs of Credit","definition":"Character, Capacity, Capital, Collateral, Conditions"}];
+      </script>
+
+      <footer>
+        <p>Source: NCERT Retail Sales Associate Class XI, Unit 2 · Process of Credit Application</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    // ─── Mobile TOC toggle ───
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+
+    tocToggle.addEventListener('click', () => {
+      toc.classList.toggle('open');
+    });
+
+    // Close TOC on link click (mobile)
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toc.classList.remove('open');
+      });
+    });
+
+    // ─── Scroll Progress ───
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    // ─── Active TOC link on scroll ───
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+
+  <script src="../assets/study-os.js"></script>
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 7 — Revenue | Economics Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+  <style>
+    :root {
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --border: #e8e4de;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --callout-bg: #fff8e5;
+      --callout-border: #d4a12a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.75;
+      padding-top: 60px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    img { max-width: 100%; height: auto; display: block; border-radius: 8px; margin: 24px auto; }
+
+    .mermaid { margin: 24px 0; text-align: center; background: var(--surface); padding: 16px; border-radius: 8px; border: 1px solid var(--border); }
+
+    .top-nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 60px; z-index: 100;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      background: rgba(250,248,245,0.85);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px;
+    }
+    .top-nav .logo {
+      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 18px;
+      color: var(--accent); letter-spacing: -0.02em; text-decoration: none;
+    }
+    .top-nav .logo:hover { opacity: 0.7; }
+    .top-nav .meta { font-size: 13px; color: var(--text-muted); }
+
+    .progress-bar {
+      position: fixed; top: 60px; left: 0; height: 2px; z-index: 99;
+      background: var(--accent); width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    .wrapper {
+      display: flex; max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      gap: 40px;
+    }
+
+    .sidebar-toc {
+      width: var(--sidebar-width); flex-shrink: 0;
+      position: sticky; top: 80px; max-height: calc(100vh - 100px);
+      overflow-y: auto; padding: 8px 0;
+    }
+    .sidebar-toc::-webkit-scrollbar { width: 4px; }
+    .sidebar-toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .sidebar-toc::-webkit-scrollbar-track { background: transparent; }
+
+    .sidebar-toc .toc-label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); margin-bottom: 12px; font-weight: 600;
+    }
+    .sidebar-toc a {
+      display: block; font-size: 13.5px; color: var(--text-muted);
+      padding: 5px 0 5px 12px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+    .sidebar-toc a:hover, .sidebar-toc a.active {
+      color: var(--accent); border-left-color: var(--accent); text-decoration: none;
+    }
+    .sidebar-toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    .sidebar-toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    .toc-toggle {
+      display: none; position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--accent); color: #fff; border: none;
+      font-size: 20px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      align-items: center; justify-content: center;
+    }
+    .toc-drawer {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 190;
+      background: var(--surface); border-radius: 16px 16px 0 0;
+      box-shadow: 0 -8px 32px rgba(0,0,0,0.12);
+      max-height: 60vh; overflow-y: auto; padding: 20px 24px 32px;
+      transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    .toc-drawer.open { transform: translateY(0); }
+    .toc-drawer .toc-label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); margin-bottom: 12px; font-weight: 600;
+    }
+    .toc-drawer a {
+      display: block; font-size: 14px; color: var(--text-muted);
+      padding: 6px 0; border-bottom: 1px solid var(--border);
+    }
+    .toc-drawer a:last-child { border-bottom: none; }
+    .toc-drawer a.sub { padding-left: 20px; font-size: 13.5px; }
+    .toc-drawer a.toc-h3 { padding-left: 20px; font-size: 13.5px; }
+    .toc-drawer-overlay {
+      display: none; position: fixed; inset: 0; z-index: 180;
+      background: rgba(0,0,0,0.3);
+    }
+    .toc-drawer-overlay.open { display: block; }
+
+    .main-content {
+      flex: 1; max-width: var(--max-width); padding: 40px 0 80px;
+    }
+
+    .hero { margin-bottom: 48px; }
+    .hero .badge {
+      display: inline-block; background: var(--accent-light); color: var(--accent);
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 38px;
+      line-height: 1.2; letter-spacing: -0.025em; color: var(--text); margin-bottom: 12px;
+    }
+    .hero .subtitle {
+      font-size: 16px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 26px;
+      color: var(--text); margin-top: 48px; margin-bottom: 16px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    }
+    h3 {
+      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px;
+      color: var(--text); margin-top: 32px; margin-bottom: 12px;
+    }
+    h4 {
+      font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 15.5px;
+      color: var(--text); margin-top: 24px; margin-bottom: 8px;
+    }
+
+    p { margin-bottom: 16px; }
+
+    .table-wrap {
+      overflow-x: auto; border: 1px solid var(--border); border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03); margin: 20px 0 28px;
+    }
+    .table-wrap table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+    }
+    .table-wrap thead {
+      background: var(--accent-light);
+    }
+    .table-wrap th {
+      font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--accent); font-weight: 600; padding: 12px 14px; text-align: left;
+      white-space: nowrap;
+    }
+    .table-wrap td {
+      padding: 11px 14px; vertical-align: top; border-top: 1px solid var(--border);
+    }
+    .table-wrap tbody tr:hover { background: #f5f3ef; }
+    .table-wrap td:first-child { font-weight: 600; white-space: nowrap; }
+
+    blockquote {
+      background: var(--accent-light); border-left: 3px solid var(--accent);
+      padding: 16px 20px; margin: 20px 0 24px; border-radius: 0 6px 6px 0;
+      font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px;
+      color: var(--text); line-height: 1.6;
+    }
+    blockquote p { margin-bottom: 0; }
+    blockquote p + p { margin-top: 8px; }
+
+    .callout {
+      background: var(--callout-bg); border-left: 3px solid var(--callout-border);
+      padding: 16px 20px; margin: 20px 0 24px; border-radius: 0 6px 6px 0;
+      font-size: 15px; line-height: 1.6;
+    }
+    .callout strong:first-child { color: #8b6914; }
+
+    pre {
+      background: #1a1a2e; color: #e4e4f0; padding: 20px 24px; margin: 20px 0 24px;
+      border-radius: 8px; font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 13.5px; line-height: 1.65; overflow-x: auto; white-space: pre;
+    }
+    code { font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace; font-size: 13.5px; }
+    p code { background: #f0ede8; padding: 1px 6px; border-radius: 4px; color: var(--accent); }
+
+    ul, ol { padding-left: 24px; margin-bottom: 16px; }
+    li { margin-bottom: 4px; }
+    ul ul, ol ol { margin-bottom: 0; }
+
+    .terms-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px; margin: 20px 0 28px;
+    }
+    .term-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 16px 18px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s ease;
+    }
+    .term-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .term-card .term-name { font-weight: 600; color: var(--accent); font-size: 14.5px; margin-bottom: 4px; }
+    .term-card .term-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+
+    hr {
+      border: none; height: 1px; background: var(--border); margin: 40px 0;
+    }
+
+    .footer {
+      margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+      font-size: 13px; color: var(--text-muted); text-align: center;
+    }
+
+    .fade-in {
+      opacity: 0; transform: translateY(12px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+    section:nth-of-type(5) { animation-delay: 0.35s; }
+    section:nth-of-type(6) { animation-delay: 0.4s; }
+    section:nth-of-type(7) { animation-delay: 0.45s; }
+    section:nth-of-type(8) { animation-delay: 0.5s; }
+    section:nth-of-type(9) { animation-delay: 0.55s; }
+    section:nth-of-type(10) { animation-delay: 0.6s; }
+    section:nth-of-type(11) { animation-delay: 0.65s; }
+    section:nth-of-type(12) { animation-delay: 0.7s; }
+
+    @media (max-width: 900px) {
+      .sidebar-toc { display: none; }
+      .toc-toggle { display: flex; }
+      .wrapper { padding: 0 20px; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      h2 { font-size: 22px; }
+      .table-wrap td { font-size: 13px; padding: 8px 10px; }
+      .table-wrap th { font-size: 12px; padding: 8px 10px; }
+      pre { font-size: 12.5px; padding: 16px; }
+      .terms-grid { grid-template-columns: 1fr; }
+      .top-nav .meta { display: none; }
+      .top-nav { padding: 0 16px; }
+      .wrapper { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">← Economics Notes</a>
+    <span class="meta">Class 11 · Chapter 7</span>
+  </nav>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+<div class="wrapper">
+
+    <aside class="sidebar-toc" id="sidebarToc">
+      <div class="toc-label">Contents</div>
+      <a href="#introduction" class="toc-h2">Introduction — The Big Idea</a>
+      <a href="#meaning-of-revenue" class="toc-h2">Meaning of Revenue</a>
+      <a href="#tr" class="toc-h2">Total Revenue (TR)</a>
+      <a href="#ar" class="toc-h2">Average Revenue (AR)</a>
+      <a href="#mr" class="toc-h2">Marginal Revenue (MR)</a>
+      <a href="#tr-ar-mr-summary" class="toc-h2">TR, AR &amp; MR — Quick Summary</a>
+      <a href="#market-situations" class="toc-h2">Perfect vs Imperfect Competition</a>
+      <a href="#perfect-competition" class="toc-h3">Perfect Competition</a>
+      <a href="#imperfect-competition" class="toc-h3">Imperfect Competition</a>
+      <a href="#ar-mr-constant" class="toc-h2">AR &amp; MR — Price Constant</a>
+      <a href="#tr-mr-constant" class="toc-h2">TR &amp; MR — Price Constant</a>
+      <a href="#tr-price-line" class="toc-h2">TR &amp; Price Line</a>
+      <a href="#glance" class="toc-h2">All Relationships at a Glance</a>
+      <a href="#glossary" class="toc-h2">Key Terms Glossary</a>
+    </aside>
+
+    <main class="main-content">
+
+      <div class="hero fade-in">
+        <div class="badge">Chapter 7</div>
+        <h1>Revenue</h1>
+        <p class="subtitle">Producer ki kamai — TR, AR, MR ka matlab, aur perfect competition (price constant) vs imperfect competition (price falling) mein inka relationship.</p>
+      </div>
+
+      <!-- 1. Introduction -->
+      <section id="introduction" class="fade-in">
+        <h2>1. Introduction — The Big Idea</h2>
+
+        <h3>The Big Idea:</h3>
+        <blockquote>Ab tak humne <strong>producer</strong> (banane wala) ke <strong>cost</strong> wale angle par padha — <strong>Cost</strong> (Ch-6) = production mein <strong>kya kharcha</strong> hua. Ab producer ka <strong>doosra angle</strong> — <strong>REVENUE</strong> (Aagman)!<br><br>
+        <strong>Revenue</strong> = production karke bechne se <strong>jo paisa aata hai</strong> (money received from sale).</blockquote>
+
+        <h3>Simple Flow (From Lecture):</h3>
+        <pre>COST (Ch-6)          REVENUE (Ch-7)
+paisa GAYA  ──────────────►  paisa AAYA
+(input kharcha)            (sale se receipts)
+                                    ↓
+                      PROFIT = Revenue − Cost</pre>
+
+        <div class="callout">
+          <strong>Key Point:</strong> Cost ne bataya — output banane mein <strong>kitna paisa laga</strong>. Revenue batata hai — woh output bechne se <strong>kitna paisa mila</strong>. Dono milke <strong>profit</strong> decide karte hain!
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 2. Meaning of Revenue -->
+      <section id="meaning-of-revenue" class="fade-in">
+        <h2>2. Meaning of Revenue</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Revenue</strong> refers to the <strong>amount received by a firm from the sale of a given quantity of a commodity</strong> in the market.</blockquote>
+
+        <h3>Formula (From Lecture):</h3>
+        <pre>Revenue = Quantity of Product × Price</pre>
+
+        <div class="callout">
+          <strong>Lecture Line:</strong> "Jitna maal becha × jitne ka becha = revenue! Jaise 1000 toffees × ₹5 = ₹5000 revenue."
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 3. Total Revenue -->
+      <section id="tr" class="fade-in">
+        <h2>3. Total Revenue (TR)</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Total Revenue (TR)</strong> refers to the <strong>total receipts from the sale of a given quantity</strong> of a commodity.</blockquote>
+
+        <h3>Formula:</h3>
+        <pre>TR = Quantity × Price</pre>
+
+        <h3>Example (From Lecture):</h3>
+        <blockquote>2,000 TEDDY BEARS ko ₹100 per bear pe becha:<br><br>
+        <strong>TR = 2,000 × ₹100 = ₹2,00,000</strong></blockquote>
+
+        <div class="callout">
+          <strong>Lecture Line:</strong> "2000 teddy × ₹100 = 2 lakh — yeh poori sale ka total paisa = Total Revenue."
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 4. Average Revenue -->
+      <section id="ar" class="fade-in">
+        <h2>4. Average Revenue (AR)</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Average Revenue (AR)</strong> refers to the <strong>revenue per unit of output sold</strong>.</blockquote>
+
+        <h3>Formula:</h3>
+        <pre>AR = TR ÷ Quantity = Price</pre>
+
+        <h3>Example (From Lecture):</h3>
+        <blockquote>Kinder Surprise ka <strong>pack of 12</strong> = ₹600 total:<br><br>
+        <strong>AR = 600 ÷ 12 = ₹50</strong> (= Price of one pack)</blockquote>
+
+        <h3>Most Important Point:</h3>
+        <div class="callout">
+          <strong>AR = Price</strong> — kyunki total revenue ko quantity se divide karte hi <strong>per-unit price</strong> milta hai. Isliye:<br><br>
+          <strong>AR Curve aur Demand Curve ek hi hain!</strong> (AR curve = demand curve of the firm)
+        </div>
+
+        <div class="callout">
+          <strong>Lecture Line:</strong> "AR hi toh Price hai! Isliye jab hum demand curve kheenchte hain, wahi AR curve hota hai."
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 5. Marginal Revenue -->
+      <section id="mr" class="fade-in">
+        <h2>5. Marginal Revenue (MR)</h2>
+
+        <h3>Definition:</h3>
+        <blockquote><strong>Marginal Revenue (MR)</strong> is the <strong>additional revenue generated from the sale of an additional unit</strong> of output.</blockquote>
+
+        <h3>Formula:</h3>
+        <pre>MR = TRn − TRn−1
+
+Where:
+MRn   = Marginal Revenue of nth unit
+TRn   = Total Revenue from n units
+TRn−1 = Total Revenue from (n−1) units
+n     = Number of units sold</pre>
+
+        <h3>One More Way to Calculate MR (From Lecture):</h3>
+        <pre>          Change in Total Revenue     ΔTR
+MR = ───────────────────────────  =  ────
+        Change in number of units      ΔQ</pre>
+
+        <h3>Example (From Lecture):</h3>
+        <blockquote>4 iPhones beche = ₹6 lakh; 5 iPhones beche = ₹7.5 lakh:<br><br>
+        <strong>MR = 7.5 − 6 = ₹1.5 lakh</strong> (5th unit se extra paisa aaya)</blockquote>
+      </section>
+
+      <hr>
+
+      <!-- 6. TR, AR & MR Summary -->
+      <section id="tr-ar-mr-summary" class="fade-in">
+        <h2>6. TR, AR &amp; MR — Quick Summary</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Concept</th><th>Kya hai?</th><th>Formula</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Total Revenue (TR)</strong></td><td>Total sale se total receipts</td><td>TR = Quantity × Price</td></tr>
+              <tr><td><strong>Average Revenue (AR)</strong></td><td>Revenue per unit; <strong>= Price</strong></td><td>AR = TR ÷ Quantity</td></tr>
+              <tr><td><strong>Marginal Revenue (MR)</strong></td><td>Additional unit se extra revenue</td><td>MR = TRn − TRn−1 = ΔTR ÷ ΔQ</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Schedule (From Lecture — Price Falling Case):</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Units Sold (Q)</th><th>Price ₹ (P)</th><th>TR (₹) = Q × P</th><th>AR (₹) = TR ÷ Q = P</th><th>MR (₹) = TRn − TRn−1</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>10</td><td>10</td><td>10</td><td>10 (= 10 − 0)</td></tr>
+              <tr><td>2</td><td>9</td><td>18</td><td>9</td><td>8 (= 18 − 10)</td></tr>
+              <tr><td>3</td><td>8</td><td>24</td><td>8</td><td>6 (= 24 − 18)</td></tr>
+              <tr><td>4</td><td>7</td><td>28</td><td>7</td><td>4 (= 28 − 24)</td></tr>
+              <tr><td>5</td><td>6</td><td>30</td><td>6</td><td>2 (= 30 − 28)</td></tr>
+              <tr><td>6</td><td>5</td><td>30</td><td>5</td><td>0 (= 30 − 30)</td></tr>
+              <tr><td>7</td><td>4</td><td>28</td><td>4</td><td>−2 (= 28 − 30)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <strong>Observe:</strong> Jab price girti hai (imperfect competition), <strong>MR = Price se KAM</strong> hota hai, aur kabhi <strong>negative</strong> bhi ho jaata hai! (7th unit pe MR = −2)
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 7. Market Situations -->
+      <section id="market-situations" class="fade-in">
+        <h2>7. Two Market Situations — Price Constant vs Price Falling</h2>
+
+        <h3 id="perfect-competition">A) Perfect Competition → Price Remains Constant</h3>
+        <blockquote>Jab market <strong>Perfect Competition</strong> mein ho, <strong>price constant</strong> rehti hai. Firm ko <strong>industry ke fixed price</strong> par hi bechna padta hai — firm <strong>price taker</strong> hoti hai. <strong>Koi bhi quantity</strong> us price par bechi ja sakti hai.</blockquote>
+
+        <h3 id="imperfect-competition">B) Imperfect Competition → Price Falls with Output</h3>
+        <blockquote>Jab market <strong>Imperfect Competition</strong> mein ho, <strong>price falls with rise in output</strong>. Firm <strong>apni pricing policy</strong> khud banati hai, par sales badhani ho toh <strong>price kam karna padta hai</strong>.</blockquote>
+
+        <div class="callout">
+          <strong>Lecture Examples:</strong> Airtel/Jio recharge plans (3 month, 6 month, 12 month — long plan sasta), Pizza (1 pizza ₹750, 2 pizza ₹500 each, 3 pizza ₹250 each) — <strong>zyada kharido, price giregi!</strong>
+        </div>
+
+        <h3>Quick Comparison:</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Basis</th><th>Perfect Competition</th><th>Imperfect Competition</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Price</strong></td><td><strong>Constant</strong> (fixed by industry)</td><td><strong>Falls</strong> as output rises</td></tr>
+              <tr><td><strong>Firm ka role</strong></td><td><strong>Price taker</strong></td><td><strong>Price maker</strong> (own pricing policy)</td></tr>
+              <tr><td><strong>Sales badhane ke liye</strong></td><td>Koi bhi quantity ussi price par</td><td><strong>Price kam karna</strong> padta hai</td></tr>
+              <tr><td><strong>AR &amp; MR</strong></td><td><strong>AR = MR = Price</strong></td><td>MR &lt; AR (dono girti hain)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 8. AR & MR when Price Constant -->
+      <section id="ar-mr-constant" class="fade-in">
+        <h2>8. Relationship Between AR &amp; MR (When Price Remains Constant)</h2>
+
+        <blockquote>Yeh situation <strong>Perfect Competition</strong> mein hoti hai — <strong>Price = AR = MR</strong>.</blockquote>
+
+        <h3>Schedule (From Lecture):</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Units Sold (Q)</th><th>Price / AR (₹)</th><th>TR (₹)</th><th>MR (₹)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>5</td><td>5</td><td>5</td></tr>
+              <tr><td>2</td><td>5</td><td>10</td><td>5</td></tr>
+              <tr><td>3</td><td>5</td><td>15</td><td>5</td></tr>
+              <tr><td>4</td><td>5</td><td>20</td><td>5</td></tr>
+              <tr><td>5</td><td>5</td><td>25</td><td>5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Properties (From Lecture):</h3>
+        <blockquote>1. <strong>Equal to Price:</strong> Dono AR aur MR price ke equal hain — kyunki perfect competition mein firm <strong>price taker</strong> hai.<br>
+        2. <strong>Horizontal Demand Curve:</strong> Firm ki demand curve <strong>perfectly elastic</strong> hoti hai — <strong>AR = MR = Price</strong> aur <strong>Ed = ∞</strong>. (Firm koi bhi quantity usi price par bech sakti hai.)<br>
+        3. <strong>Constant AR &amp; MR:</strong> Price constant hai → AR aur MR output ke saath <strong>change nahi hote</strong> (5, 5, 5, 5...).<br>
+        4. <strong>AR = MR:</strong> Har additional unit se <strong>utna hi</strong> extra revenue (MR) aata hai jitna per-unit revenue (AR) — kyunki price fixed hai.<br>
+        5. <strong>Profit Maximization:</strong> Firm wahan produce karti hai jahan <strong>MR = MC</strong> — jo perfect competition mein <strong>price ke equal</strong> hota hai.</blockquote>
+
+        <div class="callout">
+          <strong>Lecture Line:</strong> "Perfect competition mein price = AR = MR — teeno ek hi line pe. Demand curve bilkul <strong>flat (horizontal)</strong> — jitna chaaho bech lo, price wahi!"
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 9. TR & MR when Price Constant -->
+      <section id="tr-mr-constant" class="fade-in">
+        <h2>9. Relationship Between TR &amp; MR (When Price Remains Constant)</h2>
+
+        <h3>Schedule (From Lecture):</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Units Sold (Q)</th><th>Price / AR (₹)</th><th>TR (₹) = Q × P</th><th>MR (₹) = TRn − TRn−1</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>5</td><td>5</td><td>5</td></tr>
+              <tr><td>2</td><td>5</td><td>10</td><td>5</td></tr>
+              <tr><td>3</td><td>5</td><td>15</td><td>5</td></tr>
+              <tr><td>4</td><td>5</td><td>20</td><td>5</td></tr>
+              <tr><td>5</td><td>5</td><td>25</td><td>5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Properties (From Lecture):</h3>
+        <blockquote>1. <strong>Linear Relationship:</strong> TR curve ek <strong>straight line</strong> hoti hai with <strong>constant slope</strong> — kyunki price fixed hai.<br>
+        2. <strong>MR is Constant:</strong> MR constant = price; har additional unit TR mein <strong>utna hi</strong> jodta hai.<br>
+        3. <strong>TR Increases Proportionally:</strong> Firm price taker hai → har unit ke saath TR <strong>same amount</strong> se badhti hai (5, 10, 15, 20, 25).<br>
+        4. <strong>MR = Slope of TR:</strong> TR curve ki slope hi <strong>MR</strong> hoti hai — jo perfect competition mein <strong>constant</strong> hai.<br>
+        5. <strong>TR at Zero Output:</strong> Output zero → TR bhi <strong>zero</strong> (kuch becha hi nahi).<br>
+        6. <strong>Positive TR Growth:</strong> MR constant hai → TR bina diminishing ke <strong>positively</strong> badhti rehti hai.</blockquote>
+      </section>
+
+      <hr>
+
+      <!-- 10. TR & Price Line -->
+      <section id="tr-price-line" class="fade-in">
+        <h2>10. Relationship Between TR &amp; Price Line</h2>
+
+        <h3>Key Idea (From Lecture):</h3>
+        <blockquote>Jab price har level of output par <strong>constant</strong> ho:<br><br>
+        <strong>Price = AR = MR</strong><br><br>
+        Isliye <strong>price line hi MR curve hai</strong>! Aur:<br><br>
+        <strong>TR = ΣMR</strong><br><br>
+        Toh <strong>MR curve (price line) ke neeche ka area = TR</strong>.</blockquote>
+
+        <h3>Diagram Explanation:</h3>
+        <pre>Price/AR
+   │
+ P ───────────── R        ← Price line = AR = MR
+   │             │
+   │             │
+   │_____________│______
+   O      Q      Units Sold</pre>
+
+        <blockquote>TR at OQ level of output = <strong>OP × OQ</strong> = <strong>Area under price line</strong> (rectangle O P R Q).</blockquote>
+
+        <ul>
+          <li>Height = <strong>OP</strong> (price)</li>
+          <li>Width = <strong>OQ</strong> (quantity)</li>
+          <li>Area (OP × OQ) = <strong>TR</strong> = area under price line / MR curve</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Lecture Line:</strong> "TR = ΣMR — saari MR jod do, TR mil jayega. Isliye price line ke neeche ka poora area = TR!"
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 11. All Relationships at a Glance -->
+      <section id="glance" class="fade-in">
+        <h2>11. All Relationships at a Glance (Quick Revision)</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Situation</th><th>AR &amp; MR</th><th>TR</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Price Constant</strong> (Perfect Competition)</td><td>AR = MR = Price; horizontal curve (Ed = ∞)</td><td>Straight line, constant slope; MR = slope of TR; TR = ΣMR</td></tr>
+              <tr><td><strong>Price Falling</strong> (Imperfect Competition)</td><td>MR &lt; AR (dono downward sloping)</td><td>Pehle badhti hai, phir girti hai (table mein Q=6 pe TR maximum = 30)</td></tr>
+              <tr><td><strong>AR = Price</strong></td><td>AR curve = Demand curve</td><td>—</td></tr>
+              <tr><td><strong>Area under MR curve / price line</strong></td><td>—</td><td>= <strong>TR</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 12. Glossary -->
+      <section id="glossary" class="fade-in">
+        <h2>12. Key Terms Glossary</h2>
+
+        <div class="terms-grid">
+          <div class="term-card">
+            <div class="term-name">Revenue</div>
+            <div class="term-desc">Amount received by a firm from sale of a given quantity of a commodity</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Total Revenue (TR)</div>
+            <div class="term-desc">Total receipts from sale = Quantity × Price</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Average Revenue (AR)</div>
+            <div class="term-desc">Revenue per unit = TR ÷ Quantity = Price</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Marginal Revenue (MR)</div>
+            <div class="term-desc">Addition to revenue from one extra unit = TRn − TRn−1 = ΔTR ÷ ΔQ</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">AR Curve = Demand Curve</div>
+            <div class="term-desc">AR = Price, isliye demand curve hi AR curve hai</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Perfect Competition</div>
+            <div class="term-desc">Price constant; firm = price taker; AR = MR = Price; demand perfectly elastic (Ed = ∞)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Imperfect Competition</div>
+            <div class="term-desc">Price falls with output; firm = price maker; MR &lt; AR</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">TR = ΣMR</div>
+            <div class="term-desc">Total revenue = sum of all marginal revenues = area under MR curve (price line)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-name">Profit Maximization</div>
+            <div class="term-desc">MR = MC (= Price in perfect competition)</div>
+          </div>
+        </div>
+      </section>
+
+      <script id="chapter-terms-data" type="application/json">
+      [{"term":"Revenue","definition":"Amount received by a firm from sale of a given quantity of a commodity"},{"term":"Total Revenue (TR)","definition":"Total receipts from sale = Quantity x Price"},{"term":"Average Revenue (AR)","definition":"Revenue per unit = TR / Quantity = Price"},{"term":"Marginal Revenue (MR)","definition":"Addition to revenue from one extra unit = TRn - TRn-1 = dTR / dQ"},{"term":"AR Curve = Demand Curve","definition":"AR = Price, isliye demand curve hi AR curve hai"},{"term":"Perfect Competition","definition":"Price constant; firm = price taker; AR = MR = Price; demand perfectly elastic (Ed = infinity)"},{"term":"Imperfect Competition","definition":"Price falls with output; firm = price maker; MR < AR"},{"term":"TR = Sum MR","definition":"Total revenue = sum of all marginal revenues = area under MR curve (price line)"},{"term":"Profit Maximization","definition":"MR = MC (= Price in perfect competition)"}]
+      </script>
+      <div class="footer">
+        <p>Economics Notes · Class 11 · Chapter 7 — Revenue</p>
+      </div>
+
+    </main>
+  </div>
+
+  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">☰</button>
+  <div class="toc-drawer-overlay" id="tocOverlay"></div>
+  <div class="toc-drawer" id="tocDrawer">
+    <div class="toc-label">Contents</div>
+    <a href="#introduction" class="toc-h2">Introduction — The Big Idea</a>
+    <a href="#meaning-of-revenue" class="toc-h2">Meaning of Revenue</a>
+    <a href="#tr" class="toc-h2">Total Revenue (TR)</a>
+    <a href="#ar" class="toc-h2">Average Revenue (AR)</a>
+    <a href="#mr" class="toc-h2">Marginal Revenue (MR)</a>
+    <a href="#tr-ar-mr-summary" class="toc-h2">TR, AR &amp; MR — Quick Summary</a>
+    <a href="#market-situations" class="toc-h2">Perfect vs Imperfect Competition</a>
+    <a href="#perfect-competition" class="toc-h3">Perfect Competition</a>
+    <a href="#imperfect-competition" class="toc-h3">Imperfect Competition</a>
+    <a href="#ar-mr-constant" class="toc-h2">AR &amp; MR — Price Constant</a>
+    <a href="#tr-mr-constant" class="toc-h2">TR &amp; MR — Price Constant</a>
+    <a href="#tr-price-line" class="toc-h2">TR &amp; Price Line</a>
+    <a href="#glance" class="toc-h2">All Relationships at a Glance</a>
+    <a href="#glossary" class="toc-h2">Key Terms Glossary</a>
+  </div>
+
+  <script>
+    const progressBar = document.getElementById('progressBar');
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    });
+
+    const tocLinks = document.querySelectorAll('.sidebar-toc a');
+    const sections = [];
+    tocLinks.forEach(function(link) {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const section = document.getElementById(href.substring(1));
+        if (section) sections.push({ el: section, link: link });
+      }
+    });
+    window.addEventListener('scroll', function() {
+      const scrollPos = window.scrollY + 120;
+      let current = null;
+      sections.forEach(function(item) {
+        if (item.el.offsetTop <= scrollPos) current = item;
+      });
+      sections.forEach(function(item) { item.link.classList.remove('active'); });
+      if (current) current.link.classList.add('active');
+    });
+
+    const toggleBtn = document.getElementById('tocToggle');
+    const drawer = document.getElementById('tocDrawer');
+    const overlay = document.getElementById('tocOverlay');
+    function openDrawer() { drawer.classList.add('open'); overlay.classList.add('open'); }
+    function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); }
+    toggleBtn.addEventListener('click', openDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeDrawer); });
+  </script>
+
+  <script src="../assets/study-os.js"></script>
+</body>
+</html>

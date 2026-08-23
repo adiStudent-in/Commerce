@@ -1,0 +1,420 @@
+
+===== PAGE 001 =====
+BATCH
+MICROECONOMICS
+COST
+Chapter 6 I Lecture 3
+
+===== PAGE 002 =====
+(= f(a)
+Twplicit
+Expliat
+NL
+TVC
++
+9
+18
+TvC
+22
+12
+27
+了
+-S
+↑TFC
+37
+25
+
+===== PAGE 003 =====
+@2
+3u
+T
+V C
+VL
+1S
+AFC
+AC
+AVC
+
+===== PAGE 004 =====
+AFC↓
+AFC
+A FC
+TFC
+★Uevey touches
+S
+Tnvele Relution
+12
+ ouy Axis
+12
+12
+2
+12
+3
+12
+12
+
+===== PAGE 005 =====
+If(+TVC
+Next
+BATCH
+Toppers
+AVERAGECOST
+Auerage Fixed Cost (AFC)
+Average fixed(
+A(cost refers to the per unit fixed cost of production.
+AFC = TFC ÷ Q
+AverageFixedCost
+AverageFixedCostCurve
+Output
+AFC (天)
+TFC (天)
+·AFCcurue
+slopedownwards
+AFC
+fallswithincreasein
+(in units)
+TFCOutput=AFC
+18
+output.
+verageFixedCost(in
+AFCcurveisa
+(rectangularhyperbola
+i.e.areaunderthe
+curueremains
+same
+atallpoints.
+12÷0
+6
+12 ÷1
+9
+12÷2
+23
+Output in units
+12÷3
+TOUCHNHIKRNA
+12÷4
+AFCdoes
+not
+touch any of the axes
+12 ÷ 5
+2.40
+AFCcanneuertouchtheX-axisas
+canneuerbezero.
+0 AFC curue can neuer touch the Y-axis because at zero level of output, TFC is a
+positivevalueandanypositivevaluedividedby
+Zerpwillbeaninfinitevalue.
+
+===== PAGE 006 =====
+<
+Avc
+Tvc
+Smile
++
+6s
+U-Shcped
+33J
+10
+0
+2
+im
+3
+1S
+S
+24
+?
+35
+?
+3S
+=7
+t
+>
+Bea
+LVP
+
+===== PAGE 007 =====
+Next
+BATCH
+Toppers
+AuerageVariableCost(AvC)
+AVC = TVC ÷ Q
+AverageVariableCost
+AverageVariableCostCurve
+AVC (3)
+Output(inunits)
+TVC (3)
+TVC÷Output=AVC
+Average Variable Cost (in )
+181512
+6÷1=
+AVC
+10
+10÷2
+15
+15÷3
+24
+12÷4
+35
+35÷
+Outputin units
+AVCcurue
+ is a U-Shapeddue)to the
+applicationlof Law of Variable Proportions.
+
+===== PAGE 008 =====
+AF(+AUC=AC
+AC
+AVC
+AFC
+20
+T
+AC
+TC
+18
+S
+Ushape
+12
+16
+mm
+12
+8
+(u
+18
+1&
+12
+22
+2
+10
+3
+2十
+8
+3
+G
+6
+36
+L
+Peojon
+7
+th
+Lvp
+9
+
+===== PAGE 009 =====
+Next
+BATCH
+Toppers
+Auerage Total Cost (ATC) or Auerage Cost (AC)
+Average cost refers to the per unit total cost of production.
+AC = TC ÷ Q
+Average Cost
+AverageCostCurve
+shapl
+Output
+AC (天)
+AFC (3)
+AVC ()
+(in units)
+TVC + Output = AVC
+uwe
+12
+12 + 6 = 18
+6
+6 + 5 = 11
+4+5=9
+Output in units
+Auerage costis
+alsg
+ defined as
+3+6=9
+the sum of averagefixed cost
+(AFC) and average variable cost
+2.40
+2.40 + 7 = 9.40
+(AVC), i.e,AC)= AFC + AVC.
+
+===== PAGE 010 =====
+AC,AUC,AFC
+Reladtonahiy
+AFC
+A<
+—>Ac is alway F
+Above Avc &
+12
+V
+AFC becawx AC is
+6
+1
+AFC
+AF< intewet AvC at
+)+'s Minumum 
+2.4
+De betwen A &AVC
+sAFCnd ACAv( wi1
+2
+AFC
+etee+eot
+6.24
+0:O
+
+===== PAGE 011 =====
+Next
+BATCH
+Toppers
+Auerage Total Cost (ATC) or Auerage Cost (AC)
+AQ
+ curve will alwayslie above the AVC curve (See Fig
+AC,AvCandAFC
+6.7) because A, at all levels of output includes both
+and AFC.
+AC,AVCandAFC(in)
+AVC reaches its minimum point (point 'B') at a level of
+output lower than that of AC (point'A') because when
+AVC is at its minimum point, AC is still falling because of
+falling AFC.
+AVC
+As the output increases, the gap between(AC)
+)andAVC
+curves decreases, but,they never intersect each other. It
+happens because the vertical distance between them is
+AFC
+AFC
+which can hever be zero.
+X
+Output in units
+
+===== PAGE 012 =====
+ClaSS 11 ECONOMICS 一Chapter 5:PRODUCTION FUNCTION
+Published
+10 Questions
+40 Marks
+20 Min
+STUDENT
+TOTALSCORE
+MEGA TEST
+Correct
+Incorrect
+Skipped
+Time
+TAMANNA
+80.00/80
+80/80
+20
+7m15s
+DISHAMONDAL
+80.00/80
+80/80
+20
+8m1ls
+KARTIKSINGH
+80.00/80
+80/80
+20
+0
+0
+7m56s
+ANERI
+80.00/80
+80/80
+20
+0
+10m29s
+ANKITTHELEGEND
+80.00/80
+80/80
+20
+6m10s
+PURVASINGH
+80.00/80
+80/80
+20
+17m21s
+TEJASPAL
+80.00/80
+80/80
+20
+7m4s
+SHRISTI
+76.00/80
+76/80
+19
+17m23s
+BANDANA
+76.00/80
+76/80
+19
+22m44s
+AARATI
+76.00/80
+76/80
+19
+6m46s
+
+===== PAGE 013 =====
+ClaSS 11 ECONOMICS 一Chapter 5:PRODUCTION FUNCTION
+Published
+10 Questions
+40 Marks
+20 Min
+STUDENT
+TOTALSCORE
+MEGA TEST
+Correct
+Incorrect
+Skipped
+Time
+ANSHIKASHARMA
+76.00/80
+76/80
+19
+5m32s
+DHANYAGARG
+76.00/80
+76/80
+19
+6m12s
+HEENA
+76.00/80
+76/80
+19
+5m6s
+VISHWADEEPTIMISHRA
+76.00/80
+76/80
+19
+8m1s
+BHUMIKATOLANI
+76.00/80
+76/80
+19
+4m3s
+SAHIBAAFROZ
+76.00/80
+76/80
+19
+5m25s
+KHUSHIGAUR
+76.00/80
+76/80
+19
+7m17s
+VANSHIKAKAUSHIK
+76.00/80
+76/80
+19
+59s
+AKANSHASATWANI
+76.00/80
+76/80
+19
+16m46s
+ANUUUU
+76.00/80
+76/80
+19
+3m23s
+
+===== PAGE 014 =====
+THANK
+YOU
+Slay Ce
+onnecled
+KEEPLEARNING
