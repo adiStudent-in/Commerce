@@ -2,7 +2,7 @@
 /* Notes Hub — Class 11 Commerce PWA     */
 /* Version 1.0                           */
 
-var CACHE_NAME = 'study-os-v1';
+var CACHE_NAME = 'study-os-v2';
 var ASSETS_TO_CACHE = [
   './',
   './index.html',

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch 2 — The Address</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#1a5e4a;--accent-light:#e8f0ec;--bg:#faf8f5;--surface:#ffffff;--text:#1b1b1b;--muted:#6b6b6b;--border:#e8e4de}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15.5px}
+.nav{position:fixed;top:0;left:0;right:0;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(250,248,245,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:300}
+.logo{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;color:var(--accent);text-decoration:none}
+.meta{font-size:13px;color:var(--muted)}
+#progress{position:fixed;top:60px;left:0;height:2px;width:0;background:var(--accent);z-index:300}
+.wrap{display:flex;gap:44px;max-width:1200px;margin:0 auto;padding:104px 28px 40px}
+aside{width:260px;flex-shrink:0;position:sticky;top:84px;max-height:calc(100vh - 110px);overflow-y:auto;padding-right:6px}
+aside::-webkit-scrollbar{width:4px}
+aside::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+aside .toc-title{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:0 12px 10px;font-weight:600}
+aside a{display:block;padding:6px 12px;font-size:13.5px;color:var(--muted);text-decoration:none;border-left:2px solid transparent;line-height:1.45}
+aside a.sub{padding-left:26px;font-size:12.8px}
+aside a:hover,aside a.active{color:var(--accent);border-left-color:var(--accent)}
+main{flex:1;min-width:0;max-width:820px}
+.hero{margin-bottom:36px}
+.badge{display:inline-block;background:var(--accent-light);color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;padding:5px 14px;border-radius:999px;margin-bottom:16px}
+h1{font-family:'Playfair Display',serif;font-weight:700;font-size:38px;letter-spacing:-.025em;line-height:1.2;margin-bottom:12px}
+.subtitle{font-size:16px;color:var(--muted)}
+section{scroll-margin-top:84px}
+h2{font-family:'Playfair Display',serif;font-weight:600;font-size:26px;border-bottom:1px solid var(--border);padding-bottom:10px;margin:14px 0 22px;line-height:1.3}
+h3{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;margin:30px 0 12px;line-height:1.35}
+p{margin:0 0 16px}
+ul{margin:0 0 16px;padding-left:22px}
+li{margin-bottom:8px}
+blockquote{background:var(--accent-light);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:16px;margin:18px 0;line-height:1.65}
+blockquote p{margin:0}
+.callout{background:#fff8e5;border-left:3px solid #d4a12a;padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0 18px;font-size:14.5px}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;box-shadow:0 1px 3px rgba(27,27,27,.05);margin:18px 0 22px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--accent-light);color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:.04em;text-align:left;padding:10px 14px}
+td{padding:10px 14px;vertical-align:top;border-top:1px solid var(--border)}
+tbody tr:hover td{background:#f5f3ef}
+td:first-child{font-weight:600;white-space:nowrap}
+hr{border:none;height:1px;background:var(--border);margin:38px 0}
+footer{text-align:center;padding:34px 20px 42px;color:var(--muted);font-size:13px;border-top:1px solid var(--border)}
+.fade-in{animation:fadeUp .6s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+#tocBtn{display:none;position:fixed;bottom:22px;right:22px;width:50px;height:50px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:19px;z-index:320;box-shadow:0 4px 14px rgba(26,94,74,.35);cursor:pointer}
+@media(max-width:900px){
+ .wrap{flex-direction:column;padding:96px 20px 40px}
+ aside{position:fixed;left:0;right:0;bottom:0;top:auto;width:100%;max-height:58vh;background:var(--surface);border-top:1px solid var(--border);box-shadow:0 -6px 24px rgba(27,27,27,.12);transform:translateY(102%);transition:transform .3s ease;z-index:310;padding:14px 20px 22px}
+ aside.open{transform:none}
+ #tocBtn{display:block}
+}
+@media(max-width:600px){
+ h1{font-size:28px} h2{font-size:22px} h3{font-size:18px}
+ th,td{font-size:13px;padding:8px 10px}
+ .meta{display:none} body{font-size:15px}
+}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="logo" href="index.html">English Notes</a><span class="meta">Class XI &middot; Snapshots &middot; Chapter 2</span></nav>
+<div id="progress"></div>
+<div class="wrap">
+<aside><div class="toc-title">Contents</div>
+<a href="#1-the-first-visit-refused">1. The First Visit — Refused</a>
+<a href="#2-flashback-the-war-years">2. Flashback — The War Years</a>
+<a href="#3-between-fear-curiosity">3. Between Fear &amp; Curiosity</a>
+<a href="#4-the-second-visit-inside-number-46">4. The Second Visit — Inside Number 46</a>
+<a href="#5-why-she-forgets-the-address">5. Why She Forgets the Address</a>
+<a href="#6-exam-corner">6. Exam Corner 📝✅</a>
+<a class="sub" href="#long-answer-exam-ready">Long Answer (Exam-Ready)</a>
+<a class="sub" href="#expected-questions-pointers">Expected Questions &amp; Pointers ✅</a>
+<a href="#7-keywords-vocabulary">7. Keywords / Vocabulary 🔑</a>
+<a href="#8-theme-message">8. Theme &amp; Message 💡</a>
+<a class="sub" href="#last-minute-revision-hook">Last-minute revision hook 🧠</a></aside>
+<main>
+<div class="hero fade-in" style="animation-delay:.05s">
+<span class="badge">Snapshots &middot; Class XI &middot; Chapter 2</span>
+<h1>Ch 2 — The Address</h1>
+<p class="subtitle"><strong>Author:</strong> Marga Minco · <strong>Book:</strong> Snapshots (Class 11 Supplementary Reader) · <strong>Type:</strong> Post-War short story (Holocaust backdrop, Holland) — a daughter's search for her mother's belongings</p>
+</div>
+<blockquote><p>One line to remember: <em>After the War, the narrator tracks Mrs Dorling — who "saved" her mother's belongings during the Holocaust — to Number 46, Marconi Street; but finding the treasured things stripped of love in strange surroundings, she realizes memories live in hearts, not objects, and resolves to forget the address.</em></p></blockquote>
+<section class="fade-in" style="animation-delay:0.06s"><h2 id="1-the-first-visit-refused">1. The First Visit — Refused</h2><p>After the War, the narrator rings the bell of a house in Marconi Street. A woman opens the door only <strong>a chink</strong>, stares and says, "No, I don't know you." When the narrator says, <strong>"I'm Mrs S's daughter,"</strong> the woman holds the door back, gives no sign of recognition, and murmurs, <strong>"Have you come back? I thought that no one had come back."</strong> The narrator notices she is wearing <strong>her mother's green knitted cardigan</strong>, its wooden buttons pale from washing — proof she is at the right address: the name-plate reads <strong>Dorling, Number 46</strong>. But the woman pleads it is not convenient now and shuts the door; someone peeps from behind the bay-window curtain. Rejected on the very step, the narrator walks slowly back to the station.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.12s"><h2 id="2-flashback-the-war-years">2. Flashback — The War Years</h2><p>The address had been given by her mother in <strong>the first half of the War</strong>, when the narrator was home for a few days and instantly noticed that <strong>things were missing</strong> from their rooms. Her mother explained: <strong>Mrs Dorling</strong>, an old acquaintance not seen for years, had suddenly renewed contact and now visited regularly — and every time she left, <strong>she took something home</strong>: all the table-silver in one go, the antique plates hanging on the wall, the large vases ("I'm worried she got a crick in her back from the crockery"). It was <strong>Mrs Dorling herself who suggested and insisted</strong> — she wanted to "save" everything if the family had to leave, though the mother marvelled at the risk of each trip with a full suitcase. When the daughter seemed unconvinced, her mother looked <strong>reprovingly</strong> and the subject was dropped. The narrator also remembers her only sight of Mrs Dorling: a woman with a <strong>broad back, brown coat and shapeless hat</strong>, lifting a heavy suitcase — <em>"In Marconi Street, Number 46. Remember that,"</em> her mother had said.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.18s"><h2 id="3-between-fear-curiosity">3. Between Fear &amp; Curiosity</h2><p>After the Liberation the narrator was at first <strong>not interested</strong> in the stored things — even afraid of confronting belongings of a connection that no longer existed, hidden in cupboards and boxes "waiting in vain." But as life turned normal again — bread growing lighter in colour, sleep unthreatened, a familiar view from the window — curiosity woke in her: <strong>she wanted to see, touch and remember.</strong></p><hr></section>
+<section class="fade-in" style="animation-delay:0.24s"><h2 id="4-the-second-visit-inside-number-46">4. The Second Visit — Inside Number 46</h2><p>On the second try a girl of about <strong>fifteen</strong> opened the door; her mother was out on an errand. In the passage hung an old-fashioned <strong>iron Hanukkah candle-holder</strong> they never used because it was more cumbersome than a single candlestick. Entering the living-room, the narrator stopped, horrified: <strong>"a room I knew and did not know"</strong> — full of her family's things but arranged tastelessly amid ugly furniture and a muggy smell. She rubbed the <strong>woollen table-cloth</strong> and found the <strong>burn mark</strong> on its edge that had never been repaired. Tea was poured from the white pot with a <strong>gold border on the lid</strong>; spoons came from the antique box ("We've got lots more"); the still-life over the tea-table held the <strong>apple on the pewter plate</strong> she had loved as a child; the girl said once they had even eaten off the plates that hung on the wall — "it wasn't anything special."</p><p>A strange voice in her, the narrator recalled how as a girl she never knew the everyday cutlery was <strong>silver</strong> until her mother asked for help polishing it. When the girl pulled open the drawer to show whether <em>their</em> eating cutlery was silver too, the narrator suddenly fled — <em>"I must catch my train"</em> — leaving behind her the <strong>jingling of spoons and forks</strong>.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.30s"><h2 id="5-why-she-forgets-the-address">5. Why She Forgets the Address</h2><p>At the corner she looked up: Marconi Street, Number 46 — <strong>the address was correct</strong>, yet she no longer wished to remember it. The truth she had discovered: <strong>"the objects that are linked in your memory with the familiar life of former times instantly lose their value when, severed from them, you see them again in strange surroundings."</strong> What use would cutlery and vases be in her small rented room, where shreds of black-out paper still hung along the windows and barely a handful of cutlery fitted the narrow drawer? <strong>"I resolved to forget the address. Of all the things I had to forget, that would be the easiest."</strong></p><hr></section>
+<section class="fade-in" style="animation-delay:0.36s"><h2 id="6-exam-corner">6. Exam Corner 📝✅</h2><h3 id="long-answer-exam-ready">Long Answer (Exam-Ready)</h3><p><em>"Why did the narrator want to forget the address?"</em></p><p>During the War, Mrs Dorling had carried away the narrator's mother's precious belongings — silver, antique plates, vases, crockery — promising to "save" them. After losing her whole family in the War, the narrator clung to the hope that these objects would restore her lost world, and twice visited Number 46, Marconi Street. The first time, Mrs Dorling refused even to recognise her; the second time, surrounded by her own heirlooms displayed tastelessly in a stranger's home — the burn-marked table-cloth, the gold-bordered teapot, the pewter plate — she felt a chill rather than joy. She realised the painful truth: <strong>objects linked with the familiar life of former times instantly lose their value when, severed from them, we see them again in strange surroundings.</strong> Her mother lived in those things, not the things themselves; without the mother, the rooms, and the love that had used them, they were dead weight. Moreover, her small rented room — with black-out paper still on the windows and a drawer too narrow for the cutlery — could never hold that past. So she chose healing over hoarding: she resolved to <strong>forget the address</strong>, for of all things she had to forget, that would be the easiest.</p><h3 id="expected-questions-pointers">Expected Questions &amp; Pointers ✅</h3><p><strong>Q1. "Have you come back? I thought that no one had come back." What clue does this give?</strong><br>→ It reveals the story's hidden background — the <strong>persecution and deportation of Jews</strong> (the Holocaust): Mrs Dorling never expected any member of the narrator's family to survive; the mother and the household are gone, only the daughter returns.</p><p><strong>Q2. What hardships did the girl undergo in pre-War and post-War times?</strong><br>→ <strong>Pre-War:</strong> the creeping fear of war; watching a stranger carry away her home's treasures piece by piece; separation from her mother. <strong>Post-War:</strong> total loss of family and home; loneliness; trauma so deep she feared even the memory-laden streets; and finally disillusionment when the "saved" things brought back only pain.</p><p><strong>Q3. How did Mrs Dorling treat the narrator? Why?</strong><br>→ Coldly and rudely: opened the door just a chink, denied recognition despite the green knitted cardigan, said nothing could be done, shut the door. Guilt and greed — the belongings were now hers, and acknowledging the daughter might mean returning them.</p><p><strong>Q4. Describe the second visit.</strong><br>→ The fifteen-year-old daughter lets her in; the Hanukkah candle-holder, burn mark on the woollen cloth, gold-bordered tea-pot, pewter apple-plate, wall-hung plates used casually, the silver-cutlery anecdote; the jingling of spoons and forks drives her out mid-visit.</p><p><strong>Q5. Sketch the character of Mrs Dorling.</strong><br>→ Opportunistic and greedy — exploited wartime danger to appropriate a frightened friend's valuables; impolite and inhospitable to the orphaned daughter; possessive of things she neither understood nor valued (her daughter treats antiques as everyday junk).</p><p><strong>Q6. What is the significance of the title 'The Address'?</strong><br>→ The address is the thread of hope connecting the survivor to her lost mother and past; forgetting it marks her final acceptance of loss — memory must be carried within, not retrieved in objects.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.42s"><h2 id="7-keywords-vocabulary">7. Keywords / Vocabulary 🔑</h2><div class="table-wrap"><table><thead><tr><th>Word</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Chink</strong></td><td>झिरी / दरार — a narrow opening (door opened a chink)</td></tr><tr><td><strong>Fleetingly</strong></td><td>क्षणभर के लिए — briefly, for a moment</td></tr><tr><td><strong>Cardigan</strong></td><td>बटनदार ऊनी स्वेटर — knitted sweater fastened at front</td></tr><tr><td><strong>Musty</strong></td><td>बासी दुर्गंध वाला — stale, damp-smelling</td></tr><tr><td><strong>Acquaintance</strong></td><td>परिचित — person known slightly</td></tr><tr><td><strong>Lugging</strong></td><td>खींचते हुए ढोना — carrying something heavy with effort</td></tr><tr><td><strong>Crick in the back</strong></td><td>कमर में अकड़न/मोच — painful stiff muscle</td></tr><tr><td><strong>Reprovingly</strong></td><td>फटकारते हुए — in a scolding way</td></tr><tr><td><strong>Liberation</strong></td><td>मुक्ति — freeing (of Holland from occupation, 1945)</td></tr><tr><td><strong>Hanukkah</strong></td><td>प्रकाशोत्सव — Hebrew 'Feast of Lights' festival (December)</td></tr><tr><td><strong>Cumbersome</strong></td><td>भारी-अड़चनभरा — awkward, difficult to handle</td></tr><tr><td><strong>Pewter</strong></td><td>टिन-मिश्रधातु — dull grey metal alloy (for plates)</td></tr><tr><td><strong>Muggy</strong></td><td>उमस भरा — warm and damp (air/smell)</td></tr><tr><td><strong>Severed</strong></td><td>कटे हुए / अलग किए हुए — cut off, separated</td></tr><tr><td><strong>Black-out paper</strong></td><td>युद्धकालीन खिड़की के काले कागज़ — paper covering windows against air-raids</td></tr><tr><td><strong>Predicament</strong></td><td>दुर्दशा / उलझन — difficult, unpleasant situation</td></tr></tbody></table></div><hr></section>
+<section class="fade-in" style="animation-delay:0.48s"><h2 id="8-theme-message">8. Theme &amp; Message 💡</h2><ul><li><strong>War's true cost is human, not material</strong> — silver and crockery survive while mothers, homes and entire families are annihilated.</li><li><strong>Greed wears the mask of help</strong> — Mrs Dorling's "saving" of valuables was quiet plunder; crisis reveals character.</li><li><strong>Memories live in hearts, not objects</strong> — the same table-cloth warms in memory and chills in a stranger's drawing-room.</li><li><strong>Letting go is survival</strong> — forgetting the address is not betrayal but the narrator's first act of healing after trauma.</li><li><strong>Human predicament after war</strong> — displacement, guilt, indifference and the struggle to rebuild identity from ashes.</li></ul><h3 id="last-minute-revision-hook">Last-minute revision hook 🧠</h3><div class="callout"><strong>Door a chink → "Have you come back?" → green cardigan = proof → Dorling, No. 46 refused → Flashback: Dorling took silver, plates, vases → "Remember that" → post-War fear turns to curiosity → 2nd visit: 15-yr-old girl, burn mark, gold-border pot, pewter apple, silver cutlery jingle → flees → things lose value in strange surroundings → forgets the address — easiest thing to forget</strong></div></section>
+</main>
+</div>
+<button id="tocBtn" aria-label="Open contents">&#9776;</button>
+<footer>Source: NCERT Snapshots (Class XI) chapter notes &middot; English Notes</footer>
+<script>
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';let cur=null;document.querySelectorAll('aside a').forEach(a=>{const t=document.getElementById(a.getAttribute('href').slice(1));if(t&&t.offsetTop-120<=h.scrollTop)cur=a});document.querySelectorAll('aside a').forEach(a=>a.classList.toggle('active',a===cur));},{passive:true});
+const aside=document.querySelector('aside'),btn=document.getElementById('tocBtn');
+btn.addEventListener('click',()=>aside.classList.toggle('open'));
+aside.addEventListener('click',e=>{if(e.target.tagName==='A')aside.classList.remove('open')});
+</script>
+</body>
+</html>

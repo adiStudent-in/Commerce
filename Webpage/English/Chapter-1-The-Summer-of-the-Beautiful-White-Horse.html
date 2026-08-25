@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch 1 — The Summer of the Beautiful White Horse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#1a5e4a;--accent-light:#e8f0ec;--bg:#faf8f5;--surface:#ffffff;--text:#1b1b1b;--muted:#6b6b6b;--border:#e8e4de}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15.5px}
+.nav{position:fixed;top:0;left:0;right:0;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(250,248,245,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:300}
+.logo{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;color:var(--accent);text-decoration:none}
+.meta{font-size:13px;color:var(--muted)}
+#progress{position:fixed;top:60px;left:0;height:2px;width:0;background:var(--accent);z-index:300}
+.wrap{display:flex;gap:44px;max-width:1200px;margin:0 auto;padding:104px 28px 40px}
+aside{width:260px;flex-shrink:0;position:sticky;top:84px;max-height:calc(100vh - 110px);overflow-y:auto;padding-right:6px}
+aside::-webkit-scrollbar{width:4px}
+aside::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+aside .toc-title{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:0 12px 10px;font-weight:600}
+aside a{display:block;padding:6px 12px;font-size:13.5px;color:var(--muted);text-decoration:none;border-left:2px solid transparent;line-height:1.45}
+aside a.sub{padding-left:26px;font-size:12.8px}
+aside a:hover,aside a.active{color:var(--accent);border-left-color:var(--accent)}
+main{flex:1;min-width:0;max-width:820px}
+.hero{margin-bottom:36px}
+.badge{display:inline-block;background:var(--accent-light);color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;padding:5px 14px;border-radius:999px;margin-bottom:16px}
+h1{font-family:'Playfair Display',serif;font-weight:700;font-size:38px;letter-spacing:-.025em;line-height:1.2;margin-bottom:12px}
+.subtitle{font-size:16px;color:var(--muted)}
+section{scroll-margin-top:84px}
+h2{font-family:'Playfair Display',serif;font-weight:600;font-size:26px;border-bottom:1px solid var(--border);padding-bottom:10px;margin:14px 0 22px;line-height:1.3}
+h3{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;margin:30px 0 12px;line-height:1.35}
+p{margin:0 0 16px}
+ul{margin:0 0 16px;padding-left:22px}
+li{margin-bottom:8px}
+blockquote{background:var(--accent-light);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:16px;margin:18px 0;line-height:1.65}
+blockquote p{margin:0}
+.callout{background:#fff8e5;border-left:3px solid #d4a12a;padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0 18px;font-size:14.5px}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;box-shadow:0 1px 3px rgba(27,27,27,.05);margin:18px 0 22px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--accent-light);color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:.04em;text-align:left;padding:10px 14px}
+td{padding:10px 14px;vertical-align:top;border-top:1px solid var(--border)}
+tbody tr:hover td{background:#f5f3ef}
+td:first-child{font-weight:600;white-space:nowrap}
+hr{border:none;height:1px;background:var(--border);margin:38px 0}
+footer{text-align:center;padding:34px 20px 42px;color:var(--muted);font-size:13px;border-top:1px solid var(--border)}
+.fade-in{animation:fadeUp .6s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+#tocBtn{display:none;position:fixed;bottom:22px;right:22px;width:50px;height:50px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:19px;z-index:320;box-shadow:0 4px 14px rgba(26,94,74,.35);cursor:pointer}
+@media(max-width:900px){
+ .wrap{flex-direction:column;padding:96px 20px 40px}
+ aside{position:fixed;left:0;right:0;bottom:0;top:auto;width:100%;max-height:58vh;background:var(--surface);border-top:1px solid var(--border);box-shadow:0 -6px 24px rgba(27,27,27,.12);transform:translateY(102%);transition:transform .3s ease;z-index:310;padding:14px 20px 22px}
+ aside.open{transform:none}
+ #tocBtn{display:block}
+}
+@media(max-width:600px){
+ h1{font-size:28px} h2{font-size:22px} h3{font-size:18px}
+ th,td{font-size:13px;padding:8px 10px}
+ .meta{display:none} body{font-size:15px}
+}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="logo" href="index.html">English Notes</a><span class="meta">Class XI &middot; Snapshots &middot; Chapter 1</span></nav>
+<div id="progress"></div>
+<div class="wrap">
+<aside><div class="toc-title">Contents</div>
+<a href="#1-a-horse-at-four-in-the-morning">1. A Horse at Four in the Morning</a>
+<a href="#2-the-garoghlanian-tribe">2. The Garoghlanian Tribe</a>
+<a href="#3-the-ride-the-crazy-streak">3. The Ride &amp; the Crazy Streak</a>
+<a href="#4-aram-s-turn-hiding-the-horse">4. Aram's Turn &amp; Hiding the Horse</a>
+<a href="#5-john-byro-s-visit">5. John Byro's Visit</a>
+<a href="#6-the-return">6. The Return</a>
+<a href="#7-exam-corner">7. Exam Corner 📝✅</a>
+<a class="sub" href="#long-answer-exam-ready">Long Answer (Exam-Ready)</a>
+<a class="sub" href="#expected-questions-pointers">Expected Questions &amp; Pointers ✅</a>
+<a href="#8-keywords-vocabulary">8. Keywords / Vocabulary 🔑</a>
+<a href="#9-theme-message">9. Theme &amp; Message 💡</a>
+<a class="sub" href="#last-minute-revision-hook">Last-minute revision hook 🧠</a></aside>
+<main>
+<div class="hero fade-in" style="animation-delay:.05s">
+<span class="badge">Snapshots &middot; Class XI &middot; Chapter 1</span>
+<h1>Ch 1 — The Summer of the Beautiful White Horse</h1>
+<p class="subtitle"><strong>Author:</strong> William Saroyan · <strong>Book:</strong> Snapshots (Class 11 Supplementary Reader) · <strong>Type:</strong> Nostalgic first-person short story (humour + moral dilemma)</p>
+</div>
+<blockquote><p>One line to remember: <em>Nine-year-old Aram wakes at dawn to find his "crazy" cousin Mourad on a magnificent white horse — stolen from farmer John Byro; torn between the Garoghlanian tribe's eleven-century fame for honesty and their longing to ride, the boys return the horse after Byro's trusting eyes choose to believe his heart.</em></p></blockquote>
+<section class="fade-in" style="animation-delay:0.06s"><h2 id="1-a-horse-at-four-in-the-morning">1. A Horse at Four in the Morning</h2><p>One day in "the good old days" when he was nine, the narrator <strong>Aram</strong> was woken at four in the morning by his cousin <strong>Mourad</strong>, whom everybody who knew him considered crazy — everyone except Aram. Mourad was sitting on a <strong>beautiful white horse</strong>. Aram stuck his head out of the window and rubbed his eyes: "It's a horse. You're not dreaming," said Mourad, inviting him to ride. Aram's earliest memories were of horses and his first longings were <strong>longings to ride</strong> — but they were poor, so what he saw seemed impossible.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.12s"><h2 id="2-the-garoghlanian-tribe">2. The Garoghlanian Tribe</h2><p>Their whole tribe, the <strong>Garoghlanian family</strong>, lived in "the most amazing and comical poverty in the world" — nobody could understand how they managed food. Yet they had been famous for their <strong>honesty for something like eleven centuries</strong>, even when they had been the wealthiest family in what they liked to think was the world. They were <strong>proud first, honest next, and after that believed in right and wrong</strong>; none of them would take advantage of anybody, let alone steal. So though Aram could see, smell and hear the horse breathing, he refused to believe Mourad had stolen it — <strong>no member of the Garoghlanian family could be a thief</strong>. When asked straight, Mourad avoided the question; but it was true: he had stolen it. Aram consoled himself: stealing a <strong>horse for a ride</strong> was not like stealing <strong>money</strong> — it wouldn't become stealing until they offered to <strong>sell</strong> the horse, which he knew they never would.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.18s"><h2 id="3-the-ride-the-crazy-streak">3. The Ride &amp; the Crazy Streak</h2><p>They lived on Walnut Avenue at the edge of town; behind the house lay vineyards, orchards and irrigation ditches. Within three minutes they were on Olive Avenue and the horse began to trot — the air lovely, the feel of the running horse wonderful — while Mourad began to sing, i.e. <strong>roar</strong>. Every family has a crazy streak; before Mourad it belonged to <strong>uncle Khosrove</strong>: an enormous man with a powerful head of black hair and <strong>the largest moustache in the San Joaquin Valley</strong>, so furious, irritable and impatient that he stopped all talk by roaring, <strong>"It is no harm; pay no attention to it."</strong> Once his son Arak ran eight blocks to the barber's to shout that <strong>their house was on fire</strong> — Khosrove only roared, "Enough, it is no harm, I say." Mourad was called the natural descendant of this streak, though his father <strong>Zorab</strong> was practical and nothing else — in their tribe a man could be the father of his son's flesh yet <strong>not of his spirit</strong>.</p><p>Mourad then rode alone: kicking his heels he shouted <strong>"Vazire, run!"</strong> (Armenian for run); the horse reared, snorted and burst into a fury of speed — "the loveliest thing I had ever seen" — crossed an irrigation ditch and returned five minutes later, dripping wet. Mourad claimed: <strong>"I have a way with a horse… a simple and honest understanding"</strong> — and told nine-year-old Aram he'd know the trick himself <strong>when he turned thirteen</strong>.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.24s"><h2 id="4-aram-s-turn-hiding-the-horse">4. Aram's Turn &amp; Hiding the Horse</h2><p>On Aram's turn the horse at first stood still; kicked into its muscles, it reared, ran down the road into <strong>Dikran Halabian's vineyard</strong>, leaped over <strong>seven vines</strong> and threw him. Mourad ran after it — "I'm not worried about you… we've got to get that horse" — and took <strong>half an hour</strong> to bring it back. It dawned on Aram that Mourad had enjoyed these early-morning rides for some time and had come for him only because he knew how much Aram longed to ride. Asked since when, Mourad lied that the riding started only that morning — <em>"Of course not, but if we are found out, that's what you're to say. I don't want both of us to be liars."</em> They hid the horse in the barn of <strong>Fetvajian's deserted vineyard</strong>, where there were oats and dry alfalfa.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.30s"><h2 id="5-john-byro-s-visit">5. John Byro's Visit</h2><p>That afternoon uncle Khosrove sat over coffee and cigarettes when <strong>John Byro</strong>, an Assyrian farmer who had learned Armenian out of loneliness, arrived sighing: his white horse, <strong>stolen last month</strong>, was still gone; he had walked <strong>ten miles</strong> on a paining leg, and a surrey is useless without a horse — the animal cost him <strong>sixty dollars</strong>. Khosrove roared: <em>"It's no harm. What is the loss of a horse? Haven't we all lost the homeland?"</em> … <em>"I spit on money"</em> — and stalked out, slamming the screen door. (Aram's mother explained: he has a <strong>gentle heart</strong>; he is simply <strong>homesick</strong> and such a large man.)</p><p>Aram ran to Mourad, who sat under a peach tree <strong>repairing the hurt wing of a young robin</strong>. Aram begged him to keep the horse until he learned to ride; Mourad snapped: <strong>"Are you inviting a member of the Garoghlanian family to steal? The horse must go back to its true owner"</strong> — in six months at the latest. For <strong>two weeks</strong> they rode every morning, but every time Aram rode alone, the horse leaped over vines and trees and threw him.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.36s"><h2 id="6-the-return">6. The Return</h2><p>One morning they ran into <strong>John Byro</strong> himself. "Let me do the talking — I have a way with farmers," said Mourad, greeting him and naming the horse <strong>"My Heart."</strong> Byro studied it eagerly, looked into its mouth, and said: <strong>"Tooth for tooth… I would swear it is my horse if I didn't know your parents. The fame of your family for honesty is well known to me. Yet the horse is the twin of my horse. A suspicious man would believe his eyes instead of his heart. Good day, my young friends."</strong></p><p>Early the next morning the boys put the horse back in <strong>Byro's vineyard barn</strong> — the dogs followed silently ("I have a way with dogs"). That afternoon Byro drove up in his surrey, amazed: <em>"The horse is stronger than ever. Better-tempered, too. I thank God."</em> Uncle Khosrove, irritated as ever, shouted: <strong>"Quiet, man, quiet. Your horse has been returned. Pay no attention to it."</strong></p><hr></section>
+<section class="fade-in" style="animation-delay:0.42s"><h2 id="7-exam-corner">7. Exam Corner 📝✅</h2><h3 id="long-answer-exam-ready">Long Answer (Exam-Ready)</h3><p><em>"Did the boys return the horse because they were conscience-stricken or because they were afraid?"</em></p><p>The boys were driven far more by <strong>conscience and family honour</strong> than by mere fear. The Garoghlanians had been famous for their honesty for some eleven centuries — proud first, honest next — and no member of the family could be a thief. Mourad himself roared at Aram, "Are you inviting a member of the Garoghlanian family to steal? The horse must go back to its true owner." The decisive moment came when John Byro, studying the horse, admitted he would swear it was his own "tooth for tooth," yet chose to trust the family's fame for honesty rather than his eyes: "A suspicious man would believe his eyes instead of his heart." That quiet faith wounded the boys more than any accusation could. To exploit such trust would make them thieves in fact, not just in name — and would betray both Byro and their tribe's good name. Fear of being found out existed, but they hid the horse safely for weeks without panic; what they could not live with was the guilt. Hence, the very next morning, they quietly returned the horse — and even the dogs barked not — proving that conscience, strengthened by the weight of ancestral honesty, triumphed over temptation.</p><p><em>(From these ideas frame short answers on Aram's justification, Mourad's character, Khosrove, or Byro's trust.)</em></p><h3 id="expected-questions-pointers">Expected Questions &amp; Pointers ✅</h3><p><strong>Q1. Why does the story have no breathless adventure, yet remains interesting?</strong><br>→ Its charm lies in <strong>nostalgia</strong> ("good old days"), <strong>gentle humour</strong> (Khosrove's roar, "I spit on money"), <strong>irony</strong> (thieves from a famously honest family), vivid <strong>characters</strong> (crazy Mourad, pompous-free simple farmer Byro), the boy's innocent logic that riding isn't stealing until you sell — and the warm moral that honesty finally wins.</p><p><strong>Q2. Why did Aram find it hard to believe the sight of the horse?</strong><br>→ He was poor; the whole Garoghlanian tribe was poverty-stricken; Mourad could not have bought a horse — so it must be stolen, and no Garoghlanian could steal. Seeing won over believing only after he asked, "Where did you steal this horse?"</p><p><strong>Q3. How did Aram justify the act of stealing?</strong><br>→ They were crazy about horses; stealing a horse <strong>for a ride</strong> was different from stealing money; it would become stealing only when they offered to <strong>sell</strong> it — which they would never do.</p><p><strong>Q4. Sketch uncle Khosrove.</strong><br>→ Enormous, powerful black hair, largest moustache in the San Joaquin Valley; furious temper, irritable, impatient; universal cure-all roar "It is no harm; pay no attention to it" — even to news of his own house on fire; homesick for the homeland yet, as Aram's mother said, a man of gentle heart.</p><p><strong>Q5. What kind of a boy was Mourad?</strong><br>→ The "natural descendant" of the tribe's crazy streak; considered crazy by all except Aram; enjoyed being alive more than anyone; had mysterious ways with horses, dogs and even a hurt robin; lied lightly ("Of course not") yet drew the line at theft — insisted the horse go back to its true owner within six months.</p><p><strong>Q6. What did John Byro mean by "a suspicious man would believe his eyes instead of his heart"?</strong><br>→ The horse was exactly his — "tooth for tooth," its twin — but he trusted the <strong>Garoghlanian reputation for honesty</strong> (and his knowledge of the boys' parents) over the evidence before his eyes; his generous faith shamed the boys into returning the horse.</p><p><strong>Q7. What proof suggests Mourad truly had "a way with" animals?</strong><br>→ He tamed a stolen, spirited horse to ride calmly; the dogs of Byro's vineyard followed them <strong>without barking</strong>; he healed a young robin's broken wing and released it, and it flew high and straight.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.48s"><h2 id="8-keywords-vocabulary">8. Keywords / Vocabulary 🔑</h2><div class="table-wrap"><table><thead><tr><th>Word</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Magnificence</strong></td><td>भव्यता / वैभव — grandeur, splendour</td></tr><tr><td><strong>Poverty-stricken</strong></td><td>निर्धनता-ग्रस्त — extremely poor</td></tr><tr><td><strong>Pious stillness</strong></td><td>श्रद्धामय निस्तब्धता — calmness with religious purity</td></tr><tr><td><strong>Crazy streak</strong></td><td>पागलपन की चाल — a strain of eccentricity running in the family</td></tr><tr><td><strong>Capricious and vagrant</strong></td><td>संकीर्ण-चंचल तथा खोया-खोया — unpredictable and wandering</td></tr><tr><td><strong>Irritable</strong></td><td>चिड़चिड़ा — easily annoyed</td></tr><tr><td><strong>Surrey</strong></td><td>घोड़े से खिंचने वाली बग्घी — light horse-drawn carriage</td></tr><tr><td><strong>Vazire</strong></td><td>(Armenian) "Run!" — दौड़ो</td></tr><tr><td><strong>Alfalfa</strong></td><td>पशुओं का चारा — fodder crop for horses</td></tr><tr><td><strong>Tooth for tooth</strong></td><td>दाँत-ब-दाँत हूबहू मेल — exactly alike</td></tr><tr><td><strong>Conscience-stricken</strong></td><td>अपराध-बोध से व्यथित — tormented by guilt</td></tr><tr><td><strong>Homesick</strong></td><td>घर/वतन की याद से व्याकुल — longing for one's homeland</td></tr></tbody></table></div><hr></section>
+<section class="fade-in" style="animation-delay:0.50s"><h2 id="9-theme-message">9. Theme &amp; Message 💡</h2><ul><li><strong>Honesty is identity, not policy</strong> — eleven centuries of reputation outweigh the temptation of keeping a beloved horse.</li><li><strong>Innocent logic vs real morality</strong> — Aram's "riding isn't stealing" excuse shows how the mind dresses up desire; the heart (and Byro's trust) corrects it.</li><li><strong>Trust redeems</strong> — John Byro's decision to believe his heart over his eyes shames the boys into doing right; suspicion would only have hardened them.</li><li><strong>Humour humanises</strong> — Khosrove's absurd roars and Mourad's wild spirit make the moral tale warm, never preachy.</li><li><strong>Exile and loss</strong> — the immigrant tribe's poverty, Khosrove's homesickness and "we've all lost the homeland" quietly frame every small worry.</li></ul><h3 id="last-minute-revision-hook">Last-minute revision hook 🧠</h3><div class="callout"><strong>Dawn visit (white horse) → Poor + honest 11 centuries → "riding ≠ stealing" → Khosrove's roar → Vazire run! Aram falls over 7 vines → hide at Fetvajian's barn → Byro: stolen last month, $60 → "inviting a Garoghlanian to steal?" → 2 weeks' rides → meeting Byro ("twin of my horse… believe his heart") → return at dawn, silent dogs → "stronger than ever, better-tempered" → Khosrove: pay no attention!</strong></div></section>
+</main>
+</div>
+<button id="tocBtn" aria-label="Open contents">&#9776;</button>
+<footer>Source: NCERT Snapshots (Class XI) chapter notes &middot; English Notes</footer>
+<script>
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';let cur=null;document.querySelectorAll('aside a').forEach(a=>{const t=document.getElementById(a.getAttribute('href').slice(1));if(t&&t.offsetTop-120<=h.scrollTop)cur=a});document.querySelectorAll('aside a').forEach(a=>a.classList.toggle('active',a===cur));},{passive:true});
+const aside=document.querySelector('aside'),btn=document.getElementById('tocBtn');
+btn.addEventListener('click',()=>aside.classList.toggle('open'));
+aside.addEventListener('click',e=>{if(e.target.tagName==='A')aside.classList.remove('open')});
+</script>
+</body>
+</html>

@@ -428,9 +428,6 @@
           .then(function (reg) { log('SW registered: ' + reg.scope); })
           .catch(function (err) { log('SW registration failed: ' + err); });
       }
-          });
-        });
-      }
 
       window.addEventListener('appinstalled', function () {
         log('App installed');
@@ -597,7 +594,6 @@
     initChapterTracking();
     initDarkMode();
     initRevisionMode();
-    initFontSize();
     initSearch();
     initKeyTerms();
     initPWA();

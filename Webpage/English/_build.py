@@ -4,11 +4,17 @@ import re, pathlib
 ROOT = pathlib.Path(r"F:\Study OS\Webpage\English")
 CHAPTERS = [
     (r"F:\Study OS\English Markdown\Ch 1 - The Portrait of a Lady (Rewritten Notes).md",
-     "Chapter-1-The-Portrait-of-a-Lady.html", 1),
+     "Chapter-1-The-Portrait-of-a-Lady.html", 1, "Hornbill"),
     (r"F:\Study OS\English Markdown\Ch 2 - We're Not Afraid to Die (Rewritten Notes).md",
-     "Chapter-2-Were-Not-Afraid-to-Die.html", 2),
+     "Chapter-2-Were-Not-Afraid-to-Die.html", 2, "Hornbill"),
     (r"F:\Study OS\English Markdown\Ch 3 - Discovering Tut (Rewritten Notes).md",
-     "Chapter-3-Discovering-Tut.html", 3),
+     "Chapter-3-Discovering-Tut.html", 3, "Hornbill"),
+    (r"F:\Study OS\English Markdown\Ch 1 - The Summer of the Beautiful White Horse (Rewritten Notes).md",
+     "Chapter-1-The-Summer-of-the-Beautiful-White-Horse.html", 1, "Snapshots"),
+    (r"F:\Study OS\English Markdown\Ch 2 - The Address (Rewritten Notes).md",
+     "Chapter-2-The-Address.html", 2, "Snapshots"),
+    (r"F:\Study OS\English Markdown\Ch 3 - Mother's Day (Rewritten Notes).md",
+     "Chapter-3-Mothers-Day.html", 3, "Snapshots"),
 ]
 
 def esc(s):
@@ -93,7 +99,7 @@ def parse(md):
             cur["blocks"].append(("hr", "")); continue
         if s.startswith("**Contents:**"):
             continue
-        if s.startswith("**Author:**"):
+        if s.startswith("**Author"):
             subtitle = inline(s); continue
         m2 = re.match(r"^###\s+(.*)$", s)
         mh2 = re.match(r"^##\s+(.*)$", s)
@@ -182,7 +188,7 @@ btn.addEventListener('click',()=>aside.classList.toggle('open'));
 aside.addEventListener('click',e=>{if(e.target.tagName==='A')aside.classList.remove('open')});
 """
 
-def page_html(ch, title, subtitle, sections, pre_blocks):
+def page_html(ch, title, subtitle, sections, pre_blocks, book):
     toc = ['<div class="toc-title">Contents</div>']
     body = []
     n = 0
@@ -249,68 +255,67 @@ __BODY__
 </main>
 </div>
 <button id="tocBtn" aria-label="Open contents">&#9776;</button>
-<footer>Source: NCERT Hornbill (Class XI) chapter notes &middot; English Notes</footer>
+<footer>__FOOT__</footer>
 <script>__JS__</script>
 </body>
 </html>"""
     for k, v in {
-        "__PAGETITLE__": esc(title), "__CSS__": CSS, "__META__": f"Class XI &middot; Chapter {ch}",
-        "__TOC__": "\n".join(toc), "__BADGE__": f"Hornbill &middot; Class XI &middot; Chapter {ch}",
+        "__PAGETITLE__": esc(title), "__CSS__": CSS,
+        "__META__": f"Class XI &middot; {book} &middot; Chapter {ch}",
+        "__TOC__": "\n".join(toc),
+        "__BADGE__": f"{book} &middot; Class XI &middot; Chapter {ch}",
         "__H1__": inline(title), "__SUBTITLE__": subtitle, "__BODY__": "\n".join(body), "__JS__": JS,
+        "__FOOT__": f"Source: NCERT {book} (Class XI) chapter notes &middot; English Notes",
     }.items():
         html = html.replace(k, v)
     return html
-
-CARDS = [
-    ("Chapter-1-The-Portrait-of-a-Lady.html", 1),
-    ("Chapter-2-Were-Not-Afraid-to-Die.html", 2),
-    ("Chapter-3-Discovering-Tut.html", 3),
-]
 
 INDEX = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>English Notes &middot; Hornbill Class XI</title>
+<title>English Notes &middot; Class XI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 <style>__CSS__</style>
 </head>
 <body>
-<nav class="nav"><span class="logo">English Notes</span><span class="meta">Class XI &middot; Hornbill</span></nav>
+<nav class="nav"><span class="logo">English Notes</span><span class="meta">Class XI &middot; Hornbill &amp; Snapshots</span></nav>
 <div class="wrap" style="display:block;max-width:900px">
 <div class="hero fade-in" style="animation-delay:.05s">
-<span class="badge">NCERT Hornbill &middot; Class XI</span>
+<span class="badge">NCERT English Core &middot; Class XI</span>
 <h1>English Chapter Notes</h1>
 <p class="subtitle">Rewritten study notes from the chapter PDFs &mdash; summaries, exam answers, vocabulary and themes.</p>
 </div>
-<div class="cards">
-__CARDS__
+__GROUPS__
 </div>
-</div>
-<footer>Source: NCERT Hornbill (Class XI) chapter notes &middot; English Notes</footer>
+<footer>Source: NCERT Hornbill &amp; Snapshots (Class XI) chapter notes &middot; English Notes</footer>
 </body>
 </html>"""
 
 def build():
     ROOT.mkdir(parents=True, exist_ok=True)
     metas = []
-    for src, out, ch in CHAPTERS:
+    for src, out, ch, book in CHAPTERS:
         title, subtitle, sections, pre_blocks = parse(pathlib.Path(src).read_text(encoding="utf-8"))
-        (ROOT / out).write_text(page_html(ch, title, subtitle, sections, pre_blocks), encoding="utf-8")
-        metas.append((out, ch, title, subtitle))
-        print(f"{out}: {len(sections)} sections, {len(title)} chars title")
-    cards = []
-    for out, ch, title, subtitle in metas:
-        short = re.sub(r"^Ch\s*\d+\s*[—-]\s*", "", title)
-        cards.append(
-            f'<a class="card fade-in" style="animation-delay:.{len(cards)+1}s" href="{out}">'
-            f'<span class="badge">Chapter {ch}</span>'
-            f'<h2 style="border:none;margin:10px 0 8px">{inline(short)}</h2>'
-            f'<p style="margin:0;color:var(--muted);font-size:14px">{subtitle}</p></a>')
-    idx = INDEX.replace("__CSS__", CSS).replace("__CARDS__", "\n".join(cards))
+        (ROOT / out).write_text(page_html(ch, title, subtitle, sections, pre_blocks, book), encoding="utf-8")
+        metas.append((out, ch, title, subtitle, book))
+        print(f"{out}: {len(sections)} sections")
+    groups = []
+    for bi, book in enumerate(["Hornbill", "Snapshots"]):
+        cards = []
+        for out, ch, title, subtitle, bk in [m for m in metas if m[4] == book]:
+            short = re.sub(r"^Ch\s*\d+\s*[—-]\s*", "", title)
+            cards.append(
+                f'<a class="card fade-in" style="animation-delay:.{len(cards)+1}s" href="{out}">'
+                f'<span class="badge">Chapter {ch}</span>'
+                f'<h2 style="border:none;margin:10px 0 8px">{inline(short)}</h2>'
+                f'<p style="margin:0;color:var(--muted);font-size:14px">{subtitle}</p></a>')
+        groups.append(f'<h2 style="font-size:20px;margin:{0 if bi == 0 else 30}px 0 14px">{book}</h2>\n'
+                      f'<div class="cards">\n' + "\n".join(cards) + "\n</div>")
+    idx = INDEX.replace("__CSS__", CSS).replace("__GROUPS__", "\n".join(groups))
     idx = idx.replace("</style>", ".cards{display:grid;gap:18px}.card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 24px;text-decoration:none;color:var(--text);box-shadow:0 1px 3px rgba(27,27,27,.05);transition:box-shadow .2s}.card:hover{box-shadow:0 6px 18px rgba(27,27,27,.09)}h2{font-size:23px}</style>")
     (ROOT / "index.html").write_text(idx, encoding="utf-8")
     print("index.html written")

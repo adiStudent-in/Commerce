@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch 3 — Mother's Day (Play)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#1a5e4a;--accent-light:#e8f0ec;--bg:#faf8f5;--surface:#ffffff;--text:#1b1b1b;--muted:#6b6b6b;--border:#e8e4de}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15.5px}
+.nav{position:fixed;top:0;left:0;right:0;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(250,248,245,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:300}
+.logo{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;color:var(--accent);text-decoration:none}
+.meta{font-size:13px;color:var(--muted)}
+#progress{position:fixed;top:60px;left:0;height:2px;width:0;background:var(--accent);z-index:300}
+.wrap{display:flex;gap:44px;max-width:1200px;margin:0 auto;padding:104px 28px 40px}
+aside{width:260px;flex-shrink:0;position:sticky;top:84px;max-height:calc(100vh - 110px);overflow-y:auto;padding-right:6px}
+aside::-webkit-scrollbar{width:4px}
+aside::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+aside .toc-title{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:0 12px 10px;font-weight:600}
+aside a{display:block;padding:6px 12px;font-size:13.5px;color:var(--muted);text-decoration:none;border-left:2px solid transparent;line-height:1.45}
+aside a.sub{padding-left:26px;font-size:12.8px}
+aside a:hover,aside a.active{color:var(--accent);border-left-color:var(--accent)}
+main{flex:1;min-width:0;max-width:820px}
+.hero{margin-bottom:36px}
+.badge{display:inline-block;background:var(--accent-light);color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;padding:5px 14px;border-radius:999px;margin-bottom:16px}
+h1{font-family:'Playfair Display',serif;font-weight:700;font-size:38px;letter-spacing:-.025em;line-height:1.2;margin-bottom:12px}
+.subtitle{font-size:16px;color:var(--muted)}
+section{scroll-margin-top:84px}
+h2{font-family:'Playfair Display',serif;font-weight:600;font-size:26px;border-bottom:1px solid var(--border);padding-bottom:10px;margin:14px 0 22px;line-height:1.3}
+h3{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;margin:30px 0 12px;line-height:1.35}
+p{margin:0 0 16px}
+ul{margin:0 0 16px;padding-left:22px}
+li{margin-bottom:8px}
+blockquote{background:var(--accent-light);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:16px;margin:18px 0;line-height:1.65}
+blockquote p{margin:0}
+.callout{background:#fff8e5;border-left:3px solid #d4a12a;padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0 18px;font-size:14.5px}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;box-shadow:0 1px 3px rgba(27,27,27,.05);margin:18px 0 22px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--accent-light);color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:.04em;text-align:left;padding:10px 14px}
+td{padding:10px 14px;vertical-align:top;border-top:1px solid var(--border)}
+tbody tr:hover td{background:#f5f3ef}
+td:first-child{font-weight:600;white-space:nowrap}
+hr{border:none;height:1px;background:var(--border);margin:38px 0}
+footer{text-align:center;padding:34px 20px 42px;color:var(--muted);font-size:13px;border-top:1px solid var(--border)}
+.fade-in{animation:fadeUp .6s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+#tocBtn{display:none;position:fixed;bottom:22px;right:22px;width:50px;height:50px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:19px;z-index:320;box-shadow:0 4px 14px rgba(26,94,74,.35);cursor:pointer}
+@media(max-width:900px){
+ .wrap{flex-direction:column;padding:96px 20px 40px}
+ aside{position:fixed;left:0;right:0;bottom:0;top:auto;width:100%;max-height:58vh;background:var(--surface);border-top:1px solid var(--border);box-shadow:0 -6px 24px rgba(27,27,27,.12);transform:translateY(102%);transition:transform .3s ease;z-index:310;padding:14px 20px 22px}
+ aside.open{transform:none}
+ #tocBtn{display:block}
+}
+@media(max-width:600px){
+ h1{font-size:28px} h2{font-size:22px} h3{font-size:18px}
+ th,td{font-size:13px;padding:8px 10px}
+ .meta{display:none} body{font-size:15px}
+}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="logo" href="index.html">English Notes</a><span class="meta">Class XI &middot; Snapshots &middot; Chapter 3</span></nav>
+<div id="progress"></div>
+<div class="wrap">
+<aside><div class="toc-title">Contents</div>
+<a href="#1-characters-setting">1. Characters &amp; Setting</a>
+<a href="#2-the-fortune-the-body-swap">2. The Fortune &amp; the Body Swap</a>
+<a href="#3-doris-gets-a-shock">3. Doris Gets a Shock</a>
+<a href="#4-cyril-the-forty-hour-week">4. Cyril &amp; the Forty-Hour Week</a>
+<a href="#5-george-pompy-ompy-pearson">5. George — Pompy-Ompy Pearson</a>
+<a href="#6-changing-back-the-firm-hand">6. Changing Back &amp; the Firm Hand</a>
+<a href="#7-exam-corner">7. Exam Corner 📝✅</a>
+<a class="sub" href="#long-answer-exam-ready">Long Answer (Exam-Ready)</a>
+<a class="sub" href="#expected-questions-pointers">Expected Questions &amp; Pointers ✅</a>
+<a href="#8-keywords-vocabulary">8. Keywords / Vocabulary 🔑</a>
+<a href="#9-theme-message">9. Theme &amp; Message 💡</a>
+<a class="sub" href="#last-minute-revision-hook">Last-minute revision hook 🧠</a></aside>
+<main>
+<div class="hero fade-in" style="animation-delay:.05s">
+<span class="badge">Snapshots &middot; Class XI &middot; Chapter 3</span>
+<h1>Ch 3 — Mother's Day (Play)</h1>
+<p class="subtitle"><strong>Author:</strong> J.B. Priestley · <strong>Book:</strong> Snapshots (Class 11 Supplementary Reader) · <strong>Type:</strong> One-act comedy/satire on the status of the mother in the family</p>
+</div>
+<blockquote><p>One line to remember: <em>Doormat Mrs Pearson is ordered about by her spoilt husband and children until fortune-teller neighbour Mrs Fitzgerald magically swaps bodies with her; as "Mrs Pearson" she shocks each family member with cold truths — no tea, stout, "Pompy-ompy Pearson" — and wins respect: a firm hand turns servants' treatment into a family game of rummy.</em></p></blockquote>
+<section class="fade-in" style="animation-delay:0.06s"><h2 id="1-characters-setting">1. Characters &amp; Setting</h2><p>Living-room of the Pearsons' small semi-detached villa in a <strong>London suburb</strong>, an afternoon in early autumn, present day. <strong>Mrs Annie Pearson</strong> — pleasant but worried, in her forties, speaks in a light, flurried suburban tone. <strong>Mrs Fitzgerald</strong> — older, heavier, strong and sinister personality, deep voice, smokes; a <strong>real fortune-teller</strong> who learnt cards (and other tricks) during <strong>twelve years "out East"</strong> where her husband rose to be Lieutenant Quartermaster. The spoilt family: <strong>Doris</strong> — pretty daughter in her early twenties; <strong>Cyril</strong> — her masculine counterpart; <strong>George Pearson</strong> — about fifty, fundamentally decent but solemn, self-important and pompous.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.12s"><h2 id="2-the-fortune-the-body-swap">2. The Fortune &amp; the Body Swap</h2><p>Mrs Fitzgerald lays down the cards: the fortune "could be good or bad" — all depends on Mrs Pearson now: <strong>"Put your foot down… an' be the mistress of your own house an' the boss of your own family."</strong> Her husband and children give her orders as if she were the servant, go out enjoying themselves nightly while she stays home; being spoilt is <em>"the ruin of them as well as you."</em> But Mrs Pearson, too fond of them and hating unpleasantness, only "keeps dropping a hint." Since she cannot speak up herself, Mrs Fitzgerald proposes the impossible: <strong>they change places — or really bodies</strong> — using an occult chant learnt out East (<em>"Arshtatta dum—arshtatta lam—arshtatta lamdumbona"</em>). After the swap, Mrs Fitzgerald's body carries Mrs Pearson's timid soul (alarmed, sent next door), while Mrs Pearson's body houses the bold, dominating visitor: <em>"They'll have me to deal with — only they won't know it."</em></p><hr></section>
+<section class="fade-in" style="animation-delay:0.18s"><h2 id="3-doris-gets-a-shock">3. Doris Gets a Shock</h2><p>Doris bursts in demanding her <strong>yellow silk</strong> be ironed for her evening out with <strong>Charlie Spence</strong> — and finds Mum smoking and playing patience. No tea has been made ("Yours isn't"), and Mrs Pearson may go out for a square meal at the Clarendon. When Doris protests she has worked hard all day, she gets it back twice over: <em>"I put in twice the hours you do, and get no wages nor thanks for it."</em> She mocks Charlie Spence — <strong>buck teeth and half-witted</strong>: "When I was your age I'd have found somebody better." Doris runs out nearly in tears.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.24s"><h2 id="4-cyril-the-forty-hour-week">4. Cyril &amp; the Forty-Hour Week</h2><p>Cyril, briskly asking for tea, is told she <strong>couldn't bother</strong>; his things weren't put out because she's "decided I don't like mending." His logic — at work you get the Union to bar what you dislike — is turned on him: <em>"Now all that's happened is that I've joined the movement… Changes."</em> To the whispering, giggling pair she announces her new terms: they claim an <strong>eight-hour day</strong>, so she now works a <strong>forty-hour week</strong> — <em>"Just watch it at the weekend when I have my two days off"</em> — though as a favour she might make a bed or cook <strong>if asked very nicely and thanked</strong>; she might even go off for the week-end herself.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.30s"><h2 id="5-george-pompy-ompy-pearson">5. George — Pompy-Ompy Pearson</h2><p>George enters, pompous, scandalised by the stout at that hour, and announces he needs no tea because of <strong>special snooker night at the club</strong>. She skewers him: annoyed about tea he doesn't even want — try telling the club bar that. Then the cruel truth: the club members laugh at him behind his back and call him <strong>"Pompy-ompy Pearson"</strong> because he is slow and pompous, while he leaves his wife home night after night. Cyril, asked directly, admits: <em>"Well — yes, Dad, I'm afraid they do."</em> George staggers out "as if somebody had hit him over the head." Later, when Cyril rudely calls Mrs Fitzgerald "that silly old bag," he is silenced as a <strong>"silly, spoilt, young piecan"</strong>; George is lectured on manners and warned: <em>"If you shout at me again like that, George Pearson, I'll slap your big, fat, silly face."</em></p><hr></section>
+<section class="fade-in" style="animation-delay:0.36s"><h2 id="6-changing-back-the-firm-hand">6. Changing Back &amp; the Firm Hand</h2><p>The real Mrs Fitzgerald-in-Mrs-Pearson's-body cannot bear the family's misery and insists on swapping back. Once restored, she coaches her friend sternly: <strong>don't go soft, don't explain or apologise — or you're done for</strong>; just give them a look or a tone now and then suggesting you might be tough. The test comes at once. The apprehensive family is told: tonight there'll be <strong>a nice family game of rummy</strong>, then the children will get the supper ready <strong>while Mother has a talk with Father</strong>. Humbled, George answers, "Suits me"; Doris hastily agrees it would be lovely — and the curtain falls with the family clustered round Mother.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.42s"><h2 id="7-exam-corner">7. Exam Corner 📝✅</h2><h3 id="long-answer-exam-ready">Long Answer (Exam-Ready)</h3><p><em>"The play raises the issue of the status of the mother in the family. How does it resolve it? Do you agree with the resolution?"</em></p><p>Written as humour with a satirical edge, the play shows Mrs Annie Pearson treated as an unpaid servant: Doris expects her silk ironed, Cyril his things laid out, George his tea kept ready — orders given, never thanks, while she stays home every night. The issues are genuine and universal even today: the homemaker taken for granted, denied leisure, wages or respect. The resolution arrives through Priestley's comic fantasy — the assertive Mrs Fitzgerald swaps bodies with her and, as Mrs Pearson, refuses tea, drinks stout, exposes Doris's choice of Charlie Spence, teaches Cyril the meaning of a forty-hour week, and punctures George's pomposity with the club's nickname for him, "Pompy-ompy Pearson." Back in her own body, coached never to explain or apologise, Mrs Pearson holds firm: rummy together, supper cooked by the children, a talk with her husband — and the family, relieved and respectful, clusters round her. The resolution is acceptable because the play insists not on revenge but on <strong>assertion with affection</strong>: the mother does not abandon love, she demands dignity. One may add a caveat — lasting change needs the family's willing change of heart, not fear alone; still, as a dramatic lesson that mothers must "put their foot down," it lands perfectly.</p><h3 id="expected-questions-pointers">Expected Questions &amp; Pointers ✅</h3><p><strong>Q1. Contrast Mrs Pearson and Mrs Fitzgerald.</strong><br>→ Mrs Pearson: pleasant, worried, fortyish, flurried voice, fond of family, hates unpleasantness, drops hints, can't say no. Mrs Fitzgerald: older, heavier, strong and sinister, deep Irish-ish voice, smokes, experienced fortune-teller (12 years out East), bold, decisive — supplies the courage Mrs Pearson lacks.</p><p><strong>Q2. What did Mrs Pearson say/do to each family member?</strong><br>→ <strong>Doris:</strong> no tea made, mocked yellow silk &amp; Charlie Spence ("buck teeth and half-witted"), reduced her to tears. <strong>Cyril:</strong> "I couldn't bother" about tea and mending; joined "the movement"; forty-hour week, two days off. <strong>George:</strong> laughed away his tea grievance; revealed the club's "Pompy-ompy Pearson" mockery; threatened to slap his "big, fat, silly face" if shouted at; demanded manners towards guests.</p><p><strong>Q3. Why did Mrs Fitzgerald suggest changing places? Was it justified?</strong><br>→ Mrs Pearson admitted she couldn't confront her family however much she tried, so the stronger neighbour lent her own bold personality through the occult body-swap. Dramatically justified: only shock could wake a family deaf to hints; and she later guides the gentle restoration so affection survives.</p><p><strong>Q4. How was George's vanity punctured?</strong><br>→ Told bluntly that club-mates call him "Pompy-ompy Pearson," laughing behind his back while he left his wife home nightly; son Cyril confirmed it — leaving the self-important man dazed, "as if somebody had hit him over the head."</p><p><strong>Q5. What changes came over the family at the end?</strong><br>→ Apprehension replaced arrogance: George humbly says "whatever you say / Suits me"; Cyril and Doris agree hastily to cook supper; the family stays home for rummy with Mother — attention, thanks and company replace orders and absence.</p><p><strong>Q6. Is drama a good medium for a social message?</strong><br>→ Yes — live characters make abstract injustice visible; laughter lowers defences, so satire enters without sermonising; the audience both laughs at and recognises itself, which discussion and enactment (reading parts aloud) turn into reflection.</p><hr></section>
+<section class="fade-in" style="animation-delay:0.48s"><h2 id="8-keywords-vocabulary">8. Keywords / Vocabulary 🔑</h2><div class="table-wrap"><table><thead><tr><th>Word</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Fortune-teller</strong></td><td>भविष्य बताने वाली — one who reads cards/palm to predict future</td></tr><tr><td><strong>Sinister</strong></td><td>भयावह / डरावना — threatening, ominous</td></tr><tr><td><strong>Put your foot down</strong></td><td>सख़्ती दिखाना / डट जाना — be firm, insist decisively</td></tr><tr><td><strong>Flurried</strong></td><td>घबराई हुई — nervously hurried</td></tr><tr><td><strong>Dubiously</strong></td><td>संदेहभरे ढंग से — doubtfully</td></tr><tr><td><strong>Laconic</strong></td><td>अल्पशब्द — speaking very briefly</td></tr><tr><td><strong>Piecan</strong></td><td>मूर्ख / बच्चा — silly young person (slang)</td></tr><tr><td><strong>Barmy / Tiddly</strong></td><td>पागल / हल्के नशे में — crazy / slightly drunk (British slang)</td></tr><tr><td><strong>Stout</strong></td><td>गहरी मज़बूत बीयर — strong dark beer</td></tr><tr><td><strong>Sixes and sevens</strong></td><td>अस्त-व्यस्त — state of confusion/disorder</td></tr><tr><td><strong>Pompous</strong></td><td>आडंबरपूर्ण — self-important, solemn show of dignity</td></tr><tr><td><strong>Guffaw</strong></td><td>ठहाका — loud coarse laughter</td></tr><tr><td><strong>Blubbering</strong></td><td>सिसकियाँ भरना — crying noisily</td></tr><tr><td><strong>Rummy</strong></td><td>ताश का एक खेल — card game for groups</td></tr><tr><td><strong>Clot</strong></td><td>मूर्ख — fool (mild British insult)</td></tr><tr><td><strong>Lieutenant Quartermaster</strong></td><td>सेना का पूर्ति अधिकारी — army officer in charge of supplies</td></tr></tbody></table></div><hr></section>
+<section class="fade-in" style="animation-delay:0.50s"><h2 id="9-theme-message">9. Theme &amp; Message 💡</h2><ul><li><strong>The unpaid servant at home</strong> — a wife/mother working round the clock for "no wages nor thanks" is taken as natural; the play calls this ruin "of them as well as you."</li><li><strong>Spoiling harms everyone</strong> — children and husbands who order mothers about grow selfish and hollow; respect must be taught at home.</li><li><strong>Assertiveness, not aggression</strong> — the cure is putting your foot down firmly, without apology; meekness invites exploitation.</li><li><strong>Fantasy as social surgery</strong> — the body-swap device lets a timid woman borrow courage and lets the audience see both sides (Fitzgerald soon begs to stop — toughness also has limits).</li><li><strong>Balance restored with love</strong> — the goal is not a tyrant mother but a family that asks nicely, thanks warmly, and plays rummy together.</li></ul><h3 id="last-minute-revision-hook">Last-minute revision hook 🧠</h3><div class="callout"><strong>Cards read → "Put your foot down!" → body swap (Arshtatta…) → Doris: yellow silk + Charlie Spence → tears → Cyril: no tea, "joined the movement", 40-hr week → stout shocks George → "Pompy-ompy Pearson" (Cyril confirms!) → slap threat → Fitzgerald begs swap-back → advice: don't explain/apologise, keep firm → rummy + kids cook supper → family clusters round Mother</strong></div></section>
+</main>
+</div>
+<button id="tocBtn" aria-label="Open contents">&#9776;</button>
+<footer>Source: NCERT Snapshots (Class XI) chapter notes &middot; English Notes</footer>
+<script>
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';let cur=null;document.querySelectorAll('aside a').forEach(a=>{const t=document.getElementById(a.getAttribute('href').slice(1));if(t&&t.offsetTop-120<=h.scrollTop)cur=a});document.querySelectorAll('aside a').forEach(a=>a.classList.toggle('active',a===cur));},{passive:true});
+const aside=document.querySelector('aside'),btn=document.getElementById('tocBtn');
+btn.addEventListener('click',()=>aside.classList.toggle('open'));
+aside.addEventListener('click',e=>{if(e.target.tagName==='A')aside.classList.remove('open')});
+</script>
+</body>
+</html>
