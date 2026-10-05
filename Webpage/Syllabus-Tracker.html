@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syllabus Tracker — Class XI (2026-27) | Study OS</title>
+  <meta name="description" content="Complete Class 11 syllabus tracker (DOE 2026-27): Accountancy, Business Studies, Economics, English Core and Mathematics — Mid-Term + Final Term, with progress tracking.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/study-os.css">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --gold: #9a6b12;
+      --gold-light: #fdf3e0;
+      --gold-border: #ecd9a8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #121212;
+      --surface: #1e1e1e;
+      --text: #e4e4e4;
+      --text-muted: #9a9a9a;
+      --accent-light: #1a3d32;
+      --border: #333333;
+      --code-bg: #2a2a2a;
+      --gold: #d4a12a;
+      --gold-light: #3a2f14;
+      --gold-border: #5a4a1a;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navigation ─── */
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    html[data-theme="dark"] nav.top-nav { background: rgba(18,18,18,0.85); }
+
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    html[data-theme="dark"] nav.top-nav .logo { color: #2a9d7a; }
+
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+
+    nav.top-nav .nav-right { display: flex; align-items: center; gap: 8px; }
+    nav.top-nav .meta { font-size: 13px; color: var(--text-muted); }
+
+    /* ─── Layout ─── */
+    .wrapper {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      gap: 40px;
+    }
+
+    /* ─── Sidebar (TOC) ─── */
+    aside.toc {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    aside.toc h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    aside.toc a {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    aside.toc a:hover,
+    aside.toc a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    html[data-theme="dark"] aside.toc a:hover,
+    html[data-theme="dark"] aside.toc a.active { color: #2a9d7a; }
+
+    /* ─── Main Content ─── */
+    main.content {
+      flex: 1;
+      max-width: var(--max-width);
+      min-width: 0;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .hero .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    html[data-theme="dark"] .hero .chapter-badge { color: #2a9d7a; }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ─── Dashboard ─── */
+    .syl-dashboard {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+
+    .syl-dashboard .dash-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .syl-dashboard .dash-top h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 22px;
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .syl-dashboard .dash-count {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .syl-dashboard .dash-count strong { color: var(--accent); font-size: 20px; }
+
+    .dash-bar {
+      height: 10px;
+      background: var(--border);
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 12px 0 20px;
+    }
+
+    .dash-bar .fill {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      border-radius: 5px;
+      transition: width 0.4s ease;
+    }
+
+    /* filter + reset row */
+    .dash-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .filter-btn {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .filter-btn.active {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    html[data-theme="dark"] .filter-btn.active { color: #2a9d7a; }
+
+    .reset-btn {
+      margin-left: auto;
+      font-family: var(--font-body);
+      font-size: 13px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .reset-btn:hover { color: #c0392b; }
+
+    .dash-rows { display: flex; flex-direction: column; gap: 10px; }
+
+    .dash-row { display: flex; align-items: center; gap: 12px; }
+
+    .dash-row .sp-name { min-width: 130px; font-size: 14px; font-weight: 500; }
+
+    .dash-row .sp-bar {
+      flex: 1;
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .dash-row .sp-bar .fill {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+
+    .dash-row .sp-count { font-size: 12.5px; color: var(--text-muted); min-width: 64px; text-align: right; }
+
+    .hide-h2 { display: none; }
+
+    .marks-line {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin: -8px 0 16px;
+    }
+
+    .marks-tag {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    html[data-theme="dark"] .marks-tag { color: #2a9d7a; }
+
+    .callout.blueprint {
+      background: var(--accent-light);
+      border-left-color: var(--accent);
+      color: var(--text);
+    }
+
+    .callout.blueprint h3 {
+      margin-top: 0;
+      font-size: 17px;
+      color: var(--accent);
+    }
+
+    html[data-theme="dark"] .callout.blueprint h3 { color: #2a9d7a; }
+
+    .callout.blueprint ul { margin: 8px 0 4px; padding-left: 22px; }
+    .callout.blueprint li { margin-bottom: 6px; }
+    .callout.blueprint strong { color: var(--accent); }
+
+    html[data-theme="dark"] .callout.blueprint strong { color: #2a9d7a; }
+
+    /* ─── Sections ─── */
+    section { margin-bottom: 48px; }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.35;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    section h4 {
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    section p { margin-bottom: 14px; color: var(--text); }
+
+    section a { color: var(--accent); }
+
+    .src-note {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      margin-bottom: 20px;
+    }
+
+    .ref-note {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+
+    /* ─── Pills ─── */
+    .pill {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-left: 8px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .pill-mid { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent); }
+    html[data-theme="dark"] .pill-mid { color: #2a9d7a; border-color: #2a9d7a; }
+    .pill-final { background: var(--gold-light); color: var(--gold); border: 1px solid var(--gold-border); }
+    .pill-form { background: var(--code-bg); color: var(--text-muted); border: 1px solid var(--border); }
+
+    .legend { display: flex; flex-direction: column; gap: 8px; margin: 12px 0 16px; }
+    .legend-row { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+    .legend-row .pill { margin-left: 0; }
+
+    /* ─── Callout ─── */
+    .callout {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: #5a4a1a;
+    }
+
+    html[data-theme="dark"] .callout { background: #2a2417; color: #e0c98a; }
+
+    .callout h3 { margin-top: 0; font-size: 17px; color: #5a4a1a; }
+    html[data-theme="dark"] .callout h3 { color: #e0c98a; }
+    .callout ul { margin: 8px 0 4px; padding-left: 22px; }
+    .callout li { margin-bottom: 6px; }
+    .callout strong { color: #7a5c10; }
+    html[data-theme="dark"] .callout strong { color: #f0d48a; }
+
+    /* ─── Tables ─── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; }
+    table thead { background: var(--accent-light); }
+    table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    html[data-theme="dark"] table th { color: #2a9d7a; }
+    table td { padding: 10px 14px; border-top: 1px solid var(--border); color: var(--text); vertical-align: top; }
+    table tbody tr:first-child td { border-top: none; }
+    table tbody tr:hover { background: #f5f3ef; }
+    html[data-theme="dark"] table tbody tr:hover { background: #262626; }
+    table td:first-child { font-weight: 500; }
+
+    /* ─── Tracker lists ─── */
+    ul.track-list { list-style: none; margin: 10px 0 16px; padding: 0; }
+    ul.track-list ul.track-list { margin: 6px 0 6px; padding-left: 30px; }
+
+    li.track { margin-bottom: 4px; border-radius: 6px; }
+
+    .trow {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      line-height: 1.55;
+    }
+
+    .trow:hover { background: var(--accent-light); }
+
+    .trow .syl-check {
+      flex-shrink: 0;
+      width: 17px;
+      height: 17px;
+      margin-top: 4px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .trow .txt { flex: 1; font-size: 14.5px; }
+    .trow .txt strong { font-weight: 600; }
+    .trow .txt code {
+      font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 12.5px;
+      background: var(--code-bg);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    li.track.done > .trow .txt { color: var(--text-muted); }
+    li.track.done > .trow { background: var(--accent-light); }
+
+    li.track.checkpoint > .trow {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+    }
+
+    html[data-theme="dark"] li.track.checkpoint > .trow { background: #2a2417; }
+    li.track.checkpoint.done > .trow .txt { color: var(--text-muted); }
+
+    .hide { display: none !important; }
+
+    /* ─── Dividers ─── */
+    hr { border: none; height: 1px; background: var(--border); margin: 40px 0; }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    footer p { font-size: 13px; color: var(--text-muted); }
+
+    /* ─── Progress ─── */
+    .progress-bar {
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      height: 2px;
+      z-index: 99;
+      background: transparent;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    /* ─── Mobile Toggle ─── */
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ─── Animations ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        top: auto;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150;
+        transition: max-height 0.35s ease;
+        padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      aside.toc h3 { margin-bottom: 12px; }
+      .toc-toggle { display: block; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .dash-row .sp-name { min-width: 96px; font-size: 13px; }
+      ul.track-list ul.track-list { padding-left: 20px; }
+      .syl-dashboard { padding: 18px 16px; }
+    }
+
+    @media print {
+      nav.top-nav, aside.toc, .toc-toggle, .progress-bar,
+      .syl-dashboard .dash-controls, .search-overlay, footer { display: none !important; }
+      .syl-dashboard { box-shadow: none; }
+      body { font-size: 11pt; background: #fff !important; color: #000 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="top-nav">
+    <a href="index.html" class="logo">← Notes <span>Hub</span></a>
+    <span class="nav-right">
+      <span class="meta">Class 11 · Syllabus 2026-27</span>
+      <button class="dark-toggle" aria-label="Toggle dark mode" style="width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;font-size:16px;padding:0;line-height:1;">🌙</button>
+      <button class="search-toggle tool-btn" aria-label="Search" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">🔍</button>
+    </span>
+  </nav>
+
+  <!-- Progress -->
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+  <!-- Mobile TOC Toggle -->
+  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">☰ Contents</button>
+
+  <!-- Layout -->
+  <div class="wrapper">
+
+    <!-- Sidebar TOC -->
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+<a href="#overview" class="toc-h2">Overview</a>
+<a href="#accountancy" class="toc-h2">Accountancy</a>
+<a href="#business-studies" class="toc-h2">Business Studies</a>
+<a href="#economics" class="toc-h2">Economics</a>
+<a href="#english-core" class="toc-h2">English Core</a>
+<a href="#mathematics" class="toc-h2">Mathematics</a>
+<a href="#term-checklists" class="toc-h2">Term Checklists</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- Hero -->
+      <header class="hero fade-in">
+        <span class="chapter-badge">Class XI · DOE 2026-27</span>
+        <h1>Syllabus Tracker</h1>
+        <p class="subtitle">Complete Class 11 syllabus — Accountancy, Business Studies, Economics, English &amp; Maths · Mid-Term + Final Term. Tick boxes as you finish; progress saves automatically.</p>
+      </header>
+
+      <!-- Dashboard -->
+      <div class="syl-dashboard fade-in" id="sylDashboard">
+        <div class="dash-top">
+          <h2>Overall Progress</h2>
+          <span class="dash-count"><strong id="sylPct">0%</strong> · <span id="sylCount">0 of 0 done</span></span>
+        </div>
+        <div class="dash-bar"><div class="fill" id="sylBar"></div></div>
+        <div class="dash-controls">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="mid">Mid-Term</button>
+          <button class="filter-btn" data-filter="final">Final Term</button>
+          <button class="reset-btn" id="sylReset">Reset progress</button>
+        </div>
+        <div class="dash-rows">
+          <div class="dash-row" data-sec="accountancy"><span class="sp-name">Accountancy</span><span class="sp-bar"><span class="fill"></span></span><span class="sp-count"></span></div>
+          <div class="dash-row" data-sec="business-studies"><span class="sp-name">Business Studies</span><span class="sp-bar"><span class="fill"></span></span><span class="sp-count"></span></div>
+          <div class="dash-row" data-sec="economics"><span class="sp-name">Economics</span><span class="sp-bar"><span class="fill"></span></span><span class="sp-count"></span></div>
+          <div class="dash-row" data-sec="english-core"><span class="sp-name">English Core</span><span class="sp-bar"><span class="fill"></span></span><span class="sp-count"></span></div>
+          <div class="dash-row" data-sec="mathematics"><span class="sp-name">Mathematics</span><span class="sp-bar"><span class="fill"></span></span><span class="sp-count"></span></div>
+          <div class="dash-row" data-sec="term-checklists"><span class="sp-name">Term Checklists</span><span class="sp-bar"><span class="fill"></span></span><span class="sp-count"></span></div>
+        </div>
+      </div>
+
+<section id="overview">
+<h2 class="hide-h2">Syllabus overview and exam blueprint</h2>
+<p class="src-note">Source: PDFs in <code>Syllabus/</code> folder (Acounts.pdf, BST.pdf, Economics.pdf, English.pdf, Maths.pdf).<br>Class XI • Session 2026-27<br>Tick the boxes as you finish &mdash; progress saves automatically in this browser.</p>
+<div class="callout deadlines"><h3>Key Deadlines</h3><ul><li>Mid-Term syllabus completion: <strong>by 5th September 2026</strong></li><li>Final Term syllabus completion: <strong>by 30th January 2027</strong></li><li>Final Term Exam: <strong>complete syllabus</strong> (English: entire syllabus except deleted lessons)</li></ul></div>
+<h3>Weightage Snapshot</h3><div class="table-wrap"><table><thead><tr><th>Subject</th><th>Theory</th><th>Theory split (theory only — projects/internal are not tracked here)</th></tr></thead><tbody><tr><td>Accountancy (055)</td><td>80</td><td>Unit-1: 12 marks (25 periods), Unit-2: 44 marks (115 periods), Unit-3: 24 marks (60 periods)</td></tr><tr><td>Business Studies (054)</td><td>80</td><td>Part A 40: U1+U2 16 · U3+U4 14 · U5+U6 10; Part B 40: U7+U8 20 · U9+U10 20</td></tr><tr><td>Economics (030)</td><td>80</td><td>Part A 40: U1+U2 15 · U3 25; Part B 40: U4 4 · U5 14 · U6 14 · U7 8</td></tr><tr><td>English Core (301)</td><td>80</td><td>Reading 26 + Grammar/Writing 23 + Literature 31</td></tr><tr><td>Mathematics (041)</td><td>80</td><td>I 23 · II 25 · III 12 · IV 8 · V 12; <code>*</code> topics = formative only, not in summative assessment</td></tr></tbody></table></div>
+<div class="callout blueprint"><h3>CBSE paper design (2026-27) — typology of questions (theory):</h3><ul><li>Accountancy / Business Studies / Economics: Remembering &amp; Understanding 32 (40%) · Applying 24 (30%) · Analysing, Evaluating &amp; Creating 24 (30%)</li><li>English Core: Reading 26 = Passage 10 + Case-based 8 + Note-making &amp; Summary 8; Grammar 7 + Writing 16 = Advt 3 + Poster 3 + Speech 5 + Debate 5; Literature 31 = Extracts 3+3+4 + Short answers 6+3 + Long answers 6+6</li><li>Mathematics: Remembering &amp; Understanding 44 (55%) · Applying 20 (25%) · Analysing/Evaluating/Creating 16 (20%); Internal 20 = Tests 10 + Activities 10; no chapter-wise weightage</li></ul></div>
+<h3>Legend</h3><div class="legend"><div class="legend-row"><span class="pill pill-mid">MID-TERM</span><span>to be done before Mid-Term Exam</span></div><div class="legend-row"><span class="pill pill-final">FINAL TERM</span><span>after Mid-Term (for Final Term Exam)</span></div><div class="legend-row"><span class="pill pill-form">FORMATIVE</span><span>(Maths) = for reinforcement, assessed formatively only — no summative weightage</span></div></div>
+<hr>
+</section>
+<section id="accountancy" data-subject="accountancy"><h2>1. Accountancy (Code 055)</h2><p class="marks-line"><span class="marks-tag">CBSE 2026&ndash;27</span> Theory 80 &middot; Unit 1 &mdash; 12 &middot; Unit 2 &mdash; 44 &middot; Unit 3 &mdash; 24</p>
+<h3>PART A: Financial Accounting-1</h3>
+<h4>Unit-1: Theoretical Framework — 25 periods, 12 marks <span class="pill pill-mid">MID-TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t001-introduction-to-accounting"><span class="txt">Introduction to Accounting</span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t002-concept-meaning-accounting-as-a-source-o"><span class="txt">Concept, meaning, accounting as a source of information</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t003-objectives-advantages-and-limitations"><span class="txt">Objectives, advantages and limitations</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t004-types-of-accounting-information"><span class="txt">Types of accounting information</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t005-users-of-accounting-information-and-thei"><span class="txt">Users of accounting information and their needs</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t006-qualitative-characteristics-of-accountin"><span class="txt">Qualitative Characteristics of Accounting Information</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t007-role-of-accounting-in-business"><span class="txt">Role of Accounting in Business</span></label></li></ul></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t008-basic-accounting-terms"><span class="txt">Basic Accounting Terms</span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t009-entity-business-transaction-capital-draw"><span class="txt">Entity, Business Transaction, Capital, Drawings</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t010-liabilities-non-current-and-current"><span class="txt">Liabilities (Non-Current and Current)</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t011-assets-non-current-current"><span class="txt">Assets (Non-Current, Current)</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t012-expenditure-capital-and-revenue-expense"><span class="txt">Expenditure (Capital and Revenue), Expense, Revenue, Income, Profit, Gain, Loss</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t013-purchase-sales-goods-stock-debtor-credit"><span class="txt">Purchase, Sales, Goods, Stock, Debtor, Creditor, Voucher</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t014-discount-trade-discount-and-cash-discoun"><span class="txt">Discount (Trade discount and Cash discount)</span></label></li></ul></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t015-theory-base-of-accounting"><span class="txt">Theory Base of Accounting</span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t016-gaap-concept-fundamental-accounting-assu"><span class="txt">GAAP: Concept; Fundamental accounting assumptions</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t017-basic-concepts-business-entity-money-mea"><span class="txt">Basic concepts: Business Entity, Money Measurement, Going Concern, Accounting Period, Cost Concept, Dual Aspect, Revenue Recognition, Matching, Full Disclosure, Consistency, Conservatism, Materiality and Objectivity</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t018-system-of-accounting-basis-of-accounting"><span class="txt">System of Accounting; Basis of Accounting: cash basis and accrual basis</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t019-accounting-standards-applicability-of-as"><span class="txt">Accounting Standards: Applicability of AS and IndAS</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t020-gst-characteristics-and-advantages"><span class="txt">GST: Characteristics and Advantages</span></label></li></ul></li></ul>
+<h4>Unit-2: Accounting Process — 115 periods, 44 marks</h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t021-recording-of-business-transactions-mid"><span class="txt">Recording of Business Transactions <span class="pill pill-mid">MID-TERM</span></span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t022-voucher-and-transactions-source-document"><span class="txt">Voucher and Transactions: Source documents and Vouchers, Preparation of Vouchers</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t023-accounting-equation-approach-meaning-and"><span class="txt">Accounting Equation Approach: Meaning and Analysis, Rules of Debit and Credit</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t024-books-of-original-entry-journal"><span class="txt">Books of Original Entry — Journal</span></label></li></ul></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t025-special-purpose-books-mid"><span class="txt">Special Purpose Books <span class="pill pill-mid">MID-TERM</span></span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t026-cash-book-simple-cash-book-with-bank-col"><span class="txt">Cash Book: Simple, cash book with bank column, petty cashbook</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t027-purchases-book"><span class="txt">Purchases book</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t028-sales-book"><span class="txt">Sales book</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t029-purchases-return-book"><span class="txt">Purchases return book</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t030-sales-return-book"><span class="txt">Sales return book</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t031-journal-proper"><span class="txt">Journal proper</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t032-note-including-trade-discount-freight-an"><span class="txt">Note: including trade discount, freight and cartage expenses for simple GST calculation</span></label></li></ul></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t033-ledger-mid"><span class="txt">Ledger <span class="pill pill-mid">MID-TERM</span></span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t034-format-posting-from-journal-and-subsidia"><span class="txt">Format, Posting from journal and subsidiary books, Balancing of accounts</span></label></li></ul></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t035-bank-reconciliation-statement-mid"><span class="txt">Bank Reconciliation Statement <span class="pill pill-mid">MID-TERM</span></span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t036-need-and-preparation-of-brs"><span class="txt">Need and preparation of BRS</span></label></li></ul></li><li class="track checkpoint" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t037-mid-term-checkpoint-complete-above-by-5t"><span class="txt"><strong>Mid-Term checkpoint: complete above by 5th Sep 2026 + Mid-Term Exam + Discussion of Mid-Term Question Paper</strong></span></label></li></ul>
+<h4>Depreciation, Provisions and Reserves <span class="pill pill-final">FINAL TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t038-depreciation-meaning-features-need-cause"><span class="txt">Depreciation: Meaning, Features, Need, Causes, factors</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t039-other-similar-terms-depletion-and-amorti"><span class="txt">Other similar terms: Depletion and Amortization</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t040-methods-of-depreciation-i-straight-line"><span class="txt">Methods of Depreciation: (i) Straight Line Method (SLM), (ii) Written Down Value Method (WDV) — excluding change of method</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t041-difference-between-slm-and-wdv-advantage"><span class="txt">Difference between SLM and WDV; Advantages of SLM and WDV</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t042-methods-of-recording-depreciation-i-char"><span class="txt">Methods of recording depreciation: (i) Charging to asset account, (ii) Creating provision for depreciation / accumulated depreciation account, (iii) Treatment for disposal of asset</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t043-provisions-and-reserves-difference-betwe"><span class="txt">Provisions and Reserves: Difference between Provisions and Reserves</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t044-types-of-reserves-i-revenue-reserve-ii-c"><span class="txt">Types of Reserves: (i) Revenue reserve, (ii) Capital reserve, (iii) General reserve, (iv) Specific reserve, (v) Secret Reserve</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t045-difference-between-capital-and-revenue-r"><span class="txt">Difference between capital and revenue reserve</span></label></li></ul>
+<h4>Trial Balance and Rectification of Errors <span class="pill pill-final">FINAL TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t046-trial-balance-objectives-meaning-and-pre"><span class="txt">Trial Balance: objectives, meaning and preparation (Scope: balance method only)</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t047-errors-classification-errors-of-omission"><span class="txt">Errors: classification — errors of omission, commission, principles, and compensating; their effect on Trial Balance</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t048-detection-and-rectification-of-errors-i"><span class="txt">Detection and rectification of errors: (i) Errors which do not affect trial balance, (ii) Errors which affect trial balance</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t049-preparation-of-suspense-account"><span class="txt">Preparation of suspense account</span></label></li></ul>
+<h3>PART B: Financial Accounting-II</h3>
+<h4>Unit-3: Financial Statements of Sole Proprietorship — 60 periods, 24 marks <span class="pill pill-final">FINAL TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t050-financial-statements-meaning-objectives"><span class="txt">Financial Statements: Meaning, objectives and importance</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t051-revenue-and-capital-receipts-revenue-and"><span class="txt">Revenue and Capital receipts; Revenue and Capital expenditure; Deferred Revenue expenditure</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t052-opening-journal-entry"><span class="txt">Opening journal entry</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t053-trading-and-profit-and-loss-account-gros"><span class="txt">Trading and Profit and Loss Account: Gross Profit, Operating profit and Net profit — Preparation</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t054-balance-sheet-need-grouping-and-marshall"><span class="txt">Balance Sheet: need, grouping and marshalling of assets and liabilities — Preparation</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t055-adjustments-in-preparation-of-financial"><span class="txt">Adjustments in preparation of financial statements w.r.t.: closing stock, outstanding expenses, prepaid expenses, accrued income, income received in advance, depreciation, bad debts, provision for doubtful debts, provision for discount on debtors, abnormal loss, goods taken for personal use / staff welfare, interest on capital, managers commission</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t056-preparation-of-trading-and-p-l-account-a"><span class="txt">Preparation of Trading and P&amp;L Account and Balance Sheet of a sole proprietorship with adjustments</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t057-incomplete-records-features-reasons-and"><span class="txt">Incomplete Records: Features, Reasons and limitations</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t058-ascertainment-of-profit-loss-by-statemen"><span class="txt">Ascertainment of Profit/Loss by Statement of Affairs method (excluding conversion method)</span></label></li></ul>
+<hr>
+</section>
+<section id="business-studies" data-subject="business-studies"><h2>2. Business Studies (Code 054)</h2><p class="marks-line"><span class="marks-tag">CBSE 2026&ndash;27</span> Theory 80 &middot; Part A 40 (U1+U2 16 &middot; U3+U4 14 &middot; U5+U6 10) &middot; Part B 40 (U7+U8 20 &middot; U9+U10 20)</p>
+<h3>PART A: Foundation of Business</h3>
+<h4>Unit 1: Evolution and Fundamentals of Business <span class="pill pill-mid">MID-TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t060-history-of-trade-and-commerce-in-india-i"><span class="txt">History of Trade and Commerce in India: Indigenous Banking System, Rise of Intermediaries, Transport, Trading Communities, Merchant Corporations, Major Trade Centres, Major Imports and Exports, Position of Indian Sub-Continent in the World Economy</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t061-business-meaning-and-characteristics"><span class="txt">Business — meaning and characteristics</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t062-business-profession-and-employment-conce"><span class="txt">Business, profession and employment — Concept</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t063-objectives-of-business-economic-and-soci"><span class="txt">Objectives of business (Economic and Social objectives; role of profit in business)</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t064-classification-of-business-activities-in"><span class="txt">Classification of business activities — Industry and Commerce</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t065-industry-types-primary-secondary-tertiar"><span class="txt">Industry — types: primary, secondary, tertiary — meaning and subgroups</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t066-commerce-trade-types-internal-external-w"><span class="txt">Commerce — trade (types: internal, external; wholesale and retail) and auxiliaries to trade (banking, insurance, transportation, warehousing, communication, advertising) — meaning</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t067-business-risk-concept"><span class="txt">Business Risk — Concept</span></label></li></ul>
+<h4>Unit 2: Forms of Business Organisations <span class="pill pill-mid">MID-TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t068-sole-proprietorship-concept-merits-and-l"><span class="txt">Sole Proprietorship — Concept, merits and limitations</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t069-partnership-concept-types-merits-and-lim"><span class="txt">Partnership — Concept, types, merits and limitations; registration of a partnership firm; partnership deed; Types of partners</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t070-hindu-undivided-family-business-concept"><span class="txt">Hindu Undivided Family Business — Concept</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t071-cooperative-societies-concept-merits-and"><span class="txt">Cooperative Societies — Concept, merits, and limitations</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t072-company-concept-merits-and-limitations-t"><span class="txt">Company — Concept, merits and limitations; Types: Private, Public and One Person Company — concept</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t073-formation-of-company-stages-important-do"><span class="txt">Formation of company — stages, important documents used in formation</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t074-choice-of-form-of-business-organisation"><span class="txt">Choice of form of business organisation (Factors Affecting Choice)</span></label></li></ul>
+<h4>Unit 3: Public, Private and Global Enterprises <span class="pill pill-mid">MID-TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t075-public-sector-and-private-sector-enterpr"><span class="txt">Public sector and private sector enterprises — Concept</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t076-forms-of-public-sector-enterprises-depar"><span class="txt">Forms of public sector enterprises: Departmental Undertakings, Statutory Corporations and Government Company (Features, Merits and Limitations)</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t077-global-enterprises-features-joint-ventur"><span class="txt">Global enterprises — features; Joint Venture</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t078-public-private-partnership-concept-meani"><span class="txt">Public Private Partnership — concept (Meaning and Features)</span></label></li></ul>
+<h4>Unit 4: Business Services <span class="pill pill-mid">MID-TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t079-business-services-meaning-and-types"><span class="txt">Business services — meaning and types</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t080-banking-types-of-bank-accounts-savings-c"><span class="txt">Banking: Types of bank accounts — savings, current, recurring, fixed deposit and multiple option deposit accounts</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t081-banking-services-with-particular-referen"><span class="txt">Banking services with particular reference to Bank Draft, Bank Overdraft, Cash Credit and E-Banking — Meaning; Types of digital payments</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t082-insurance-principles-types-life-health-f"><span class="txt">Insurance: Principles; Types — life, health, fire and marine insurance — concept</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t083-postal-services-mail-registered-post-par"><span class="txt">Postal services: Mail, Registered Post, Parcel, Speed Post and Courier — meaning</span></label></li></ul>
+<h4>Unit 5: Emerging Modes of Business <span class="pill pill-mid">MID-TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t084-e-business-concept-scope-and-benefits"><span class="txt">E-business — (concept), scope and benefits</span></label></li><li class="track checkpoint" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t085-mid-term-checkpoint-complete-units-1-5-b"><span class="txt"><strong>Mid-Term checkpoint: complete Units 1–5 by 5th Sep 2026 + Mid-Term Exam + Discussion of Mid-Term Question Paper</strong></span></label></li></ul>
+<h4>Unit 6: Social Responsibility of Business and Business Ethics <span class="pill pill-final">FINAL TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t086-concept-of-social-responsibility"><span class="txt">Concept of social responsibility</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t087-case-for-social-responsibility"><span class="txt">Case for social responsibility</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t088-responsibility-towards-owners-investors"><span class="txt">Responsibility towards owners, investors, consumers, employees, government and community</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t089-role-of-business-in-environment-protecti"><span class="txt">Role of business in environment protection</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t090-business-ethics-concept-and-elements"><span class="txt">Business Ethics — Concept and Elements</span></label></li></ul>
+<h3>PART B: Finance and Trade</h3>
+<h4>Unit 7: Sources of Business Finance <span class="pill pill-final">FINAL TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t091-concept-of-business-finance"><span class="txt">Concept of business finance</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t092-owners-funds-equity-shares-preference-sh"><span class="txt">Owners' funds — equity shares, preference shares, retained earnings</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t093-borrowed-funds-debentures-and-bonds-loan"><span class="txt">Borrowed funds: debentures and bonds, loan from financial institutions and commercial banks, public deposits, trade credit, Inter Corporate Deposits (ICD)</span></label></li></ul>
+<h4>Unit 8: Small Business and Enterprises <span class="pill pill-final">FINAL TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t094-entrepreneurship-development-ed-concept"><span class="txt">Entrepreneurship Development (ED): Concept, Characteristics and Need</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t095-process-of-entrepreneurship-development"><span class="txt">Process of Entrepreneurship Development: Start-up India Scheme, ways to fund start-up</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t096-intellectual-property-rights-and-entrepr"><span class="txt">Intellectual Property Rights and Entrepreneurship</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t097-small-scale-enterprise-as-defined-by-msm"><span class="txt">Small scale enterprise as defined by MSMED Act 2006 (Micro, Small and Medium Enterprise Development Act)</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t098-role-of-small-business-in-india-with-spe"><span class="txt">Role of small business in India with special reference to rural areas</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t099-government-schemes-and-agencies-for-smal"><span class="txt">Government schemes and agencies for small scale industries</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t100-national-small-industries-corporation-ns"><span class="txt">National Small Industries Corporation (NSIC) and District Industrial Centre (DIC) with special reference to rural, backward areas</span></label></li></ul>
+<h4>Unit 9: Internal Trade <span class="pill pill-final">FINAL TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t101-internal-trade-meaning-and-types-service"><span class="txt">Internal Trade — meaning and types; Services rendered by a wholesaler and a retailer</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t102-types-of-retail-trade-itinerant-and-smal"><span class="txt">Types of retail trade: Itinerant and small-scale fixed shops retailers</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t103-large-scale-retailers-departmental-store"><span class="txt">Large scale retailers — Departmental stores, chain stores — concept</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t104-gst-goods-and-services-tax-concept-and-k"><span class="txt">GST (Goods and Services Tax): Concept and key-features</span></label></li></ul>
+<h4>Unit 10: International Trade <span class="pill pill-final">FINAL TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t105-international-trade-concept-and-benefits"><span class="txt">International Trade: concept and benefits</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t106-export-trade-meaning-and-procedure"><span class="txt">Export trade — Meaning and procedure</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t107-import-trade-meaning-and-procedure"><span class="txt">Import Trade — Meaning and procedure</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t108-documents-involved-in-international-trad"><span class="txt">Documents involved in International Trade: indent, letter of credit, shipping order, shipping bills, mate's receipt (DA/DP)</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t109-world-trade-organization-wto-meaning-and"><span class="txt">World Trade Organization (WTO): meaning and objectives</span></label></li><li class="track checkpoint" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t901-final-term-checkpoint-syllabus-completio"><span class="txt"><strong>Final Term checkpoint: syllabus completion by 30th Jan 2027; Final Term Exam on complete syllabus</strong></span></label></li></ul>
+<hr>
+</section>
+<section id="economics" data-subject="economics"><h2>3. Economics (Code 030)</h2><p class="marks-line"><span class="marks-tag">CBSE 2026&ndash;27</span> Theory 80 &middot; Part A 40 (U1+U2 15 &middot; U3 25) &middot; Part B 40 (U4 4 &middot; U5 14 &middot; U6 14 &middot; U7 8)</p>
+<h3>Part A: Statistics for Economics</h3>
+<h4>Unit 1: Introduction <span class="pill pill-mid">MID-TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t111-what-is-economics"><span class="txt">What is Economics?</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t112-meaning-scope-functions-and-importance-o"><span class="txt">Meaning, scope, functions and importance of statistics in Economics</span></label></li></ul>
+<h4>Unit 2: Collection, Organisation and Presentation of Data <span class="pill pill-mid">MID-TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t113-collection-of-data-sources-of-data-prima"><span class="txt">Collection of Data: Sources of data — primary and secondary; how basic data is collected with concept of Sampling; methods of collecting data; some important sources of secondary data; Census of India and National Sample Survey Organisation (NSSO)</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t114-organisation-of-data-meaning-and-types-o"><span class="txt">Organisation of Data: Meaning and types of variables; Frequency Distribution</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t115-presentation-of-data"><span class="txt">Presentation of Data:</span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t116-tabular-presentation-and-diagrammatic-pr"><span class="txt">Tabular presentation and diagrammatic presentation of data</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t117-geometric-forms-bar-diagrams-and-pie-dia"><span class="txt">Geometric forms (bar diagrams and pie diagrams)</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t118-frequency-diagrams-histogram-polygon-and"><span class="txt">Frequency diagrams (histogram, polygon and ogive)</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t119-arithmetic-line-graphs-time-series-graph"><span class="txt">Arithmetic line graphs (time series graph)</span></label></li></ul></li></ul>
+<h4>Unit 3: Statistical Tools and Interpretation (numericals + economic interpretation)</h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t120-measures-of-central-tendency-arithmetic"><span class="txt">Measures of Central Tendency — Arithmetic Mean <span class="pill pill-mid">MID-TERM</span></span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t121-measures-of-central-tendency-median-and"><span class="txt">Measures of Central Tendency — Median and Mode <span class="pill pill-final">FINAL TERM</span></span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t122-correlation-meaning-and-properties-scatt"><span class="txt">Correlation — Meaning and properties, scatter diagram; Karl Pearson's method (two variables, ungrouped data); Spearman's rank correlation (Non-Repeated Ranks and Repeated Ranks) <span class="pill pill-final">FINAL TERM</span></span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t123-introduction-to-index-numbers-meaning-ty"><span class="txt">Introduction to Index Numbers — Meaning, types: Wholesale Price Index (WPI), Consumer Price Index (CPI), Index of Industrial Production (IIP); uses of index numbers; Inflation and Index Numbers; Simple Aggregative Method <span class="pill pill-final">FINAL TERM</span></span></label></li></ul>
+<h3>Part B: Introductory Microeconomics</h3>
+<h4>Unit 4: Introduction <span class="pill pill-mid">MID-TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t124-meaning-of-microeconomics-and-macroecono"><span class="txt">Meaning of microeconomics and macroeconomics; positive and normative economics</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t125-what-is-an-economy-central-problems-of-a"><span class="txt">What is an economy? Central problems of an economy: what, how and for whom to produce</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t126-concepts-of-production-possibility-front"><span class="txt">Concepts of production possibility frontier (PPC) and opportunity cost</span></label></li></ul>
+<h4>Unit 5: Consumer's Equilibrium and Demand <span class="pill pill-mid">MID-TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t127-consumer-s-equilibrium-meaning-of-utilit"><span class="txt">Consumer's Equilibrium — Meaning of utility, marginal utility, law of diminishing marginal utility, conditions of consumer's equilibrium using marginal utility analysis</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t128-indifference-curve-analysis-consumer-s-b"><span class="txt">Indifference curve analysis: consumer's budget (budget set and budget line), preferences (indifference curve, indifference map), conditions of consumer's equilibrium</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t129-demand-market-demand-determinants-of-dem"><span class="txt">Demand, market demand, determinants of demand, demand schedule, demand curve and its slope, movement along and shifts in the demand curve</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t130-price-elasticity-of-demand-factors-affec"><span class="txt">Price elasticity of demand — factors affecting it; measurement by percentage-change method and total expenditure method</span></label></li></ul>
+<h4>Unit 6: Producer Behaviour and Supply</h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t131-meaning-of-production-function-short-run"><span class="txt">Meaning of Production Function — Short-Run and Long-Run <span class="pill pill-mid">MID-TERM</span></span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t132-total-product-average-product-and-margin"><span class="txt">Total Product, Average Product and Marginal Product <span class="pill pill-mid">MID-TERM</span></span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t133-returns-to-a-factor-mid"><span class="txt">Returns to a Factor <span class="pill pill-mid">MID-TERM</span></span></label></li><li class="track checkpoint" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t134-mid-term-checkpoint-complete-above-by-5t"><span class="txt"><strong>Mid-Term checkpoint: complete above by 5th Sep 2026 + Mid-Term Exam + Discussion of Mid-Term Question Paper</strong></span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t135-cost-short-run-costs-total-cost-total-fi"><span class="txt">Cost — Short-run costs: total cost, total fixed cost, total variable cost; Average cost; Average fixed cost, average variable cost and marginal cost — meaning and their relationships <span class="pill pill-final">FINAL TERM</span></span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t136-revenue-total-average-and-marginal-reven"><span class="txt">Revenue — total, average and marginal revenue — meaning and their relationship <span class="pill pill-final">FINAL TERM</span></span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t137-producer-s-equilibrium-meaning-and-its-c"><span class="txt">Producer's equilibrium — meaning and its conditions in terms of marginal revenue – marginal cost <span class="pill pill-final">FINAL TERM</span></span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t138-supply-market-supply-determinants-of-sup"><span class="txt">Supply, market supply, determinants of supply, supply schedule, supply curve and its slope, movements along and shifts in supply curve <span class="pill pill-final">FINAL TERM</span></span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t139-price-elasticity-of-supply-measurement-b"><span class="txt">Price elasticity of supply; measurement by percentage-change method <span class="pill pill-final">FINAL TERM</span></span></label></li></ul>
+<h4>Unit 7: Perfect Competition — Price Determination and Simple Applications <span class="pill pill-final">FINAL TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t140-perfect-competition-features"><span class="txt">Perfect competition — Features</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t141-determination-of-market-equilibrium-and"><span class="txt">Determination of market equilibrium and effects of shifts in demand and supply (short run only)</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t142-simple-applications-of-demand-and-supply"><span class="txt">Simple Applications of Demand and Supply: Price ceiling, price floor</span></label></li></ul>
+<p class="ref-note"><strong>Books:</strong> Statistics for Economics (NCERT); Introductory Microeconomics (NCERT).</p>
+<p class="ref-note"><strong>Final Term checkpoint:</strong> syllabus by 30th Jan 2027; Final Term Exam on whole syllabus. Ref: <a href="https://cbseacademic.nic.in">https://cbseacademic.nic.in</a></p>
+<hr>
+</section>
+<section id="english-core" data-subject="english-core"><h2>4. English Core (Code 301)</h2><p class="marks-line"><span class="marks-tag">CBSE 2026&ndash;27</span> Theory 80 &middot; Reading 26 &middot; Grammar &amp; Writing 23 &middot; Literature 31</p>
+<h3>Reading Skills — 26 marks (same skills for Mid-Term and Final Term)</h3>
+<ul class="track-list"><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t154-unseen-passage-factual-descriptive-liter"><span class="txt">Unseen Passage — Factual / Descriptive / Literary Passage</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t155-unseen-case-based-factual-passage-with-v"><span class="txt">Unseen Case-Based Factual Passage with verbal/visual inputs (statistical data, charts etc.)</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t156-combined-word-limit-for-both-passages-60"><span class="txt">Combined word limit for both passages: 600–750 words</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t157-note-making-and-summary-passage-200-250"><span class="txt">Note-Making and Summary (passage 200–250 words; summary up to 50 words)</span></label></li></ul>
+<h3>Grammar and Creative Writing Skills — 23 marks (same skills for Mid-Term and Final Term)</h3>
+<ul class="track-list"><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t158-short-composition-classified-advertiseme"><span class="txt">Short composition: Classified Advertisements (up to 50 words)</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t159-short-composition-poster-up-to-50-words"><span class="txt">Short composition: Poster (up to 50 words)</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t160-speech-writing-based-on-verbal-visual-cu"><span class="txt">Speech Writing — based on verbal/visual cues, 120–150 words (contemporary / age-appropriate topics)</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t161-debate-writing-based-on-visual-verbal-in"><span class="txt">Debate Writing — based on visual/verbal inputs, 120–150 words (contemporary / topical issues)</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t162-gap-filling"><span class="txt">Gap filling</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t163-review-of-tenses"><span class="txt">Review of Tenses</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t164-clauses"><span class="txt">Clauses</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t165-reordering-of-sentences"><span class="txt">Reordering of sentences</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t166-transformation-of-sentences"><span class="txt">Transformation of sentences</span></label></li></ul>
+<h3>Literature — Hornbill + Snapshots (split by term)</h3>
+<h4>Mid-Term Literature (complete by 5th Sep 2026) <span class="pill pill-mid">MID-TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t167-hornbill-lesson-1-the-portrait-of-a-lady"><span class="txt">Hornbill — Lesson 1: The Portrait of a Lady</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t168-hornbill-poem-1-a-photograph"><span class="txt">Hornbill — Poem 1: A Photograph</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t169-hornbill-lesson-2-we-re-not-afraid-to-di"><span class="txt">Hornbill — Lesson 2: We're Not Afraid to Die… If We Can All Be Together</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t170-hornbill-lesson-3-discovering-tut-the-sa"><span class="txt">Hornbill — Lesson 3: Discovering Tut: The Saga Continues</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t171-hornbill-poem-2-the-laburnum-top"><span class="txt">Hornbill — Poem 2: The Laburnum Top</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t172-snapshots-lesson-1-the-summer-of-the-bea"><span class="txt">Snapshots — Lesson 1: The Summer of the Beautiful White Horse</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t173-snapshots-lesson-2-the-address"><span class="txt">Snapshots — Lesson 2: The Address</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t174-snapshots-lesson-3-mother-s-day"><span class="txt">Snapshots — Lesson 3: Mother's Day</span></label></li></ul>
+<h4>Final Term Literature (complete by 30th Jan 2027) <span class="pill pill-final">FINAL TERM</span></h4>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t175-hornbill-poem-3-the-voice-of-the-rain"><span class="txt">Hornbill — Poem 3: The Voice of the Rain</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t176-hornbill-poem-4-childhood"><span class="txt">Hornbill — Poem 4: Childhood</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t177-hornbill-lesson-4-the-adventure"><span class="txt">Hornbill — Lesson 4: The Adventure</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t178-hornbill-lesson-5-silk-road"><span class="txt">Hornbill — Lesson 5: Silk Road</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t179-hornbill-poem-5-father-to-son"><span class="txt">Hornbill — Poem 5: Father to Son</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t180-snapshots-lesson-4-birth"><span class="txt">Snapshots — Lesson 4: Birth</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t181-snapshots-lesson-5-the-tale-of-melon-cit"><span class="txt">Snapshots — Lesson 5: The Tale of Melon City</span></label></li></ul>
+<p class="ref-note"><strong>Exam notes:</strong> Mid-Term portion + Revision → Mid-Term Exam. Final Term portion + Revision of entire syllabus → Final Term Exam (questions from entire syllabus except deleted lessons). Ref: <a href="https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/English_core_SecP2_2026-27.pdf">https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/English_core_SecP2_2026-27.pdf</a></p>
+<hr>
+</section>
+<section id="mathematics" data-subject="mathematics"><h2>5. Mathematics (Code 041)</h2><p class="marks-line"><span class="marks-tag">CBSE 2026&ndash;27</span> Theory 80 &middot; Sets &amp; Functions 23 &middot; Algebra 25 &middot; Coord. Geometry 12 &middot; Calculus 8 &middot; Stats &amp; Probability 12</p>
+<p class="src-note">Topics marked <code>*Formative only*</code> are for reinforcement and meaningful learning; assessed formatively only, not in summative assessments. Schools can integrate these with existing chapters.</p>
+<h3>Unit-1: Sets and Functions</h3>
+<ul class="track-list"><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t185-1-sets"><span class="txt">1. Sets</span></label><ul class="track-list"><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t186-sets-and-their-representations-empty-set"><span class="txt">Sets and their representations; Empty set; Finite and Infinite sets; Equal sets; Subsets; Subsets of a set of real numbers especially intervals (with notations); Universal set</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t187-venn-diagrams-union-and-intersection-of"><span class="txt">Venn diagrams; Union and Intersection of sets; Difference of sets; Complement of a set; Properties of Complement</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t188-formative-only-practical-problems-on-uni"><span class="txt">Practical problems on Union and Intersection of two sets <span class="pill pill-form">FORMATIVE</span></span></label></li></ul></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t189-2-relations-functions"><span class="txt">2. Relations &amp; Functions</span></label><ul class="track-list"><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t190-ordered-pairs-cartesian-product-of-sets"><span class="txt">Ordered pairs; Cartesian product of sets; Number of elements in Cartesian product of two finite sets; Cartesian product of the set of reals with itself (up to R×R×R)</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t191-definition-of-relation-pictorial-diagram"><span class="txt">Definition of relation, pictorial diagrams, domain, co-domain and range of a relation</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t192-function-as-a-special-type-of-relation-p"><span class="txt">Function as a special type of relation; pictorial representation; domain, co-domain and range</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t193-real-valued-functions-domain-and-range-c"><span class="txt">Real valued functions, domain and range: constant, identity, polynomial, rational, modulus, signum, exponential, logarithmic and greatest integer functions, with their graphs</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t194-sum-difference-product-and-quotients-of"><span class="txt">Sum, difference, product and quotients of functions</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t195-formative-only-composition-of-functions"><span class="txt">Composition of Functions <span class="pill pill-form">FORMATIVE</span></span></label></li></ul></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t196-3-trigonometric-functions-mid-portion"><span class="txt">3. Trigonometric Functions <span class="pill pill-mid">MID-TERM</span></span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t197-positive-and-negative-angles-measuring-a"><span class="txt">Positive and negative angles; Measuring angles in radians and degrees; conversion from one measure to another</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t198-definition-of-trigonometric-functions-wi"><span class="txt">Definition of trigonometric functions with the help of unit circle; Truth of sin²x + cos²x = 1 for all x; Signs of trigonometric functions</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t199-domain-and-range-of-trigonometric-functi"><span class="txt">Domain and range of trigonometric functions and their graphs</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t200-expressing-sin-x-y-and-cos-x-y-in-terms"><span class="txt">Expressing sin(x±y) and cos(x±y) in terms of sinx, siny, cosx and cosy + simple applications</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t201-deducing-tan-x-y-cot-x-y-sin-sin-cos-cos"><span class="txt">Deducing: tan(x±y), cot(x±y), sinα ± sinβ, cosα + cosβ, cosα − cosβ</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t202-identities-related-to-sin2x-cos2x-tan2x"><span class="txt">Identities related to sin2x, cos2x, tan2x, sin3x, cos3x and tan3x</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t203-formative-only-general-solution-of-sin-y"><span class="txt">General solution of sin y = sin a, cos y = cos a and tan y = tan a <span class="pill pill-form">FORMATIVE</span></span></label></li></ul></li></ul>
+<h3>Unit-II: Algebra</h3>
+<ul class="track-list"><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t204-formative-only-principle-of-mathematical"><span class="txt">Principle of Mathematical Induction — process of proof by induction; natural numbers as least inductive subset of reals; principle + simple applications <span class="pill pill-form">FORMATIVE</span></span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t205-1-complex-numbers-and-quadratic-equation"><span class="txt">1. Complex Numbers and Quadratic Equations <span class="pill pill-mid">MID-TERM</span></span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t206-need-for-complex-numbers-especially-1-mo"><span class="txt">Need for complex numbers, especially √−1, motivated by inability to solve some quadratics</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t207-algebraic-properties-of-complex-numbers"><span class="txt">Algebraic properties of complex numbers; Argand plane</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t208-formative-only-polar-representation-stat"><span class="txt">Polar representation; Statement of Fundamental Theorem of Algebra; solution of quadratic equations (with real coefficients) in the complex number system <span class="pill pill-form">FORMATIVE</span></span></label></li></ul></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t209-2-linear-inequalities-mid-portion"><span class="txt">2. Linear Inequalities <span class="pill pill-mid">MID-TERM</span></span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t210-linear-inequalities-algebraic-solutions"><span class="txt">Linear inequalities; Algebraic solutions of linear inequalities in one variable and representation on the number line</span></label></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t211-formative-only-graphical-solution-of-lin"><span class="txt">Graphical solution of linear inequalities in two variables; Graphical method of finding solution of system of linear inequalities in two variables <span class="pill pill-form">FORMATIVE</span></span></label></li></ul></li><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t212-3-permutations-and-combinations-mid-port"><span class="txt">3. Permutations and Combinations <span class="pill pill-mid">MID-TERM</span></span></label><ul class="track-list"><li class="track" data-term="mid"><label class="trow"><input type="checkbox" class="syl-check" data-id="t213-fundamental-principle-of-counting-factor"><span class="txt">Fundamental principle of counting; Factorial n (n!); Permutations and combinations, derivation of formulae for ⁿPᵣ, ⁿCᵣ and their connections, simple applications</span></label></li></ul></li><li class="track checkpoint" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t214-mid-term-checkpoint-complete-above-by-5t"><span class="txt"><strong>Mid-Term checkpoint: complete above by 5th Sep 2026 + Revision + Mid-Term Exam + Discussion of Mid-Term Question Paper</strong></span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t215-4-binomial-theorem-final"><span class="txt">4. Binomial Theorem <span class="pill pill-final">FINAL TERM</span></span></label><ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t216-historical-perspective-statement-and-pro"><span class="txt">Historical perspective; statement and proof for positive integral indices; Pascal's triangle; simple applications</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t217-formative-only-general-and-middle-term-i"><span class="txt">General and middle term in binomial expansion <span class="pill pill-form">FORMATIVE</span></span></label></li></ul></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t218-5-sequence-and-series-final"><span class="txt">5. Sequence and Series <span class="pill pill-final">FINAL TERM</span></span></label><ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t219-sequence-and-series-arithmetic-mean-a-m"><span class="txt">Sequence and Series; Arithmetic Mean (A.M.); Geometric Progression (G.P.), general term, sum of n terms, infinite G.P. and its sum, geometric mean (G.M.), relation between A.M. and G.M.</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t220-formative-only-special-sums-k-k-k"><span class="txt">Special sums Σk, Σk², Σk³ <span class="pill pill-form">FORMATIVE</span></span></label></li></ul></li></ul>
+<h3>Unit-III: Coordinate Geometry <span class="pill pill-final">FINAL TERM</span></h3>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t221-1-straight-lines"><span class="txt">1. Straight Lines</span></label><ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t222-brief-recall-of-2d-geometry-slope-of-a-l"><span class="txt">Brief recall of 2D geometry; Slope of a line and angle between two lines</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t223-various-forms-parallel-to-axis-point-slo"><span class="txt">Various forms: parallel to axis, point-slope, slope-intercept, two-point, intercept form</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t224-distance-of-a-point-from-a-line"><span class="txt">Distance of a point from a line</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t225-formative-only-normal-form-general-equat"><span class="txt">Normal form; General equation of a line <span class="pill pill-form">FORMATIVE</span></span></label></li></ul></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t226-2-conic-sections"><span class="txt">2. Conic Sections</span></label><ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t227-sections-of-a-cone-circles-ellipse-parab"><span class="txt">Sections of a cone: circles, ellipse, parabola, hyperbola; a point, a straight line and a pair of intersecting lines as degenerated case</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t228-standard-equations-and-simple-properties"><span class="txt">Standard equations and simple properties of parabola, ellipse and hyperbola; Standard equation of a circle</span></label></li></ul></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t229-3-introduction-to-three-dimensional-geom"><span class="txt">3. Introduction to Three-dimensional Geometry</span></label><ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t230-coordinate-axes-and-coordinate-planes-in"><span class="txt">Coordinate axes and coordinate planes in three dimensions; Coordinates of a point; Distance between two points</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t231-formative-only-section-formula"><span class="txt">Section formula <span class="pill pill-form">FORMATIVE</span></span></label></li></ul></li></ul>
+<h3>Unit-IV: Calculus <span class="pill pill-final">FINAL TERM</span></h3>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t232-limits-and-derivatives"><span class="txt">Limits and Derivatives</span></label><ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t233-derivative-introduced-as-rate-of-change"><span class="txt">Derivative introduced as rate of change (distance function and geometrically); Intuitive idea of limit</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t234-limits-of-polynomials-and-rational-funct"><span class="txt">Limits of polynomials and rational functions, trigonometric, exponential and logarithmic functions</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t235-definition-of-derivative-relate-to-slope"><span class="txt">Definition of derivative, relate to slope of tangent; derivative of sum, difference, product and quotient of functions (polynomial and trigonometric)</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t236-formative-only-derivatives-of-composite"><span class="txt">Derivatives of composite functions (Chain rule) <span class="pill pill-form">FORMATIVE</span></span></label></li></ul></li></ul>
+<h3>Unit-V: Statistics and Probability <span class="pill pill-final">FINAL TERM</span></h3>
+<ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t237-1-statistics-measures-of-dispersion-rang"><span class="txt">1. Statistics — Measures of Dispersion: Range, Mean deviation, variance and standard deviation of ungrouped/grouped data</span></label></li><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t238-2-probability-events-occurrence-of-event"><span class="txt">2. Probability — Events; occurrence of events, 'not', 'and' and 'or' events, exhaustive events, mutually exclusive events; Axiomatic (set theoretic) probability; connections with other theories of earlier classes; Probability of an event; probability of 'not', 'and' and 'or' events</span></label><ul class="track-list"><li class="track" data-term="final"><label class="trow"><input type="checkbox" class="syl-check" data-id="t239-formative-only-random-experiments-outcom"><span class="txt">Random experiments; outcomes; sample space (set representation) <span class="pill pill-form">FORMATIVE</span></span></label></li></ul></li></ul>
+<p class="ref-note"><strong>Final Term checkpoint:</strong> Revision from Support Material and Practice Papers on MIS; completion by 30th Jan 2027; Final Term Exam 2026-27. Ref NCERT + <a href="https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/Maths_SecP2_2026-27.pdf">https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/Maths_SecP2_2026-27.pdf</a></p>
+<hr>
+</section>
+<section id="term-checklists" data-subject="term-checklists"><h2>Term Checklists</h2>
+<h3>Mid-Term (by 5th Sep 2026)</h3>
+<ul class="track-list"><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t240-accountancy-unit-1-unit-2-up-to-brs"><span class="txt">Accountancy: Unit-1 + Unit-2 up to BRS</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t241-bst-units-1-5"><span class="txt">BST: Units 1–5</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t242-economics-unit-1-unit-2-unit-3-am-only-u"><span class="txt">Economics: Unit-1, Unit-2, Unit-3 (AM only), Unit-4, Unit-5, Unit-6 (Production Function, TP/AP/MP, Returns to Factor)</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t902-english-hornbill-l1-l3-poems-1-2-snapsho"><span class="txt">English: Hornbill L1–L3 + Poems 1–2, Snapshots L1–L3 + Reading + Writing + Grammar</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t244-maths-sets-relations-functions-trigonome"><span class="txt">Maths: Sets, Relations &amp; Functions, Trigonometric Functions, Complex Numbers, Linear Inequalities, Permutations and Combinations (plus linked formative-only items)</span></label></li></ul>
+<h3>Final Term (by 30th Jan 2027)</h3>
+<ul class="track-list"><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t903-accountancy-depreciation-trial-balance-r"><span class="txt">Accountancy: Depreciation, Trial Balance/Rectification, Unit-3 Financial Statements + Incomplete Records</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t246-bst-units-6-10"><span class="txt">BST: Units 6–10</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t904-economics-median-mode-correlation-index"><span class="txt">Economics: Median/Mode, Correlation, Index Numbers, Cost/Revenue/Equilibrium/Supply, Unit-7 Perfect Competition</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t905-english-hornbill-poems-3-5-l4-l5-snapsho"><span class="txt">English: Hornbill Poems 3–5 + L4–L5, Snapshots L4–L5 + full Reading/Writing/Grammar revision</span></label></li><li class="track" data-term="all"><label class="trow"><input type="checkbox" class="syl-check" data-id="t249-maths-binomial-sequence-series-straight"><span class="txt">Maths: Binomial, Sequence &amp; Series, Straight Lines, Conic Sections, 3D Geometry, Limits &amp; Derivatives, Statistics &amp; Probability</span></label></li></ul>
+</section>
+
+      <footer>
+        <p>Source: DOE GNCT of Delhi syllabus PDFs (2026–27) · CBSE curricula 2026–27 — Accountancy (055), Business Studies (054), Economics (030), English Core (301), Mathematics (041) · cbseacademic.nic.in</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-modal">
+      <div class="search-input-wrap">
+        <input type="text" id="searchInput" placeholder="Search syllabus topics..." autofocus>
+        <button class="search-close" id="searchClose" aria-label="Close search">&times;</button>
+      </div>
+      <div class="search-results" id="searchResults">
+        <div class="search-empty">Start typing to search across the syllabus...</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ─── Mobile TOC toggle ───
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+
+    tocToggle.addEventListener('click', () => {
+      toc.classList.toggle('open');
+    });
+
+    // Close TOC on link click (mobile)
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toc.classList.remove('open');
+      });
+    });
+
+    // ─── Scroll Progress ───
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    // ─── Active TOC link on scroll ───
+    const sections = document.querySelectorAll('main.content section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+
+  <script>
+    // ─── Syllabus Tracker: persistent checkboxes + progress + filter ───
+    (function () {
+      'use strict';
+
+      var KEY = 'syllabus-tracker-v1';
+      var META_KEY = 'syllabus-tracker-meta';
+
+      function loadState() {
+        try { return JSON.parse(localStorage.getItem(KEY)) || {}; }
+        catch (e) { return {}; }
+      }
+
+      function saveState(s) {
+        try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {}
+      }
+
+      function closestTrack(el) {
+        while (el && el !== document) {
+          if (el.tagName === 'LI' &&
+              (' ' + (el.className || '') + ' ').indexOf(' track ') !== -1) {
+            return el;
+          }
+          el = el.parentElement;
+        }
+        return null;
+      }
+
+      function ownBox(li) {
+        if (!li || !li.children.length) return null;
+        return li.children[0].querySelector('input.syl-check');
+      }
+
+      // Direct child checkboxes (one nesting level, no :scope needed).
+      function directChildBoxes(li) {
+        var res = [];
+        for (var i = 0; i < li.children.length; i++) {
+          var ul = li.children[i];
+          if (!ul || ul.tagName !== 'UL') continue;
+          for (var j = 0; j < ul.children.length; j++) {
+            var kid = ul.children[j];
+            if (!kid || kid.tagName !== 'LI') continue;
+            var box = ownBox(kid);
+            if (box) res.push(box);
+          }
+        }
+        return res;
+      }
+
+      function paintBox(box, on) {
+        var li = closestTrack(box);
+        box.checked = on;
+        box.indeterminate = false;
+        if (li) {
+          if (on) li.classList.add('done');
+          else li.classList.remove('done');
+        }
+      }
+
+      var state = loadState();
+      var boxes = Array.prototype.slice.call(
+        document.querySelectorAll('input.syl-check'));
+
+      function cascadeDown(box, on) {
+        paintBox(box, on);
+        var id = box.getAttribute('data-id');
+        if (on) state[id] = true;
+        else delete state[id];
+        var kids = directChildBoxes(closestTrack(box));
+        for (var i = 0; i < kids.length; i++) cascadeDown(kids[i], on);
+      }
+
+      function refreshAncestors(box) {
+        var li = closestTrack(box);
+        while (li) {
+          var parentUl = li.parentElement;
+          var parentLi = parentUl ? closestTrack(parentUl) : null;
+          if (!parentLi) break;
+          var sibs = directChildBoxes(parentLi);
+          var pbox = ownBox(parentLi);
+          var pid = pbox.getAttribute('data-id');
+          var onCount = 0;
+          for (var i = 0; i < sibs.length; i++) {
+            if (sibs[i].checked) onCount++;
+          }
+          if (sibs.length && onCount === sibs.length) {
+            pbox.checked = true;
+            pbox.indeterminate = false;
+            parentLi.classList.add('done');
+            state[pid] = true;
+          } else if (onCount === 0) {
+            pbox.checked = false;
+            pbox.indeterminate = false;
+            parentLi.classList.remove('done');
+            delete state[pid];
+          } else {
+            pbox.checked = false;
+            pbox.indeterminate = true;
+            parentLi.classList.remove('done');
+            delete state[pid];
+          }
+          li = parentLi;
+        }
+      }
+
+      boxes.forEach(function (b) {
+        var id = b.getAttribute('data-id');
+        if (state[id]) {
+          b.checked = true;
+          var li = closestTrack(b);
+          if (li) li.classList.add('done');
+        }
+        b.addEventListener('change', function () {
+          var on = b.checked;
+          cascadeDown(b, on);
+          refreshAncestors(b);
+          saveState(state);
+          updateProgress();
+        });
+      });
+
+      // Reconcile parents bottom-up (deepest first) from restored state.
+      var allItems = Array.prototype.slice.call(
+        document.querySelectorAll('li.track'));
+      for (var r = allItems.length - 1; r >= 0; r--) {
+        (function (li) {
+          var kids = directChildBoxes(li);
+          if (!kids.length) return;
+          var pbox = ownBox(li);
+          if (!pbox) return;
+          var pid = pbox.getAttribute('data-id');
+          var onCount = 0;
+          for (var i = 0; i < kids.length; i++) {
+            if (kids[i].checked) onCount++;
+          }
+          if (onCount === kids.length) {
+            pbox.checked = true;
+            pbox.indeterminate = false;
+            li.classList.add('done');
+            state[pid] = true;
+          } else if (onCount > 0) {
+            pbox.checked = false;
+            pbox.indeterminate = true;
+            li.classList.remove('done');
+            delete state[pid];
+          } else if (!pbox.checked) {
+            pbox.indeterminate = false;
+            li.classList.remove('done');
+            delete state[pid];
+          }
+        })(allItems[r]);
+      }
+      saveState(state);
+
+      function countIn(root) {
+        var all = root.querySelectorAll('input.syl-check');
+        var done = root.querySelectorAll('input.syl-check:checked');
+        return { total: all.length, done: done.length };
+      }
+
+      function updateProgress() {
+        var t = countIn(document);
+        var pct = t.total ? Math.round((t.done / t.total) * 100) : 0;
+        document.getElementById('sylPct').textContent = pct + '%';
+        document.getElementById('sylCount').textContent =
+          t.done + ' of ' + t.total + ' done';
+        document.getElementById('sylBar').style.width = pct + '%';
+
+        var rows = document.querySelectorAll('.dash-row');
+        for (var i = 0; i < rows.length; i++) {
+          var sec = document.getElementById(rows[i].getAttribute('data-sec'));
+          if (!sec) continue;
+          var c = countIn(sec);
+          var p = c.total ? Math.round((c.done / c.total) * 100) : 0;
+          rows[i].querySelector('.fill').style.width = p + '%';
+          rows[i].querySelector('.sp-count').textContent =
+            c.done + '/' + c.total;
+        }
+
+        try {
+          localStorage.setItem(META_KEY, JSON.stringify(
+            { total: t.total, done: t.done, pct: pct,
+              updated: new Date().toISOString().slice(0, 10) }));
+        } catch (e) {}
+      }
+
+      // ─── Mid-Term / Final Term filter (no :scope selectors) ───
+      var currentFilter = 'all';
+
+      function itemMatches(li) {
+        if (currentFilter === 'all') return true;
+        var t = li.getAttribute('data-term');
+        return t === 'all' || t === currentFilter;
+      }
+
+      function kidItems(li) {
+        var res = [];
+        for (var i = 0; i < li.children.length; i++) {
+          var ul = li.children[i];
+          if (!ul || ul.tagName !== 'UL') continue;
+          for (var j = 0; j < ul.children.length; j++) {
+            var kid = ul.children[j];
+            if (kid && kid.tagName === 'LI') res.push(kid);
+          }
+        }
+        return res;
+      }
+
+      function applyFilter() {
+        var items = Array.prototype.slice.call(
+          document.querySelectorAll('li.track'));
+
+        // Bottom-up: deepest first so parents see computed children.
+        for (var k = items.length - 1; k >= 0; k--) {
+          var li = items[k];
+          var v = itemMatches(li);
+          if (!v) {
+            var kids = kidItems(li);
+            for (var q = 0; q < kids.length; q++) {
+              if (kids[q]._sylVis) { v = true; break; }
+            }
+          }
+          li._sylVis = v;
+          if (v) li.classList.remove('hide');
+          else li.classList.add('hide');
+        }
+
+        // Hide empty sub-lists.
+        var uls = document.querySelectorAll('ul.track-list');
+        for (var u = 0; u < uls.length; u++) {
+          var anyVisible = false;
+          var ch = uls[u].children;
+          for (var c = 0; c < ch.length; c++) {
+            if (ch[c].tagName === 'LI' &&
+                !ch[c].classList.contains('hide')) {
+              anyVisible = true;
+              break;
+            }
+          }
+          if (anyVisible) uls[u].classList.remove('hide');
+          else uls[u].classList.add('hide');
+        }
+
+        // Hide h3/h4 headings left with no visible content.
+        var heads = document.querySelectorAll(
+          'main.content section h3, main.content section h4');
+        for (var h = 0; h < heads.length; h++) {
+          var el = heads[h].nextElementSibling;
+          var keep = false;
+          while (el && !/^H[234]$/.test(el.tagName) && el.tagName !== 'HR') {
+            if (el.querySelector &&
+                el.querySelector('li.track:not(.hide)')) { keep = true; break; }
+            el = el.nextElementSibling;
+          }
+          if (keep) heads[h].classList.remove('hide');
+          else heads[h].classList.add('hide');
+        }
+      }
+
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      for (var f = 0; f < filterBtns.length; f++) {
+        (function (btn) {
+          btn.addEventListener('click', function () {
+            for (var i = 0; i < filterBtns.length; i++) {
+              filterBtns[i].classList.remove('active');
+            }
+            btn.classList.add('active');
+            currentFilter = btn.getAttribute('data-filter');
+            applyFilter();
+          });
+        })(filterBtns[f]);
+      }
+
+      // ─── Reset ───
+      document.getElementById('sylReset').addEventListener('click', function () {
+        if (!confirm('Reset all syllabus tracker progress?')) return;
+        state = {};
+        saveState(state);
+        boxes.forEach(function (b) {
+          b.checked = false;
+          b.indeterminate = false;
+          var li = closestTrack(b);
+          if (li) li.classList.remove('done');
+        });
+        updateProgress();
+      });
+
+      // filter button counts
+      function tagCount(term) {
+        return document.querySelectorAll(
+          'li.track[data-term="' + term + '"]').length;
+      }
+      document.querySelector('.filter-btn[data-filter="mid"]').textContent =
+        'Mid-Term · ' + tagCount('mid');
+      document.querySelector('.filter-btn[data-filter="final"]').textContent =
+        'Final Term · ' + tagCount('final');
+
+      updateProgress();
+      try {
+        applyFilter();
+      } catch (err) {
+        if (window.console && console.warn) {
+          console.warn('[Syllabus] filter init failed:', err);
+        }
+      }
+    })();
+  </script>
+
+  <script src="assets/study-os.js"></script>
+</body>
+</html>

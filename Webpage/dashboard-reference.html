@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study OS — Dashboard Concept</title>
+  <meta name="description" content="Dashboard UI reference for Study OS: Home, Notes, Test, Practice, Syllabus with sidebar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --surface: #ffffff;
+      --surface-2: #efebe3;
+      --ink: #1c1a17;
+      --muted: #7c7670;
+      --faint: #aaa39a;
+      --line: #e7e1d6;
+      --accent: #1b5e4b;
+      --accent-deep: #144a3b;
+      --accent-soft: #e6efe9;
+      --gold: #8a5f0e;
+      --gold-soft: #faf0d7;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 1px 2px rgba(28,26,23,.05), 0 8px 24px rgba(28,26,23,.06);
+      --sidebar-w: 264px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+    html[data-theme="dark"] {
+      --bg: #121311;
+      --surface: #1b1d1a;
+      --surface-2: #242724;
+      --ink: #ece9e2;
+      --muted: #a39d93;
+      --faint: #6f6a62;
+      --line: #2e322e;
+      --accent: #4fbf9a;
+      --accent-deep: #3aa37f;
+      --accent-soft: #1d332b;
+      --gold-soft: #3a2f14;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    button { font-family: inherit; }
+    .app { display: grid; grid-template-columns: var(--sidebar-w) 1fr; min-height: 100vh; }
+
+    /* ─── Sidebar ─── */
+    .sidebar {
+      position: sticky; top: 0; height: 100vh;
+      background: var(--surface);
+      border-right: 1px solid var(--line);
+      display: flex; flex-direction: column;
+      padding: 20px 14px 14px;
+      z-index: 60;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; padding: 4px 8px 16px; }
+    .brand-mark {
+      width: 40px; height: 40px; border-radius: 13px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 700; font-size: 20px;
+      box-shadow: 0 4px 12px rgba(27,94,75,.28);
+      flex-shrink: 0;
+    }
+    .brand-name { font-family: var(--font-display); font-weight: 700; font-size: 19px; letter-spacing: -.02em; line-height: 1.15; }
+    .brand-name small { display: block; font-family: var(--font-body); font-weight: 500; font-size: 10.5px; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; margin-top: 3px; }
+    .side-label { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); padding: 16px 12px 8px; }
+    .side-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+    .side-nav { display: flex; flex-direction: column; gap: 3px; }
+    .nav-item {
+      position: relative;
+      display: flex; align-items: center; gap: 12px;
+      width: 100%; padding: 10px 12px;
+      border: 1px solid transparent; border-radius: 12px;
+      background: none; color: var(--muted);
+      font-size: 14.5px; font-weight: 500;
+      cursor: pointer; text-align: left;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
+    }
+    .nav-item svg { width: 19px; height: 19px; flex-shrink: 0; }
+    .nav-item:hover { background: var(--bg); color: var(--ink); }
+    .nav-item.active { background: var(--accent-soft); color: var(--accent-deep); border-color: rgba(27,94,75,.16); font-weight: 700; }
+    html[data-theme="dark"] .nav-item.active { color: var(--accent); }
+    .nav-item.active::before {
+      content: ""; position: absolute; left: -14px; top: 9px; bottom: 9px;
+      width: 4px; border-radius: 0 4px 4px 0; background: var(--accent);
+    }
+    .pill-soon {
+      margin-left: auto; font-size: 10px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      background: var(--gold-soft); color: var(--gold);
+      border-radius: 999px; padding: 3px 9px;
+    }
+    .nav-item.active .pill-soon { display: none; }
+    .side-card {
+      margin-top: auto;
+      background: var(--bg);
+      border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 14px;
+    }
+    .side-card h4 { font-family: var(--font-display); font-size: 15px; margin-bottom: 4px; }
+    .side-card p { font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
+    .progress { height: 7px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
+    html[data-theme="dark"] .progress { background: #2c302c; }
+    .progress > span { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 99px; transition: width .8s ease; }
+    .side-card .row { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .theme-row { display: flex; gap: 8px; margin-top: 12px; }
+    .theme-btn {
+      flex: 1; border: 1px solid var(--line); background: var(--surface);
+      border-radius: 9px; padding: 8px; font-size: 13px; cursor: pointer; color: var(--muted);
+    }
+    .theme-btn.on { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+
+    /* ─── Main ─── */
+    .main { min-width: 0; display: flex; flex-direction: column; min-height: 100vh; }
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 32px;
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .icon-btn {
+      width: 40px; height: 40px; border-radius: 11px;
+      border: 1px solid var(--line); background: var(--surface);
+      color: var(--ink); cursor: pointer; font-size: 17px;
+      display: none; align-items: center; justify-content: center;
+    }
+    .search {
+      flex: 1; max-width: 480px; display: flex; align-items: center; gap: 10px;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 999px; padding: 10px 16px;
+    }
+    .search svg { width: 17px; height: 17px; color: var(--faint); flex-shrink: 0; }
+    .search input { border: 0; outline: 0; background: none; flex: 1; font: inherit; font-size: 14px; color: var(--ink); }
+    .search input::placeholder { color: var(--faint); }
+    .search kbd { font-family: inherit; font-size: 11px; color: var(--faint); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; background: var(--bg); }
+    .top-actions { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+    .class-chip { font-size: 12.5px; font-weight: 600; color: var(--muted); border: 1px solid var(--line); background: var(--surface); padding: 9px 14px; border-radius: 999px; white-space: nowrap; }
+    .avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+
+    .content { padding: 30px 32px 90px; max-width: 1120px; width: 100%; margin: 0 auto; }
+    .view { display: none; animation: rise .35s ease; }
+    .view.active { display: block; }
+    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+    .hero { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px; margin-bottom: 22px; }
+    .hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(30px, 4vw, 44px); line-height: 1.08; letter-spacing: -.03em; }
+    .hero h1 em { font-style: italic; font-weight: 500; }
+    .hero p { color: var(--muted); max-width: 520px; margin-top: 8px; font-size: 15px; }
+    .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 11px; padding: 12px 18px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      border: 1px solid transparent; text-decoration: none;
+      transition: transform .12s ease, opacity .15s ease;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow); }
+    .btn-primary:hover { background: var(--accent-deep); }
+    .btn-ghost { background: var(--surface); border-color: var(--line); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .btn[disabled] { opacity: .55; cursor: not-allowed; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 6px 0 22px; }
+    .stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow); }
+    .stat .k { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .stat .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .stat .v { font-family: var(--font-display); font-size: 30px; font-weight: 700; letter-spacing: -.02em; margin: 6px 0 2px; }
+    .stat .s { font-size: 12.5px; color: var(--muted); }
+
+    .grid-2 { display: grid; grid-template-columns: 1.65fr 1fr; gap: 14px; align-items: start; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px 0; }
+    .card-head h3 { font-family: var(--font-display); font-size: 18px; letter-spacing: -.01em; }
+    .card-head button { background: none; border: 0; color: var(--accent); font-weight: 600; font-size: 13px; cursor: pointer; }
+    .continue-list { padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+    .continue-item { display: flex; gap: 14px; align-items: center; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 12px 14px; text-decoration: none; color: inherit; transition: border-color .15s ease, background .15s ease; }
+    .continue-item:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .tile { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 21px; flex-shrink: 0; background: var(--bg); border: 1px solid var(--line); }
+    .continue-item .t { font-weight: 600; font-size: 14.5px; line-height: 1.35; }
+    .continue-item .m { font-size: 12.5px; color: var(--muted); }
+    .continue-item .bar { height: 6px; background: var(--surface-2); border-radius: 99px; margin-top: 8px; overflow: hidden; }
+    .continue-item .bar > span { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
+    .continue-item .go { margin-left: auto; color: var(--accent); font-weight: 700; }
+
+    .focus { padding: 6px 18px 18px; }
+    .focus-item { display: flex; gap: 10px; align-items: flex-start; padding: 11px 0; border-bottom: 1px dashed var(--line); font-size: 14px; }
+    .focus-item:last-child { border-bottom: 0; }
+    .check { width: 20px; height: 20px; border-radius: 7px; border: 1.5px solid var(--faint); background: none; cursor: pointer; flex-shrink: 0; margin-top: 2px; font-size: 13px; color: #fff; line-height: 1; }
+    .check.done { background: var(--accent); border-color: var(--accent); }
+    .focus-item.done span { text-decoration: line-through; color: var(--faint); }
+    .quick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 18px 18px; }
+    .quick button { border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 11px; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink); }
+    .quick button:hover { border-color: var(--accent); color: var(--accent); }
+
+    .section-title { display: flex; align-items: baseline; justify-content: space-between; margin: 26px 0 12px; }
+    .section-title h2 { font-family: var(--font-display); font-size: 22px; letter-spacing: -.01em; }
+    .section-title p { font-size: 13px; color: var(--muted); }
+    .subjects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .subject { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px; transition: transform .15s ease, border-color .15s ease; }
+    .subject:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .subject .top { display: flex; align-items: center; gap: 12px; }
+    .subject .ic { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; background: var(--accent-soft); }
+    .subject h3 { font-size: 15.5px; font-weight: 700; line-height: 1.3; }
+    .subject .count { font-size: 12.5px; color: var(--muted); }
+    .subject .foot { display: flex; gap: 8px; margin-top: 4px; }
+    .link-btn { flex: 1; text-align: center; text-decoration: none; font-size: 13.5px; font-weight: 600; padding: 10px; border-radius: 9px; background: var(--ink); color: var(--bg); }
+    html[data-theme="dark"] .link-btn { background: #ece9e2; color: #121311; }
+    .link-btn:hover { opacity: .88; }
+    .ghost-btn { flex: 1; text-align: center; font-size: 13.5px; font-weight: 600; padding: 10px; border-radius: 9px; border: 1px solid var(--line); background: none; color: var(--muted); cursor: pointer; }
+    .ghost-btn:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* Notes view */
+    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+    .chip { border: 1px solid var(--line); background: var(--surface); color: var(--muted); border-radius: 999px; padding: 8px 14px; font-size: 13px; font-weight: 600; cursor: pointer; }
+    .chip.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .notes-group { margin-bottom: 18px; }
+    .notes-group > h3 { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 18px 2px 10px; }
+    .note-row { display: flex; align-items: center; gap: 13px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; text-decoration: none; color: inherit; }
+    .note-row:hover { border-color: var(--accent); }
+    .note-num { width: 34px; height: 34px; border-radius: 9px; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .note-row .t { font-weight: 600; font-size: 14.5px; }
+    .note-row .m { font-size: 12.5px; color: var(--muted); }
+    .note-row .arrow { margin-left: auto; color: var(--accent); font-weight: 700; }
+    .empty-search { display: none; text-align: center; padding: 30px; color: var(--muted); }
+
+    /* Coming soon */
+    .soon-wrap { max-width: 640px; margin: 40px auto; text-align: center; background: var(--surface); border: 1px dashed var(--line); border-radius: 18px; padding: 46px 30px; }
+    .soon-icon { width: 64px; height: 64px; border-radius: 20px; background: var(--bg); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px; }
+    .soon-wrap h2 { font-family: var(--font-display); font-size: 30px; letter-spacing: -.02em; margin-bottom: 8px; }
+    .soon-wrap p { color: var(--muted); font-size: 14.5px; max-width: 440px; margin: 0 auto 18px; }
+    .soon-list { text-align: left; display: inline-block; margin: 0 auto 20px; color: var(--muted); font-size: 14px; line-height: 2; }
+
+    .toast {
+      position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 20px);
+      background: var(--ink); color: var(--bg); font-size: 13.5px; font-weight: 500;
+      padding: 12px 18px; border-radius: 999px; opacity: 0; pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease; z-index: 200; box-shadow: var(--shadow);
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    .sidebar-scrim { display: none; }
+    .mobile-tabbar { display: none; }
+
+    /* ─── Footer ─── */
+    .dash-footer {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      background: var(--surface);
+      padding: 26px 32px 22px;
+    }
+    .dash-footer-inner { max-width: 1120px; margin: 0 auto; }
+    .dash-footer-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 24px; padding-bottom: 20px;
+    }
+    .dash-footer-brand { display: flex; gap: 12px; align-items: flex-start; }
+    .dash-footer-brand .brand-mark { width: 36px; height: 36px; font-size: 18px; border-radius: 11px; }
+    .dash-footer-brand b { font-family: var(--font-display); font-size: 16px; display: block; letter-spacing: -.01em; }
+    .dash-footer-brand span { font-size: 12.5px; color: var(--muted); display: block; margin-top: 2px; max-width: 260px; }
+    .dash-footer h5 { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin-bottom: 10px; }
+    .dash-footer ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .dash-footer ul button, .dash-footer ul a {
+      background: none; border: 0; padding: 0; cursor: pointer;
+      font-size: 13.5px; color: var(--muted); text-decoration: none; text-align: left; font-weight: 500;
+    }
+    .dash-footer ul button:hover, .dash-footer ul a:hover { color: var(--accent); }
+    .dash-footer-bottom {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      border-top: 1px solid var(--line); padding-top: 14px;
+      font-size: 12.5px; color: var(--muted);
+    }
+    .dash-footer-bottom .links { display: flex; gap: 14px; }
+    .dash-footer-bottom .links button { background: none; border: 0; color: var(--muted); font-size: 12.5px; cursor: pointer; padding: 0; }
+    .dash-footer-bottom .links button:hover { color: var(--accent); }
+
+    @media (max-width: 1020px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .grid-2 { grid-template-columns: 1fr; }
+      .subjects { grid-template-columns: repeat(2, 1fr); }
+      .dash-footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 820px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar {
+        position: fixed; left: 0; top: 0; bottom: 0; width: 280px;
+        transform: translateX(-105%); transition: transform .25s ease;
+        height: 100dvh; box-shadow: var(--shadow);
+      }
+      .sidebar.open { transform: none; }
+      .sidebar-scrim.show { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 55; }
+      .icon-btn { display: inline-flex; }
+      .topbar { padding: 12px 16px; }
+      .class-chip, .search kbd { display: none; }
+      .content { padding: 20px 16px 110px; }
+      .subjects { grid-template-columns: 1fr; }
+      .mobile-tabbar {
+        display: grid; grid-template-columns: repeat(5, 1fr);
+        position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
+        background: var(--surface); border: 1px solid var(--line);
+        border-radius: 18px; padding: 8px 6px; box-shadow: var(--shadow);
+      }
+      .mobile-tabbar button {
+        background: none; border: 0; display: flex; flex-direction: column;
+        align-items: center; gap: 3px; font-size: 10.5px; font-weight: 600;
+        color: var(--faint); cursor: pointer; padding: 6px 2px; border-radius: 10px;
+      }
+      .mobile-tabbar button.on { color: var(--accent); }
+      .mobile-tabbar button:disabled { opacity: .55; }
+      .mobile-tabbar svg { width: 20px; height: 20px; }
+      .dash-footer { padding: 22px 16px 100px; }
+      .dash-footer-grid { grid-template-columns: 1fr; gap: 18px; }
+      .dash-footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar" id="sidebar" aria-label="Study OS sidebar">
+    <div class="brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-name">Study OS<small>Class 11 · Commerce</small></div>
+    </div>
+
+    <div class="side-label">Menu</div>
+    <nav class="side-nav" id="sideNav">
+      <button class="nav-item active" data-view="home" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>
+        Home
+      </button>
+      <button class="nav-item" data-view="notes" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 1 2-2h12"/></svg>
+        Notes
+      </button>
+      <button class="nav-item" data-view="test" data-soon="Test" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+        Test <span class="pill-soon">Soon</span>
+      </button>
+      <button class="nav-item" data-view="practice" data-soon="Practice" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
+        Practice <span class="pill-soon">Soon</span>
+      </button>
+      <button class="nav-item" data-view="syllabus" data-soon="Syllabus" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1.2"/><circle cx="4" cy="12" r="1.2"/><circle cx="4" cy="18" r="1.2"/></svg>
+        Syllabus <span class="pill-soon">Soon</span>
+      </button>
+    </nav>
+
+    <div class="side-label">General</div>
+    <nav class="side-nav">
+      <button class="nav-item" data-toast="Settings are not part of this UI reference yet." type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.9 2.9l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.9-2.9l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.9-2.9l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5h.1a1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.9 2.9l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.4 1z"/></svg>
+        Settings
+      </button>
+    </nav>
+
+    <div class="side-card">
+      <h4>Syllabus progress</h4>
+      <p>Class XI · 2026–27 · 30 notes live</p>
+      <div class="progress"><span id="sideProgress" style="width:34%"></span></div>
+      <div class="row"><span>34% complete</span><span>Keep going</span></div>
+      <div class="theme-row" role="group" aria-label="Theme">
+        <button class="theme-btn on" id="lightBtn" type="button">☀ Light</button>
+        <button class="theme-btn" id="darkBtn" type="button">◐ Dark</button>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-scrim" id="scrim"></div>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <label class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="searchInput" type="search" placeholder="Search chapters, subjects, topics…" autocomplete="off">
+        <kbd>⌘K</kbd>
+      </label>
+      <div class="top-actions">
+        <span class="class-chip" id="dateChip">Class 11 · Commerce</span>
+        <button class="icon-btn" id="themeBtn" style="display:inline-flex" aria-label="Toggle theme">◐</button>
+        <div class="avatar" title="Student">XI</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- HOME -->
+      <section class="view active" id="view-home">
+        <div class="hero">
+          <div>
+            <div class="hero-eyebrow" id="greetEyebrow">Good morning · Wednesday</div>
+            <h1>Your revision <em>dashboard.</em></h1>
+            <p>All Class 11 Commerce notes in one calm place. Pick up where you left off, or browse by subject.</p>
+          </div>
+          <div class="hero-cta">
+            <button class="btn btn-primary" data-goto="notes">Open Notes →</button>
+            <button class="btn btn-ghost" data-goto="syllabus">Syllabus · Soon</button>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><div class="k"><span class="dot"></span>Live chapters</div><div class="v" data-count="30">30</div><div class="s">Across 6 subjects</div></div>
+          <div class="stat"><div class="k"><span class="dot" style="background:#c98a1b"></span>Subjects</div><div class="v">6</div><div class="s">BST · Eco · Stats · Retail · Eng · Maths</div></div>
+          <div class="stat"><div class="k"><span class="dot" style="background:#4f8ef7"></span>Study streak</div><div class="v">12 <span style="font-size:15px;font-family:var(--font-body);font-weight:500;color:var(--muted)">days</span></div><div class="s">Static placeholder for concept</div></div>
+          <div class="stat"><div class="k"><span class="dot" style="background:#8a5f0e"></span>Syllabus</div><div class="v">34%</div><div class="s">Tracker wires up later</div></div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-head"><h3>Continue learning</h3><button data-goto="notes">View all →</button></div>
+            <div class="continue-list">
+              <a class="continue-item" href="BST/Chapter-1-Business-Trade-and-Commerce.html">
+                <span class="tile">📊</span>
+                <span style="flex:1"><span class="t">Business, Trade and Commerce</span><br><span class="m">BST · Chapter 1 · 7 sections</span><span class="bar"><span style="width:68%"></span></span></span>
+                <span class="go">→</span>
+              </a>
+              <a class="continue-item" href="Economics/Chapter-3-Demand.html">
+                <span class="tile">💰</span>
+                <span style="flex:1"><span class="t">Demand — Law, shifts &amp; exceptions</span><br><span class="m">Micro-Economics · Chapter 3</span><span class="bar"><span style="width:42%"></span></span></span>
+                <span class="go">→</span>
+              </a>
+              <a class="continue-item" href="English/Chapter-1-The-Portrait-of-a-Lady.html">
+                <span class="tile">📖</span>
+                <span style="flex:1"><span class="t">The Portrait of a Lady</span><br><span class="m">English Hornbill · Khushwant Singh</span><span class="bar"><span style="width:20%"></span></span></span>
+                <span class="go">→</span>
+              </a>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div class="card">
+              <div class="card-head"><h3>Today's focus</h3></div>
+              <div class="focus" id="focusList">
+                <div class="focus-item"><button class="check" aria-label="check">✓</button><span>Revise BST Ch.1 — business vs profession vs employment</span></div>
+                <div class="focus-item"><button class="check" aria-label="check">✓</button><span>Micro Ch.3 — one diagram: movement vs shift in demand</span></div>
+                <div class="focus-item"><button class="check" aria-label="check">✓</button><span>Read 10 pages — Portrait of a Lady</span></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-head"><h3>Quick actions</h3></div>
+              <div class="quick">
+                <button data-goto="notes">Browse notes</button>
+                <button data-toast="Search jumps to Notes in this concept.">Search topic</button>
+                <button data-toast="Tests launch after notes are final.">Mock test · Soon</button>
+                <button data-toast="Practice sets launch after notes are final.">Practice · Soon</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title"><h2>Subjects</h2><p>Notes are live · everything else is coming soon</p></div>
+        <div class="subjects" id="subjectCards"></div>
+      </section>
+
+      <!-- NOTES -->
+      <section class="view" id="view-notes">
+        <div class="hero-eyebrow">Notes · 30 chapters live</div>
+        <h1 style="font-family:var(--font-display);font-size:clamp(28px,3.4vw,38px);letter-spacing:-.02em">Browse every chapter.</h1>
+        <p style="color:var(--muted);max-width:560px">Filter by subject or type to find a note. Each row opens the existing chapter page.</p>
+        <div class="filter-row" id="filterRow">
+          <button class="chip on" data-filter="all">All</button>
+          <button class="chip" data-filter="bst">Business Studies</button>
+          <button class="chip" data-filter="micro">Micro-Economics</button>
+          <button class="chip" data-filter="stats">Statistics</button>
+          <button class="chip" data-filter="retail">Retail</button>
+          <button class="chip" data-filter="english">English</button>
+          <button class="chip" data-filter="maths">Maths</button>
+        </div>
+        <div id="notesList"></div>
+        <div class="empty-search" id="emptySearch">No chapters match “<span id="emptyQ"></span>”. Try “demand”, “cost”, “retail”, “tut”…</div>
+      </section>
+
+      <!-- SOON VIEWS -->
+      <section class="view" id="view-test">
+        <div class="soon-wrap">
+          <div class="soon-icon">📝</div>
+          <div class="hero-eyebrow">Test · Coming soon</div>
+          <h2>Chapter tests, coming next.</h2>
+          <p>Timed, chapter-wise tests with solutions will live here. Notes ship first — tests plug into the same sidebar slot.</p>
+          <div class="soon-list">✓ &nbsp;MCQ + short-answer format<br>✓ &nbsp;Auto score + retry weak topics<br>✓ &nbsp;One slot per subject</div><br>
+          <button class="btn btn-primary" data-toast="We will enable Tests after the notes pass.">Notify me →</button>
+          &nbsp;<button class="btn btn-ghost" data-goto="notes">Study notes meanwhile</button>
+        </div>
+      </section>
+      <section class="view" id="view-practice">
+        <div class="soon-wrap">
+          <div class="soon-icon">🎯</div>
+          <div class="hero-eyebrow">Practice · Coming soon</div>
+          <h2>Daily practice sets.</h2>
+          <p>Short drills, flashcards and quick-fire revision will live here — separate from full tests.</p>
+          <div class="soon-list">✓ &nbsp;5-minute daily drills<br>✓ &nbsp;Flashcards per chapter<br>✓ &nbsp;Mistake-book to retry errors</div><br>
+          <button class="btn btn-primary" data-toast="We will enable Practice after the notes pass.">Notify me →</button>
+          &nbsp;<button class="btn btn-ghost" data-goto="notes">Study notes meanwhile</button>
+        </div>
+      </section>
+      <section class="view" id="view-syllabus">
+        <div class="soon-wrap">
+          <div class="soon-icon">🗂️</div>
+          <div class="hero-eyebrow">Syllabus · Coming soon</div>
+          <h2>Track the full Class XI syllabus.</h2>
+          <p>A term-wise tracker (Mid-Term + Final) with checkboxes will dock here. The existing <b>Syllabus-Tracker.html</b> can be linked into this slot when ready.</p>
+          <div class="soon-list">✓ &nbsp;Subject → unit → chapter checkboxes<br>✓ &nbsp;Progress syncs to sidebar card<br>✓ &nbsp;Mid-Term / Final split</div><br>
+          <a class="btn btn-ghost" href="Syllabus-Tracker.html">Preview existing tracker →</a>
+          &nbsp;<button class="btn btn-primary" data-goto="notes">Back to notes</button>
+        </div>
+      </section>
+
+    </div>
+
+    <footer class="dash-footer">
+      <div class="dash-footer-inner">
+        <div class="dash-footer-grid">
+          <div class="dash-footer-brand">
+            <div class="brand-mark">S</div>
+            <div><b>Study OS</b><span>Class 11 Commerce revision hub — 30 NCERT-based chapters across 6 subjects.</span></div>
+          </div>
+          <div>
+            <h5>Study</h5>
+            <ul>
+              <li><button type="button" data-goto="home">Home dashboard</button></li>
+              <li><button type="button" data-goto="notes">All notes</button></li>
+              <li><a href="index.html">Notes Hub</a></li>
+              <li><a href="Syllabus-Tracker.html">Syllabus Tracker</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Subjects</h5>
+            <ul>
+              <li><button type="button" data-subject-link="bst">Business Studies</button></li>
+              <li><button type="button" data-subject-link="micro">Micro-Economics</button></li>
+              <li><button type="button" data-subject-link="english">English</button></li>
+              <li><button type="button" data-subject-link="maths">Maths</button></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Coming soon</h5>
+            <ul>
+              <li><button type="button" data-goto="test">Chapter tests</button></li>
+              <li><button type="button" data-goto="practice">Practice drills</button></li>
+              <li><button type="button" data-goto="syllabus">Full tracker</button></li>
+            </ul>
+          </div>
+        </div>
+        <div class="dash-footer-bottom">
+          <span>Study OS · Class 11 Commerce · NCERT-based notes · 2026</span>
+          <div class="links">
+            <button type="button" data-goto="home">Dashboard</button>
+            <button type="button" id="footThemeBtn">Toggle theme</button>
+            <button type="button" data-toast="Search lives in the top bar — press ⌘K.">Search help</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<nav class="mobile-tabbar" aria-label="Primary">
+  <button data-view="home" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Home</button>
+  <button data-view="notes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 1 2-2h12"/></svg>Notes</button>
+  <button data-view="test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>Test</button>
+  <button data-view="practice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>Practice</button>
+  <button data-view="syllabus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1.2"/><circle cx="4" cy="12" r="1.2"/><circle cx="4" cy="18" r="1.2"/></svg>Syllabus</button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const DATA = [
+    { key: 'bst', subject: 'Business Studies', icon: '📊', file: 'BST/Chapter-1-Business-Trade-and-Commerce.html', num: '1', title: 'Business, Trade and Commerce', meta: '7 sections' },
+    { key: 'bst', subject: 'Business Studies', icon: '📊', file: 'BST/Chapter-2-Forms-of-Business-Organisation.html', num: '2', title: 'Forms of Business Organisation', meta: '5 forms covered' },
+    { key: 'bst', subject: 'Business Studies', icon: '📊', file: 'BST/Chapter-3-Private-Public-and-Global-Enterprise.html', num: '3', title: 'Private, Public & Global Enterprises', meta: '3 enterprise types' },
+    { key: 'bst', subject: 'Business Studies', icon: '📊', file: 'BST/Chapter-4-Business-Services.html', num: '4', title: 'Business Services', meta: 'Banking, insurance & more' },
+    { key: 'bst', subject: 'Business Studies', icon: '📊', file: 'BST/Chapter-5-Emerging-Modes-of-Business.html', num: '5', title: 'Emerging Modes of Business', meta: 'e-Business, outsourcing & more' },
+    { key: 'bst', subject: 'Business Studies', icon: '📊', file: 'BST/Chapter-7-Sources-of-Business-Finance.html', num: '7', title: 'Sources of Business Finance', meta: 'Shares, debentures, trade credit' },
+    { key: 'micro', subject: 'Micro-Economics', icon: '💰', file: 'Economics/Chapter-1-Introduction-to-Microeconomics.html', num: '1', title: 'Introduction to Microeconomics', meta: 'PPF, opportunity cost' },
+    { key: 'micro', subject: 'Micro-Economics', icon: '💰', file: 'Economics/Chapter-2-Consumer-Equilibrium.html', num: '2', title: "Consumer's Equilibrium", meta: 'Utility, IC & budget line' },
+    { key: 'micro', subject: 'Micro-Economics', icon: '💰', file: 'Economics/Chapter-3-Demand.html', num: '3', title: 'Demand', meta: 'Law of demand, shifts' },
+    { key: 'micro', subject: 'Micro-Economics', icon: '💰', file: 'Economics/Chapter-4-Elasticity-of-Demand.html', num: '4', title: 'Elasticity of Demand', meta: 'Price elasticity & methods' },
+    { key: 'micro', subject: 'Micro-Economics', icon: '💰', file: 'Economics/Chapter-5-Production-Function.html', num: '5', title: 'Production Function', meta: 'TP, AP, MP & variable proportions' },
+    { key: 'micro', subject: 'Micro-Economics', icon: '💰', file: 'Economics/Chapter-6-Cost.html', num: '6', title: 'Cost', meta: 'TFC, TVC, AC, MC & relations' },
+    { key: 'micro', subject: 'Micro-Economics', icon: '💰', file: 'Economics/Chapter-7-Revenue.html', num: '7', title: 'Revenue', meta: 'TR, AR, MR & relations' },
+    { key: 'stats', subject: 'Statistics', icon: '📈', file: 'Statistics/Chapter-1-Introduction-to-Economics.html', num: '1', title: 'Economics — An Introduction', meta: 'Scarcity, activities & more' },
+    { key: 'stats', subject: 'Statistics', icon: '📈', file: 'Statistics/Chapter-2-Meaning-Scope-and-Importance-of-Statistics.html', num: '2', title: 'Meaning, Scope & Importance of Statistics', meta: 'Functions, limitations' },
+    { key: 'stats', subject: 'Statistics', icon: '📈', file: 'Statistics/Chapter-3-Collection-of-Data.html', num: '3', title: 'Collection of Data', meta: 'Primary vs secondary, sampling' },
+    { key: 'stats', subject: 'Statistics', icon: '📈', file: 'Statistics/Chapter-4-Organisation-of-Data.html', num: '4', title: 'Organisation of Data', meta: 'Classification & frequency' },
+    { key: 'stats', subject: 'Statistics', icon: '📈', file: 'Statistics/Chapter-5-Tabular-Presentation.html', num: '5', title: 'Tabular Presentation', meta: 'Parts & types of tables' },
+    { key: 'retail', subject: 'Retail', icon: '🛒', file: 'Retail/Chapter-1-Fundamentals-of-Retailing.html', num: '1', title: 'Fundamentals of Retailing', meta: '4 sessions' },
+    { key: 'retail', subject: 'Retail', icon: '🛒', file: 'Retail/Chapter-2-Communication-Skills.html', num: '2', title: 'Communication Skills', meta: 'Employability · Unit 1' },
+    { key: 'retail', subject: 'Retail', icon: '🛒', file: 'Retail/Chapter-3-Process-of-Credit-Application.html', num: '3', title: 'Process of Credit Application', meta: 'Unit 2 · 4 sessions' },
+    { key: 'retail', subject: 'Retail', icon: '🛒', file: 'Retail/Chapter-4-Mechanism-for-Customers-to-Choose-Right-Products.html', num: '4', title: 'Mechanism for Customers to Choose Right Products', meta: 'Unit 3 · 4 sessions' },
+    { key: 'english', subject: 'English Hornbill', icon: '📖', file: 'English/Chapter-1-The-Portrait-of-a-Lady.html', num: '1', title: 'The Portrait of a Lady', meta: "Khushwant Singh + 'A Photograph'" },
+    { key: 'english', subject: 'English Hornbill', icon: '📖', file: 'English/Chapter-2-Were-Not-Afraid-to-Die.html', num: '2', title: "We're Not Afraid to Die…", meta: 'Gordon Cook & Alan East' },
+    { key: 'english', subject: 'English Hornbill', icon: '📖', file: 'English/Chapter-3-Discovering-Tut.html', num: '3', title: 'Discovering Tut: The Saga Continues', meta: 'A. R. Williams + poems' },
+    { key: 'english', subject: 'English Snapshots', icon: '📖', file: 'English/Chapter-1-The-Summer-of-the-Beautiful-White-Horse.html', num: 'S1', title: 'The Summer of the Beautiful White Horse', meta: 'William Saroyan' },
+    { key: 'english', subject: 'English Snapshots', icon: '📖', file: 'English/Chapter-2-The-Address.html', num: 'S2', title: 'The Address', meta: 'Marga Minco' },
+    { key: 'english', subject: 'English Snapshots', icon: '📖', file: 'English/Chapter-3-Mothers-Day.html', num: 'S3', title: "Mother's Day", meta: 'J.B. Priestley · play' },
+    { key: 'maths', subject: 'Mathematics', icon: '📐', file: 'Maths/Class-11-Maths-Quick-Revision-Ch1-to-Ch6.html', num: '⚡', title: 'Quick Revision — Chapters 1 to 6', meta: 'One-shot · tricks · formula wall' },
+    { key: 'maths', subject: 'Mathematics', icon: '📐', file: 'Maths/Class-11-Maths-Test-Ch1-to-Ch6.html', num: 'T1', title: 'Full Test — Chapters 1 to 6', meta: '12 questions · solutions' }
+  ];
+
+  const SUBJECTS = [
+    { key: 'bst', name: 'Business Studies', icon: '📊', desc: '6 chapters · NCERT Class 11' },
+    { key: 'micro', name: 'Micro-Economics', icon: '💰', desc: '7 chapters · Intro Micro' },
+    { key: 'stats', name: 'Statistics', icon: '📈', desc: '5 chapters · Stats for Eco' },
+    { key: 'retail', name: 'Retail', icon: '🛒', desc: '4 chapters · Vocational' },
+    { key: 'english', name: 'English', icon: '📖', desc: '6 chapters · Hornbill + Snapshots' },
+    { key: 'maths', name: 'Mathematics', icon: '📐', desc: 'Revision + test · Ch 1–6' }
+  ];
+
+  const views = document.querySelectorAll('.view');
+  const navItems = document.querySelectorAll('#sideNav .nav-item');
+  const tabBtns = document.querySelectorAll('.mobile-tabbar button');
+  const toast = document.getElementById('toast');
+  let toastT;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastT);
+    toastT = setTimeout(() => toast.classList.remove('show'), 2400);
+  }
+
+  function goto(view) {
+    views.forEach(v => v.classList.toggle('active', v.id === 'view-' + view));
+    navItems.forEach(n => n.classList.toggle('active', n.dataset.view === view));
+    tabBtns.forEach(b => b.classList.toggle('on', b.dataset.view === view));
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('scrim').classList.remove('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navItems.forEach(n => n.addEventListener('click', () => {
+    if (n.dataset.soon) { goto(n.dataset.view); showToast(n.dataset.soon + ' is coming soon — notes are live for now.'); return; }
+    goto(n.dataset.view);
+  }));
+  tabBtns.forEach(b => b.addEventListener('click', () => {
+    if (['test','practice','syllabus'].includes(b.dataset.view)) { goto(b.dataset.view); showToast('Coming soon — notes are live for now.'); return; }
+    goto(b.dataset.view);
+  }));
+  document.querySelectorAll('[data-goto]').forEach(b => b.addEventListener('click', () => {
+    const v = b.dataset.goto;
+    goto(v);
+    if (['test','practice','syllabus'].includes(v)) showToast('Coming soon — notes are live for now.');
+  }));
+  document.querySelectorAll('[data-toast]').forEach(b => b.addEventListener('click', () => showToast(b.dataset.toast)));
+  document.querySelectorAll('[data-subject-link]').forEach(b => b.addEventListener('click', () => {
+    setFilter(b.dataset.subjectLink);
+    goto('notes');
+  }));
+
+  // Subject cards on home
+  const cardsEl = document.getElementById('subjectCards');
+  cardsEl.innerHTML = SUBJECTS.map(s => {
+    const n = DATA.filter(d => d.key === s.key).length;
+    return `<div class="subject"><div class="top"><span class="ic">${s.icon}</span><div><h3>${s.name}</h3><div class="count">${n} resources · ${s.desc}</div></div></div><div class="foot"><button class="ghost-btn" data-sub="${s.key}">Open</button><a class="link-btn" href="${DATA.find(d => d.key === s.key).file}">Start →</a></div></div>`;
+  }).join('');
+  cardsEl.querySelectorAll('[data-sub]').forEach(b => b.addEventListener('click', () => {
+    setFilter(b.dataset.sub);
+    goto('notes');
+  }));
+
+  // Notes list
+  let activeFilter = 'all';
+  let query = '';
+  const listEl = document.getElementById('notesList');
+  function renderNotes() {
+    const groups = {};
+    DATA.forEach(d => {
+      if (activeFilter !== 'all' && d.key !== activeFilter) return;
+      const hay = (d.title + ' ' + d.subject + ' ' + d.meta).toLowerCase();
+      if (query && !hay.includes(query)) return;
+      (groups[d.subject] = groups[d.subject] || []).push(d);
+    });
+    const names = Object.keys(groups);
+    document.getElementById('emptySearch').style.display = names.length ? 'none' : 'block';
+    document.getElementById('emptyQ').textContent = document.getElementById('searchInput').value;
+    listEl.innerHTML = names.map(g =>
+      `<div class="notes-group"><h3>${groups[g][0].icon} &nbsp;${g} · ${groups[g].length}</h3>` +
+      groups[g].map(d => `<a class="note-row" href="${d.file}"><span class="note-num">${d.num}</span><span><span class="t">${d.title}</span><br><span class="m">${d.meta}</span></span><span class="arrow">→</span></a>`).join('') +
+      `</div>`
+    ).join('');
+  }
+  function setFilter(f) {
+    activeFilter = f;
+    document.querySelectorAll('#filterRow .chip').forEach(c => c.classList.toggle('on', c.dataset.filter === f));
+    renderNotes();
+  }
+  document.querySelectorAll('#filterRow .chip').forEach(c => c.addEventListener('click', () => setFilter(c.dataset.filter)));
+  document.getElementById('searchInput').addEventListener('input', e => {
+    query = e.target.value.trim().toLowerCase();
+    const notesActive = document.getElementById('view-notes').classList.contains('active');
+    if (query && !notesActive) goto('notes');
+    renderNotes();
+  });
+  document.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); document.getElementById('searchInput').focus(); }
+  });
+  renderNotes();
+
+  // Focus checklist
+  document.querySelectorAll('#focusList .check').forEach(btn => btn.addEventListener('click', () => {
+    btn.classList.toggle('done');
+    btn.textContent = btn.classList.contains('done') ? '✓' : '✓';
+    btn.closest('.focus-item').classList.toggle('done', btn.classList.contains('done'));
+    const done = document.querySelectorAll('#focusList .check.done').length;
+    if (done === 3) showToast('Nice — today’s focus is done.');
+  }));
+
+  // Theme
+  function setTheme(t) {
+    document.documentElement.dataset.theme = t;
+    document.getElementById('lightBtn').classList.toggle('on', t === 'light');
+    document.getElementById('darkBtn').classList.toggle('on', t === 'dark');
+    try { localStorage.setItem('studyos-dash-theme', t); } catch (e) {}
+  }
+  document.getElementById('lightBtn').addEventListener('click', () => setTheme('light'));
+  document.getElementById('darkBtn').addEventListener('click', () => setTheme('dark'));
+  document.getElementById('themeBtn').addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
+  document.getElementById('footThemeBtn').addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
+  try {
+    const saved = localStorage.getItem('studyos-dash-theme');
+    if (saved) setTheme(saved);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+  } catch (e) {}
+
+  // Greeting + date
+  const h = new Date().getHours();
+  const part = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
+  const day = new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' });
+  document.getElementById('greetEyebrow').textContent = part + ' · ' + day;
+  document.getElementById('dateChip').textContent = day;
+
+  // Drawer
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('scrim').classList.add('show');
+  });
+  document.getElementById('scrim').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('scrim').classList.remove('show');
+  });
+
+  // Animate bars + counters
+  requestAnimationFrame(() => {
+    document.getElementById('sideProgress').style.width = '34%';
+    document.querySelectorAll('.continue-item .bar > span').forEach((b, i) => {
+      const w = b.style.width; b.style.width = '0';
+      setTimeout(() => b.style.width = w, 150 + i * 150);
+    });
+  });
+</script>
+</body>
+</html>

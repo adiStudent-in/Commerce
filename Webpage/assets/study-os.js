@@ -449,7 +449,162 @@
     } catch (e) { log('Print init error: ' + e.message); }
   }
 
-  /* ───────── 11. KEYBOARD SHORTCUTS ───────── */
+  /* ───────── 10.5 MIND MAP OVERLAY ───────── */
+
+  var mmOverlayBuilt = false;
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+      document.head.appendChild(s);
+    });
+  }
+
+  // Lazy-load markmap deps once and cache the promise. markmap-lib and
+  // markmap-view share the `window.markmap` global (view clobbers lib), so we
+  // capture Transformer right after markmap-lib loads.
+  var mmLibPromise = null;
+  function loadMarkmapLib() {
+    if (!mmLibPromise) {
+      mmLibPromise = loadScript('https://cdn.jsdelivr.net/npm/d3@7')
+        .then(function () { return loadScript('https://cdn.jsdelivr.net/npm/markmap-lib@0.18.12'); })
+        .then(function () {
+          var wm = window.markmap || {};
+          return wm.Transformer ? wm.Transformer : null;
+        });
+    }
+    return mmLibPromise;
+  }
+
+  var mmViewPromise = null;
+  function loadMarkmapView() {
+    if (!mmViewPromise) {
+      mmViewPromise = loadMarkmapLib()
+        .then(function () {
+          return loadScript('https://cdn.jsdelivr.net/npm/markmap-view@0.18.12');
+        })
+        .then(function () {
+          var wm = window.markmap || {};
+          return wm.Markmap ? wm.Markmap : null;
+        });
+    }
+    return mmViewPromise;
+  }
+
+  function buildMindmapOverlay() {
+    if (!mmOverlayBuilt) {
+      mmOverlayBuilt = true;
+      var overlay = document.createElement('div');
+      overlay.className = 'mindmap-overlay';
+      overlay.id = 'mindmapOverlay';
+      overlay.innerHTML =
+        '<div class="mindmap-modal">' +
+          '<div class="mindmap-modal-header">' +
+            '<span class="mm-title">🗺️ Concept Map</span>' +
+            '<span class="mm-hint">Scroll to zoom &middot; Drag to pan &middot; Click a node to collapse / expand</span>' +
+            '<div class="mindmap-actions">' +
+              '<button type="button" class="mm-fit">Fit</button>' +
+              '<button type="button" class="mm-expand">Expand all</button>' +
+              '<button type="button" class="mm-collapse">Collapse all</button>' +
+            '</div>' +
+            '<button type="button" class="mindmap-close" aria-label="Close mind map" title="Close (Esc)">&times;</button>' +
+          '</div>' +
+          '<svg id="mindmap-svg"></svg>' +
+        '</div>';
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeMindmapOverlay();
+      });
+      qs('.mindmap-close', overlay).addEventListener('click', closeMindmapOverlay);
+      qs('.mm-fit', overlay).addEventListener('click', function () {
+        if (window.mmInstance) window.mmInstance.fit();
+      });
+      qs('.mm-expand', overlay).addEventListener('click', function () {
+        if (window.mmInstance) window.mmInstance.setData(window.mmRoot, { initialExpandLevel: -1 });
+      });
+      qs('.mm-collapse', overlay).addEventListener('click', function () {
+        if (window.mmInstance) window.mmInstance.setData(window.mmRoot, { initialExpandLevel: 0 });
+      });
+    }
+  }
+
+  function closeMindmapOverlay() {
+    var overlay = qs('#mindmapOverlay');
+    if (overlay) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function openMindmapOverlay() {
+    buildMindmapOverlay();
+    var overlay = qs('#mindmapOverlay');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function initMindmap() {
+    try {
+      var toggle = qs('.mindmap-toggle');
+      var dataEl = qs('#chapter-mindmap-data');
+      if (!toggle || !dataEl) return;
+
+      // Live re-theme of the SVG when dark mode flips (Ch 1-5 pages).
+      var svgObserver = new MutationObserver(function () {
+        if (window.mmInstance) {
+          window.mmInstance.fit();
+        }
+      });
+      svgObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+      toggle.addEventListener('click', function () {
+        openMindmapOverlay();
+        var overlay = qs('#mindmapOverlay');
+        var svg = qs('#mindmap-svg', overlay);
+        svg.style.background = 'var(--surface)';
+        svg.classList.add('no-print');
+
+        var markdown;
+        try {
+          markdown = JSON.parse(dataEl.textContent.trim());
+        } catch (err) {
+          markdown = dataEl.textContent;
+        }
+
+        loadMarkmapView()
+          .then(function (Markmap) {
+            if (Markmap === null) { log('markmap-view not found'); return; }
+            return loadMarkmapLib().then(function (Transformer) {
+              return { Markmap: Markmap, Transformer: Transformer };
+            });
+          })
+          .then(function (mm) {
+            if (!mm.Transformer) { log('markmap transformer not found'); return; }
+            // Clear any prior render so reopening doesn't stack SVGs.
+            if (window.mmInstance && typeof window.mmInstance.destroy === 'function') {
+              window.mmInstance.destroy();
+            }
+            var transformer = new mm.Transformer();
+            var data = transformer.transform(markdown);
+            window.mmRoot = data.root;
+            window.mmInstance = mm.Markmap.create(svg, {
+              colorFreezeLevel: 2,
+              initialExpandLevel: 2,
+              spacingVertical: 6,
+              spacingHorizontal: 80
+            }, data.root);
+            window.mmInstance.fit();
+          })
+          .catch(function (err) { log('Mind map error: ' + err.message); });
+      });
+    } catch (e) { log('Mindmap init error: ' + e.message); }
+  }
+
+  /* ───────── 12. KEYBOARD SHORTCUTS ───────── */
 
   function initKeyboardShortcuts() {
     try {
@@ -490,9 +645,12 @@
 
         if (e.key === 'Escape') {
           // Close the active overlay by finding its close button
+          var mindmapOverlay = qs('#mindmapOverlay.active');
           var searchOverlay = qs('.search-overlay.active');
           var termsOverlay = qs('.terms-overlay.active');
-          if (searchOverlay) {
+          if (mindmapOverlay) {
+            closeMindmapOverlay();
+          } else if (searchOverlay) {
             var closeBtn = qs('.search-close', searchOverlay);
             if (closeBtn) closeBtn.click();
           } else if (termsOverlay) {
@@ -598,6 +756,7 @@
     initKeyTerms();
     initPWA();
     initPrint();
+    initMindmap();
     initKeyboardShortcuts();
 
     log('Study OS initialized');

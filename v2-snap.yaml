@@ -1,0 +1,1033 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "← Economics Notes" [ref=e3] [cursor=pointer]:
+      - /url: ../index.html
+    - generic [ref=e4]: Class 11 · Chapter 2 · STE
+  - generic [ref=e6]:
+    - complementary [ref=e7]:
+      - heading "Contents" [level=3] [ref=e8]
+      - link "Key Terms" [ref=e9] [cursor=pointer]:
+        - /url: "#keyterms"
+      - link "1. Consumer" [ref=e10] [cursor=pointer]:
+        - /url: "#consumer"
+      - link "2. Utility" [ref=e11] [cursor=pointer]:
+        - /url: "#utility"
+      - link "3. Cardinal vs Ordinal" [ref=e12] [cursor=pointer]:
+        - /url: "#cardinal"
+      - link "4. TU and MU" [ref=e13] [cursor=pointer]:
+        - /url: "#tumu"
+      - link "5. Law of DMU" [ref=e14] [cursor=pointer]:
+        - /url: "#dmu"
+      - link "6. Equilibrium Meaning" [ref=e15] [cursor=pointer]:
+        - /url: "#eqmeaning"
+      - link "7. Single Commodity" [ref=e16] [cursor=pointer]:
+        - /url: "#single"
+      - link "8. Two Commodities" [ref=e17] [cursor=pointer]:
+        - /url: "#two"
+      - link "9. Indifference Curve" [ref=e18] [cursor=pointer]:
+        - /url: "#ic"
+      - link "10. MRS" [ref=e19] [cursor=pointer]:
+        - /url: "#mrs"
+      - link "11. IC Assumptions" [ref=e20] [cursor=pointer]:
+        - /url: "#icassump"
+      - link "12. IC Properties" [ref=e21] [cursor=pointer]:
+        - /url: "#icprop"
+      - link "13. Budget Line and Set" [ref=e22] [cursor=pointer]:
+        - /url: "#budget"
+      - link "14. Shift and Rotation" [ref=e23] [cursor=pointer]:
+        - /url: "#shiftrot"
+      - link "15. IC Equilibrium" [ref=e24] [cursor=pointer]:
+        - /url: "#iceq"
+      - link "16. Fast Revision" [ref=e25] [cursor=pointer]:
+        - /url: "#revision"
+      - link "17. Exam Q and A" [ref=e26] [cursor=pointer]:
+        - /url: "#examqa"
+      - link "Self-Check Quiz" [ref=e27] [cursor=pointer]:
+        - /url: "#quiz"
+    - main [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]: Chapter 2 · STE Notes
+        - heading "Consumer Equilibrium" [level=1] [ref=e31]
+        - paragraph [ref=e32]: Short sentences. One idea at a time. Read one section. Do each check. Then continue.
+      - generic [ref=e33]:
+        - heading "Key Terms — Read These First" [level=2] [ref=e34]
+        - paragraph [ref=e35]: Learn these definitions first. Use them in every answer.
+        - table [ref=e37]:
+          - rowgroup [ref=e38]:
+            - row "Term Definition" [ref=e39]:
+              - columnheader "Term" [ref=e40]
+              - columnheader "Definition" [ref=e41]
+          - rowgroup [ref=e42]:
+            - row "Consumer One who buys goods and services for satisfaction of wants" [ref=e43]:
+              - cell "Consumer" [ref=e44]:
+                - strong [ref=e45]: Consumer
+              - cell "One who buys goods and services for satisfaction of wants" [ref=e46]
+            - row "Utility Want satisfying power of a commodity. Satisfaction from consumption" [ref=e47]:
+              - cell "Utility" [ref=e48]:
+                - strong [ref=e49]: Utility
+              - cell "Want satisfying power of a commodity. Satisfaction from consumption" [ref=e50]
+            - row "Util Imaginary unit to measure utility in cardinal approach" [ref=e51]:
+              - cell "Util" [ref=e52]:
+                - strong [ref=e53]: Util
+              - cell "Imaginary unit to measure utility in cardinal approach" [ref=e54]
+            - row "TU Total satisfaction from all units consumed" [ref=e55]:
+              - cell "TU" [ref=e56]:
+                - strong [ref=e57]: TU
+              - cell "Total satisfaction from all units consumed" [ref=e58]
+            - row "MU Additional utility from one more unit consumed" [ref=e59]:
+              - cell "MU" [ref=e60]:
+                - strong [ref=e61]: MU
+              - cell "Additional utility from one more unit consumed" [ref=e62]
+            - row "Initial Utility Utility from first unit consumed" [ref=e63]:
+              - cell "Initial Utility" [ref=e64]:
+                - strong [ref=e65]: Initial Utility
+              - cell "Utility from first unit consumed" [ref=e66]
+            - row "Point of Satiety TU is maximum. MU is zero. No desire for more" [ref=e67]:
+              - cell "Point of Satiety" [ref=e68]:
+                - strong [ref=e69]: Point of Satiety
+              - cell "TU is maximum. MU is zero. No desire for more" [ref=e70]
+            - row "Law of DMU More units consumed. MU from each successive unit falls" [ref=e71]:
+              - cell "Law of DMU" [ref=e72]:
+                - strong [ref=e73]: Law of DMU
+              - cell "More units consumed. MU from each successive unit falls" [ref=e74]
+            - row "Consumer's Equilibrium Maximum satisfaction with limited income. No tendency to change" [ref=e75]:
+              - cell "Consumer's Equilibrium" [ref=e76]:
+                - strong [ref=e77]: Consumer's Equilibrium
+              - cell "Maximum satisfaction with limited income. No tendency to change" [ref=e78]
+            - row "MU of Money Extra utility from spending one additional rupee on other goods" [ref=e79]:
+              - cell "MU of Money" [ref=e80]:
+                - strong [ref=e81]: MU of Money
+              - cell "Extra utility from spending one additional rupee on other goods" [ref=e82]
+            - row "Law of Equi-Marginal Utility Spend income so MU per rupee is equal for all goods" [ref=e83]:
+              - cell "Law of Equi-Marginal Utility" [ref=e84]:
+                - strong [ref=e85]: Law of Equi-Marginal Utility
+              - cell "Spend income so MU per rupee is equal for all goods" [ref=e86]
+            - row "Indifference Curve Graphical representation of bundles giving same satisfaction" [ref=e87]:
+              - cell "Indifference Curve" [ref=e88]:
+                - strong [ref=e89]: Indifference Curve
+              - cell "Graphical representation of bundles giving same satisfaction" [ref=e90]
+            - row "Indifference Map Family of indifference curves for all bundles of two goods" [ref=e91]:
+              - cell "Indifference Map" [ref=e92]:
+                - strong [ref=e93]: Indifference Map
+              - cell "Family of indifference curves for all bundles of two goods" [ref=e94]
+            - row "MRS Units of Y sacrificed to gain one more unit of X with same satisfaction" [ref=e95]:
+              - cell "MRS" [ref=e96]:
+                - strong [ref=e97]: MRS
+              - cell "Units of Y sacrificed to gain one more unit of X with same satisfaction" [ref=e98]
+            - row "Monotonic Preference Rational consumer prefers more goods. More means higher satisfaction" [ref=e99]:
+              - cell "Monotonic Preference" [ref=e100]:
+                - strong [ref=e101]: Monotonic Preference
+              - cell "Rational consumer prefers more goods. More means higher satisfaction" [ref=e102]
+            - row "Budget Line Graphical representation of all bundles costing exactly money income" [ref=e103]:
+              - cell "Budget Line" [ref=e104]:
+                - strong [ref=e105]: Budget Line
+              - cell "Graphical representation of all bundles costing exactly money income" [ref=e106]
+            - row "Budget Set Set of all bundles costing less than or equal to money income" [ref=e107]:
+              - cell "Budget Set" [ref=e108]:
+                - strong [ref=e109]: Budget Set
+              - cell "Set of all bundles costing less than or equal to money income" [ref=e110]
+            - row "MRE Market Rate of Exchange. Slope of budget line. Px / Py" [ref=e111]:
+              - cell "MRE" [ref=e112]:
+                - strong [ref=e113]: MRE
+              - cell "Market Rate of Exchange. Slope of budget line. Px / Py" [ref=e114]
+        - document [ref=e118]:
+          - generic [ref=e119]:
+            - generic [ref=e126]: Syntax error in text
+            - generic [ref=e127]: mermaid version 11.17.2
+      - separator [ref=e128]
+      - generic [ref=e129]:
+        - heading "1. Consumer" [level=2] [ref=e130]
+        - blockquote [ref=e131]:
+          - strong [ref=e132]: "Definition:"
+          - text: A consumer is one who buys goods and services. A consumer buys for
+          - strong [ref=e133]: satisfaction of wants
+          - text: .
+        - paragraph [ref=e134]: "Aim of consumer: Get maximum satisfaction. Spend income on various goods and services."
+        - paragraph [ref=e135]: A consumer means individual. A consumer means group of individuals. A consumer means institutions.
+        - paragraph [ref=e136]: "Two approaches to study consumer behaviour:"
+        - list [ref=e137]:
+          - listitem [ref=e138]:
+            - strong [ref=e139]: Cardinal Utility Approach.
+            - text: "Other name: Marshall's Utility Analysis."
+          - listitem [ref=e140]:
+            - strong [ref=e141]: Ordinal Utility Approach.
+            - text: "Other name: Indifference Curve Analysis. Other name: Hicksian Analysis."
+        - group [ref=e142]:
+          - generic "CHECK — click to answer" [ref=e143] [cursor=pointer]:
+            - strong [ref=e144]: CHECK — click to answer
+          - text: "Say the definition of consumer in one sentence. Name the two approaches: Cardinal and Ordinal."
+      - separator [ref=e145]
+      - generic [ref=e146]:
+        - heading "2. Utility" [level=2] [ref=e147]
+        - blockquote [ref=e148]:
+          - strong [ref=e149]: "Definition:"
+          - text: Utility is
+          - strong [ref=e150]: want satisfying power
+          - text: of a commodity. It is satisfaction derived from consumption.
+        - paragraph [ref=e151]: "Points about utility:"
+        - list [ref=e152]:
+          - listitem [ref=e153]: Utility differs from person to person. Thirsty person gets more utility from water.
+          - listitem [ref=e154]: Utility differs from place to place.
+          - listitem [ref=e155]: Utility differs from time to time. Ice-cream gives high utility in summer. Low utility in winter.
+          - listitem [ref=e156]: Utility is not usefulness. Liquor harms health. Yet liquor has utility for an alcoholic.
+          - listitem [ref=e157]: Satisfaction is not pleasure. Treatment of broken arm gives satisfaction. It gives no pleasure. It only relieves pain.
+        - paragraph [ref=e158]: "How to measure utility:"
+        - list [ref=e159]:
+          - listitem [ref=e160]: Classical economists assumed utility is measurable in numbers.
+          - listitem [ref=e161]:
+            - text: Made imaginary unit called
+            - strong [ref=e162]: Util
+            - text: .
+          - listitem [ref=e163]: "Example: Assign 20 utils to ice-cream. Assign 10 utils to chocolate. Then ice-cream is liked twice as much."
+          - listitem [ref=e164]: Utils vary from person to person. So Marshall suggested money measurement.
+          - listitem [ref=e165]: Measure utility by price consumer is willing to pay.
+          - listitem [ref=e166]: "Example: Assume 1 util = 1 rupee. Then 20 utils = 20 rupees. 10 utils = 10 rupees."
+          - listitem [ref=e167]: "Advantage: Compare utility and price in same units."
+        - group [ref=e168]:
+          - generic "CHECK — click to answer" [ref=e169] [cursor=pointer]:
+            - strong [ref=e170]: CHECK — click to answer
+          - text: "Give one example where utility differs by person: thirsty vs not thirsty for water. Give one example where utility is not usefulness: liquor for an alcoholic."
+      - separator [ref=e171]
+      - generic [ref=e172]:
+        - heading "3. Cardinal Utility and Ordinal Utility" [level=2] [ref=e173]
+        - paragraph [ref=e174]:
+          - strong [ref=e175]: "Cardinal Approach:"
+          - text: "Utility is measurable in numbers. Examples: 1, 2, 3. Unit is Util or Money. Given by"
+          - strong [ref=e176]: Alfred Marshall
+          - text: .
+        - paragraph [ref=e177]:
+          - strong [ref=e178]: "Ordinal Approach:"
+          - text: "Utility is not measurable. Consumer only ranks bundles. Example: Pizza is preferred to Burger. Given by"
+          - strong [ref=e179]: J. R. Hicks and R. G. D. Allen
+          - text: .
+        - table [ref=e181]:
+          - rowgroup [ref=e182]:
+            - row "Basis Cardinal Ordinal" [ref=e183]:
+              - columnheader "Basis" [ref=e184]
+              - columnheader "Cardinal" [ref=e185]
+              - columnheader "Ordinal" [ref=e186]
+          - rowgroup [ref=e187]:
+            - row "Meaning Measure utility in numbers Rank utility in order" [ref=e188]:
+              - cell "Meaning" [ref=e189]:
+                - strong [ref=e190]: Meaning
+              - cell "Measure utility in numbers" [ref=e191]
+              - cell "Rank utility in order" [ref=e192]
+            - row "Unit Utils and Money No unit. Only ranks I, II, III" [ref=e193]:
+              - cell "Unit" [ref=e194]:
+                - strong [ref=e195]: Unit
+              - cell "Utils and Money" [ref=e196]
+              - cell "No unit. Only ranks I, II, III" [ref=e197]
+            - row "Tool TU and MU curves Indifference Curves" [ref=e198]:
+              - cell "Tool" [ref=e199]:
+                - strong [ref=e200]: Tool
+              - cell "TU and MU curves" [ref=e201]
+              - cell "Indifference Curves" [ref=e202]
+            - row "Realism Less realistic More realistic" [ref=e203]:
+              - cell "Realism" [ref=e204]:
+                - strong [ref=e205]: Realism
+              - cell "Less realistic" [ref=e206]
+              - cell "More realistic" [ref=e207]
+            - row "Example I get 20 utils from ice-cream I prefer tea over coffee" [ref=e208]:
+              - cell "Example" [ref=e209]:
+                - strong [ref=e210]: Example
+              - cell "I get 20 utils from ice-cream" [ref=e211]
+              - cell "I prefer tea over coffee" [ref=e212]
+        - group [ref=e213]:
+          - generic "CHECK — click to answer" [ref=e214] [cursor=pointer]:
+            - strong [ref=e215]: CHECK — click to answer
+          - text: "Founder of cardinal: Alfred Marshall. Founders of ordinal: Hicks and Allen."
+      - separator [ref=e216]
+      - generic [ref=e217]:
+        - heading "4. Total Utility and Marginal Utility" [level=2] [ref=e218]
+        - heading "4.1 Total Utility" [level=3] [ref=e219]
+        - blockquote [ref=e220]:
+          - strong [ref=e221]: Total Utility
+          - text: is total satisfaction from consumption of
+          - strong [ref=e222]: all units
+          - text: of a commodity.
+        - generic [ref=e223]: TUn = U1 + U2 + U3 + ... + Un
+        - list [ref=e224]:
+          - listitem [ref=e225]: "Initial utility is utility from first unit. Example: 20 utils from first ice-cream."
+          - listitem [ref=e226]: TU is zero at zero consumption.
+          - listitem [ref=e227]: TU is summation of MU of all units.
+        - heading "4.2 Marginal Utility" [level=3] [ref=e228]
+        - blockquote [ref=e229]:
+          - strong [ref=e230]: Marginal Utility
+          - text: is additional utility from consumption of
+          - strong [ref=e231]: one more unit
+          - text: . It is utility from last unit purchased.
+        - generic [ref=e232]: MUn = TUn - TUn-1 MU = Change in TU / Change in Quantity = ΔTU / ΔQ
+        - paragraph [ref=e233]: "Example: TU from 2 ice-creams is 36 utils. TU from 3 ice-creams is 46 utils. MU of 3rd unit = 46 - 36 = 10 utils."
+        - heading "4.3 Relation of TU and MU" [level=3] [ref=e234]
+        - table [ref=e236]:
+          - rowgroup [ref=e237]:
+            - row "Units TU MU Status" [ref=e238]:
+              - columnheader "Units" [ref=e239]
+              - columnheader "TU" [ref=e240]
+              - columnheader "MU" [ref=e241]
+              - columnheader "Status" [ref=e242]
+          - rowgroup [ref=e243]:
+            - row "1 10 10 Positive MU. TU rises" [ref=e244]:
+              - cell "1" [ref=e245]
+              - cell "10" [ref=e246]
+              - cell "10" [ref=e247]
+              - cell "Positive MU. TU rises" [ref=e248]
+            - row "2 18 8 Positive MU. TU rises" [ref=e249]:
+              - cell "2" [ref=e250]
+              - cell "18" [ref=e251]
+              - cell "8" [ref=e252]
+              - cell "Positive MU. TU rises" [ref=e253]
+            - row "3 24 6 Positive MU. TU rises" [ref=e254]:
+              - cell "3" [ref=e255]
+              - cell "24" [ref=e256]
+              - cell "6" [ref=e257]
+              - cell "Positive MU. TU rises" [ref=e258]
+            - row "4 28 4 Positive MU. TU rises" [ref=e259]:
+              - cell "4" [ref=e260]
+              - cell "28" [ref=e261]
+              - cell "4" [ref=e262]
+              - cell "Positive MU. TU rises" [ref=e263]
+            - row "5 30 2 Positive MU. TU rises" [ref=e264]:
+              - cell "5" [ref=e265]
+              - cell "30" [ref=e266]
+              - cell "2" [ref=e267]
+              - cell "Positive MU. TU rises" [ref=e268]
+            - row "6 30 0 Zero MU. TU is maximum" [ref=e269]:
+              - cell "6" [ref=e270]
+              - cell "30" [ref=e271]
+              - cell "0" [ref=e272]
+              - cell "Zero MU. TU is maximum" [ref=e273]
+            - row "7 28 -2 Negative MU. TU falls" [ref=e274]:
+              - cell "7" [ref=e275]
+              - cell "28" [ref=e276]
+              - cell "-2" [ref=e277]
+              - cell "Negative MU. TU falls" [ref=e278]
+        - list [ref=e279]:
+          - listitem [ref=e280]: TU starts from origin. TU increases at diminishing rate. TU reaches top. TU starts falling.
+          - listitem [ref=e281]: MU starts from top. MU falls. MU becomes zero. MU becomes negative.
+          - listitem [ref=e282]: When TU is rising, MU is falling but positive.
+          - listitem [ref=e283]:
+            - text: When TU is at top, MU is zero. This point is
+            - strong [ref=e284]: point of satiety
+            - text: . This point is point of maximum satisfaction.
+          - listitem [ref=e285]: When TU is falling, MU is negative. Negative utility is disutility.
+        - generic [ref=e286]:
+          - img "TU and MU curves showing point of satiety" [ref=e287]
+          - generic [ref=e288]: TU rises, reaches maximum, then falls. MU falls, touches zero, then turns negative.
+        - document [ref=e291]:
+          - generic [ref=e295]:
+            - paragraph [ref=e302]: Positive MU
+            - paragraph [ref=e309]: TU Rises
+            - paragraph [ref=e316]: Zero MU
+            - paragraph [ref=e323]: TU Maximum - Satiety
+            - paragraph [ref=e330]: Negative MU
+            - paragraph [ref=e337]: TU Falls
+        - group [ref=e338]:
+          - generic "CHECK — click to answer" [ref=e339] [cursor=pointer]:
+            - strong [ref=e340]: CHECK — click to answer
+          - text: TU is 30 at 5 units. TU is 30 at 6 units. MU of 6th unit = 0.
+      - separator [ref=e341]
+      - generic [ref=e342]:
+        - heading "5. Law of Diminishing Marginal Utility" [level=2] [ref=e343]
+        - blockquote [ref=e344]:
+          - strong [ref=e345]: Law of Diminishing Marginal Utility
+          - text: states that as we consume more and more units of a commodity, utility derived from
+          - strong [ref=e346]: each successive unit goes on decreasing
+          - text: .
+        - paragraph [ref=e347]:
+          - text: Given by German Economist
+          - strong [ref=e348]: H. H. Gossen
+          - text: ". Other name:"
+          - strong [ref=e349]: Gossen's First Law of Consumption
+          - text: .
+        - paragraph [ref=e350]: Applies to all goods and services. People prefer variety for this reason. More of same good gives less extra satisfaction.
+        - generic [ref=e351]:
+          - strong [ref=e352]: "Example:"
+          - text: Thirsty person drinks water. First glass gives very high utility. Second glass gives less. Third glass gives still less.
+        - heading "5.1 Assumptions of Law of DMU" [level=3] [ref=e353]
+        - list [ref=e354]:
+          - listitem [ref=e355]:
+            - strong [ref=e356]: "Cardinal measurement:"
+            - text: Utility is measurable. Consumer expresses satisfaction as 1, 2, 3.
+          - listitem [ref=e357]:
+            - strong [ref=e358]: "Monetary measurement:"
+            - text: Utility is measurable in money. Need same units to compare MU and Price.
+          - listitem [ref=e359]:
+            - strong [ref=e360]: "Reasonable quantity:"
+            - text: Consume proper quantity. Compare glassful with glassful. Do not compare spoon with glass. Spoonful gives rising MU.
+          - listitem [ref=e361]:
+            - strong [ref=e362]: "Continuous consumption:"
+            - text: No time gap between units. Morning ice-cream and evening ice-cream break continuity.
+          - listitem [ref=e363]:
+            - strong [ref=e364]: "No change in quality:"
+            - text: Quality stays same. Topped ice-cream may give more utility than plain.
+          - listitem [ref=e365]:
+            - strong [ref=e366]: "Rational consumer:"
+            - text: Consumer calculates. Consumer compares utilities. Aim is maximum satisfaction.
+          - listitem [ref=e367]:
+            - strong [ref=e368]: "Independent utilities:"
+            - text: MU of one commodity has no relation with MU of another. One person's utility does not affect another person's utility.
+          - listitem [ref=e369]:
+            - strong [ref=e370]: "MU of money remains constant:"
+            - text: Spending reduces money left. Remaining money becomes dearer. MU of money should rise. Ignore this rise. Keep MU of money constant.
+          - listitem [ref=e371]:
+            - strong [ref=e372]: "Fixed income and prices:"
+            - text: Income of consumer stays constant. Prices of goods stay constant.
+        - group [ref=e373]:
+          - generic "CHECK — click to answer" [ref=e374] [cursor=pointer]:
+            - strong [ref=e375]: CHECK — click to answer
+          - text: "Write any five assumptions from memory: cardinal measurement, reasonable quantity, continuous consumption, same quality, rational consumer."
+      - separator [ref=e376]
+      - generic [ref=e377]:
+        - heading "6. Consumer's Equilibrium — Meaning" [level=2] [ref=e378]
+        - blockquote [ref=e379]:
+          - strong [ref=e380]: Consumer's Equilibrium
+          - text: is a situation. Consumer gets
+          - strong [ref=e381]: maximum satisfaction
+          - text: with limited income. Consumer has
+          - strong [ref=e382]: no tendency to change
+          - text: his way of existing expenditure.
+        - paragraph [ref=e383]: "Meaning of equilibrium: State of rest. Position of no change."
+        - paragraph [ref=e384]: "Why change stops:"
+        - list [ref=e385]:
+          - listitem [ref=e386]: Consumer pays a price for each unit.
+          - listitem [ref=e387]: So consumer cannot consume unlimited quantity.
+          - listitem [ref=e388]: As per Law of DMU, utility from each successive unit falls.
+          - listitem [ref=e389]: At same time, income also decreases with purchase.
+          - listitem [ref=e390]: Rational consumer balances expenditure. Goal is maximum satisfaction with minimum expenditure.
+          - listitem [ref=e391]: After this point, no incentive exists to change quantity purchased.
+        - paragraph [ref=e392]: "Two situations:"
+        - list [ref=e393]:
+          - listitem [ref=e394]:
+            - strong [ref=e395]: "Single Commodity:"
+            - text: Spend entire income on one good.
+          - listitem [ref=e396]:
+            - strong [ref=e397]: "Two Commodities:"
+            - text: Spend entire income on two goods.
+        - group [ref=e398]:
+          - generic "CHECK — click to answer" [ref=e399] [cursor=pointer]:
+            - strong [ref=e400]: CHECK — click to answer
+          - text: "Say the definition of consumer's equilibrium in one sentence: maximum satisfaction with limited income and no tendency to change."
+      - separator [ref=e401]
+      - generic [ref=e402]:
+        - heading "7. Consumer Equilibrium — Single Commodity" [level=2] [ref=e403]
+        - paragraph [ref=e404]: Law of DMU explains equilibrium for single commodity. Take all assumptions of Law of DMU.
+        - paragraph [ref=e405]: "Two factors decide units to consume:"
+        - list [ref=e406]:
+          - listitem [ref=e407]: Price of given commodity.
+          - listitem [ref=e408]: Expected satisfaction (MU) from each successive unit.
+        - blockquote [ref=e409]:
+          - text: "Rule: Compare price paid with utility gained. Be at equilibrium when"
+          - strong [ref=e410]: MU equals price paid
+          - text: .
+        - paragraph [ref=e411]: MU is in utils. Price is in money. Convert MU into money terms to compare.
+        - generic [ref=e412]: MU in terms of Money = MU in utils / MU of one rupee
+        - paragraph [ref=e413]: Assume 1 util = 1 rupee for simplicity. Then MU of one rupee = 1.
+        - blockquote [ref=e414]:
+          - text: "Equilibrium condition:"
+          - strong [ref=e415]: MUx = Px
+        - paragraph [ref=e416]: "Example: Good X is priced at 10 per unit."
+        - table [ref=e418]:
+          - rowgroup [ref=e419]:
+            - row "Units of X MU in utils MU in Rs Price Px Difference" [ref=e420]:
+              - columnheader "Units of X" [ref=e421]
+              - columnheader "MU in utils" [ref=e422]
+              - columnheader "MU in Rs" [ref=e423]
+              - columnheader "Price Px" [ref=e424]
+              - columnheader "Difference" [ref=e425]
+          - rowgroup [ref=e426]:
+            - row "1 40 40 10 MU > P. Increase consumption" [ref=e427]:
+              - cell "1" [ref=e428]
+              - cell "40" [ref=e429]
+              - cell "40" [ref=e430]
+              - cell "10" [ref=e431]
+              - cell "MU > P. Increase consumption" [ref=e432]
+            - row "2 30 30 10 MU > P. Increase consumption" [ref=e433]:
+              - cell "2" [ref=e434]
+              - cell "30" [ref=e435]
+              - cell "30" [ref=e436]
+              - cell "10" [ref=e437]
+              - cell "MU > P. Increase consumption" [ref=e438]
+            - row "3 20 20 10 MU > P. Increase consumption" [ref=e439]:
+              - cell "3" [ref=e440]
+              - cell "20" [ref=e441]
+              - cell "20" [ref=e442]
+              - cell "10" [ref=e443]
+              - cell "MU > P. Increase consumption" [ref=e444]
+            - row "4 10 10 10 MU = P. Equilibrium" [ref=e445]:
+              - cell "4" [ref=e446]
+              - cell "10" [ref=e447]
+              - cell "10" [ref=e448]
+              - cell "10" [ref=e449]
+              - cell "MU = P. Equilibrium" [ref=e450]
+            - row "5 5 5 10 MU < P. Decrease consumption" [ref=e451]:
+              - cell "5" [ref=e452]
+              - cell "5" [ref=e453]
+              - cell "5" [ref=e454]
+              - cell "10" [ref=e455]
+              - cell "MU < P. Decrease consumption" [ref=e456]
+            - row "6 0 0 10 MU < P. Decrease consumption" [ref=e457]:
+              - cell "6" [ref=e458]
+              - cell "0" [ref=e459]
+              - cell "0" [ref=e460]
+              - cell "10" [ref=e461]
+              - cell "MU < P. Decrease consumption" [ref=e462]
+        - paragraph [ref=e463]: "Read the schedule: At 4 units, MU = Price. Consumer is at equilibrium at point E."
+        - paragraph [ref=e464]: MU curve slopes downwards. Law of DMU operates. Price line is horizontal. Price is fixed at 10.
+        - list [ref=e465]:
+          - listitem [ref=e466]: Will not consume 5 units. MU of 5 is less than price paid.
+          - listitem [ref=e467]: Will not stop at 3 units. MU of 3 is more than price paid. More purchase gives gain.
+        - generic [ref=e468]:
+          - img "Single commodity equilibrium where MU equals price" [ref=e469]
+          - generic [ref=e470]: Equilibrium at point E where MUx = Px. Before E buy more. After E buy less.
+        - paragraph [ref=e471]: "Condition can also be written as:"
+        - generic [ref=e472]: MUx / MUm = Px MUx / Px = MUm
+        - paragraph [ref=e473]: Where MUm is MU of money.
+        - group [ref=e474]:
+          - generic "CHECK — click to answer" [ref=e475] [cursor=pointer]:
+            - strong [ref=e476]: CHECK — click to answer
+          - text: Price is 4. MU values are 10, 8, 6, 4, 2. Equilibrium at 4 units where MU = 4.
+      - separator [ref=e477]
+      - generic [ref=e478]:
+        - heading "8. Consumer Equilibrium — Two Commodities" [level=2] [ref=e479]
+        - paragraph [ref=e480]:
+          - text: In real life, consumer consumes more than one commodity. Use
+          - strong [ref=e481]: Law of Equi-Marginal Utility
+          - text: for optimum allocation.
+        - paragraph [ref=e482]: "Other names:"
+        - list [ref=e483]:
+          - listitem [ref=e484]: Law of Substitution
+          - listitem [ref=e485]: Law of Maximum Satisfaction
+          - listitem [ref=e486]:
+            - strong [ref=e487]: Gossen's Second Law
+        - paragraph [ref=e488]: Takes all assumptions of Law of DMU.
+        - heading "8.1 Conditions" [level=3] [ref=e489]
+        - paragraph [ref=e490]: "Two conditions are necessary:"
+        - list [ref=e491]:
+          - listitem [ref=e492]: Ratio of MU to Price is same for both goods.
+          - listitem [ref=e493]: MU falls as consumption increases.
+        - paragraph [ref=e494]: "Derivation:"
+        - list [ref=e495]:
+          - listitem [ref=e496]: Consumer of X alone is at equilibrium when MUx / MUm = Px.
+          - listitem [ref=e497]: Consumer of Y alone is at equilibrium when MUy / MUm = Py.
+          - listitem [ref=e498]: Equate both. Get MUx / Px = MUy / Py = MUm.
+        - blockquote [ref=e499]:
+          - text: "Equilibrium condition:"
+          - strong [ref=e500]: MUx / Px = MUy / Py = MUm
+        - paragraph [ref=e501]: "Second condition: MU must fall with more consumption. If MU does not fall, consumer buys only one good. This is unrealistic. Equilibrium is never reached."
+        - heading "8.2 Example" [level=3] [ref=e502]
+        - paragraph [ref=e503]: Income is 5 rupees. Goods X and Y are priced at 1 rupee per unit. Buy maximum 5 units of X or 5 units of Y.
+        - table [ref=e505]:
+          - rowgroup [ref=e506]:
+            - row "Units MUx MUx / Px MUy MUy / Py" [ref=e507]:
+              - columnheader "Units" [ref=e508]
+              - columnheader "MUx" [ref=e509]
+              - columnheader "MUx / Px" [ref=e510]
+              - columnheader "MUy" [ref=e511]
+              - columnheader "MUy / Py" [ref=e512]
+          - rowgroup [ref=e513]:
+            - row "1 20 20 16 16" [ref=e514]:
+              - cell "1" [ref=e515]
+              - cell "20" [ref=e516]
+              - cell "20" [ref=e517]
+              - cell "16" [ref=e518]
+              - cell "16" [ref=e519]
+            - row "2 16 16 14 14" [ref=e520]:
+              - cell "2" [ref=e521]
+              - cell "16" [ref=e522]
+              - cell "16" [ref=e523]
+              - cell "14" [ref=e524]
+              - cell "14" [ref=e525]
+            - row "3 12 12 12 12" [ref=e526]:
+              - cell "3" [ref=e527]
+              - cell "12" [ref=e528]
+              - cell "12" [ref=e529]
+              - cell "12" [ref=e530]
+              - cell "12" [ref=e531]
+            - row "4 8 8 10 10" [ref=e532]:
+              - cell "4" [ref=e533]
+              - cell "8" [ref=e534]
+              - cell "8" [ref=e535]
+              - cell "10" [ref=e536]
+              - cell "10" [ref=e537]
+            - row "5 4 4 8 8" [ref=e538]:
+              - cell "5" [ref=e539]
+              - cell "4" [ref=e540]
+              - cell "4" [ref=e541]
+              - cell "8" [ref=e542]
+              - cell "8" [ref=e543]
+        - paragraph [ref=e544]: "Process: Spend first rupee on X. MU/P is 20. Highest. Spend next rupee where MU/P is highest. Continue till MUx / Px = MUy / Py."
+        - paragraph [ref=e545]: "Final result: Buy 3 units of X and 2 units of Y. Or any combination where ratios equal at margin with full income spent."
+        - generic [ref=e546]:
+          - img "Equi-marginal utility with two commodities" [ref=e547]
+          - generic [ref=e548]: Spend each rupee where MU per rupee is highest until ratios become equal.
+        - group [ref=e549]:
+          - generic "CHECK — click to answer" [ref=e550] [cursor=pointer]:
+            - strong [ref=e551]: CHECK — click to answer
+          - text: MUx / Px = 12. MUy / Py = 10. Buy more Y. MU per rupee of Y relation shifts with purchase.
+      - separator [ref=e552]
+      - generic [ref=e553]:
+        - heading "9. Indifference Curve — Meaning and Schedule" [level=2] [ref=e554]
+        - paragraph [ref=e555]:
+          - text: Real elaboration by
+          - strong [ref=e556]: J. R. Hicks and R. G. D. Allen
+          - text: .
+        - paragraph [ref=e557]: "Opinion: Utility is impossible to measure in absolute terms. Consumer compares combinations in order of preference. Use ordinal numbers. Ordinal numbers show only ranking. This approach is more realistic."
+        - blockquote [ref=e558]:
+          - strong [ref=e559]: Indifference Curve
+          - text: refers to graphical representation of alternative combinations of two goods. Consumer is indifferent between these bundles. Each bundle gives
+          - strong [ref=e560]: same satisfaction
+          - text: .
+        - paragraph [ref=e561]: "Other names: Equal Satisfaction Curve. Iso-utility Curve."
+        - paragraph [ref=e562]: Take only two goods for simplicity.
+        - heading "9.1 Indifference Schedule" [level=3] [ref=e563]
+        - paragraph [ref=e564]: Consumer is indifferent between five combinations of apples (A) and bananas (B).
+        - table [ref=e566]:
+          - rowgroup [ref=e567]:
+            - row "Combination Apples Bananas Satisfaction" [ref=e568]:
+              - columnheader "Combination" [ref=e569]
+              - columnheader "Apples" [ref=e570]
+              - columnheader "Bananas" [ref=e571]
+              - columnheader "Satisfaction" [ref=e572]
+          - rowgroup [ref=e573]:
+            - row "P 1 15 100 utils — Same" [ref=e574]:
+              - cell "P" [ref=e575]
+              - cell "1" [ref=e576]
+              - cell "15" [ref=e577]
+              - cell "100 utils — Same" [ref=e578]
+            - row "Q 2 10 100 utils — Same" [ref=e579]:
+              - cell "Q" [ref=e580]
+              - cell "2" [ref=e581]
+              - cell "10" [ref=e582]
+              - cell "100 utils — Same" [ref=e583]
+            - row "R 3 6 100 utils — Same" [ref=e584]:
+              - cell "R" [ref=e585]
+              - cell "3" [ref=e586]
+              - cell "6" [ref=e587]
+              - cell "100 utils — Same" [ref=e588]
+            - row "S 4 3 100 utils — Same" [ref=e589]:
+              - cell "S" [ref=e590]
+              - cell "4" [ref=e591]
+              - cell "3" [ref=e592]
+              - cell "100 utils — Same" [ref=e593]
+            - row "T 5 1 100 utils — Same" [ref=e594]:
+              - cell "T" [ref=e595]
+              - cell "5" [ref=e596]
+              - cell "1" [ref=e597]
+              - cell "100 utils — Same" [ref=e598]
+        - paragraph [ref=e599]: Plot P, Q, R, S, T. Join with smooth curve. Get indifference curve.
+        - paragraph [ref=e600]: "Key observation: Increase of one good needs decrease of other good. Move from P to Q. Apples rise by 1. Bananas fall by 5. Satisfaction stays same."
+        - paragraph [ref=e601]: "Reason: If apples rise without bananas falling, consumer gets more goods. Satisfaction rises. This breaks indifference assumption."
+        - generic [ref=e602]:
+          - img "Indifference curve through combinations P to T" [ref=e603]
+          - generic [ref=e604]: Points P to T give equal satisfaction. Join them to get the indifference curve.
+        - heading "9.2 Indifference Map" [level=3] [ref=e605]
+        - blockquote [ref=e606]:
+          - strong [ref=e607]: Indifference Map
+          - text: refers to family of indifference curves. It represents consumer preferences over
+          - strong [ref=e608]: all bundles
+          - text: of two goods.
+        - paragraph [ref=e609]: Draw infinite indifference curves. Each curve shows same satisfaction individually. Higher curve shows higher satisfaction.
+        - paragraph [ref=e610]: "Reason: Higher curve has larger bundle. Monotonic preference applies. More goods mean more utility. Higher IC also means higher income level."
+        - group [ref=e611]:
+          - generic "CHECK — click to answer" [ref=e612] [cursor=pointer]:
+            - strong [ref=e613]: CHECK — click to answer
+          - text: Draw IC with points P to T. Label axes Apples and Bananas.
+      - separator [ref=e614]
+      - generic [ref=e615]:
+        - heading "10. Marginal Rate of Substitution" [level=2] [ref=e616]
+        - blockquote [ref=e617]:
+          - strong [ref=e618]: MRS
+          - text: refers to rate at which commodities are substituted with each other. Total satisfaction of consumer
+          - strong [ref=e619]: remains the same
+          - text: .
+        - generic [ref=e620]: MRSxy = Units of Bananas Sacrificed / Units of Apples Gained = ΔY / ΔX
+        - table [ref=e622]:
+          - rowgroup [ref=e623]:
+            - row "Move Apples Gained Bananas Sacrificed MRS" [ref=e624]:
+              - columnheader "Move" [ref=e625]
+              - columnheader "Apples Gained" [ref=e626]
+              - columnheader "Bananas Sacrificed" [ref=e627]
+              - columnheader "MRS" [ref=e628]
+          - rowgroup [ref=e629]:
+            - row "P to Q 1 5 5" [ref=e630]:
+              - cell "P to Q" [ref=e631]
+              - cell "1" [ref=e632]
+              - cell "5" [ref=e633]
+              - cell "5" [ref=e634]
+            - row "Q to R 1 4 4" [ref=e635]:
+              - cell "Q to R" [ref=e636]
+              - cell "1" [ref=e637]
+              - cell "4" [ref=e638]
+              - cell "4" [ref=e639]
+            - row "R to S 1 3 3" [ref=e640]:
+              - cell "R to S" [ref=e641]
+              - cell "1" [ref=e642]
+              - cell "3" [ref=e643]
+              - cell "3" [ref=e644]
+            - row "S to T 1 2 2" [ref=e645]:
+              - cell "S to T" [ref=e646]
+              - cell "1" [ref=e647]
+              - cell "2" [ref=e648]
+              - cell "2" [ref=e649]
+        - paragraph [ref=e650]: MRS falls from 5 to 2. Slope of IC continuously declines downwards. This gives convex shape to IC.
+        - paragraph [ref=e651]: "Why MRS diminishes:"
+        - list [ref=e652]:
+          - listitem [ref=e653]: Law of DMU operates.
+          - listitem [ref=e654]: At P, consumer has only 1 apple. Apple is more important. Willing to give up many bananas.
+          - listitem [ref=e655]: As apples increase, MU from apples falls. Willing to give up fewer bananas.
+          - listitem [ref=e656]: This gives convex shape.
+        - document [ref=e659]:
+          - generic [ref=e662]:
+            - paragraph [ref=e669]: Diminishing MRS
+            - paragraph [ref=e676]: Convex IC
+        - group [ref=e677]:
+          - generic "CHECK — click to answer" [ref=e678] [cursor=pointer]:
+            - strong [ref=e679]: CHECK — click to answer
+          - text: Apples rise by 1. Bananas fall from 10 to 6. MRS = 4.
+      - separator [ref=e680]
+      - generic [ref=e681]:
+        - heading "11. Assumptions of Indifference Curve Analysis" [level=2] [ref=e682]
+        - paragraph [ref=e683]: "Follow four assumptions:"
+        - list [ref=e684]:
+          - listitem [ref=e685]:
+            - strong [ref=e686]: "Two commodities:"
+            - text: Consumer has fixed money. Spend whole money on two goods. Prices are constant.
+          - listitem [ref=e687]:
+            - strong [ref=e688]: "Non-satiety:"
+            - text: Consumer has not reached saturation. Consumer prefers more of both goods. Choice is monotonic. Always move to higher IC for higher satisfaction.
+          - listitem [ref=e689]:
+            - strong [ref=e690]: "Ordinal utility:"
+            - text: Consumer ranks preferences. Consumer ranks each bundle by satisfaction.
+          - listitem [ref=e691]:
+            - strong [ref=e692]: "Diminishing MRS:"
+            - text: MRS falls. So IC is convex to origin.
+          - listitem [ref=e693]:
+            - strong [ref=e694]: "Rational consumer:"
+            - text: Consumer behaves rationally. Aim is maximum satisfaction.
+        - group [ref=e695]:
+          - generic "CHECK — click to answer" [ref=e696] [cursor=pointer]:
+            - strong [ref=e697]: CHECK — click to answer
+          - text: "Write the four assumptions from memory: two goods, non-satiety, ordinal utility, diminishing MRS."
+      - separator [ref=e698]
+      - generic [ref=e699]:
+        - heading "12. Properties of Indifference Curve" [level=2] [ref=e700]
+        - heading "12.1 Convex to Origin" [level=3] [ref=e701]
+        - paragraph [ref=e702]: IC is convex to origin because MRS diminishes. MRS declines due to Law of DMU. MRS shows slope of IC.
+        - heading "12.2 Slopes Downwards" [level=3] [ref=e703]
+        - paragraph [ref=e704]: "IC slopes downwards from left to right. More of one good needs less of other good. Example: More apples need fewer bananas. Satisfaction stays same."
+        - heading "12.3 Higher IC Means Higher Satisfaction" [level=3] [ref=e705]
+        - paragraph [ref=e706]: "Higher IC has larger bundle. Monotonic preference gives more utility. Example: Point A on IC1 has OR of X and OP of Y. Point B on IC2 has OS of X and OP of Y. OS is more than OR. Satisfaction at B is more."
+        - heading "12.4 Two ICs Never Intersect" [level=3] [ref=e707]
+        - paragraph [ref=e708]: Two ICs cannot show same satisfaction level. So they cannot intersect. Only one IC passes through a point.
+        - paragraph [ref=e709]: "Proof: IC1 and IC2 intersect at A. Take B on IC1. Take C on IC2. A = B in satisfaction. A = C in satisfaction. Then B = C. This is impossible. B and C are on different curves with different satisfaction."
+        - heading "12.5 Never Touches Axes" [level=3] [ref=e710]
+        - paragraph [ref=e711]: Analysis assumes two goods are always consumed.
+        - list [ref=e712]:
+          - listitem [ref=e713]: Touch Y-axis means X consumption is zero.
+          - listitem [ref=e714]: Touch X-axis means Y consumption is zero.
+          - listitem [ref=e715]: So IC never touches any axis.
+        - table [ref=e717]:
+          - rowgroup [ref=e718]:
+            - row "Property Reason" [ref=e719]:
+              - columnheader "Property" [ref=e720]
+              - columnheader "Reason" [ref=e721]
+          - rowgroup [ref=e722]:
+            - row "Downward slope Inverse relation to keep satisfaction same" [ref=e723]:
+              - cell "Downward slope" [ref=e724]:
+                - strong [ref=e725]: Downward slope
+              - cell "Inverse relation to keep satisfaction same" [ref=e726]
+            - row "Convex shape Diminishing MRS" [ref=e727]:
+              - cell "Convex shape" [ref=e728]:
+                - strong [ref=e729]: Convex shape
+              - cell "Diminishing MRS" [ref=e730]
+            - row "Higher IC higher satisfaction Larger bundle with monotonic preference" [ref=e731]:
+              - cell "Higher IC higher satisfaction" [ref=e732]:
+                - strong [ref=e733]: Higher IC higher satisfaction
+              - cell "Larger bundle with monotonic preference" [ref=e734]
+            - row "No intersection Same point cannot give two satisfaction levels" [ref=e735]:
+              - cell "No intersection" [ref=e736]:
+                - strong [ref=e737]: No intersection
+              - cell "Same point cannot give two satisfaction levels" [ref=e738]
+            - row "No axis touch Both goods are consumed" [ref=e739]:
+              - cell "No axis touch" [ref=e740]:
+                - strong [ref=e741]: No axis touch
+              - cell "Both goods are consumed" [ref=e742]
+        - group [ref=e743]:
+          - generic "CHECK — click to answer" [ref=e744] [cursor=pointer]:
+            - strong [ref=e745]: CHECK — click to answer
+          - text: "Mark True or False. IC is concave to origin. Answer: False. Convex to origin."
+      - separator [ref=e746]
+      - generic [ref=e747]:
+        - heading "13. Budget Line and Budget Set" [level=2] [ref=e748]
+        - heading "13.1 Budget Line" [level=3] [ref=e749]
+        - blockquote [ref=e750]:
+          - strong [ref=e751]: Budget Line
+          - text: is graphical representation of all possible combinations of two goods. Consumer purchases these combinations with
+          - strong [ref=e752]: given income and prices
+          - text: . Each combination costs exactly money income.
+        - paragraph [ref=e753]: "Other names: Price Line. Opportunity Line. Price-Income Line. Budget Constraint Line."
+        - paragraph [ref=e754]: "Example: Income is 20. Goods X and Y are priced at 10 each. Options:"
+        - list [ref=e755]:
+          - listitem [ref=e756]: Buy 2 units of X and 0 of Y. Bundle (2, 0).
+          - listitem [ref=e757]: Buy 0 of X and 2 of Y. Bundle (0, 2).
+          - listitem [ref=e758]: Buy 1 of X and 1 of Y. Bundle (1, 1).
+        - paragraph [ref=e759]: Join three bundles graphically. Get downward sloping straight line. This is budget line.
+        - paragraph [ref=e760]: "Algebraic expression:"
+        - generic [ref=e761]: M = (Px x Qx) + (Py x Qy)
+        - paragraph [ref=e762]: Where M is money income. Qx is quantity of X. Qy is quantity of Y. Px is price of X. Py is price of Y.
+        - paragraph [ref=e763]: "Slope of budget line:"
+        - generic [ref=e764]: Slope = Px / Py
+        - paragraph [ref=e765]:
+          - text: Slope is
+          - strong [ref=e766]: Market Rate of Exchange (MRE)
+          - text: .
+        - paragraph [ref=e767]: "Properties:"
+        - list [ref=e768]:
+          - listitem [ref=e769]: Budget line slopes downwards. More of one good needs fewer units of other good.
+          - listitem [ref=e770]: Budget line is straight line. Price ratio is constant throughout.
+        - generic [ref=e771]:
+          - img "Budget line with income 20 and prices 10 each" [ref=e772]
+          - generic [ref=e773]: Bundles (2,0), (1,1), and (0,2) all cost exactly 20. Join them to get the budget line.
+        - heading "13.2 Budget Set" [level=3] [ref=e774]
+        - blockquote [ref=e775]:
+          - strong [ref=e776]: Budget Set
+          - text: is set of all possible combinations of two goods. Consumer can afford these with
+          - strong [ref=e777]: given income and prices
+          - text: .
+        - paragraph [ref=e778]: Includes bundles where income is fully spent. Includes bundles where income is underspent.
+        - paragraph [ref=e779]: "Example with income 20: Bundles (0,0), (0,1), (0,2), (1,0), (2,0), (1,1) are all in budget set."
+        - table [ref=e781]:
+          - rowgroup [ref=e782]:
+            - row "Bundle Type Location Meaning" [ref=e783]:
+              - columnheader "Bundle Type" [ref=e784]
+              - columnheader "Location" [ref=e785]
+              - columnheader "Meaning" [ref=e786]
+          - rowgroup [ref=e787]:
+            - 'row "Costs exactly income ON budget line Full spending. Example: (1,1)" [ref=e788]':
+              - cell "Costs exactly income" [ref=e789]:
+                - strong [ref=e790]: Costs exactly income
+              - cell "ON budget line" [ref=e791]
+              - 'cell "Full spending. Example: (1,1)" [ref=e792]'
+            - 'row "Costs less than income INSIDE budget line Underspending. Example: point D" [ref=e793]':
+              - cell "Costs less than income" [ref=e794]:
+                - strong [ref=e795]: Costs less than income
+              - cell "INSIDE budget line" [ref=e796]
+              - 'cell "Underspending. Example: point D" [ref=e797]'
+            - 'row "Costs more than income OUTSIDE budget line Unattainable. Example: point C" [ref=e798]':
+              - cell "Costs more than income" [ref=e799]:
+                - strong [ref=e800]: Costs more than income
+              - cell "OUTSIDE budget line" [ref=e801]
+              - 'cell "Unattainable. Example: point C" [ref=e802]'
+        - paragraph [ref=e803]: Budget line is relevant for equilibrium. Assume consumer spends entire income.
+        - table [ref=e805]:
+          - rowgroup [ref=e806]:
+            - row "Basis Budget Line Budget Set" [ref=e807]:
+              - columnheader "Basis" [ref=e808]
+              - columnheader "Budget Line" [ref=e809]
+              - columnheader "Budget Set" [ref=e810]
+          - rowgroup [ref=e811]:
+            - row "Meaning Bundles costing exactly income Bundles costing less than or equal to income" [ref=e812]:
+              - cell "Meaning" [ref=e813]:
+                - strong [ref=e814]: Meaning
+              - cell "Bundles costing exactly income" [ref=e815]
+              - cell "Bundles costing less than or equal to income" [ref=e816]
+            - row "Location Only on line On or below line" [ref=e817]:
+              - cell "Location" [ref=e818]:
+                - strong [ref=e819]: Location
+              - cell "Only on line" [ref=e820]
+              - cell "On or below line" [ref=e821]
+            - row "Equation M = PxQx + PyQy M >= PxQx + PyQy" [ref=e822]:
+              - cell "Equation" [ref=e823]:
+                - strong [ref=e824]: Equation
+              - cell "M = PxQx + PyQy" [ref=e825]
+              - cell "M >= PxQx + PyQy" [ref=e826]
+        - group [ref=e827]:
+          - generic "CHECK — click to answer" [ref=e828] [cursor=pointer]:
+            - strong [ref=e829]: CHECK — click to answer
+          - text: Income is 20. Px is 10. Py is 10. Bundle (2,1) costs 30. Not attainable.
+      - separator [ref=e830]
+      - generic [ref=e831]:
+        - heading "14. Shift and Rotation in Budget Line" [level=2] [ref=e832]
+        - heading "14.1 Effect of Change in Income" [level=3] [ref=e833]
+        - paragraph [ref=e834]: Assume no change in prices of apples and bananas. Change income only. Budget line shifts.
+        - list [ref=e835]:
+          - listitem [ref=e836]:
+            - strong [ref=e837]: "Rightward shift:"
+            - text: Income rises. Budget line moves from AB to A1B1. Buy more of both goods. Prices stay constant.
+          - listitem [ref=e838]:
+            - strong [ref=e839]: "Leftward shift:"
+            - text: Income falls. Budget line moves from AB to A2B2. Buy less of both goods. Prices stay constant.
+        - heading "14.2 Effect of Change in Prices" [level=3] [ref=e840]
+        - paragraph [ref=e841]: Change price of one good. Other price and income stay constant. Budget line rotates. One intercept moves. Other intercept stays fixed.
+        - list [ref=e842]:
+          - listitem [ref=e843]: "Price of Apples (X-axis) falls: Budget line rotates right from AB to A1B. Buy more apples."
+          - listitem [ref=e844]: "Price of Apples rises: Budget line rotates left from AB to A2B. Buy fewer apples."
+          - listitem [ref=e845]: "Price of Bananas (Y-axis) falls: Budget line rotates up from AB to AB1."
+          - listitem [ref=e846]: "Price of Bananas rises: Budget line rotates down from AB to AB2."
+        - table [ref=e848]:
+          - rowgroup [ref=e849]:
+            - row "Change Movement" [ref=e850]:
+              - columnheader "Change" [ref=e851]
+              - columnheader "Movement" [ref=e852]
+          - rowgroup [ref=e853]:
+            - row "Income rises Shift right" [ref=e854]:
+              - cell "Income rises" [ref=e855]:
+                - strong [ref=e856]: Income rises
+              - cell "Shift right" [ref=e857]
+            - row "Income falls Shift left" [ref=e858]:
+              - cell "Income falls" [ref=e859]:
+                - strong [ref=e860]: Income falls
+              - cell "Shift left" [ref=e861]
+            - row "Price of X falls Rotate out on X-axis" [ref=e862]:
+              - cell "Price of X falls" [ref=e863]:
+                - strong [ref=e864]: Price of X falls
+              - cell "Rotate out on X-axis" [ref=e865]
+            - row "Price of X rises Rotate in on X-axis" [ref=e866]:
+              - cell "Price of X rises" [ref=e867]:
+                - strong [ref=e868]: Price of X rises
+              - cell "Rotate in on X-axis" [ref=e869]
+            - row "Price of Y falls Rotate up on Y-axis" [ref=e870]:
+              - cell "Price of Y falls" [ref=e871]:
+                - strong [ref=e872]: Price of Y falls
+              - cell "Rotate up on Y-axis" [ref=e873]
+            - row "Price of Y rises Rotate down on Y-axis" [ref=e874]:
+              - cell "Price of Y rises" [ref=e875]:
+                - strong [ref=e876]: Price of Y rises
+              - cell "Rotate down on Y-axis" [ref=e877]
+        - document [ref=e880]:
+          - generic [ref=e888]:
+            - paragraph [ref=e895]: What changed?
+            - paragraph [ref=e902]: SHIFT - Full line moves
+            - paragraph [ref=e909]: ROTATION - One side moves
+            - paragraph [ref=e916]: Right = Income rise
+            - paragraph [ref=e923]: Left = Income fall
+        - group [ref=e924]:
+          - generic "CHECK — click to answer" [ref=e925] [cursor=pointer]:
+            - strong [ref=e926]: CHECK — click to answer
+          - text: "Income rises. Prices same. Answer: Shift right."
+      - separator [ref=e927]
+      - generic [ref=e928]:
+        - heading "15. Consumer Equilibrium by Indifference Curve Analysis" [level=2] [ref=e929]
+        - paragraph [ref=e930]: Study indifference map and budget line together. Point of maximum satisfaction is equilibrium.
+        - paragraph [ref=e931]: "Conditions:"
+        - list [ref=e932]:
+          - listitem [ref=e933]:
+            - strong [ref=e934]: MRS = Ratio of Prices.
+            - text: MRSxy = Px / Py = MRE.
+          - listitem [ref=e935]:
+            - strong [ref=e936]: MRS continuously falls.
+            - text: IC is convex to origin.
+        - paragraph [ref=e937]: "Explanation:"
+        - list [ref=e938]:
+          - listitem [ref=e939]: At tangency point E, budget line just touches IC2. This is highest IC reachable with income.
+          - listitem [ref=e940]: Any point on IC1 cuts budget line. Satisfaction is lower. Consumer can reach higher IC.
+          - listitem [ref=e941]: IC3 is beyond budget. Not attainable.
+          - listitem [ref=e942]: So E is equilibrium.
+        - generic [ref=e943]:
+          - img "Consumer equilibrium where budget line is tangent to highest IC" [ref=e944]
+          - generic [ref=e945]: At point E the budget line just touches IC2. This is the highest reachable IC.
+        - group [ref=e946]:
+          - generic "CHECK — click to answer" [ref=e947] [cursor=pointer]:
+            - strong [ref=e948]: CHECK — click to answer
+          - text: Budget line cuts IC1 at two points. Touches IC2 at one point. Equilibrium is IC2.
+      - separator [ref=e949]
+      - generic [ref=e950]:
+        - heading "16. Fast Revision — One Page" [level=2] [ref=e951]
+        - list [ref=e952]:
+          - listitem [ref=e953]: Consumer buys for satisfaction. Aim is maximum satisfaction.
+          - listitem [ref=e954]: Utility is want satisfying power. Measure in utils or money.
+          - listitem [ref=e955]: Cardinal measures in numbers. Marshall gave it. Ordinal ranks only. Hicks and Allen gave it.
+          - listitem [ref=e956]: TU is total from all units. MU is extra from last unit. MU = TUn - TUn-1.
+          - listitem [ref=e957]: Positive MU means TU rises. Zero MU means TU maximum. Negative MU means TU falls.
+          - listitem [ref=e958]: "Law of DMU means MU falls with more units. Other name: Gossen's First Law."
+          - listitem [ref=e959]: Equilibrium means maximum satisfaction. No tendency to change.
+          - listitem [ref=e960]: "Single good equilibrium: MUx = Px."
+          - listitem [ref=e961]: "Two goods equilibrium: MUx / Px = MUy / Py. Other name: Gossen's Second Law."
+          - listitem [ref=e962]: IC shows same satisfaction bundles. Map is family of ICs. Higher IC means higher satisfaction.
+          - listitem [ref=e963]: MRS = ΔY / ΔX. MRS falls. IC is convex.
+          - listitem [ref=e964]: IC slopes down. Never intersects. Never touches axes.
+          - listitem [ref=e965]: "Budget line: M = PxQx + PyQy. Slope = Px / Py = MRE."
+          - listitem [ref=e966]: ON line means full spending. INSIDE means underspending. OUTSIDE means unattainable.
+          - listitem [ref=e967]: Income change = Shift. One price change = Rotation.
+          - listitem [ref=e968]: "IC equilibrium: MRS = Px / Py. IC is convex."
+      - separator [ref=e969]
+      - generic [ref=e970]:
+        - heading "17. Exam Questions With Answers" [level=2] [ref=e971]
+        - generic [ref=e972]:
+          - generic [ref=e973]:
+            - strong [ref=e974]: Q1. Define utility.
+            - text: Utility is want satisfying power of a commodity.
+          - generic [ref=e975]:
+            - strong [ref=e976]: Q2. State Law of DMU.
+            - text: More units consumed. MU from each successive unit falls.
+          - generic [ref=e977]:
+            - strong [ref=e978]: Q3. State single commodity equilibrium condition.
+            - text: MUx = Px.
+          - generic [ref=e979]:
+            - strong [ref=e980]: Q4. State two commodity equilibrium condition.
+            - text: MUx / Px = MUy / Py = MUm. MU falls with consumption.
+          - generic [ref=e981]:
+            - strong [ref=e982]: Q5. Why is IC convex to origin?
+            - text: MRS diminishes due to Law of DMU.
+          - generic [ref=e983]:
+            - strong [ref=e984]: Q6. Why does IC slope downwards?
+            - text: More of one good needs less of other good to keep satisfaction same.
+          - generic [ref=e985]:
+            - strong [ref=e986]: Q7. Can two ICs intersect? Why?
+            - text: No. Same point cannot give two satisfaction levels.
+          - generic [ref=e987]:
+            - strong [ref=e988]: Q8. What is slope of budget line?
+            - text: "Px / Py. Other name: Market Rate of Exchange."
+          - generic [ref=e989]:
+            - strong [ref=e990]: Q9. What is effect of rise in income on budget line?
+            - text: Budget line shifts right. Prices remain constant.
+          - generic [ref=e991]:
+            - strong [ref=e992]: Q10. State IC equilibrium conditions.
+            - text: MRSxy = Px / Py. MRS continuously falls.
+          - generic [ref=e993]:
+            - strong [ref=e994]: Q11. TU from 4 units is 28. TU from 5 units is 30. Find MU of 5th unit.
+            - text: MU = 30 - 28 = 2.
+          - generic [ref=e995]:
+            - strong [ref=e996]: Q12. Does zero MU mean maximum TU?
+            - text: Yes. This point is point of satiety.
+        - generic [ref=e997]:
+          - strong [ref=e998]: "Tip:"
+          - text: Draw the diagram first. Write the definition next. Then give the example. Diagram plus explanation gives full marks.
+      - separator [ref=e999]
+      - generic [ref=e1000]:
+        - heading "Self-Check Quiz" [level=2] [ref=e1001]
+        - paragraph [ref=e1002]:
+          - text: Answer each question. Click
+          - strong [ref=e1003]: Show answer
+          - text: "to verify. Score: count each correct answer."
+        - generic [ref=e1004]:
+          - generic [ref=e1005]:
+            - strong [ref=e1006]: 1. MU of 6th unit when TU stays at 30?
+            - generic [ref=e1007]:
+              - button "Hide answer" [ref=e1039]
+              - text: 0 — point of satiety, TU is maximum
+          - generic [ref=e1009]:
+            - strong [ref=e1010]: 2. Single commodity equilibrium condition?
+            - button "Show answer" [ref=e1012]
+          - generic [ref=e1013]:
+            - strong [ref=e1014]: 3. Two commodity equilibrium condition?
+            - button "Show answer" [ref=e1016]
+          - generic [ref=e1017]:
+            - strong [ref=e1018]: 4. MRS = 4 means what?
+            - generic [ref=e1019]:
+              - button "Show answer" [ref=e1020]
+              - text: Give up 4 bananas to gain 1 apple with same satisfaction
+          - generic [ref=e1021]:
+            - strong [ref=e1022]: 5. Shape of IC with diminishing MRS?
+            - button "Show answer" [ref=e1024]
+          - generic [ref=e1025]:
+            - strong [ref=e1026]: "6. Income rises, prices same: shift or rotation?"
+            - button "Show answer" [ref=e1028]
+          - generic [ref=e1029]:
+            - strong [ref=e1030]: 7. Bundle costing more than income lies where?
+            - button "Show answer" [ref=e1032]
+          - generic [ref=e1033]:
+            - strong [ref=e1034]: 8. IC equilibrium conditions?
+            - button "Show answer" [ref=e1036]
+      - paragraph [ref=e1038]: Economics Notes · Class 11 · Chapter 2 — Consumer Equilibrium

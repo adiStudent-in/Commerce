@@ -6,6 +6,7 @@ var CACHE_NAME = 'study-os-v2';
 var ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './Syllabus-Tracker.html',
   './assets/study-os.css',
   './assets/study-os.js',
   'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap',

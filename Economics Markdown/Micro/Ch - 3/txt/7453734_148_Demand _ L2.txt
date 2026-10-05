@@ -1,0 +1,362 @@
+===== PAGE 001 =====
+BATCH
+Microeconomics
+DEMAND
+Chapter 31
+ILecture 2
+
+===== PAGE 002 =====
+Next
+BATCH
+Toppers
+DEMANDFUNCTIONS
+f(Tnfluence)
+Demand function shows the relationship
+between quantity demanded for a particular
+commodity and the factors influencing it.
+Prre
+IndividualDemandFunction-Individualdemand
+function refers to the functional relationship
+Relabed Grood
+(Pnice)
+betweenindividualdemandand thefactors
+Tnom=
+affecting individual demand
+Itisexpressed as:
+f(PX
+PYTE
+13L
+Futue Exp.Pie
+
+===== PAGE 003 =====
+Mouke Demawd nchon
+Dx=A(Rk,R,YTF,B,S,D)
+
+===== PAGE 004 =====
+Tnve+
+C=owpto
+mmo
+9
+
+===== PAGE 005 =====
+Next
+BATCH
+Toppers
+DEMANDFUNCTIONS
+Where,
+Dx = Demand for Commodity x
+ = Price of the given Commodity x
+Px
+: Prices of Related Goods;
+Pr
+二
+Income of the Consumer;
+T
+Tastes and Preferences;
+ = Expectation of Change in Price in future
+
+===== PAGE 006 =====
+BATCH
+Next
+Toppers
+DEMANDFUNCTIONS
+MarketDemandFunction-Marketdemand
+functionreferstothefuctionalrelationship
+between market demand and the factors affecting
+markeddemand.
+D=f(P PY, T, F, P S, D)
+Where,
+= Tastes and Preferences;
+T
+Dx = Market demand of commodity x;
+= Expectation of Change in Price in future
+Px
+= Price of the given Commodity x
+P
+ = Size and Composition of population;
+=Prices of Related Goods;
+=Season and Weather;
+= Income of the Consumer;
+D = Distribution of Income.
+
+===== PAGE 007 =====
+Schedule
+Dem awd
+—→ Ta ble
+Meket
+ronpiput
+Dea c
+↑d
+prce
+Devwd
+(a+y)
+DM
+100
+Oreuon
+15
+?0
+30
+S
+SU
+
+===== PAGE 008 =====
+开
+BATCH
+Next
+Toppers
+DEMANDSCHEDULE
+Demand scheduleis a tabular statement showingvarious
+quantities of a commodity being demanded at various
+levels of price, during a given period of time.
+IndividualDemandSchedule
+Market demand schedule
+It refers to atabulr statement
+Itreferstoatabularstatement
+showing various quantities of a
+showing various quantities of a
+commodity that a consumer is
+commoditythatalltheconsumers
+willing to buy atvarious levels of
+are willing to buy at various levels of
+price, during a given period of time.
+price, during a given period of time.
+
+===== PAGE 009 =====
+BATCH
+Next
+Toppers
+DemandSchedule
+Horizontal Sommat'ow
+1M
+IndividualDemandSchedule
+MarketDemandSchedule
+D↑
+Price in (天)
+SanidhyaSir
+Individual Demand(inunits)
+MarketDemand
+Price in (天)
+(in units)
+5
+Sanidhya Sir
+Digraj Sir
+4
+5
+2
+1+2=
+3
+3
+3
+4
+2+3
+5
+2
+3
+3
+3+4
+5
+2
+4
+5
+4+5
+9
+5
+5+611
+6
+
+===== PAGE 010 =====
+333
+Fuividud Demamd Corve 
+Ciroph
+>3
+Tnverk Peabion
+PD
+PD
+
+===== PAGE 011 =====
+BATCH
+Next
+Toppers
+DEMANDCURVE
+It is a graphical representation of demand schedule.
+IndividualDemandCurve
+Marketdemand curve
+refers to a graphical
+refers to a graphical representation of
+representationofindividual
+marketdemandschedule.Itisobtained
+demandschedule.
+byhorizontalsummationofindividual
+demand curves
+Individual Demand Curve
+MarketDemand Curve
+Dmis flatter than
+4681012
+4
+Quantity demanded (in units)
+Quantity Demanded (in units)
+
+===== PAGE 012 =====
+Next
+BATCH
+Toppers
+DEMANDCURVE
+SlopeofDemand Curve
+Slope of a curve is defined as the change in
+thevariable on theY-axis divided by the
+change in the variable on the X-axis. So, the
+10
+slope of the Demand Curve equals the Change
+Price(in)
+in Price divided by the Change in Quantity.
+△Q=2
+Change in Price (△P)
+345
+i.e.SlopeofDemandCurve
+Change in Quantity (△Q)
+QuantityDemanded(inunits)
+
+===== PAGE 013 =====
+BATCH
+Next
+Toppers
+R.1.P
+
+===== PAGE 014 =====
+BATCH
+Next
+Toppers
+P.√ D:↑
+LAWOFDEMAND
+D√
+p
+Lawofdemandstatestheinverserelationshipbetween
+price and quantity demanded, keeping other factors
+constant (ceteris paribus) This law is also known as
+'First Law of Purchase'.
+Assumptionof LawofDemand
+Price（in
+. Prices of substitute goods do not change.
+·Prices of complementary goodsremain constant.
+Income of the consumer remains the same.
+There is no expectation of change in price in the
+future.
+Tastes and preferences of the consumer remain
+QuantityDemanded(inunits)
+the same.
+
+===== PAGE 015 =====
+Pire willehmge
+DeM owy
+Lenw%
+D↑
+Cowtemt
+Secon
+Keepwy
+oey
+Popwaction
+Teci3
+Subs+itt Podct Pce
+Goutw
+Tnme
+Ceteuis
+Toxte
+Petbs
+
+===== PAGE 016 =====
+BATCH
+Next
+Toppers
+sitna
+P↓Dr.
+LAWOFDEMAND
+X4.43
+Important facts about Law of Demand
+Inverse
+Qualitativenot
+NoProportional
+One
+Relationship
+Quantitative
+Relationship
+Sided
+PRICE
+DEMAND
+ekdumsewaqtbadaldiya,jajbaat
+badaldiye,zindagibadaldi
+
+===== PAGE 017 =====
+BATCH
+Next
+Toppers
+LAWOFDEMAND
+ReasonsofLawofDemand
+Law of Diminishing Marginal Utility: Law
+of diminishing marginal utility states that
+as we consume more and more units of a
+commodity, the utility derived from each
+successive unit goes on decreasing.
+Substitution Effect: Substitution effect
+referstosubstitutingonecommodityin
+place of other when it becomes relatively
+cheaper.
+TEA
+COFFEE
+Price
+Deamnd
+
+===== PAGE 018 =====
+BATCH
+Next
+Toppers
+LAWOFDEMAND
+ReasonsofLawofDemand
+pocketmoney=40
+10
+天8
+Income: Income effect refers to effect on
+demand when real income of the
+10/-
+consumer changes due to change in price
+of the given commodity.
+5
+Additional Customers: When price of a
+commodity falls, many new consumers,
+not in a position to buy it earlier due to its
+10
+high price, starts purchasing it.
+lakh
+天5
+lakh
+10people
+50people
+
+===== PAGE 019 =====
+BATCH
+Next
+Toppers
+LAWOFDEMAND
+Reasonsof LawofDemand
+Different Uses: Some commodities like
+milk, electricity, etc. have several uses,
+some of which are more important than
+the others.
+
+===== PAGE 020 =====
+Thank
+mm
+Next
+Toppers
+Madewith
+by:Bhargavi
+@bhargavi_nexttopper8
+
+===== PAGE 021 =====
+Aaj le liye itna hi
+loveee youu
+SOO
+much bhaiyaao
+milte hai Kal ki
+class main
+by:-gunjan satuniya
+@gunjan_nexttt_topperrr

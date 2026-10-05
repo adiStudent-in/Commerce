@@ -334,10 +334,49 @@
   <section class="hero fade-in">
     <span class="badge">Class 11 · Commerce</span>
     <h1>Your <em>Revision</em> Hub</h1>
-    <p>Chapter-wise study notes for Business Studies, Economics and English.</p>
+    <p>Chapter-wise study notes for Business Studies, Economics, English — plus Maths practice tests.</p>
+    <div style="margin-top:24px;">
+      <a href="Syllabus-Tracker.html" style="display:inline-flex;align-items:center;gap:10px;padding:14px 26px;background:var(--accent);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;box-shadow:var(--shadow-md);transition:opacity .2s ease;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">📋 Syllabus Tracker <span style="opacity:.7;font-weight:400;font-size:13px;">· Class XI 2026-27</span></a>
+      <p id="hubSyllabusProgress" style="margin-top:10px;font-size:13px;color:var(--text-muted);"></p>
+    </div>
   </section>
   <!-- Subjects -->
   <div class="container">
+
+    <!-- Maths -->
+    <div class="subject-wrap fade-in">
+      <button class="subject-btn" onclick="toggleSubject(this)">
+        <span class="icon purple">📐</span>
+        <span class="info">
+          <span class="name">Mathematics</span>
+          <span class="count">NCERT Class 11 · Revision + test</span>
+        </span>
+        <span class="chevron">▼</span>
+      </button>
+      <div class="chapter-panel">
+        <div class="chapter-list">
+
+          <a href="Maths/Class-11-Maths-Quick-Revision-Ch1-to-Ch6.html" class="chapter-item available">
+            <span class="ch-num">⚡</span>
+            <span class="ch-info">
+              <span class="ch-title">Quick Revision — Chapters 1 to 6</span>
+              <span class="ch-meta">One-shot · Hinglish tricks · traps · formula wall</span>
+            </span>
+            <span class="ch-arrow">→</span>
+          </a>
+
+          <a href="Maths/Class-11-Maths-Test-Ch1-to-Ch6.html" class="chapter-item available">
+            <span class="ch-num">T1</span>
+            <span class="ch-info">
+              <span class="ch-title">Full Test — Chapters 1 to 6</span>
+              <span class="ch-meta">12 questions · solutions · score tracker</span>
+            </span>
+            <span class="ch-arrow">→</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
 
     <!-- BST -->
     <div class="subject-wrap fade-in">
@@ -345,7 +384,7 @@
         <span class="icon green">📊</span>
         <span class="info">
           <span class="name">Business Studies</span>
-          <span class="count">NCERT Class 11 · 6 chapters</span>
+          <span class="count">NCERT Class 11 · 9 chapters</span>
         </span>
         <span class="chevron">▼</span>
       </button>
@@ -397,11 +436,38 @@
             <span class="ch-arrow">→</span>
           </a>
 
+          <a href="BST/Chapter-6-Social-Responsibilities-and-Business-Ethics.html" class="chapter-item available">
+            <span class="ch-num">6</span>
+            <span class="ch-info">
+              <span class="ch-title">Social Responsibilities &amp; Business Ethics</span>
+              <span class="ch-meta">STE100 easy notes · interest groups, pollution &amp; ethics</span>
+            </span>
+            <span class="ch-arrow">→</span>
+          </a>
+
           <a href="BST/Chapter-7-Sources-of-Business-Finance.html" class="chapter-item available">
             <span class="ch-num">7</span>
             <span class="ch-info">
               <span class="ch-title">Sources of Business Finance</span>
               <span class="ch-meta">Shares, debentures, trade credit &amp; more</span>
+            </span>
+            <span class="ch-arrow">→</span>
+          </a>
+
+          <a href="BST/Chapter-8-Small-Business-and-Enterprises.html" class="chapter-item available">
+            <span class="ch-num">8</span>
+            <span class="ch-info">
+              <span class="ch-title">Small Business and Enterprises</span>
+              <span class="ch-meta">STE100 easy notes · MSME, Startup India, funding &amp; IPR</span>
+            </span>
+            <span class="ch-arrow">→</span>
+          </a>
+
+          <a href="BST/Chapter-9-Internal-Trade.html" class="chapter-item available">
+            <span class="ch-num">9</span>
+            <span class="ch-info">
+              <span class="ch-title">Internal Trade</span>
+              <span class="ch-meta">STE100 easy notes · wholesale, retail, GST &amp; GST Council</span>
             </span>
             <span class="ch-arrow">→</span>
           </a>
@@ -416,72 +482,81 @@
         <span class="icon brown">💰</span>
         <span class="info">
           <span class="name">Micro-Economics</span>
-          <span class="count">Introductory Microeconomics · 7 chapters</span>
+          <span class="count">Introductory Microeconomics · 8 STE notes</span>
         </span>
         <span class="chevron">▼</span>
       </button>
       <div class="chapter-panel">
         <div class="chapter-list">
 
-          <a href="Economics/Chapter-1-Introduction-to-Microeconomics.html" class="chapter-item available">
+          <a href="Economics/Chapter-1-Introduction-to-Microeconomics-STE.html" class="chapter-item available">
             <span class="ch-num">1</span>
             <span class="ch-info">
-              <span class="ch-title">Introduction to Microeconomics</span>
-              <span class="ch-meta">PPF, opportunity cost &amp; more</span>
+              <span class="ch-title">Introduction to Microeconomics — STE</span>
+              <span class="ch-meta">STE notes · PPF, opportunity cost &amp; more</span>
             </span>
             <span class="ch-arrow">→</span>
           </a>
 
-          <a href="Economics/Chapter-2-Consumer-Equilibrium.html" class="chapter-item available">
+          <a href="Economics/Chapter-2-Consumer-Equilibrium-STE.html" class="chapter-item available">
             <span class="ch-num">2</span>
             <span class="ch-info">
-              <span class="ch-title">Consumer's Equilibrium</span>
-              <span class="ch-meta">Utility, IC &amp; budget line</span>
+              <span class="ch-title">Consumer's Equilibrium — STE</span>
+              <span class="ch-meta">STE notes · utility, IC &amp; budget line</span>
             </span>
             <span class="ch-arrow">→</span>
           </a>
 
-          <a href="Economics/Chapter-3-Demand.html" class="chapter-item available">
+          <a href="Economics/Chapter-3-Demand-STE.html" class="chapter-item available">
             <span class="ch-num">3</span>
             <span class="ch-info">
-              <span class="ch-title">Demand</span>
-              <span class="ch-meta">Law of demand, shifts &amp; exceptions</span>
+              <span class="ch-title">Demand — STE</span>
+              <span class="ch-meta">STE notes · law of demand, shifts &amp; exceptions</span>
             </span>
             <span class="ch-arrow">→</span>
           </a>
 
-          <a href="Economics/Chapter-4-Elasticity-of-Demand.html" class="chapter-item available">
+          <a href="Economics/Chapter-4-Elasticity-of-Demand-STE.html" class="chapter-item available">
             <span class="ch-num">4</span>
             <span class="ch-info">
-              <span class="ch-title">Elasticity of Demand</span>
-              <span class="ch-meta">Price elasticity, degrees &amp; methods</span>
+              <span class="ch-title">Elasticity of Demand — STE</span>
+              <span class="ch-meta">STE notes · price elasticity, degrees &amp; methods</span>
             </span>
             <span class="ch-arrow">→</span>
           </a>
 
-          <a href="Economics/Chapter-5-Production-Function.html" class="chapter-item available">
+          <a href="Economics/Chapter-5-Production-Function-STE.html" class="chapter-item available">
             <span class="ch-num">5</span>
             <span class="ch-info">
-              <span class="ch-title">Production Function</span>
-              <span class="ch-meta">TP, AP, MP &amp; Law of Variable Proportions</span>
+              <span class="ch-title">Production Function — STE</span>
+              <span class="ch-meta">STE notes · TP, AP, MP &amp; Law of Variable Proportions</span>
             </span>
             <span class="ch-arrow">→</span>
           </a>
 
-          <a href="Economics/Chapter-6-Cost.html" class="chapter-item available">
+          <a href="Economics/Chapter-6-Cost-STE.html" class="chapter-item available">
             <span class="ch-num">6</span>
             <span class="ch-info">
-              <span class="ch-title">Cost</span>
-              <span class="ch-meta">TFC, TVC, TC, AFC, AVC, AC, MC &amp; relationships</span>
+              <span class="ch-title">Cost — STE</span>
+              <span class="ch-meta">STE notes · TFC, TVC, TC, AFC, AVC, AC, MC</span>
             </span>
             <span class="ch-arrow">→</span>
           </a>
 
-          <a href="Economics/Chapter-7-Revenue.html" class="chapter-item available">
-            <span class="ch-num">7</span>
+          <a href="Economics/Chapter-8-Producer-Equilibrium-STE.html" class="chapter-item available">
+            <span class="ch-num">8</span>
             <span class="ch-info">
-              <span class="ch-title">Revenue</span>
-              <span class="ch-meta">TR, AR, MR &amp; relationships under perfect &amp; imperfect competition</span>
+              <span class="ch-title">Producer Equilibrium — STE</span>
+              <span class="ch-meta">STE notes · MR-MC, TR-TC, perfect &amp; imperfect markets</span>
+            </span>
+            <span class="ch-arrow">→</span>
+          </a>
+
+          <a href="Economics/Chapter-9-Supply-STE.html" class="chapter-item available">
+            <span class="ch-num">9</span>
+            <span class="ch-info">
+              <span class="ch-title">Supply — STE</span>
+              <span class="ch-meta">STE notes · law of supply, movement vs shift, Es</span>
             </span>
             <span class="ch-arrow">→</span>
           </a>
@@ -548,13 +623,14 @@
             <span class="ch-arrow">→</span>
           </a>
 
-          <div class="chapter-item coming-soon">
+          <a href="Statistics/Chapter-6-Measures-of-Central-Tendency-Mean.html" class="chapter-item available">
             <span class="ch-num">6</span>
             <span class="ch-info">
-              <span class="ch-title">More chapters coming</span>
-              <span class="ch-meta">Coming soon</span>
+              <span class="ch-title">Measures of Central Tendency — Mean</span>
+              <span class="ch-meta">Formulas, steps &amp; 11 solved questions</span>
             </span>
-          </div>
+            <span class="ch-arrow">→</span>
+          </a>
 
         </div>
       </div>
@@ -713,6 +789,20 @@
       const panel = btn.nextElementSibling;
       panel.classList.toggle('open');
     }
+
+    // Syllabus tracker progress teaser (reads tracker localStorage)
+    (function () {
+      try {
+        var el = document.getElementById('hubSyllabusProgress');
+        if (!el) return;
+        var meta = JSON.parse(localStorage.getItem('syllabus-tracker-meta') || 'null');
+        if (meta && meta.total) {
+          el.textContent = 'Syllabus progress: ' + meta.done + ' of ' + meta.total + ' done (' + meta.pct + '%)';
+        } else {
+          el.textContent = 'Track every topic across all 5 subjects — progress saves automatically.';
+        }
+      } catch (e) { /* localStorage unavailable */ }
+    })();
   </script>
   <script src="assets/study-os.js"></script>
 

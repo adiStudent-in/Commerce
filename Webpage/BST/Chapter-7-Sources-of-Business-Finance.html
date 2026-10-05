@@ -202,6 +202,55 @@
     pre{font-size:12.5px;padding:16px;}
     .nav-meta{display:none;}
   }
+
+  /* ---------- Mind Map Overlay ---------- */
+  .mindmap-toggle{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:6px 16px;border-radius:999px;
+    border:1px solid var(--border);background:var(--surface);
+    color:var(--text);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;
+    cursor:pointer;transition:all 0.2s ease;white-space:nowrap;
+  }
+  .mindmap-toggle:hover{border-color:var(--accent);color:var(--accent);}
+  .mindmap-toggle .mm-icon{font-size:15px;line-height:1;}
+
+  .mindmap-overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1000;
+    display:none;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  }
+  .mindmap-overlay.active{display:flex;align-items:center;justify-content:center;padding:24px;}
+  .mindmap-modal{
+    width:100%;max-width:1200px;height:92vh;background:var(--surface);
+    border:1px solid var(--border);border-radius:16px;overflow:hidden;
+    display:flex;flex-direction:column;box-shadow:0 24px 70px rgba(0,0,0,0.3);
+  }
+  .mindmap-modal-header{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:14px 20px;border-bottom:1px solid var(--border);
+  }
+  .mindmap-modal-header .mm-title{font-family:'Playfair Display',serif;font-weight:600;font-size:17px;color:var(--text);white-space:nowrap;}
+  .mindmap-modal-header .mm-hint{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .mindmap-actions{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+  .mindmap-actions button{
+    padding:5px 12px;border-radius:999px;border:1px solid var(--border);
+    background:var(--surface);color:var(--muted);font-family:inherit;font-size:12px;
+    cursor:pointer;transition:all 0.2s ease;
+  }
+  .mindmap-actions button:hover{border-color:var(--accent);color:var(--accent);}
+  .mindmap-close{
+    width:36px;height:36px;border-radius:50%;background:none;border:none;cursor:pointer;
+    font-size:24px;color:var(--muted);display:flex;align-items:center;justify-content:center;
+    transition:color 0.2s ease;line-height:1;flex-shrink:0;
+  }
+  .mindmap-close:hover{color:var(--text);}
+  #mindmap-svg{flex:1;width:100%;min-height:0;background:var(--surface);}
+
+  @media (max-width:640px){
+    .mindmap-overlay.active{padding:8px;}
+    .mindmap-modal{height:96vh;border-radius:12px;}
+    .mindmap-modal-header .mm-title{font-size:15px;}
+    .mindmap-modal-header .mm-hint{display:none;}
+  }
 </style>
 </head>
 <body>
@@ -209,6 +258,7 @@
 <nav class="topnav">
   <a class="nav-logo" href="#">BST Notes</a>
   <span class="nav-meta">Class 11 · Chapter 7</span>
+  <button class="mindmap-toggle" aria-label="Open mind map" title="Mind Map"><span class="mm-icon">🗺️</span> Mind Map</button>
 </nav>
 <div id="progress-bar"></div>
 
@@ -694,6 +744,127 @@
       sidebar.classList.remove('open');
     }
   });
+</script>
+
+<script>
+  /* ─── Mind Map Overlay (self-contained: Chapter 7 loads no shared assets) ─── */
+  (function () {
+    var LOG_PREFIX = '[Mind Map] ';
+    function log(msg) { if (window.console) console.warn(LOG_PREFIX + msg); }
+
+    function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
+
+    function loadScript(src) {
+      return new Promise(function (resolve, reject) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = resolve;
+        s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+        document.head.appendChild(s);
+      });
+    }
+
+    // markmap-lib and markmap-view share window.markmap (view clobbers lib),
+    // so capture Transformer right after markmap-lib loads.
+    var libPromise = null;
+    function loadLib() {
+      if (!libPromise) {
+        libPromise = loadScript('https://cdn.jsdelivr.net/npm/d3@7')
+          .then(function () { return loadScript('https://cdn.jsdelivr.net/npm/markmap-lib@0.18.12'); })
+          .then(function () {
+            var wm = window.markmap || {};
+            return wm.Transformer ? wm.Transformer : null;
+          });
+      }
+      return libPromise;
+    }
+    var viewPromise = null;
+    function loadView() {
+      if (!viewPromise) {
+        viewPromise = loadLib()
+          .then(function () { return loadScript('https://cdn.jsdelivr.net/npm/markmap-view@0.18.12'); })
+          .then(function () {
+            var wm = window.markmap || {};
+            return wm.Markmap ? wm.Markmap : null;
+          });
+      }
+      return viewPromise;
+    }
+
+    var overlay = null;
+    var mmInstance = null;
+    var mmRoot = null;
+
+    function build() {
+      if (overlay) return;
+      overlay = document.createElement('div');
+      overlay.className = 'mindmap-overlay';
+      overlay.id = 'mindmapOverlay';
+      overlay.innerHTML =
+        '<div class="mindmap-modal">' +
+          '<div class="mindmap-modal-header">' +
+            '<span class="mm-title">🗺️ Concept Map</span>' +
+            '<span class="mm-hint">Scroll to zoom · Drag to pan · Click a node to collapse / expand</span>' +
+            '<div class="mindmap-actions">' +
+              '<button type="button" class="mm-fit">Fit</button>' +
+              '<button type="button" class="mm-expand">Expand all</button>' +
+              '<button type="button" class="mm-collapse">Collapse all</button>' +
+            '</div>' +
+            '<button type="button" class="mindmap-close" aria-label="Close mind map" title="Close (Esc)">&times;</button>' +
+          '</div>' +
+          '<svg id="mindmap-svg"></svg>' +
+        '</div>';
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+      qs('.mindmap-close', overlay).addEventListener('click', close);
+      qs('.mm-fit', overlay).addEventListener('click', function () { if (mmInstance) mmInstance.fit(); });
+      qs('.mm-expand', overlay).addEventListener('click', function () { if (mmInstance) mmInstance.setData(mmRoot, { initialExpandLevel: -1 }); });
+      qs('.mm-collapse', overlay).addEventListener('click', function () { if (mmInstance) mmInstance.setData(mmRoot, { initialExpandLevel: 0 }); });
+    }
+
+    function open() {
+      build();
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    var markdown = "# Sources of Business Finance\n\n## Concept of Business Finance\n- Money required for business activities\n- Planning, raising, managing, controlling funds\n\n## Nature of Finance\n- Needed by all businesses (size & nature dependent)\n- Includes Owners' + Borrowed funds; continuous; fluctuating\n\n## Significance\n- Meet liabilities, adopt tech, face competition, replace assets\n\n## Sources (by Ownership)\n### Owners' Fund\n- Provided by owners; permanent, no repayment\n- Risk capital; no security required\n- Sources: Share Capital, Retained Earnings\n### Borrowed Fund\n- Loans/credit; fixed time, security, interest\n- Lenders get no control\n\n## Issue of Shares\n### Equity Shares\n- No preferential rights; primary risk bearers\n- Residual income; permanent; dividend varies; voting rights\n### Preference Shares\n- Fixed dividend + repayment priority over equity\n- Hybrid security (equity + debenture features); no voting rights\n\n## Retained Earnings\n- Undistributed profit (plough back / self-financing)\n- Security cushion, no control dilution, dependable\n\n## Borrowed Sources\n### Trade Credit (short-term)\n- Credit from suppliers (3 to 6 months)\n### Public Deposits (medium-term)\n- Unsecured deposits from public (6 mo to 3 yr)\n### Debentures / Bonds (long-term)\n- Creditorship securities; fixed interest; secured\n### Loan from Commercial Banks\n- Short & medium term; secrecy, flexible\n### Loan from Financial Institutions (long-term)\n- Development banks; managerial advice\n### Inter-Corporate Deposits (short-term)\n- Deposits between companies; high risk\n\n## Quick Exam Pointers\n- Preference shares = hybrid security\n- Real owners = equity shareholders\n- Debentures = loan capital\n- Equity dividend NOT mandatory";
+
+    var toggle = qs('.mindmap-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        open();
+        var svg = qs('#mindmap-svg', overlay);
+        svg.style.background = 'var(--surface)';
+        loadView().then(function (Markmap) {
+          if (Markmap === null) { log('markmap-view not found'); return; }
+          return loadLib().then(function (Transformer) { return { Markmap: Markmap, Transformer: Transformer }; });
+        }).then(function (mm) {
+          if (!mm.Transformer) { log('markmap transformer not found'); return; }
+          if (mmInstance && typeof mmInstance.destroy === 'function') mmInstance.destroy();
+          var data = new mm.Transformer().transform(markdown);
+          mmRoot = data.root;
+          mmInstance = mm.Markmap.create(svg, {
+            colorFreezeLevel: 2,
+            initialExpandLevel: 2,
+            spacingVertical: 6,
+            spacingHorizontal: 80
+          }, data.root);
+          mmInstance.fit();
+        }).catch(function (err) { log('Mind map error: ' + err.message); });
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) close();
+    });
+  })();
 </script>
 
 </body>

@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 8 – Small Business and Enterprises (STE100 Easy Notes) | BST Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#1a5e4a;
+    --accent-light:#e8f0ec;
+    --bg:#faf8f5;
+    --surface:#ffffff;
+    --text:#1b1b1b;
+    --muted:#6b6b6b;
+    --border:#e8e4de;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Outfit',sans-serif;
+    font-size:16px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .topnav{
+    position:fixed;top:0;left:0;right:0;height:60px;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 28px;
+    background:rgba(250,248,245,0.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-logo{
+    font-family:'Playfair Display',serif;font-weight:600;font-size:20px;
+    color:var(--accent);text-decoration:none;letter-spacing:-0.01em;
+  }
+  .nav-meta{font-family:'Outfit',sans-serif;font-size:13px;color:var(--muted);letter-spacing:0.04em;}
+  #progress-bar{
+    position:fixed;top:59px;left:0;height:2px;width:0%;
+    background:var(--accent);z-index:101;transition:width 0.08s linear;
+  }
+  .wrapper{
+    max-width:1200px;margin:0 auto;padding:104px 32px 40px;
+    display:flex;gap:48px;align-items:flex-start;
+  }
+  main{flex:1;max-width:820px;min-width:0;}
+  .sidebar{
+    width:260px;flex-shrink:0;position:sticky;top:80px;
+    max-height:calc(100vh - 100px);overflow-y:auto;
+  }
+  .sidebar::-webkit-scrollbar{width:4px;}
+  .sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+  .sidebar-title{
+    font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);
+    margin-bottom:14px;padding-left:12px;
+  }
+  .sidebar nav a{
+    display:block;text-decoration:none;color:var(--muted);
+    font-size:13.5px;line-height:1.5;padding:5px 12px;
+    border-left:2px solid transparent;transition:color 0.15s,border-color 0.15s;
+  }
+  .sidebar nav a:hover,.sidebar nav a.active{
+    color:var(--accent);border-left-color:var(--accent);
+  }
+  .sidebar nav a.sub{padding-left:24px;}
+  .hero{margin-bottom:44px;}
+  .badge{
+    display:inline-block;background:var(--accent-light);color:var(--accent);
+    font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;
+    padding:5px 14px;border-radius:999px;margin-bottom:18px;
+  }
+  h1{
+    font-family:'Playfair Display',serif;font-weight:700;font-size:38px;
+    letter-spacing:-0.025em;line-height:1.15;margin-bottom:12px;
+  }
+  .subtitle{font-size:16px;color:var(--muted);}
+  h2{
+    font-family:'Playfair Display',serif;font-weight:600;font-size:26px;
+    letter-spacing:-0.02em;margin:52px 0 20px;padding-bottom:10px;
+    border-bottom:1px solid var(--border);
+  }
+  h3{
+    font-family:'Playfair Display',serif;font-weight:600;font-size:20px;
+    margin:34px 0 14px;
+  }
+  h4{font-family:'Outfit',sans-serif;font-weight:600;font-size:15.5px;margin:24px 0 10px;}
+  p{margin-bottom:14px;}
+  ul,ol{margin:0 0 16px 22px;}
+  li{margin-bottom:7px;}
+  strong{font-weight:600;}
+  em{font-style:italic;}
+  hr{border:none;height:1px;background:var(--border);margin:40px 0;}
+  .table-wrap{
+    overflow-x:auto;border:1px solid var(--border);border-radius:10px;
+    box-shadow:0 2px 8px rgba(27,27,27,0.04);margin:22px 0;background:var(--surface);
+  }
+  table{width:100%;border-collapse:collapse;min-width:520px;}
+  th{
+    background:var(--accent-light);color:var(--accent);
+    font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;
+    text-align:left;padding:12px 14px;white-space:nowrap;
+  }
+  td{
+    font-size:14px;padding:11px 14px;vertical-align:top;
+    border-top:1px solid var(--border);
+  }
+  tbody tr:hover{background:#f5f3ef;}
+  td:first-child{font-weight:600;white-space:nowrap;}
+  blockquote{
+    background:var(--accent-light);border-left:3px solid var(--accent);
+    border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;
+    font-family:'Playfair Display',serif;font-style:italic;font-size:16px;
+    line-height:1.7;
+  }
+  blockquote p:last-child{margin-bottom:0;}
+  .callout{
+    background:#fff8e5;border-left:3px solid #d4a12a;
+    border-radius:0 10px 10px 0;padding:14px 20px;margin:18px 0;
+    font-size:15px;
+  }
+  .callout p:last-child,.callout ul:last-child{margin-bottom:0;}
+  .callout ul{margin-left:20px;}
+  pre{
+    background:#1a1a2e;color:#e4e4f0;border-radius:10px;
+    padding:20px 22px;overflow-x:auto;margin:22px 0;
+    font-family:'JetBrains Mono','Fira Code',monospace;
+    font-size:13.5px;line-height:1.6;
+  }
+  footer{
+    border-top:1px solid var(--border);margin-top:70px;
+    padding:28px 32px 36px;text-align:center;
+    font-size:13px;color:var(--muted);letter-spacing:0.03em;
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+  .fade-in{animation:fadeUp 0.6s ease forwards;opacity:0;}
+  .toc-toggle{
+    display:none;position:fixed;bottom:22px;right:22px;z-index:200;
+    width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;
+    background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(26,94,74,0.35);
+    align-items:center;justify-content:center;
+  }
+  .toc-toggle svg{width:22px;height:22px;}
+  @media (max-width:900px){
+    .wrapper{padding:96px 20px 40px;}
+    .sidebar{
+      position:fixed;left:0;right:0;bottom:-100%;top:auto;width:auto;
+      max-height:65vh;z-index:150;background:var(--surface);
+      border-top:1px solid var(--border);border-radius:18px 18px 0 0;
+      padding:24px 26px 30px;box-shadow:0 -8px 30px rgba(27,27,27,0.12);
+      transition:bottom 0.3s ease;
+    }
+    .sidebar.open{bottom:0;}
+    .toc-toggle{display:flex;}
+  }
+  @media (max-width:600px){
+    h1{font-size:28px;}
+    h2{font-size:22px;}
+    h3{font-size:18px;}
+    td,th{font-size:13px;padding:8px 10px;}
+    pre{font-size:12.5px;padding:16px;}
+    .nav-meta{display:none;}
+  }
+  .mindmap-toggle{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:6px 16px;border-radius:999px;
+    border:1px solid var(--border);background:var(--surface);
+    color:var(--text);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;
+    cursor:pointer;transition:all 0.2s ease;white-space:nowrap;
+  }
+  .mindmap-toggle:hover{border-color:var(--accent);color:var(--accent);}
+  .mindmap-toggle .mm-icon{font-size:15px;line-height:1;}
+  .mindmap-overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1000;
+    display:none;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  }
+  .mindmap-overlay.active{display:flex;align-items:center;justify-content:center;padding:24px;}
+  .mindmap-modal{
+    width:100%;max-width:1200px;height:92vh;background:var(--surface);
+    border:1px solid var(--border);border-radius:16px;overflow:hidden;
+    display:flex;flex-direction:column;box-shadow:0 24px 70px rgba(0,0,0,0.3);
+  }
+  .mindmap-modal-header{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:14px 20px;border-bottom:1px solid var(--border);
+  }
+  .mindmap-modal-header .mm-title{font-family:'Playfair Display',serif;font-weight:600;font-size:17px;color:var(--text);white-space:nowrap;}
+  .mindmap-modal-header .mm-hint{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .mindmap-actions{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+  .mindmap-actions button{
+    padding:5px 12px;border-radius:999px;border:1px solid var(--border);
+    background:var(--surface);color:var(--muted);font-family:inherit;font-size:12px;
+    cursor:pointer;transition:all 0.2s ease;
+  }
+  .mindmap-actions button:hover{border-color:var(--accent);color:var(--accent);}
+  .mindmap-close{
+    width:36px;height:36px;border-radius:50%;background:none;border:none;cursor:pointer;
+    font-size:24px;color:var(--muted);display:flex;align-items:center;justify-content:center;
+    transition:color 0.2s ease;line-height:1;flex-shrink:0;
+  }
+  .mindmap-close:hover{color:var(--text);}
+  #mindmap-svg{flex:1;width:100%;min-height:0;background:var(--surface);}
+  @media (max-width:640px){
+    .mindmap-overlay.active{padding:8px;}
+    .mindmap-modal{height:96vh;border-radius:12px;}
+    .mindmap-modal-header .mm-title{font-size:15px;}
+    .mindmap-modal-header .mm-hint{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="nav-logo" href="#">BST Notes</a>
+  <span class="nav-meta">Class 11 · Chapter 8 · STE100</span>
+  <button class="mindmap-toggle" aria-label="Open mind map" title="Mind Map"><span class="mm-icon">🗺️</span> Mind Map</button>
+</nav>
+<div id="progress-bar"></div>
+
+<div class="wrapper">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-title">On this page</div>
+    <nav id="toc">
+      <a href="#keyterms">Key Terms</a>
+      <a href="#what">1. What is Entrepreneurship</a>
+      <a href="#importance">2. Importance</a>
+      <a href="#characteristics">3. Characteristics</a>
+      <a href="#process">4. Process</a>
+      <a href="#meaning-small">5. Meaning of Small Business</a>
+      <a href="#msme">6. MSME Classification</a>
+      <a href="#role">7. Role in India</a>
+      <a href="#startup-scheme">8. Startup India Scheme</a>
+      <a href="#startup-meaning">9. Meaning of Startup</a>
+      <a href="#benefits">10. Startup India Benefits</a>
+      <a href="#funding">11. Funding Options</a>
+      <a href="#ipr-meaning">12. IPR Meaning</a>
+      <a href="#ipr-types">13. Types of IPR</a>
+      <a href="#ipr-asset">14. IPR as Asset</a>
+      <a href="#revision">15. Fast Revision</a>
+      <a href="#examqa">16. Exam Q &amp; A</a>
+    </nav>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main>
+
+    <!-- HERO -->
+    <header class="hero fade-in" style="animation-delay:0.05s;">
+      <span class="badge">Business Studies · Unit 1 · STE100</span>
+      <h1>Small Business and Enterprises</h1>
+      <p class="subtitle">Chapter 8 · Class 11 BST — STE100 Easy Notes. Short sentences. One idea at a time.</p>
+      <blockquote><p><strong>Reading rule:</strong> Read one section at a time. Do each CHECK. Then go to the next section.</p></blockquote>
+    </header>
+
+    <!-- KEY TERMS -->
+    <section id="keyterms" class="fade-in" style="animation-delay:0.1s;">
+      <h2>Key Terms — Read These First</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+          <tbody>
+            <tr><td>Entrepreneurship</td><td>Systematic purposeful creative activity to identify need and organise production with risk</td></tr>
+            <tr><td>Entrepreneur</td><td>Person who identifies need and organises production with risk</td></tr>
+            <tr><td>Systematic Activity</td><td>Step by step purposeful activity with learnable skills</td></tr>
+            <tr><td>Organisation of Production</td><td>Mobilisation of land labour capital technology into firm</td></tr>
+            <tr><td>Risk-taking</td><td>Willingness to assume risk with no assured payoff</td></tr>
+            <tr><td>Small Business</td><td>Business with small investment turnover and employment</td></tr>
+            <tr><td>Micro Enterprise</td><td>Meets micro investment and turnover limits</td></tr>
+            <tr><td>Small Enterprise</td><td>Meets small investment and turnover limits</td></tr>
+            <tr><td>Medium Enterprise</td><td>Meets medium investment and turnover limits</td></tr>
+            <tr><td>Startup</td><td>Eligible young innovative entity recognised for Startup India benefits</td></tr>
+            <tr><td>DPIIT</td><td>Department for Promotion of Industry and Internal Trade</td></tr>
+            <tr><td>Self-funding</td><td>Use of own money to start business</td></tr>
+            <tr><td>Crowdfunding</td><td>Collection of small money from many people on online platform</td></tr>
+            <tr><td>Angel Investor</td><td>Individual with surplus cash who invests in early stage startups</td></tr>
+            <tr><td>Venture Capital</td><td>Professionally managed fund that invests in high potential companies</td></tr>
+            <tr><td>NBFC</td><td>Non Banking Financial Company</td></tr>
+            <tr><td>SIDBI</td><td>Small Industries Development Bank of India</td></tr>
+            <tr><td>MUDRA</td><td>Micro Units Development and Refinance Agency</td></tr>
+            <tr><td>IPR</td><td>Intellectual Property Rights over creations of mind</td></tr>
+            <tr><td>Patent</td><td>Right over novel non-obvious useful invention</td></tr>
+            <tr><td>Copyright</td><td>Right to copy adapt distribute perform display literary artistic work</td></tr>
+            <tr><td>Trademark</td><td>Word or symbol that identifies and distinguishes product</td></tr>
+            <tr><td>GI</td><td>Geographical Indication of product from definite territory</td></tr>
+          </tbody>
+        </table>
+      </div>
+<pre>              CHAPTER 8 MAP
+                    |
+        ┌───────────┼───────────┐
+ ENTREPRENEURSHIP  SMALL BUSINESS  STARTUP + IPR
+        |               |               |
+ • Definition     • 1951 meaning   • Startup India
+ • Importance     • MSME limits    • Benefits
+ • Characters     • Role in India  • Funding options
+ • Process                         • IPR types</pre>
+    </section>
+
+    <!-- 1 -->
+    <section id="what" class="fade-in" style="animation-delay:0.15s;">
+      <h2>1. What is Entrepreneurship</h2>
+      <blockquote><p><strong>Definition:</strong> Entrepreneurship is systematic purposeful creative activity of identifying need and organising production with risk.</p></blockquote>
+      <p><strong>Points:</strong></p>
+      <ol>
+        <li>It identifies a need of customers.</li>
+        <li>It mobilises resources.</li>
+        <li>It organises production.</li>
+        <li>It delivers value to customers.</li>
+        <li>It gives returns to investors.</li>
+        <li>It earns profits for self.</li>
+        <li>It bears risks and uncertainties.</li>
+      </ol>
+      <div class="callout"><p><strong>CHECK:</strong> Say the definition of Entrepreneurship in one sentence.</p></div>
+    </section>
+
+    <!-- 2 -->
+    <section id="importance" class="fade-in" style="animation-delay:0.2s;">
+      <h2>2. Importance of Entrepreneurship</h2>
+      <blockquote><p><strong>Definition:</strong> Importance means need of entrepreneurship for nation and society.</p></blockquote>
+      <p><strong>Points:</strong></p>
+      <ol>
+        <li>Developing countries must stop outflow of national wealth.</li>
+        <li>They must produce import substitute goods locally.</li>
+        <li>They must produce more consumer goods and services locally.</li>
+        <li>They must produce goods for export to earn foreign exchange.</li>
+        <li>All three needs are met by more entrepreneurs.</li>
+      </ol>
+      <h3>2.1 Lifeline of Nation</h3>
+      <ol>
+        <li>Entrepreneurship is yardstick of development of country.</li>
+        <li>No country can grow without enterprises.</li>
+        <li>US UK and other developed countries have well established enterprises.</li>
+        <li>Every nation increases trade by having more enterprises.</li>
+      </ol>
+      <h3>2.2 Innovation</h3>
+      <ol>
+        <li>Entrepreneur is innovator.</li>
+        <li>Entrepreneur tries new methods of production.</li>
+        <li>Entrepreneur tries new technology.</li>
+        <li>Entrepreneur tries new ways of marketing.</li>
+        <li>New ideas enhance economic development.</li>
+      </ol>
+      <h3>2.3 Growth of Economy</h3>
+      <ol>
+        <li>Entrepreneurs adapt to changes in environment.</li>
+        <li>Changes in enterprises bring changes in society.</li>
+        <li>Latest technology brings growth in enterprises.</li>
+        <li>It also brings growth of economy at large.</li>
+      </ol>
+      <h3>2.4 Employment Opportunities</h3>
+      <ol>
+        <li>Entrepreneurship gives scope for self employment.</li>
+        <li>It also gives employment to large number of people.</li>
+        <li>Growth in entrepreneurial activities leads to more employment.</li>
+      </ol>
+      <h3>2.5 Social Benefits</h3>
+      <ol>
+        <li>Entrepreneurs adopt latest technology.</li>
+        <li>They raise standard of living.</li>
+        <li>They give good quality products at lowest cost.</li>
+        <li>They set enterprises in backward areas.</li>
+        <li>They bring balanced regional growth.</li>
+        <li>They save scarce resources by optimum utilisation.</li>
+      </ol>
+      <div class="callout"><p><strong>Note:</strong> Increased profits by minimum cost is benefit to entrepreneur. It is not macro importance.</p></div>
+      <div class="callout"><p><strong>CHECK:</strong> Name three national needs met by entrepreneurs. Answer: Import substitutes. Local consumer goods. Exports.</p></div>
+    </section>
+
+    <!-- 3 -->
+    <section id="characteristics" class="fade-in" style="animation-delay:0.25s;">
+      <h2>3. Characteristics of Entrepreneurship</h2>
+      <h3>3.1 Systematic Activity</h3>
+      <blockquote><p><strong>Definition:</strong> Entrepreneurship is systematic step by step purposeful activity.</p></blockquote>
+      <ol>
+        <li>It needs temperamental skill and knowledge.</li>
+        <li>Skills can be acquired by formal education.</li>
+        <li>Skills can be acquired by vocational training.</li>
+        <li>Skills can be acquired by observation and work experience.</li>
+      </ol>
+      <h3>3.2 Lawful and Purposeful Activity</h3>
+      <ol>
+        <li>Entrepreneurship aims to conduct lawful business.</li>
+        <li>Purpose is to create value lawfully.</li>
+      </ol>
+      <h3>3.3 Related to Innovation</h3>
+      <ol>
+        <li>It involves continuous search for new ideas.</li>
+        <li>It introduces new products.</li>
+        <li>It finds new markets.</li>
+        <li>It finds new sources of supply of inputs.</li>
+        <li>It brings technological breakthroughs.</li>
+        <li>It introduces newer organisation forms.</li>
+        <li>Aim is to do things better cheaper faster.</li>
+      </ol>
+      <h3>3.4 Organisation of Production</h3>
+      <ol>
+        <li>Production needs land labour capital technology.</li>
+        <li>Entrepreneur mobilises these resources into firm.</li>
+        <li>Entrepreneur may have only idea.</li>
+        <li>Entrepreneur promotes idea among resource providers.</li>
+      </ol>
+      <h3>3.5 Risk-taking</h3>
+      <ol>
+        <li>Entrepreneurship has bigger risk than employment.</li>
+        <li>There is no assured payoff.</li>
+        <li>Essence is willingness to assume risk.</li>
+        <li>Risk arises from creation of new ideas.</li>
+        <li>Without willingness to assume risk it never succeeds.</li>
+      </ol>
+      <div class="callout"><p><strong>CHECK:</strong> New product reflects which characteristic? Answer: Innovation.</p></div>
+    </section>
+
+    <!-- 4 -->
+    <section id="process" class="fade-in" style="animation-delay:0.3s;">
+      <h2>4. Process of Entrepreneurship</h2>
+      <blockquote><p><strong>Definition:</strong> Process is sequence of steps from self-discovery to harvest.</p></blockquote>
+      <ol>
+        <li>Self-discovery comes first.</li>
+        <li>Identifying opportunities comes next.</li>
+        <li>Generating and evaluating ideas comes next.</li>
+        <li>Planning comes next.</li>
+        <li>Raising capital and resourcing comes next.</li>
+        <li>Start-up launch comes next.</li>
+        <li>Growth comes next.</li>
+        <li>Harvest comes last.</li>
+      </ol>
+      <h3>4.1 Self-discovery</h3>
+      <ol>
+        <li>Entrepreneur assesses strengths and weaknesses.</li>
+        <li>Entrepreneur checks what he enjoys doing.</li>
+        <li>Entrepreneur checks work experience.</li>
+      </ol>
+      <h3>4.2 Identifying Opportunities</h3>
+      <ol>
+        <li>Entrepreneur finds need want and problems.</li>
+        <li>He finds opportunity to overcome problems.</li>
+        <li>He finds opportunity to fulfil need.</li>
+      </ol>
+      <h3>4.3 Generating and Evaluating Ideas</h3>
+      <ol>
+        <li>He uses discussion and brainstorming.</li>
+        <li>He uses creativity and own experience.</li>
+        <li>He develops ideas to meet expectations of customers.</li>
+      </ol>
+      <h3>4.4 Planning</h3>
+      <ol>
+        <li>Entrepreneur conducts research.</li>
+        <li>Entrepreneur makes business plan.</li>
+        <li>Entrepreneur makes strategies.</li>
+      </ol>
+      <h3>4.5 Raising Capital and Resourcing</h3>
+      <ol>
+        <li>Entrepreneur uses business plan to attract finance.</li>
+        <li>Source is venture capitalist and partners.</li>
+        <li>Resourcing also includes team technology suppliers networks.</li>
+      </ol>
+      <h3>4.6 Start-up</h3>
+      <ol>
+        <li>Entrepreneur launches enterprise.</li>
+        <li>He tries to develop more customers.</li>
+        <li>He makes changes as per environment.</li>
+      </ol>
+      <h3>4.7 Growth</h3>
+      <ol>
+        <li>Entrepreneur tries to expand enterprise.</li>
+        <li>Entrepreneur tries to grow enterprise.</li>
+      </ol>
+      <h3>4.8 Harvest</h3>
+      <ol>
+        <li>Harvest means selling business and harvesting reward.</li>
+        <li>Many entrepreneurs sell existing business.</li>
+        <li>They start a new venture.</li>
+      </ol>
+      <div class="callout"><p><strong>CHECK:</strong> Name steps in order. Answer: Self-discovery. Opportunity. Idea. Planning. Capital. Start-up. Growth. Harvest.</p></div>
+    </section>
+
+    <!-- 5 -->
+    <section id="meaning-small" class="fade-in" style="animation-delay:0.35s;">
+      <h2>5. Meaning of Small Business</h2>
+      <blockquote><p><strong>Definition:</strong> Small Business is business with small investment turnover and employment.</p></blockquote>
+      <p><strong>Historical definition:</strong></p>
+      <ol>
+        <li>Immediately after independence definition was given by Industries Development and Regulation Act 1951.</li>
+        <li>Limit was not more than 50 persons when using power.</li>
+        <li>Limit was 100 persons when not using power.</li>
+        <li>Capital assets did not exceed 5 lakh.</li>
+        <li>This is historical definition only. It is not current limit.</li>
+      </ol>
+      <div class="callout"><p><strong>CHECK:</strong> What was 1951 capital limit? Answer: 5 lakh.</p></div>
+    </section>
+
+    <!-- 6 -->
+    <section id="msme" class="fade-in" style="animation-delay:0.4s;">
+      <h2>6. MSME Classification</h2>
+      <blockquote><p><strong>Definition:</strong> MSME classification uses composite criteria of investment and turnover.</p></blockquote>
+      <p><strong>Rules:</strong></p>
+      <ol>
+        <li>Same limits apply to manufacturing and services.</li>
+        <li>Both investment and turnover conditions must be met.</li>
+        <li>Registration is done on Udyam portal.</li>
+      </ol>
+      <h3>6.1 Lecture and NCERT Limits — 2020 Notification</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Category</th><th>Investment</th><th>Turnover</th></tr></thead>
+          <tbody>
+            <tr><td>Micro Enterprise</td><td>Up to Rs 1 crore</td><td>Does not exceed Rs 5 crore</td></tr>
+            <tr><td>Small Enterprise</td><td>More than Rs 1 crore but does not exceed Rs 10 crore</td><td>Does not exceed Rs 50 crore</td></tr>
+            <tr><td>Medium Enterprise</td><td>More than Rs 10 crore but does not exceed Rs 50 crore</td><td>Does not exceed Rs 250 crore</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Read: Small means investment up to 10 crore and turnover up to 50 crore.</p>
+      <h3>6.2 Current Update — Effective 1 April 2025</h3>
+      <div class="callout"><p><strong>Note:</strong> Budget 2025-26 revised limits from 1 April 2025.</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Category</th><th>Investment</th><th>Turnover</th></tr></thead>
+          <tbody>
+            <tr><td>Micro Enterprise</td><td>Up to Rs 2.5 crore</td><td>Up to Rs 10 crore</td></tr>
+            <tr><td>Small Enterprise</td><td>Up to Rs 25 crore</td><td>Up to Rs 100 crore</td></tr>
+            <tr><td>Medium Enterprise</td><td>Up to Rs 125 crore</td><td>Up to Rs 500 crore</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout"><p><strong>Exam tip:</strong> For exams write 2020 NCERT table. Add 2025 update as note.</p></div>
+      <div class="callout"><p><strong>CHECK:</strong> Small turnover limit as per lecture table? Answer: 50 crore.</p></div>
+    </section>
+
+    <!-- 7 -->
+    <section id="role" class="fade-in" style="animation-delay:0.45s;">
+      <h2>7. Role of Small Business in India</h2>
+      <h3>7.1 Output Generation</h3>
+      <ol>
+        <li>Small industries contribute almost 40 percent of gross industrial value added.</li>
+        <li>They contribute 45 percent of total exports from India.</li>
+        <li>Figures are as per NCERT. They are required for exams.</li>
+      </ol>
+      <h3>7.2 Employment Generation</h3>
+      <ol>
+        <li>After agriculture small industries are second largest employers.</li>
+        <li>They use more labour intensive techniques.</li>
+        <li>They use less capital intensive techniques.</li>
+        <li>This is blessing for labour surplus country like India.</li>
+      </ol>
+      <h3>7.3 Balanced Regional Development</h3>
+      <ol>
+        <li>Small industries use simple products.</li>
+        <li>They use simple technologies.</li>
+        <li>They depend on locally available resources.</li>
+        <li>They can be set up anywhere.</li>
+        <li>They can be widely spread.</li>
+        <li>They contribute to balanced development.</li>
+      </ol>
+      <h3>7.4 Variety of Products</h3>
+      <ol>
+        <li>They produce enormous variety of products.</li>
+        <li>Examples are consumer goods and readymade garments.</li>
+        <li>Examples are hosiery stationery soaps detergents utensils.</li>
+        <li>Examples are rubber plastic leather wood steel furniture.</li>
+        <li>Examples are television refrigerator electronics.</li>
+      </ol>
+      <h3>7.5 Opportunity for Entrepreneurship</h3>
+      <ol>
+        <li>Small scale is good platform for skill and talent.</li>
+        <li>It requires little capital.</li>
+        <li>Lot of support is given by government.</li>
+      </ol>
+      <h3>7.6 Low Cost Production</h3>
+      <ol>
+        <li>They use locally available resources.</li>
+        <li>They have low overhead expenses.</li>
+        <li>They have low running cost.</li>
+        <li>This is their competitive strength.</li>
+      </ol>
+      <div class="callout"><p><strong>CHECK:</strong> What percent of exports as per NCERT? Answer: 45 percent.</p></div>
+    </section>
+
+    <!-- 8 -->
+    <section id="startup-scheme" class="fade-in" style="animation-delay:0.5s;">
+      <h2>8. Startup India Scheme</h2>
+      <blockquote><p><strong>Definition:</strong> Startup India is Government of India action plan to promote and nurture entrepreneurship.</p></blockquote>
+      <ol>
+        <li>Campaign was announced by Prime Minister Narendra Modi on 15 August 2015.</li>
+        <li>Action Plan was formally launched on 16 January 2016.</li>
+        <li>Aim is to develop ecosystem for entrepreneurship.</li>
+        <li>Government offers bank financing schemes to promote startups.</li>
+      </ol>
+      <div class="callout"><p><strong>CHECK:</strong> Announcement date? Answer: 15 August 2015.</p></div>
+    </section>
+
+    <!-- 9 -->
+    <section id="startup-meaning" class="fade-in" style="animation-delay:0.55s;">
+      <h2>9. Meaning of Startup</h2>
+      <blockquote><p><strong>Definition as per 2016 lecture and NCERT:</strong> Startup is business enterprise in India started less than 5 years ago with annual turnover less than 25 crore.</p></blockquote>
+      <p><strong>Lecture conditions:</strong></p>
+      <ol>
+        <li>Form is private limited company.</li>
+        <li>Form can be partnership.</li>
+        <li>Form can be limited liability partnership.</li>
+        <li>Registered in India.</li>
+        <li>Started less than 5 years ago.</li>
+        <li>Annual turnover less than 25 crore.</li>
+      </ol>
+      <div class="callout"><p><strong>Note — Current DPIIT update 2019:</strong> Age is up to 10 years from incorporation. Turnover is up to Rs 100 crore in any financial year. Entity is Private Ltd Company or registered Partnership Firm or LLP. Sole proprietor is not included in DPIIT list. Work is innovation improvement scalable model. Needs DPIIT recognition on portal.</p></div>
+      <div class="callout"><p><strong>Exam tip:</strong> For exams write 5 years and 25 crore. Add 10 years and 100 crore as current note.</p></div>
+      <div class="callout"><p><strong>CHECK:</strong> Lecture turnover limit? Answer: 25 crore.</p></div>
+    </section>
+
+    <!-- 10 -->
+    <section id="benefits" class="fade-in" style="animation-delay:0.6s;">
+      <h2>10. Startup India Benefits</h2>
+      <h3>10.1 No Inspection</h3>
+      <ol>
+        <li>No inspection for 3 years regarding labour laws.</li>
+        <li>Startups need only self-certification.</li>
+        <li>Inspection is only on complaint for 9 labour and 3 environment laws.</li>
+      </ol>
+      <h3>10.2 Registration</h3>
+      <ol>
+        <li>Government launched mobile app and portal.</li>
+        <li>Startup can get registered in one day.</li>
+        <li>There is single window for clearance approvals registration.</li>
+        <li>Portal became operational around April 2016.</li>
+      </ol>
+      <h3>10.3 Income Tax Exemption</h3>
+      <ol>
+        <li>Income tax exemption is available for first 3 years.</li>
+        <li>It is under Section 80-IAC.</li>
+        <li>It is 100 percent deduction for 3 consecutive years out of first 10 years.</li>
+        <li>It needs DPIIT recognition and Inter-Ministerial Board certificate.</li>
+        <li>Company must be incorporated after 1 April 2016.</li>
+      </ol>
+      <h3>10.4 Capital Gains Tax Exemption</h3>
+      <ol>
+        <li>Startup can claim capital gains exemption.</li>
+        <li>It is under Section 54GB with conditions.</li>
+        <li>It applies on investment of residential property gains in eligible startup equity.</li>
+        <li>There is 5 year lock-in and other conditions.</li>
+        <li>It is not blanket 3 year holiday.</li>
+      </ol>
+      <h3>10.5 Patent and IP Benefit</h3>
+      <ol>
+        <li>Startup can claim 80 percent rebate in patent fees.</li>
+        <li>Government gives 80 percent rebate in fees.</li>
+        <li>Facility includes fast-track examination.</li>
+        <li>Needs DPIIT recognition.</li>
+      </ol>
+      <h3>10.6 Funding Schemes</h3>
+      <ol>
+        <li>Government announced Rs 10,000 crore Fund of Funds for Startups.</li>
+        <li>Fund is routed via SIDBI to SEBI registered AIFs.</li>
+        <li>It is not given directly to startups.</li>
+        <li>Rs 500 crore was initial credit guarantee corpus in 2016 plan.</li>
+        <li>Later Credit Guarantee Scheme for Startups covers loans up to about Rs 10 crore.</li>
+      </ol>
+      <div class="callout"><p><strong>CHECK:</strong> Patent fee rebate? Answer: 80 percent.</p></div>
+    </section>
+
+    <!-- 11 -->
+    <section id="funding" class="fade-in" style="animation-delay:0.65s;">
+      <h2>11. Funding Options for Startups</h2>
+      <h3>11.1 Self-funding</h3>
+      <ol>
+        <li>Self-funding is first option to start business.</li>
+        <li>Entrepreneur uses own money.</li>
+        <li>At later stage investors may get attracted.</li>
+      </ol>
+      <h3>11.2 Crowdfunding</h3>
+      <ol>
+        <li>Entrepreneur puts detailed description on crowdfunding platform.</li>
+        <li>He mentions goals plans profit funding need reasons.</li>
+        <li>Investors read and give money if they like idea.</li>
+        <li>Contributors make online pledges.</li>
+        <li>Promise is pre-buying product or donation.</li>
+        <li>Anyone can contribute small money.</li>
+      </ol>
+      <h3>11.3 Angel Investment</h3>
+      <ol>
+        <li>Angel investors are individuals with surplus cash.</li>
+        <li>They have keen interest in upcoming startups.</li>
+        <li>They helped Google Yahoo Alibaba.</li>
+        <li>Investment is in early stages of growth.</li>
+        <li>They take more risk for higher returns.</li>
+        <li>They also give mentorship.</li>
+      </ol>
+      <h3>11.4 Venture Capital</h3>
+      <ol>
+        <li>Venture capitals are professionally managed funds.</li>
+        <li>They invest in companies with huge potential.</li>
+        <li>Investment is scalable high growth firms.</li>
+        <li>Funding is in stages with equity.</li>
+      </ol>
+      <h3>11.5 Bank Loans</h3>
+      <ol>
+        <li>Banks are first place entrepreneurs go for funding.</li>
+        <li>Examples are SBI HDFC ICICI Axis banks.</li>
+        <li>Banks offer many options including collateral free loans.</li>
+        <li>Collateral free loans are only via guarantee schemes.</li>
+        <li>Examples of schemes are CGTMSE CGSS MUDRA.</li>
+      </ol>
+      <h3>11.6 NBFC Loans</h3>
+      <ol>
+        <li>NBFC means Non Banking Financial Company.</li>
+        <li>NBFCs serve those without access to conventional banking.</li>
+        <li>It is popular for limited requirements.</li>
+        <li>It works when credit rating is not favoured by bank.</li>
+        <li>Benefits are flexible terms faster approval less paperwork.</li>
+        <li>Rate of interest is generally higher than banks.</li>
+      </ol>
+      <h3>11.7 Government Programmes</h3>
+      <ol>
+        <li>Government launched Rs 10,000 crore Startup Fund in Union Budget.</li>
+        <li>SIDBI offers business loans to MSME sector.</li>
+        <li>MUDRA extends benefits to micro small units. Full form is Micro Units Development and Refinance Agency.</li>
+        <li>State example is Kerala Startup Mission in Kerala.</li>
+        <li>Maharashtra Centre for Entrepreneurship Development in Maharashtra.</li>
+        <li>iStart Rajasthan and Rajasthan Startup Fest in Rajasthan.</li>
+      </ol>
+      <div class="callout"><p><strong>CHECK:</strong> Many persons contribute small money. What is it? Answer: Crowdfunding.</p></div>
+    </section>
+
+    <!-- 12 -->
+    <section id="ipr-meaning" class="fade-in" style="animation-delay:0.7s;">
+      <h2>12. IPR — Meaning and Categories</h2>
+      <blockquote><p><strong>Definition:</strong> IPR means property rights on creations of mind. It allows innovative entrepreneurs to protect inventions.</p></blockquote>
+      <ol>
+        <li>IPR gives edge over competitor.</li>
+        <li>IPR helps to become leader in field.</li>
+      </ol>
+      <p><strong>Categories:</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Category</th><th>Includes</th></tr></thead>
+          <tbody>
+            <tr><td>Industrial Property</td><td>Inventions patents trademarks industrial designs geographical indications</td></tr>
+            <tr><td>Copyright</td><td>Literary and artistic works</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout"><p><strong>CHECK:</strong> Name two IPR categories. Answer: Industrial property. Copyright.</p></div>
+    </section>
+
+    <!-- 13 -->
+    <section id="ipr-types" class="fade-in" style="animation-delay:0.75s;">
+      <h2>13. Types of IPR</h2>
+      <h3>13.1 Copyright</h3>
+      <ol>
+        <li>Protection gives exclusive right to copy work.</li>
+        <li>Right includes modify work and create derivative works.</li>
+        <li>Right includes distribute perform display publicly.</li>
+        <li>Examples are films music songs books novels paintings drawings.</li>
+        <li>In India term is life of author plus 60 years.</li>
+      </ol>
+      <h3>13.2 Patent</h3>
+      <ol>
+        <li>Patents protect novel non-obvious useful processes methods inventions.</li>
+        <li>If granted it gives right to sell use make import invention.</li>
+        <li>Requirements for patent are complex.</li>
+        <li>Examples are machines devices solutions.</li>
+        <li>In India term is 20 years.</li>
+      </ol>
+      <h3>13.3 Trademark</h3>
+      <ol>
+        <li>Trademark is like brand name.</li>
+        <li>It is any word or symbol that represents product.</li>
+        <li>It identifies and distinguishes product in marketplace.</li>
+        <li>Example is Nike of Nike company.</li>
+        <li>No one else can use this trademark.</li>
+        <li>Examples are logo symbol brand name.</li>
+        <li>In India term is 10 years and renewable.</li>
+      </ol>
+      <h3>13.4 Geographical Indication</h3>
+      <ol>
+        <li>GI identifies agricultural natural manufactured products.</li>
+        <li>Products include handicrafts industrial goods food stuffs.</li>
+        <li>Products originate from definite territory.</li>
+        <li>Quality reputation features are due to geographical origin.</li>
+      </ol>
+      <h3>13.5 Plant Variety</h3>
+      <ol>
+        <li>Plant variety groups plants into categories.</li>
+        <li>Grouping is based on botanical characteristics.</li>
+      </ol>
+      <h3>13.6 Design</h3>
+      <ol>
+        <li>Design includes shape pattern arrangement of lines.</li>
+        <li>It includes colour combination applied to article.</li>
+      </ol>
+      <h3>13.7 Semiconductor Layout Design</h3>
+      <ol>
+        <li>It means layout of transistors and circuitry elements.</li>
+        <li>It includes lead wires connecting elements.</li>
+        <li>It is expressed in semiconductor integrated circuits.</li>
+      </ol>
+      <div class="callout"><p><strong>CHECK:</strong> Nike is example of what? Answer: Trademark.</p></div>
+    </section>
+
+    <!-- 14 -->
+    <section id="ipr-asset" class="fade-in" style="animation-delay:0.8s;">
+      <h2>14. IPR as Asset for Entrepreneur</h2>
+      <ol>
+        <li>IPR is very important for innovative entrepreneur.</li>
+        <li>IPR includes copyrights patents trademarks.</li>
+        <li>IPR gives edge over competitor.</li>
+        <li>IPR helps to become leader in field.</li>
+      </ol>
+      <div class="callout"><p><strong>CHECK:</strong> Name three assets under IPR. Answer: Copyrights. Patents. Trademarks.</p></div>
+    </section>
+
+    <!-- 15 -->
+    <section id="revision" class="fade-in" style="animation-delay:0.85s;">
+      <h2>15. Fast Revision — One Page</h2>
+      <ol>
+        <li>Entrepreneurship is systematic purposeful creative activity with risk.</li>
+        <li>National needs are import substitutes local goods exports.</li>
+        <li>Importance is lifeline innovation growth employment social benefits.</li>
+        <li>Characteristics are systematic lawful innovation organisation risk.</li>
+        <li>Process is self-discovery opportunity idea planning capital start-up growth harvest.</li>
+        <li>1951 definition is 50 with power 100 without power 5 lakh capital.</li>
+        <li>MSME lecture limits are Micro 1 cr 5 cr Small 10 cr 50 cr Medium 50 cr 250 cr.</li>
+        <li>Current update from 1 April 2025 is Micro 2.5 cr 10 cr Small 25 cr 100 cr Medium 125 cr 500 cr.</li>
+        <li>Role is 40 percent value added 45 percent exports second employer after agriculture.</li>
+        <li>Role also includes balanced region variety entrepreneurship low cost.</li>
+        <li>Startup India announced 15 Aug 2015 launched 16 Jan 2016.</li>
+        <li>Lecture startup is less than 5 years less than 25 crore turnover.</li>
+        <li>Current DPIIT startup is up to 10 years up to 100 crore turnover.</li>
+        <li>Benefits are no inspection registration tax exemption capital gains patent funding.</li>
+        <li>Patent rebate is 80 percent.</li>
+        <li>Funding options are self crowd angel venture bank NBFC government.</li>
+        <li>Crowdfunding is many people small online money.</li>
+        <li>Angel is surplus cash early stage high risk. Venture is managed fund high potential.</li>
+        <li>SIDBI is Small Industries Development Bank of India. MUDRA is Micro Units Development and Refinance Agency.</li>
+        <li>IPR categories are industrial property and copyright.</li>
+        <li>Patent is 20 years. Trademark is 10 years renewable. Copyright is life plus 60 years.</li>
+      </ol>
+    </section>
+
+    <!-- 16 -->
+    <section id="examqa" class="fade-in" style="animation-delay:0.9s;">
+      <h2>16. Exam Questions With Answers</h2>
+      <ol>
+        <li><strong>Define Entrepreneurship.</strong><br>A: Entrepreneurship is systematic purposeful creative activity of identifying need and organising production with risk.</li>
+        <li><strong>Which is important role of entrepreneurship?</strong><br>A: Generating employment opportunities.</li>
+        <li><strong>Entrepreneurship contributes by what?</strong><br>A: Creating employment and promoting innovation.</li>
+        <li><strong>Which is characteristic of entrepreneurship?</strong><br>A: Risk-taking.</li>
+        <li><strong>New product reflects which characteristic?</strong><br>A: Innovation.</li>
+        <li><strong>State 1951 definition of small scale industry.</strong><br>A: Not more than 50 persons with power and 100 without power and capital assets not exceeding 5 lakh.</li>
+        <li><strong>Give MSME limits as per lecture table.</strong><br>A: Micro 1 cr 5 cr. Small 10 cr 50 cr. Medium 50 cr 250 cr.</li>
+        <li><strong>Small industries share in exports as per NCERT?</strong><br>A: 45 percent of total exports.</li>
+        <li><strong>Small industries share in industrial value added?</strong><br>A: Almost 40 percent of gross industrial value added.</li>
+        <li><strong>Contribution from more than one person is called what?</strong><br>A: Crowdfunding.</li>
+        <li><strong>No interference for first 3 years relates to which scheme?</strong><br>A: No inspection with self-certification.</li>
+        <li><strong>How much rebate in patent fees?</strong><br>A: 80 percent.</li>
+        <li><strong>How much fund announced for startups?</strong><br>A: Rs 10,000 crore Fund of Funds plus Rs 500 crore initial credit guarantee corpus.</li>
+        <li><strong>Who are angel investors?</strong><br>A: Individuals with surplus cash investing in early stage startups with high risk.</li>
+        <li><strong>What is venture capital?</strong><br>A: Professionally managed funds investing in high potential companies.</li>
+        <li><strong>What is NBFC?</strong><br>A: Non Banking Financial Company serving those without easy bank access.</li>
+        <li><strong>Expand SIDBI and MUDRA.</strong><br>A: SIDBI is Small Industries Development Bank of India. MUDRA is Micro Units Development and Refinance Agency.</li>
+        <li><strong>Riya started handmade unit and employed locals. Identify importance. How does it solve unemployment? One other importance?</strong><br>A: Employment generation. Entrepreneurs establish businesses and employ people. Other importance is innovation or economic development or balanced regional development.</li>
+        <li><strong>Define Patent with term.</strong><br>A: Right over novel non-obvious useful invention for 20 years.</li>
+        <li><strong>Define Copyright with term.</strong><br>A: Exclusive right to copy adapt distribute perform display work for life plus 60 years.</li>
+        <li><strong>Define Trademark with example.</strong><br>A: Word or symbol identifying product e.g. Nike. Term 10 years renewable.</li>
+        <li><strong>Define GI.</strong><br>A: Indication identifying products from definite territory where quality is due to origin.</li>
+      </ol>
+      <div class="callout"><p><strong>Tip:</strong> Draw MSME table first. Write definition next. Give one example last.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  Based on Class 11 BST · Chapter 8 lecture notes — Small Business and Enterprises (STE100 Easy Notes)
+</footer>
+
+<button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <line x1="4" y1="6" x2="20" y2="6"/>
+    <line x1="4" y1="12" x2="20" y2="12"/>
+    <line x1="4" y1="18" x2="20" y2="18"/>
+  </svg>
+</button>
+
+<script>
+  // Scroll progress bar
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    bar.style.width = pct + '%';
+  }, {passive:true});
+
+  // Active TOC link on scroll
+  const links = Array.from(document.querySelectorAll('#toc a'));
+  const targets = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  function updateActive(){
+    let current = null;
+    for(const t of targets){
+      if(t.offsetTop - 120 <= window.scrollY) current = t;
+    }
+    links.forEach(l => l.classList.toggle('active', current && l.getAttribute('href') === '#' + current.id));
+  }
+  window.addEventListener('scroll', updateActive, {passive:true});
+  updateActive();
+
+  // Mobile TOC drawer
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.getElementById('tocToggle');
+  toggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', sidebar.classList.contains('open'));
+  });
+  links.forEach(l => l.addEventListener('click', () => sidebar.classList.remove('open')));
+  document.addEventListener('click', e => {
+    if(window.innerWidth <= 900 && sidebar.classList.contains('open')
+       && !sidebar.contains(e.target) && !toggle.contains(e.target)){
+      sidebar.classList.remove('open');
+    }
+  });
+</script>
+
+<script>
+  /* ─── Mind Map Overlay (self-contained: Chapter 8 loads no shared assets) ─── */
+  (function () {
+    var LOG_PREFIX = '[Mind Map] ';
+    function log(msg) { if (window.console) console.warn(LOG_PREFIX + msg); }
+
+    function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
+
+    function loadScript(src) {
+      return new Promise(function (resolve, reject) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = resolve;
+        s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+        document.head.appendChild(s);
+      });
+    }
+
+    var libPromise = null;
+    function loadLib() {
+      if (!libPromise) {
+        libPromise = loadScript('https://cdn.jsdelivr.net/npm/d3@7')
+          .then(function () { return loadScript('https://cdn.jsdelivr.net/npm/markmap-lib@0.18.12'); })
+          .then(function () {
+            var wm = window.markmap || {};
+            return wm.Transformer ? wm.Transformer : null;
+          });
+      }
+      return libPromise;
+    }
+    var viewPromise = null;
+    function loadView() {
+      if (!viewPromise) {
+        viewPromise = loadLib()
+          .then(function () { return loadScript('https://cdn.jsdelivr.net/npm/markmap-view@0.18.12'); })
+          .then(function () {
+            var wm = window.markmap || {};
+            return wm.Markmap ? wm.Markmap : null;
+          });
+      }
+      return viewPromise;
+    }
+
+    var overlay = null;
+    var mmInstance = null;
+    var mmRoot = null;
+
+    function build() {
+      if (overlay) return;
+      overlay = document.createElement('div');
+      overlay.className = 'mindmap-overlay';
+      overlay.id = 'mindmapOverlay';
+      overlay.innerHTML =
+        '<div class="mindmap-modal">' +
+          '<div class="mindmap-modal-header">' +
+            '<span class="mm-title">🗺️ Concept Map</span>' +
+            '<span class="mm-hint">Scroll to zoom · Drag to pan · Click a node to collapse / expand</span>' +
+            '<div class="mindmap-actions">' +
+              '<button type="button" class="mm-fit">Fit</button>' +
+              '<button type="button" class="mm-expand">Expand all</button>' +
+              '<button type="button" class="mm-collapse">Collapse all</button>' +
+            '</div>' +
+            '<button type="button" class="mindmap-close" aria-label="Close mind map" title="Close (Esc)">&times;</button>' +
+          '</div>' +
+          '<svg id="mindmap-svg"></svg>' +
+        '</div>';
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+      qs('.mindmap-close', overlay).addEventListener('click', close);
+      qs('.mm-fit', overlay).addEventListener('click', function () { if (mmInstance) mmInstance.fit(); });
+      qs('.mm-expand', overlay).addEventListener('click', function () { if (mmInstance) mmInstance.setData(mmRoot, { initialExpandLevel: -1 }); });
+      qs('.mm-collapse', overlay).addEventListener('click', function () { if (mmInstance) mmInstance.setData(mmRoot, { initialExpandLevel: 0 }); });
+    }
+
+    function open() {
+      build();
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    var markdown = "# Small Business and Enterprises\n\n## Entrepreneurship\n- Systematic purposeful creative activity with risk\n- Importance: lifeline, innovation, growth, employment, social benefits\n- Characteristics: systematic, lawful, innovation, organisation, risk\n- Process: self-discovery, opportunity, idea, planning, capital, start-up, growth, harvest\n\n## Small Business\n- 1951 meaning: 50 with power, 100 without, 5 lakh capital\n- MSME 2020: Micro 1cr 5cr, Small 10cr 50cr, Medium 50cr 250cr\n- 2025 update: Micro 2.5cr 10cr, Small 25cr 100cr, Medium 125cr 500cr\n- Role: 40 percent value added, 45 percent exports, second employer\n\n## Startup India\n- Announced 15 Aug 2015, launched 16 Jan 2016\n- Lecture startup: under 5 years, under 25 crore\n- Current DPIIT: up to 10 years, up to 100 crore\n- Benefits: no inspection, registration, tax, capital gains, 80 percent patent rebate, funding\n\n## Funding Options\n- Self-funding, crowdfunding, angel, venture capital\n- Bank loans, NBFC loans, government programmes\n- SIDBI, MUDRA, Kerala Startup Mission, MCED, iStart Rajasthan\n\n## IPR\n- Categories: industrial property, copyright\n- Patent 20 years, trademark 10 years renewable, copyright life plus 60 years\n- GI, plant variety, design, semiconductor layout\n\n## Fast Revision\n- MSME table, startup dates, patent rebate, funding, IPR terms";
+
+    var toggle = qs('.mindmap-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        open();
+        var svg = qs('#mindmap-svg', overlay);
+        svg.style.background = 'var(--surface)';
+        loadView().then(function (Markmap) {
+          if (Markmap === null) { log('markmap-view not found'); return; }
+          return loadLib().then(function (Transformer) { return { Markmap: Markmap, Transformer: Transformer }; });
+        }).then(function (mm) {
+          if (!mm.Transformer) { log('markmap transformer not found'); return; }
+          if (mmInstance && typeof mmInstance.destroy === 'function') mmInstance.destroy();
+          var data = new mm.Transformer().transform(markdown);
+          mmRoot = data.root;
+          mmInstance = mm.Markmap.create(svg, {
+            colorFreezeLevel: 2,
+            initialExpandLevel: 2,
+            spacingVertical: 6,
+            spacingHorizontal: 80
+          }, data.root);
+          mmInstance.fit();
+        }).catch(function (err) { log('Mind map error: ' + err.message); });
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) close();
+    });
+  })();
+</script>
+
+</body>
+</html>

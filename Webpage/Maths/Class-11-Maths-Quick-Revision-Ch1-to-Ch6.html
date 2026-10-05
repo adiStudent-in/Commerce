@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Revision — Maths Ch 1–6 | Class 11</title>
+  <meta name="description" content="Class 11 Maths Chapters 1–6 one-shot quick revision: Sets, Relations & Functions, Trigonometry, Complex Numbers, Linear Inequalities, P&C — Hinglish tricks, traps, formulas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600; font-size: 17px;
+      color: var(--accent); text-decoration: none; letter-spacing: -0.02em;
+    }
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+    nav.top-nav .meta { font-size: 13px; color: var(--text-muted); }
+    nav.top-nav .nav-right { display: flex; align-items: center; gap: 10px; }
+    .print-btn {
+      font-family: var(--font-body); font-size: 13px; font-weight: 500;
+      color: var(--accent); background: var(--accent-light);
+      border: 1px solid transparent; border-radius: 20px;
+      padding: 6px 14px; cursor: pointer; transition: all 0.2s ease;
+    }
+    .print-btn:hover { border-color: var(--accent); }
+
+    .wrapper { display: flex; max-width: 1200px; margin: 0 auto; padding: 80px 24px 60px; gap: 40px; }
+
+    aside.toc {
+      width: var(--sidebar-width); flex-shrink: 0;
+      position: sticky; top: 80px; align-self: flex-start;
+      max-height: calc(100vh - 100px); overflow-y: auto; padding-right: 8px;
+    }
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    aside.toc h3 {
+      font-family: var(--font-display); font-size: 13px; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 16px; font-weight: 600;
+    }
+    aside.toc a {
+      display: block; font-size: 13.5px; font-weight: 400; color: var(--text-muted);
+      text-decoration: none; padding: 5px 0; border-left: 2px solid transparent;
+      padding-left: 12px; transition: all 0.2s ease; line-height: 1.4;
+    }
+    aside.toc a:hover, aside.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    main.content { flex: 1; max-width: var(--max-width); }
+
+    .hero { padding: 48px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+    .hero .chapter-badge {
+      display: inline-block; font-size: 11px; font-weight: 500; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--accent); background: var(--accent-light);
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 700; font-size: 38px;
+      line-height: 1.2; letter-spacing: -0.025em; color: var(--text); margin-bottom: 12px;
+    }
+    .hero .subtitle { font-size: 16px; color: var(--text-muted); font-weight: 400; }
+    .hero .test-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .hero .test-meta span {
+      font-size: 13px; font-weight: 500; color: var(--accent);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 5px 14px;
+    }
+
+    section { margin-bottom: 48px; }
+    section h2 {
+      font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.3;
+      letter-spacing: -0.01em; color: var(--text); margin-bottom: 16px;
+      padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    }
+    section h3 {
+      font-family: var(--font-display); font-weight: 600; font-size: 20px; line-height: 1.35;
+      color: var(--text); margin-top: 28px; margin-bottom: 12px;
+    }
+    section h4 { font-weight: 600; font-size: 15.5px; color: var(--text); margin-top: 20px; margin-bottom: 8px; }
+    section p { margin-bottom: 14px; color: var(--text); }
+
+    blockquote {
+      background: var(--accent-light); border-left: 3px solid var(--accent);
+      padding: 14px 20px; margin: 20px 0; border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.6; color: var(--text);
+    }
+    .callout {
+      background: #fff8e5; border-left: 3px solid #d4a12a;
+      padding: 14px 18px; margin: 20px 0; border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px; color: #5a4a1a;
+    }
+    .trap {
+      background: #fdeeee; border-left: 3px solid #c0392b;
+      padding: 14px 18px; margin: 20px 0; border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 14.5px; color: #6b2222;
+    }
+    .trick {
+      background: #eef4ff; border-left: 3px solid #2f66c4;
+      padding: 14px 18px; margin: 20px 0; border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 14.5px; color: #233a63;
+    }
+    .hinglish { font-style: normal; }
+    .hinglish em { color: var(--accent); font-style: normal; font-weight: 600; }
+
+    .table-wrap {
+      overflow-x: auto; margin: 20px 0; border-radius: var(--radius);
+      border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow-sm);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; }
+    table thead { background: var(--accent-light); }
+    table th {
+      font-weight: 600; text-align: left; padding: 10px 14px; font-size: 13px;
+      text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);
+      border-bottom: 1px solid var(--border); white-space: nowrap;
+    }
+    table td { padding: 10px 14px; border-top: 1px solid var(--border); color: var(--text); vertical-align: top; }
+    table tbody tr:first-child td { border-top: none; }
+    table tbody tr:hover { background: #f5f3ef; }
+
+    pre {
+      background: #1a1a2e; color: #e4e4f0; padding: 20px 24px; border-radius: var(--radius);
+      font-size: 13.5px; line-height: 1.7; overflow-x: auto; margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; white-space: pre-wrap;
+    }
+
+    section ul, section ol { margin: 12px 0 16px; padding-left: 24px; }
+    section li { margin-bottom: 6px; line-height: 1.6; }
+
+    hr { border: none; height: 1px; background: var(--border); margin: 40px 0; }
+
+    .terms-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px; margin: 16px 0;
+    }
+    .terms-grid .term {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 14px 16px; box-shadow: var(--shadow-sm); transition: box-shadow 0.2s ease;
+    }
+    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
+    .terms-grid .term strong { display: block; color: var(--accent); font-weight: 600; margin-bottom: 4px; font-size: 14px; }
+    .terms-grid .term span { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+
+    .mini {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      box-shadow: var(--shadow-sm); padding: 18px 20px; margin: 20px 0;
+    }
+    .mini .m-head {
+      font-family: var(--font-display); font-weight: 700; font-size: 14px;
+      color: #fff; background: var(--accent); border-radius: 6px;
+      padding: 2px 10px; display: inline-block; margin-bottom: 10px;
+    }
+    .mini ol { padding-left: 22px; margin: 8px 0; font-size: 14.5px; }
+    .mini li { margin-bottom: 6px; }
+    .ans {
+      background: var(--accent-light); border-left: 3px solid var(--accent);
+      padding: 10px 16px; margin: 12px 0 2px; border-radius: 0 var(--radius) var(--radius) 0; font-size: 14.5px;
+    }
+
+    /* ─── Graph cards ─── */
+    .graph-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .graph-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 14px 12px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+    .graph-card:hover { box-shadow: var(--shadow-md); }
+    .graph-card strong {
+      display: block; color: var(--accent); font-weight: 600;
+      font-size: 14px; margin-bottom: 8px;
+    }
+    .graph-card strong span { color: var(--text-muted); font-weight: 400; }
+    .graph-card svg {
+      width: 100%; height: auto; display: block;
+      background: #fbfaf7; border: 1px solid var(--border); border-radius: 6px;
+    }
+    .graph-card > span {
+      display: block; font-size: 13px; color: var(--text-muted);
+      line-height: 1.55; margin-top: 8px;
+    }
+
+    .check-box {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      box-shadow: var(--shadow-sm); padding: 22px 24px; margin: 20px 0;
+    }
+    .check-box label {
+      display: flex; align-items: flex-start; gap: 10px; font-size: 14px;
+      padding: 8px 0; border-bottom: 1px solid var(--border); cursor: pointer; line-height: 1.5;
+    }
+    .check-box label:last-of-type { border-bottom: none; }
+    .check-box input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); margin-top: 3px; flex-shrink: 0; }
+    .score-result { margin-top: 14px; font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--accent); }
+
+    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
+    section p strong { color: var(--accent); font-weight: 600; }
+
+    footer { text-align: center; padding: 32px 0 16px; border-top: 1px solid var(--border); margin-top: 24px; }
+    footer p { font-size: 13px; color: var(--text-muted); }
+
+    .progress-bar { position: fixed; top: 60px; left: 0; right: 0; height: 2px; z-index: 99; background: transparent; }
+    .progress-bar .fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.1s linear; }
+
+    .toc-toggle {
+      display: none; border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px;
+      font-family: var(--font-body); font-size: 13px; color: var(--text-muted); cursor: pointer;
+      transition: all 0.2s ease; position: fixed; bottom: 20px; right: 20px; z-index: 200;
+      background: var(--surface); box-shadow: var(--shadow-md);
+    }
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    .fade-in { opacity: 0; transform: translateY(12px); animation: fadeUp 0.6s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .hero { animation-delay: 0.1s; }
+
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed; bottom: 0; left: 0; right: 0; top: auto; width: 100%;
+        max-height: 0; overflow: hidden; background: var(--surface);
+        border-top: 1px solid var(--border); box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150; transition: max-height 0.35s ease; padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      .toc-toggle { display: block; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .terms-grid { grid-template-columns: 1fr; }
+    }
+    @media print {
+      nav.top-nav, .toc-toggle, aside.toc, .progress-bar, .print-btn { display: none !important; }
+      .wrapper { display: block; padding: 0; }
+      main.content { max-width: 100%; }
+      body { background: #fff; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">← Maths <span>Notes</span></a>
+    <span class="meta">Class 11 · Quick Revision · Ch 1–6</span>
+    <span class="nav-right"><button class="print-btn" onclick="window.print()">🖨 Print / PDF</button></span>
+  </nav>
+
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">☰ Contents</button>
+
+  <div class="wrapper">
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#tonight" class="toc-h2">🌙 Tonight's Plan</a>
+      <a href="#deleted" class="toc-h2">✂ Deleted (Skip)</a>
+      <a href="#ch1" class="toc-h2">Ch 1 · Sets</a>
+      <a href="#ch2" class="toc-h2">Ch 2 · Relations &amp; Functions</a>
+      <a href="#ch3" class="toc-h2">Ch 3 · Trigonometry</a>
+      <a href="#ch4" class="toc-h2">Ch 4 · Complex Numbers</a>
+      <a href="#ch5" class="toc-h2">Ch 5 · Linear Inequalities</a>
+      <a href="#ch6" class="toc-h2">Ch 6 · Permutations &amp; Combinations</a>
+      <a href="#formulas" class="toc-h2">⚡ Full Formula Wall</a>
+      <a href="#traps" class="toc-h2">🪤 Top 10 Exam Traps</a>
+      <a href="#checklist" class="toc-h2">✅ Final Checklist</a>
+    </aside>
+
+    <main class="content">
+
+      <header class="hero fade-in">
+        <span class="chapter-badge">Exam Tomorrow · One-Shot Revision</span>
+        <h1>Maths Ch 1–6 — Sab Kuch, Ek Jagah</h1>
+        <p class="subtitle">Ratta nahi, samajh. Har chapter ka <strong>core idea + formulas + 1 trick + 1 trap</strong>, simple Hinglish me. Sirf itna kar lo — paper me confidence ke saath baithoge.</p>
+        <div class="test-meta">
+          <span>⏱ 45–60 min read</span>
+          <span>📝 6 chapters</span>
+          <span>💡 Hinglish tricks</span>
+          <span>📚 Rationalised NCERT</span>
+        </div>
+      </header>
+
+      <section id="tonight" class="fade-in">
+        <h2>🌙 Tonight's Plan — Kaise Padhna Hai</h2>
+        <blockquote>
+          Maths literature nahi hai — <strong>padhke nahi, karke aata hai</strong>. Har chapter me formula dekho, saath me diya <strong>60-second example khud solve karo</strong>, phir answer match karo.
+        </blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Round</th><th>Kya Karna</th><th>Time</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Ch 1 → 2 → 5 (easy + scoring, confidence banega)</td><td>20 min</td></tr>
+              <tr><td>2</td><td>Ch 4 → 6 (formula-based, tricks se fast hoga)</td><td>20 min</td></tr>
+              <tr><td>3</td><td>Ch 3 Trig (sabse bada — values + identities rat lo, proof samajh lo)</td><td>20 min</td></tr>
+              <tr><td>4</td><td>Last me Formula Wall + Top 10 Traps + Checklist</td><td>10 min</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">☕ <strong>Rule:</strong> jo example atke, usko ⭐ mark karo aur subah uthke sirf wahi revise karo. Poori raat naya topic mat shuru karo — <strong>galt dhang se yaad formula = blank chhodne se bura.</strong></div>
+      </section>
+
+      <section id="deleted" class="fade-in">
+        <h2>✂ Rationalised Syllabus — Ye SKIP Karo</h2>
+        <p>Time waste mat karo. Ye portions <strong>NCERT se delete</strong> ho chuke hain — paper me aane ke chance almost zero (agar school ne specially bola ho tabhi dekho):</p>
+        <ul>
+          <li><strong>Ch 1:</strong> Power set theory — sirf itna yaad rakho: n elements ⇒ 2<sup>n</sup> subsets. Bas.</li>
+          <li><strong>Ch 3:</strong> General solution of trig equations (sin θ = sin α wale) + sine/cosine rule proofs — <strong>bilkul skip</strong>.</li>
+          <li><strong>Ch 4:</strong> Polar form, square-root of complex number, quadratic-equation solving in complex — skip. Sirf a+ib algebra + modulus/conjugate karo.</li>
+          <li><strong>Ch 5:</strong> 2-variable graphical inequalities — skip. Sirf <strong>one-variable algebraic</strong> + word problems.</li>
+          <li><strong>Ch 2 &amp; 6:</strong> No deletion — full karo.</li>
+        </ul>
+      </section>
+
+      <!-- ═════════ CH 1 ═════════ -->
+      <section id="ch1" class="fade-in">
+        <h2>Chapter 1 · Sets — “Collection Ka Khel”</h2>
+        <blockquote class="hinglish">Set matlab <em>well-defined collection</em> — matlab ye crystal clear ho ki kaun andar hai, kaun bahar. “Good boys ka set” set <strong>nahi</strong> hai (good ka matlab sabke liye alag). “Vowels ka set {a,e,i,o,u}” set <strong>hai</strong>.</blockquote>
+
+        <h3>1. Do Tarike Se Likho</h3>
+        <ul>
+          <li><strong>Roster (list):</strong> A = {1, 2, 3, 4} — order matter nahi karta, repeat likhna bekaar.</li>
+          <li><strong>Set-builder:</strong> A = {x : x &lt; 5, x ∈ N} — “aisi x jo…” wala style.</li>
+        </ul>
+
+        <h3>2. Naam Yaad Rakho (1-mark traps)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Term</th><th>Matlab</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>Empty / Null (∅ or {})</td><td>Koi element nahi</td><td>{x : x² = −1, x real} = ∅</td></tr>
+              <tr><td>Singleton</td><td>Sirf 1 element</td><td>{0} — ye empty NAHI hai!</td></tr>
+              <tr><td>Finite / Infinite</td><td>Gin sakte / nahi gin sakte</td><td>{1..10} finite; N infinite</td></tr>
+              <tr><td>Equal (A = B)</td><td>Exact same elements</td><td>{1,2} = {2,1}</td></tr>
+              <tr><td>Subset (A ⊆ B)</td><td>A ka har element B me</td><td>{1,2} ⊆ {1,2,3}</td></tr>
+              <tr><td>Proper subset (A ⊂ B)</td><td>Subset + B me kuch extra bhi</td><td>{1,2} ⊂ {1,2,3}</td></tr>
+              <tr><td>Universal (U)</td><td>Us sawal ki “duniya”</td><td>Complement isi se hota hai</td></tr>
+              <tr><td>Disjoint</td><td>Koi common nahi: A ∩ B = ∅</td><td>{1,2} aur {3,4}</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>3. Intervals (R ke subsets) — number line wale</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Notation</th><th>Matlab</th><th>Number line</th></tr></thead>
+            <tbody>
+              <tr><td>(a, b)</td><td>a &lt; x &lt; b (dono open ○)</td><td>dono taraf khula</td></tr>
+              <tr><td>[a, b]</td><td>a ≤ x ≤ b (dono closed ●)</td><td>dono taraf band</td></tr>
+              <tr><td>[a, b)</td><td>a ≤ x &lt; b</td><td>left ●, right ○</td></tr>
+              <tr><td>(a, b]</td><td>a &lt; x ≤ b</td><td>left ○, right ●</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>4. Operations — bas 4 cheezein</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Operation</th><th>Hinglish me</th><th>Example: A={1,2,3,4}, B={3,4,5}</th></tr></thead>
+            <tbody>
+              <tr><td>A ∪ B</td><td>Dono ka <strong>sab kuch</strong> (either)</td><td>{1,2,3,4,5}</td></tr>
+              <tr><td>A ∩ B</td><td>Sirf <strong>common</strong></td><td>{3,4}</td></tr>
+              <tr><td>A − B</td><td>A me se B wale <strong>hata do</strong></td><td>{1,2}</td></tr>
+              <tr><td>A′ = U − A</td><td>U me jo A me <strong>nahi</strong></td><td>U pe depend karta hai</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="trick">💡 <strong>Trick — De Morgan (pakka aayega):</strong> complement bahar aaye to sign palat jata hai. (A ∪ B)′ = A′ ∩ B′ · (A ∩ B)′ = A′ ∪ B′. <strong>“Bahar wala andar, ∪ bana ∩.”</strong> Aur A − B = A ∩ B′ — difference ko intersection me badal lo, sawal easy.</div>
+
+        <h3>5. Counting Formulas — Venn wale sawal isi se</h3>
+        <pre>n(A ∪ B) = n(A) + n(B) − n(A ∩ B)   ← overlap ek baar minus (do baar gin liya tha)
+Only A = n(A) − n(A ∩ B)                ← "sirf" matlab lens hata do
+Neither = n(U) − n(A ∪ B)               ← kul me se "kam-se-kam ek" ghata do
+n(A ∪ B ∪ C) = (singles ka jod) − (pairs ka jod) + (teeno)</pre>
+
+        <div class="mini">
+          <span class="m-head">60-sec example — khud karo, phir dekho</span>
+          <p><strong>60 students:</strong> 25 cricket, 20 football, 10 dono. Kam-se-kam ek? Koi nahi? Sirf cricket?</p>
+          <ol>
+            <li>Formula likho: n(C∪F) = 25 + 20 − 10 = <strong>35</strong> (kam-se-kam ek).</li>
+            <li>Neither = 60 − 35 = <strong>25</strong>.</li>
+            <li>Only cricket = 25 − 10 = <strong>15</strong> (apne total me se overlap hatao).</li>
+          </ol>
+          <div class="ans">✅ Answers: 35 / 25 / 15. <strong>Logic:</strong> “dono” do baar gina gaya, isliye ek baar minus.</div>
+        </div>
+
+        <div class="trap">🪤 <strong>Trap:</strong> A − B ≠ B − A (order matters!) · ∅ ≠ {0} ≠ {∅} — pehle me 0 elements, baaki dono me 1-1 element · complement hamesha U poochta hai, U diye bina A′ adhura hai.</div>
+      </section>
+
+      <!-- ═════════ CH 2 ═════════ -->
+      <section id="ch2" class="fade-in">
+        <h2>Chapter 2 · Relations &amp; Functions — “Pairing Ka Rule”</h2>
+        <blockquote class="hinglish">Relation matlab <em>rishta jodna</em> (x se y), function matlab <em>pakka ek-loyal rishta</em> — har x ka <strong>exactly ek</strong> y. Ek x ke do y = dhokha = function <strong>nahi</strong>.</blockquote>
+
+        <h3>1. Cartesian Product A × B</h3>
+        <ul>
+          <li><strong>A × B</strong> = saare ordered pairs (a, b) — pehla A se, doosra B se. <strong>Order matters:</strong> (1,3) ≠ (3,1), isliye A × B ≠ B × A (aam taur pe).</li>
+          <li><strong>n(A × B) = n(A) × n(B).</strong> Count poochhe to list mat banao — guna kar do.</li>
+          <li>(a, b) = (c, d) tabhi jab a = c <strong>aur</strong> b = d.</li>
+        </ul>
+
+        <h3>2. Relation vs Function — sabse confused point</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Cheez</th><th>Kya Hai</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>Relation R ⊆ A × B</td><td>Koi bhi pairs ka group</td><td>{(1,3),(1,4)} relation hai</td></tr>
+              <tr><td>Domain</td><td>Saare x (inputs)</td><td>{1}</td></tr>
+              <tr><td>Codomain</td><td>Poora landing set (B)</td><td>Fix rehta hai</td></tr>
+              <tr><td>Range</td><td>Jo y <strong>actually use</strong> hue</td><td>{3,4} ⊆ codomain</td></tr>
+              <tr><td>Function</td><td>Har x ka <strong>exactly ek</strong> y</td><td>{(1,3),(2,4)} ✔ · {(1,3),(1,4)} ✘</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="trick">💡 <strong>Trick — 3-second function test:</strong> x-values me koi repeat? Repeat mila + y alag = <strong>not a function</strong>. Graph me <strong>vertical line</strong> do baar kaate = not a function. “Har function relation hai, har relation function nahi.”</div>
+
+        <h3>3. Standard Real Functions — ye table rat lo</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Function</th><th>Rule</th><th>Domain</th><th>Range</th></tr></thead>
+            <tbody>
+              <tr><td>Constant</td><td>f(x) = c</td><td>R</td><td>{c}</td></tr>
+              <tr><td>Identity</td><td>f(x) = x</td><td>R</td><td>R</td></tr>
+              <tr><td>Polynomial</td><td>x², x³+1…</td><td>R</td><td>Graph pe depend (x² ka [0,∞))</td></tr>
+              <tr><td>Rational</td><td>p(x)/q(x)</td><td>q(x) ≠ 0</td><td>y se x nikalo, jo y fase wahi bahar</td></tr>
+              <tr><td>Modulus</td><td>|x|</td><td>R</td><td>[0, ∞) — V-shape, kabhi negative nahi</td></tr>
+              <tr><td>Signum</td><td>1 (x&gt;0), 0 (x=0), −1 (x&lt;0)</td><td>R</td><td>{−1, 0, 1} — sirf 3 values!</td></tr>
+              <tr><td>Greatest integer [x]</td><td>x se chhota-sabse-bada integer</td><td>R</td><td>Z (integers) — seedhi-wali graph ⬇</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 id="fn-graphs">4. Graphs — aankhon se yaad karo (exam me sketch bhi poochhte hain)</h4>
+        <p>Har graph ke neeche <strong>shape + range-trick</strong> ek line me. Pehle shape dekho, phir caption padho — photo-memory ban jayegi.</p>
+        <div class="graph-grid">
+          <div class="graph-card">
+            <strong>1. Constant <span>f(x) = c</span></strong>
+            <svg viewBox="0 0 240 160" role="img" aria-label="Constant function: horizontal line at y equals c">
+              <line x1="12" y1="120" x2="232" y2="120" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="224,116 232,120 224,124" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="30" y1="150" x2="30" y2="12" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="26,20 30,12 34,20" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="30" y1="60" x2="30" y2="120" stroke="#9a9a9a" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="30" y1="60" x2="228" y2="60" stroke="#1a5e4a" stroke-width="2.5"/>
+              <circle cx="30" cy="60" r="3" fill="#1a5e4a"/>
+              <text x="222" y="134" font-size="10" fill="#6b6b6b" font-style="italic">x</text>
+              <text x="18" y="24" font-size="10" fill="#6b6b6b" font-style="italic">y</text>
+              <text x="20" y="133" font-size="10" fill="#6b6b6b">O</text>
+              <text x="12" y="63" font-size="10" fill="#6b6b6b">c</text>
+              <text x="188" y="51" font-size="11" fill="#1a5e4a" font-style="italic">y = c</text>
+            </svg>
+            <span>Seedhi horizontal line. x kuch bhi ho, answer hamesha c ⇒ Range = {c}.</span>
+          </div>
+          <div class="graph-card">
+            <strong>2. Identity <span>f(x) = x</span></strong>
+            <svg viewBox="0 0 240 160" role="img" aria-label="Identity function: 45 degree line through origin">
+              <line x1="12" y1="85" x2="232" y2="85" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="224,81 232,85 224,89" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="120" y1="152" x2="120" y2="8" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="116,16 120,8 124,16" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="45" y1="160" x2="195" y2="10" stroke="#1a5e4a" stroke-width="2.5"/>
+              <path d="M138,85 A18,18 0 0 0 132.7,72.3" fill="none" stroke="#d4a12a" stroke-width="1.5"/>
+              <text x="141" y="76" font-size="9" fill="#8a6d1a">45°</text>
+              <text x="222" y="99" font-size="10" fill="#6b6b6b" font-style="italic">x</text>
+              <text x="128" y="20" font-size="10" fill="#6b6b6b" font-style="italic">y</text>
+              <text x="108" y="98" font-size="10" fill="#6b6b6b">O</text>
+              <text x="172" y="26" font-size="11" fill="#1a5e4a" font-style="italic">y = x</text>
+            </svg>
+            <span>Origin se 45° line. Jo x, wahi y ⇒ Domain = Range = R.</span>
+          </div>
+          <div class="graph-card">
+            <strong>3. Polynomial <span>f(x) = x²</span></strong>
+            <svg viewBox="0 0 240 160" role="img" aria-label="Square function: U shaped parabola with vertex at origin">
+              <line x1="12" y1="115" x2="232" y2="115" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="224,111 232,115 224,119" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="120" y1="152" x2="120" y2="8" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="116,16 120,8 124,16" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <path d="M50,25 Q120,205 190,25" fill="none" stroke="#1a5e4a" stroke-width="2.5"/>
+              <circle cx="120" cy="115" r="3" fill="#1a5e4a"/>
+              <text x="222" y="129" font-size="10" fill="#6b6b6b" font-style="italic">x</text>
+              <text x="128" y="20" font-size="10" fill="#6b6b6b" font-style="italic">y</text>
+              <text x="106" y="128" font-size="10" fill="#6b6b6b">O</text>
+              <text x="162" y="42" font-size="11" fill="#1a5e4a" font-style="italic">y = x²</text>
+            </svg>
+            <span>U-shape (parabola), vertex origin pe. Neeche kabhi nahi jata ⇒ Range [0, ∞).</span>
+          </div>
+          <div class="graph-card">
+            <strong>4. Rational <span>f(x) = 1/x</span></strong>
+            <svg viewBox="0 0 240 160" role="img" aria-label="Reciprocal function: hyperbola in first and third quadrants">
+              <line x1="12" y1="80" x2="232" y2="80" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="224,76 232,80 224,84" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="120" y1="152" x2="120" y2="8" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="116,16 120,8 124,16" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <path d="M132,10 C136,45 150,68 225,72" fill="none" stroke="#1a5e4a" stroke-width="2.5"/>
+              <path d="M108,150 C104,115 90,92 15,88" fill="none" stroke="#1a5e4a" stroke-width="2.5"/>
+              <text x="222" y="94" font-size="10" fill="#6b6b6b" font-style="italic">x</text>
+              <text x="128" y="20" font-size="10" fill="#6b6b6b" font-style="italic">y</text>
+              <text x="108" y="93" font-size="10" fill="#6b6b6b">O</text>
+              <text x="176" y="106" font-size="11" fill="#1a5e4a" font-style="italic">y = 1/x</text>
+            </svg>
+            <span>Do tukde (Q1 + Q3). Axes ko chhoota nahi — wahi asymptotes. x = 0 allowed nahi.</span>
+          </div>
+          <div class="graph-card">
+            <strong>5. Modulus <span>f(x) = |x|</span></strong>
+            <svg viewBox="0 0 240 160" role="img" aria-label="Modulus function: V shape with vertex at origin">
+              <line x1="12" y1="110" x2="232" y2="110" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="224,106 232,110 224,114" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="120" y1="152" x2="120" y2="8" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="116,16 120,8 124,16" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="45" y1="35" x2="120" y2="110" stroke="#1a5e4a" stroke-width="2.5"/>
+              <line x1="120" y1="110" x2="195" y2="35" stroke="#1a5e4a" stroke-width="2.5"/>
+              <circle cx="120" cy="110" r="3" fill="#1a5e4a"/>
+              <text x="222" y="124" font-size="10" fill="#6b6b6b" font-style="italic">x</text>
+              <text x="128" y="20" font-size="10" fill="#6b6b6b" font-style="italic">y</text>
+              <text x="108" y="123" font-size="10" fill="#6b6b6b">O</text>
+              <text x="162" y="50" font-size="11" fill="#1a5e4a" font-style="italic">y = |x|</text>
+            </svg>
+            <span>V-shape, vertex origin. Negative output kabhi nahi ⇒ Range [0, ∞).</span>
+          </div>
+          <div class="graph-card">
+            <strong>6. Signum <span>f(x) = −1 / 0 / 1</span></strong>
+            <svg viewBox="0 0 240 160" role="img" aria-label="Signum function: horizontal ray at 1, dot at origin, ray at minus 1">
+              <line x1="12" y1="80" x2="232" y2="80" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="224,76 232,80 224,84" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="120" y1="152" x2="120" y2="8" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="116,16 120,8 124,16" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="15" y1="120" x2="112" y2="120" stroke="#1a5e4a" stroke-width="2.5"/>
+              <circle cx="115" cy="120" r="3.5" fill="#fbfaf7" stroke="#1a5e4a" stroke-width="2"/>
+              <line x1="128" y1="40" x2="225" y2="40" stroke="#1a5e4a" stroke-width="2.5"/>
+              <circle cx="125" cy="40" r="3.5" fill="#fbfaf7" stroke="#1a5e4a" stroke-width="2"/>
+              <circle cx="120" cy="80" r="3" fill="#1a5e4a"/>
+              <text x="222" y="94" font-size="10" fill="#6b6b6b" font-style="italic">x</text>
+              <text x="128" y="20" font-size="10" fill="#6b6b6b" font-style="italic">y</text>
+              <text x="108" y="93" font-size="10" fill="#6b6b6b">O</text>
+              <text x="192" y="32" font-size="10" fill="#1a5e4a">y = 1</text>
+              <text x="36" y="136" font-size="10" fill="#1a5e4a">y = −1</text>
+            </svg>
+            <span>Sirf 3 levels: −1, 0, 1. Hollow ○ = point included nahi ⇒ Range {−1, 0, 1}.</span>
+          </div>
+          <div class="graph-card">
+            <strong>7. Greatest integer <span>f(x) = [x]</span></strong>
+            <svg viewBox="0 0 240 180" role="img" aria-label="Greatest integer function: staircase steps">
+              <line x1="12" y1="115" x2="232" y2="115" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="224,111 232,115 224,119" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="110" y1="172" x2="110" y2="10" stroke="#9a9a9a" stroke-width="1"/>
+              <polyline points="106,18 110,10 114,18" fill="none" stroke="#9a9a9a" stroke-width="1"/>
+              <line x1="50" y1="165" x2="78" y2="165" stroke="#1a5e4a" stroke-width="2.5"/>
+              <circle cx="50" cy="165" r="3" fill="#1a5e4a"/>
+              <circle cx="80" cy="165" r="3.5" fill="#fbfaf7" stroke="#1a5e4a" stroke-width="2"/>
+              <line x1="80" y1="140" x2="108" y2="140" stroke="#1a5e4a" stroke-width="2.5"/>
+              <circle cx="80" cy="140" r="3" fill="#1a5e4a"/>
+              <circle cx="110" cy="140" r="3.5" fill="#fbfaf7" stroke="#1a5e4a" stroke-width="2"/>
+              <line x1="110" y1="115" x2="138" y2="115" stroke="#1a5e4a" stroke-width="2.5"/>
+              <circle cx="110" cy="115" r="3" fill="#1a5e4a"/>
+              <circle cx="140" cy="115" r="3.5" fill="#fbfaf7" stroke="#1a5e4a" stroke-width="2"/>
+              <line x1="140" y1="90" x2="168" y2="90" stroke="#1a5e4a" stroke-width="2.5"/>
+              <circle cx="140" cy="90" r="3" fill="#1a5e4a"/>
+              <circle cx="170" cy="90" r="3.5" fill="#fbfaf7" stroke="#1a5e4a" stroke-width="2"/>
+              <line x1="170" y1="65" x2="198" y2="65" stroke="#1a5e4a" stroke-width="2.5"/>
+              <circle cx="170" cy="65" r="3" fill="#1a5e4a"/>
+              <circle cx="200" cy="65" r="3.5" fill="#fbfaf7" stroke="#1a5e4a" stroke-width="2"/>
+              <text x="44" y="129" font-size="10" fill="#6b6b6b">−2</text>
+              <text x="76" y="129" font-size="10" fill="#6b6b6b">−1</text>
+              <text x="100" y="129" font-size="10" fill="#6b6b6b">O</text>
+              <text x="137" y="129" font-size="10" fill="#6b6b6b">1</text>
+              <text x="167" y="129" font-size="10" fill="#6b6b6b">2</text>
+              <text x="197" y="129" font-size="10" fill="#6b6b6b">3</text>
+              <text x="96" y="93" font-size="10" fill="#6b6b6b">1</text>
+              <text x="96" y="68" font-size="10" fill="#6b6b6b">2</text>
+              <text x="92" y="143" font-size="10" fill="#6b6b6b">−1</text>
+              <text x="146" y="56" font-size="11" fill="#1a5e4a" font-style="italic">y = [x]</text>
+            </svg>
+            <span>Seedhiyaan (steps). Left ● included, right ○ excluded. [1.2] = 1, [−0.3] = −1.</span>
+          </div>
+        </div>
+
+        <div class="trick">💡 <strong>Trick — Vertical line test (graph se function pehchano):</strong> khadi (vertical) line graph ko <strong>2 jagah kaate = function NAHI</strong>. Circle ✘ fail, lekin line, V-shape, parabola, seedhiyaan ✔ pass. Aur dhyaan do — <strong>x² wala parabola function HAI</strong> (ek x pe ek y), bas one-one nahi hai.</div>
+
+        <div class="trick">💡 <strong>Trick — Domain ke 2 danger spots:</strong> (1) <strong>denominator ≠ 0</strong> (2) <strong>root ke andar ≥ 0</strong>. Bas ye do check karo, domain nikal jayega. Range ke liye y = f(x) maan ke x nikalo — jo y fas jaaye wahi range se bahar.</div>
+
+        <div class="mini">
+          <span class="m-head">60-sec examples</span>
+          <ol>
+            <li><strong>f(x) = (2x+1)/(x−3):</strong> x = 3 pe denominator 0 ⇒ Domain = <strong>R − {3}</strong>. y se x nikalo: x = (3y+1)/(y−2) ⇒ y = 2 fase ⇒ Range = <strong>R − {2}</strong>.</li>
+            <li><strong>g(x) = √(x+5):</strong> andar ≥ 0 ⇒ x ≥ −5 ⇒ Domain <strong>[−5, ∞)</strong>, root kabhi negative nahi ⇒ Range <strong>[0, ∞)</strong>.</li>
+            <li><strong>[−1.2] = ?</strong> −1 nahi — <strong>−2</strong> (−1.2 se chhota sabse bada integer). Yehi puchte hain!</li>
+          </ol>
+        </div>
+
+        <div class="trap">🪤 <strong>Trap:</strong> Range ⊆ Codomain hota hai (barabar zaroori nahi) · [x] me negative decimals ulta girte hain ([−0.3] = −1!) · rational me wo x mat lo jo denominator zero kare.</div>
+      </section>
+
+      <!-- ═════════ CH 3 ═════════ -->
+      <section id="ch3" class="fade-in">
+        <h2>Chapter 3 · Trigonometric Functions — “Sabse Bada, Sabse Scoring”</h2>
+        <blockquote class="hinglish">Trig me <em>ratta + pattern</em> dono chahiye. Pehle <strong>values table</strong> pakki karo, phir <strong>sign (ASTC)</strong>, phir <strong>formulas</strong>. Aadhe sawal sirf 75° = 45°+30° jaise <em>split</em> se bante hain.</blockquote>
+
+        <h3>1. Degree ↔ Radian (ek hi bridge)</h3>
+        <pre>π radians = 180°   →   rad = deg × π/180  ·  deg = rad × 180/π
+Yaad rakho: 30°=π/6 · 45°=π/4 · 60°=π/3 · 90°=π/2 · 180°=π · 270°=3π/2 · 360°=2π
+Arc length: l = rθ   (θ hamesha radians me!)</pre>
+
+        <h3>2. Values Table — ye likhe bina paper mat do</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Angle</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th></tr></thead>
+            <tbody>
+              <tr><td><strong>sin</strong></td><td>0</td><td>1/2</td><td>1/√2</td><td>√3/2</td><td>1</td></tr>
+              <tr><td><strong>cos</strong></td><td>1</td><td>√3/2</td><td>1/√2</td><td>1/2</td><td>0</td></tr>
+              <tr><td><strong>tan</strong></td><td>0</td><td>1/√3</td><td>1</td><td>√3</td><td>undefined (∅)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="trick">💡 <strong>Trick — sin wali line yaad karo (0, 1/2, 1/√2, √3/2, 1), cos uska ulta.</strong> tan = sin/cos. 90° pe tan/sec <strong>undefined</strong> — ye 1-mark me puchte hain.</div>
+
+        <h3>3. Signs — ASTC (“Add Sugar To Coffee”)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Quadrant</th><th>Kaun Positive</th><th>Yaad</th></tr></thead>
+            <tbody>
+              <tr><td>QI (0–90°)</td><td>All +</td><td><strong>A</strong>dd</td></tr>
+              <tr><td>QII (90–180°)</td><td>sin, cosec</td><td><strong>S</strong>ugar</td></tr>
+              <tr><td>QIII (180–270°)</td><td>tan, cot</td><td><strong>T</strong>o</td></tr>
+              <tr><td>QIV (270–360°)</td><td>cos, sec</td><td><strong>C</strong>offee</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li>3 basic identities: <strong>sin²x + cos²x = 1</strong> · 1 + tan²x = sec²x · 1 + cot²x = cosec²x.</li>
+          <li><strong>Allied shortcut:</strong> 90°/270° pe function badalta hai (sin↔cos, tan↔cot, sec↔cosec); 180°/360° pe same rehta hai. Sign ASTC se lagao. Example: sin(180°−θ) = +sin θ; cos(90°+θ) = −sin θ.</li>
+        </ul>
+
+        <h3>4. Compound Angles (A±B wale)</h3>
+        <pre>sin(A+B) = sinAcosB + cosAsinB      sin(A−B) = sinAcosB − cosAsinB
+cos(A+B) = cosAcosB − sinAsinB      cos(A−B) = cosAcosB + sinAsinB
+tan(A+B) = (tanA + tanB)/(1 − tanA·tanB)
+tan(A−B) = (tanA − tanB)/(1 + tanA·tanB)</pre>
+        <div class="trick">💡 <strong>Trick:</strong> sin me <strong>sign same</strong> rehta (B wala), cos me <strong>ulta</strong> (+ wala − ban jata). tan me upar same, neeche ulta. 75° = 45°+30°, 15° = 45°−30° — split dekhte hi ye formulas lagao. <strong>sin 75° = (√6+√2)/4</strong> — itna to direct yaad rakho.</div>
+
+        <h3>5. Transformation (Sum ↔ Product)</h3>
+        <pre>sinC + sinD = 2 sin((C+D)/2) cos((C−D)/2)
+sinC − sinD = 2 cos((C+D)/2) sin((C−D)/2)
+cosC + cosD = 2 cos((C+D)/2) cos((C−D)/2)
+cosC − cosD = −2 sin((C+D)/2) sin((C−D)/2)
+2sinAcosB = sin(A+B)+sin(A−B) · 2cosAcosB = cos(A+B)+cos(A−B) · 2sinAsinB = cos(A−B)−cos(A+B)</pre>
+
+        <h3>6. Double / Triple Angle</h3>
+        <pre>sin2x = 2sinxcosx = 2tanx/(1+tan²x)
+cos2x = cos²x−sin²x = 1−2sin²x = 2cos²x−1 = (1−tan²x)/(1+tan²x)
+tan2x = 2tanx/(1−tan²x)
+sin3x = 3sinx − 4sin³x  ·  cos3x = 4cos³x − 3cosx  ·  tan3x = (3tanx−tan³x)/(1−3tan²x)</pre>
+
+        <div class="mini">
+          <span class="m-head">60-sec examples (repeat hote hain)</span>
+          <ol>
+            <li><strong>sin x = 3/5, QII ⇒</strong> cos²x = 1−9/25 = 16/25, QII me cos negative ⇒ <strong>cos x = −4/5</strong>, tan x = <strong>−3/4</strong>, sin2x = 2·(3/5)·(−4/5) = <strong>−24/25</strong>.</li>
+            <li><strong>(sin x + sin 3x)/(cos x + cos 3x):</strong> upar = 2sin2xcosx, neeche = 2cos2xcosx ⇒ kaat do ⇒ <strong>tan2x</strong>. (C+D pattern dikhe to product banao.)</li>
+            <li><strong>cos4x = 1 − 8sin²xcos²x:</strong> 4x = 2×2x ⇒ 1−2sin²2x ⇒ sin2x = 2sinxcosx rakh do ⇒ proof done.</li>
+          </ol>
+        </div>
+
+        <div class="trap">🪤 <strong>Trap:</strong> sin2x ≠ 2sinx! · cos ke 3 roop me se sawal ke hisaab se chuno · QII me cos/tan negative bhoolna = aadhe number gaye · π = 180° (π = 22/7 <strong>nahi</strong> yahan).</div>
+      </section>
+
+      <!-- ═════════ CH 4 ═════════ -->
+      <section id="ch4" class="fade-in">
+        <h2>Chapter 4 · Complex Numbers — “i Ka Jaadu”</h2>
+        <blockquote class="hinglish">Jab x² = −1 ka jawab real me na mile, to maths ne <em>i = √(−1)</em> bana diya. Bas <strong>i² = −1</strong> yaad rakho — poora chapter isi ek line pe khada hai.</blockquote>
+
+        <h3>1. Powers of i — remainder wala khel</h3>
+        <pre>i¹ = i · i² = −1 · i³ = −i · i⁴ = 1 → phir repeat (cycle of 4)
+Trick: exponent ÷ 4 karo, sirf REMAINDER dekho.
+i²⁷ → 27÷4 remainder 3 → i³ = −i  ·  i³² → remainder 0 → 1  ·  i⁴⁵ → remainder 1 → i
+Example: i²⁷ + i³² − i⁴⁵ = (−i) + 1 − (i) = 1 − 2i</pre>
+
+        <h3>2. a + ib — jod, guna, bhaag</h3>
+        <ul>
+          <li><strong>Form:</strong> z = a + ib (a = real part, b = imaginary part). a + ib = c + id ⇔ a = c <strong>aur</strong> b = d.</li>
+          <li><strong>Multiply:</strong> normal kholo, i² = −1 rakh do. (a+ib)(c+id) = (ac−bd) + i(ad+bc).</li>
+          <li><strong>Divide:</strong> upar-neeche <strong>conjugate</strong> se guna karo. Example: (3+2i)/(2−3i) → (2+3i) se guna → 13i/13 = <strong>i</strong>.</li>
+          <li><strong>Equality:</strong> (2x+3) + i(y−1) = 7 + 4i ⇒ 2x+3 = 7 ⇒ <strong>x = 2</strong>; y−1 = 4 ⇒ <strong>y = 5</strong>.</li>
+        </ul>
+
+        <h3>3. Conjugate &amp; Modulus — pakke 5 marks</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Cheez</th><th>Formula</th><th>Hinglish</th></tr></thead>
+            <tbody>
+              <tr><td>Conjugate z̄</td><td>a − ib (sirf i ka sign palto)</td><td>i ka dushman</td></tr>
+              <tr><td>Modulus |z|</td><td>√(a² + b²) — minus gayab!</td><td>Origin se doori</td></tr>
+              <tr><td>z · z̄</td><td>= |z|² = a² + b²</td><td>Bhagane me kaam aata hai</td></tr>
+              <tr><td>1/z</td><td>= z̄ / |z|²</td><td>Conjugate upar, a²+b² neeche</td></tr>
+              <tr><td>|z₁z₂|</td><td>= |z₁|·|z₂|</td><td>Guna bahar aa jata hai</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <pre>Verify-type: z = 2−3i ⇒ |z| = √13 · 1/z = (2+3i)/13 · z·z̄ = 4+9 = 13 = |z|² ✔
+Parallelogram law: |z₁+z₂|² + |z₁−z₂|² = 2(|z₁|² + |z₂|²)  ← numbers rakh ke verify karo</pre>
+
+        <div class="trick">💡 <strong>Trick — (a−ib)(a+ib) = a² + b²</strong> hamesha. Isliye division me conjugate se guna karte hi neeche real number ban jata hai. Aur 1/i = −i (kyunki i·(−i) = 1).</div>
+        <div class="trap">🪤 <strong>Trap (pakka puchte hain):</strong> √(−3)·√(−2) = <strong>−√6</strong>, √6 nahi! (i√3 · i√2 = i²√6 = −√6). Negative roots ko seedha guna mat karo — pehle i bahar nikalo. Aur |2−3i| = √13, √(4−9) = √(−5) <strong>bilkul nahi</strong> — squares me minus khatam.</div>
+      </section>
+
+      <!-- ═════════ CH 5 ═════════ -->
+      <section id="ch5" class="fade-in">
+        <h2>Chapter 5 · Linear Inequalities — “Sign Paltu Chapter”</h2>
+        <blockquote class="hinglish">Equation me <em>=</em> hota hai, inequality me <em>&lt; &gt; ≤ ≥</em>. Ek hi golden rule hai — <strong>negative se guna/bhaag karo to sign palat jata hai</strong>. Bas ye yaad, chapter khatam.</blockquote>
+
+        <h3>1. Golden Rules</h3>
+        <ul>
+          <li><strong>Jod-ghatao:</strong> dono taraf same number add/subtract — sign same.</li>
+          <li><strong>Positive se guna/bhaag:</strong> sign same. <strong>Negative se:</strong> sign <strong>palat</strong> (&lt; ↔ &gt;, ≤ ↔ ≥).</li>
+          <li><strong>Brackets:</strong> &lt; &gt; ⇒ ( ) open ○ · ≤ ≥ ⇒ [ ] closed ●.</li>
+          <li><strong>System (do inequalities):</strong> dono alag solve karo, phir <strong>overlap (intersection)</strong> lo — “AND matlab common”.</li>
+        </ul>
+
+        <div class="mini">
+          <span class="m-head">60-sec examples</span>
+          <ol>
+            <li><strong>−3x + 5 &lt; 2(x−4) + 7</strong> ⇒ −3x+5 &lt; 2x−1 ⇒ −5x &lt; −6 ⇒ −5 se bhaag + <strong>palto</strong> ⇒ <strong>x &gt; 6/5</strong> ⇒ (6/5, ∞), 6/5 pe ○, right shade.</li>
+            <li><strong>System: 3x−7 &lt; 5+x AND 11−5x ≤ 1</strong> ⇒ x &lt; 6 aur x ≥ 2 ⇒ overlap = <strong>[2, 6)</strong>.</li>
+            <li><strong>Marks wala (pakka pattern):</strong> 58, 62, 55, 4th = x, average ≥ 60 ⇒ (175+x)/4 ≥ 60 ⇒ 175+x ≥ 240 ⇒ <strong>x ≥ 65</strong>. “At least” = ≥, “at most” = ≤.</li>
+          </ol>
+        </div>
+
+        <div class="trick">💡 <strong>Trick — Word problem ka template:</strong> “jo poochha use x maano → average/total ka expression banao → at least/at most ko ≥/≤ me badlo → solve.” Number line hamesha banao — open/closed ka 1 mark wahi milta hai.</div>
+        <div class="trap">🪤 <strong>Trap:</strong> −5x &lt; −6 me sign palatna bhoolna = poora sawal zero · system me UNION (jod) nahi, INTERSECTION (common) lena hai · (2,6) vs [2,6) — bracket galat to mark gaya.</div>
+      </section>
+
+      <!-- ═════════ CH 6 ═════════ -->
+      <section id="ch6" class="fade-in">
+        <h2>Chapter 6 · Permutations &amp; Combinations — “Gin-ti Ka Game”</h2>
+        <blockquote class="hinglish">Sirf ek sawal poochho — <em>“reshuffle karne se naya outcome banega?”</em> Haan → <strong>P (order matters)</strong>, Nahi → <strong>C (selection only)</strong>. Arrangement/number/password/seat → P · Team/committee/group → C.</blockquote>
+
+        <h3>1. Formulas — 4 lines me poora chapter</h3>
+        <pre>n! = n×(n−1)×…×2×1 · 0! = 1 · 1! = 1
+ⁿPᵣ = n!/(n−r)! = n(n−1)…(n−r+1)   ← arrangement, order matters
+ⁿCᵣ = n!/(r!(n−r)!) = ⁿPᵣ/r!       ← selection, order no matter
+Relation: ⁿPᵣ = r! × ⁿCᵣ  ·  ⁿCᵣ = ⁿCₙ₋ᵣ  ·  ⁿCᵣ + ⁿCᵣ₋₁ = ⁿ⁺¹Cᵣ
+ⁿCᵣ = ⁿCₛ ⇒ r = s  YA  r + s = n   ← ye property direct number deti hai</pre>
+
+        <h3>2. Situation-wise Hathiyaar (table rat lo)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Situation</th><th>Kya Karo</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>“Even / odd number”</td><td><strong>Restricted seat PEHLE</strong> bharo</td><td>Units (2,4,6) = 3, phir 5×4 ⇒ 60</td></tr>
+              <tr><td>“Together”</td><td><strong>Block</strong> banao, block ko 1 maano</td><td>MOBILE vowels [OIE] ⇒ 4!×3! = 144</td></tr>
+              <tr><td>“Never together”</td><td>Total − Together (ya gap method)</td><td>Seedha minus karo</td></tr>
+              <tr><td>“At least / at most”</td><td><strong>Cases</strong> banao, ADD karo</td><td>2W/3W/4W ⇒ 90+24+1 = 115</td></tr>
+              <tr><td>Repeat letters (MISSISSIPPI)</td><td>n!/(p!q!r!…)</td><td>Same letters neeche divide</td></tr>
+              <tr><td>Repetition allowed</td><td>n<sup>r</sup> (har seat pe n options)</td><td>Digits repeat ⇒ 6×6×6</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mini">
+          <span class="m-head">60-sec examples (exam repeats)</span>
+          <ol>
+            <li><strong>ⁿP₅ = 20 × ⁿP₃ ⇒</strong> cancel n(n−1)(n−2) ⇒ (n−3)(n−4) = 20 ⇒ n²−7n−8 = 0 ⇒ (n−8)(n+1) = 0 ⇒ <strong>n = 8</strong>. (Pehle cancel, phir expand — factorials mat kholo.)</li>
+            <li><strong>ⁿC₈ = ⁿC₆ ⇒</strong> 8+6 = n ⇒ <strong>n = 14</strong>, ¹⁴C₂ = 14×13/2 = <strong>91</strong>.</li>
+            <li><strong>6M+4W se 4 ki committee, kam-se-kam 2W:</strong> (2W2M) 6×15=90 + (3W1M) 4×6=24 + (4W) 1×1=1 ⇒ <strong>115</strong>. AND = guna, OR (cases) = jod.</li>
+          </ol>
+        </div>
+
+        <div class="trick">💡 <strong>Trick — 3 golden lines:</strong> (1) “Condition wala dabba pehle bharo.” (2) “ⁿP equation me common part pehle kaato.” (3) “Committee me groups ke beech ×, cases ke beech +.”</div>
+        <div class="trap">🪤 <strong>Trap:</strong> Committee/team me P lagana (C lagega!) · 0! = 1 bhoolna (0 nahi!) · “together” me andar ki arrangement (3!) guna karna bhoolna · repetition allowed vs not allowed padhe bina shuru karna.</div>
+      </section>
+
+      <!-- ═════════ FORMULA WALL ═════════ -->
+      <section id="formulas" class="fade-in">
+        <h2>⚡ Full Formula Wall — Subah Ek Nazar</h2>
+        <p>Ye poora paper ek box me. Screenshot le lo / print kar lo — exam hall jaane se pehle sirf ye padho.</p>
+        <pre>── SETS ──
+A∪B either · A∩B common · A−B = A∩B′ · (A∪B)′ = A′∩B′
+n(A∪B) = n(A)+n(B) − n(A∩B) · Neither = n(U) − n(A∪B) · Only A = n(A) − n(A∩B)
+
+── RELATIONS & FUNCTIONS ──
+n(A×B) = n(A)·n(B) · Function = har x ka exactly ek y
+Domain: denominator ≠ 0, root ≥ 0 · |x|: R→[0,∞) · signum: R→{−1,0,1} · [x]: R→Z
+
+── TRIG ──
+π = 180° · l = rθ (θ radians me)
+sin²+cos² = 1 · 1+tan² = sec² · 1+cot² = cosec²
+ASTC: Q1 All · Q2 sin · Q3 tan · Q4 cos
+sin(A±B) = sinAcosB ± cosAsinB · cos(A±B) = cosAcosB ∓ sinAsinB
+tan(A±B) = (tanA±tanB)/(1∓tanA·tanB)
+sinC+sinD = 2sin((C+D)/2)cos((C−D)/2) · cosC+cosD = 2cos((C+D)/2)cos((C−D)/2)
+cosC−cosD = −2sin((C+D)/2)sin((C−D)/2)
+sin2x = 2sinxcosx · cos2x = 1−2sin²x = 2cos²x−1 · tan2x = 2tanx/(1−tan²x)
+sin3x = 3sinx−4sin³x · cos3x = 4cos³x−3cosx
+
+── COMPLEX ──
+i²=−1 · i³=−i · i⁴=1 (remainder ÷4) · (a+ib)(a−ib) = a²+b²
+z̄ = a−ib · |z| = √(a²+b²) · |z|² = z·z̄ · 1/z = z̄/|z|² · |z₁z₂| = |z₁||z₂|
+
+── INEQUALITIES ──
+Negative se ×/÷ ⇒ sign palto · System = intersection (overlap)
+[ ] for ≤≥ · ( ) for &lt;&gt; · Average wale: (sum+x)/n ≥ target
+
+── P & C ──
+ⁿPᵣ = n!/(n−r)! · ⁿCᵣ = n!/(r!(n−r)!) · ⁿPᵣ = r!·ⁿCᵣ · ⁿCᵣ = ⁿCₙ₋ᵣ
+ⁿCᵣ=ⁿCₛ ⇒ r=s ya r+s=n · Order→P · Selection→C
+Together→block · Never→total−together · At least→cases jod do</pre>
+
+        <h4>Key Terms (ek line me)</h4>
+        <div class="terms-grid">
+          <div class="term"><strong>De Morgan</strong><span>Complement bahar to ∪↔∩ palat jata hai.</span></div>
+          <div class="term"><strong>Function Test</strong><span>Ek x, ek hi y. Repeat x + alag y = reject.</span></div>
+          <div class="term"><strong>ASTC</strong><span>Add Sugar To Coffee — Q1 All, Q2 Sin, Q3 Tan, Q4 Cos positive.</span></div>
+          <div class="term"><strong>Conjugate</strong><span>a+ib → a−ib. Division isi se hota hai.</span></div>
+          <div class="term"><strong>Modulus</strong><span>√(a²+b²) — origin se doori, minus khatam.</span></div>
+          <div class="term"><strong>Sign-Flip</strong><span>Negative se guna/bhaag = inequality palat jayegi.</span></div>
+          <div class="term"><strong>Block Method</strong><span>Together walo ko ek gathri banao, phir andar-bahar dono arrange karo.</span></div>
+          <div class="term"><strong>P vs C</strong><span>Reshuffle se naya bane → P, warna → C.</span></div>
+        </div>
+      </section>
+
+      <!-- ═════════ TRAPS ═════════ -->
+      <section id="traps" class="fade-in">
+        <h2>🪤 Top 10 Exam Traps — Ye Galti Mat Karna</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Trap</th><th>Sahi Baat</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>∅ = {0} samajhna</td><td>∅ me 0 elements, {0} me 1 element</td></tr>
+              <tr><td>2</td><td>A − B = B − A</td><td>Order matters — dono alag hain</td></tr>
+              <tr><td>3</td><td>Relation ko function bol dena</td><td>Ek x ke do y = not a function</td></tr>
+              <tr><td>4</td><td>[−1.2] = −1</td><td>= −2 (neeche wala integer)</td></tr>
+              <tr><td>5</td><td>QII me cos positive</td><td>QII me sirf sin/cosec +, cos −</td></tr>
+              <tr><td>6</td><td>sin2x = 2sinx</td><td>= 2sinx·cosx (cosx mat bhoolo)</td></tr>
+              <tr><td>7</td><td>√(−3)·√(−2) = √6</td><td>= −√6 (pehle i bahar nikalo)</td></tr>
+              <tr><td>8</td><td>−5x &lt; −6 ⇒ x &lt; 6/5</td><td>Negative se bhaag ⇒ x &gt; 6/5</td></tr>
+              <tr><td>9</td><td>Committee me ⁿP lagana</td><td>Selection = ⁿC (order doesn't matter)</td></tr>
+              <tr><td>10</td><td>0! = 0</td><td>0! = 1 (pakka 1-mark trap)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">🧠 <strong>Exam-hall mantra:</strong> pehle easy Q (Sets, Inequalities, Complex) → phir P&amp;C → aakhir me Trig proofs. Jo sawal 5 min me na khule, ⭐ laga ke aage badho — wapas aane pe aksar turant khulta hai.</div>
+      </section>
+
+      <!-- ═════════ CHECKLIST ═════════ -->
+      <section id="checklist" class="fade-in">
+        <h2>✅ Final Checklist — “Main Ready Hoon?”</h2>
+        <p>Jo line 100% aati hai usko tick karo. Sab tick = so jao, tum ready ho. Jo untick reh jaye, subah sirf wahi dekhna.</p>
+        <div class="check-box">
+          <label><input type="checkbox" class="r-check"> Ch 1: ∪ ∩ − ′ nikal leta/leti hoon + De Morgan bol ke likh sakta/sakti hoon</label>
+          <label><input type="checkbox" class="r-check"> Ch 1: Venn word problem ka formula (minus overlap) bina dekhe likh sakta/sakti hoon</label>
+          <label><input type="checkbox" class="r-check"> Ch 2: Domain ke 2 danger spots (denominator ≠ 0, root ≥ 0) yaad hain</label>
+          <label><input type="checkbox" class="r-check"> Ch 2: signum range {−1,0,1} aur [−1.2] = −2 pakka hai</label>
+          <label><input type="checkbox" class="r-check"> Ch 3: Values table (sin/cos/tan 30-45-60) bina ruke bol sakta/sakti hoon</label>
+          <label><input type="checkbox" class="r-check"> Ch 3: ASTC + sin(A+B), cos(A−B), sin2x, cos2x likh sakta/sakti hoon</label>
+          <label><input type="checkbox" class="r-check"> Ch 4: i ka remainder trick + conjugate se division aata hai</label>
+          <label><input type="checkbox" class="r-check"> Ch 4: |z| = √(a²+b²), |z|² = z·z̄, 1/z = z̄/|z|² yaad hai</label>
+          <label><input type="checkbox" class="r-check"> Ch 5: Negative se bhaag = sign palat — aankh band karke yaad hai</label>
+          <label><input type="checkbox" class="r-check"> Ch 5: System = overlap, marks-wala average template aata hai</label>
+          <label><input type="checkbox" class="r-check"> Ch 6: P vs C decision (reshuffle test) + block + cases rules yaad hain</label>
+          <label><input type="checkbox" class="r-check"> Ch 6: ⁿPᵣ, ⁿCᵣ, ⁿCᵣ=ⁿCₙ₋ᵣ, 0! = 1 revise ho gaya</label>
+          <div class="score-result" id="revResult">Ready: 0 / 12</div>
+          <p style="font-size:14px;color:var(--text-muted);margin-top:4px;" id="revMsg">Tick karte jao — 12/12 = exam-ready! 🌙 All the best, kal chill karke likhna.</p>
+        </div>
+      </section>
+
+      <footer>
+        <p>Class 11 Mathematics · Ch 1–6 Quick Revision (Rationalised NCERT) · All formulas rechecked · 2026</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+    tocToggle.addEventListener('click', () => { toc.classList.toggle('open'); });
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => { toc.classList.remove('open'); });
+    });
+
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) { current = section.getAttribute('id'); }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) { link.classList.add('active'); }
+      });
+    }
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+
+    const rchecks = document.querySelectorAll('.r-check');
+    const revResult = document.getElementById('revResult');
+    const revMsg = document.getElementById('revMsg');
+    function updateRev() {
+      let c = 0;
+      rchecks.forEach(x => { if (x.checked) c++; });
+      revResult.textContent = 'Ready: ' + c + ' / 12';
+      if (c === 12) revMsg.textContent = '12/12! 🎉 Tum ready ho — ab so jao, subah Formula Wall ek baar dekhna. All the best!';
+      else if (c >= 9) revMsg.textContent = 'Bas ' + (12 - c) + ' point baaki — sirf untick wale revise karo, phir so jao.';
+      else if (c >= 5) revMsg.textContent = 'Aadhi taiyaari done. Untick walo ke mini-examples abhi ek baar karke dekho.';
+      else revMsg.textContent = 'Tick karte jao — 12/12 = exam-ready! 🌙 All the best, kal chill karke likhna.';
+      try { localStorage.setItem('maths-quickrev-ch1-6', JSON.stringify(Array.prototype.map.call(rchecks, x => x.checked))); } catch (e) {}
+    }
+    rchecks.forEach(x => x.addEventListener('change', updateRev));
+    try {
+      const saved = JSON.parse(localStorage.getItem('maths-quickrev-ch1-6') || 'null');
+      if (saved && saved.length === rchecks.length) {
+        rchecks.forEach((x, i) => { x.checked = !!saved[i]; });
+        updateRev();
+      }
+    } catch (e) {}
+  </script>
+
+</body>
+</html>

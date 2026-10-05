@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 9 (STE Notes) — Supply | Economics Class 11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+
+    nav.top-nav .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .wrapper {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      gap: 40px;
+    }
+
+    aside.toc {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    aside.toc h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    aside.toc a {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    aside.toc a:hover,
+    aside.toc a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    main.content {
+      flex: 1;
+      max-width: var(--max-width);
+    }
+
+    .hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .hero .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    section { margin-bottom: 48px; }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.35;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    section h4 {
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    section p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    blockquote {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    blockquote strong { font-weight: 600; }
+
+    .callout {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: #5a4a1a;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    table thead { background: var(--accent-light); }
+
+    table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    table tbody tr:first-child td { border-top: none; }
+    table tbody tr:hover { background: #f5f3ef; }
+    table td:first-child { font-weight: 500; white-space: nowrap; }
+
+    /* Images */
+    .img-wrap {
+      margin: 24px 0;
+      text-align: center;
+    }
+
+    .img-wrap img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: inline-block;
+    }
+
+    pre {
+      background: #1a1a2e;
+      color: #e4e4f0;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    section ul, section ol {
+      margin: 12px 0 16px;
+      padding-left: 24px;
+    }
+
+    section li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    section ul ul { margin: 4px 0 4px 16px; }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .terms-grid .term {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
+
+    .terms-grid .term strong {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .terms-grid .term span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      height: 2px;
+      z-index: 99;
+      background: transparent;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    .mermaid-wrap {
+      padding: 24px;
+      background: var(--surface);
+    }
+
+    .mermaid-wrap .mermaid {
+      background: transparent;
+      margin: 0 auto;
+      text-align: center;
+      font-family: var(--font-body);
+    }
+
+    .mermaid svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
+    section p strong { color: var(--accent); font-weight: 600; }
+
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        top: auto;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150;
+        transition: max-height 0.35s ease;
+        padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      aside.toc h3 { margin-bottom: 12px; }
+      .toc-toggle { display: block; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .terms-grid { grid-template-columns: 1fr; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+    section:nth-of-type(5) { animation-delay: 0.35s; }
+    section:nth-of-type(6) { animation-delay: 0.4s; }
+    section:nth-of-type(7) { animation-delay: 0.45s; }
+    section:nth-of-type(8) { animation-delay: 0.5s; }
+    section:nth-of-type(9) { animation-delay: 0.55s; }
+    section:nth-of-type(10) { animation-delay: 0.6s; }
+    section:nth-of-type(11) { animation-delay: 0.65s; }
+    section:nth-of-type(12) { animation-delay: 0.7s; }
+    section:nth-of-type(13) { animation-delay: 0.75s; }
+    section:nth-of-type(14) { animation-delay: 0.8s; }
+    section:nth-of-type(15) { animation-delay: 0.85s; }
+    section:nth-of-type(16) { animation-delay: 0.9s; }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">← Economics <span>Notes</span></a>
+    <span class="meta">Class 11 · Chapter 9 · STE</span>
+  </nav>
+
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+<button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
+
+  <div class="wrapper">
+
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#keyterms" class="toc-h2">Key Terms</a>
+      <a href="#meaning" class="toc-h2">1. Meaning</a>
+      <a href="#demand" class="toc-h2">2. Demand vs Supply</a>
+      <a href="#stock" class="toc-h2">3. Supply and Stock</a>
+      <a href="#indmarket" class="toc-h2">4. Individual and Market</a>
+      <a href="#detind" class="toc-h2">5. Individual Determinants</a>
+      <a href="#detmarket" class="toc-h2">6. Market Determinants</a>
+      <a href="#function" class="toc-h2">7. Supply Function</a>
+      <a href="#indsched" class="toc-h2">8. Individual Schedule</a>
+      <a href="#marktsched" class="toc-h2">9. Market Schedule</a>
+      <a href="#curve" class="toc-h2">10. Supply Curve</a>
+      <a href="#law" class="toc-h2">11. Law of Supply</a>
+      <a href="#reasons" class="toc-h2">12. Reasons</a>
+      <a href="#exceptions" class="toc-h2">13. Exceptions</a>
+      <a href="#qtyvssupply" class="toc-h2">14. Quantity vs Supply</a>
+      <a href="#movement" class="toc-h2">15. Movement</a>
+      <a href="#shift" class="toc-h2">16. Shift</a>
+      <a href="#compare" class="toc-h2">17. Comparisons</a>
+      <a href="#effects" class="toc-h2">18. Effects on Curve</a>
+      <a href="#elasticity" class="toc-h2">19. Elasticity</a>
+      <a href="#numericals" class="toc-h2">20. Numericals</a>
+      <a href="#kinds" class="toc-h2">21. Kinds of Es</a>
+      <a href="#observations" class="toc-h2">22. Observations</a>
+      <a href="#time" class="toc-h2">23. Time Period</a>
+      <a href="#revision" class="toc-h2">24. Fast Revision</a>
+      <a href="#examqa" class="toc-h2">25. Exam Q&amp;A</a>
+      <a href="#quiz" class="toc-h2">Self-Check Quiz</a>
+    </aside>
+
+    <main class="content">
+      <header class="hero fade-in">
+        <span class="chapter-badge">Chapter 9 · STE Notes</span>
+        <h1>Supply</h1>
+        <p class="subtitle">Short sentences. One idea at a time. Read one section. Do each check. Then continue.</p>
+      </header>
+<section id="keyterms" class="fade-in">
+<h2>Key Terms — Read These First</h2>
+<p>Learn these definitions first. Use them in every answer.</p>
+<div class="table-wrap"><table><thead><tr><th>Term</th><th>Definition</th></tr></thead><tbody>
+<tr><td><strong>Supply</strong></td><td>Quantity a firm is willing and able to offer for sale at a given price during a given period of time</td></tr>
+<tr><td><strong>Stock</strong></td><td>Total quantity available with the firm at a particular point of time</td></tr>
+<tr><td><strong>Individual Supply</strong></td><td>Quantity one producer is willing to sell at various prices during a given period</td></tr>
+<tr><td><strong>Market Supply</strong></td><td>Quantity all producers are willing to sell at various prices. Other name: Industry supply</td></tr>
+<tr><td><strong>Supply Schedule</strong></td><td>Tabular statement showing various quantities supplied at various prices during a given period</td></tr>
+<tr><td><strong>Supply Curve</strong></td><td>Graphical representation of supply schedule</td></tr>
+<tr><td><strong>Law of Supply</strong></td><td>Direct relationship between price and quantity supplied, keeping other factors constant</td></tr>
+<tr><td><strong>Ceteris Paribus</strong></td><td>Keeping other factors constant. Other name: Other things remaining same</td></tr>
+<tr><td><strong>Expansion in Supply</strong></td><td>Rise in quantity supplied due to rise in own price. Other names: Extension in Supply, Increase in Quantity Supplied</td></tr>
+<tr><td><strong>Contraction in Supply</strong></td><td>Fall in quantity supplied due to fall in own price. Other names: Decrease in Quantity Supplied</td></tr>
+<tr><td><strong>Increase in Supply</strong></td><td>Rise in supply due to factors other than own price at same price</td></tr>
+<tr><td><strong>Decrease in Supply</strong></td><td>Fall in supply due to factors other than own price at same price</td></tr>
+<tr><td><strong>Supply Function</strong></td><td>Functional relationship between quantity supplied and factors influencing it</td></tr>
+<tr><td><strong>Price Elasticity of Supply</strong></td><td>Degree of responsiveness of supply with reference to change in price</td></tr>
+<tr><td><strong>Es</strong></td><td>Coefficient of price elasticity of supply</td></tr>
+</tbody></table></div>
+<div class="table-wrap mermaid-wrap"><pre class="mermaid">mindmap
+root((Chapter 9 Supply))
+Meaning
+Willing and able
+Price and time needed
+Stock vs Supply
+Determinants
+Own price direct
+Other goods input tech tax goals
+Firms future transport
+Schedule and Curve
+Individual table
+Market horizontal sum
+Law of Supply
+Price up Supply up
+Assumptions 5
+Exceptions 4
+Change
+Movement along curve
+Shift of curve
+Expansion Contraction
+Increase Decrease
+Elasticity Es
+dQ dP x P Q
+Five kinds
+0 less 1 more infinite
+</pre></div>
+</section>
+<hr>
+<section id="meaning" class="fade-in">
+<h2>1. Meaning of Supply</h2>
+<blockquote><strong>Supply</strong> refers to quantity of a commodity that a firm is willing and able to offer for sale at a given price during a given period of time.</blockquote>
+<ol><li>Supply is a desired quantity.</li><li>Willingness must be backed by ability to supply.</li><li>Supply is always expressed with reference to price.</li><li>Supply is always with respect to a period of time.</li><li>Supply is a flow concept as it relates to a period of time.</li><li>Example: Seller has 50 tonnes sugar in godown. He is willing to sell 30 tonnes at Rs 37 per kg. Then supply is 30 tonnes. Stock is 50 tonnes.</li></ol>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Supply is 100 mobiles, or 100 mobiles at Diwali at Rs 20000? Answer: Second. Price and time needed.</details>
+</section>
+<hr>
+<section id="demand" class="fade-in">
+<h2>2. Demand Versus Supply</h2>
+<div class="table-wrap"><table><thead><tr><th>Basis</th><th>Demand</th><th>Supply</th></tr></thead><tbody>
+<tr><td>Meaning</td><td>Quantity consumer is willing and able to purchase</td><td>Quantity firm is willing and able to offer for sale</td></tr>
+<tr><td>Person</td><td>Consumer</td><td>Producer or firm</td></tr>
+<tr><td>Reference</td><td>At a given price during a given period</td><td>At a given price during a given period</td></tr>
+<tr><td>Example</td><td>Wants to buy at given price</td><td>Wants to sell at given price</td></tr>
+</tbody></table></div>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Willing and able to purchase is demand or supply? Answer: Demand.</details>
+</section>
+<hr>
+<section id="stock" class="fade-in">
+<h2>3. Supply and Stock</h2>
+<blockquote><strong>Stock</strong> refers to total quantity of a particular commodity that is available with the firm at a particular point of time.</blockquote>
+<blockquote>Stock is not a flow concept as it relates to a particular point of time.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>S.No.</th><th>Supply</th><th>Stock</th></tr></thead><tbody>
+<tr><td>1</td><td>Supply refers to quantity a firm is willing and able to offer for sale at a given price during a given period of time</td><td>Stock refers to total quantity available with the firm at a particular point of time</td></tr>
+<tr><td>2</td><td>Supply is a flow concept as it relates to a period of time</td><td>Stock relates to a particular point of time</td></tr>
+<tr><td>3</td><td>Supply is always related to price as it changes with change in price</td><td>Stock indicates a fixed quantity, not related to price</td></tr>
+<tr><td>4</td><td>Stock can never be less than the supply</td><td>Supply is 30 tonnes out of 50 tonnes stock</td></tr>
+<tr><td>5</td><td>Example: 30 tonnes sugar offered at Rs 37 per kg</td><td>Example: 50 tonnes sugar in godown</td></tr>
+</tbody></table></div>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Godown has 500 mobiles. Willing to sell 100 at Diwali. Supply and stock? Answer: Supply 100, stock 500.</details>
+</section>
+<hr>
+<section id="indmarket" class="fade-in">
+<h2>4. Individual Supply and Market Supply</h2>
+<blockquote><strong>Individual supply</strong> is quantity one producer is willing to sell. <strong>Market supply</strong> is quantity all producers are willing to sell.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Basis</th><th>Individual Supply</th><th>Market Supply</th></tr></thead><tbody>
+<tr><td>Meaning</td><td>Supply of one firm</td><td>Sum of supplies of all firms in market</td></tr>
+<tr><td>Firms</td><td>One shop, for example one mobile shop</td><td>Many shops, for example chips, dal, rice, oil, sugar sellers</td></tr>
+<tr><td>Symbol</td><td>SA, SB for firm A, B</td><td>SM = SA + SB + ...</td></tr>
+</tbody></table></div>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Kirana shop supply versus all shops supply? Answer: First is individual, second is market.</details>
+</section>
+<hr>
+<section id="detind" class="fade-in">
+<h2>5. Determinants of Individual Supply — 6 Factors</h2>
+<blockquote><strong>Determinants of supply</strong> are factors that influence quantity supplied of a commodity.</blockquote>
+<h3>5.1 Price of the Given Commodity</h3>
+<ol><li>Price and supply are directly related.</li><li>As price increases, quantity supplied rises.</li><li>As price falls, quantity supplied falls.</li><li>Reason: Higher price means greater chance of profit.</li></ol>
+<h3>5.2 Prices of Other Goods</h3>
+<ol><li>Rise in price of other goods makes them more profitable.</li><li>Firm shifts limited resources to other goods.</li><li>Supply of given commodity falls.</li><li>Example: Rise in price of wheat induces farmer to use land for wheat in place of rice. Supply of rice falls.</li></ol>
+<h3>5.3 Prices of Factors of Production or Inputs</h3>
+<ol><li>If input prices rise, cost of production rises.</li><li>Profit margin falls. Seller reduces supply.</li><li>If input prices fall, cost falls and profit rises.</li><li>Supply increases due to fall in cost.</li></ol>
+<h3>5.4 State of Technology</h3>
+<ol><li>Advanced technology reduces cost of production.</li><li>Profit margin rises. Seller increases supply.</li><li>Outdated technology raises cost.</li><li>Supply decreases with outdated technology.</li></ol>
+<h3>5.5 Government Policy of Taxes and Subsidies</h3>
+<ol><li>Increase in taxes raises cost of production.</li><li>Supply reduces due to lower profit.</li><li>Tax concessions and subsidies make supply more profitable.</li><li>Supply increases with subsidies.</li></ol>
+<h3>5.6 Goals or Objectives of the Firm</h3>
+<ol><li>Generally supply rises only at higher prices for profit maximisation.</li><li>Some firms supply more even without maximum profit.</li><li>Objective is to capture large market.</li><li>Objective is to enhance status and prestige.</li></ol>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Wage Rs 21000, production cost Rs 1000. Effect? Answer: Input cost effect, supply falls.</details>
+</section>
+<hr>
+<section id="detmarket" class="fade-in">
+<h2>6. Determinants of Market Supply — 3 Extra Factors</h2>
+<p>Market supply has all individual determinants plus three more.</p>
+<h3>6.1 Number of Firms in the Market</h3>
+<ol><li>More firms means more market supply.</li><li>Firms leave industry due to losses.</li><li>Then market supply decreases.</li></ol>
+<h3>6.2 Future Expectation Regarding Price</h3>
+<ol><li>If sellers expect price rise in future, current supply decreases.</li><li>They want to sell later at higher price.</li><li>If sellers fear price fall, present supply increases.</li><li>They want to avoid future losses.</li></ol>
+<h3>6.3 Means of Transportation and Communication</h3>
+<ol><li>Proper roads and communication maintain supply.</li><li>Improvement helps move goods fast.</li><li>Poor means reduce supply.</li></ol>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>New firms enter market. Market supply? Answer: Increases.</details>
+</section>
+<hr>
+<section id="function" class="fade-in">
+<h2>7. Supply Function</h2>
+<blockquote><strong>Supply function</strong> shows functional relationship between quantity supplied and factors influencing it.</blockquote>
+<pre>Individual Supply: Sx = f(Px, Po, Pf, St, T, G)
+Market Supply: Sx = f(Px, Po, Pf, St, T, G, F, M, N)</pre>
+<p>Where:</p>
+<ol><li>Sx = Supply of given commodity x.</li><li>Px = Price of given commodity x.</li><li>Po = Price of other goods.</li><li>Pf = Prices of factors of production.</li><li>St = State of technology.</li><li>T = Taxation policy.</li><li>G = Goals of the firm.</li><li>F = Future expectation regarding Px.</li><li>M = Means of transportation and communication.</li><li>N = Number of firms.</li></ol>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Which three are only in market function? Answer: F, M, N.</details>
+</section>
+<hr>
+<section id="indsched" class="fade-in">
+<h2>8. Individual Supply Schedule</h2>
+<blockquote><strong>Individual supply schedule</strong> is a tabular statement showing various quantities a producer is willing to sell at various prices during a given period of time.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Price (Rs)</th><th>Quantity Supplied of Good X (units)</th></tr></thead><tbody>
+<tr><td>1</td><td>0</td></tr>
+<tr><td>2</td><td>5</td></tr>
+<tr><td>3</td><td>10</td></tr>
+<tr><td>4</td><td>15</td></tr>
+<tr><td>5</td><td>20</td></tr>
+<tr><td>6</td><td>25</td></tr>
+</tbody></table></div>
+<ol><li>Price rises, supply rises.</li><li>At Re 1, supply is zero.</li><li>At Rs 6, supply is 25 units.</li></ol>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>At Rs 4, quantity? Answer: 15 units.</details>
+</section>
+<hr>
+<section id="marktsched" class="fade-in">
+<h2>9. Market Supply Schedule</h2>
+<blockquote><strong>Market supply schedule</strong> is a tabular statement showing various quantities all producers are willing to sell at various prices during a given period of time.</blockquote>
+<blockquote>Market supply is obtained by horizontal summation of individual supplies. SM = SA + SB + ...</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Price (Rs)</th><th>Firm A SA (units)</th><th>Firm B SB (units)</th><th>Market Supply SM = SA + SB (units)</th></tr></thead><tbody>
+<tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>2</td><td>5</td><td>10</td><td>15</td></tr>
+<tr><td>3</td><td>10</td><td>20</td><td>30</td></tr>
+<tr><td>4</td><td>15</td><td>25</td><td>40</td></tr>
+<tr><td>5</td><td>20</td><td>35</td><td>55</td></tr>
+<tr><td>6</td><td>25</td><td>40</td><td>65</td></tr>
+</tbody></table></div>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>At Rs 5, market supply? Answer: 20 + 35 = 55 units.</details>
+</section>
+<hr>
+<section id="curve" class="fade-in">
+<h2>10. Supply Curve</h2>
+<blockquote><strong>Supply curve</strong> is a graphical representation of supply schedule.</blockquote>
+<h3>10.1 Individual Supply Curve</h3>
+<ol><li>Plots price on Y-axis and quantity on X-axis.</li><li>Curve SS slopes upward from left to right.</li><li>Points: price 1 to 6, quantity 0 to 25.</li></ol>
+<h3>10.2 Market Supply Curve</h3>
+<ol><li>Market curve SM is obtained by horizontal summation of SA and SB.</li><li>SM is flatter than SA and SB.</li><li>Flatter means more quantity responds to price.</li><li>Points: price 1 to 6, quantity 0 to 65.</li></ol>
+<h3>10.3 Slope of Supply Curve</h3>
+<pre>Slope of Supply Curve = Change in Price (ΔP) / Change in Quantity (ΔQ)</pre>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Market curve is flatter or steeper than individual? Answer: Flatter.</details>
+</section>
+<hr>
+<section id="law" class="fade-in">
+<h2>11. Law of Supply</h2>
+<blockquote><strong>Law of supply</strong> states direct relationship between price and quantity supplied, keeping other factors constant.</blockquote>
+<ol><li>Price rises, supply rises.</li><li>Price falls, supply falls.</li><li>Only price changes. Other factors remain constant.</li><li>It is a qualitative statement. It tells direction, not magnitude.</li><li>It does not show proportional change.</li><li>It is one-sided. It tells effect of price on supply, not effect of supply on price.</li></ol>
+<h3>11.1 Assumptions — Ceteris Paribus</h3>
+<ol><li>Price of other goods is constant.</li><li>No change in state of technology.</li><li>Prices of factors of production remain same.</li><li>No change in taxation policy.</li><li>Goals of producer remain same.</li></ol>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Law of supply states direct or inverse relation? Answer: Direct.</details>
+</section>
+<hr>
+<section id="reasons" class="fade-in">
+<h2>12. Reasons for Law of Supply</h2>
+<h3>12.1 Profit Motive</h3>
+<ol><li>Basic aim is maximum profit.</li><li>Price rises, cost same, profit rises.</li><li>Producers increase production.</li><li>Price falls, profit falls, supply falls.</li></ol>
+<h3>12.2 Change in Number of Firms</h3>
+<ol><li>Rise in price attracts new producers.</li><li>They enter to earn higher profit.</li><li>Market supply rises.</li><li>Price falls, some firms stop production. Supply falls.</li></ol>
+<h3>12.3 Change in Stock</h3>
+<ol><li>Price rises, sellers release more from stock.</li><li>Price falls, sellers hold stock.</li><li>They keep inventory for future price rise.</li><li>So supply follows price.</li></ol>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Why does higher price raise supply? Answer: Higher profit motive.</details>
+</section>
+<hr>
+<section id="exceptions" class="fade-in">
+<h2>13. Exceptions to Law of Supply</h2>
+<ol><li>Agricultural goods: Production depends on climate. Low output due to weather cannot rise even at higher price.</li><li>Perishable goods: Vegetables and fruits cannot be held long. Sellers sell more even if price is falling.</li><li>Rare articles: Painting of Mona Lisa cannot be increased even if price rises.</li><li>Backward countries: Shortage of resources stops rise in supply even if price rises.</li></ol>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Roses on Feb 14 or strawberries in winter? Answer: Supply limited, law may not apply.</details>
+</section>
+<hr>
+<section id="qtyvssupply" class="fade-in">
+<h2>14. Change in Quantity Supplied Versus Change in Supply</h2>
+<blockquote><strong>Change in quantity supplied</strong> happens due to change in own price. <strong>Change in supply</strong> happens due to factors other than price.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Basis</th><th>Change in Quantity Supplied</th><th>Change in Supply</th></tr></thead><tbody>
+<tr><td>Meaning</td><td>Supply changes due to change in own price</td><td>Supply changes due to factors other than price</td></tr>
+<tr><td>Curve</td><td>Movement along same curve</td><td>Shift to new curve</td></tr>
+<tr><td>Reason</td><td>Increase or decrease in price of given commodity</td><td>Change in inputs, taxes, technology</td></tr>
+<tr><td>Example</td><td>Supply of Close-Up changes due to price of Close-Up</td><td>Supply of Close-Up changes due to technology or tax</td></tr>
+</tbody></table></div>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Close-Up supply changes due to tax. Which change? Answer: Change in supply.</details>
+</section>
+<hr>
+<section id="movement" class="fade-in">
+<h2>15. Movement Along Supply Curve — Expansion and Contraction</h2>
+<blockquote>When quantity supplied changes due to change in own price, keeping other factors constant, it is movement along same supply curve.</blockquote>
+<h3>15.1 Expansion in Supply</h3>
+<blockquote><strong>Expansion</strong> refers to rise in quantity supplied due to increase in price, other factors constant. It leads to upward movement from A to B. It is also known as extension in supply.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Price (Rs)</th><th>Supply (units)</th></tr></thead><tbody>
+<tr><td>10</td><td>100</td></tr>
+<tr><td>12</td><td>150</td></tr>
+</tbody></table></div>
+<h3>15.2 Contraction in Supply</h3>
+<blockquote><strong>Contraction</strong> refers to fall in quantity supplied due to decrease in price, other factors constant. It leads to downward movement from A to B.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Price (Rs)</th><th>Supply (units)</th></tr></thead><tbody>
+<tr><td>12</td><td>150</td></tr>
+<tr><td>10</td><td>100</td></tr>
+</tbody></table></div>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Price 20 to 25, quantity 100 to 150. Which movement? Answer: Expansion, upward.</details>
+</section>
+<hr>
+<section id="shift" class="fade-in">
+<h2>16. Shift in Supply Curve — Increase and Decrease</h2>
+<blockquote>When supply changes due to any factor other than own price, it is shift in supply curve. Own price remains constant.</blockquote>
+<h3>16.1 Increase in Supply</h3>
+<blockquote><strong>Increase</strong> refers to rise in supply due to favourable other factors at same price. Curve shifts right from SS to S1S1.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Price (Rs)</th><th>Supply (units)</th></tr></thead><tbody>
+<tr><td>10</td><td>100</td></tr>
+<tr><td>10</td><td>150</td></tr>
+</tbody></table></div>
+<p>Reason: Decrease in input price, decrease in tax, better technology.</p>
+<h3>16.2 Decrease in Supply</h3>
+<blockquote><strong>Decrease</strong> refers to fall in supply due to unfavourable other factors at same price. Curve shifts left from SS to S1S1.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Price (Rs)</th><th>Supply (units)</th></tr></thead><tbody>
+<tr><td>12</td><td>150</td></tr>
+<tr><td>12</td><td>100</td></tr>
+</tbody></table></div>
+<p>Reason: Increase in input price, increase in tax, outdated technology.</p>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Same price Rs 20, supply 100 to 200. Which shift? Answer: Increase, rightward.</details>
+</section>
+<hr>
+<section id="compare" class="fade-in">
+<h2>17. Comparison Tables — Do Not Confuse</h2>
+<h3>17.1 Movement Versus Shift</h3>
+<div class="table-wrap"><table><thead><tr><th>Basis</th><th>Movement Along Supply Curve</th><th>Shift in Supply Curve</th></tr></thead><tbody>
+<tr><td>Meaning</td><td>Quantity changes due to price, other factors constant</td><td>Supply changes due to other factors, price constant</td></tr>
+<tr><td>Curve</td><td>Same curve, upward expansion or downward contraction</td><td>Rightward increase or leftward decrease</td></tr>
+<tr><td>Reason</td><td>Increase or decrease in price of given commodity</td><td>Change in inputs, taxes, technology and others</td></tr>
+</tbody></table></div>
+<h3>17.2 Expansion Versus Increase</h3>
+<div class="table-wrap"><table><thead><tr><th>Basis</th><th>Expansion in Supply</th><th>Increase in Supply</th></tr></thead><tbody>
+<tr><td>Meaning</td><td>Quantity rises due to rise in price</td><td>Supply rises due to other factors at same price</td></tr>
+<tr><td>Table</td><td>Price 10 to 12, supply 100 to 150</td><td>Price 10 to 10, supply 100 to 150</td></tr>
+<tr><td>Curve</td><td>Upward movement along same curve</td><td>Rightward shift of curve</td></tr>
+<tr><td>Reason</td><td>Rise in price of given commodity</td><td>Fall in input price, fall in tax, better technology</td></tr>
+</tbody></table></div>
+<h3>17.3 Contraction Versus Decrease</h3>
+<div class="table-wrap"><table><thead><tr><th>Basis</th><th>Contraction in Supply</th><th>Decrease in Supply</th></tr></thead><tbody>
+<tr><td>Meaning</td><td>Quantity falls due to fall in price</td><td>Supply falls due to other factors at same price</td></tr>
+<tr><td>Table</td><td>Price 12 to 10, supply 150 to 100</td><td>Price 12 to 12, supply 150 to 100</td></tr>
+<tr><td>Curve</td><td>Downward movement along same curve</td><td>Leftward shift of curve</td></tr>
+<tr><td>Reason</td><td>Fall in price of given commodity</td><td>Rise in input price, rise in tax, outdated technology</td></tr>
+</tbody></table></div>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Price same, supply falls. Contraction or decrease? Answer: Decrease.</details>
+</section>
+<hr>
+<section id="effects" class="fade-in">
+<h2>18. Effect of Other Factors on Supply Curve</h2>
+<h3>18.1 Rightward Shift — 8 Causes</h3>
+<p>Supply curve shifts right due to:</p>
+<ol><li>Decrease in price of other goods.</li><li>Decrease in price of factors of production.</li><li>Advanced and improved technology.</li><li>Favourable tax policy with decrease in taxes.</li><li>Goal of sales maximisation.</li><li>Increase in number of firms.</li><li>Expectation of fall in prices in future.</li><li>Improvement in transport and communication.</li></ol>
+<h3>18.2 Leftward Shift — 8 Causes</h3>
+<p>Supply curve shifts left due to:</p>
+<ol><li>Increase in price of other goods.</li><li>Increase in price of factors of production.</li><li>Complex and outdated technology.</li><li>Unfavourable tax policy with increase in taxes.</li><li>Goal of profit maximisation.</li><li>Decrease in number of firms.</li><li>Expectation of rise in prices in future.</li><li>Poor transport and communication.</li></ol>
+<h3>18.3 Four Key Effects</h3>
+<ol><li>Other goods price rises: SS shifts left. Other goods price falls: SS shifts right.</li><li>Input price rises: SS shifts left. Input price falls: SS shifts right.</li><li>Technology upgrade: SS shifts right. Technology degradation: SS shifts left.</li><li>Tax increase: SS shifts left. Tax decrease: SS shifts right.</li></ol>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Input cost Rs 500 to Rs 300. Shift? Answer: Rightward, supply rises.</details>
+</section>
+<hr>
+<section id="elasticity" class="fade-in">
+<h2>19. Price Elasticity of Supply — Meaning and Formula</h2>
+<blockquote><strong>Price elasticity of supply</strong> refers to degree of responsiveness of supply with reference to change in price.</blockquote>
+<blockquote>Elasticity is a unit free measure. It is a pure number. Price elasticity of supply is positive due to direct relation.</blockquote>
+<pre>Es = Percentage Change in Quantity Supplied / Percentage Change in Price
+Es = (ΔQ / ΔP) x (P / Q)</pre>
+<p>Where:</p>
+<ol><li>Q = Initial quantity supplied.</li><li>ΔQ = Change in quantity, new minus old.</li><li>P = Initial price.</li><li>ΔP = Change in price, new minus old.</li></ol>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Es positive or negative? Answer: Positive.</details>
+</section>
+<hr>
+<section id="numericals" class="fade-in">
+<h2>20. Numericals — Percentage Method</h2>
+<h3>20.1 Q 400 to 300, P 60 to 58 — Es 7.5</h3>
+<p>Given Q = 400, Q1 = 300, P = 60, P1 = 58. ΔQ = 300 − 400 = −100. ΔP = 58 − 60 = −2.</p>
+<pre>Es = (-100 / -2) x (60 / 400) = 50 x 0.15 = 7.5</pre>
+<h3>20.2 Q 100 to 50, P 15 to 10 — Es 1.5</h3>
+<p>Given Q = 100, Q1 = 50, P = 15, P1 = 10. ΔQ = −50. ΔP = −5.</p>
+<pre>Es = (-50 / -5) x (15 / 100) = 10 x 0.15 = 1.5</pre>
+<h3>20.3 Q 200 to 275, P 8 to 10 — Es 1.5</h3>
+<p>Given Q = 200, P = 8, ΔP = 2, Es = 1.5. Find ΔQ: 1.5 = (ΔQ / 2) x (8 / 200). ΔQ = 75. New quantity = 200 + 75 = 275.</p>
+<h3>20.4 Price Falls 10%, Supply Falls 20% — Es 2</h3>
+<pre>Es = 20% / 10% = 2</pre>
+<h3>20.5 TR Rs 400 at P Rs 2, P Rises to Rs 3, Q 300 — Es 1</h3>
+<p>Q = 400 / 2 = 200. Q1 = 300. ΔQ = 100. P = 2, P1 = 3. ΔP = 1.</p>
+<pre>Es = (100 / 1) x (2 / 200) = 100 x 0.01 = 1</pre>
+<h3>20.6 X and Y Equal Es — Y Falls 10%</h3>
+<p>Supply X rises 400 to 500. ΔQ = 100. % change Q = 100 / 400 x 100 = 25%. Price rises 20%.</p>
+<pre>Es of X = 25% / 20% = 1.25
+Es of Y = Es of X = 1.25
+% fall in Y = 1.25 x 8% = 10%</pre>
+<h3>20.7 Supply Function Sx = 6Px + 3, Supply 27 — Price Rs 4</h3>
+<p>27 = 6Px + 3. 6Px = 24. Px = 4.</p>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Sx = 6x2 + 3? Answer: 15, not 27. So price is 4.</details>
+</section>
+<hr>
+<section id="kinds" class="fade-in">
+<h2>21. Kinds of Price Elasticity of Supply</h2>
+<h3>21.1 Perfectly Inelastic Supply — Es = 0</h3>
+<blockquote>Supply does not change with change in price.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Price (Rs)</th><th>Supply (units)</th></tr></thead><tbody>
+<tr><td>20</td><td>20</td></tr>
+<tr><td>30</td><td>20</td></tr>
+<tr><td>40</td><td>20</td></tr>
+</tbody></table></div>
+<p>Curve is vertical parallel to Y-axis.</p>
+<h3>21.2 Less Elastic Supply — Es &lt; 1</h3>
+<blockquote>Percentage change in quantity is less than percentage change in price.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Price (Rs)</th><th>Supply (units)</th></tr></thead><tbody>
+<tr><td>10</td><td>100</td></tr>
+<tr><td>15</td><td>120</td></tr>
+</tbody></table></div>
+<p>Price rises 50%. Supply rises 20%. 20% &lt; 50%.</p>
+<h3>21.3 Unitary Elastic Supply — Es = 1</h3>
+<blockquote>Percentage change in quantity equals percentage change in price.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Price (Rs)</th><th>Supply (units)</th></tr></thead><tbody>
+<tr><td>10</td><td>100</td></tr>
+<tr><td>15</td><td>150</td></tr>
+</tbody></table></div>
+<p>Price rises 50%. Supply rises 50%.</p>
+<h3>21.4 Highly Elastic Supply — Es &gt; 1</h3>
+<blockquote>Percentage change in quantity is more than percentage change in price.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Price (Rs)</th><th>Supply (units)</th></tr></thead><tbody>
+<tr><td>10</td><td>100</td></tr>
+<tr><td>15</td><td>200</td></tr>
+</tbody></table></div>
+<p>Price rises 50%. Supply rises 100%. 100% &gt; 50%.</p>
+<h3>21.5 Perfectly Elastic Supply — Es = Infinity</h3>
+<blockquote>Infinite supply at same price. Curve is horizontal parallel to X-axis.</blockquote>
+<div class="table-wrap"><table><thead><tr><th>Price (Rs)</th><th>Supply (units)</th></tr></thead><tbody>
+<tr><td>30</td><td>100</td></tr>
+<tr><td>30</td><td>200</td></tr>
+<tr><td>30</td><td>300</td></tr>
+</tbody></table></div>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Price 10 to 15, supply 100 to 120. Which kind? Answer: Less elastic, Es &lt; 1.</details>
+</section>
+<hr>
+<section id="observations" class="fade-in">
+<h2>22. Important Observations on Elasticity Curves</h2>
+<ol><li>All supply curves passing through origin are unitary elastic, whatever the angle.</li><li>Flatter curve is more elastic at point of intersection.</li><li>Steeper curve is less elastic.</li><li>Example: Flatter SS is more elastic than steeper S1S1.</li></ol>
+<div class="table-wrap"><table><thead><tr><th>Type</th><th>Value</th><th>Description</th></tr></thead><tbody>
+<tr><td>Perfectly Inelastic</td><td>Es = 0</td><td>Same supply at all prices</td></tr>
+<tr><td>Less Elastic</td><td>Es &lt; 1</td><td>% rise in supply less than % rise in price</td></tr>
+<tr><td>Unitary Elastic</td><td>Es = 1</td><td>% rise in supply equal to % rise in price</td></tr>
+<tr><td>Highly Elastic</td><td>Es &gt; 1</td><td>% rise in supply more than % rise in price</td></tr>
+<tr><td>Perfectly Elastic</td><td>Es = Infinity</td><td>Infinite supply at same price</td></tr>
+</tbody></table></div>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>Curve through origin. Es? Answer: 1.</details>
+</section>
+<hr>
+<section id="time" class="fade-in">
+<h2>23. Time Period and Supply</h2>
+<h3>23.1 Market Period — Very Short Period</h3>
+<ol><li>Supply cannot be changed with demand.</li><li>Supply is perfectly inelastic.</li><li>Es = 0. Vertical curve.</li></ol>
+<h3>23.2 Short Period</h3>
+<ol><li>Output can be changed by changing only variable factors.</li><li>Supply is highly elastic in short period.</li></ol>
+<h3>23.3 Long Period</h3>
+<ol><li>Output can be changed by changing all factors.</li><li>Supply is highly elastic.</li><li>Longer the period, more elastic the supply.</li></ol>
+<details class="callout"><summary><strong>CHECK — click to answer</strong></summary>As price falls supply changes in same direction. Which relation? Answer: Law of supply.</details>
+</section>
+<hr>
+<section id="revision" class="fade-in">
+<h2>24. Fast Revision — One Page</h2>
+<ol><li>Supply = willing and able at price during time. Stock = total available at point of time.</li><li>Individual 6 factors: own price, other goods price, input price, technology, tax subsidy, goals.</li><li>Market 3 extra: number of firms, future price expectation, transport communication.</li><li>Sx = f(Px, Po, Pf, St, T, G, F, M, N).</li><li>Individual schedule 1:0, 2:5, 3:10, 4:15, 5:20, 6:25. Market 0, 15, 30, 40, 55, 65.</li><li>Law: price up supply up, ceteris paribus. 5 assumptions. Qualitative, direction only, one-sided.</li><li>Reasons: profit, firms entry, stock release.</li><li>Exceptions: agri climate, perishable, rare Mona Lisa, backward shortage.</li><li>Expansion up movement, contraction down movement. Increase right shift, decrease left shift.</li><li>Right shift 8: other price fall, input fall, tech upgrade, tax fall, sales goal, firms rise, future fall expected, transport better. Left opposite.</li><li>Es = %ΔQ / %ΔP = (ΔQ/ΔP) x (P/Q). Positive, unit free.</li><li>Kinds: 0 vertical, &lt;1 less, 1 origin, &gt;1 highly, infinity horizontal. Flatter more elastic.</li><li>Very short Es 0, short highly, long highly.</li></ol>
+</section>
+<hr>
+<section id="examqa" class="fade-in">
+<h2>25. Exam Q&amp;A — Practice</h2>
+<ol><li>Which is not essential element of supply? (a) Price (b) Period (c) Willingness to buy (d) Quantity. Answer: (c) Willingness to buy. Supply is willingness to sell.</li><li>Increase in input price results in? (a) Right shift (b) Left shift (c) Expansion (d) Contraction. Answer: (b) Leftward shift, cost rises.</li><li>Supply falls at same price is? (a) Decrease (b) Contraction (c) Increase (d) Expansion. Answer: (a) Decrease in supply.</li><li>Sx = 6Px + 3, supply 27 at what price? (a) 2 (b) 5 (c) 3 (d) 4. Answer: (d) Rs 4, 6x4+3=27.</li><li>Assertion: Law is qualitative. Reason: Law shows magnitude. Answer: (A) true, (R) false. Law shows direction only.</li><li>Statement 1: Other factors change is change in quantity supplied. Statement 2: Individual supply has all market factors. Answer: Both false. Other factors is change in supply. Market has extra factors.</li><li>Trendz makes jeans and shirts. Jeans price rises. Effect on shirts? Answer: Jeans more profitable. Resources shift to jeans. Shirts supply shifts left.</li><li>One difference between individual and market supply? Answer: Individual may not strictly follow law. Market always follows law, varies directly with price.</li><li>Supply curve is rising portion of MC above minimum AVC. Agree? Answer: Yes. No rational producer supplies if unable to recover variable cost. It would cause losses.</li><li>State law of supply. Answer: Direct relation between price and quantity, other factors constant.</li><li>Price falls 10%, supply falls 20%. Es? Answer: 20%/10% = 2.</li><li>Two factors causing shift? Answer: Technology upgrade lowers cost, supply shifts right. Input price rise raises cost, supply shifts left.</li><li>TR Rs 400 at Rs 2, price Rs 3 quantity 300. Es? Answer: Q 200 to 300, Es = (100/1)x(2/200)=1.</li><li>X 400 to 500, price +20%, Y price −8%, same Es. Y fall? Answer: EsX 25%/20%=1.25. Y falls 1.25x8=10%.</li><li>Corn supply and price graph moves same direction. Relation? Answer: Law of supply, higher price higher supply for profit.</li></ol>
+<div class="callout"><strong>Tip:</strong> If price alone changes, move along the curve. If any other factor changes, shift the curve. In exams write the price-quantity table first, then name expansion, contraction, increase, or decrease.</div>
+</section>
+<hr>
+<section id="quiz" class="fade-in">
+<h2>Self-Check Quiz</h2>
+<p>Answer each question. Click <strong>Show answer</strong> to verify. Score: count each correct answer.</p>
+<div class="terms-grid" id="quizGrid">
+<div class="term quiz-item"><strong>1. Seller has 50 tonnes sugar in godown, offers 30 tonnes at Rs 37 per kg. Supply and stock?</strong><span><button class="quiz-btn" type="button">Show answer</button> <span class="quiz-ans" hidden>Supply 30 tonnes, stock 50 tonnes</span></span></div>
+<div class="term quiz-item"><strong>2. Individual schedule: at Rs 4, quantity supplied?</strong><span><button class="quiz-btn" type="button">Show answer</button> <span class="quiz-ans" hidden>15 units</span></span></div>
+<div class="term quiz-item"><strong>3. Market supply at Rs 5 (A 20 + B 35)?</strong><span><button class="quiz-btn" type="button">Show answer</button> <span class="quiz-ans" hidden>55 units</span></span></div>
+<div class="term quiz-item"><strong>4. Law of supply: direct or inverse relation?</strong><span><button class="quiz-btn" type="button">Show answer</button> <span class="quiz-ans" hidden>Direct</span></span></div>
+<div class="term quiz-item"><strong>5. Same price, supply 100 to 150. Name it.</strong><span><button class="quiz-btn" type="button">Show answer</button> <span class="quiz-ans" hidden>Increase in supply, rightward shift</span></span></div>
+<div class="term quiz-item"><strong>6. Price falls 10%, supply falls 20%. Es?</strong><span><button class="quiz-btn" type="button">Show answer</button> <span class="quiz-ans" hidden>2</span></span></div>
+<div class="term quiz-item"><strong>7. Sx = 6Px + 3, supply 27. Price?</strong><span><button class="quiz-btn" type="button">Show answer</button> <span class="quiz-ans" hidden>Rs 4</span></span></div>
+<div class="term quiz-item"><strong>8. Supply curve passes through origin. Es?</strong><span><button class="quiz-btn" type="button">Show answer</button> <span class="quiz-ans" hidden>1, unitary elastic</span></span></div>
+</div>
+<script>
+(function(){
+var btns=document.querySelectorAll('#quizGrid .quiz-btn');
+btns.forEach(function(b){b.addEventListener('click',function(){var a=this.parentElement.querySelector('.quiz-ans');var open=a.hidden;a.hidden=!open;this.textContent=open?'Hide answer':'Show answer';});});
+})();
+</script>
+</section>
+
+  <script id="chapter-terms-data" type="application/json">
+  [{"term": "Supply", "definition": "Willing and able to offer for sale at a price during a period"}, {"term": "Stock", "definition": "Total quantity available with the firm at a point of time"}, {"term": "Individual Supply", "definition": "Supply of one producer at various prices"}, {"term": "Market Supply", "definition": "Sum of all producers; SM = SA + SB + ..."}, {"term": "Law of Supply", "definition": "Direct price-supply relation, ceteris paribus; qualitative"}, {"term": "Expansion", "definition": "Rise in quantity from price rise; upward movement"}, {"term": "Increase in Supply", "definition": "Rise from other factors; rightward shift, same price"}, {"term": "Es", "definition": "(% change Q) / (% change P); positive and unit free"}]
+  </script>
+
+<footer>
+        <p>Economics Notes &middot; Class 11 &middot; Chapter 9 — Supply</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      themeVariables: {
+        fontFamily: 'Outfit, sans-serif',
+        primaryColor: '#e8f0ec',
+        primaryTextColor: '#1b1b1b',
+        primaryBorderColor: '#1a5e4a',
+        lineColor: '#1a5e4a',
+        secondaryColor: '#ffffff',
+        tertiaryColor: '#faf8f5',
+        fontSize: '14px'
+      },
+      mindmap: {
+        padding: 16,
+        nodeSpacing: 20,
+        rankSpacing: 24
+      }
+    });
+  </script>
+  <script>
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+
+    tocToggle.addEventListener('click', () => {
+      toc.classList.toggle('open');
+    });
+
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toc.classList.remove('open');
+      });
+    });
+
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+
+
+  <script src="../assets/study-os.js"></script>
+</body>
+</html>

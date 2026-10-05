@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 6 — Measures of Central Tendency: Mean | Statistics Class 11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+  <style>
+    :root {
+      --bg: #faf8f5; --surface: #ffffff; --text: #1b1b1b; --text-muted: #6b6b6b;
+      --accent: #1a5e4a; --accent-light: #e8f0ec; --border: #e8e4de;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04); --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px; --max-width: 820px; --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { font-family: var(--font-body); font-size: 15.5px; line-height: 1.7; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
+    nav.top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,248,245,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    nav.top-nav .logo { font-family: var(--font-display); font-weight: 600; font-size: 17px; color: var(--accent); text-decoration: none; letter-spacing: -0.02em; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+    nav.top-nav .meta { font-size: 13px; color: var(--text-muted); }
+    .wrapper { display: flex; max-width: 1200px; margin: 0 auto; padding: 80px 24px 60px; gap: 40px; }
+    aside.toc { width: var(--sidebar-width); flex-shrink: 0; position: sticky; top: 80px; align-self: flex-start; max-height: calc(100vh - 100px); overflow-y: auto; padding-right: 8px; }
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    aside.toc h3 { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 16px; font-weight: 600; }
+    aside.toc a { display: block; font-size: 13.5px; color: var(--text-muted); text-decoration: none; padding: 5px 0; border-left: 2px solid transparent; padding-left: 12px; line-height: 1.4; }
+    aside.toc a:hover, aside.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+    main.content { flex: 1; max-width: var(--max-width); }
+    .hero { padding: 48px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+    .hero .chapter-badge { display: inline-block; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); background: var(--accent-light); padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+    .hero h1 { font-family: var(--font-display); font-weight: 700; font-size: 38px; line-height: 1.2; letter-spacing: -0.025em; margin-bottom: 12px; }
+    .hero .subtitle { font-size: 16px; color: var(--text-muted); }
+    section { margin-bottom: 48px; }
+    section h2 { font-family: var(--font-display); font-weight: 600; font-size: 26px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    section h3 { font-family: var(--font-display); font-weight: 600; font-size: 20px; margin-top: 28px; margin-bottom: 12px; }
+    section h4 { font-weight: 600; font-size: 15.5px; margin-top: 20px; margin-bottom: 8px; }
+    section p { margin-bottom: 14px; }
+    blockquote { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 14px 20px; margin: 20px 0; border-radius: 0 var(--radius) var(--radius) 0; font-family: var(--font-display); font-style: italic; font-size: 16px; }
+    .callout { background: #fff8e5; border-left: 3px solid #d4a12a; padding: 14px 18px; margin: 20px 0; border-radius: 0 var(--radius) var(--radius) 0; font-size: 15px; color: #5a4a1a; }
+    .table-wrap { overflow-x: auto; margin: 20px 0; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow-sm); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; }
+    table thead { background: var(--accent-light); }
+    table th { font-weight: 600; text-align: left; padding: 10px 14px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); border-bottom: 1px solid var(--border); white-space: nowrap; }
+    table td { padding: 10px 14px; border-top: 1px solid var(--border); vertical-align: top; }
+    table tbody tr:first-child td { border-top: none; }
+    table tbody tr:hover { background: #f5f3ef; }
+    table td:first-child { font-weight: 500; }
+    pre { background: #1a1a2e; color: #e4e4f0; padding: 20px 24px; border-radius: var(--radius); font-size: 13.5px; line-height: 1.65; overflow-x: auto; margin: 20px 0; font-family: 'JetBrains Mono', 'Fira Code', monospace; }
+    section ul, section ol { margin: 12px 0 16px; padding-left: 24px; }
+    section li { margin-bottom: 6px; }
+    hr { border: none; height: 1px; background: var(--border); margin: 40px 0; }
+    .terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin: 16px 0; }
+    .terms-grid .term { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow-sm); }
+    .terms-grid .term strong { display: block; color: var(--accent); font-weight: 600; margin-bottom: 4px; font-size: 14px; }
+    .terms-grid .term span { font-size: 13.5px; color: var(--text-muted); }
+    .qa { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin: 18px 0; box-shadow: var(--shadow-sm); }
+    .qa .q { font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .qa .ans { color: var(--text); }
+    .qa .ans strong { color: var(--accent); }
+    footer { text-align: center; padding: 32px 0 16px; border-top: 1px solid var(--border); margin-top: 24px; }
+    footer p { font-size: 13px; color: var(--text-muted); }
+    .progress-bar { position: fixed; top: 60px; left: 0; right: 0; height: 2px; z-index: 99; }
+    .progress-bar .fill { height: 100%; width: 0%; background: var(--accent); }
+    .toc-toggle { display: none; border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; font-family: var(--font-body); font-size: 13px; color: var(--text-muted); position: fixed; bottom: 20px; right: 20px; z-index: 200; background: var(--surface); box-shadow: var(--shadow-md); }
+    section p strong, section li strong { color: var(--accent); font-weight: 600; }
+    .fade-in { opacity: 0; transform: translateY(12px); animation: fadeUp 0.6s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc { position: fixed; bottom: 0; left: 0; right: 0; top: auto; width: 100%; max-height: 0; overflow: hidden; background: var(--surface); border-top: 1px solid var(--border); z-index: 150; transition: max-height 0.35s ease; padding: 0 20px; }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      .toc-toggle { display: block; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; } section h2 { font-size: 22px; }
+      table { font-size: 13px; } table th, table td { padding: 8px 10px; }
+      nav.top-nav .meta { display: none; } .terms-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">&#x2190; Statistics <span>Notes</span></a>
+    <span class="meta">Class 11 · Chapter 6</span>
+  </nav>
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+  <button class="toc-toggle" id="tocToggle">&#x2630; Contents</button>
+  <div class="wrapper">
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#meaning">1. What is Mean?</a>
+      <a href="#terms">2. Key Terms</a>
+      <a href="#individual">3. Individual Series</a>
+      <a href="#discrete">4. Discrete Series</a>
+      <a href="#continuous">5. Continuous Series</a>
+      <a href="#weighted">6. Weighted &amp; Combined Mean</a>
+      <a href="#correction">7. Correction, Properties, Merits</a>
+      <a href="#formulas">8. Formulas in Simple Words</a>
+      <a href="#solved">9. Solved Questions Q1–Q11</a>
+      <a href="#exam">10. Most Likely Exam Questions</a>
+    </aside>
+    <main class="content">
+      <header class="hero fade-in">
+        <span class="chapter-badge">Chapter 6</span>
+        <h1>Measures of Central Tendency — Mean</h1>
+        <p class="subtitle">Statistics for Economics · Class 11 · Only Mean · Simple Revision</p>
+        <blockquote><strong>Mean in one line:</strong> Mean is the average value that represents the whole data in one number.</blockquote>
+      </header>
+
+      <section id="meaning" class="fade-in">
+        <h2>1. What is Mean?</h2>
+        <p><strong>Central Tendency</strong> means one central value that represents the full data. <strong>Arithmetic Mean</strong> = Total of all values divided by number of values. It uses all observations.</p>
+        <div class="callout"><strong>How to identify series:</strong> No frequency = Individual. Values + frequency = Discrete. Classes + frequency = Continuous.</div>
+      </section>
+
+      <section id="terms" class="fade-in">
+        <h2>2. Key Terms in Simple Words</h2>
+        <div class="terms-grid">
+          <div class="term"><strong>Individual Series</strong><span>Raw values given separately. Example: 5, 10, 15.</span></div>
+          <div class="term"><strong>Discrete Series</strong><span>Values with frequency. Example: marks 10, 20 with students 5, 3.</span></div>
+          <div class="term"><strong>Continuous Series</strong><span>Class intervals with frequency. Example: 0–10, 10–20.</span></div>
+          <div class="term"><strong>Mid-point m</strong><span>(Lower + Upper) / 2. Always find first in continuous series.</span></div>
+          <div class="term"><strong>Assumed Mean A</strong><span>Any value taken to simplify. Best = middle value.</span></div>
+          <div class="term"><strong>Step c</strong><span>Common gap. Example 10, 20, 30 → c = 10. Or class size 0–10 → c = 10.</span></div>
+          <div class="term"><strong>N</strong><span>Number of values. In discrete and continuous, N = Sum of f.</span></div>
+          <div class="term"><strong>Weighted Mean</strong><span>Mean when some items are more important. Weight = W.</span></div>
+        </div>
+      </section>
+
+      <section id="individual" class="fade-in">
+        <h2>3. Individual Series — Only Values</h2>
+        <h3>Method 1 — Direct: Add and Divide</h3>
+        <p>Step 1: Add all values = Sum X. Step 2: Count values = N. Step 3: <strong>Mean = Sum X / N</strong>.</p>
+        <h3>Method 2 — Assumed Mean: For Big Numbers</h3>
+        <p>Step 1: Pick A, middle value is best. Step 2: d = X − A for each value. Step 3: Add = Sum d. Step 4: <strong>Mean = A + Sum d / N</strong>. Answer is same from both methods.</p>
+        <div class="callout"><strong>Example:</strong> 5, 10, 15. Direct: 30 / 3 = 10. Assumed A = 10: d = −5, 0, +5, Sum d = 0, Mean = 10 + 0 = 10.</div>
+      </section>
+
+      <section id="discrete" class="fade-in">
+        <h2>4. Discrete Series — Values + Frequency</h2>
+        <p>Here <strong>N = Sum f</strong>. Example: X = 10, 20 with f = 5, 3 → N = 8.</p>
+        <h3>Method 1 — Direct</h3>
+        <p>Step 1: Multiply X × f = fX. Step 2: Add = Sum fX. Step 3: <strong>Mean = Sum fX / N</strong>.</p>
+        <h3>Method 2 — Assumed Mean</h3>
+        <p>Pick A. d = X − A. fd = f × d. <strong>Mean = A + Sum fd / N</strong>.</p>
+        <h3>Method 3 — Step Deviation: Shortest</h3>
+        <p>Use only when X values have equal gap. Gap = c. d′ = (X − A) / c. fd′ = f × d′. <strong>Mean = A + (Sum fd′ / N) × c</strong>.</p>
+        <div class="callout"><strong>Must remember:</strong> Multiply by c at the end. If you forget c, answer is wrong.</div>
+      </section>
+
+      <section id="continuous" class="fade-in">
+        <h2>5. Continuous Series — Classes + Frequency</h2>
+        <p>First step in all 3 methods: find <strong>m = (Lower + Upper) / 2</strong>. Example 0–10 → m = 5. After this, m works like X.</p>
+        <div class="table-wrap"><table><thead><tr><th>Method</th><th>Steps</th></tr></thead><tbody>
+          <tr><td><strong>Direct</strong></td><td>Find m → fm = f × m → Mean = Sum fm / N</td></tr>
+          <tr><td><strong>Assumed</strong></td><td>d = m − A → fd = f × d → Mean = A + Sum fd / N</td></tr>
+          <tr><td><strong>Step</strong></td><td>d′ = (m − A) / c → fd′ = f × d′ → Mean = A + (Sum fd′ / N) × c</td></tr>
+        </tbody></table></div>
+        <div class="callout"><strong>Note:</strong> For 10–19, 20–29 type inclusive classes, use m directly. No correction needed for mean. Step method needs equal class size.</div>
+      </section>
+
+      <section id="weighted" class="fade-in">
+        <h2>6. Weighted Mean and Combined Mean</h2>
+        <h3>Weighted Mean — When Importance Differs</h3>
+        <p>Step 1: WX = W × X. Step 2: Add = Sum WX, Add weights = Sum W. Step 3: <strong>Mean = Sum WX / Sum W</strong>.</p>
+        <p>Use when subjects have different credit, or goods have different quantity consumed.</p>
+        <h3>Combined Mean — Two Groups Joined</h3>
+        <p><strong>Mean12 = (N1 × Mean1 + N2 × Mean2) / (N1 + N2)</strong>. For 3 groups, add N3 × Mean3 on top and N3 below.</p>
+      </section>
+
+      <section id="correction" class="fade-in">
+        <h2>7. Correction, Properties, Merits</h2>
+        <h3>Correction of Wrong Mean</h3>
+        <p>Step 1: Wrong Total = Wrong Mean × N. Step 2: Correct Total = Wrong Total − Wrong value + Correct value. Step 3: <strong>Correct Mean = Correct Total / N</strong>.</p>
+        <h3>3 Properties — Remember</h3>
+        <ol><li>Sum of deviations from mean is always <strong>zero</strong>.</li><li>Mean is affected by <strong>every value and extreme values</strong>.</li><li>Sum of squared deviations is <strong>minimum</strong> from mean.</li></ol>
+        <h3>Merits and Demerits</h3>
+        <div class="table-wrap"><table><thead><tr><th>Merits</th><th>Demerits</th></tr></thead><tbody>
+          <tr><td>Easy to calculate, uses all values, fixed definite value, allows further calculation, stable and comparable</td><td>Affected by extremes, cannot be found by graph, absurd for quality data like honesty, may be 2.4 children which is not in data</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section id="formulas" class="fade-in">
+        <h2>8. Formulas in Simple Words</h2>
+        <div class="table-wrap"><table><thead><tr><th>Type</th><th>In simple words</th></tr></thead><tbody>
+          <tr><td><strong>Individual direct</strong></td><td>Add values, divide by count</td></tr>
+          <tr><td><strong>Individual assumed</strong></td><td>Pick A. Subtract each value from A. Add differences. Divide by count. Add to A</td></tr>
+          <tr><td><strong>Discrete direct</strong></td><td>Value × frequency. Add. Divide by total frequency</td></tr>
+          <tr><td><strong>Step deviation</strong></td><td>Divide difference by gap c to make small numbers. Multiply by c at end</td></tr>
+          <tr><td><strong>Continuous</strong></td><td>First find m. Then same as discrete</td></tr>
+          <tr><td><strong>Weighted</strong></td><td>Value × weight. Add. Divide by total weight</td></tr>
+          <tr><td><strong>Combined</strong></td><td>(Students1 × Mean1 + Students2 × Mean2) / Total students</td></tr>
+          <tr><td><strong>Correction</strong></td><td>Wrong Mean × N = Wrong total. Minus wrong, plus correct. Divide by N</td></tr>
+        </tbody></table></div>
+        <div class="callout"><strong>Common mistakes:</strong> Using X instead of m in continuous. Dividing by number of classes instead of N. Forgetting N = Sum f. Forgetting × c in step deviation.</div>
+      </section>
+
+      <section id="solved" class="fade-in">
+        <h2>9. Perfect Question for Each Method — Solved</h2>
+
+        <div class="qa"><p class="q">Q1. Individual Direct: Marks of 5 students are 12, 15, 18, 20, 25. Find mean.</p><div class="ans">Sum X = 12 + 15 + 18 + 20 + 25 = <strong>90</strong>. N = 5. Mean = 90 / 5 = <strong>18</strong>.</div></div>
+
+        <div class="qa"><p class="q">Q2. Individual Assumed Mean: Values 48, 52, 55, 60, 65. Take A = 55.</p><div class="ans">d = X − A = −7, −3, 0, 5, 10. Sum d = 5. Mean = 55 + 5/5 = <strong>56</strong>.</div></div>
+
+        <div class="qa"><p class="q">Q3. Discrete Direct: X = 10, 20, 30 and f = 2, 3, 5.</p><div class="ans">fX = 20, 60, 150. Sum fX = 230. N = 10. Mean = 230 / 10 = <strong>23</strong>.</div></div>
+
+        <div class="qa"><p class="q">Q4. Discrete Assumed Mean: Same data. Take A = 20.</p><div class="ans">d = −10, 0, 10. fd = −20, 0, 50. Sum fd = 30. Mean = 20 + 30/10 = <strong>23</strong>.</div></div>
+
+        <div class="qa"><p class="q">Q5. Discrete Step Deviation: Same data. A = 20, c = 10.</p><div class="ans">d′ = −1, 0, 1. fd′ = −2, 0, 5. Sum fd′ = 3. Mean = 20 + (3/10) × 10 = <strong>23</strong>.</div></div>
+
+        <div class="qa"><p class="q">Q6. Continuous Direct: Classes 0–10, 10–20, 20–30 and f = 4, 6, 10.</p><div class="ans">m = 5, 15, 25. fm = 20, 90, 250. Sum fm = 360. N = 20. Mean = 360 / 20 = <strong>18</strong>.</div></div>
+
+        <div class="qa"><p class="q">Q7. Continuous Assumed Mean: Same data. A = 15.</p><div class="ans">d = −10, 0, 10. fd = −40, 0, 100. Sum fd = 60. Mean = 15 + 60/20 = <strong>18</strong>.</div></div>
+
+        <div class="qa"><p class="q">Q8. Continuous Step Deviation: Same data. A = 15, c = 10.</p><div class="ans">d′ = −1, 0, 1. fd′ = −4, 0, 10. Sum fd′ = 6. Mean = 15 + (6/20) × 10 = <strong>18</strong>.</div></div>
+
+        <div class="qa"><p class="q">Q9. Weighted Mean: English 70 weight 2, Maths 80 weight 3, Economics 90 weight 5.</p><div class="ans">WX = 140, 240, 450. Sum WX = 830. Sum W = 10. Mean = 830 / 10 = <strong>83</strong>.</div></div>
+
+        <div class="qa"><p class="q">Q10. Combined Mean: Class A N1 = 30 Mean1 = 40. Class B N2 = 20 Mean2 = 50.</p><div class="ans">Mean = (30×40 + 20×50) / 50 = (1200 + 1000) / 50 = <strong>44</strong>.</div></div>
+
+        <div class="qa"><p class="q">Q11. Correction: Mean of 10 items was 25. Later 22 was found wrongly read in place of 12.</p><div class="ans">Wrong total = 25 × 10 = 250. Correct total = 250 − 22 + 12 = 240. Correct mean = 240 / 10 = <strong>24</strong>.</div></div>
+
+        <div class="callout"><strong>Notice:</strong> Q3–Q5 give same answer 23. Q6–Q8 give same answer 18. All 3 methods give same mean. In exam you can use any one method.</div>
+      </section>
+
+      <section id="exam" class="fade-in">
+        <h2>10. Most Likely Exam Questions</h2>
+        <ol><li>What is central tendency? Explain arithmetic mean with formula.</li><li>Calculate mean by direct, assumed mean and step deviation in discrete and continuous series.</li><li>Find missing frequency if mean is given.</li><li>Calculate weighted mean and combined mean with example.</li><li>Explain merits and demerits of mean. When is mean the best average?</li></ol>
+      </section>
+
+      <footer><p>Statistics for Economics · Class 11 · Chapter 6 — Mean · Simple Revision</p></footer>
+    </main>
+  </div>
+<script>
+  const toc = document.getElementById('toc');
+  const toggle = document.getElementById('tocToggle');
+  toggle.addEventListener('click', () => toc.classList.toggle('open'));
+  toc.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toc.classList.remove('open')));
+  const fill = document.getElementById('progressFill');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const p = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+    fill.style.width = p + '%';
+    const links = toc.querySelectorAll('a');
+    let cur = '';
+    document.querySelectorAll('section[id]').forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+  });
+</script>
+</body>
+</html>

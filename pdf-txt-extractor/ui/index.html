@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PDF Text Extractor</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+  body{background:#020617;}
+  .card-progress{transition:width .3s ease;}
+  textarea{resize:vertical;}
+  .dropzone-active{border-color:#38bdf8 !important;background:rgba(56,189,248,.08) !important;}
+</style>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+<header class="border-b border-slate-800 bg-slate-900/70 backdrop-blur sticky top-0 z-10">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-400 to-violet-600 grid place-items-center font-bold" aria-hidden="true">PDF</div>
+      <div>
+        <h1 class="text-lg font-semibold tracking-tight">PDF Text Extractor</h1>
+        <p class="text-xs text-slate-400">Batch PDF to text, fast and private via local API</p>
+      </div>
+    </div>
+    <button id="downloadAllBtn" type="button" disabled
+      class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 disabled:opacity-40 disabled:cursor-not-allowed font-medium text-slate-950 text-sm"
+      aria-label="Download all results as zip">Download All .zip</button>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 py-6 space-y-6">
+  <section aria-labelledby="upload-heading">
+    <h2 id="upload-heading" class="sr-only">Upload PDFs</h2>
+    <div id="dropzone" role="button" tabindex="0" aria-label="Drop PDF files here or press Enter to browse. Accepts multiple PDF files."
+      class="border-2 border-dashed border-slate-700 rounded-2xl p-10 text-center cursor-pointer bg-slate-900/50 hover:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400">
+      <p class="text-lg font-medium">Drag &amp; drop PDFs here</p>
+      <p class="text-sm text-slate-400 mt-1">or <span class="text-sky-400 underline">click / press Enter</span> to browse (multiple .pdf)</p>
+      <input id="fileInput" type="file" accept=".pdf,application/pdf" multiple hidden aria-label="Choose PDF files" />
+    </div>
+
+    <div class="mt-4 flex flex-wrap items-center gap-6 bg-slate-900/60 border border-slate-800 rounded-xl px-4 py-3">
+      <label class="flex items-center gap-2 text-sm">
+        <input id="layoutToggle" type="checkbox" checked class="w-4 h-4 accent-sky-500" aria-label="Preserve layout" />
+        Preserve layout
+      </label>
+      <label class="flex items-center gap-2 text-sm" for="workersInput">
+        Workers
+        <input id="workersInput" type="number" min="1" max="8" value="4" step="1"
+          class="w-16 px-2 py-1 rounded-md bg-slate-800 border border-slate-700 text-center" aria-label="Worker count, 1 to 8" />
+      </label>
+      <span class="text-xs text-slate-500">Batch endpoint first, auto-fallback to parallel single-file mode.</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="toolbar-heading" class="flex flex-wrap items-center gap-3">
+    <h2 id="toolbar-heading" class="sr-only">Results toolbar</h2>
+    <p id="status" role="status" aria-live="polite" class="text-sm text-slate-300 flex-1 min-w-[200px]">Ready. Drop PDFs to start.</p>
+    <label class="sr-only" for="filterInput">Filter results by filename</label>
+    <input id="filterInput" type="search" placeholder="Filter by filename…"
+      class="px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-sm w-56" aria-label="Filter results by filename" />
+    <button id="clearBtn" type="button" class="px-3 py-2 rounded-lg border border-slate-700 text-sm hover:bg-slate-800" aria-label="Clear all results">Clear</button>
+  </section>
+
+  <section aria-labelledby="results-heading">
+    <h2 id="results-heading" class="sr-only">Extraction results</h2>
+    <div id="cards" class="grid gap-4 md:grid-cols-2" aria-live="polite"></div>
+  </section>
+</main>
+
+<script>
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+const cardsEl = document.getElementById('cards');
+const statusEl = document.getElementById('status');
+const filterInput = document.getElementById('filterInput');
+const clearBtn = document.getElementById('clearBtn');
+const downloadAllBtn = document.getElementById('downloadAllBtn');
+const layoutToggle = document.getElementById('layoutToggle');
+const workersInput = document.getElementById('workersInput');
+
+const results = new Map(); // key: unique per-file key -> { key, filename, text, pages, chars, ms, status }
+
+// Unique key per File object so two different folders' same-basename PDFs
+// never share a card or overwrite each other's result.
+function fileKey(f, i){ return i + ':' + f.name + ':' + (f.size || 0) + ':' + (f.lastModified || 0); }
+
+let slugCounter = 0;
+function slug(s){ slugCounter += 1; return 'c-' + s.replace(/[^a-zA-Z0-9_-]/g,'_').slice(0,80) + '-' + slugCounter.toString(36) + Math.random().toString(36).slice(2,5); }
+
+function dedupeFiles(files){
+  const seen = new Map(); // basename -> count
+  return files.map((f) => {
+    const n = seen.get(f.name) || 0;
+    seen.set(f.name, n + 1);
+    if(n === 0) return f;
+    const dot = f.name.lastIndexOf('.');
+    const stem = dot > 0 ? f.name.slice(0, dot) : f.name;
+    const ext = dot > 0 ? f.name.slice(dot) : '';
+    const unique = stem + ' (' + (n + 1) + ')' + ext;
+    try { return new File([f], unique, {type: f.type, lastModified: f.lastModified}); }
+    catch(e){ return f; }
+  });
+}
+
+function updateStatus(msg){ statusEl.textContent = msg; }
+
+function downloadBlob(blob, filename){
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+
+function badgeClass(status){
+  if(status === 'ok') return 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30';
+  if(status === 'scanned') return 'bg-amber-500/15 text-amber-300 border-amber-500/30';
+  return 'bg-red-500/15 text-red-300 border-red-500/30';
+}
+
+function upsertCard(key, filename){
+  const id = slug(filename);
+  const el = document.createElement('article');
+  el.className = 'bg-slate-900/70 border border-slate-800 rounded-2xl p-4 shadow-xl';
+  el.dataset.filename = filename.toLowerCase();
+  el.id = id;
+  el.innerHTML =
+    '<div class="flex items-start justify-between gap-2">' +
+      '<h3 class="font-medium text-sm truncate" title=""></h3>' +
+      '<span data-role="badge" class="shrink-0 text-xs px-2 py-0.5 rounded-full border">pending</span>' +
+    '</div>' +
+    '<div class="mt-3 h-1.5 rounded-full bg-slate-800 overflow-hidden" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Extraction progress">' +
+      '<div data-role="bar" class="card-progress h-full w-0 bg-sky-400"></div>' +
+    '</div>' +
+    '<p data-role="meta" class="mt-2 text-xs text-slate-400">waiting…</p>' +
+    '<label class="sr-only">Extracted text preview</label>' +
+    '<textarea data-role="preview" readonly rows="8" aria-label="Extracted text preview" class="mt-2 w-full text-xs font-mono bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200" placeholder="Extracted text will appear here…"></textarea>' +
+    '<div class="mt-3 flex gap-2">' +
+      '<button type="button" data-role="copy" class="px-3 py-1.5 text-xs rounded-lg border border-slate-700 hover:bg-slate-800">Copy</button>' +
+      '<button type="button" data-role="dl" class="px-3 py-1.5 text-xs rounded-lg bg-sky-500 text-slate-950 font-medium hover:bg-sky-400">Download .txt</button>' +
+    '</div>';
+  el.querySelector('h3').textContent = filename;
+  el.querySelector('h3').title = filename;
+  const badge = el.querySelector('[data-role="badge"]');
+  const preview = el.querySelector('[data-role="preview"]');
+  preview.setAttribute('aria-label', 'Extracted text preview for ' + filename);
+  el.querySelector('[data-role="copy"]').addEventListener('click', async () => {
+    const r = results.get(key);
+    const txt = (r && r.text) || preview.value || '';
+    try { await navigator.clipboard.writeText(txt); updateStatus('Copied: ' + filename); }
+    catch(e){
+      try { preview.focus(); preview.select(); document.execCommand('copy'); updateStatus('Copied: ' + filename); }
+      catch(e2){ updateStatus('Copy blocked by browser for ' + filename); }
+    }
+  });
+  el.querySelector('[data-role="dl"]').addEventListener('click', () => {
+    const r = results.get(key);
+    const text = (r && r.text) || preview.value || '';
+    downloadBlob(new Blob([text], {type:'text/plain;charset=utf-8'}), filename.replace(/\.pdf$/i,'') + '.txt');
+  });
+  cardsEl.prepend(el);
+  return { id, el, badge, bar: el.querySelector('[data-role="bar"]'), progress: el.querySelector('[role="progressbar"]'), meta: el.querySelector('[data-role="meta"]'), preview };
+}
+
+const cardRefs = new Map(); // unique per-file key -> refs
+
+function setProgress(key, pct){
+  const r = cardRefs.get(key);
+  if(!r) return;
+  r.bar.style.width = pct + '%';
+  r.progress.setAttribute('aria-valuenow', String(pct));
+}
+
+function setCardDone(key, data){
+  const r = cardRefs.get(key);
+  if(!r) return;
+  const status = data.status || (data.scanned_like ? 'scanned' : 'ok');
+  r.badge.textContent = status;
+  r.badge.className = 'shrink-0 text-xs px-2 py-0.5 rounded-full border ' + badgeClass(status);
+  const text = data.text || '';
+  r.preview.value = text.slice(0, 2000);
+  r.meta.textContent = (data.pages != null ? data.pages + ' pages' : '—') + ' · ' + (data.chars != null ? data.chars : text.length) + ' chars · ' + (data.ms != null ? data.ms + ' ms' : (data.truncated ? 'truncated' : '—'));
+  if(data.truncated) r.meta.textContent += ' · truncated at 1M chars';
+  setProgress(key, 100);
+}
+
+function setCardError(key, message){
+  const r = cardRefs.get(key);
+  if(!r) return;
+  r.badge.textContent = 'error';
+  r.badge.className = 'shrink-0 text-xs px-2 py-0.5 rounded-full border ' + badgeClass('error');
+  r.meta.textContent = 'Error: ' + message;
+  r.bar.style.width = '100%';
+  r.bar.classList.replace('bg-sky-400','bg-red-400');
+}
+
+function refreshDownloadAll(){
+  downloadAllBtn.disabled = results.size === 0;
+}
+
+async function downloadAllZip(){
+  if(results.size === 0) return;
+  if(typeof JSZip === 'undefined'){ updateStatus('Zip unavailable: JSZip CDN failed to load (offline?). Individual .txt downloads still work.'); return; }
+  updateStatus('Building zip…');
+  const zip = new JSZip();
+  const seen = new Set();
+  for(const [, r] of results.entries()){
+    const base = (r.filename || 'document').replace(/\.pdf$/i,'');
+    let name = base + '.txt';
+    let i = 1;
+    while(seen.has(name)){ i += 1; name = base + '-' + i + '.txt'; }
+    seen.add(name);
+    zip.file(name, r.text || '');
+  }
+  const blob = await zip.generateAsync({type:'blob'});
+  downloadBlob(blob, 'pdf-texts.zip');
+  updateStatus('Downloaded zip with ' + results.size + ' file(s).');
+}
+
+async function extractSingle(file, layout){
+  const fd = new FormData();
+  fd.append('file', file, file.name);
+  fd.append('layout', layout ? '1' : '0');
+  const res = await fetch('/api/extract?layout=' + (layout ? '1' : '0'), {method:'POST', body: fd});
+  if(!res.ok) throw new Error('single failed: ' + res.status);
+  return res.json();
+}
+
+async function extractParallel(entries, layout){
+  let cap = parseInt(workersInput.value, 10);
+  if(!Number.isFinite(cap)) cap = 4;
+  cap = Math.min(8, Math.max(1, cap));
+  const queue = entries.slice();
+  const out = [];
+  const slots = Array.from({length: Math.min(cap, queue.length)});
+  async function worker(){
+    while(queue.length){
+      const { key, file: f } = queue.shift();
+      setProgress(key, 40);
+      try {
+        const data = await extractSingle(f, layout);
+        const text = data.text || '';
+        const rec = { key, filename: f.name, text, pages: data.pages, chars: data.chars != null ? data.chars : text.length, ms: data.ms, truncated: data.truncated, scanned_like: !!data.scanned_like, status: data.error ? 'error' : (data.scanned_like ? 'scanned' : (data.status || 'ok')) };
+        results.set(key, rec);
+        if(rec.status === 'error') setCardError(key, data.error || 'extraction failed');
+        else setCardDone(key, rec);
+        out.push(rec);
+      } catch(e){ setCardError(key, e.message); }
+    }
+  }
+  await Promise.all(slots.map(() => worker()));
+  return out;
+}
+
+async function extractBatch(files){
+  const layout = layoutToggle.checked;
+  let w = parseInt(workersInput.value, 10);
+  if(!Number.isFinite(w)) w = 4;
+  w = Math.min(8, Math.max(1, w));
+  workersInput.value = String(w);
+
+  // Per-file keys so same-basename PDFs from different folders get own cards.
+  const entries = files.map((f, i) => ({ key: fileKey(f, i), file: f }));
+  entries.forEach(({ key, file: f }) => { if(!cardRefs.has(key)) cardRefs.set(key, upsertCard(key, f.name)); setProgress(key, 10); });
+  updateStatus('Extracting ' + files.length + ' file(s)…');
+
+  try {
+    const fd = new FormData();
+    files.forEach(f => fd.append('files', f, f.name));
+    fd.append('layout', layout ? '1' : '0');
+    const res = await fetch('/api/extract-batch?workers=' + encodeURIComponent(w) + '&layout=' + (layout ? '1' : '0'), {method:'POST', body: fd});
+    if(!res.ok) throw new Error('batch failed: ' + res.status);
+    const data = await res.json();
+    const arr = Array.isArray(data) ? data : (data.results || []);
+    // Map server results back positionally: batch preserves input order,
+    // so same-basename duplicates resolve to their own entry, not by name.
+    const seenNames = new Set();
+    arr.forEach((d, i) => {
+      const entry = entries[i] || entries.find(e => e.file.name === d.filename);
+      const key = entry ? entry.key : ('srv-' + i);
+      const filename = d.filename || (entry && entry.file.name) || ('file-' + i + '.pdf');
+      if(seenNames.has(filename + '|' + i)) return;
+      seenNames.add(filename + '|' + i);
+      const text = d.text || '';
+      const rec = { key, filename, text, pages: d.pages, chars: d.chars != null ? d.chars : text.length, ms: d.ms, truncated: d.truncated, scanned_like: !!d.scanned_like, status: d.error ? 'error' : (d.scanned_like ? 'scanned' : (d.status || 'ok')) };
+      results.set(key, rec);
+      if(rec.status === 'error') setCardError(key, d.error || 'extraction failed');
+      else setCardDone(key, rec);
+    });
+    // Mark any missing as error
+    entries.forEach(({ key }) => { if(!results.has(key)) setCardError(key, 'no result from server'); });
+    updateStatus('Done: ' + results.size + ' file(s).');
+  } catch(err){
+    updateStatus('Batch endpoint failed (' + err.message + '), falling back to parallel mode…');
+    await extractParallel(entries, layout);
+    updateStatus('Done (fallback): ' + results.size + ' file(s).');
+  }
+  refreshDownloadAll();
+  applyFilter();
+}
+
+function applyFilter(){
+  const q = filterInput.value.trim().toLowerCase();
+  cardsEl.querySelectorAll('article').forEach(a => {
+    a.style.display = !q || (a.dataset.filename || '').includes(q) ? '' : 'none';
+  });
+}
+
+function handleFiles(list){
+  const picked = Array.from(list || []).filter(f => /\.pdf$/i.test(f.name));
+  if(picked.length === 0){ updateStatus('No PDFs selected.'); return; }
+  const files = dedupeFiles(picked);
+  extractBatch(files);
+}
+
+dropzone.addEventListener('click', () => fileInput.click());
+dropzone.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); fileInput.click(); } });
+['dragenter','dragover'].forEach(ev => dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.add('dropzone-active'); }));
+['dragleave','drop'].forEach(ev => dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.remove('dropzone-active'); }));
+dropzone.addEventListener('drop', (e) => handleFiles(e.dataTransfer.files));
+fileInput.addEventListener('change', () => { handleFiles(fileInput.files); fileInput.value = ''; });
+filterInput.addEventListener('input', applyFilter);
+clearBtn.addEventListener('click', () => { cardsEl.innerHTML=''; cardRefs.clear(); results.clear(); refreshDownloadAll(); updateStatus('Cleared.'); });
+downloadAllBtn.addEventListener('click', downloadAllZip);
+</script>
+</body>
+</html>
