@@ -1,863 +1,1749 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-retail-mode="notes">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 5 — Emerging Modes of Business | BST Class 11</title>
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Class 11 BST Chapter 5 Emerging Modes of Business — complete easy notes plus quick revision: e-business meaning and Kotler definition, e-business vs e-commerce, the four branches, benefits and limitations, outsourcing.">
+  <meta name="theme-color" content="#1a5e4a">
+  <meta property="og:title" content="Chapter 5 — Emerging Modes of Business | BST Notes + Quick Revision">
+  <meta property="og:description" content="Class 11 BST Chapter 5 Emerging Modes of Business — complete easy notes plus quick revision: e-business meaning and Kotler definition, e-business vs e-commerce, the four branches, benefits and limitations, outsourcing.">
+  <meta property="og:type" content="article">
+  <title>Chapter 5 — Emerging Modes of Business | BST Notes + Quick Revision</title>
+  <link rel="icon" href="../assets/icon-192x192.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/study-os.css">
-  <style>
-    :root {
-      --bg: #faf8f5;
-      --surface: #ffffff;
-      --text: #1b1b1b;
-      --text-muted: #6b6b6b;
-      --accent: #1a5e4a;
-      --accent-light: #e8f0ec;
-      --border: #e8e4de;
-      --code-bg: #f0ede8;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
-      --radius: 8px;
-      --max-width: 820px;
-      --sidebar-width: 260px;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'Outfit', -apple-system, sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body {
-      font-family: var(--font-body);
-      font-weight: 400;
-      font-size: 15.5px;
-      line-height: 1.7;
-      color: var(--text);
-      background: var(--bg);
-      -webkit-font-smoothing: antialiased;
-    }
-    nav.top-nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(250,248,245,0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 24px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    nav.top-nav .logo {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 17px;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-    nav.top-nav .logo:hover { opacity: 0.7; }
-    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
-    nav.top-nav .meta { font-size: 13px; color: var(--text-muted); }
-    .wrapper {
-      display: flex;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-      gap: 40px;
-    }
-    aside.toc {
-      width: var(--sidebar-width);
-      flex-shrink: 0;
-      position: sticky;
-      top: 80px;
-      align-self: flex-start;
-      max-height: calc(100vh - 100px);
-      overflow-y: auto;
-      padding-right: 8px;
-    }
-    aside.toc::-webkit-scrollbar { width: 4px; }
-    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-    aside.toc h3 {
-      font-family: var(--font-display);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-    aside.toc a {
-      display: block;
-      font-size: 13.5px;
-      font-weight: 400;
-      color: var(--text-muted);
-      text-decoration: none;
-      padding: 5px 0;
-      border-left: 2px solid transparent;
-      padding-left: 12px;
-      transition: all 0.2s ease;
-      line-height: 1.4;
-    }
-    aside.toc a:hover, aside.toc a.active { color: var(--accent); border-left-color: var(--accent); }
-    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
-    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
-    main.content { flex: 1; max-width: var(--max-width); }
-    .hero {
-      padding: 48px 0 40px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 40px;
-    }
-    .hero .chapter-badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      background: var(--accent-light);
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 38px;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--text);
-      margin-bottom: 12px;
-    }
-    .hero .subtitle { font-size: 16px; color: var(--text-muted); font-weight: 400; }
-    section { margin-bottom: 48px; }
-    section h2 {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 26px;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    section h3 {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 1.35;
-      color: var(--text);
-      margin-top: 28px;
-      margin-bottom: 12px;
-    }
-    section h4 {
-      font-weight: 600;
-      font-size: 15.5px;
-      color: var(--text);
-      margin-top: 20px;
-      margin-bottom: 8px;
-    }
-    section p { margin-bottom: 14px; color: var(--text); }
-    blockquote {
-      background: var(--accent-light);
-      border-left: 3px solid var(--accent);
-      padding: 14px 20px;
-      margin: 20px 0;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text);
-    }
-    blockquote strong { font-weight: 600; }
-    .callout {
-      background: #fff8e5;
-      border-left: 3px solid #d4a12a;
-      padding: 14px 18px;
-      margin: 20px 0;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      font-size: 15px;
-      color: #5a4a1a;
-    }
-    .table-wrap {
-      overflow-x: auto;
-      margin: 20px 0;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--surface);
-      box-shadow: var(--shadow-sm);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      line-height: 1.55;
-    }
-    table thead { background: var(--accent-light); }
-    table th {
-      font-weight: 600;
-      text-align: left;
-      padding: 10px 14px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      white-space: nowrap;
-    }
-    table td {
-      padding: 10px 14px;
-      border-top: 1px solid var(--border);
-      color: var(--text);
-      vertical-align: top;
-    }
-    table tbody tr:first-child td { border-top: none; }
-    table tbody tr:hover { background: #f5f3ef; }
-    table td:first-child { font-weight: 500; white-space: nowrap; }
-    pre {
-      background: #1a1a2e;
-      color: #e4e4f0;
-      padding: 20px 24px;
-      border-radius: var(--radius);
-      font-size: 13.5px;
-      line-height: 1.65;
-      overflow-x: auto;
-      margin: 20px 0;
-      font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    }
-    section ul, section ol { margin: 12px 0 16px; padding-left: 24px; }
-    section li { margin-bottom: 6px; line-height: 1.6; }
-    section ul ul { margin: 4px 0 4px 16px; }
-    hr { border: none; height: 1px; background: var(--border); margin: 40px 0; }
-    .terms-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 12px;
-      margin: 16px 0;
-    }
-    .terms-grid .term {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.2s ease;
-    }
-    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
-    .terms-grid .term strong { display: block; color: var(--accent); font-weight: 600; margin-bottom: 4px; font-size: 14px; }
-    .terms-grid .term span { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
-    footer { text-align: center; padding: 32px 0 16px; border-top: 1px solid var(--border); margin-top: 24px; }
-    footer p { font-size: 13px; color: var(--text-muted); }
-    .progress-bar { position: fixed; top: 60px; left: 0; right: 0; height: 2px; z-index: 99; background: transparent; }
-    .progress-bar .fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.1s linear; }
-    .toc-toggle {
-      display: none;
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 6px 12px;
-      font-family: var(--font-body);
-      font-size: 13px;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 200;
-      background: var(--surface);
-      box-shadow: var(--shadow-md);
-    }
-    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
-    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
-    section p strong { color: var(--accent); font-weight: 600; }
-    .mermaid-wrap {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px 16px;
-      margin: 20px 0;
-      overflow-x: auto;
-      overflow-y: hidden;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      justify-content: center;
-      -webkit-overflow-scrolling: touch;
-    }
-    .mermaid-wrap svg { max-width: 100%; height: auto; display: block; }
-    .mermaid-wrap svg .nodeLabel { font-family: var(--font-body) !important; font-size: 13px !important; }
-    .mermaid-wrap svg .edgeLabel { font-family: var(--font-body) !important; font-size: 12px !important; }
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(6px);
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      cursor: zoom-out;
-    }
-    .lightbox.active { display: flex; }
-    .lightbox-content {
-      max-width: 90vw;
-      max-height: 85vh;
-      object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
-      background: #fff;
-      padding: 16px;
-      cursor: default;
-    }
-    .lightbox-close { position: absolute; top: 20px; right: 28px; color: #fff; font-size: 36px; font-weight: 300; cursor: pointer; opacity: 0.8; line-height: 1; }
-    .lightbox-close:hover { opacity: 1; }
-    .lightbox-caption { color: rgba(255,255,255,0.7); font-size: 14px; margin-top: 16px; font-family: Outfit, sans-serif; }
-    .mermaid-img { max-width: 100%; height: auto; display: block; margin: 0 auto; cursor: zoom-in; transition: opacity 0.2s ease; }
-    .mermaid-img:hover { opacity: 0.85; }
-    @media (max-width: 900px) {
-      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
-      aside.toc { position: fixed; bottom: 0; left: 0; right: 0; top: auto; width: 100%; max-height: 0; overflow: hidden; background: var(--surface); border-top: 1px solid var(--border); box-shadow: 0 -4px 20px rgba(0,0,0,0.08); z-index: 150; transition: max-height 0.35s ease; padding: 0 20px; }
-      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
-      aside.toc h3 { margin-bottom: 12px; }
-      .toc-toggle { display: block; }
-    }
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 28px; }
-      .hero { padding: 32px 0 28px; }
-      section h2 { font-size: 22px; }
-      section { margin-bottom: 36px; }
-      table { font-size: 13px; }
-      table th, table td { padding: 8px 10px; }
-      pre { padding: 16px; font-size: 12.5px; }
-      nav.top-nav { padding: 0 16px; }
-      nav.top-nav .meta { display: none; }
-      .terms-grid { grid-template-columns: 1fr; }
-    }
-    .fade-in { opacity: 0; transform: translateY(12px); animation: fadeUp 0.6s ease forwards; }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    .hero { animation-delay: 0.1s; }
-    section:nth-of-type(1) { animation-delay: 0.15s; }
-    section:nth-of-type(2) { animation-delay: 0.2s; }
-    section:nth-of-type(3) { animation-delay: 0.25s; }
-    section:nth-of-type(4) { animation-delay: 0.3s; }
-    section:nth-of-type(5) { animation-delay: 0.35s; }
-    section:nth-of-type(6) { animation-delay: 0.4s; }
-  </style>
+  <link rel="stylesheet" href="../Retail/retail.css?v=20261028a">
+  <link rel="stylesheet" href="bst.css?v=20261029b">
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('study-os-theme');
+      if (savedTheme) {
+        savedTheme = JSON.parse(savedTheme);
+        if (savedTheme === 'dark') document.documentElement.dataset.theme = 'dark';
+      }
+    } catch (e) { /* first visit or storage blocked */ }
+    (function () {
+      var mode = null;
+      try { mode = localStorage.getItem('study-os-retail-mode'); } catch (e) { /* storage blocked */ }
+      var hash = location.hash.replace('#', '');
+      if (hash.indexOf('q-') === 0 || hash === 'quick') mode = 'quick';
+      else if (hash.indexOf('n-') === 0 || hash === 'notes') mode = 'notes';
+      if (mode !== 'quick') mode = 'notes';
+      document.documentElement.dataset.retailMode = mode;
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Chapter 5 — Emerging Modes of Business",
+    "description": "Class 11 BST Chapter 5 Emerging Modes of Business — complete easy notes plus quick revision: e-business meaning and Kotler definition, e-business vs e-commerce, the four branches, benefits and limitations, outsourcing.",
+    "learningResourceType": "Revision notes",
+    "educationalLevel": "Class 11",
+    "about": "Business Studies",
+    "inLanguage": "en",
+    "isPartOf": { "@type": "Course", "name": "Business Studies Class 11" }
+  }
+  </script>
 </head>
-<body>
+<body class="retail-page" data-unit="bst-5" data-base-title="Chapter 5 — Emerging Modes of Business" data-subject="BST">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
 
-  <nav class="top-nav">
-    <a href="../index.html" class="logo">&larr; BST <span>Notes</span></a>
-    <span class="meta">Class 11 &middot; Chapter 5</span>
-    <button class="mindmap-toggle" aria-label="Open mind map" title="Mind Map"><span class="mm-icon">🗺️</span> Mind Map</button>
-  </nav>
+  <header class="topbar">
+    <a class="brand" href="../index.html" aria-label="Study OS home">
+      <span class="brand-mark">S</span>
+      <span class="brand-copy"><span class="brand-name">Study OS</span><span class="brand-sub">BST notes</span></span>
+    </a>
+    <div class="topbar-actions">
+      <button class="mindmap-toggle" type="button" aria-haspopup="dialog" title="Open the chapter mind map">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="2.2"/><circle cx="19" cy="5" r="2.2"/><circle cx="19" cy="19" r="2.2"/><path d="M7.2 12h3.3a3 3 0 0 0 3-3V7.2M10.5 12a4.5 4.5 0 0 1 4.5 4.5v.3"/></svg>
+        <span class="mm-label">Mind Map</span>
+      </button>
+      <div class="mode-switch" role="group" aria-label="Study mode">
+        <button type="button" data-set-mode="notes" aria-pressed="true" aria-controls="panel-notes" aria-label="Easy Notes">Notes</button>
+        <button type="button" data-set-mode="quick" aria-pressed="false" aria-controls="panel-quick" aria-label="Quick Revision">Quick</button>
+      </div>
+      <button class="icon-btn print-toggle" type="button" title="Print the open notes" aria-label="Print the open notes">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+      </button>
+      <button class="icon-btn dark-toggle" id="themeToggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+      </button>
+    </div>
+  </header>
 
-  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
-
-<button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
-
-  <div class="wrapper">
-    <aside class="toc" id="toc">
-      <h3>Contents</h3>
-      <a href="#introduction" class="toc-h2">1. Introduction</a>
-      <a href="#ebusiness" class="toc-h2">2. E-Business</a>
-      <a href="#scope" class="toc-h3">2.1 Scope of e-Business</a>
-      <a href="#vs-traditional" class="toc-h3">2.2 e-Business vs Traditional</a>
-      <a href="#benefits" class="toc-h3">2.3 Benefits of e-Business</a>
-      <a href="#limitations" class="toc-h3">2.4 Limitations</a>
-      <a href="#outsourcing" class="toc-h2">3. Outsourcing</a>
-      <a href="#practice-questions" class="toc-h2">4. Practice Questions</a>
-      <a href="#quick-revision" class="toc-h2">5. Quick Revision</a>
+  <div class="layout">
+    <aside class="toc" id="toc" aria-label="On this page">
+      <div class="toc-top">
+        <p class="toc-title">On this page</p>
+        <span class="toc-mode" id="tocModeLabel">Easy Notes</span>
+      </div>
+      <nav class="toc-nav toc-nav--notes" data-mode-nav="notes" aria-label="Easy notes contents">
+<span class="toc-group">Start</span>
+<a class="toc-link toc-main" href="#n-start">Chapter at a glance</a>
+<a class="toc-link toc-main" href="#n-snapshot">Chapter Snapshot</a>
+<a class="toc-link toc-main" href="#n-mindmap">Chapter Mind Map</a>
+<a class="toc-link toc-main" href="#n-keyterms">Key Terms</a>
+<span class="toc-group">Sections</span>
+<a class="toc-link toc-main" href="#n-section-1">1 · Emerging Modes of Business and E-Business</a>
+<a class="toc-link toc-sub" href="#n-s1-1">1.1 What Are Emerging Modes of Business?</a>
+<a class="toc-link toc-sub" href="#n-s1-2">1.2 Why Businesses Need Emerging Modes</a>
+<a class="toc-link toc-sub" href="#n-s1-3">1.3 E-Business: Meaning and the Kotler Definition</a>
+<a class="toc-link toc-sub" href="#n-s1-4">1.4 E-Business vs E-Commerce</a>
+<a class="toc-link toc-main" href="#n-section-2">2 · Scope of E-Business: The Four Branches</a>
+<a class="toc-link toc-sub" href="#n-s2-1">2.1 B2B Commerce: Business to Business</a>
+<a class="toc-link toc-sub" href="#n-s2-2">2.2 B2C Commerce: Business to Customer</a>
+<a class="toc-link toc-sub" href="#n-s2-3">2.3 C2C Commerce: Customer to Customer</a>
+<a class="toc-link toc-sub" href="#n-s2-4">2.4 Intra-B Commerce: Within the Firm</a>
+<a class="toc-link toc-main" href="#n-section-3">3 · E-Business vs Traditional Business</a>
+<a class="toc-link toc-sub" href="#n-s3-1">3.1 Basis-by-Basis Comparison</a>
+<a class="toc-link toc-sub" href="#n-s3-2">3.2 Benefits of E-Business</a>
+<a class="toc-link toc-sub" href="#n-s3-3">3.3 Limitations of E-Business</a>
+<a class="toc-link toc-main" href="#n-section-4">4 · Outsourcing</a>
+<a class="toc-link toc-sub" href="#n-s4-1">4.1 What Is Outsourcing?</a>
+<a class="toc-link toc-sub" href="#n-s4-2">4.2 Why Firms Outsource: Six Reasons</a>
+<a class="toc-link toc-main" href="#n-section-5">5 · Exam Corner</a>
+<a class="toc-link toc-sub" href="#n-s5-1">5.1 MCQs with Printed Keys</a>
+<a class="toc-link toc-sub" href="#n-s5-2">5.2 Case Study with Model Answer</a>
+<a class="toc-link toc-sub" href="#n-s5-3">5.3 Most Repeated Exam Points</a>
+<a class="toc-link toc-main" href="#n-section-6">6 · Revision Corner</a>
+<a class="toc-link toc-sub" href="#n-s6-1">6.1 Fast Revision — One Page</a>
+<a class="toc-link toc-sub" href="#n-s6-2">6.2 Numbers and Facts at a Glance</a>
+<a class="toc-link toc-sub" href="#n-s6-3">6.3 Common Traps to Avoid</a>
+<a class="toc-link toc-sub" href="#n-s6-4">6.4 Final Self-Test</a>
+      </nav>
+      <nav class="toc-nav toc-nav--quick" data-mode-nav="quick" aria-label="Quick revision contents" hidden>
+<span class="toc-group">Start</span>
+<a class="toc-link toc-main" href="#q-start">Start here</a>
+<span class="toc-group">Sessions</span>
+<a class="toc-link toc-main" href="#q-session-1">Session 1 · Emerging Modes and E-Business</a>
+<a class="toc-link toc-sub" href="#q-s1-the-chapter-in-12-lines">The chapter in 12 lines</a>
+<a class="toc-link toc-sub" href="#q-s1-meaning-the-exact-line">Meaning — the exact line</a>
+<a class="toc-link toc-sub" href="#q-s1-why-businesses-need-emerging-modes-5-needs">Why businesses need emerging modes — 5 needs</a>
+<a class="toc-link toc-sub" href="#q-s1-e-business-definition-and-the-kotler-line">E-business — definition and the Kotler line</a>
+<a class="toc-link toc-sub" href="#q-s1-e-business-vs-e-commerce-3-bases">E-business vs e-commerce — 3 bases</a>
+<a class="toc-link toc-sub" href="#q-s1-key-terms-the-10-that-carry-marks">Key terms — the 10 that carry marks</a>
+<a class="toc-link toc-sub" href="#q-s1-recall-drill-session-1">Recall drill — Session 1</a>
+<a class="toc-link toc-main" href="#q-session-2">Session 2 · The Four Branches of E-Business</a>
+<a class="toc-link toc-sub" href="#q-s2-the-four-branches-at-a-glance">The four branches at a glance</a>
+<a class="toc-link toc-sub" href="#q-s2-b2b-commerce-business-to-business">B2B Commerce — business to business</a>
+<a class="toc-link toc-sub" href="#q-s2-b2c-commerce-business-to-customer">B2C Commerce — business to customer</a>
+<a class="toc-link toc-sub" href="#q-s2-c2c-commerce-customer-to-customer">C2C Commerce — customer to customer</a>
+<a class="toc-link toc-sub" href="#q-s2-intra-b-commerce-within-the-firm">Intra-B Commerce — within the firm</a>
+<a class="toc-link toc-sub" href="#q-s2-exam-corner-3-mcqs-with-printed-keys">Exam Corner — 3 MCQs with printed keys</a>
+<a class="toc-link toc-sub" href="#q-s2-case-study-toolkit-the-4-source-cases">Case study toolkit — the 4 source cases</a>
+<a class="toc-link toc-sub" href="#q-s2-recall-drill-session-2">Recall drill — Session 2</a>
+<a class="toc-link toc-main" href="#q-session-3">Session 3 · E-Business vs Traditional Business</a>
+<a class="toc-link toc-sub" href="#q-s3-the-11-bases-full-table">The 11 bases — full table</a>
+<a class="toc-link toc-sub" href="#q-s3-benefits-of-e-business-5">Benefits of e-business — 5</a>
+<a class="toc-link toc-sub" href="#q-s3-limitations-of-e-business-6">Limitations of e-business — 6</a>
+<a class="toc-link toc-sub" href="#q-s3-recall-drill-session-3">Recall drill — Session 3</a>
+<a class="toc-link toc-main" href="#q-session-4">Session 4 · Outsourcing</a>
+<a class="toc-link toc-sub" href="#q-s4-outsourcing-the-exact-definition">Outsourcing — the exact definition</a>
+<a class="toc-link toc-sub" href="#q-s4-six-reasons-for-outsourcing">Six reasons for outsourcing</a>
+<a class="toc-link toc-sub" href="#q-s4-bpo-and-kpo-the-two-labels">BPO and KPO — the two labels</a>
+<a class="toc-link toc-sub" href="#q-s4-writing-the-outsourcing-answer">Writing the outsourcing answer</a>
+<a class="toc-link toc-sub" href="#q-s4-what-the-paper-repeats">What the paper repeats</a>
+<a class="toc-link toc-sub" href="#q-s4-recall-drill-session-4">Recall drill — Session 4</a>
+<span class="toc-group">Drill room</span>
+<a class="toc-link toc-main" href="#q-clinic">Confusion Clinic</a>
+<a class="toc-link toc-main" href="#q-rapid">Rapid Fire</a>
+<a class="toc-link toc-main" href="#q-blank">Blank Page Test</a>
+<a class="toc-link toc-main" href="#q-plan">15-minute plan</a>
+      </nav>
+      <div class="toc-foot"><span>Chapter 5</span><span>Notes + quick</span></div>
     </aside>
 
-    <main class="content">
-
-      <header class="hero fade-in">
-        <span class="chapter-badge">Chapter 5</span>
+    <main id="main" class="content">
+      <header class="hero">
+        <div class="hero-mark" aria-hidden="true">05</div>
+        <p class="eyebrow"><span>Business Studies · Class 11</span><span>Chapter 5</span><span>Notes + quick revision</span></p>
         <h1>Emerging Modes of Business</h1>
-        <p class="subtitle">Class 11 Business Studies &mdash; Complete Revision Notes</p>
+        <p class="lede">E-business, its four branches, comparison with traditional business, benefits, limitations and outsourcing — six sections, an exam corner and a revision corner.</p>
+        <div class="hero-chips">
+          <span class="chip">6 sections</span>
+          <span class="chip">≈ 32 min full read</span>
+          <span class="chip">28 min quick recall</span>
+          <span class="chip">50 recall questions</span>
+          <span class="chip chip-quiet">Built from both source notes</span>
+        </div>
       </header>
 
-      <!-- 1. Introduction -->
-      <section id="introduction" class="fade-in">
-        <h2>1. Introduction</h2>
-
-        <p>In the modern period, there has been a considerable change in the manner of conducting business. <strong>'Emerging Modes of Business'</strong> refers to the recent trends and technologies shaping the way business is done today.</p>
-
-        <blockquote>
-          <strong>Why the shift?</strong> To meet ever-growing competition, maintain quality standards, offer lower prices, ensure faster order processing, and provide better customer care &mdash; businesses must take advantage of emerging technologies.
-        </blockquote>
-
-        <p>The <strong>strongest trend</strong> shaping modern business is <strong>e-Business (Electronic Business)</strong>.</p>
-      </section>
-
-      <hr>
-
-      <!-- 2. E-Business -->
-      <section id="ebusiness" class="fade-in">
-        <h2>2. E-Business</h2>
-
-        <h3>What is e-Business?</h3>
-
-        <p><strong>Electronic Business</strong>, commonly known as <strong>e-Business</strong>, refers to conducting business activities over the internet or any other computer network.</p>
-
-        <blockquote>
-          <strong>In the words of Philip Kotler:</strong><br>
-          <em>"Electronic business is the general term for buying and selling processes that are supported by electronic means."</em>
-        </blockquote>
-
-        <div class="mermaid-wrap">
-          <pre class="mermaid">
-            graph TD
-              EB["<b>E-BUSINESS</b>"] --> IND["<b>Industry</b><br/><i>Production</i>"]
-              EB --> COM["<b>Commerce</b><br/><i>Trade &amp; Distribution</i>"]
-          </pre>
+      <div class="mode-panel mode-panel--notes" id="panel-notes" role="region" aria-label="Easy Notes" data-mode="notes">
+      <section class="glance" id="n-start">
+        <div class="section-head">
+          <span class="section-kicker">The map</span>
+          <h2>Chapter at a glance</h2>
+          <p>Six sections, one clear path. Tap a card to jump straight in.</p>
         </div>
-
-        <h3>e-Business vs e-Commerce</h3>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Basis</th><th>e-Commerce</th><th>e-Business</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Scope</strong></td><td>Narrow &mdash; deals only with <strong>distribution</strong> of goods &amp; services</td><td><strong>Wider</strong> &mdash; includes e-commerce + all other business functions</td></tr>
-              <tr><td><strong>Functions Covered</strong></td><td>Buying &amp; selling only</td><td>Production, accounting, finance, personnel, administration, etc.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="callout">
-          <strong>&#x1f9e0; Think of it this way:</strong> e-Business is like a full tree; e-Commerce is just one branch (the buying-selling branch). Every e-commerce is e-business, but NOT every e-business is e-commerce.
-        </div>
-
-        <!-- 2.1 Scope -->
-        <h3 id="scope">2.1 Scope of e-Business (Categories)</h3>
-
-        <div class="mermaid-wrap">
-          <pre class="mermaid">
-            graph TD
-              EB["<b>E-BUSINESS</b>"] --> B2B["<b>B2B</b><br/><i>Business to Business</i>"]
-              EB --> B2C["<b>B2C</b><br/><i>Business to Customer</i>"]
-              EB --> C2C["<b>C2C</b><br/><i>Customer to Customer</i>"]
-              EB --> INTRA["<b>Intra-B</b><br/><i>Within the Firm</i>"]
-          </pre>
-        </div>
-
-        <h4>A. B2B Commerce (Business to Business)</h4>
-        <p>Transactions taking place <strong>between business firms</strong> are referred to as B2B transactions.</p>
-
-        <p><strong>Example:</strong> Maruti Suzuki buys tyres, glass for windscreens, door handles, etc. from different business suppliers &mdash; all are B2B transactions.</p>
-
-        <div class="mermaid-wrap">
-          <pre class="mermaid">
-            graph LR
-              SA["Supplier A<br/><i>Tyres</i>"] --> MS["<b>Maruti Suzuki</b>"]
-              SB["Supplier B<br/><i>Glass</i>"] --> MS
-              SC["Supplier C<br/><i>Handles</i>"] --> MS
-              SD["Supplier D<br/><i>Parts</i>"] --> MS
-          </pre>
-        </div>
-
-        <p><strong>Common B2B activities include:</strong> Inviting tenders, commercial negotiations, distribution of goods, creation of utilities, collaborations.</p>
-
-        <h4>B. B2C Commerce (Business to Customer)</h4>
-        <p>Transactions taking place <strong>between business and customers</strong>. It enables the business to remain in touch with its customers on a <strong>round-the-clock basis</strong>.</p>
-
-        <p><strong>Example:</strong> Withdrawal of money from ATMs &mdash; previously tedious, now possible 24&times;7 from any ATM.</p>
-
-        <p><strong>B2C activities include:</strong> Selling and distribution of goods, lodging of complaints, after-sale service, promotional activities.</p>
-        <p><strong>Popular platforms:</strong> Amazon, Flipkart, Snapdeal, eBay</p>
-
-        <h4>C. C2C Commerce (Customer to Customer)</h4>
-        <p>Transactions taking place <strong>between two or more customers</strong>.</p>
-
-        <p><strong>Example:</strong> OLX and Quikr &mdash; consumers sell their goods and services directly to other consumers.</p>
-
-        <p><strong>C2C activities include:</strong> Selling used books/clothes, selling antique items, warning customers about fraudulent suppliers, sharing product quality information.</p>
-
-        <h4>D. Intra-B Commerce (Within the Business)</h4>
-        <p>e-Business is <strong>wider than e-commerce</strong>. It includes not only B2B, B2C, and C2C but also <strong>Intra-B Commerce</strong> &mdash; interaction and dealings among various departments and persons <strong>within the same firm</strong>.</p>
-
-        <p>This involves the use of <strong>Intranet</strong> to interact and coordinate between departments. The use of Intra-B Commerce has facilitated <strong>flexible manufacturing</strong>.</p>
-
-        <p><strong>Example:</strong> The marketing department interacts regularly with the production department to get products made as per customer requirements.</p>
-
-        <div class="mermaid-wrap">
-          <pre class="mermaid">
-            graph TD
-              SUB["<b>Intranet</b>"] --> MKT["Marketing Dept"]
-              SUB --> PUR["Purchase Dept"]
-              SUB --> PROD["Production Dept"]
-              MKT -->|coordinates with| PROD
-              PUR -->|coordinates with| PROD
-          </pre>
-        </div>
-
-        <p><strong>Intra-B Commerce transactions involve:</strong> Inventory &amp; cash management, reporting by employees, human resource management, recruitment &amp; selection, training &amp; development.</p>
-
-        <div class="callout">
-          <strong>&#x1f310; VPN Technology:</strong> Companies use <strong>Virtual Private Networks (VPN)</strong> so employees can access the organisation's network and work from anywhere securely.
-        </div>
-
-        <!-- 2.2 vs Traditional -->
-        <h3 id="vs-traditional">2.2 e-Business vs Traditional Business</h3>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Basis</th><th>e-Business</th><th>Traditional Business</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Ease of Formation</strong></td><td>&#x2705; Easy &mdash; no physical presence needed</td><td>&#x274c; Difficult &mdash; many formalities</td></tr>
-              <tr><td><strong>Physical Presence</strong></td><td>Not required</td><td>Required</td></tr>
-              <tr><td><strong>Locational Requirements</strong></td><td>No physical location needed</td><td>Preferred near raw materials &amp; market</td></tr>
-              <tr><td><strong>Cost of Setting Up</strong></td><td>&#x2705; <strong>Low</strong> &mdash; no physical facilities</td><td>&#x274c; <strong>High</strong> &mdash; infrastructure investment</td></tr>
-              <tr><td><strong>Operating Cost</strong></td><td>&#x2705; Low</td><td>&#x274c; High</td></tr>
-              <tr><td><strong>Contact with Suppliers &amp; Customers</strong></td><td>&#x2705; <strong>Direct</strong> contact</td><td>&#x274c; Indirect through intermediaries</td></tr>
-              <tr><td><strong>Internal Communication</strong></td><td>Any direction (horizontal, vertical)</td><td>Hierarchical (top-down)</td></tr>
-              <tr><td><strong>Response Time</strong></td><td>&#x2705; <strong>Instant</strong> response</td><td>&#x274c; Takes a lot of time</td></tr>
-              <tr><td><strong>Organisational Structure</strong></td><td>Flat structure &mdash; direct command</td><td>Tall/Vertical &mdash; chain of command</td></tr>
-              <tr><td><strong>Business Cycle</strong></td><td>&#x2705; <strong>Short</strong> &mdash; click of a mouse</td><td>&#x274c; Long &mdash; sequential processes</td></tr>
-              <tr><td><strong>Interpersonal Touch</strong></td><td>&#x274c; Less opportunity</td><td>&#x2705; More face-to-face interaction</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- 2.3 Benefits -->
-        <h3 id="benefits">2.3 Benefits of e-Business</h3>
-
-        <div class="mermaid-wrap">
-          <pre class="mermaid">
-            graph LR
-              EB["<b>Benefits of<br/>e-Business</b>"] --> EF["<b>1. Ease of Formation</b><br/>Low investment needed"]
-              EB --> CV["<b>2. Convenience</b><br/>24&times;7 access"]
-              EB --> SP["<b>3. Speed</b><br/>Click of a mouse"]
-              EB --> GR["<b>4. Global Reach</b><br/>Worldwide operations"]
-              EB --> PS["<b>5. Paperless Society</b><br/>Less paperwork"]
-          </pre>
-        </div>
-
-        <div class="terms-grid">
-          <div class="term">
-            <strong>1. Ease of Formation &amp; Lower Investment</strong>
-            <span>Very easy to start &mdash; no procedural requirements. Success depends on <strong>network (contacts)</strong>, not on <strong>investment (net worth)</strong>. Benefits accrue to big and small businesses alike.</span>
-          </div>
-          <div class="term">
-            <strong>2. Convenience</strong>
-            <span>Access anything <strong>anywhere, anytime</strong> (24&times;7). Customers can shop at their own convenience without time or location constraints.</span>
-          </div>
-          <div class="term">
-            <strong>3. Speed</strong>
-            <span>Very less time to complete the business cycle &mdash; entire process with a <strong>click of a mouse</strong>. Digital products (music, movies, e-books) delivered instantly. Money transferred instantly via electronic funds transfer.</span>
-          </div>
-          <div class="term">
-            <strong>4. Global Reach / Global Access</strong>
-            <span>Sellers can operate at <strong>national and global levels</strong>. Buyers and sellers from any part of the world can interact with each other.</span>
-          </div>
-          <div class="term">
-            <strong>5. Movement Towards a Paperless Society</strong>
-            <span>Reduced dependence on paperwork &mdash; most work done electronically. Even government departments use computers; e.g., filing income tax returns online.</span>
-          </div>
-        </div>
-
-        <!-- 2.4 Limitations -->
-        <h3 id="limitations">2.4 Limitations of e-Business</h3>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Limitation</th><th>Explanation</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Low Personal Touch</strong></td><td>No face-to-face interaction &mdash; lack of human element in transactions</td></tr>
-              <tr><td><strong>Delay in Delivery</strong></td><td>Physical products still need shipping &mdash; no instant gratification</td></tr>
-              <tr><td><strong>Need for Technology Capability</strong></td><td>Both buyer and seller need internet access &amp; technical skills</td></tr>
-              <tr><td><strong>Non-Traceability of Parties</strong></td><td>Parties may be fraudulent or untraceable &mdash; risk of scams</td></tr>
-              <tr><td><strong>People Resistance</strong></td><td>Many still prefer traditional shopping due to habit or trust issues</td></tr>
-              <tr><td><strong>Ethical Fallouts</strong></td><td>Issues like spam emails, privacy breaches, data theft, fake reviews</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-      </section>
-
-      <hr>
-
-      <!-- 3. Outsourcing -->
-      <section id="outsourcing" class="fade-in">
-        <h2>3. Outsourcing</h2>
-
-        <h3>What is Outsourcing?</h3>
-
-        <blockquote>
-          <strong>Outsourcing</strong> refers to contracting out some of its activities to a third party which were earlier performed by the organisation itself.
-        </blockquote>
-
-        <p><strong>In simple words:</strong> Instead of doing everything yourself, hire another company to do certain tasks for you.</p>
-
-        <h3>Need for Outsourcing</h3>
-
-        <div class="mermaid-wrap">
-          <pre class="mermaid">
-            graph TD
-              NFO["<b>Need for<br/>Outsourcing</b>"] --> FA["1. Focusing of Attention<br/><i>Focus on core activities</i>"]
-              NFO --> QE["2. Quest for Excellence<br/><i>Specialist vendors</i>"]
-              NFO --> CR["3. Cost Reduction<br/><i>Lower operational costs</i>"]
-              NFO --> GA["4. Growth through Alliance<br/><i>Strategic partnerships</i>"]
-              NFO --> BE["5. Boost to Economic Development<br/><i>Employment generation</i>"]
-              NFO --> RS["6. Risk Sharing<br/><i>Transfer risk to vendor</i>"]
-          </pre>
-        </div>
-
-        <div class="terms-grid">
-          <div class="term">
-            <strong>1. Focusing of Attention</strong>
-            <span>Allows the organisation to <strong>focus on its core business activities</strong> while non-core tasks are handled by specialists.</span>
-          </div>
-          <div class="term">
-            <strong>2. Quest for Excellence</strong>
-            <span>Third-party vendors are often <strong>specialists</strong> who deliver high-quality output &mdash; the organisation benefits from their expertise.</span>
-          </div>
-          <div class="term">
-            <strong>3. Cost Reduction</strong>
-            <span>Helps <strong>reduce operational costs</strong> &mdash; the third party may have economies of scale or lower labour costs (e.g., BPO in India).</span>
-          </div>
-          <div class="term">
-            <strong>4. Growth through Alliance</strong>
-            <span>Creates a <strong>partnership relationship</strong> &mdash; the organisation builds strategic alliances with vendors for mutual growth.</span>
-          </div>
-          <div class="term">
-            <strong>5. Boost to Economic Development</strong>
-            <span>Outsourcing creates <strong>employment and economic activity</strong> in the vendor's location &mdash; e.g., the BPO industry in India.</span>
-          </div>
-          <div class="term">
-            <strong>6. Risk Sharing</strong>
-            <span>By outsourcing, some of the <strong>business risk is transferred</strong> to the third-party vendor, reducing the burden on the organisation.</span>
-          </div>
+        <div class="glance-grid">
+        <a class="glance-card" href="#n-section-1">
+          <span class="glance-num">1</span>
+          <span class="glance-body"><strong>Emerging Modes of Business and E-Business</strong><span>What Are Emerging Modes of Business? · Why Businesses Need Emerging Modes</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-2">
+          <span class="glance-num">2</span>
+          <span class="glance-body"><strong>Scope of E-Business: The Four Branches</strong><span>B2B Commerce: Business to Business · B2C Commerce: Business to Customer</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-3">
+          <span class="glance-num">3</span>
+          <span class="glance-body"><strong>E-Business vs Traditional Business</strong><span>Basis-by-Basis Comparison · Benefits of E-Business</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-4">
+          <span class="glance-num">4</span>
+          <span class="glance-body"><strong>Outsourcing</strong><span>What Is Outsourcing? · Why Firms Outsource: Six Reasons</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-5">
+          <span class="glance-num">5</span>
+          <span class="glance-body"><strong>Exam Corner</strong><span>MCQs, a model case study and the points that repeat most.</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-6">
+          <span class="glance-num">6</span>
+          <span class="glance-body"><strong>Revision Corner</strong><span>One-page recap, numbers, common traps and a final self-test.</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
         </div>
       </section>
-
-      <hr>
-
-      <!-- 4. Practice Questions -->
-      <section id="practice-questions" class="fade-in">
-        <h2>4. Practice Questions</h2>
-
-        <h3>Multiple Choice Questions</h3>
-
-        <p><strong>Q1.</strong> OLX is an example of which category of e-business?</p>
-        <ul>
-          <li>(a) B2B</li>
-          <li>(b) B2C</li>
-          <li><strong>(c) C2C &#x2714;&#xfe0f;</strong></li>
-          <li>(d) Intra B</li>
-        </ul>
-
-        <p><strong>Q2.</strong> Mail sent by the purchase department to the production department is an example of:</p>
-        <ul>
-          <li>(a) B2B</li>
-          <li>(b) B2C</li>
-          <li>(c) C2C</li>
-          <li><strong>(d) Intra B &#x2714;&#xfe0f;</strong></li>
-        </ul>
-
-        <p><strong>Q3.</strong> Sending quotations for supplying raw material by one businessman to another is called:</p>
-        <ul>
-          <li><strong>(a) B2B &#x2714;&#xfe0f;</strong></li>
-          <li>(b) B2C</li>
-          <li>(c) C2C</li>
-          <li>(d) Intra B</li>
-        </ul>
-
-        <p><strong>Q4.</strong> Which of the following is NOT a limitation of e-business?</p>
-        <ul>
-          <li>(a) Low personal touch</li>
-          <li><strong>(b) Global reach &#x2714;&#xfe0f;</strong></li>
-          <li>(c) Delay in delivery</li>
-          <li>(d) Need for technology capability</li>
-        </ul>
-
-        <p><strong>Q5.</strong> Outsourcing refers to:</p>
-        <ul>
-          <li>(a) Doing all work in-house</li>
-          <li><strong>(b) Contracting out activities to a third party &#x2714;&#xfe0f;</strong></li>
-          <li>(c) Hiring more employees</li>
-          <li>(d) Opening new branches</li>
-        </ul>
-
-        <h3>Case Studies</h3>
-
-        <h4>Case 1: OLX Sofa Sale</h4>
-        <p>Mr. Rajiv wants to buy a new sofa set but doesn't have space. He plans to sell his old sofa through OLX. He gets a great response and chooses the buyer who gives him the best price.</p>
-        <p><strong>(a)</strong> Which are the two parties involved?</p>
-        <p><strong>(b)</strong> What branch of e-business is referred to?</p>
-        <p><strong>Answers:</strong></p>
-        <ul>
-          <li><strong>(a)</strong> Customer and Customer (Consumer-to-Consumer)</li>
-          <li><strong>(b)</strong> <strong>C2C (Consumer-to-Consumer)</strong> Commerce</li>
-        </ul>
-
-        <h4>Case 2: General Technologies (Work from Home)</h4>
-        <p>Software engineers at 'General Technologies' get freedom to work from home using company-provided laptops. They take daily tasks from the work manager and complete them at home.</p>
-        <p><strong>(a)</strong> Identify the dimension of e-business.</p>
-        <p><strong>(b)</strong> State any two other dimensions of e-business.</p>
-        <p><strong>Answers:</strong></p>
-        <ul>
-          <li><strong>(a)</strong> <strong>Intra-B Commerce</strong> (employees accessing company network remotely)</li>
-          <li><strong>(b)</strong> Any two of: B2B, B2C, C2C</li>
-        </ul>
-
-        <h4>Case 3: TrendZilla Online Store</h4>
-        <p>Ritika starts an online store named <strong>TrendZilla</strong> selling handmade jewellery via Instagram and a website. Customers order and pay online. She uses a courier partner for delivery.</p>
-        <p><strong>(a)</strong> Which e-business model is Ritika using?</p>
-        <p><strong>(b)</strong> State any two benefits of running a business online.</p>
-        <p><strong>Answers:</strong></p>
-        <ul>
-          <li><strong>(a)</strong> <strong>B2C (Business to Consumer)</strong></li>
-          <li><strong>(b)</strong> Convenience (24&times;7 shopping), Speed (quick ordering), Ease of Formation (low setup cost)</li>
-        </ul>
-
-        <h4>Case 4: B2B vs B2C</h4>
-        <p><strong>Company A</strong> supplies raw materials (steel, plastic) to manufacturers. <strong>Company B</strong> sells electronics (mobiles, headphones) directly to customers via website.</p>
-        <p><strong>(a)</strong> Identify which is B2B and which is B2C.</p>
-        <p><strong>(b)</strong> Give one example of each.</p>
-        <p><strong>Answers:</strong></p>
-        <ul>
-          <li><strong>(a)</strong> Company A = <strong>B2B</strong> &vert; Company B = <strong>B2C</strong></li>
-          <li><strong>(b)</strong> B2B: Tyre manufacturer supplying to Maruti Suzuki &vert; B2C: Amazon selling to individual customers</li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <!-- 5. Quick Revision -->
-      <section id="quick-revision" class="fade-in">
-        <h2>5. Quick Revision &mdash; Chapter at a Glance</h2>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Topic</th><th>Key Point</th></tr></thead>
-            <tbody>
-              <tr><td><strong>e-Business</strong></td><td>Conducting business over internet/computer network</td></tr>
-              <tr><td><strong>e-Business vs e-Commerce</strong></td><td>e-Business = e-Commerce + other functions (wider term)</td></tr>
-              <tr><td><strong>B2B</strong></td><td>Business to Business &mdash; between firms</td></tr>
-              <tr><td><strong>B2C</strong></td><td>Business to Customer &mdash; round-the-clock service</td></tr>
-              <tr><td><strong>C2C</strong></td><td>Customer to Customer &mdash; e.g., OLX, Quikr</td></tr>
-              <tr><td><strong>Intra-B</strong></td><td>Within the firm &mdash; inter-departmental dealings via intranet</td></tr>
-              <tr><td><strong>VPN</strong></td><td>Virtual Private Network &mdash; work securely from anywhere</td></tr>
-              <tr><td><strong>Benefits of e-Business</strong></td><td>Ease of formation, convenience, speed, global reach, paperless</td></tr>
-              <tr><td><strong>Limitations of e-Business</strong></td><td>Low personal touch, delay in delivery, tech dependency, scams</td></tr>
-              <tr><td><strong>Outsourcing</strong></td><td>Contracting out activities to a third party</td></tr>
-              <tr><td><strong>Need for Outsourcing</strong></td><td>Focus, excellence, cost reduction, alliance, risk sharing</td></tr>
-            </tbody>
-          </table>
+      <section class="session" id="n-snapshot">
+        <header class="session-head"><span class="session-kicker">The map</span><h2>Chapter Snapshot</h2></header>
+        <div class="session-body">
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>Lecture</th><th>What it covers</th></tr></thead>
+    <tbody>
+        <tr><td>Lecture 1</td><td>Introduction, need for emerging modes, meaning of e-business, Kotler's definition, e-business vs e-commerce, scope of e-business — B2B, B2C, C2C, Intra-B, 3 MCQs, 2 case studies</td></tr>
+        <tr><td>Lecture 2</td><td>Intra-B commerce and VPN, e-business vs traditional business (11-point table), benefits of e-business, limitations of e-business, outsourcing and its need, 1 MCQ, 2 case studies</td></tr>
+    </tbody>
+  </table>
+</div>
         </div>
-
-        <div class="callout">
-          <strong>&#x1f9e0; Memory Aids:</strong><br>
-          <strong>e-Business &gt; e-Commerce</strong> &mdash; think full tree vs one branch<br>
-          <strong>B2B</strong> = Firm sells to another firm &bull; <strong>B2C</strong> = Firm sells to individual customer<br>
-          <strong>C2C</strong> = Customer sells to another customer &bull; <strong>Intra-B</strong> = Department talks to another department<br>
-          <strong>Benefits of e-Business: ECG SP</strong> &mdash; <strong>E</strong>ase of formation, <strong>C</strong>onvenience, <strong>G</strong>lobal reach, <strong>S</strong>peed, <strong>P</strong>aperless society
+      </section>
+      <section class="session" id="n-mindmap">
+        <header class="session-head"><span class="session-kicker">Visualise it</span><h2>Chapter Mind Map</h2></header>
+        <div class="session-body">
+        <div class="mermaid-wrap"><div class="mermaid">
+mindmap
+  root((Chapter 5))
+    Emerging Modes of Business
+      Meaning
+      Need for emerging modes
+    E-Business
+      Kotler's definition
+      Wider than e-commerce
+      B2B / B2C / C2C / Intra-B
+    E-Business vs Traditional Business
+      11 bases of comparison
+      5 benefits
+      6 limitations
+    Outsourcing
+      Meaning
+      6 reasons
+        </div></div>
+        <p class="map-caption">Counts behind the map: 4 branches of e-business, 11 bases of comparison with traditional business, 5 benefits, 6 limitations, 6 reasons firms outsource.</p>
+        <div class="map-open-row">
+          <button class="mindmap-toggle mindmap-toggle--inline" type="button" aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="2.2"/><circle cx="19" cy="5" r="2.2"/><circle cx="19" cy="19" r="2.2"/><path d="M7.2 12h3.3a3 3 0 0 0 3-3V7.2M10.5 12a4.5 4.5 0 0 1 4.5 4.5v.3"/></svg>
+            <span class="mm-label">Open the full mind map</span>
+          </button>
+        </div>
+        </div>
+      </section>
+      <section class="keyterms" id="n-keyterms">
+        <div class="section-head">
+          <span class="section-kicker">Speak the language</span>
+          <h2>Key Terms — Read These First</h2>
+          <p>The words that carry marks. Read these before the sections, then test yourself after.</p>
+        </div>
+        <dl class="term-grid">
+          <div class="term"><dt>Emerging Modes of Business</dt><dd>The recent trends taking place in the way business is done</dd></div>
+          <div class="term"><dt>Emerging Technologies</dt><dd>Tools a business uses to meet competition, quality standards, lower prices, faster order processing and better customer care</dd></div>
+          <div class="term"><dt>E-Business (Electronic Business)</dt><dd>Conducting business activities over the internet or any other computer network</dd></div>
+          <div class="term"><dt>Philip Kotler</dt><dd>The thinker who defined electronic business as the general term for buying and selling supported by electronic means</dd></div>
+          <div class="term"><dt>E-Commerce</dt><dd>The distribution of goods and services; it sits inside the wider e-business</dd></div>
+          <div class="term"><dt>Industry (Production)</dt><dd>One half of e-business — making the goods and services</dd></div>
+          <div class="term"><dt>Commerce (Trade and Distribution)</dt><dd>The other half of e-business — buying and selling of goods and services</dd></div>
+          <div class="term"><dt>B2B Commerce</dt><dd>Transactions taking place between business firms</dd></div>
+          <div class="term"><dt>B2C Commerce</dt><dd>Transactions taking place between a business and its customers</dd></div>
+          <div class="term"><dt>C2C Commerce</dt><dd>Transactions taking place between two or more customers</dd></div>
+          <div class="term"><dt>Intra-B Commerce</dt><dd>Interaction and dealings among various departments and persons within the firm</dd></div>
+          <div class="term"><dt>Intranet</dt><dd>The network a firm uses to interact and deal between its own departments and persons</dd></div>
+          <div class="term"><dt>Flexible Manufacturing</dt><dd>Production made to customer requirements; Intra-B commerce has facilitated it</dd></div>
+          <div class="term"><dt>VPN (Virtual Private Network)</dt><dd>Technology through which employees access the organisation's network and work from anywhere</dd></div>
+          <div class="term"><dt>B2B Transactions</dt><dd>Inviting tenders, commercial negotiations, distribution of goods, creation of utilities, collaborations</dd></div>
+          <div class="term"><dt>Round-the-Clock Service</dt><dd>The B2C advantage of staying in touch with customers 24×7</dd></div>
+          <div class="term"><dt>ATM</dt><dd>The machine that made withdrawal of money round the clock convenient and fast</dd></div>
+          <div class="term"><dt>After-Sale Service</dt><dd>A B2C transaction covering support once the sale is made</dd></div>
+          <div class="term"><dt>OLX</dt><dd>A C2C platform where consumers sell their goods and services to other consumers</dd></div>
+          <div class="term"><dt>Quikr</dt><dd>A C2C platform for consumer-to-consumer selling</dd></div>
+          <div class="term"><dt>Fraudulent Suppliers</dt><dd>C2C sellers who cheat buyers; C2C platforms warn customers about them</dd></div>
+          <div class="term"><dt>Ease of Formation</dt><dd>E-business is easy to form; traditional business is difficult to form</dd></div>
+          <div class="term"><dt>Locational Requirements</dt><dd>E-business has no requirement for location; traditional business prefers locations near raw materials and market</dd></div>
+          <div class="term"><dt>Direct Contact</dt><dd>E-business reaches suppliers and customers directly; traditional business uses intermediaries</dd></div>
+          <div class="term"><dt>Flat Structure</dt><dd>The horizontal organisation of e-business, with direct command and communication</dd></div>
+          <div class="term"><dt>Tall Structure</dt><dd>The vertical organisation of traditional business, with a chain of command</dd></div>
+          <div class="term"><dt>Business Process Cycle</dt><dd>The time taken to complete a business process — short for e-business, long for traditional business</dd></div>
+          <div class="term"><dt>Global Reach</dt><dd>The ability of an e-business seller to operate at the national as well as the global level</dd></div>
+          <div class="term"><dt>Paperless Society</dt><dd>The reduced dependence on paperwork that internet use brings</dd></div>
+          <div class="term"><dt>Electronic Funds Transfer</dt><dd>The e-commerce technology through which money is transferred instantly</dd></div>
+          <div class="term"><dt>Outsourcing</dt><dd>Contracting out some activities to a third party which were earlier performed by the organisation</dd></div>
+          <div class="term"><dt>Focusing of Attention</dt><dd>A reason for outsourcing — the firm concentrates on its core activities</dd></div>
+          <div class="term"><dt>Quest for Excellence</dt><dd>A reason for outsourcing — specialists deliver higher quality work</dd></div>
+          <div class="term"><dt>Risk Sharing</dt><dd>A reason for outsourcing — part of the business risk moves to the third party</dd></div>
+        </dl>
+      </section>
+      <section class="session" id="n-section-1">
+        <header class="session-head"><span class="session-kicker">Section 1</span><h2>Emerging Modes of Business and E-Business</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> The way business is done has changed completely. This part explains what 'emerging modes of business' means, why every firm now has to adopt them, and what e-business actually stands for.</p></blockquote>
+        <section class="subsection" id="n-s1-1">
+          <h3>1.1 What Are Emerging Modes of Business?</h3>
+          <ul>
+          <li>In the <strong>modern period</strong> there has been <strong>considerable change in the manner of conducting business</strong>.</li>
+          <li><strong>'Emerging modes of business'</strong> = the <strong>recent trends taking place in the way business is done</strong>.</li>
+          <li>These modes come from <strong>emerging technologies</strong> that a business now uses as a normal part of working.</li>
+          </ul>
+          <p><strong>The two modes studied in this chapter:</strong></p>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>Mode</th><th>What it means in one line</th></tr></thead>
+              <tbody>
+                  <tr><td><strong>E-Business (Electronic Business)</strong></td><td>Running the business over the internet or any other computer network</td></tr>
+                  <tr><td><strong>Outsourcing</strong></td><td>Contracting out activities to a third party which were earlier performed by the organisation</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Exam tip.</strong> "Emerging modes of business" is a <strong>trend</strong> line. The question "what are emerging modes of business?" is answered with the exact phrase — <em>recent trends taking place in the way business is done</em>.</p></div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">4 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> What does the term 'emerging modes of business' refer to?</li>
+              <li><strong>Q2.</strong> In which period has there been considerable change in the manner of conducting business?</li>
+              <li><strong>Q3.</strong> Which one of these is described in the lecture as the strongest trend shaping business? (a) Traditional trade (b) E-business (c) Manual accounting (d) Branch office network</li>
+              <li><strong>Q4.</strong> Name the two modes of business studied in this chapter.</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>The recent trends taking place in the way business is done.</li><li>The modern period.</li><li><strong>(b)</strong> E-business.</li><li>E-business and Outsourcing.</li></ol></div>
+            </details>
+          </div>
+        </section>
+        <section class="subsection" id="n-s1-2">
+          <h3>1.2 Why Businesses Need Emerging Modes</h3>
+          <p>In order to meet the following, a business needs to take the benefit of <strong>emerging technologies</strong>:</p>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>Need</th><th>What the business gains</th></tr></thead>
+              <tbody>
+                  <tr><td><strong>Ever growing competition</strong></td><td>A way to stay ahead of rivals</td></tr>
+                  <tr><td><strong>Quality standards</strong></td><td>Products and services that match the standard buyers expect</td></tr>
+                  <tr><td><strong>Lower prices</strong></td><td>Cost saving that can be passed on to the customer</td></tr>
+                  <tr><td><strong>Faster order processing</strong></td><td>Orders move quickly from the click to the dispatch</td></tr>
+                  <tr><td><strong>Better customer care</strong></td><td>Closer, faster service to every customer</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ul>
+          <li><strong>One of the strongest trends that is shaping business is e-business (Electronic Business).</strong></li>
+          </ul>
+          <div class="callout"><p><strong>Exam tip.</strong> These five needs are the "why" of the whole chapter. Write them as a single line of five items for a 1-mark question and as five short bullets for a 3-mark question.</p></div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Which five needs push a business to take the benefit of emerging technologies?</li>
+              <li><strong>Q2.</strong> Which one of the following is described as the strongest trend shaping business? (a) Traditional trade (b) E-business (c) Manual accounting (d) Branch office network</li>
+              <li><strong>Q3.</strong> Give one example of a way an e-business firm serves its customer round the clock.</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>Ever growing competition, quality standards, lower prices, faster order processing and better customer care.</li><li><strong>(b)</strong> E-business.</li><li>Withdrawal of one's own money through an ATM. It was a tedious process in the past; with the introduction of ATM it is now possible to withdraw money round the clock in a convenient and fast manner.</li></ol></div>
+            </details>
+          </div>
+        </section>
+        <section class="subsection" id="n-s1-3">
+          <h3>1.3 E-Business: Meaning and the Kotler Definition</h3>
+          <p><strong>The definition — learn this line word for word:</strong></p>
+          <blockquote class="note"><p><strong>Electronic Business</strong>, commonly known as <strong>'eBusiness'</strong> or <strong>'e-Business'</strong>, refers to <strong>conducting business activities over internet or any other computer network</strong>.</p></blockquote>
+          <p><strong>In the words of Philip Kotler:</strong></p>
+          <blockquote class="note"><p>"Electronic business is the general term for <strong>buying and selling process that is supported by electronic means</strong>."</p></blockquote>
+          <p><strong>The two halves of e-business:</strong></p>
+          <pre>E-BUSINESS
+     |
+     +--&gt; Industry  (Production)
+     |
+     +--&gt; Commerce  (Trade and Distribution)</pre>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>Half</th><th>What it covers</th></tr></thead>
+              <tbody>
+                  <tr><td><strong>Industry (Production)</strong></td><td>Making the goods and services</td></tr>
+                  <tr><td><strong>Commerce (Trade and Distribution)</strong></td><td>Buying and selling those goods and services</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Exam tip.</strong> Two names, two marks — <em>Philip Kotler</em> for the quote, and the phrase <em>conducting business activities over internet or any other computer network</em> for the definition.</p></div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">4 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> What is e-business?</li>
+              <li><strong>Q2.</strong> Who defined electronic business as the general term for buying and selling process supported by electronic means?</li>
+              <li><strong>Q3.</strong> (MCQ) E-business is conducted over — (a) a postal network (b) internet or any other computer network (c) a telephone network only (d) face-to-face meetings</li>
+              <li><strong>Q4.</strong> Name the two broad divisions of e-business shown in the lecture.</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>Conducting business activities over internet or any other computer network.</li><li>Philip Kotler.</li><li><strong>(b)</strong> internet or any other computer network.</li><li>Industry (Production) and Commerce (Trade and Distribution).</li></ol></div>
+            </details>
+          </div>
+        </section>
+        <section class="subsection" id="n-s1-4">
+          <h3>1.4 E-Business vs E-Commerce</h3>
+          <ul>
+          <li><strong>E-business is a wider term than e-commerce</strong>, in the same way as <strong>business is a broader term than commerce</strong>.</li>
+          <li><strong>E-commerce deals with the distribution of goods and services.</strong></li>
+          <li><strong>E-business includes e-commerce</strong>, and it also includes other electronically conducted business functions.</li>
+          </ul>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>Basis</th><th>E-Commerce</th><th>E-Business</th></tr></thead>
+              <tbody>
+                  <tr><td><strong>Scope</strong></td><td>Covers the distribution of goods and services</td><td>Wider — covers e-commerce plus every other business function</td></tr>
+                  <tr><td><strong>Functions covered</strong></td><td>Buying and selling, distribution</td><td>Production, accounting, finance, personnel, administration, etc.</td></tr>
+                  <tr><td><strong>Meaning</strong></td><td>The trade and distribution part of business</td><td>The whole of business, run electronically</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Exam tip.</strong> If the question says "How is e-business different from e-commerce?", the answer is: e-business is the wider term; e-commerce covers the distribution of goods and services while e-business also covers production, accounting, finance, personnel and administration.</p></div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">4 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Which is the wider term — e-business or e-commerce?</li>
+              <li><strong>Q2.</strong> Which business functions does e-business cover over and above the distribution of goods and services?</li>
+              <li><strong>Q3.</strong> (MCQ) E-commerce deals with — (a) production, finance and personnel (b) distribution of goods and services (c) recruitment and selection (d) inventory management</li>
+              <li><strong>Q4.</strong> Why is e-business compared with business and e-commerce with commerce?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>E-business is the wider term. It includes e-commerce together with other electronically conducted business functions.</li><li>Production, accounting, finance, personnel and administration.</li><li><strong>(b)</strong> distribution of goods and services.</li><li>Because business is a broader term than commerce. E-business carries all the functions of a business, while e-commerce carries the buying, selling and distribution part of it.</li></ol></div>
+            </details>
+          </div>
+        </section>
         </div>
       </section>
 
-      <footer>
-        <p>Source: NCERT Business Studies Class XI, Chapter 5 &middot; Reprint 2026-27</p>
+      <section class="session" id="n-section-2">
+        <header class="session-head"><span class="session-kicker">Section 2</span><h2>Scope of E-Business: The Four Branches</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> E-business runs in four directions. This part takes each one — B2B, B2C, C2C and Intra-B — with its meaning, its example and the transactions that sit under it.</p></blockquote>
+        <section class="subsection" id="n-s2-1">
+          <h3>2.1 B2B Commerce: Business to Business</h3>
+          <ul>
+          <li><strong>B2B Commerce</strong> = the <strong>transactions taking place between business firms</strong>, referred to as <strong>business to business</strong> or <strong>B2B transactions</strong>.</li>
+          <li><strong>The example from the lecture:</strong> an automobile manufacturer (like <strong>Maruti Udyog</strong>) makes several B2B transactions, such as buying <strong>tyres, glass for windscreens, door handles</strong>, etc. for its vehicles from different business units.</li>
+          </ul>
+          <p><strong>Some of the B2B transactions are:</strong></p>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>#</th><th>B2B transaction</th></tr></thead>
+              <tbody>
+                  <tr><td>1</td><td>Inviting tenders</td></tr>
+                  <tr><td>2</td><td>Commercial negotiations</td></tr>
+                  <tr><td>3</td><td>Distribution of goods</td></tr>
+                  <tr><td>4</td><td>Creation of utilities</td></tr>
+                  <tr><td>5</td><td>Collaborations</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Exam tip.</strong> The keyword in B2B is <strong>"between firms"</strong>. Anything one business buys from another business is a B2B transaction.</p></div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">4 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> What is B2B commerce?</li>
+              <li><strong>Q2.</strong> Give the B2B example of an automobile manufacturer from the lecture.</li>
+              <li><strong>Q3.</strong> Name any three B2B transactions listed in the lecture.</li>
+              <li><strong>Q4.</strong> (MCQ) Sending quotations of supplying raw material by one businessman to another is called — (a) B2B (b) B2C (c) C2C (d) Intra B</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>The transactions taking place between business firms, called business to business or B2B transactions.</li><li>An automobile manufacturer (like Maruti Udyog) buys tyres, glass for windscreens, door handles, etc. for its vehicles from different business units.</li><li>Any three of — inviting tenders, commercial negotiations, distribution of goods, creation of utilities, collaborations.</li><li><strong>(a)</strong> B2B.</li></ol></div>
+            </details>
+          </div>
+        </section>
+        <section class="subsection" id="n-s2-2">
+          <h3>2.2 B2C Commerce: Business to Customer</h3>
+          <ul>
+          <li><strong>B2C Commerce</strong> = the <strong>transactions taking place between business and customers</strong>, known as <strong>Business-to-customer</strong> or <strong>B2C transactions</strong>.</li>
+          <li>It <strong>enables the business to remain in touch with its customers on a round-the-clock basis</strong>.</li>
+          <li><strong>The example from the lecture:</strong> withdrawal of one's own money from banks was a tedious process in the past. With the introduction of <strong>ATM</strong>, it is now possible to withdraw money round the clock in a convenient and fast manner.</li>
+          </ul>
+          <p><strong>B2C transactions may include:</strong></p>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>#</th><th>B2C transaction</th></tr></thead>
+              <tbody>
+                  <tr><td>1</td><td>Selling and distribution of goods</td></tr>
+                  <tr><td>2</td><td>Lodging of complaints by customer</td></tr>
+                  <tr><td>3</td><td>After-sale service</td></tr>
+                  <tr><td>4</td><td>Promotional activities</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Platforms named in the lecture:</strong> Amazon, eBay, Snapdeal.</p>
+          <div class="callout"><p><strong>Exam tip.</strong> The keyword in B2C is <strong>"round the clock"</strong> — that is the advantage the lecture attaches to it. Keep it in the answer.</p></div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">4 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> What is B2C commerce?</li>
+              <li><strong>Q2.</strong> Why is B2C commerce important for a business?</li>
+              <li><strong>Q3.</strong> Name the four B2C transactions listed in the lecture.</li>
+              <li><strong>Q4.</strong> (MCQ) The ATM example in the lecture belongs to which branch of e-business? (a) B2B (b) B2C (c) C2C (d) Intra B</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>The transactions taking place between business and customers, known as Business-to-customer or B2C transactions.</li><li>It enables the business to remain in touch with its customers on a round-the-clock basis.</li><li>Selling and distribution of goods; lodging of complaints by customer; after-sale service; promotional activities.</li><li><strong>(b)</strong> B2C.</li></ol></div>
+            </details>
+          </div>
+        </section>
+        <section class="subsection" id="n-s2-3">
+          <h3>2.3 C2C Commerce: Customer to Customer</h3>
+          <ul>
+          <li><strong>C2C Commerce</strong> = the <strong>transactions taking place between two or more customers</strong>.</li>
+          <li><strong>The example from the lecture:</strong> <strong>Quikr</strong> and <strong>OLX</strong>, where consumers can sell their goods and services to other consumers.</li>
+          </ul>
+          <p><strong>C2C transactions involve:</strong></p>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>#</th><th>C2C transaction</th></tr></thead>
+              <tbody>
+                  <tr><td>1</td><td>Selling used books, clothes, etc.</td></tr>
+                  <tr><td>2</td><td>Selling antique items</td></tr>
+                  <tr><td>3</td><td>Warning customers about fraudulent suppliers</td></tr>
+                  <tr><td>4</td><td>Information about the quality and durability of the product</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Platforms named in the lecture:</strong> OLX, CarDekho.</p>
+          <div class="callout"><p><strong>Exam tip.</strong> In C2C, both sides of the transaction are <strong>customers</strong>. One customer is the seller and the other is the buyer.</p></div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">4 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> What is C2C commerce?</li>
+              <li><strong>Q2.</strong> Name the two C2C platforms given as examples in the lecture.</li>
+              <li><strong>Q3.</strong> Name any three C2C transactions listed in the lecture.</li>
+              <li><strong>Q4.</strong> (MCQ) OLX is an example of which category of e-business? (a) B2B (b) B2C (c) C2C (d) Intra B</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>The transactions taking place between two or more customers.</li><li>Quikr and OLX.</li><li>Any three of — selling used books and clothes, selling antique items, warning customers about fraudulent suppliers, giving information about the quality and durability of the product.</li><li><strong>(c)</strong> C2C.</li></ol></div>
+            </details>
+          </div>
+        </section>
+        <section class="subsection" id="n-s2-4">
+          <h3>2.4 Intra-B Commerce: Within the Firm</h3>
+          <ul>
+          <li><strong>E-business is wider than e-commerce.</strong> E-business includes e-commerce (B2B, B2C and C2C) and also <strong>Intra-B Commerce</strong>.</li>
+          <li><strong>Intra-B Commerce</strong> = the <strong>interaction and dealings among various departments and persons within the firm</strong>.</li>
+          <li>It includes the use of <strong>intranet</strong> to interact and deal between various departments and persons within a firm.</li>
+          <li>The use of intra-B commerce has <strong>facilitated flexible manufacturing</strong>.</li>
+          <li><strong>The example from the lecture:</strong> the <strong>marketing department</strong> may interact regularly with the <strong>production department</strong> and get the products made as per the requirements of the customers.</li>
+          </ul>
+          <p><strong>Intra-B Commerce transactions may be conducted for:</strong></p>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>#</th><th>Intra-B purpose</th></tr></thead>
+              <tbody>
+                  <tr><td>1</td><td>Inventory and cash management</td></tr>
+                  <tr><td>2</td><td>Reporting by employees to their seniors</td></tr>
+                  <tr><td>3</td><td>Human resource management</td></tr>
+                  <tr><td>4</td><td>Recruitment and selection</td></tr>
+                  <tr><td>5</td><td>Training, development and education</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>VPN technology.</strong> Companies are also resorting to <strong>Virtual Private Network (VPN)</strong> technology, through which employees can access to the organisation's network and can <strong>work from anywhere</strong> through computer network.</p>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">4 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> What is Intra-B commerce, and which network is used for it?</li>
+              <li><strong>Q2.</strong> What has the use of intra-B commerce facilitated? Give the department-wise example from the lecture.</li>
+              <li><strong>Q3.</strong> Name four Intra-B transactions listed in the lecture, and state how VPN technology helps employees.</li>
+              <li><strong>Q4.</strong> (MCQ) Mail sent by the purchase department to the production department is an example of — (a) B2B (b) B2C (c) C2C (d) Intra B</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>Intra-B Commerce refers to interaction and dealings among various departments and persons within the firm. It uses an <strong>intranet</strong>.</li><li>It has facilitated <strong>flexible manufacturing</strong>. The marketing department may interact regularly with the production department and get the products made as per the requirements of the customers.</li><li>Any four of — inventory and cash management, reporting by employees to their seniors, human resource management, recruitment and selection, training, development and education. VPN lets employees access the organisation's network and work from anywhere through computer network.</li><li><strong>(d)</strong> Intra B.</li></ol></div>
+            </details>
+          </div>
+        </section>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-3">
+        <header class="session-head"><span class="session-kicker">Section 3</span><h2>E-Business vs Traditional Business</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> A student often mixes up the two. This part puts them side by side on eleven bases, then lists what e-business gains and where it falls short.</p></blockquote>
+        <section class="subsection" id="n-s3-1">
+          <h3>3.1 Basis-by-Basis Comparison</h3>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>Basis</th><th>E-Business</th><th>Traditional Business</th></tr></thead>
+              <tbody>
+                  <tr><td><strong>Ease of formation</strong></td><td>It is easy to form.</td><td>It is difficult to form.</td></tr>
+                  <tr><td><strong>Physical presence</strong></td><td>It does not require physical presence.</td><td>It requires physical presence.</td></tr>
+                  <tr><td><strong>Locational requirements</strong></td><td>There is no requirement for location.</td><td>Location is preferred near raw materials and market.</td></tr>
+                  <tr><td><strong>Cost of setting up</strong></td><td>Low cost of setting due to no need for physical facilities.</td><td>It involves high cost of setting.</td></tr>
+                  <tr><td><strong>Operating cost</strong></td><td>The operating cost is low.</td><td>High operating cost due to investment in production, marketing, etc.</td></tr>
+                  <tr><td><strong>Direct/Indirect contact with suppliers and customers</strong></td><td>It has direct contact.</td><td>It has indirect contact through intermediaries.</td></tr>
+                  <tr><td><strong>Nature of internal communication</strong></td><td>Communication can flow in any direction.</td><td>It involves hierarchical flow of communication.</td></tr>
+                  <tr><td><strong>Response time in meeting customer's requirement</strong></td><td>It gives instant response.</td><td>Response takes a lot of time.</td></tr>
+                  <tr><td><strong>Organisational structure</strong></td><td>Horizontal or flat structure due to direct command and communication.</td><td>Vertical or tall structure due to chain of command.</td></tr>
+                  <tr><td><strong>Business processes and length of the cycle</strong></td><td>Short business process cycle.</td><td>It is long due to number of sequential processes.</td></tr>
+                  <tr><td><strong>Opportunity for interpersonal touch</strong></td><td>Less opportunity for inter-personal touch.</td><td>More opportunity for inter-personal touch.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Exam tip.</strong> There are <strong>11 bases</strong>. In a 3-mark answer, any three rows are enough — but write the <em>basis</em> name on the left and the <em>answer for both</em> sides on the right.</p></div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">4 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> On which basis is e-business easier to form than traditional business?</li>
+              <li><strong>Q2.</strong> What difference does the lecture note in the nature of internal communication?</li>
+              <li><strong>Q3.</strong> Which business has the short business process cycle, and why?</li>
+              <li><strong>Q4.</strong> (MCQ) Which structure does e-business have? (a) Vertical or tall (b) Horizontal or flat (c) Hierarchical (d) Chain of command</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>Ease of formation. E-business is easy to form and does not require physical presence; traditional business is difficult to form and requires physical presence.</li><li>In e-business, communication can flow in any direction. In traditional business, it involves hierarchical flow of communication.</li><li>E-business, because the entire process is done with the click of a mouse. The traditional business process cycle is long due to number of sequential processes.</li><li><strong>(b)</strong> Horizontal or flat structure due to direct command and communication.</li></ol></div>
+            </details>
+          </div>
+        </section>
+        <section class="subsection" id="n-s3-2">
+          <h3>3.2 Benefits of E-Business</h3>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>#</th><th>Benefit</th><th>What it gives</th></tr></thead>
+              <tbody>
+                  <tr><td>1</td><td><strong>Ease of formation and lower investment requirements</strong></td><td>Very easy to form and start; it does not need the procedural requirements needed for setting up traditional industry</td></tr>
+                  <tr><td>2</td><td><strong>Convenience</strong></td><td>Accessing anything, anywhere, anytime; customers shop at their own convenience at any time (<strong>24×7</strong>)</td></tr>
+                  <tr><td>3</td><td><strong>Speed</strong></td><td>Very less time to complete the business cycle; the entire process is done with the click of a mouse</td></tr>
+                  <tr><td>4</td><td><strong>Global reach</strong></td><td>Seller operates at the national as well as the global level; buyers and sellers from any part of the world can interact</td></tr>
+                  <tr><td>5</td><td><strong>Movement towards a paperless society</strong></td><td>Reduced dependence on paperwork; most of the work is done electronically through computers</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Extra lines that carry marks:</strong></p>
+          <ul>
+          <li>Benefits of internet technology accrue to <strong>big or small business alike</strong>.</li>
+          <li>Success of e-business depends on <strong>network (contacts)</strong> rather than on <strong>investment (net worth)</strong>.</li>
+          <li>Some products are delivered online, like <strong>music, movies, e-books</strong>, etc.</li>
+          <li>Through <strong>electronic funds transfer technology of e-commerce</strong>, money can be <strong>instantly transferred</strong>.</li>
+          <li>Even <strong>government departments and regulatory authorities</strong> have started using computers in their workings — for example, people can <strong>file their income tax return online</strong>.</li>
+          </ul>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">4 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Name the five benefits of e-business.</li>
+              <li><strong>Q2.</strong> On what does the success of e-business depend — network or investment?</li>
+              <li><strong>Q3.</strong> Which benefit allows a buyer and a seller from any part of the world to interact with each other?</li>
+              <li><strong>Q4.</strong> Give one example from the lecture of the movement towards a paperless society.</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>Ease of formation and lower investment requirements; Convenience; Speed; Global reach; Movement towards a paperless society.</li><li>It depends on network (contacts), with investment (net worth) playing a smaller part.</li><li>Global reach.</li><li>People can file their income tax return online. Even government departments and regulatory authorities have started using computers in their workings.</li></ol></div>
+            </details>
+          </div>
+        </section>
+        <section class="subsection" id="n-s3-3">
+          <h3>3.3 Limitations of E-Business</h3>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>#</th><th>Limitation</th><th>What it means</th></tr></thead>
+              <tbody>
+                  <tr><td>1</td><td><strong>Low personal touch</strong></td><td>Transactions carry less face-to-face human interaction</td></tr>
+                  <tr><td>2</td><td><strong>Delay in delivery</strong></td><td>Physical products still take time to reach the buyer</td></tr>
+                  <tr><td>3</td><td><strong>Need for technology capability</strong></td><td>The firm and the customer both need internet access and technical skill</td></tr>
+                  <tr><td>4</td><td><strong>Non-traceability of parties</strong></td><td>The parties to a transaction may be difficult to trace, which opens the door to fraud</td></tr>
+                  <tr><td>5</td><td><strong>People resistance</strong></td><td>Many customers still prefer the traditional way of buying</td></tr>
+                  <tr><td>6</td><td><strong>Ethical fallouts</strong></td><td>Issues such as spam emails, privacy breaches, data theft and fake reviews</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Exam tip.</strong> Learn the six names as a fixed list — they appear as a straight 1-mark or 3-mark question.</p></div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">4 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Name the six limitations of e-business.</li>
+              <li><strong>Q2.</strong> Which limitation means the parties to a transaction can be hard to trace?</li>
+              <li><strong>Q3.</strong> (MCQ) Which of these is a limitation of e-business? (a) Speed (b) Global reach (c) Delay in delivery (d) Convenience</li>
+              <li><strong>Q4.</strong> Which two sides need technology capability for e-business to work well?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>Low personal touch; delay in delivery; need for technology capability; non-traceability of parties; people resistance; ethical fallouts.</li><li>Non-traceability of parties.</li><li><strong>(c)</strong> Delay in delivery.</li><li>Both the firm and the customer — the buyer and the seller both need internet access and technical skill.</li></ol></div>
+            </details>
+          </div>
+        </section>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-4">
+        <header class="session-head"><span class="session-kicker">Section 4</span><h2>Outsourcing</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Outsourcing is the second emerging mode. This part explains what outsourcing means and the six reasons that push a firm to hand work to a third party.</p></blockquote>
+        <section class="subsection" id="n-s4-1">
+          <h3>4.1 What Is Outsourcing?</h3>
+          <blockquote class="note"><p><strong>Outsourcing</strong> refers to <strong>contracting out some of its activities to a third party which were earlier performed by the organisation</strong>.</p></blockquote>
+          <ul>
+          <li>The organisation identifies activities it used to perform itself.</li>
+          <li>It contracts them out to a <strong>third party</strong>, which now performs them.</li>
+          <li>The firm keeps its own core work and gains time, expertise and lower cost.</li>
+          </ul>
+          <div class="callout"><p><strong>Exam tip.</strong> Two keywords carry the answer — <strong>contracting out</strong> and <strong>third party</strong>. Write both for the full mark.</p></div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> What is outsourcing?</li>
+              <li><strong>Q2.</strong> In outsourcing, who performs the activities that were earlier performed by the organisation?</li>
+              <li><strong>Q3.</strong> (MCQ) Outsourcing means — (a) the firm carries on every activity in-house (b) activities are contracted out to a third party (c) the firm closes down a branch (d) the firm hires more staff</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>Contracting out some activities to a third party which were earlier performed by the organisation.</li><li>A third party — the outside vendor or specialist firm to which those activities are contracted out.</li><li><strong>(b)</strong> activities are contracted out to a third party.</li></ol></div>
+            </details>
+          </div>
+        </section>
+        <section class="subsection" id="n-s4-2">
+          <h3>4.2 Why Firms Outsource: Six Reasons</h3>
+          <pre>NEED FOR OUTSOURCING
+        |
+        +--&gt; Focusing of Attention
+        +--&gt; Quest for Excellence
+        +--&gt; Cost Reduction
+        +--&gt; Growth through Alliance
+        +--&gt; Boost to Economic Development
+        +--&gt; Risk Sharing</pre>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>#</th><th>Reason</th><th>What it means</th></tr></thead>
+              <tbody>
+                  <tr><td>1</td><td><strong>Focusing of attention</strong></td><td>The organisation focuses on its core business activities while specialists handle the non-core tasks</td></tr>
+                  <tr><td>2</td><td><strong>Quest for excellence</strong></td><td>Third-party vendors are specialists, so the organisation benefits from their expertise and higher quality output</td></tr>
+                  <tr><td>3</td><td><strong>Cost reduction</strong></td><td>The third party brings economies of scale and lower labour costs, so operational costs come down</td></tr>
+                  <tr><td>4</td><td><strong>Growth through alliance</strong></td><td>Outsourcing builds a partnership — the organisation forms strategic alliances with its vendors</td></tr>
+                  <tr><td>5</td><td><strong>Boost to economic development</strong></td><td>It creates employment and economic activity in the vendor's location</td></tr>
+                  <tr><td>6</td><td><strong>Risk sharing</strong></td><td>Part of the business risk is transferred to the third-party vendor</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Exam tip.</strong> Six reasons, six headings. In the answer, write each heading as a bullet and add one line of meaning under it.</p></div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">4 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Name the six reasons for outsourcing.</li>
+              <li><strong>Q2.</strong> Which reason for outsourcing covers the partnership a firm builds with its vendor?</li>
+              <li><strong>Q3.</strong> (MCQ) Which one of these is a reason for outsourcing? (a) Quest for excellence (b) Keeping every activity in-house (c) Reducing the number of vendors (d) Stopping all business activity</li>
+              <li><strong>Q4.</strong> How does outsourcing boost economic development, and how does it share risk?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol><li>Focusing of attention; quest for excellence; cost reduction; growth through alliance; boost to economic development; risk sharing.</li><li>Growth through alliance — outsourcing builds a partnership relationship in the form of strategic alliances with vendors.</li><li><strong>(a)</strong> Quest for excellence.</li><li>It creates employment and economic activity in the location of the vendor; it transfers part of the business risk to the third-party vendor.</li></ol></div>
+            </details>
+          </div>
+        </section>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-5">
+        <header class="session-head"><span class="session-kicker">Exam corner</span><h2>Exam Corner</h2></header>
+        <div class="session-body">
+        <section class="subsection" id="n-s5-1">
+          <h3>5.1 MCQs with Printed Keys</h3>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>#</th><th>Question</th><th>Options</th><th>Answer</th></tr></thead>
+              <tbody>
+                  <tr><td>1</td><td>OLX is an example of which of the following categories of e-business?</td><td>(a) B2B (b) B2C (c) C2C (d) Intra B</td><td><strong>(c) C2C</strong></td></tr>
+                  <tr><td>2</td><td>Mail sent by the purchase department to the production department is an example of which of the following?</td><td>(a) B2B (b) B2C (c) C2C (d) Intra B</td><td><strong>(d) Intra B</strong></td></tr>
+                  <tr><td>3</td><td>Sending quotations of supplying raw material by one businessman to another is called:</td><td>(a) B2B (b) B2C (c) C2C (d) Intra B</td><td><strong>(a) B2B</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="subsection" id="n-s5-2">
+          <h3>5.2 Case Study with Model Answer</h3>
+          <blockquote class="note"><p>Mr. Rajiv wants to buy a new sofa set for his house, but he did not have space. He planned to sell the old sofa through <strong>OLX</strong>, so that he can get some surplus money and space for the new sofa set. He got very good response and out of many buyers, he chose the buyer who gave him the best price.</p></blockquote>
+          <p><strong>Questions</strong></p>
+          <ul>
+          <li><strong>(a)</strong> Which are the two parties involved in the transaction mentioned in the above case?</li>
+          <li><strong>(b)</strong> What branch of e-business is referred to in the above case?</li>
+          </ul>
+          <p><strong>Model answer</strong></p>
+          <ul>
+          <li><strong>(a) Customer and Customer (Consumer-to-Consumer).</strong> In this transaction Mr. Rajiv is the seller of his old sofa and the buyer he selects is the second party. Both sides are individuals, so the two parties are customer and customer.</li>
+          <li><strong>(b) C2C Commerce.</strong> The sale happens on a consumer-to-consumer platform (OLX), where consumers sell their goods and services to other consumers. The firm is not a party to the deal, which is what separates C2C from B2C and B2B.</li>
+          </ul>
+          <h3>More case questions from the lecture</h3>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>Case</th><th>Questions</th><th>Answers</th></tr></thead>
+              <tbody>
+                  <tr><td><strong>General Technologies — work from home.</strong> Software engineers are happy as they got the freedom to work from home. Their boss told them they are free to carry their work back home and just need to complete the project assigned to them on time. All the engineers take their daily assigned tasks from the daily work manager and save them in their laptops to complete them at their convenience at their homes. The general manager took the initiative so as to allow the employees to spend more time with their families, which in turn can increase their potential, creativity and efficiency.</td><td>(a) Identify the dimension of e-business talked about in the above situation. (b) State any two other dimensions of e-business.</td><td>(a) <strong>Intra-B Commerce</strong> — the employees of the firm deal with the organisation's network through VPN technology and work from anywhere. (b) Any two of <strong>B2B, B2C, C2C</strong>.</td></tr>
+                  <tr><td><strong>Ritika's online store.</strong> Ritika started an online store named <strong>TrendZilla</strong> that sells handmade jewellery and accessories. She uses Instagram and a website to showcase her products. Customers place orders and pay online. Ritika ties up with a courier partner for home delivery.</td><td>(a) Which type of e-business model is Ritika using? (b) State any two benefits of running a business online.</td><td>(a) <strong>B2C</strong> — she sells directly to customers, who place orders and pay online. (b) Any two of — <strong>Convenience</strong> (shop at own convenience, 24×7), <strong>Speed</strong> (the whole process works with the click of a mouse), <strong>Ease of formation</strong> (low cost of setting up, no physical facilities).</td></tr>
+                  <tr><td><strong>Company A and Company B.</strong> Two companies use online platforms. Company A supplies raw materials like steel and plastic to manufacturers. Company B sells electronics like mobiles and headphones directly to customers through its website.</td><td>(a) Identify which company is operating under B2B and which under B2C. (b) Give one example of each type of business (B2B and B2C) other than the ones given.</td><td>(a) <strong>Company A = B2B</strong> (supplies raw materials to other businesses); <strong>Company B = B2C</strong> (sells directly to customers). (b) B2B example — an automobile manufacturer buying tyres, glass for windscreens and door handles from different business units. B2C example — Amazon, eBay or Snapdeal selling goods to individual customers.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="subsection" id="n-s5-3">
+          <h3>5.3 Most Repeated Exam Points</h3>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>Point</th><th>Why it repeats</th></tr></thead>
+              <tbody>
+                  <tr><td>Meaning of e-business + Kotler's definition</td><td>Direct 1-mark and 3-mark question every year</td></tr>
+                  <tr><td>e-business vs e-commerce</td><td>Regular comparison question; e-business is the wider term</td></tr>
+                  <tr><td>B2B, B2C, C2C, Intra-B</td><td>Four separate 1-mark questions or one 3-mark list</td></tr>
+                  <tr><td>Intra-B commerce, intranet and VPN</td><td>Appears with the work-from-home style case study</td></tr>
+                  <tr><td>B2B transactions list (5 items)</td><td>Straight list question</td></tr>
+                  <tr><td>B2C transactions list (4 items)</td><td>Straight list question</td></tr>
+                  <tr><td>C2C transactions list (4 items)</td><td>Straight list question</td></tr>
+                  <tr><td>OLX / Quikr as C2C examples</td><td>Favourite one-line MCQ</td></tr>
+                  <tr><td>11-point e-business vs traditional business table</td><td>Most common 3-mark table question</td></tr>
+                  <tr><td>Benefits of e-business (5) and limitations (6)</td><td>Two list questions every year</td></tr>
+                  <tr><td>Meaning of outsourcing</td><td>Direct definition question</td></tr>
+                  <tr><td>Six reasons for outsourcing</td><td>Straight 3-mark list question</td></tr>
+                  <tr><td>Case study on C2C / B2C / Intra-B</td><td>Almost every paper carries one case-based question</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-6">
+        <header class="session-head"><span class="session-kicker">Revision corner</span><h2>Revision Corner</h2></header>
+        <div class="session-body">
+        <section class="subsection" id="n-s6-1">
+          <h3>6.1 Fast Revision — One Page</h3>
+          <ol>
+            <li><strong>Emerging modes of business</strong> = the recent trends taking place in the way business is done, in the modern period.</li>
+            <li><strong>Why firms adopt them:</strong> ever growing competition, quality standards, lower prices, faster order processing, better customer care.</li>
+            <li><strong>Strongest trend shaping business:</strong> e-business.</li>
+            <li><strong>e-business</strong> = conducting business activities over internet or any other computer network.</li>
+            <li><strong>Kotler:</strong> "Electronic business is the general term for buying and selling process that is supported by electronic means."</li>
+            <li><strong>E-business = wider term:</strong> e-commerce (distribution of goods and services) + production, accounting, finance, personnel, administration.</li>
+            <li><strong>E-business halves:</strong> Industry (production) and Commerce (trade and distribution).</li>
+            <li><strong>Four branches:</strong> B2B, B2C, C2C, Intra-B.</li>
+            <li><strong>B2B:</strong> transactions between business firms; 5 transactions — tenders, commercial negotiations, distribution of goods, creation of utilities, collaborations.</li>
+            <li><strong>B2C:</strong> business ↔ customer, round-the-clock contact; 4 transactions — selling/distribution of goods, lodging of complaints, after-sale service, promotional activities; ATM example; Amazon, eBay, Snapdeal.</li>
+            <li><strong>C2C:</strong> two or more customers; Quikr and OLX; 4 transactions — used books and clothes, antique items, warning about fraudulent suppliers, quality and durability information.</li>
+            <li><strong>Intra-B:</strong> dealings among departments and persons within the firm, over intranet; facilitated flexible manufacturing; 5 purposes — inventory and cash management, reporting to seniors, HRM, recruitment and selection, training/development/education; VPN for work from anywhere.</li>
+            <li><strong>E-business vs traditional business:</strong> 11 bases; easy vs difficult to form, no physical presence vs physical presence, no location requirement vs location near raw materials and market, low vs high setting-up cost, low vs high operating cost, direct vs indirect contact, any direction vs hierarchical communication, instant vs time-taking response, flat vs tall structure, short vs long process cycle, less vs more interpersonal touch.</li>
+            <li><strong>Benefits (5):</strong> ease of formation and lower investment, convenience (24×7), speed (click of a mouse, instant electronic funds transfer), global reach, movement towards a paperless society.</li>
+            <li><strong>Limitations (6):</strong> low personal touch, delay in delivery, need for technology capability, non-traceability of parties, people resistance, ethical fallouts.</li>
+            <li><strong>Outsourcing</strong> = contracting out some activities to a third party which were earlier performed by the organisation.</li>
+            <li><strong>Six reasons for outsourcing:</strong> focusing of attention, quest for excellence, cost reduction, growth through alliance, boost to economic development, risk sharing.</li>
+            <li><strong>Key numbers:</strong> 4 branches · 11 comparison bases · 5 benefits · 6 limitations · 6 outsourcing reasons · 5 B2B transactions · 4 B2C transactions · 4 C2C transactions · 5 Intra-B purposes · 24×7 shopping · 3 lecture MCQs · 4 lecture cases.</li>
+          </ol>
+        </section>
+        <section class="subsection" id="n-s6-2">
+          <h3>6.2 Numbers and Facts at a Glance</h3>
+          <div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+            <table>
+              <thead><tr><th>Fact</th><th>Value</th></tr></thead>
+              <tbody>
+                  <tr><td>Emerging modes of business studied in the chapter</td><td>2 — e-business and outsourcing</td></tr>
+                  <tr><td>Branches of e-business</td><td>4 — B2B, B2C, C2C, Intra-B</td></tr>
+                  <tr><td>B2B transactions listed</td><td>5</td></tr>
+                  <tr><td>B2C transactions listed</td><td>4</td></tr>
+                  <tr><td>C2C transactions listed</td><td>4</td></tr>
+                  <tr><td>Intra-B transactions listed</td><td>5 (plus VPN)</td></tr>
+                  <tr><td>Bases in the e-business vs traditional business table</td><td>11</td></tr>
+                  <tr><td>Benefits of e-business</td><td>5</td></tr>
+                  <tr><td>Limitations of e-business</td><td>6</td></tr>
+                  <tr><td>Reasons for outsourcing</td><td>6</td></tr>
+                  <tr><td>Round-the-clock shopping in e-business</td><td>24×7</td></tr>
+                  <tr><td>MCQs in the lecture</td><td>3</td></tr>
+                  <tr><td>Case studies in the lecture</td><td>4</td></tr>
+                  <tr><td>Key for "OLX is an example of"</td><td>(c) C2C</td></tr>
+                  <tr><td>Key for "mail from purchase to production"</td><td>(d) Intra B</td></tr>
+                  <tr><td>Key for "quotations of raw material"</td><td>(a) B2B</td></tr>
+                  <tr><td>Model answer for the TrendZilla case</td><td>B2C; benefits — convenience, speed, ease of formation</td></tr>
+                  <tr><td>Answer to the OLX sofa case</td><td>Customer and Customer; C2C Commerce</td></tr>
+                  <tr><td>Fastest way to complete a business cycle online</td><td>The click of a mouse</td></tr>
+                  <tr><td>Government example of a paperless society</td><td>Income tax return filed online</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="subsection" id="n-s6-3">
+          <h3>6.3 Common Traps to Avoid</h3>
+          <ol>
+            <li><strong>e-business vs e-commerce</strong> — e-business is the wider term. It covers e-commerce plus production, accounting, finance, personnel and administration.</li>
+            <li><strong>Intra-B belongs to e-business</strong> — it covers dealings among departments and persons inside the firm; B2B, B2C and C2C make up e-commerce.</li>
+            <li><strong>B2C vs C2C</strong> — in B2C the business sells to the customer; in C2C a customer sells to another customer, as on OLX and Quikr.</li>
+            <li><strong>Two easy MCQs</strong> — "mail from the purchase department to the production department" = <strong>Intra B</strong>; "quotations of raw material from one businessman to another" = <strong>B2B</strong>.</li>
+            <li><strong>Response and structure</strong> — e-business gives instant response and has a horizontal or flat structure; traditional business response takes a lot of time and has a vertical or tall structure.</li>
+            <li><strong>Contact</strong> — e-business has direct contact with suppliers and customers; traditional business has indirect contact through intermediaries.</li>
+            <li><strong>The comparison table has 11 rows</strong> — keep physical presence, locational requirements and interpersonal touch in your answer.</li>
+            <li><strong>Three separate lists</strong> — 5 benefits, 6 limitations and 6 reasons for outsourcing. Do not mix them up in one answer.</li>
+            <li><strong>Round the clock means 24×7</strong> — the ATM withdrawal example sits under <strong>B2C</strong>.</li>
+            <li><strong>The Maruti example</strong> — buying tyres, glass for windscreens and door handles is a business buying from other businesses, so it is a <strong>B2B</strong> transaction.</li>
+          </ol>
+        </section>
+        <section class="subsection" id="n-s6-4">
+          <h3>6.4 Final Self-Test</h3>
+          <p>Cover the page and answer all ten.</p>
+          <ol>
+            <li>Define e-business and state Philip Kotler's definition of it.</li>
+            <li>Explain the difference between e-business and e-commerce in three lines.</li>
+            <li>Define B2B, B2C, C2C and Intra-B commerce in one line each.</li>
+            <li>List the B2B, B2C and C2C transactions from the lecture.</li>
+            <li>Write any three Intra-B purposes and the use of VPN technology.</li>
+            <li>Write the e-business vs traditional business comparison for any five bases.</li>
+            <li>Name the five benefits of e-business with one line on each.</li>
+            <li>Name the six limitations of e-business.</li>
+            <li>Define outsourcing and list the six reasons for outsourcing.</li>
+            <li>Write the model answer for the OLX sofa case study in two parts.</li>
+          </ol>
+          <div class="callout"><p><strong>Scoring.</strong> 9-10 = exam ready · 7-8 = one revision pass · 5-6 = re-read 2.1 to 2.4 and 3.1 · below 5 = redo the chapter section by section.</p></div>
+        </section>
+        </div>
+      </section>
+      </div>
+
+      <div class="mode-panel mode-panel--quick" id="panel-quick" role="region" aria-label="Quick Revision" data-mode="quick" hidden>
+      <section class="quick-brief" id="q-start">
+        <div class="quick-brief-head">
+          <span class="quick-kicker">25-minute recall</span>
+          <h2>Quick revision, done properly</h2>
+          <p><strong>How to use this file (30 seconds):</strong> Read one block of notes → cover it → answer the recall questions aloud → click <em>Show answer</em> to check → move on. Total time: about 25 minutes.</p>
+        </div>
+        <ol class="recall-steps">
+          <li><span class="step-num">01</span><strong>Read</strong><span>one block of notes</span></li>
+          <li><span class="step-num">02</span><strong>Cover</strong><span>the page and recall</span></li>
+          <li><span class="step-num">03</span><strong>Answer</strong><span>the drill aloud</span></li>
+          <li><span class="step-num">04</span><strong>Check</strong><span>and move on</span></li>
+        </ol>
+        <div class="quick-map-head"><span>The four sessions</span><span>Tap to jump in</span></div>
+        <div class="quick-map">
+        <a class="quick-map-card" href="#q-session-1">
+          <span class="quick-map-num">S1</span>
+          <span class="quick-map-body"><strong>Emerging Modes and E-Business</strong><span>E-business = business over the internet or any other computer network, and it is wider than e-commerce</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="quick-map-card" href="#q-session-2">
+          <span class="quick-map-num">S2</span>
+          <span class="quick-map-body"><strong>The Four Branches of E-Business</strong><span>B2B, B2C and C2C sit outside the firm; Intra-B sits inside</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="quick-map-card" href="#q-session-3">
+          <span class="quick-map-num">S3</span>
+          <span class="quick-map-body"><strong>E-Business vs Traditional Business</strong><span>11 bases, 5 benefits, 6 limitations</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="quick-map-card" href="#q-session-4">
+          <span class="quick-map-num">S4</span>
+          <span class="quick-map-body"><strong>Outsourcing</strong><span>Contracting out activities to a third party, for six reasons</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        </div>
+        <p class="quick-brief-foot">50 recall questions · one confusion clinic · one rapid-fire table · one blank-page test.</p>
+      </section>
+      <section class="session session--quick" id="q-session-1">
+        <header class="session-head"><span class="session-kicker">Session 1</span><h2>Emerging Modes and E-Business</h2></header>
+        <div class="session-body">
+<h3 id="q-s1-the-chapter-in-12-lines">The chapter in 12 lines</h3>
+<ul>
+<li>In the <strong>modern period</strong> there has been <strong>considerable change in the manner of conducting business</strong>.</li>
+<li><strong>Emerging modes of business</strong> = the <strong>recent trends taking place in the way business is done</strong>.</li>
+<li>They rest on <strong>emerging technologies</strong> — tools used to meet competition, quality standards, lower prices, faster order processing and better customer care.</li>
+<li>The chapter studies <strong>two modes</strong>: <strong>e-business</strong> and <strong>outsourcing</strong>.</li>
+<li><strong>Five needs</strong> push a firm to adopt them: ever growing competition, quality standards, lower prices, faster order processing, better customer care.</li>
+<li><strong>The strongest trend shaping business is e-business (Electronic Business).</strong></li>
+<li><strong>E-business</strong> = <strong>conducting business activities over internet or any other computer network</strong>.</li>
+<li><strong>Philip Kotler</strong> called it the general term for the <strong>buying and selling process that is supported by electronic means</strong>.</li>
+<li>E-business has <strong>two halves</strong>: <strong>Industry (Production)</strong> and <strong>Commerce (Trade and Distribution)</strong>.</li>
+<li><strong>E-business is wider than e-commerce</strong>, just as <strong>business is broader than commerce</strong>; <strong>e-commerce</strong> deals with the <strong>distribution of goods and services</strong>.</li>
+<li>E-business covers e-commerce plus <strong>production, accounting, finance, personnel and administration</strong>.</li>
+<li>The <strong>four branches</strong> are <strong>B2B, B2C, C2C and Intra-B</strong>.</li>
+</ul>
+<h3 id="q-s1-meaning-the-exact-line">Meaning — the exact line</h3>
+<p>In the <strong>modern period</strong>, the manner of conducting business has changed considerably. <strong>Emerging modes of business</strong> refers to the <strong>recent trends taking place in the way business is done</strong>. A business uses <strong>emerging technologies</strong> — the tools it uses as a normal part of working — so that it can meet competition, maintain quality standards, offer lower prices, process orders faster and give better customer care.</p>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>Mode</th><th>Meaning in one line</th></tr></thead>
+    <tbody>
+        <tr><td><strong>E-business (Electronic Business)</strong></td><td>Conducting business activities over internet or any other computer network</td></tr>
+        <tr><td><strong>Outsourcing</strong></td><td>Contracting out some activities to a third party which were earlier performed by the organisation</td></tr>
+    </tbody>
+  </table>
+</div>
+<h3 id="q-s1-why-businesses-need-emerging-modes-5-needs">Why businesses need emerging modes — 5 needs</h3>
+<p>A firm takes the benefit of emerging technologies to meet these five needs.</p>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>Need</th><th>What the business gains</th></tr></thead>
+    <tbody>
+        <tr><td><strong>Ever growing competition</strong></td><td>A way to stay ahead of rivals</td></tr>
+        <tr><td><strong>Quality standards</strong></td><td>Products and services that match the standard buyers expect</td></tr>
+        <tr><td><strong>Lower prices</strong></td><td>Cost saving that can be passed on to the customer</td></tr>
+        <tr><td><strong>Faster order processing</strong></td><td>Orders move quickly from the click to the dispatch</td></tr>
+        <tr><td><strong>Better customer care</strong></td><td>Closer, faster service to every customer</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="callout"><p><strong>Memory hook:</strong> <strong>C-Q-P-F-C</strong> — Competition, Quality, Price, Processing, Care. Of these five, <strong>e-business is the strongest trend shaping business</strong>.</p></div>
+<h3 id="q-s1-e-business-definition-and-the-kotler-line">E-business — definition and the Kotler line</h3>
+<blockquote class="note"><p><strong>Electronic Business</strong>, commonly known as <strong>eBusiness</strong> or <strong>e-Business</strong>, refers to <strong>conducting business activities over internet or any other computer network</strong>.</p></blockquote>
+<blockquote class="note"><p><strong>Philip Kotler:</strong> "Electronic business is the general term for <strong>buying and selling process that is supported by electronic means</strong>."</p></blockquote>
+<p><strong>The two halves of e-business:</strong></p>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>Half</th><th>What it covers</th></tr></thead>
+    <tbody>
+        <tr><td><strong>Industry (Production)</strong></td><td>Making the goods and services</td></tr>
+        <tr><td><strong>Commerce (Trade and Distribution)</strong></td><td>Buying and selling those goods and services</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="callout"><p><strong>Exam tip:</strong> two names carry two marks — <strong>Philip Kotler</strong> for the quote, and the phrase <strong>conducting business activities over internet or any other computer network</strong> for the definition.</p></div>
+<h3 id="q-s1-e-business-vs-e-commerce-3-bases">E-business vs e-commerce — 3 bases</h3>
+<p><strong>E-business is a wider term than e-commerce</strong>, in the same way as <strong>business is a broader term than commerce</strong>. <strong>E-commerce deals with the distribution of goods and services</strong>, while <strong>e-business includes e-commerce</strong> and also the other electronically conducted business functions.</p>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>Basis</th><th>E-commerce</th><th>E-business</th></tr></thead>
+    <tbody>
+        <tr><td><strong>Scope</strong></td><td>Covers the distribution of goods and services</td><td>Wider — covers e-commerce plus every other business function</td></tr>
+        <tr><td><strong>Functions covered</strong></td><td>Buying and selling, distribution</td><td>Production, accounting, finance, personnel, administration, etc.</td></tr>
+        <tr><td><strong>Meaning</strong></td><td>The trade and distribution part of business</td><td>The whole of business, run electronically</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>So <strong>e-commerce sits inside e-business</strong>. A question asking "how is e-business different from e-commerce?" is answered with the wider scope and the extra functions.</p>
+<h3 id="q-s1-key-terms-the-10-that-carry-marks">Key terms — the 10 that carry marks</h3>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>Term</th><th>Meaning in one line</th></tr></thead>
+    <tbody>
+        <tr><td><strong>Emerging modes of business</strong></td><td>The recent trends taking place in the way business is done</td></tr>
+        <tr><td><strong>Emerging technologies</strong></td><td>Tools used to meet competition, quality standards, lower prices, faster order processing and better customer care</td></tr>
+        <tr><td><strong>E-business</strong></td><td>Conducting business activities over internet or any other computer network</td></tr>
+        <tr><td><strong>E-commerce</strong></td><td>The distribution of goods and services; it sits inside e-business</td></tr>
+        <tr><td><strong>Industry (Production)</strong></td><td>One half of e-business — making the goods and services</td></tr>
+        <tr><td><strong>Commerce (Trade and Distribution)</strong></td><td>The other half — buying and selling of goods and services</td></tr>
+        <tr><td><strong>Intranet</strong></td><td>The network a firm uses to deal between its own departments and persons</td></tr>
+        <tr><td><strong>Flexible manufacturing</strong></td><td>Production made to customer requirements; Intra-B commerce has facilitated it</td></tr>
+        <tr><td><strong>VPN (Virtual Private Network)</strong></td><td>Technology through which employees access the organisation's network and work from anywhere</td></tr>
+        <tr><td><strong>Outsourcing</strong></td><td>Contracting out activities to a third party which were earlier performed by the organisation</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="drill">
+  <div class="drill-head"><h3 id="q-s1-recall-drill-session-1">Recall drill — Session 1</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+  <ol class="drill-list">
+<li class="drill-item">
+  <p class="drill-question"><strong>What does "emerging modes of business" mean?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>It means the <strong>recent trends taking place in the way business is done</strong>, a change that has come in the modern period because firms now use emerging technologies as a normal part of their working.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>In which period has the manner of conducting business changed considerably?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>In the <strong>modern period</strong>, where the change has been considerable and has produced what the chapter calls the emerging modes of business.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Name the two emerging modes studied in this chapter.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The two modes are <strong>e-business (electronic business)</strong> and <strong>outsourcing</strong>, the first about conducting business over a network and the second about contracting activities to a third party.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Which five needs push a business to use emerging technologies?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Ever growing competition, quality standards, lower prices, faster order processing and better customer care</strong> — together these five needs explain why a firm adopts emerging technologies instead of continuing with old methods.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Which trend is described as the strongest shaping business?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>E-business (Electronic Business)</strong> is described as one of the strongest trends shaping business, and the chapter treats it as the main new mode after introducing the five needs.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Define e-business.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Electronic Business</strong>, commonly called <strong>eBusiness</strong> or <strong>e-Business</strong>, refers to <strong>conducting business activities over internet or any other computer network</strong>, which is the exact definition to reproduce in a one-mark answer.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Write Philip Kotler's definition of electronic business.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>In Kotler's words, "<strong>Electronic business is the general term for buying and selling process that is supported by electronic means</strong>," and the thinker's name plus this line is what the examiner looks for.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>What are the two halves of e-business, and what does each cover?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The two halves are <strong>Industry (Production)</strong>, which covers making the goods and services, and <strong>Commerce (Trade and Distribution)</strong>, which covers buying and selling those goods and services.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Which is wider — e-business or e-commerce? Why?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>E-business is wider</strong>, because <strong>e-business includes e-commerce</strong> along with the other business functions done electronically, just as business is a broader term than commerce.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Which functions does e-business cover beyond the distribution of goods and services?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>Beyond distribution, e-business covers <strong>production, accounting, finance, personnel and administration</strong>, which is why it is described as the whole of business run electronically rather than only the trade part.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>What does e-commerce deal with?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>E-commerce deals with the distribution of goods and services</strong>, covering buying and selling and distribution, but not the production, finance, personnel and administration functions that e-business also includes.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>How many branches does e-business have, and what are they?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>E-business has <strong>four branches</strong> — <strong>B2B (business to business), B2C (business to customer), C2C (customer to customer) and Intra-B (within the firm)</strong> — with the first three forming e-commerce and Intra-B completing e-business.</p>
+  </details>
+</li>
+  </ol>
+</div>
+        </div>
+      </section>
+
+      <section class="session session--quick" id="q-session-2">
+        <header class="session-head"><span class="session-kicker">Session 2</span><h2>The Four Branches of E-Business</h2></header>
+        <div class="session-body">
+<h3 id="q-s2-the-four-branches-at-a-glance">The four branches at a glance</h3>
+<p><strong>E-business includes e-commerce (B2B, B2C and C2C) and also Intra-B commerce.</strong> The first three run between separate parties; the fourth runs inside one firm.</p>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>Branch</th><th>Between whom</th><th>Source example</th></tr></thead>
+    <tbody>
+        <tr><td><strong>B2B</strong></td><td>Two business firms</td><td>Maruti Udyog buying tyres, glass for windscreens and door handles</td></tr>
+        <tr><td><strong>B2C</strong></td><td>A business and its customers</td><td>Withdrawal of one's own money from an ATM, round the clock</td></tr>
+        <tr><td><strong>C2C</strong></td><td>Two or more customers</td><td>Quikr and OLX, where consumers sell to other consumers</td></tr>
+        <tr><td><strong>Intra-B</strong></td><td>Departments and persons within one firm</td><td>Marketing department interacting with the production department</td></tr>
+    </tbody>
+  </table>
+</div>
+<h3 id="q-s2-b2b-commerce-business-to-business">B2B Commerce — business to business</h3>
+<p><strong>B2B commerce</strong> means the <strong>transactions taking place between business firms</strong>, also called <strong>business to business</strong> or <strong>B2B transactions</strong>.</p>
+<p><strong>Source example:</strong> an automobile manufacturer such as <strong>Maruti Udyog</strong> makes several B2B transactions when it buys <strong>tyres, glass for windscreens, door handles</strong> and similar parts for its vehicles from different business units.</p>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>#</th><th>B2B transaction</th></tr></thead>
+    <tbody>
+        <tr><td>1</td><td>Inviting tenders</td></tr>
+        <tr><td>2</td><td>Commercial negotiations</td></tr>
+        <tr><td>3</td><td>Distribution of goods</td></tr>
+        <tr><td>4</td><td>Creation of utilities</td></tr>
+        <tr><td>5</td><td>Collaborations</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><strong>Exam line:</strong> the keyword is <strong>"between firms"</strong>. Anything one business buys from another business is a B2B transaction. Sending quotations for supplying raw material from one businessman to another is therefore <strong>B2B</strong>.</p>
+<h3 id="q-s2-b2c-commerce-business-to-customer">B2C Commerce — business to customer</h3>
+<p><strong>B2C commerce</strong> means the <strong>transactions taking place between business and customers</strong>, known as <strong>business-to-customer</strong> or <strong>B2C transactions</strong>. It <strong>enables the business to remain in touch with its customers on a round-the-clock basis</strong>.</p>
+<p><strong>Source example:</strong> withdrawal of one's own money from banks was a <strong>tedious process in the past</strong>; with the introduction of the <strong>ATM</strong>, it is now possible to <strong>withdraw money round the clock in a convenient and fast manner</strong>. This is the chapter's example of round-the-clock B2C service.</p>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>#</th><th>B2C transaction</th></tr></thead>
+    <tbody>
+        <tr><td>1</td><td>Selling and distribution of goods</td></tr>
+        <tr><td>2</td><td>Lodging of complaints by customer</td></tr>
+        <tr><td>3</td><td>After-sale service</td></tr>
+        <tr><td>4</td><td>Promotional activities</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><strong>Platforms named in the source:</strong> <strong>Amazon, eBay, Snapdeal</strong>.</p>
+<p><strong>Exam line:</strong> the keyword in B2C is <strong>"round the clock"</strong>, and the ATM example belongs to B2C, not to B2B or C2C.</p>
+<h3 id="q-s2-c2c-commerce-customer-to-customer">C2C Commerce — customer to customer</h3>
+<p><strong>C2C commerce</strong> means the <strong>transactions taking place between two or more customers</strong>.</p>
+<p><strong>Source example:</strong> <strong>Quikr</strong> and <strong>OLX</strong>, where consumers can sell their goods and services to other consumers. <strong>CarDekho</strong> is the other C2C platform named in the chapter.</p>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>#</th><th>C2C transaction</th></tr></thead>
+    <tbody>
+        <tr><td>1</td><td>Selling used books, clothes, etc.</td></tr>
+        <tr><td>2</td><td>Selling antique items</td></tr>
+        <tr><td>3</td><td>Warning customers about fraudulent suppliers</td></tr>
+        <tr><td>4</td><td>Information about the quality and durability of the product</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><strong>Exam line:</strong> in C2C <strong>both sides are customers</strong> — one customer is the seller and the other is the buyer, and the platform firm is not a party to the deal.</p>
+<h3 id="q-s2-intra-b-commerce-within-the-firm">Intra-B Commerce — within the firm</h3>
+<p><strong>Intra-B commerce</strong> means the <strong>interaction and dealings among various departments and persons within the firm</strong>. It includes the use of the <strong>intranet</strong> to interact and deal between departments and persons inside a firm.</p>
+<p>The use of Intra-B commerce has <strong>facilitated flexible manufacturing</strong>. <strong>Source example:</strong> the <strong>marketing department</strong> may interact regularly with the <strong>production department</strong> and get the products made as per the requirements of the customers.</p>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>#</th><th>Intra-B purpose</th></tr></thead>
+    <tbody>
+        <tr><td>1</td><td>Inventory and cash management</td></tr>
+        <tr><td>2</td><td>Reporting by employees to their seniors</td></tr>
+        <tr><td>3</td><td>Human resource management</td></tr>
+        <tr><td>4</td><td>Recruitment and selection</td></tr>
+        <tr><td>5</td><td>Training, development and education</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><strong>VPN technology:</strong> companies also use a <strong>Virtual Private Network (VPN)</strong>, through which employees can access the organisation's network and <strong>work from anywhere</strong> through a computer network. The <strong>General Technologies work-from-home case</strong> is the source's illustration of Intra-B through VPN.</p>
+<h3 id="q-s2-exam-corner-3-mcqs-with-printed-keys">Exam Corner — 3 MCQs with printed keys</h3>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>#</th><th>Question</th><th>Options</th><th>Answer</th></tr></thead>
+    <tbody>
+        <tr><td>1</td><td>OLX is an example of which category of e-business?</td><td>(a) B2B (b) B2C (c) C2C (d) Intra B</td><td><strong>(c) C2C</strong></td></tr>
+        <tr><td>2</td><td>Mail sent by the purchase department to the production department is an example of which category?</td><td>(a) B2B (b) B2C (c) C2C (d) Intra B</td><td><strong>(d) Intra B</strong></td></tr>
+        <tr><td>3</td><td>Sending quotations for supplying raw material by one businessman to another is called</td><td>(a) B2B (b) B2C (c) C2C (d) Intra B</td><td><strong>(a) B2B</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+<h3 id="q-s2-case-study-toolkit-the-4-source-cases">Case study toolkit — the 4 source cases</h3>
+<ol><li><strong>OLX sofa — Mr. Rajiv.</strong> He sells his old sofa through <strong>OLX</strong> to get surplus money and space, and chooses the buyer who gives the best price. The two parties are <strong>customer and customer</strong>, and the branch is <strong>C2C commerce</strong>, because both sides are individuals and the platform firm is not a party.</li><li><strong>General Technologies — work from home.</strong> Software engineers take their daily assigned tasks from the daily work manager, save them on laptops and complete them at home on time, with the general manager hoping they spend more time with families and increase their potential, creativity and efficiency. The dimension is <strong>Intra-B commerce</strong> through <strong>VPN</strong>, and any two other dimensions are from <strong>B2B, B2C and C2C</strong>.</li><li><strong>Ritika — TrendZilla.</strong> She sells handmade jewellery and accessories through Instagram and a website, customers order and pay online, and a courier partner handles home delivery. The model is <strong>B2C</strong>, and the accepted benefits are <strong>convenience (24×7)</strong>, <strong>speed (the click of a mouse)</strong> and <strong>ease of formation (low cost, no physical facilities)</strong>.</li><li><strong>Company A and Company B.</strong> Company A supplies raw materials such as steel and plastic to manufacturers, so it is <strong>B2B</strong>; Company B sells mobiles and headphones directly to customers through its website, so it is <strong>B2C</strong>. Other examples are <strong>Maruti Udyog buying tyres, glass and door handles</strong> for B2B, and <strong>Amazon, eBay or Snapdeal</strong> selling to individual customers for B2C.</li></ol>
+<div class="drill">
+  <div class="drill-head"><h3 id="q-s2-recall-drill-session-2">Recall drill — Session 2</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+  <ol class="drill-list">
+<li class="drill-item">
+  <p class="drill-question"><strong>Define B2B commerce.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>B2B commerce</strong> means the <strong>transactions taking place between business firms</strong>, also called <strong>business to business</strong> or <strong>B2B transactions</strong>, and its keyword is that both parties are businesses.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Give the Maruti Udyog B2B example.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>An automobile manufacturer such as <strong>Maruti Udyog</strong> buys <strong>tyres, glass for windscreens, door handles</strong> and similar parts for its vehicles from different business units, so each purchase is a B2B transaction.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Name the five B2B transactions.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The five are <strong>inviting tenders, commercial negotiations, distribution of goods, creation of utilities and collaborations</strong>, and any three of them are enough for a short answer.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Define B2C commerce.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>B2C commerce</strong> means the <strong>transactions taking place between business and customers</strong>, known as <strong>business-to-customer</strong> or <strong>B2C transactions</strong>, and it lets the business stay in touch with customers round the clock.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Why is B2C called round-the-clock? Use the ATM example.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>B2C enables a business to remain in touch with customers on a <strong>round-the-clock basis</strong>, and the source's example is the <strong>ATM</strong>: withdrawing one's own money was tedious in the past, but the ATM now allows withdrawal <strong>24×7 in a convenient and fast manner</strong>.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Name the four B2C transactions.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The four are <strong>selling and distribution of goods, lodging of complaints by customer, after-sale service and promotional activities</strong>, all of which happen between a business and its customers.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Name three B2C platforms from the source.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The platforms named are <strong>Amazon, eBay and Snapdeal</strong>, all of which sell goods to individual customers rather than to other firms.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Define C2C commerce and name the platforms.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>C2C commerce</strong> means the <strong>transactions taking place between two or more customers</strong>, and the examples are <strong>Quikr and OLX</strong>, with <strong>CarDekho</strong> also named as a C2C platform.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Name the four C2C transactions.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>They are <strong>selling used books and clothes, selling antique items, warning customers about fraudulent suppliers, and giving information about the quality and durability of the product</strong>, with both buyer and seller being customers.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Define Intra-B commerce. Which network does it use?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Intra-B commerce</strong> means the <strong>interaction and dealings among various departments and persons within the firm</strong>, and it uses the <strong>intranet</strong> to connect those departments and persons.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>What has Intra-B facilitated? Give the department example.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>Intra-B commerce has <strong>facilitated flexible manufacturing</strong>, and the example is the <strong>marketing department</strong> interacting regularly with the <strong>production department</strong> to get products made as per the requirements of the customers.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Name the five Intra-B purposes and explain VPN.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The five purposes are <strong>inventory and cash management, reporting by employees to their seniors, human resource management, recruitment and selection, and training, development and education</strong>, while <strong>VPN</strong> lets employees access the organisation's network and work from anywhere through a computer network.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>What are the keys to the three source MCQs?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>OLX is C2C</strong>, <strong>mail from the purchase department to the production department is Intra-B</strong>, and <strong>sending quotations for raw material from one businessman to another is B2B</strong>, each decided by who the two parties are.</p>
+  </details>
+</li>
+  </ol>
+</div>
+        </div>
+      </section>
+
+      <section class="session session--quick" id="q-session-3">
+        <header class="session-head"><span class="session-kicker">Session 3</span><h2>E-Business vs Traditional Business</h2></header>
+        <div class="session-body">
+<h3 id="q-s3-the-11-bases-full-table">The 11 bases — full table</h3>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>Basis</th><th>E-business</th><th>Traditional business</th></tr></thead>
+    <tbody>
+        <tr><td><strong>Ease of formation</strong></td><td>It is easy to form.</td><td>It is difficult to form.</td></tr>
+        <tr><td><strong>Physical presence</strong></td><td>It does not require physical presence.</td><td>It requires physical presence.</td></tr>
+        <tr><td><strong>Locational requirements</strong></td><td>There is no requirement for location.</td><td>Location is preferred near raw materials and market.</td></tr>
+        <tr><td><strong>Cost of setting up</strong></td><td>Low cost of setting up due to no need for physical facilities.</td><td>It involves high cost of setting up.</td></tr>
+        <tr><td><strong>Operating cost</strong></td><td>The operating cost is low.</td><td>High operating cost due to investment in production, marketing, etc.</td></tr>
+        <tr><td><strong>Direct or indirect contact with suppliers and customers</strong></td><td>It has direct contact.</td><td>It has indirect contact through intermediaries.</td></tr>
+        <tr><td><strong>Nature of internal communication</strong></td><td>Communication can flow in any direction.</td><td>It involves hierarchical flow of communication.</td></tr>
+        <tr><td><strong>Response time in meeting customer's requirement</strong></td><td>It gives instant response.</td><td>Response takes a lot of time.</td></tr>
+        <tr><td><strong>Organisational structure</strong></td><td>Horizontal or flat structure due to direct command and communication.</td><td>Vertical or tall structure due to chain of command.</td></tr>
+        <tr><td><strong>Business processes and length of the cycle</strong></td><td>Short business process cycle.</td><td>It is long due to a number of sequential processes.</td></tr>
+        <tr><td><strong>Opportunity for interpersonal touch</strong></td><td>Less opportunity for inter-personal touch.</td><td>More opportunity for inter-personal touch.</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="callout"><p><strong>Memory hook for the 11 bases:</strong> <strong>F-P-L-C-O-C-C-R-S-B-I</strong> — Formation, Presence, Location, Cost of setting up, Operating cost, Contact, Communication, Response, Structure, Business cycle, Interpersonal touch.</p></div>
+<div class="callout"><p><strong>Exam tip:</strong> in a 3-mark answer, any <strong>three rows</strong> are enough — write the <strong>basis</strong> on the left and the answer for <strong>both</strong> sides.</p></div>
+<h3 id="q-s3-benefits-of-e-business-5">Benefits of e-business — 5</h3>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>#</th><th>Benefit</th><th>What it gives</th></tr></thead>
+    <tbody>
+        <tr><td>1</td><td><strong>Ease of formation and lower investment requirements</strong></td><td>Very easy to form and start; it does not need the procedural requirements needed for setting up traditional industry</td></tr>
+        <tr><td>2</td><td><strong>Convenience</strong></td><td>Accessing anything, anywhere, anytime; customers shop at their own convenience at any time, <strong>24×7</strong></td></tr>
+        <tr><td>3</td><td><strong>Speed</strong></td><td>Very less time to complete the business cycle; the entire process is done with the <strong>click of a mouse</strong></td></tr>
+        <tr><td>4</td><td><strong>Global reach</strong></td><td>The seller operates at the national as well as the global level; buyers and sellers from any part of the world can interact</td></tr>
+        <tr><td>5</td><td><strong>Movement towards a paperless society</strong></td><td>Reduced dependence on paperwork; most work is done electronically through computers</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><strong>Extra lines that carry marks:</strong></p>
+<ul>
+<li>Benefits of internet technology accrue to <strong>big or small business alike</strong>.</li>
+<li>Success of e-business depends on <strong>network (contacts)</strong> rather than on <strong>investment (net worth)</strong>.</li>
+<li>Some products are delivered online, like <strong>music, movies and e-books</strong>.</li>
+<li>Through the <strong>electronic funds transfer</strong> technology of e-commerce, money can be <strong>instantly transferred</strong>.</li>
+<li>Even <strong>government departments and regulatory authorities</strong> use computers — for example, people can <strong>file their income tax return online</strong>.</li>
+</ul>
+<h3 id="q-s3-limitations-of-e-business-6">Limitations of e-business — 6</h3>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>#</th><th>Limitation</th><th>What it means</th></tr></thead>
+    <tbody>
+        <tr><td>1</td><td><strong>Low personal touch</strong></td><td>Transactions carry less face-to-face human interaction</td></tr>
+        <tr><td>2</td><td><strong>Delay in delivery</strong></td><td>Physical products still take time to reach the buyer</td></tr>
+        <tr><td>3</td><td><strong>Need for technology capability</strong></td><td>The firm and the customer both need internet access and technical skill</td></tr>
+        <tr><td>4</td><td><strong>Non-traceability of parties</strong></td><td>The parties to a transaction may be difficult to trace, which opens the door to fraud</td></tr>
+        <tr><td>5</td><td><strong>People resistance</strong></td><td>Many customers still prefer the traditional way of buying</td></tr>
+        <tr><td>6</td><td><strong>Ethical fallouts</strong></td><td>Issues such as spam emails, privacy breaches, data theft and fake reviews</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="callout"><p><strong>Memory hooks:</strong> benefits are <strong>E-C-S-G-P</strong> — Ease, Convenience, Speed, Global reach, Paperless. Limitations are <strong>T-D-T-T-R-E</strong> — Touch, Delivery, Technology, Traceability, Resistance, Ethics.</p></div>
+<div class="drill">
+  <div class="drill-head"><h3 id="q-s3-recall-drill-session-3">Recall drill — Session 3</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+  <ol class="drill-list">
+<li class="drill-item">
+  <p class="drill-question"><strong>How many bases are in the comparison? Name all eleven.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>There are <strong>11 bases</strong>: ease of formation, physical presence, locational requirements, cost of setting up, operating cost, direct or indirect contact with suppliers and customers, nature of internal communication, response time, organisational structure, business processes and length of the cycle, and opportunity for interpersonal touch.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Compare ease of formation and physical presence.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>E-business is <strong>easy to form and does not require physical presence</strong>, while traditional business is <strong>difficult to form and requires physical presence</strong>, which is why the traditional firm needs formalities and a physical setup.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Compare location, setting-up cost and operating cost.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>E-business has <strong>no requirement for location</strong> and a <strong>low cost of setting up</strong> because it needs no physical facilities, and its <strong>operating cost is low</strong>; traditional business prefers a <strong>location near raw materials and market</strong>, has a <strong>high setting-up cost</strong>, and a <strong>high operating cost</strong> due to investment in production, marketing and similar areas.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Compare contact and internal communication.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>E-business has <strong>direct contact with suppliers and customers</strong> and communication can flow in <strong>any direction</strong>, while traditional business has <strong>indirect contact through intermediaries</strong> and a <strong>hierarchical flow of communication</strong>.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Compare response time and organisational structure.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>E-business gives an <strong>instant response</strong> and has a <strong>horizontal or flat structure</strong> due to direct command and communication, while traditional business <strong>takes a lot of time</strong> to respond and has a <strong>vertical or tall structure</strong> due to the chain of command.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Compare the business process cycle and interpersonal touch.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>E-business has a <strong>short business process cycle</strong> and <strong>less opportunity for interpersonal touch</strong>, while traditional business has a <strong>long cycle due to a number of sequential processes</strong> and <strong>more opportunity for interpersonal touch</strong>.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Name the five benefits of e-business.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The five are <strong>ease of formation and lower investment requirements, convenience, speed, global reach, and movement towards a paperless society</strong>, and the names should be kept in this order for a list question.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Explain convenience and speed with the source's details.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Convenience</strong> means accessing anything, anywhere, anytime, with customers shopping at their own convenience <strong>24×7</strong>; <strong>speed</strong> means very less time to complete the business cycle because the entire process is done with the <strong>click of a mouse</strong>, and digital goods such as music, movies and e-books can be delivered online.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>What is global reach?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Global reach</strong> is the ability of an e-business seller to operate at the <strong>national as well as the global level</strong>, so that buyers and sellers from <strong>any part of the world</strong> can interact with each other.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>How does e-business move society towards paperless work? Give the government example.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The internet has <strong>considerably reduced dependence on paperwork</strong> and most work is done electronically through computers, and even government departments and regulatory authorities use computers — for example, people can <strong>file their income tax return online</strong>.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Name the six limitations of e-business.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The six are <strong>low personal touch, delay in delivery, need for technology capability, non-traceability of parties, people resistance and ethical fallouts</strong>, and they should be learnt as a fixed list without mixing them with the benefits.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Explain non-traceability and ethical fallouts.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Non-traceability of parties</strong> means the parties to a transaction may be difficult to trace, which opens the door to fraud, while <strong>ethical fallouts</strong> cover issues such as <strong>spam emails, privacy breaches, data theft and fake reviews</strong>.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>On what does the success of e-business depend, and who gains from internet technology?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>Success depends on <strong>network (contacts)</strong> rather than on <strong>investment (net worth)</strong>, and the benefits of internet technology accrue to <strong>big or small business alike</strong>, so size of investment is not the deciding factor.</p>
+  </details>
+</li>
+  </ol>
+</div>
+        </div>
+      </section>
+
+      <section class="session session--quick" id="q-session-4">
+        <header class="session-head"><span class="session-kicker">Session 4</span><h2>Outsourcing</h2></header>
+        <div class="session-body">
+<h3 id="q-s4-outsourcing-the-exact-definition">Outsourcing — the exact definition</h3>
+<blockquote class="note"><p><strong>Outsourcing</strong> refers to <strong>contracting out some of its activities to a third party which were earlier performed by the organisation</strong>.</p></blockquote>
+<ul>
+<li>The organisation identifies activities it <strong>used to perform itself</strong>.</li>
+<li>It <strong>contracts them out to a third party</strong>, which now performs them.</li>
+<li>The firm keeps its <strong>core work</strong> and gains <strong>time, expertise and lower cost</strong>.</li>
+</ul>
+<p><strong>Two keywords carry the full mark:</strong> <strong>contracting out</strong> and <strong>third party</strong>.</p>
+<h3 id="q-s4-six-reasons-for-outsourcing">Six reasons for outsourcing</h3>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>#</th><th>Reason</th><th>What it means</th></tr></thead>
+    <tbody>
+        <tr><td>1</td><td><strong>Focusing of attention</strong></td><td>The organisation focuses on its core business activities while specialists handle the non-core tasks</td></tr>
+        <tr><td>2</td><td><strong>Quest for excellence</strong></td><td>Third-party vendors are specialists, so the organisation benefits from their expertise and higher quality output</td></tr>
+        <tr><td>3</td><td><strong>Cost reduction</strong></td><td>The third party brings economies of scale and lower labour costs, so operational costs come down</td></tr>
+        <tr><td>4</td><td><strong>Growth through alliance</strong></td><td>Outsourcing builds a partnership — the organisation forms strategic alliances with its vendors</td></tr>
+        <tr><td>5</td><td><strong>Boost to economic development</strong></td><td>It creates employment and economic activity in the vendor's location</td></tr>
+        <tr><td>6</td><td><strong>Risk sharing</strong></td><td>Part of the business risk is transferred to the third-party vendor</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="callout"><p><strong>Memory hook:</strong> <strong>F-Q-C-G-E-R</strong> — Focus, Quest, Cost, Growth, Economic development, Risk.</p></div>
+<h3 id="q-s4-bpo-and-kpo-the-two-labels">BPO and KPO — the two labels</h3>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>Term</th><th>What it means</th></tr></thead>
+    <tbody>
+        <tr><td><strong>BPO (Business Process Outsourcing)</strong></td><td>Contracting out a standard business process to a third party; the <strong>BPO industry in India</strong> is the example used for the boost to economic development</td></tr>
+        <tr><td><strong>KPO (Knowledge Process Outsourcing)</strong></td><td>Contracting out knowledge-intensive work that needs specialist expertise and judgement</td></tr>
+    </tbody>
+  </table>
+</div>
+<h3 id="q-s4-writing-the-outsourcing-answer">Writing the outsourcing answer</h3>
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>Marks</th><th>What to write</th></tr></thead>
+    <tbody>
+        <tr><td><strong>1 mark</strong></td><td>The definition with both keywords — <strong>contracting out</strong> and <strong>third party</strong></td></tr>
+        <tr><td><strong>3 marks</strong></td><td>Any <strong>three reasons</strong>, each as a heading followed by one line of meaning</td></tr>
+        <tr><td><strong>6 marks</strong></td><td>All <strong>six reasons</strong>, each as a heading with one line, plus the <strong>BPO industry in India</strong> example</td></tr>
+    </tbody>
+  </table>
+</div>
+<h3 id="q-s4-what-the-paper-repeats">What the paper repeats</h3>
+<ul>
+<li>Meaning of e-business plus <strong>Kotler's definition</strong> — direct 1-mark and 3-mark question.</li>
+<li><strong>E-business vs e-commerce</strong> — e-business is the wider term.</li>
+<li><strong>B2B, B2C, C2C and Intra-B</strong> — four one-mark questions or one three-mark list.</li>
+<li><strong>Intra-B, intranet and VPN</strong> — appears with the work-from-home case.</li>
+<li>The <strong>B2B list of 5</strong>, <strong>B2C list of 4</strong> and <strong>C2C list of 4</strong> — straight list questions.</li>
+<li><strong>OLX and Quikr</strong> as C2C examples — a favourite one-line MCQ.</li>
+<li>The <strong>11-base comparison</strong> — the most common three-mark table question.</li>
+<li><strong>Five benefits and six limitations</strong> — two list questions every year.</li>
+<li><strong>Meaning of outsourcing and its six reasons</strong> — direct definition and list question.</li>
+<li>The <strong>C2C, B2C and Intra-B cases</strong> — almost every paper carries one case-based question.</li>
+</ul>
+<div class="drill">
+  <div class="drill-head"><h3 id="q-s4-recall-drill-session-4">Recall drill — Session 4</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+  <ol class="drill-list">
+<li class="drill-item">
+  <p class="drill-question"><strong>Define outsourcing.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Outsourcing</strong> refers to <strong>contracting out some of its activities to a third party which were earlier performed by the organisation</strong>, and it is the second emerging mode studied in the chapter.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Which two keywords must appear in the definition?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The two keywords are <strong>contracting out</strong> and <strong>third party</strong>, and writing both is what earns the full mark in a definition question.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>In outsourcing, who performs the activity that the organisation used to perform?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>A <strong>third party</strong> performs it — the outside vendor or specialist firm to which the activity is contracted out after the organisation identifies work it used to do itself.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>What does the firm gain by outsourcing?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The firm keeps its own <strong>core work</strong> and gains <strong>time, expertise and lower cost</strong>, because the third party now handles the activities that were earlier performed inside the organisation.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Name the six reasons for outsourcing.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>The six are <strong>focusing of attention, quest for excellence, cost reduction, growth through alliance, boost to economic development and risk sharing</strong>, and each should be written as a heading with one line of meaning.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Explain focusing of attention.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Focusing of attention</strong> means the organisation concentrates on its <strong>core business activities</strong> while the specialists handle the non-core tasks, so management attention is not divided across everything.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Explain quest for excellence.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Quest for excellence</strong> means third-party vendors are <strong>specialists</strong>, so the organisation benefits from their <strong>expertise and higher quality output</strong> instead of building that capability in-house.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Explain cost reduction.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Cost reduction</strong> happens because the third party brings <strong>economies of scale and lower labour costs</strong>, so the operational costs of the organisation come down.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Explain growth through alliance.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Growth through alliance</strong> means outsourcing builds a <strong>partnership relationship</strong>, in which the organisation forms <strong>strategic alliances with its vendors</strong> rather than dealing with them at arm's length.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Explain the boost to economic development with the source example.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>Outsourcing <strong>creates employment and economic activity in the vendor's location</strong>, and the source's example is the <strong>BPO industry in India</strong>, which illustrates employment and activity developing around the vendor.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>Explain risk sharing.</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p><strong>Risk sharing</strong> means <strong>part of the business risk is transferred to the third-party vendor</strong>, so the organisation does not carry the entire risk of that activity alone.</p>
+  </details>
+</li>
+<li class="drill-item">
+  <p class="drill-question"><strong>How should a 3-mark and a 6-mark outsourcing answer be built?</strong></p>
+  <details class="drill-answer"><summary class="drill-summary">Show answer</summary>
+    <p>For <strong>3 marks</strong>, write the definition and any <strong>three reasons</strong>, each as a heading with one line of meaning; for <strong>6 marks</strong>, write all <strong>six reasons</strong> in the same heading-plus-line form and add the <strong>BPO industry in India</strong> example under the boost to economic development.</p>
+  </details>
+</li>
+  </ol>
+</div>
+        </div>
+      </section>
+      <section class="quick-block clinic-block" id="q-clinic">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">Traps examiners love</span><h2>Confusion Clinic</h2><p>The one difference that decides the mark.</p></div>
+        </div>
+        <div class="quick-block-body">
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table>
+    <thead><tr><th>Pair</th><th>The one difference</th></tr></thead>
+    <tbody>
+        <tr><td>E-business vs e-commerce</td><td>E-business is the wider whole; e-commerce is only the distribution part inside it</td></tr>
+        <tr><td>B2B vs B2C</td><td>Firm selling to another firm vs firm selling to a customer</td></tr>
+        <tr><td>B2C vs C2C</td><td>The seller is a business vs the seller is a customer</td></tr>
+        <tr><td>Intra-B vs B2B</td><td>Dealings inside one firm vs transactions between two firms</td></tr>
+        <tr><td>E-business vs traditional — contact</td><td>Direct contact vs indirect contact through intermediaries</td></tr>
+        <tr><td>E-business vs traditional — communication</td><td>Any direction vs hierarchical flow</td></tr>
+        <tr><td>E-business vs traditional — structure</td><td>Horizontal or flat vs vertical or tall</td></tr>
+        <tr><td>E-business vs traditional — cycle</td><td>Short, done with a click of a mouse vs long, with sequential processes</td></tr>
+        <tr><td>E-business vs traditional — presence, location, touch</td><td>No physical presence, no location requirement and less interpersonal touch vs physical presence, location near raw materials and market, and more touch</td></tr>
+        <tr><td>Benefits vs limitations</td><td>5 gains to quote vs 6 gaps to quote; never merge the two lists</td></tr>
+    </tbody>
+  </table>
+</div>
+        </div>
+      </section>
+      <section class="quick-block rapid-block" id="q-rapid">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">One-line answers</span><h2>Rapid Fire</h2><p>Cover the right column. Say the answer before you reveal it.</p></div>
+          <button class="cover-btn" type="button" data-cover-answers aria-pressed="false">Cover answers</button>
+        </div>
+        <div class="quick-block-body">
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table class="rapid-table">
+    <thead><tr><th>Question</th><th>One-line answer</th></tr></thead>
+    <tbody>
+        <tr><td>Meaning of emerging modes of business</td><td>Recent trends taking place in the way business is done</td></tr>
+        <tr><td>Two emerging modes studied</td><td>E-business and outsourcing</td></tr>
+        <tr><td>Strongest trend shaping business</td><td>E-business</td></tr>
+        <tr><td>Five needs for emerging technologies</td><td>Competition, quality standards, lower prices, faster order processing, better customer care</td></tr>
+        <tr><td>Definition of e-business</td><td>Conducting business activities over internet or any other computer network</td></tr>
+        <tr><td>Kotler's definition</td><td>General term for buying and selling process supported by electronic means</td></tr>
+        <tr><td>Two halves of e-business</td><td>Industry (production) and commerce (trade and distribution)</td></tr>
+        <tr><td>Wider term, and what e-commerce covers</td><td>E-business is wider; e-commerce covers distribution of goods and services</td></tr>
+        <tr><td>Functions e-business adds</td><td>Production, accounting, finance, personnel, administration</td></tr>
+        <tr><td>Four branches</td><td>B2B, B2C, C2C, Intra-B</td></tr>
+        <tr><td>B2B meaning</td><td>Transactions between business firms</td></tr>
+        <tr><td>B2B example</td><td>Maruti Udyog buying tyres, glass for windscreens, door handles</td></tr>
+        <tr><td>Number of B2B transactions</td><td>5</td></tr>
+        <tr><td>B2C meaning and count</td><td>Transactions between business and customers; 4 transactions</td></tr>
+        <tr><td>B2C advantage</td><td>Round-the-clock contact with customers, 24×7</td></tr>
+        <tr><td>B2C example</td><td>ATM withdrawal of one's own money</td></tr>
+        <tr><td>B2C platforms</td><td>Amazon, eBay, Snapdeal</td></tr>
+        <tr><td>C2C meaning and count</td><td>Transactions between two or more customers; 4 transactions</td></tr>
+        <tr><td>C2C platforms</td><td>OLX, Quikr, CarDekho</td></tr>
+        <tr><td>Intra-B meaning and count</td><td>Dealings among departments and persons within the firm; 5 purposes</td></tr>
+        <tr><td>Network used by Intra-B</td><td>Intranet</td></tr>
+        <tr><td>What Intra-B has facilitated</td><td>Flexible manufacturing</td></tr>
+        <tr><td>VPN's use</td><td>Access the organisation's network and work from anywhere</td></tr>
+        <tr><td>Number of comparison bases</td><td>11</td></tr>
+        <tr><td>Structures compared</td><td>E-business horizontal or flat; traditional vertical or tall</td></tr>
+        <tr><td>Contact and response compared</td><td>E-business direct and instant; traditional indirect through intermediaries and slow</td></tr>
+        <tr><td>E-business process cycle</td><td>Short, click of a mouse</td></tr>
+        <tr><td>Number of benefits</td><td>5</td></tr>
+        <tr><td>Number of limitations</td><td>6</td></tr>
+        <tr><td>Outsourcing definition</td><td>Contracting out activities to a third party which were earlier performed by the organisation</td></tr>
+        <tr><td>Number of outsourcing reasons</td><td>6</td></tr>
+        <tr><td>BPO example</td><td>Boost to economic development in India</td></tr>
+        <tr><td>OLX MCQ key</td><td>C2C</td></tr>
+        <tr><td>Purchase-to-production mail</td><td>Intra-B</td></tr>
+        <tr><td>Raw material quotation</td><td>B2B</td></tr>
+    </tbody>
+  </table>
+</div>
+        </div>
+
+      </section>
+      <section class="quick-block blank-block" id="q-blank">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">From memory</span><h2>Blank Page Test</h2><p>10 minutes. Close the notes and tick each one you can write.</p></div>
+        </div>
+        <div class="blank-meter">
+          <span class="blank-count" data-blank-count>0 / 11 complete</span>
+          <span class="blank-bar" aria-hidden="true"><span data-blank-bar></span></span>
+          <button class="blank-reset" type="button" data-blank-reset>Reset</button>
+        </div>
+        <p>Close the file and write these from memory. Tick each one you complete.</p>
+        <ul class="blank-list">
+          <li><label class="blank-item"><input class="blank-check" data-blank="1" id="q-blank-5-1" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Two emerging modes and the five needs behind them</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="2" id="q-blank-5-2" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">E-business definition plus the Kotler quote</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="3" id="q-blank-5-3" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Two halves of e-business and the 3 bases of e-business vs e-commerce</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="4" id="q-blank-5-4" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Four branches with one example each</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="5" id="q-blank-5-5" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Five B2B transactions</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="6" id="q-blank-5-6" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Four B2C transactions plus the ATM example</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="7" id="q-blank-5-7" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Four C2C transactions plus the platforms</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="8" id="q-blank-5-8" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Five Intra-B purposes plus VPN</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="9" id="q-blank-5-9" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">All 11 comparison bases</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="10" id="q-blank-5-10" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Five benefits and six limitations</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="11" id="q-blank-5-11" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Six outsourcing reasons plus the BPO example</span></label></li>
+        </ul>
+        <p class="blank-note"><strong>Scoring:</strong> 8-10 ticks = exam ready. 5-7 = redo the recall drills for the missed sections. Below 5 = read the session notes again, then repeat this test tomorrow.</p>
+      </section>
+      <section class="quick-block plan-block" id="q-plan">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">Exam morning</span><h2>15-Minute Revision Plan</h2><p>A timed route through the whole chapter, from first recall to the final line.</p></div>
+        </div>
+        <div class="quick-block-body">
+<div class="table-wrap" role="region" aria-label="Data table" tabindex="0">
+  <table class="plan-table">
+    <thead><tr><th>Minutes</th><th>Do this</th></tr></thead>
+    <tbody>
+        <tr><td>0-4</td><td>Session 1 notes, then write the e-business definition, Kotler quote and two halves from memory</td></tr>
+        <tr><td>4-8</td><td>Session 2 branch table, then list 5 B2B, 4 B2C, 4 C2C and 5 Intra-B purposes</td></tr>
+        <tr><td>8-11</td><td>The 11 comparison bases, then the 5 benefits and 6 limitations</td></tr>
+        <tr><td>11-13</td><td>Outsourcing definition and the six reasons with the BPO example</td></tr>
+        <tr><td>13-15</td><td>Confusion Clinic and Rapid Fire, then the three MCQ keys</td></tr>
+    </tbody>
+  </table>
+</div>
+        <p><strong>Final line to remember:</strong> business now runs on <strong>two emerging modes</strong> — <strong>e-business</strong>, which spreads across <strong>four branches</strong>, <strong>11 comparison bases</strong>, <strong>5 benefits</strong> and <strong>6 limitations</strong>, and <strong>outsourcing</strong>, which hands activities to a <strong>third party</strong> for <strong>six reasons</strong> so the firm can focus, improve quality, cut cost, grow through alliance, boost economic development and share risk.</p>
+        </div>
+      </section>
+      <div class="quick-cta">
+        <div>
+          <span class="quick-cta-kicker">Need the reasoning?</span>
+          <p>Every table in quick revision is built from the full notes.</p>
+        </div>
+        <button class="mode-jump" type="button" data-mode-jump="notes">Read the full notes <span aria-hidden="true">→</span></button>
+      </div>
+      </div>
+
+      <nav class="pager" aria-label="Chapter navigation"><a class="pager-link prev" href="Chapter-4-Business-Services.html"><span class="pager-label">← Previous chapter</span><span class="pager-title">Chapter 4 · Business Services</span></a><a class="pager-link next" href="Chapter-6-Social-Responsibilities-and-Business-Ethics.html"><span class="pager-label">Next chapter →</span><span class="pager-title">Chapter 6 · Social Responsibilities of Business and Business Ethics</span></a></nav>
+
+      <footer class="page-footer">
+        <p><strong>Chapter 5 · Emerging Modes of Business</strong></p>
+        <p>Built from the Class 11 BST source notes — Easy Notes and Quick Revision. Facts and examples follow the source notes; nothing added.</p>
+        <p><a href="../index.html">← All subjects</a> <span>·</span> <a href="#main">Back to top</a></p>
       </footer>
-
     </main>
   </div>
 
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img" alt="Enlarged diagram">
-    <div class="lightbox-caption">Click anywhere or press Esc to close</div>
-  </div>
+  <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false" aria-controls="toc">
+    <span aria-hidden="true">☰</span> Contents
+  </button>
 
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
   <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'base',
-      themeVariables: {
-        'background': '#ffffff',
-        'primaryColor': '#e8f0ec',
-        'primaryTextColor': '#1b1b1b',
-        'primaryBorderColor': '#1a5e4a',
-        'lineColor': '#1a5e4a',
-        'secondaryColor': '#faf8f5',
-        'fontFamily': 'Outfit, -apple-system, sans-serif',
-        'fontSize': '13px',
-        'edgeLabelBackground': '#ffffff',
-        'nodeBorder': '#1a5e4a',
-      },
-      flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis', padding: 12 },
-      securityLevel: 'loose',
-    });
-
-    const tocToggle = document.getElementById('tocToggle');
-    const toc = document.getElementById('toc');
-    tocToggle.addEventListener('click', () => { toc.classList.toggle('open'); });
-    toc.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { toc.classList.remove('open'); }); });
-
-    const progressFill = document.getElementById('progressFill');
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressFill.style.width = progress + '%';
-    });
-
-    const sections = document.querySelectorAll('section[id]');
-    const tocLinks = document.querySelectorAll('.toc a');
-    function updateActiveLink() {
-      let current = '';
-      sections.forEach(section => { const top = section.offsetTop - 120; if (window.scrollY >= top) current = section.getAttribute('id'); });
-      tocLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === '#' + current) link.classList.add('active'); });
+    if (window.mermaid) {
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'base',
+        themeVariables: {
+          background: '#ffffff',
+          primaryColor: '#e8f0ec',
+          primaryTextColor: '#1b1b1b',
+          primaryBorderColor: '#1a5e4a',
+          lineColor: '#1a5e4a',
+          secondaryColor: '#faf8f5',
+          fontFamily: 'Outfit, -apple-system, sans-serif',
+          fontSize: '13px',
+          edgeLabelBackground: '#ffffff',
+          nodeBorder: '#1a5e4a'
+        },
+        securityLevel: 'loose'
+      });
     }
-    window.addEventListener('scroll', updateActiveLink);
-    updateActiveLink();
-
-    // Lightbox functions
-    function openLightbox(el) {
-      var lb = document.getElementById('lightbox');
-      var lbImg = document.getElementById('lightbox-img');
-      var svg = el.tagName === 'IMG' ? null : el.querySelector('svg');
-      if (svg) {
-        var cloned = svg.cloneNode(true);
-        cloned.removeAttribute('style');
-        var serializer = new XMLSerializer();
-        var svgStr = serializer.serializeToString(cloned);
-        lbImg.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgStr);
-      } else if (el.tagName === 'IMG') {
-        lbImg.src = el.src;
-      }
-      lb.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() { var lb = document.getElementById('lightbox'); lb.classList.remove('active'); document.body.style.overflow = ''; }
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
-
-    // After mermaid renders, make all mermaid-wrap clickable for zoom
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
-        document.querySelectorAll('.mermaid-wrap').forEach(function(wrap) {
-          wrap.style.cursor = 'zoom-in';
-          wrap.addEventListener('click', function(e) {
-            if (e.target.closest('a, button')) return;
-            openLightbox(this);
-          });
-        });
-      }, 1000);
-    });
   </script>
-
-  <script id="chapter-mindmap-data" type="application/json">"# Emerging Modes of Business\n\n## 1. Introduction\n- Modern trends & technologies shaping business\n- Strongest trend: e-Business (Electronic Business)\n\n## 2. E-Business\n- Conducting business over internet / computer network\n### e-Business vs e-Commerce\n- e-Commerce: narrow, buying & selling only\n- e-Business: wider, includes all business functions\n### 2.1 Scope\n- B2B (Business to Business): Maruti buys tyres, glass\n- B2C (Business to Customer): Amazon, Flipkart\n- C2C (Customer to Customer): OLX, Quikr\n- Intra-B (Within firm): Intranet, VPN, flexible manufacturing\n### 2.2 vs Traditional Business\n- e-Business: easy formation, low cost, no location, direct contact, instant response\n- Traditional: many formalities, high cost, needs physical presence, longer response time\n### 2.3 Benefits\n- Ease of formation & lower investment\n- Convenience (24x7)\n- Speed (click of a mouse)\n- Global reach\n- Paperless society\n### 2.4 Limitations\n- Low personal touch\n- Delay in delivery\n- Need for technology capability\n- Non-traceability of parties\n- People resistance\n- Ethical fallouts (spam, data theft)\n\n## 3. Outsourcing\n- Contracting out activities to a third party\n### Need for Outsourcing (6)\n- Focusing of attention on core activities\n- Quest for excellence (specialist vendors)\n- Cost reduction\n- Growth through alliance\n- Boost to economic development\n- Risk sharing"
-  </script>
-
-  <script src="../assets/study-os.js"></script>
+  <script src="../Retail/retail.js?v=20261028a"></script>
+  <script src="../assets/bst-mindmap-data.js?v=20261029c"></script>
+  <script src="../assets/bst-mindmap.js?v=20261029c"></script>
 </body>
 </html>

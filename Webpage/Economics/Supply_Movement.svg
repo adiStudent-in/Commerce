@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" font-family="DejaVu Sans, Verdana, sans-serif" role="img" aria-label="Expansion and contraction as upward and downward movement along the same supply curve">
+<title>Movement Along Supply Curve — Expansion and Contraction</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1b1b1b"/></marker>
+<marker id="arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1a5e4a"/></marker>
+<marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62728"/></marker>
+</defs>
+<rect x="0" y="0" width="760" height="500" fill="#ffffff"/>
+<text x="380" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#1b1b1b">Movement Along Supply Curve — Expansion and Contraction</text>
+<line x1="90" y1="420" x2="90" y2="60" stroke="#1b1b1b" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="90" y1="420" x2="720" y2="420" stroke="#1b1b1b" stroke-width="1.5" marker-end="url(#arr)"/>
+<g font-size="11" fill="#1b1b1b" text-anchor="end">
+<text x="82" y="424">0</text><text x="82" y="379">2</text><text x="82" y="334">4</text><text x="82" y="289">6</text><text x="82" y="244">8</text><text x="82" y="203">10</text><text x="82" y="158">12</text><text x="82" y="113">14</text><text x="82" y="68">16</text>
+</g>
+<g font-size="11" fill="#1b1b1b" text-anchor="middle">
+<text x="90" y="440">0</text><text x="247.5" y="440">50</text><text x="405" y="440">100</text><text x="562.5" y="440">150</text><text x="720" y="440">200</text>
+</g>
+<path d="M120,400 C230,365 300,285 405,199 C460,157 495,156 562.5,154 C630,152 660,100 700,60" fill="none" stroke="#1f77b4" stroke-width="2.8"/>
+<text x="706" y="56" font-size="13" font-weight="bold" fill="#1f77b4">S</text>
+<text x="706" y="74" font-size="13" font-weight="bold" fill="#1f77b4">S</text>
+<line x1="405" y1="199" x2="405" y2="420" stroke="#888888" stroke-width="1" stroke-dasharray="6,4"/>
+<line x1="90" y1="199" x2="405" y2="199" stroke="#888888" stroke-width="1" stroke-dasharray="6,4"/>
+<line x1="562.5" y1="154" x2="562.5" y2="420" stroke="#888888" stroke-width="1" stroke-dasharray="6,4"/>
+<line x1="90" y1="154" x2="562.5" y2="154" stroke="#888888" stroke-width="1" stroke-dasharray="6,4"/>
+<circle cx="405" cy="199" r="6" fill="#d62728"/>
+<circle cx="562.5" cy="154" r="6" fill="#d62728"/>
+<path d="M428,190 C470,172 512,164 544,157" fill="none" stroke="#1a5e4a" stroke-width="2.2" marker-end="url(#arrG)"/>
+<path d="M540,170 C500,177 462,188 428,201" fill="none" stroke="#d62728" stroke-width="2.2" marker-end="url(#arrR)"/>
+<text x="486" y="140" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a5e4a">Expansion (A → B, upward)</text>
+<text x="486" y="218" text-anchor="middle" font-size="12" font-weight="bold" fill="#d62728">Contraction (B → A, downward)</text>
+<text x="415" y="256" font-size="11.5" font-weight="bold" fill="#1b1b1b">A: P 10, Q 100</text>
+<text x="572" y="190" font-size="11.5" font-weight="bold" fill="#1b1b1b">B: P 12, Q 150</text>
+<text x="250" y="254" text-anchor="middle" font-size="11" fill="#555555">Same curve SS —</text>
+<text x="250" y="270" text-anchor="middle" font-size="11" fill="#555555">only own price changes</text>
+<text x="30" y="240" font-size="12" fill="#1b1b1b" text-anchor="middle" transform="rotate(-90,30,240)">Price (Rs)</text>
+<text x="405" y="466" font-size="12" fill="#1b1b1b" text-anchor="middle">Quantity Supplied (units)</text>
+<text x="405" y="486" font-size="11" fill="#555555" text-anchor="middle">Other factors constant (ceteris paribus)</text>
+</svg>

@@ -966,6 +966,32 @@ footer {
   white-space: nowrap;
 }
 
+/* ─── Sidebar scrollspy: shared active state + anchor offset ─── */
+
+html {
+  scroll-padding-top: 84px;
+}
+
+section[id],
+h2[id],
+h3[id],
+h4[id] {
+  scroll-margin-top: 90px;
+}
+
+.toc a.active,
+.sidebar-toc a.active,
+.toc-drawer a.active,
+aside a.active {
+  color: var(--accent);
+}
+
+.toc a.active,
+.sidebar-toc a.active,
+aside a.active {
+  border-left-color: var(--accent);
+}
+
 /* ─── Phase 3: Compare Tool ─── */
 
 .compare-modal {

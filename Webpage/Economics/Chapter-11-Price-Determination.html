@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en" data-retail-mode="notes">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Class 11 Microeconomics Chapter 11 Price Determination and Simple Applications – complete easy notes plus quick revision: market equilibrium, excess demand and supply, demand and supply shifts, special cases, price ceiling and price floor.">
+  <meta name="theme-color" content="#1a5e4a">
+  <meta property="og:title" content="Chapter 11 – Price Determination | Economics Notes + Quick Revision">
+  <meta property="og:description" content="Class 11 Microeconomics Chapter 11 Price Determination and Simple Applications – complete easy notes plus quick revision: market equilibrium, excess demand and supply, demand and supply shifts, special cases, price ceiling and price floor.">
+  <meta property="og:type" content="article">
+  <title>Chapter 11 – Price Determination | Economics Notes + Quick Revision</title>
+  <link rel="icon" href="../assets/icon-192x192.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+  <link rel="stylesheet" href="../Retail/retail.css?v=20261030a">
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('study-os-theme');
+      if (savedTheme) {
+        savedTheme = JSON.parse(savedTheme);
+        if (savedTheme === 'dark') document.documentElement.dataset.theme = 'dark';
+      }
+    } catch (e) { /* first visit or storage blocked */ }
+    (function () {
+      var mode = null;
+      try { mode = localStorage.getItem('study-os-retail-mode'); } catch (e) { /* storage blocked */ }
+      var hash = location.hash.replace('#', '');
+      if (hash.indexOf('q-') === 0 || hash === 'quick') mode = 'quick';
+      else if (hash.indexOf('n-') === 0 || hash === 'notes') mode = 'notes';
+      if (mode !== 'quick') mode = 'notes';
+      document.documentElement.dataset.retailMode = mode;
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Chapter 11 – Price Determination and Simple Applications",
+    "description": "Class 11 Microeconomics Chapter 11 Price Determination and Simple Applications – complete easy notes plus quick revision.",
+    "learningResourceType": "Revision notes",
+    "educationalLevel": "Class 11",
+    "about": "Microeconomics",
+    "inLanguage": "en",
+    "isPartOf": { "@type": "Course", "name": "Microeconomics Class 11" }
+  }
+  </script>
+  <style>
+    /* Chapter-specific additions kept on top of the shared Retail/BST shell. */
+    .chapter-figure {
+      margin: 24px 0;
+      padding: 14px;
+      border: 1px solid var(--r-line);
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: var(--r-shadow);
+    }
+    .chapter-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .chapter-figure figcaption {
+      margin-top: 12px;
+      padding: 0 4px;
+      color: #4b524b;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+    .chapter-figure figcaption strong { color: #1e241f; }
+
+    .callout {
+      margin: 18px 0;
+      padding: 13px 18px;
+      border-left: 3px solid var(--r-amber);
+      border-radius: 0 10px 10px 0;
+      background: var(--r-amber-soft);
+      color: var(--r-ink-soft);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .callout p { margin: 0; }
+    .callout p + p { margin-top: 8px; }
+    .callout strong { color: var(--r-ink); }
+
+    .check-card.check-block { margin-top: 26px; }
+    .check-card .check-questions {
+      margin: 0 0 13px;
+      padding-left: 1.4em;
+      color: var(--r-ink-soft);
+    }
+    .check-card .check-questions li {
+      margin-bottom: 5px;
+      padding-left: 2px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .check-card .check-questions li::marker { color: var(--r-amber); font-weight: 600; }
+    .check-card .checklist ol,
+    .check-card .checklist ul {
+      margin: 10px 0 0;
+      padding-left: 1.4em;
+    }
+    .check-card .checklist li {
+      margin-bottom: 4px;
+      color: var(--r-ink-soft);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+    .check-card .checklist li::marker { color: var(--r-amber); font-weight: 600; }
+    .check-card .checklist .checklist-answer p { margin: 0 0 6px; font-size: 13.5px; }
+    .check-card .checklist .checklist-answer p:last-child { margin-bottom: 0; }
+
+    #n-keyterms .term-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #n-keyterms .term dd { font-size: 13px; line-height: 1.55; }
+
+    .session-body .formula-line {
+      margin: 12px 0;
+      padding: 12px 16px;
+      border: 1px solid var(--r-line);
+      border-radius: 10px;
+      background: var(--r-surface-2);
+      color: var(--r-ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+    .policy-card {
+      padding: 14px 16px;
+      border: 1px solid var(--r-line);
+      border-radius: 10px;
+      background: var(--r-surface-2);
+    }
+    .policy-card strong { display: block; color: var(--r-ink); font-size: 13.5px; }
+    .policy-card span { display: block; margin-top: 5px; color: var(--r-muted); font-size: 12.5px; line-height: 1.5; }
+
+    @media (max-width: 700px) {
+      #n-keyterms .term-grid { grid-template-columns: 1fr; }
+      .chapter-figure { padding: 9px; }
+      .policy-grid { grid-template-columns: 1fr; }
+    }
+    @media print {
+      .chapter-figure { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body class="retail-page" data-unit="eco-11" data-base-title="Chapter 11 – Price Determination" data-subject="Economics">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="../index.html" aria-label="Study OS home">
+      <span class="brand-mark">S</span>
+      <span class="brand-copy"><span class="brand-name">Study OS</span><span class="brand-sub">Economics notes</span></span>
+    </a>
+    <div class="topbar-actions">
+      <div class="mode-switch" role="group" aria-label="Study mode">
+        <button type="button" data-set-mode="notes" aria-pressed="true" aria-controls="panel-notes" aria-label="Easy Notes">Notes</button>
+        <button type="button" data-set-mode="quick" aria-pressed="false" aria-controls="panel-quick" aria-label="Quick Revision">Quick</button>
+      </div>
+      <button class="icon-btn print-toggle" type="button" title="Print the open notes" aria-label="Print the open notes">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+      </button>
+      <button class="icon-btn dark-toggle" id="themeToggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="toc" id="toc" aria-label="On this page">
+      <div class="toc-top">
+        <p class="toc-title">On this page</p>
+        <span class="toc-mode" id="tocModeLabel">Easy Notes</span>
+      </div>
+      <nav class="toc-nav toc-nav--notes" data-mode-nav="notes" aria-label="Easy notes contents">
+<span class="toc-group">Start</span>
+<a class="toc-link toc-main" href="#n-start">Chapter at a glance</a>
+<a class="toc-link toc-main" href="#n-keyterms">Key Terms</a>
+<span class="toc-group">Sections</span>
+<a class="toc-link toc-main" href="#n-section-1">1 · Market Equilibrium</a>
+<a class="toc-link toc-sub" href="#n-s1-1">1.1 What equilibrium means</a>
+<a class="toc-link toc-sub" href="#n-s1-2">1.2 The equilibrium schedule</a>
+<a class="toc-link toc-sub" href="#n-s1-3">1.3 The equilibrium graph</a>
+<a class="toc-link toc-sub" href="#n-s1-4">1.4 Why no other price lasts</a>
+<a class="toc-link toc-sub" href="#n-s1-5">1.5 The price mechanism</a>
+<a class="toc-link toc-main" href="#n-section-2">2 · Excess Demand, Excess Supply and Viability</a>
+<a class="toc-link toc-sub" href="#n-s2-1">2.1 Excess demand</a>
+<a class="toc-link toc-sub" href="#n-s2-2">2.2 Excess supply</a>
+<a class="toc-link toc-sub" href="#n-s2-3">2.3 How the market adjusts</a>
+<a class="toc-link toc-sub" href="#n-s2-4">2.4 Viable and non-viable industry</a>
+<a class="toc-link toc-main" href="#n-section-3">3 · Change in Demand</a>
+<a class="toc-link toc-sub" href="#n-s3-1">3.1 What shifts the demand curve</a>
+<a class="toc-link toc-sub" href="#n-s3-2">3.2 Increase in demand</a>
+<a class="toc-link toc-sub" href="#n-s3-3">3.3 Decrease in demand</a>
+<a class="toc-link toc-sub" href="#n-s3-4">3.4 The direction rule</a>
+<a class="toc-link toc-main" href="#n-section-4">4 · Change in Supply</a>
+<a class="toc-link toc-sub" href="#n-s4-1">4.1 What shifts the supply curve</a>
+<a class="toc-link toc-sub" href="#n-s4-2">4.2 Increase in supply</a>
+<a class="toc-link toc-sub" href="#n-s4-3">4.3 Decrease in supply</a>
+<a class="toc-link toc-sub" href="#n-s4-4">4.4 The direction rule</a>
+<a class="toc-link toc-main" href="#n-section-5">5 · Change in Both Demand and Supply</a>
+<a class="toc-link toc-sub" href="#n-s5-1">5.1 The certain-and-ambiguous rule</a>
+<a class="toc-link toc-sub" href="#n-s5-2">5.2 All twelve cases</a>
+<a class="toc-link toc-sub" href="#n-s5-3">5.3 Both decrease</a>
+<a class="toc-link toc-sub" href="#n-s5-4">5.4 The other three pairs</a>
+<a class="toc-link toc-sub" href="#n-s5-5">5.5 Three-step method</a>
+<a class="toc-link toc-main" href="#n-section-6">6 · Special Cases</a>
+<a class="toc-link toc-sub" href="#n-s6-1">6.1 Perfectly elastic supply</a>
+<a class="toc-link toc-sub" href="#n-s6-2">6.2 Perfectly elastic demand</a>
+<a class="toc-link toc-sub" href="#n-s6-3">6.3 Perfectly inelastic supply</a>
+<a class="toc-link toc-sub" href="#n-s6-4">6.4 Perfectly inelastic demand</a>
+<a class="toc-link toc-sub" href="#n-s6-5">6.5 The special-case table</a>
+<a class="toc-link toc-main" href="#n-section-7">7 · Price Ceiling and Price Floor</a>
+<a class="toc-link toc-sub" href="#n-s7-1">7.1 Why governments intervene</a>
+<a class="toc-link toc-sub" href="#n-s7-2">7.2 Price ceiling</a>
+<a class="toc-link toc-sub" href="#n-s7-3">7.3 Price floor</a>
+<a class="toc-link toc-sub" href="#n-s7-4">7.4 Ceiling versus floor</a>
+<a class="toc-link toc-sub" href="#n-s7-5">7.5 Are controls always harmful?</a>
+<a class="toc-link toc-main" href="#n-section-8">8 · Common Mistakes</a>
+<a class="toc-link toc-main" href="#n-section-9">9 · Recap, Formulas and Exam Practice</a>
+<a class="toc-link toc-sub" href="#n-recap">9.1 Chapter recap</a>
+<a class="toc-link toc-sub" href="#n-formulas">9.2 Formula sheet</a>
+<a class="toc-link toc-sub" href="#n-exam">9.3 Exam-style questions</a>
+<a class="toc-link toc-sub" href="#n-minute">9.4 One-minute revision</a>
+      </nav>
+      <nav class="toc-nav toc-nav--quick" data-mode-nav="quick" aria-label="Quick revision contents" hidden>
+<span class="toc-group">Start</span>
+<a class="toc-link toc-main" href="#q-start">Start here</a>
+<span class="toc-group">Sessions</span>
+<a class="toc-link toc-main" href="#q-session-1">Session 1 · Equilibrium + Demand Shifts</a>
+<a class="toc-link toc-sub" href="#q-s1-12-lines">The chapter in 12 lines</a>
+<a class="toc-link toc-sub" href="#q-s1-core">Equilibrium — the core table</a>
+<a class="toc-link toc-sub" href="#q-s1-rules">Which way does the price move?</a>
+<a class="toc-link toc-sub" href="#q-s1-drill">Recall drill — Session 1</a>
+<a class="toc-link toc-main" href="#q-session-2">Session 2 · Supply Shifts + Both Curves</a>
+<a class="toc-link toc-sub" href="#q-s2-supply">Supply shifts in one table</a>
+<a class="toc-link toc-sub" href="#q-s2-combined">Both curves shift</a>
+<a class="toc-link toc-sub" href="#q-s2-drill">Recall drill — Session 2</a>
+<a class="toc-link toc-main" href="#q-session-3">Session 3 · Special Cases + Price Controls</a>
+<a class="toc-link toc-sub" href="#q-s3-special">Special cases</a>
+<a class="toc-link toc-sub" href="#q-s3-controls">Price ceiling and price floor</a>
+<a class="toc-link toc-sub" href="#q-s3-drill">Recall drill — Session 3</a>
+<span class="toc-group">Drill room</span>
+<a class="toc-link toc-main" href="#q-clinic">Confusion Clinic</a>
+<a class="toc-link toc-main" href="#q-rapid">Rapid Fire</a>
+<a class="toc-link toc-main" href="#q-blank">Blank Page Test</a>
+<a class="toc-link toc-main" href="#q-plan">15-minute plan</a>
+      </nav>
+      <div class="toc-foot"><span>Chapter 11</span><span>Notes + quick</span></div>
+    </aside>
+
+    <main id="main" class="content">
+      <header class="hero">
+        <div class="hero-mark" aria-hidden="true">11</div>
+        <p class="eyebrow"><span>Microeconomics · Class 11</span><span>Chapter 11</span><span>Notes + quick revision</span></p>
+        <h1>Price Determination and Simple Applications</h1>
+        <p class="lede">Demand and supply stop being separate ideas here. Learn why ₹6 clears the chocolate market, how a shift in either curve moves the equilibrium, and what a government price control does to buyers and sellers.</p>
+        <div class="hero-chips">
+          <span class="chip">7 topic sections</span>
+          <span class="chip">≈ 40 min full read</span>
+          <span class="chip">≈ 16 min quick recall</span>
+          <span class="chip">21 check questions</span>
+          <span class="chip">7 figures</span>
+          <span class="chip chip-quiet">Built from the lecture notes</span>
+        </div>
+      </header>
+
+      <div class="mode-panel mode-panel--notes" id="panel-notes" role="region" aria-label="Easy Notes" data-mode="notes">
+      <section class="glance" id="n-start">
+        <div class="section-head">
+          <span class="section-kicker">The map</span>
+          <h2>Chapter at a glance</h2>
+          <p>Seven stops, one twelve-case table, and a short exam corner. Tap a card to jump straight in.</p>
+        </div>
+        <div class="glance-grid">
+        <a class="glance-card" href="#n-section-1">
+          <span class="glance-num">1</span>
+          <span class="glance-body"><strong>Market Equilibrium</strong><span>Where demand meets supply · the schedule · the graph · why the price is stable</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-2">
+          <span class="glance-num">2</span>
+          <span class="glance-body"><strong>Excess Demand, Excess Supply and Viability</strong><span>Shortage and surplus · price adjustment · viable and non-viable industries</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-3">
+          <span class="glance-num">3</span>
+          <span class="glance-body"><strong>Change in Demand</strong><span>What shifts demand · the new equilibrium · the direction rule</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-4">
+          <span class="glance-num">4</span>
+          <span class="glance-body"><strong>Change in Supply</strong><span>Costs, technology and taxes · price and quantity move in opposite directions</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-5">
+          <span class="glance-num">5</span>
+          <span class="glance-body"><strong>Both Curves Shift</strong><span>The certain variable · all twelve cases · the three-step method</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-6">
+          <span class="glance-num">6</span>
+          <span class="glance-body"><strong>Special Cases</strong><span>Perfectly elastic and inelastic curves · fixed price or fixed quantity</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-7">
+          <span class="glance-num">7</span>
+          <span class="glance-body"><strong>Price Ceiling and Price Floor</strong><span>Shortage · surplus · rationing · MSP · minimum wage</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        </div>
+        <div class="unit-context">
+          <p><strong>The one-line idea:</strong> price is set where market demand equals market supply; a shift in either curve moves the equilibrium, and a government price control creates either a shortage or a surplus.</p>
+          <p><strong>The core question:</strong> why does the price of a chocolate settle at ₹6, and what happens when the government fixes a price above or below ₹6?</p>
+        </div>
+      </section>
+
+      <section class="keyterms" id="n-keyterms">
+        <div class="section-head">
+          <span class="section-kicker">Speak the language</span>
+          <h2>Key Terms — Read These First</h2>
+          <p>The words that carry marks. Read them once now, then test yourself after the chapter.</p>
+        </div>
+        <dl class="term-grid">
+          <div class="term"><dt>Market equilibrium</dt><dd>A situation in which market demand equals market supply at a particular price.</dd></div>
+          <div class="term"><dt>Equilibrium price</dt><dd>The price at which quantity demanded equals quantity supplied.</dd></div>
+          <div class="term"><dt>Equilibrium quantity</dt><dd>The quantity bought and sold at the equilibrium price.</dd></div>
+          <div class="term"><dt>Market demand</dt><dd>The sum of the quantities demanded by all buyers at each price.</dd></div>
+          <div class="term"><dt>Market supply</dt><dd>The sum of the quantities supplied by all sellers at each price.</dd></div>
+          <div class="term"><dt>Excess demand</dt><dd>Quantity demanded is greater than quantity supplied at the prevailing price; also called a shortage.</dd></div>
+          <div class="term"><dt>Excess supply</dt><dd>Quantity supplied is greater than quantity demanded at the prevailing price; also called a surplus.</dd></div>
+          <div class="term"><dt>Price mechanism</dt><dd>The free movement of prices, guided by demand and supply, that coordinates buyers’ and sellers’ decisions.</dd></div>
+          <div class="term"><dt>Viable industry</dt><dd>An industry whose demand and supply curves intersect at a positive price and positive quantity.</dd></div>
+          <div class="term"><dt>Non-viable industry</dt><dd>An industry whose demand and supply curves do not intersect anywhere in the positive quadrant.</dd></div>
+          <div class="term"><dt>Price ceiling</dt><dd>A maximum price fixed by the government below the equilibrium price.</dd></div>
+          <div class="term"><dt>Price floor</dt><dd>A minimum price fixed by the government above the equilibrium price.</dd></div>
+          <div class="term"><dt>Minimum support price (MSP)</dt><dd>A price floor announced by the government for agricultural produce, usually before sowing.</dd></div>
+          <div class="term"><dt>Buffer stock</dt><dd>Government stock of a commodity, bought at the support price and released during shortages.</dd></div>
+          <div class="term"><dt>Black marketing</dt><dd>Selling a commodity at a price higher than the maximum price fixed by the government.</dd></div>
+          <div class="term"><dt>Rationing</dt><dd>A system that gives consumers a fixed quota of an essential good at a controlled price.</dd></div>
+          <div class="term"><dt>Dual pricing</dt><dd>Selling the same product at two prices at the same time — for example, subsidised PDS rice and open-market rice.</dd></div>
+          <div class="term"><dt>Minimum wage</dt><dd>A price floor in the labour market: the lowest wage an employer is legally allowed to pay.</dd></div>
+        </dl>
+      </section>
+
+      <section class="session" id="n-section-1">
+        <header class="session-head"><span class="session-kicker">Section 1</span><h2>Market Equilibrium</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Demand alone tells us what buyers want. Supply alone tells us what sellers offer. Equilibrium is the price at which the two plans agree.</p></blockquote>
+
+          <section class="subsection" id="n-s1-1">
+            <h3>1.1 What equilibrium means</h3>
+            <p><strong>Definition.</strong> Market equilibrium is a situation in which the quantity demanded of a commodity is equal to the quantity supplied at a particular price.</p>
+            <p>The price at which this equality holds is the <strong>equilibrium price</strong>. The quantity bought and sold at that price is the <strong>equilibrium quantity</strong>.</p>
+            <blockquote class="note"><p><strong>In simple words.</strong> Equilibrium is the market’s resting point. At that price, buyers want exactly as much as sellers are offering — no queue of desperate buyers, no pile of unsold stock.</p></blockquote>
+            <p><strong>Example.</strong> In a chocolate market, buyers together want 60 chocolates at ₹6 each, and sellers together offer 60 chocolates at ₹6. That price clears the market.</p>
+            <p>Under perfect competition, the <strong>industry</strong> is the price maker: its market demand and market supply curves meet to determine the price. Each individual firm is a <strong>price taker</strong> — it accepts that price and decides only how much to produce. The firm cannot change the market price because its own output is a tiny part of total supply.</p>
+            <p><strong>Market demand</strong> is the sum of all buyers’ quantities demanded at each price. Its curve slopes downward because of the law of demand. <strong>Market supply</strong> is the sum of all sellers’ quantities supplied at each price. Its curve slopes upward because of the law of supply.</p>
+          </section>
+
+          <section class="subsection" id="n-s1-2">
+            <h3>1.2 The equilibrium schedule</h3>
+            <p>The table below shows the market for chocolates. The first column is the price, the next two are market demand and market supply, and the last two show the gap and its meaning.</p>
+            <div class="table-wrap" role="region" aria-label="Market demand and supply schedule for chocolates" tabindex="0">
+              <table>
+                <thead><tr><th>Price (₹)</th><th>Market demand (units)</th><th>Market supply (units)</th><th>Shortage (−) or surplus (+)</th><th>Situation</th></tr></thead>
+                <tbody>
+                  <tr><td>2</td><td>100</td><td>20</td><td>−80</td><td>Excess demand: D &gt; S</td></tr>
+                  <tr><td>4</td><td>80</td><td>40</td><td>−40</td><td>Excess demand: D &gt; S</td></tr>
+                  <tr><td><strong>6</strong></td><td><strong>60</strong></td><td><strong>60</strong></td><td><strong>0</strong></td><td><strong>Equilibrium: D = S</strong></td></tr>
+                  <tr><td>8</td><td>40</td><td>80</td><td>+40</td><td>Excess supply: S &gt; D</td></tr>
+                  <tr><td>10</td><td>20</td><td>100</td><td>+80</td><td>Excess supply: S &gt; D</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>At ₹6, demand and supply are both 60. That is the equilibrium price, and 60 chocolates is the equilibrium quantity.</p>
+            <p>At any price below ₹6, demand is greater than supply. At any price above ₹6, supply is greater than demand. The market is pushed towards ₹6 from both sides.</p>
+          </section>
+
+          <section class="subsection" id="n-s1-3">
+            <h3>1.3 The equilibrium graph</h3>
+            <figure class="chapter-figure">
+              <img src="Ch11_Equilibrium.png" alt="Market demand slopes downward and market supply slopes upward. They intersect at E, with equilibrium price ₹6 and equilibrium quantity 60. At ₹4 there is a gap of 40 units of excess demand; at ₹8 there is a gap of 40 units of excess supply." loading="lazy" width="1765" height="1169">
+              <figcaption><strong>Figure 11.1 — Market equilibrium for chocolates.</strong> Market demand and market supply intersect at E, giving equilibrium price ₹6 and equilibrium quantity 60 units. At ₹4 there is excess demand; at ₹8 there is excess supply.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> The equilibrium is the single point where the two curves cross. The dashed lines from E to the axes read off ₹6 and 60. At ₹4, the horizontal gap between the supply curve (40 units) and the demand curve (80 units) is excess demand. At ₹8, the gap between demand (40 units) and supply (80 units) is excess supply.</p>
+          </section>
+
+          <section class="subsection" id="n-s1-4">
+            <h3>1.4 Why no other price can last</h3>
+            <p>Suppose the price is ₹8. Sellers offer 80 chocolates, but buyers want only 40. Forty chocolates remain unsold. Sellers compete for buyers by cutting the price. As the price falls, buyers demand more and sellers offer less, until the two are equal at ₹6.</p>
+            <p>Suppose the price is ₹4. Buyers want 80 chocolates, but sellers offer only 40. Forty buyers go home empty-handed. They compete with one another and bid the price up. As the price rises, buyers demand less and sellers offer more, until the two are equal at ₹6.</p>
+            <p>Only at ₹6 is there no shortage and no surplus, so there is no force pushing the price either way.</p>
+            <p><strong>Stable equilibrium.</strong> An equilibrium is stable when any departure from it sets in motion forces that bring the market back. The intersection of a downward-sloping demand curve and an upward-sloping supply curve is stable in this sense.</p>
+            <div class="callout"><p><strong>Exam point.</strong> A price above equilibrium creates excess supply, not excess demand. A price below equilibrium creates excess demand, not excess supply. Getting this direction right is half the answer.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s1-5">
+            <h3>1.5 The price mechanism</h3>
+            <p><strong>Definition.</strong> The price mechanism is the process by which prices, determined by the free interaction of demand and supply, coordinate the separate decisions of buyers and sellers.</p>
+            <p>Prices do two jobs:</p>
+            <ul>
+              <li><strong>Signal:</strong> a rising price tells buyers to cut back and sellers to expand; a falling price tells them the opposite.</li>
+              <li><strong>Incentive:</strong> a higher price rewards sellers for supplying more and makes buyers economise.</li>
+            </ul>
+            <p>No single person decides the equilibrium price. Thousands of independent decisions produce it. This is why economists say the market coordinates itself through prices.</p>
+            <p><strong>Equilibrium does not mean everyone is happy.</strong> It means the plans of buyers and sellers are consistent at that price. Some buyers may still feel the price is too high and choose not to buy; some sellers may wish they could get more. But at ₹6, there is no pressure for the price to change.</p>
+            <div class="check-card check-block">
+              <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+              <ol class="check-questions">
+                <li><strong>Q1.</strong> Define equilibrium price and equilibrium quantity.</li>
+                <li><strong>Q2.</strong> At ₹10, quantity demanded is 30 units and quantity supplied is 70 units. Is there excess demand or excess supply? What will happen to the price?</li>
+                <li><strong>Q3.</strong> Why is market equilibrium described as a stable situation?</li>
+              </ol>
+              <details class="checklist"><summary>Show answers</summary>
+                <div class="checklist-answer"><ol>
+                  <li>Equilibrium price is the price at which quantity demanded equals quantity supplied. Equilibrium quantity is the quantity bought and sold at that price.</li>
+                  <li>There is excess supply of 70 − 30 = 40 units. Sellers cannot sell all their stock, so they compete by lowering the price. The price will fall until demand and supply are equal.</li>
+                  <li>At a price above equilibrium there is excess supply, which pushes the price down. At a price below equilibrium there is excess demand, which pushes the price up. Only at the equilibrium price is there no shortage or surplus, so no force remains to change the price.</li>
+                </ol></div>
+              </details>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-2">
+        <header class="session-head"><span class="session-kicker">Section 2</span><h2>Excess Demand, Excess Supply and Viability</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Equilibrium is a point, but real markets often sit away from it. The gap between what buyers want and what sellers offer is the engine that moves the price.</p></blockquote>
+
+          <section class="subsection" id="n-s2-1">
+            <h3>2.1 Excess demand</h3>
+            <p><strong>Definition.</strong> Excess demand is a situation in which quantity demanded is greater than quantity supplied at the prevailing market price.</p>
+            <div class="formula-line">Excess demand = Qd − Qs   (when Qd &gt; Qs)</div>
+            <p>where Qd is quantity demanded and Qs is quantity supplied at the current price.</p>
+            <p>Excess demand appears when:</p>
+            <ul>
+              <li>the price is below the equilibrium price;</li>
+              <li>demand increases while supply has not adjusted;</li>
+              <li>supply decreases while demand has not adjusted.</li>
+            </ul>
+            <p>Buyers cannot buy all they want at the current price. They compete by offering a higher price, so the price rises. In a controlled market, excess demand can show up as long queues, waiting lists, rationing or black marketing instead of a price rise.</p>
+          </section>
+
+          <section class="subsection" id="n-s2-2">
+            <h3>2.2 Excess supply</h3>
+            <p><strong>Definition.</strong> Excess supply is a situation in which quantity supplied is greater than quantity demanded at the prevailing market price.</p>
+            <div class="formula-line">Excess supply = Qs − Qd   (when Qs &gt; Qd)</div>
+            <p>Excess supply appears when:</p>
+            <ul>
+              <li>the price is above the equilibrium price;</li>
+              <li>supply increases while demand has not adjusted;</li>
+              <li>demand decreases while supply has not adjusted.</li>
+            </ul>
+            <p>Sellers cannot sell all their stock at the current price. They compete by cutting the price, so the price falls. Unsold stock, discounts and clearance sales are visible signs of excess supply.</p>
+          </section>
+
+          <section class="subsection" id="n-s2-3">
+            <h3>2.3 How the market adjusts</h3>
+            <div class="table-wrap" role="region" aria-label="How the market adjusts from excess demand and excess supply" tabindex="0">
+              <table>
+                <thead><tr><th>Starting situation</th><th>What buyers and sellers do</th><th>Effect on price</th><th>Effect on quantities</th></tr></thead>
+                <tbody>
+                  <tr><td>Price below equilibrium → excess demand</td><td>Buyers compete; sellers raise the price</td><td>Price rises</td><td>Qd falls, Qs rises</td></tr>
+                  <tr><td>Price above equilibrium → excess supply</td><td>Sellers compete; buyers wait for cuts</td><td>Price falls</td><td>Qd rises, Qs falls</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>The adjustment happens through <strong>movements along</strong> the existing curves. A change in price changes quantity demanded and quantity supplied; it does <strong>not</strong> shift either curve. Shifts happen only when a non-price determinant changes.</p>
+            <div class="callout"><p><strong>Common mistake.</strong> “Excess demand shifts the demand curve to the right.” No. Excess demand is a gap at the current price. The demand curve has not moved; the price simply rises along it.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s2-4">
+            <h3>2.4 Viable and non-viable industry</h3>
+            <p><strong>Definition.</strong> A viable industry is an industry whose demand curve and supply curve intersect at a positive price and a positive quantity.</p>
+            <p><strong>Definition.</strong> A non-viable industry is an industry whose demand curve and supply curve do not intersect anywhere in the positive quadrant.</p>
+            <figure class="chapter-figure">
+              <img src="Ch11_Viable_Nonviable.png" alt="Panel (a) shows demand and supply intersecting at E in the positive quadrant, a viable industry. Panel (b) shows supply above demand at every positive quantity, so the industry is non-viable." loading="lazy" width="2535" height="1048">
+              <figcaption><strong>Figure 11.2 — Viable and non-viable industries.</strong> (a) In a viable industry, demand and supply meet at E in the positive quadrant. (b) In a non-viable industry, the supply curve lies above the demand curve at every positive quantity, so no positive price clears the market.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> In panel (a), there is a price at which buyers and sellers agree. In panel (b), the minimum price sellers need is higher than the maximum price buyers are willing to pay, at every positive quantity. The curves would meet only at a negative price or negative quantity, which has no economic meaning.</p>
+            <p><strong>Why a non-viable industry cannot produce.</strong> The cost of making the good is so high that buyers will not pay a price that covers it. Producing more does not help, because the gap between the supply price and the demand price remains. The industry is economically unviable unless costs fall, demand rises, or the government subsidises it.</p>
+            <div class="check-card check-block">
+              <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+              <ol class="check-questions">
+                <li><strong>Q1.</strong> Distinguish between excess demand and excess supply.</li>
+                <li><strong>Q2.</strong> At the current price, quantity demanded is 150 units and quantity supplied is 90 units. Calculate the gap and state the direction in which the price will move.</li>
+                <li><strong>Q3.</strong> Why does a non-viable industry have no equilibrium in the positive quadrant?</li>
+              </ol>
+              <details class="checklist"><summary>Show answers</summary>
+                <div class="checklist-answer"><ol>
+                  <li>Excess demand means Qd &gt; Qs at the current price; buyers compete and the price rises. Excess supply means Qs &gt; Qd at the current price; sellers compete and the price falls.</li>
+                  <li>Excess demand = 150 − 90 = 60 units. Buyers cannot get all they want, so they bid the price up. The price will rise towards the equilibrium level.</li>
+                  <li>A non-viable industry’s supply curve lies above its demand curve at every positive quantity. The lowest price at which sellers will supply is above the highest price buyers will pay, so no positive price makes Qd = Qs. The curves do not meet in the positive quadrant.</li>
+                </ol></div>
+              </details>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-3">
+        <header class="session-head"><span class="session-kicker">Section 3</span><h2>Change in Demand</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> A change in price moves us along a demand curve. A change in anything else — income, tastes, the price of a related good, population — shifts the whole curve. When demand shifts, the equilibrium moves.</p></blockquote>
+
+          <section class="subsection" id="n-s3-1">
+            <h3>3.1 What shifts the demand curve</h3>
+            <p>The demand curve shifts when a <strong>non-price determinant</strong> changes:</p>
+            <ul>
+              <li>income of buyers (normal and inferior goods);</li>
+              <li>price of substitute goods;</li>
+              <li>price of complementary goods;</li>
+              <li>tastes and preferences;</li>
+              <li>expectations about future prices;</li>
+              <li>population and its composition.</li>
+            </ul>
+            <p>A rightward shift is an <strong>increase in demand</strong>: at every price, buyers want more. A leftward shift is a <strong>decrease in demand</strong>: at every price, buyers want less.</p>
+          </section>
+
+          <section class="subsection" id="n-s3-2">
+            <h3>3.2 Increase in demand</h3>
+            <p>Suppose buyers’ income rises and chocolates are a normal good. At the old price of ₹6, buyers now want more than 60 chocolates. This creates excess demand. Sellers respond by raising the price and expanding quantity supplied along the existing supply curve. The new equilibrium has a <strong>higher price and a higher quantity</strong>.</p>
+            <figure class="chapter-figure">
+              <img src="Ch11_Demand_Shifts.png" alt="Panel (a) shows demand shifting right from D to D1, raising equilibrium price from ₹6 to ₹7 and quantity from 60 to 70. Panel (b) shows demand shifting left from D to D2, lowering price to ₹5 and quantity to 50." loading="lazy" width="2414" height="1088">
+              <figcaption><strong>Figure 11.3 — Shifts in demand.</strong> (a) An increase in demand shifts D to D₁: equilibrium price and quantity both rise. (b) A decrease in demand shifts D to D₂: equilibrium price and quantity both fall. The supply curve does not move.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> In both panels, only the demand curve shifts. The movement from the old equilibrium E to the new equilibrium E₁ or E₂ is a movement <strong>along</strong> the supply curve. The supply curve itself stays where it was.</p>
+          </section>
+
+          <section class="subsection" id="n-s3-3">
+            <h3>3.3 Decrease in demand</h3>
+            <p>Suppose the price of a close substitute falls, so buyers switch away from chocolates. At ₹6, buyers now want fewer than 60 chocolates. Sellers face excess supply and cut the price. As the price falls, buyers move down along the new demand curve and sellers move down along the supply curve. The new equilibrium has a <strong>lower price and a lower quantity</strong>.</p>
+          </section>
+
+          <section class="subsection" id="n-s3-4">
+            <h3>3.4 The direction rule</h3>
+            <div class="table-wrap" role="region" aria-label="Direction of change when demand shifts" tabindex="0">
+              <table>
+                <thead><tr><th>Change in demand</th><th>Shift of demand curve</th><th>Equilibrium price</th><th>Equilibrium quantity</th></tr></thead>
+                <tbody>
+                  <tr><td>Increase</td><td>Right</td><td>Rises</td><td>Rises</td></tr>
+                  <tr><td>Decrease</td><td>Left</td><td>Falls</td><td>Falls</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>One-line memory:</strong> demand and equilibrium price move in the same direction; demand and equilibrium quantity also move in the same direction.</p>
+            <blockquote class="note"><p><strong>Example.</strong> During a festival, demand for sweets rises. Sweet shops sell more boxes and charge a higher price per box. After the festival, demand falls, and both price and quantity sold come down.</p></blockquote>
+            <div class="check-card check-block">
+              <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+              <ol class="check-questions">
+                <li><strong>Q1.</strong> What is the difference between an increase in demand and an increase in quantity demanded?</li>
+                <li><strong>Q2.</strong> Buyers’ income rises and the good is a normal good. Trace the effect on equilibrium price and quantity.</li>
+                <li><strong>Q3.</strong> Why does equilibrium quantity rise after an increase in demand even though the supply curve has not shifted?</li>
+              </ol>
+              <details class="checklist"><summary>Show answers</summary>
+                <div class="checklist-answer"><ol>
+                  <li>An increase in demand is a rightward shift of the whole demand curve caused by a non-price factor; at every price, buyers want more. An increase in quantity demanded is a movement along the same demand curve caused by a fall in the good’s own price.</li>
+                  <li>Higher income raises demand at every price, shifting the demand curve right. At the old price there is excess demand, so the price rises. The higher price induces sellers to supply more along the supply curve. Equilibrium price and quantity both rise.</li>
+                  <li>The higher price is the signal. It makes sellers willing to produce and sell more, so the quantity supplied rises along the existing supply curve until it matches the new quantity demanded.</li>
+                </ol></div>
+              </details>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-4">
+        <header class="session-head"><span class="session-kicker">Section 4</span><h2>Change in Supply</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Supply shifts when costs, technology, taxes, the number of firms or other non-price factors change. A supply shift moves the equilibrium in the opposite direction for price and quantity.</p></blockquote>
+
+          <section class="subsection" id="n-s4-1">
+            <h3>4.1 What shifts the supply curve</h3>
+            <p>The supply curve shifts when a <strong>non-price determinant</strong> changes:</p>
+            <ul>
+              <li>prices of factors of production (wages, rent, raw material);</li>
+              <li>prices of other goods that the firm could produce;</li>
+              <li>state of technology;</li>
+              <li>taxes and subsidies;</li>
+              <li>expectations about future prices;</li>
+              <li>goals of the firm;</li>
+              <li>number of firms in the market.</li>
+            </ul>
+            <p>A rightward shift is an <strong>increase in supply</strong>: at every price, sellers offer more. A leftward shift is a <strong>decrease in supply</strong>: at every price, sellers offer less.</p>
+          </section>
+
+          <section class="subsection" id="n-s4-2">
+            <h3>4.2 Increase in supply</h3>
+            <p>Suppose a new machine lowers the cost of making chocolates. At the old price of ₹6, sellers now want to offer more than 60 chocolates. This creates excess supply. Sellers cut the price to clear the stock. As the price falls, buyers move down along the demand curve and buy more. The new equilibrium has a <strong>lower price and a higher quantity</strong>.</p>
+            <figure class="chapter-figure">
+              <img src="Ch11_Supply_Shifts.png" alt="Panel (a) shows supply shifting right from S to S1, lowering equilibrium price from ₹6 to ₹5 and raising quantity from 60 to 70. Panel (b) shows supply shifting left from S to S2, raising price to ₹7 and lowering quantity to 50." loading="lazy" width="2485" height="1088">
+              <figcaption><strong>Figure 11.4 — Shifts in supply.</strong> (a) An increase in supply shifts S to S₁: equilibrium price falls and quantity rises. (b) A decrease in supply shifts S to S₂: equilibrium price rises and quantity falls. The demand curve does not move.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> Only the supply curve shifts. The new equilibrium is reached by moving <strong>along</strong> the demand curve. A supply increase is good news for buyers (lower price, more quantity) and a supply decrease is bad news for buyers (higher price, less quantity).</p>
+          </section>
+
+          <section class="subsection" id="n-s4-3">
+            <h3>4.3 Decrease in supply</h3>
+            <p>Suppose the price of cocoa beans rises. Producing chocolate becomes more expensive, so at every price sellers offer less. At ₹6, buyers want 60 but sellers offer fewer, creating excess demand. The price rises, buyers cut back along the demand curve, and sellers expand along the new supply curve. The new equilibrium has a <strong>higher price and a lower quantity</strong>.</p>
+          </section>
+
+          <section class="subsection" id="n-s4-4">
+            <h3>4.4 The direction rule</h3>
+            <div class="table-wrap" role="region" aria-label="Direction of change when supply shifts" tabindex="0">
+              <table>
+                <thead><tr><th>Change in supply</th><th>Shift of supply curve</th><th>Equilibrium price</th><th>Equilibrium quantity</th></tr></thead>
+                <tbody>
+                  <tr><td>Increase</td><td>Right</td><td>Falls</td><td>Rises</td></tr>
+                  <tr><td>Decrease</td><td>Left</td><td>Rises</td><td>Falls</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>One-line memory:</strong> price and quantity move in <strong>opposite</strong> directions when supply changes.</p>
+            <blockquote class="note"><p><strong>Example.</strong> A bumper wheat harvest increases supply. Mandi prices fall, but more wheat is bought and sold. A drought does the opposite: supply falls, price rises, quantity traded falls.</p></blockquote>
+            <div class="check-card check-block">
+              <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+              <ol class="check-questions">
+                <li><strong>Q1.</strong> Distinguish between an increase in supply and an increase in quantity supplied.</li>
+                <li><strong>Q2.</strong> A new technology lowers the cost of producing textiles. What happens to equilibrium price and quantity?</li>
+                <li><strong>Q3.</strong> Why does an increase in supply lower the price but raise the quantity traded?</li>
+              </ol>
+              <details class="checklist"><summary>Show answers</summary>
+                <div class="checklist-answer"><ol>
+                  <li>An increase in supply is a rightward shift of the whole supply curve caused by a non-price factor; at every price, sellers offer more. An increase in quantity supplied is a movement along the same supply curve caused by a rise in the good’s own price.</li>
+                  <li>The cost fall shifts supply right. At the old price there is excess supply, so the price falls. The lower price encourages buyers to buy more. Equilibrium price falls and equilibrium quantity rises.</li>
+                  <li>Sellers can now offer more at every price, so at the old price stock is unsold. To clear it, sellers cut the price. The lower price brings buyers into the market and raises the quantity demanded until the market clears at a larger quantity.</li>
+                </ol></div>
+              </details>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-5">
+        <header class="session-head"><span class="session-kicker">Section 5</span><h2>Change in Both Demand and Supply</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> When both curves shift, two forces act at once. One variable becomes certain, the other depends on which shift is larger. This is the part of the chapter that examiners love.</p></blockquote>
+
+          <section class="subsection" id="n-s5-1">
+            <h3>5.1 The certain-and-ambiguous rule</h3>
+            <ul>
+              <li>If demand and supply shift in the <strong>same direction</strong> (both increase or both decrease), the change in <strong>quantity</strong> is certain. The change in <strong>price</strong> is uncertain.</li>
+              <li>If demand and supply shift in <strong>opposite directions</strong>, the change in <strong>price</strong> is certain. The change in <strong>quantity</strong> is uncertain.</li>
+            </ul>
+            <p>Why? A demand increase pushes both price and quantity up. A supply increase pushes price down but quantity up. When both increase, quantity is pushed up by both forces, so it must rise; price is pushed in opposite directions, so the net effect depends on the size of each shift.</p>
+            <p>The same logic works for the other three pairs:</p>
+            <ul>
+              <li>Both decrease → quantity certainly falls; price depends.</li>
+              <li>Demand decreases and supply increases → price certainly falls; quantity depends.</li>
+              <li>Demand increases and supply decreases → price certainly rises; quantity depends.</li>
+            </ul>
+          </section>
+
+          <section class="subsection" id="n-s5-2">
+            <h3>5.2 All twelve cases</h3>
+            <p>“Equal” in the table means the two curves shift by the same number of units at the original price. It does not mean equal percentage changes.</p>
+            <div class="table-wrap" role="region" aria-label="All twelve combined-shift cases" tabindex="0">
+              <table>
+                <thead><tr><th>#</th><th>Demand</th><th>Supply</th><th>Relative size</th><th>Price</th><th>Quantity</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>Increases</td><td>Increases</td><td>Equal</td><td>Same</td><td>Rises</td></tr>
+                  <tr><td>2</td><td>Increases</td><td>Increases</td><td>Demand increase &gt; supply increase</td><td>Rises</td><td>Rises</td></tr>
+                  <tr><td>3</td><td>Increases</td><td>Increases</td><td>Demand increase &lt; supply increase</td><td>Falls</td><td>Rises</td></tr>
+                  <tr><td>4</td><td>Decreases</td><td>Decreases</td><td>Equal</td><td>Same</td><td>Falls</td></tr>
+                  <tr><td>5</td><td>Decreases</td><td>Decreases</td><td>Demand decrease &gt; supply decrease</td><td>Falls</td><td>Falls</td></tr>
+                  <tr><td>6</td><td>Decreases</td><td>Decreases</td><td>Demand decrease &lt; supply decrease</td><td>Rises</td><td>Falls</td></tr>
+                  <tr><td>7</td><td>Decreases</td><td>Increases</td><td>Equal</td><td>Falls</td><td>Same</td></tr>
+                  <tr><td>8</td><td>Decreases</td><td>Increases</td><td>Demand decrease &gt; supply increase</td><td>Falls</td><td>Falls</td></tr>
+                  <tr><td>9</td><td>Decreases</td><td>Increases</td><td>Demand decrease &lt; supply increase</td><td>Falls</td><td>Rises</td></tr>
+                  <tr><td>10</td><td>Increases</td><td>Decreases</td><td>Equal</td><td>Rises</td><td>Same</td></tr>
+                  <tr><td>11</td><td>Increases</td><td>Decreases</td><td>Demand increase &gt; supply decrease</td><td>Rises</td><td>Rises</td></tr>
+                  <tr><td>12</td><td>Increases</td><td>Decreases</td><td>Demand increase &lt; supply decrease</td><td>Rises</td><td>Falls</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="subsection" id="n-s5-3">
+            <h3>5.3 Both demand and supply decrease</h3>
+            <p>This is the case drawn in Figure 11.5, because it shows the relative-size idea most clearly. Start at E with price ₹6 and quantity 60.</p>
+            <ul>
+              <li><strong>Equal decreases:</strong> demand and supply both fall by the same amount. The new equilibrium has the <strong>same price</strong> and a <strong>lower quantity</strong>. The two price effects cancel.</li>
+              <li><strong>Demand falls more than supply:</strong> the demand effect dominates. Price <strong>falls</strong> and quantity <strong>falls</strong>.</li>
+              <li><strong>Demand falls less than supply:</strong> the supply effect dominates. Price <strong>rises</strong> and quantity <strong>falls</strong>.</li>
+            </ul>
+            <figure class="chapter-figure">
+              <img src="Ch11_Both_Decrease.png" alt="Three panels show demand and supply both shifting left. In panel (a), equal falls leave price at ₹6 and reduce quantity to 50. In panel (b), demand falls more, so price falls to ₹5.50 and quantity to 45. In panel (c), supply falls more, so price rises to ₹6.50 and quantity falls to 45." loading="lazy" width="3125" height="1008">
+              <figcaption><strong>Figure 11.5 — Both demand and supply decrease.</strong> Both curves shift left. (a) Equal shifts: price stays at ₹6, quantity falls to 50. (b) Demand falls more: price falls to ₹5.50 and quantity to 45. (c) Supply falls more: price rises to ₹6.50 and quantity falls to 45.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> Quantity falls in all three panels because both shifts reduce quantity. Price is the ambiguous variable: it stays the same, falls or rises depending on which curve shifted more. The labels D₁ and S₁ mark the new curves; the old curves remain for comparison.</p>
+          </section>
+
+          <section class="subsection" id="n-s5-4">
+            <h3>5.4 The other three pairs</h3>
+            <p><strong>Both increase.</strong> Quantity certainly rises. Price stays the same if the shifts are equal, rises if demand increases more, and falls if supply increases more. Example: incomes rise (demand up) at the same time as a new technology lowers costs (supply up).</p>
+            <p><strong>Demand decreases, supply increases.</strong> Price certainly falls. Quantity stays the same if the shifts are equal, falls if demand decreases more, and rises if supply increases more. Example: a health scare reduces demand for a soft drink while new factories expand supply.</p>
+            <p><strong>Demand increases, supply decreases.</strong> Price certainly rises. Quantity stays the same if the shifts are equal, rises if demand increases more, and falls if supply decreases more. Example: festive demand rises while a drought cuts the supply of sweets.</p>
+          </section>
+
+          <section class="subsection" id="n-s5-5">
+            <h3>5.5 A three-step method for any combined-shift question</h3>
+            <ol>
+              <li><strong>Draw the first shift</strong> and note which way price and quantity move.</li>
+              <li><strong>Draw the second shift</strong> from the new equilibrium and note its direction.</li>
+              <li><strong>Look for the certain variable.</strong> Same-direction shifts make quantity certain; opposite-direction shifts make price certain. Use the relative size to settle the other variable.</li>
+            </ol>
+            <div class="callout"><p><strong>Exam tip.</strong> If the question does not specify the relative size of the shifts, do not invent a price change when both curves shift in the same direction. Write “price remains unchanged only if the shifts are equal; otherwise it depends on the relative size”. That is the accurate answer.</p></div>
+            <div class="check-card check-block">
+              <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+              <ol class="check-questions">
+                <li><strong>Q1.</strong> When both demand and supply increase, which equilibrium variable is certain and which is uncertain?</li>
+                <li><strong>Q2.</strong> Demand falls by 30 units and supply rises by 10 units at the old price. What happens to equilibrium price and quantity?</li>
+                <li><strong>Q3.</strong> Why is the price effect uncertain when demand and supply both decrease by different amounts?</li>
+              </ol>
+              <details class="checklist"><summary>Show answers</summary>
+                <div class="checklist-answer"><ol>
+                  <li>Quantity is certain: it rises because both shifts push quantity up. Price is uncertain: the demand increase pushes price up, the supply increase pushes it down, and the net effect depends on which shift is larger.</li>
+                  <li>The demand fall is larger than the supply rise (30 &gt; 10). Price certainly falls because both shifts push price down. Quantity falls because the demand fall outweighs the supply rise.</li>
+                  <li>A demand decrease pushes price down, while a supply decrease pushes price up. The two forces work in opposite directions, so the net price change depends on which decrease is larger. If demand falls more, price falls; if supply falls more, price rises; if they are equal, price stays the same.</li>
+                </ol></div>
+              </details>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-6">
+        <header class="session-head"><span class="session-kicker">Section 6</span><h2>Special Cases</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Usually both curves slope normally. But when one curve is horizontal or vertical, one of the two equilibrium variables stops responding. These are the limiting cases of elasticity.</p></blockquote>
+
+          <section class="subsection" id="n-s6-1">
+            <h3>6.1 Perfectly elastic supply (Es = ∞)</h3>
+            <p>A perfectly elastic supply curve is <strong>horizontal</strong> at the market price. Sellers are willing to supply any quantity at that price, but nothing at a lower price.</p>
+            <p>When demand increases, the demand curve shifts right along the horizontal supply line. The new equilibrium has the <strong>same price</strong> and a <strong>higher quantity</strong>. When demand decreases, the price stays the same and quantity falls. The price does not move because sellers absorb the entire change in quantity at the same price.</p>
+          </section>
+
+          <section class="subsection" id="n-s6-2">
+            <h3>6.2 Perfectly elastic demand (Ed = ∞)</h3>
+            <p>A perfectly elastic demand curve is <strong>horizontal</strong> at the market price. Buyers will buy any quantity at that price, but nothing above it.</p>
+            <p>When supply increases, the supply curve shifts right along the horizontal demand line. The new equilibrium has the <strong>same price</strong> and a <strong>higher quantity</strong>. When supply decreases, price stays the same and quantity falls.</p>
+          </section>
+
+          <section class="subsection" id="n-s6-3">
+            <h3>6.3 Perfectly inelastic supply (Es = 0)</h3>
+            <p>A perfectly inelastic supply curve is <strong>vertical</strong>. The quantity supplied is fixed, whatever the price.</p>
+            <p>When demand increases, the demand curve shifts right and meets the same vertical quantity at a <strong>higher price</strong>. Quantity does not change. When demand decreases, price falls and quantity stays the same. The price absorbs the entire change in demand.</p>
+          </section>
+
+          <section class="subsection" id="n-s6-4">
+            <h3>6.4 Perfectly inelastic demand (Ed = 0)</h3>
+            <p>A perfectly inelastic demand curve is <strong>vertical</strong>. The quantity demanded is fixed, whatever the price.</p>
+            <p>When supply increases, the supply curve shifts right and meets the same vertical quantity at a <strong>lower price</strong>. Quantity does not change. When supply decreases, price rises and quantity stays the same.</p>
+            <figure class="chapter-figure">
+              <img src="Ch11_Special_Cases.png" alt="Four panels. Panel (a): horizontal supply, demand shifts right, price stays at ₹6 and quantity rises from 60 to 80. Panel (b): vertical supply, demand shifts right, quantity stays at 60 and price rises to ₹8. Panel (c): horizontal demand, supply shifts right, price stays at ₹6 and quantity rises to 80. Panel (d): vertical demand, supply shifts right, quantity stays at 60 and price falls to ₹4." loading="lazy" width="2519" height="1969">
+              <figcaption><strong>Figure 11.6 — Special cases with perfectly elastic and perfectly inelastic curves.</strong> (a) Perfectly elastic supply: demand ↑ leaves price unchanged and raises quantity. (b) Perfectly inelastic supply: demand ↑ raises price and leaves quantity unchanged. (c) Perfectly elastic demand: supply ↑ leaves price unchanged and raises quantity. (d) Perfectly inelastic demand: supply ↑ lowers price and leaves quantity unchanged.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> The horizontal curve fixes the price; the vertical curve fixes the quantity. Whichever variable is fixed, the other one absorbs the entire shift.</p>
+          </section>
+
+          <section class="subsection" id="n-s6-5">
+            <h3>6.5 The special-case table</h3>
+            <div class="table-wrap" role="region" aria-label="Special cases with perfectly elastic and inelastic curves" tabindex="0">
+              <table>
+                <thead><tr><th>Fixed curve</th><th>Its shape</th><th>Shift that occurs</th><th>Price</th><th>Quantity</th></tr></thead>
+                <tbody>
+                  <tr><td>Supply perfectly elastic (Es = ∞)</td><td>Horizontal</td><td>Demand increases</td><td>Same</td><td>Rises</td></tr>
+                  <tr><td>Supply perfectly elastic (Es = ∞)</td><td>Horizontal</td><td>Demand decreases</td><td>Same</td><td>Falls</td></tr>
+                  <tr><td>Demand perfectly elastic (Ed = ∞)</td><td>Horizontal</td><td>Supply increases</td><td>Same</td><td>Rises</td></tr>
+                  <tr><td>Demand perfectly elastic (Ed = ∞)</td><td>Horizontal</td><td>Supply decreases</td><td>Same</td><td>Falls</td></tr>
+                  <tr><td>Supply perfectly inelastic (Es = 0)</td><td>Vertical</td><td>Demand increases</td><td>Rises</td><td>Same</td></tr>
+                  <tr><td>Supply perfectly inelastic (Es = 0)</td><td>Vertical</td><td>Demand decreases</td><td>Falls</td><td>Same</td></tr>
+                  <tr><td>Demand perfectly inelastic (Ed = 0)</td><td>Vertical</td><td>Supply increases</td><td>Falls</td><td>Same</td></tr>
+                  <tr><td>Demand perfectly inelastic (Ed = 0)</td><td>Vertical</td><td>Supply decreases</td><td>Rises</td><td>Same</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>One-line memory:</strong> horizontal curve → price fixed; vertical curve → quantity fixed.</p>
+            <div class="check-card check-block">
+              <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+              <ol class="check-questions">
+                <li><strong>Q1.</strong> What is meant by perfectly inelastic supply?</li>
+                <li><strong>Q2.</strong> Supply is perfectly inelastic and demand increases. What happens to equilibrium price and quantity?</li>
+                <li><strong>Q3.</strong> Why does an increase in demand leave the price unchanged when supply is perfectly elastic?</li>
+              </ol>
+              <details class="checklist"><summary>Show answers</summary>
+                <div class="checklist-answer"><ol>
+                  <li>Perfectly inelastic supply means the quantity supplied does not change when the price changes; the supply curve is vertical and Es = 0.</li>
+                  <li>The demand curve shifts right along the vertical supply curve. Quantity stays the same because sellers cannot offer more, and the price rises to clear the market.</li>
+                  <li>With perfectly elastic supply, sellers will supply any quantity at the same price. An increase in demand is met by a higher quantity supplied at the unchanged price, so the price does not rise.</li>
+                </ol></div>
+              </details>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-7">
+        <header class="session-head"><span class="session-kicker">Section 7</span><h2>Government Price Controls: Ceiling and Floor</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> A free market settles at the intersection. Governments sometimes decide that the market price is too high for buyers or too low for sellers, and fix a legal maximum or minimum. The market then adjusts through a shortage or a surplus.</p></blockquote>
+
+          <section class="subsection" id="n-s7-1">
+            <h3>7.1 Why governments intervene</h3>
+            <p>Governments intervene in markets for several reasons:</p>
+            <ul>
+              <li><strong>Affordability:</strong> essential goods such as wheat, rice, sugar, kerosene and medicines should remain within reach of poor households.</li>
+              <li><strong>Producer protection:</strong> farmers should not be forced to sell below a fair price.</li>
+              <li><strong>Stability:</strong> sudden price spikes or crashes can disrupt production and consumption.</li>
+              <li><strong>Fairness:</strong> the market equilibrium may be efficient but socially or politically unacceptable.</li>
+            </ul>
+            <p>The two main tools are the <strong>price ceiling</strong> and the <strong>price floor</strong>.</p>
+          </section>
+
+          <section class="subsection" id="n-s7-2">
+            <h3>7.2 Price ceiling</h3>
+            <p><strong>Definition.</strong> A price ceiling is a maximum price fixed by the government at a level <strong>lower</strong> than the equilibrium price. Sellers are not allowed to charge more than this price.</p>
+            <p>Because the ceiling is below equilibrium, quantity demanded exceeds quantity supplied. A <strong>shortage</strong> appears.</p>
+            <figure class="chapter-figure">
+              <img src="Ch11_Price_Controls.png" alt="Panel (a) shows a price ceiling at ₹4 below the equilibrium price of ₹6, with quantity demanded 80 and quantity supplied 40, creating a shortage of 40. Panel (b) shows a price floor at ₹8 above equilibrium, with quantity supplied 80 and quantity demanded 40, creating a surplus of 40." loading="lazy" width="2485" height="1088">
+              <figcaption><strong>Figure 11.7 — Price ceiling and price floor.</strong> (a) A price ceiling at ₹4 is below the equilibrium price of ₹6. Quantity demanded (80) exceeds quantity supplied (40), creating a shortage of 40 units. (b) A price floor at ₹8 is above the equilibrium price of ₹6. Quantity supplied (80) exceeds quantity demanded (40), creating a surplus of 40 units.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> In panel (a), the ceiling line is below E. The gap between the demand curve and the supply curve at the ceiling price is the shortage. In panel (b), the floor line is above E. The gap between the supply curve and the demand curve at the floor price is the surplus.</p>
+            <p><strong>Effects of a price ceiling:</strong></p>
+            <ul>
+              <li><strong>Shortage:</strong> Qd &gt; Qs at the ceiling price.</li>
+              <li><strong>Queues and waiting lists:</strong> buyers cannot get the good at the official price.</li>
+              <li><strong>Rationing:</strong> the government may sell a fixed quota per household, often through fair-price shops.</li>
+              <li><strong>Black marketing:</strong> some sellers sell above the ceiling to buyers who are willing to pay more.</li>
+              <li><strong>Dual pricing:</strong> the same good may be sold at a subsidised controlled price and at a higher open-market price.</li>
+              <li><strong>Quality and service may suffer:</strong> sellers have no incentive to compete on quality when demand exceeds supply.</li>
+            </ul>
+            <p><strong>Examples.</strong> Rent control in cities, subsidised food grains through the public distribution system, and ceilings on essential medicines.</p>
+            <div class="callout"><p><strong>When a ceiling does not bind.</strong> If the government fixes the ceiling <strong>above</strong> the equilibrium price, the market price is already lower than the ceiling, so the rule has no effect. A price ceiling matters only when it is set below equilibrium.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s7-3">
+            <h3>7.3 Price floor</h3>
+            <p><strong>Definition.</strong> A price floor is a minimum price fixed by the government at a level <strong>above</strong> the equilibrium price. Sellers are not allowed to sell below this price.</p>
+            <p>Because the floor is above equilibrium, quantity supplied exceeds quantity demanded. A <strong>surplus</strong> appears.</p>
+            <p><strong>Effects of a price floor:</strong></p>
+            <ul>
+              <li><strong>Surplus:</strong> Qs &gt; Qd at the floor price.</li>
+              <li><strong>Unsold stock:</strong> producers cannot sell all they want at the legal minimum.</li>
+              <li><strong>Government procurement:</strong> the government may buy the surplus to support producers.</li>
+              <li><strong>Buffer stock:</strong> the purchased stock is stored and released during shortages.</li>
+              <li><strong>Illegal below-floor sales:</strong> producers may secretly sell below the minimum price to clear stock.</li>
+              <li><strong>Resource cost:</strong> storing, transporting and disposing of surplus stock uses public money.</li>
+            </ul>
+            <p><strong>Minimum support price (MSP).</strong> The government announces a minimum price for crops such as wheat and paddy, usually before the sowing season. If the market price falls below MSP, government agencies procure the crop at MSP. This protects farmers from a price crash and supports their income. The procured grain becomes a buffer stock, which can be released in a shortage.</p>
+            <p><strong>Minimum wage.</strong> A minimum wage is a price floor in the labour market. Suppose the equilibrium wage is ₹14,000 per month and the government fixes a minimum wage of ₹18,000. At the higher wage, more workers are willing to work than firms are willing to hire. The gap is <strong>excess supply of labour</strong>, which appears as unemployment.</p>
+            <div class="callout"><p><strong>When a floor does not bind.</strong> If the government fixes the floor <strong>below</strong> the equilibrium price, the market price is already above it, so the rule has no effect. A price floor matters only when it is set above equilibrium.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s7-4">
+            <h3>7.4 Price ceiling versus price floor</h3>
+            <div class="table-wrap" role="region" aria-label="Price ceiling versus price floor" tabindex="0">
+              <table>
+                <thead><tr><th>Basis</th><th>Price ceiling</th><th>Price floor</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Meaning</strong></td><td>Upper limit on the price of a good</td><td>Lower limit on the price of a good</td></tr>
+                  <tr><td><strong>Position</strong></td><td>Fixed below the equilibrium price</td><td>Fixed above the equilibrium price</td></tr>
+                  <tr><td><strong>Purpose</strong></td><td>Protect consumers; make essential goods affordable</td><td>Protect producers; ensure a fair minimum income</td></tr>
+                  <tr><td><strong>Market effect</strong></td><td>Excess demand, i.e. shortage</td><td>Excess supply, i.e. surplus</td></tr>
+                  <tr><td><strong>Possible consequences</strong></td><td>Queues, rationing, black marketing, dual pricing</td><td>Unsold stock, government procurement, buffer stock, illegal below-floor sales</td></tr>
+                  <tr><td><strong>Typical examples</strong></td><td>Rent control, subsidised food grains, medicine price caps</td><td>MSP for farmers, minimum wage</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="subsection" id="n-s7-5">
+            <h3>7.5 Are price controls always harmful?</h3>
+            <p>Not necessarily. A price ceiling can keep essential goods affordable during a crisis, and a price floor can protect poor farmers from exploitative prices. But both distort the market signal:</p>
+            <ul>
+              <li>A ceiling keeps the price below equilibrium, so sellers supply too little and buyers demand too much.</li>
+              <li>A floor keeps the price above equilibrium, so sellers supply too much and buyers demand too little.</li>
+            </ul>
+            <p>Well-designed policy therefore combines the price rule with complementary measures — rationing and public distribution for a ceiling; procurement, buffer stocks and income support for a floor.</p>
+            <div class="check-card check-block">
+              <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+              <ol class="check-questions">
+                <li><strong>Q1.</strong> Define price ceiling and price floor.</li>
+                <li><strong>Q2.</strong> The equilibrium monthly rent of a flat is ₹12,000. The government fixes a ceiling of ₹9,000. Explain two likely effects.</li>
+                <li><strong>Q3.</strong> Why does a price ceiling have no effect if it is fixed above the equilibrium price?</li>
+              </ol>
+              <details class="checklist"><summary>Show answers</summary>
+                <div class="checklist-answer"><ol>
+                  <li>A price ceiling is a legal maximum price fixed below the equilibrium price. A price floor is a legal minimum price fixed above the equilibrium price.</li>
+                  <li>At ₹9,000, more people want flats than there are flats available, so there is excess demand and a shortage. Landlords may resort to queues, key money or black marketing, and the quality of rented housing may fall because landlords have no incentive to maintain it.</li>
+                  <li>If the ceiling is above the equilibrium price, the market price is already below the ceiling. Buyers and sellers are free to settle at the equilibrium, and the legal maximum does not stop any transaction. The ceiling is non-binding.</li>
+                </ol></div>
+              </details>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-8">
+        <header class="session-head"><span class="session-kicker">Section 8</span><h2>Common Mistakes to Avoid</h2></header>
+        <div class="session-body">
+          <div class="table-wrap" role="region" aria-label="Common mistakes and the correct ideas" tabindex="0">
+            <table>
+              <thead><tr><th>Mistake</th><th>Correct idea</th></tr></thead>
+              <tbody>
+                <tr><td>“A change in price shifts the demand curve.”</td><td>A change in the good’s own price causes a <strong>movement along</strong> the demand curve. Only a non-price determinant shifts it.</td></tr>
+                <tr><td>“Excess demand shifts demand to the right.”</td><td>Excess demand is a <strong>gap at the current price</strong>. The price rises along the existing curves; neither curve shifts.</td></tr>
+                <tr><td>“A price ceiling creates excess supply.”</td><td>A ceiling is below equilibrium, so it creates <strong>excess demand</strong> and a shortage.</td></tr>
+                <tr><td>“A price floor creates excess demand.”</td><td>A floor is above equilibrium, so it creates <strong>excess supply</strong> and a surplus.</td></tr>
+                <tr><td>“Both demand and supply increase, so both price and quantity are uncertain.”</td><td>Quantity certainly rises. Only price is uncertain, and it depends on the relative size of the shifts.</td></tr>
+                <tr><td>“Demand increases, so supply increases too.”</td><td>A demand shift does <strong>not</strong> shift supply. The higher price causes a movement along the supply curve.</td></tr>
+                <tr><td>“Equilibrium means everyone gets the good.”</td><td>Equilibrium means quantity demanded equals quantity supplied <strong>at that price</strong>. Buyers who are unwilling to pay the price do not buy.</td></tr>
+                <tr><td>“A price ceiling is set above equilibrium.”</td><td>A ceiling must be <strong>below</strong> equilibrium to bind. Above equilibrium it has no effect.</td></tr>
+                <tr><td>“MSP is a price ceiling.”</td><td>MSP is a <strong>price floor</strong>: a minimum price for farmers, set above equilibrium.</td></tr>
+                <tr><td>“A non-viable industry has equilibrium at zero price.”</td><td>It has <strong>no</strong> equilibrium in the positive quadrant; the curves do not meet at any positive price and quantity.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-9">
+        <header class="session-head"><span class="session-kicker">Section 9</span><h2>Recap, Formulas and Exam Practice</h2></header>
+        <div class="session-body">
+          <section class="subsection" id="n-recap">
+            <h3>9.1 Chapter recap</h3>
+            <ul>
+              <li><strong>Market equilibrium</strong> occurs where market demand equals market supply; the price is the equilibrium price and the quantity is the equilibrium quantity.</li>
+              <li>At a price <strong>below</strong> equilibrium, excess demand pushes the price up. At a price <strong>above</strong> equilibrium, excess supply pushes it down. The equilibrium is stable.</li>
+              <li>Under perfect competition, the <strong>industry</strong> determines the price and each <strong>firm</strong> is a price taker.</li>
+              <li>A <strong>viable industry</strong> has an equilibrium at a positive price and quantity; a <strong>non-viable industry</strong> does not.</li>
+              <li>An <strong>increase in demand</strong> raises both equilibrium price and quantity; a <strong>decrease in demand</strong> lowers both.</li>
+              <li>An <strong>increase in supply</strong> lowers price and raises quantity; a <strong>decrease in supply</strong> raises price and lowers quantity.</li>
+              <li>When both curves shift in the <strong>same direction</strong>, quantity is certain and price is uncertain. When they shift in <strong>opposite directions</strong>, price is certain and quantity is uncertain.</li>
+              <li>With <strong>perfectly elastic supply</strong>, a demand shift changes quantity only. With <strong>perfectly inelastic supply</strong>, it changes price only.</li>
+              <li>A <strong>price ceiling</strong> below equilibrium creates a shortage, queues, rationing and black marketing.</li>
+              <li>A <strong>price floor</strong> above equilibrium creates a surplus, government procurement, buffer stocks and possible illegal sales; MSP and minimum wages are examples.</li>
+            </ul>
+          </section>
+
+          <section class="subsection" id="n-formulas">
+            <h3>9.2 Formula sheet</h3>
+            <div class="table-wrap" role="region" aria-label="Formula sheet" tabindex="0">
+              <table>
+                <thead><tr><th>Concept</th><th>Formula or statement</th><th>Remember</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Market equilibrium</strong></td><td>Qd = Qs</td><td>The price at which the market clears</td></tr>
+                  <tr><td><strong>Excess demand</strong></td><td>Qd − Qs &gt; 0</td><td>Shortage; price rises</td></tr>
+                  <tr><td><strong>Excess supply</strong></td><td>Qs − Qd &gt; 0</td><td>Surplus; price falls</td></tr>
+                  <tr><td><strong>Demand increase</strong></td><td>D → D₁ (right)</td><td>Price rises, quantity rises</td></tr>
+                  <tr><td><strong>Demand decrease</strong></td><td>D → D₂ (left)</td><td>Price falls, quantity falls</td></tr>
+                  <tr><td><strong>Supply increase</strong></td><td>S → S₁ (right)</td><td>Price falls, quantity rises</td></tr>
+                  <tr><td><strong>Supply decrease</strong></td><td>S → S₂ (left)</td><td>Price rises, quantity falls</td></tr>
+                  <tr><td><strong>Both shift same way</strong></td><td>Quantity certain</td><td>Price depends on relative size</td></tr>
+                  <tr><td><strong>Both shift opposite ways</strong></td><td>Price certain</td><td>Quantity depends on relative size</td></tr>
+                  <tr><td><strong>Price ceiling</strong></td><td>Maximum price &lt; Pe</td><td>Shortage; non-binding if above Pe</td></tr>
+                  <tr><td><strong>Price floor</strong></td><td>Minimum price &gt; Pe</td><td>Surplus; non-binding if below Pe</td></tr>
+                  <tr><td><strong>Shortage at ceiling</strong></td><td>Qd − Qs at ceiling price</td><td>Positive gap</td></tr>
+                  <tr><td><strong>Surplus at floor</strong></td><td>Qs − Qd at floor price</td><td>Positive gap</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>Symbols:</strong> Qd = quantity demanded; Qs = quantity supplied; D = demand; S = supply; Pe = equilibrium price; the subscript 1 or 2 marks a new curve.</p>
+          </section>
+
+          <section class="subsection" id="n-exam">
+            <h3>9.3 Exam-style questions</h3>
+            <p><strong>Very short answer (1 mark)</strong></p>
+            <ol>
+              <li>Define equilibrium price.</li>
+              <li>What is excess demand?</li>
+              <li>What is a price floor?</li>
+              <li>When does a price ceiling become effective?</li>
+              <li>If demand and supply increase by equal amounts, what happens to the equilibrium price?</li>
+            </ol>
+            <p><strong>Short answer (3 marks)</strong></p>
+            <ol>
+              <li>Explain why the equilibrium price is stable.</li>
+              <li>Distinguish between excess demand and excess supply.</li>
+              <li>Explain the effect of an increase in demand on equilibrium price and quantity.</li>
+              <li>Explain the effect of a decrease in supply on equilibrium price and quantity.</li>
+            </ol>
+            <p><strong>Long answer (4–6 marks)</strong></p>
+            <ol>
+              <li>Explain how equilibrium price and quantity are determined under perfect competition with the help of a schedule and a diagram.</li>
+              <li>Explain the effect of a simultaneous increase in demand and supply on equilibrium price and quantity, covering all three relative-size cases.</li>
+              <li>Explain price ceiling and price floor with diagrams and their effects on the market.</li>
+            </ol>
+            <details class="checklist"><summary>Answer pointers</summary>
+              <div class="checklist-answer">
+                <p><strong>Very short answer</strong></p>
+                <ol>
+                  <li>Equilibrium price is the price at which quantity demanded equals quantity supplied.</li>
+                  <li>Excess demand is a situation in which quantity demanded is greater than quantity supplied at the prevailing price.</li>
+                  <li>A price floor is a minimum price fixed by the government above the equilibrium price.</li>
+                  <li>A price ceiling becomes effective when it is fixed below the equilibrium price; above equilibrium it is non-binding.</li>
+                  <li>The equilibrium price remains unchanged; equilibrium quantity rises.</li>
+                </ol>
+                <p><strong>Short answer</strong></p>
+                <ol>
+                  <li>At a price above equilibrium, excess supply leads sellers to cut the price. At a price below equilibrium, excess demand leads buyers to bid the price up. Only at the equilibrium price is there no shortage or surplus, so the price has no tendency to change.</li>
+                  <li>Excess demand means Qd &gt; Qs at the current price; it creates a shortage, buyers compete and the price rises. Excess supply means Qs &gt; Qd; it creates a surplus, sellers compete and the price falls. Excess demand occurs below equilibrium; excess supply occurs above it.</li>
+                  <li>An increase in demand shifts the demand curve right. At the old price there is excess demand. The price rises, which raises quantity supplied along the supply curve. Both equilibrium price and quantity rise.</li>
+                  <li>A decrease in supply shifts the supply curve left. At the old price there is excess demand. The price rises, which reduces quantity demanded along the demand curve. Equilibrium price rises and quantity falls.</li>
+                </ol>
+                <p><strong>Long answer</strong></p>
+                <ol>
+                  <li>Use the schedule: at ₹2, Qd = 100, Qs = 20; at ₹4, 80 and 40; at ₹6, 60 and 60; at ₹8, 40 and 80; at ₹10, 20 and 100. Equilibrium is at ₹6 and 60 units. Draw downward-sloping D and upward-sloping S intersecting at E. At prices below ₹6, excess demand pushes price up; at prices above ₹6, excess supply pushes price down. The industry sets the price; firms are price takers.</li>
+                  <li>Both curves shift right. Quantity certainly rises. If the demand increase equals the supply increase, price stays the same. If demand increases more, price rises. If supply increases more, price falls. Show three panels with D and S shifting right and the new equilibrium at the same, higher or lower price.</li>
+                  <li>A price ceiling is a maximum price below equilibrium. Draw D and S, equilibrium E, ceiling line below E. At the ceiling, Qd &gt; Qs, so there is a shortage equal to the horizontal gap. Effects: queues, rationing, black marketing, dual pricing. A price floor is a minimum price above equilibrium. At the floor, Qs &gt; Qd, so there is a surplus. Effects: unsold stock, government procurement, buffer stock, illegal below-floor sales. Examples: rent control and food subsidies for ceilings; MSP and minimum wages for floors.</li>
+                </ol>
+              </div>
+            </details>
+          </section>
+
+          <section class="subsection" id="n-minute">
+            <h3>9.4 One-minute revision</h3>
+            <div class="table-wrap" role="region" aria-label="One-minute revision" tabindex="0">
+              <table>
+                <thead><tr><th>#</th><th>Non-negotiable</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>Equilibrium: Qd = Qs; the price at which the market clears.</td></tr>
+                  <tr><td>2</td><td>Below equilibrium → excess demand → price rises. Above equilibrium → excess supply → price falls.</td></tr>
+                  <tr><td>3</td><td>Demand ↑ → price ↑, quantity ↑. Demand ↓ → price ↓, quantity ↓.</td></tr>
+                  <tr><td>4</td><td>Supply ↑ → price ↓, quantity ↑. Supply ↓ → price ↑, quantity ↓.</td></tr>
+                  <tr><td>5</td><td>Both shift same way → quantity certain, price ambiguous. Both shift opposite ways → price certain, quantity ambiguous.</td></tr>
+                  <tr><td>6</td><td>Perfectly elastic supply → demand shifts change quantity only. Perfectly inelastic supply → demand shifts change price only.</td></tr>
+                  <tr><td>7</td><td>Price ceiling below equilibrium → shortage, queues, rationing, black marketing.</td></tr>
+                  <tr><td>8</td><td>Price floor above equilibrium → surplus, buffer stock, MSP, minimum wage.</td></tr>
+                  <tr><td>9</td><td>Price controls work only when they are binding: ceiling below Pe, floor above Pe.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      </div>
+
+      <div class="mode-panel mode-panel--quick" id="panel-quick" role="region" aria-label="Quick Revision" data-mode="quick" hidden>
+      <section class="quick-brief" id="q-start">
+        <div class="quick-brief-head">
+          <span class="quick-kicker">16-minute recall</span>
+          <h2>Quick revision, done properly</h2>
+          <p><strong>How to use this file (30 seconds):</strong> read one block → cover it → answer the recall questions aloud → open the answer to check → move on. Total time: about 16 minutes.</p>
+        </div>
+        <ol class="recall-steps">
+          <li><span class="step-num">01</span><strong>Read</strong><span>one block of notes</span></li>
+          <li><span class="step-num">02</span><strong>Cover</strong><span>the page and recall</span></li>
+          <li><span class="step-num">03</span><strong>Answer</strong><span>the drill aloud</span></li>
+          <li><span class="step-num">04</span><strong>Check</strong><span>and move on</span></li>
+        </ol>
+        <div class="quick-map-head"><span>The three sessions</span><span>Tap to jump in</span></div>
+        <div class="quick-map">
+        <a class="quick-map-card" href="#q-session-1">
+          <span class="quick-map-num">S1</span>
+          <span class="quick-map-body"><strong>Equilibrium + Demand Shifts</strong><span>The clearing price, excess demand and supply, and what a demand shift does</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="quick-map-card" href="#q-session-2">
+          <span class="quick-map-num">S2</span>
+          <span class="quick-map-body"><strong>Supply Shifts + Both Curves</strong><span>Cost changes, the twelve cases and the certain-and-ambiguous rule</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="quick-map-card" href="#q-session-3">
+          <span class="quick-map-num">S3</span>
+          <span class="quick-map-body"><strong>Special Cases + Price Controls</strong><span>Horizontal and vertical curves, ceilings, floors, MSP and minimum wages</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        </div>
+        <p class="quick-brief-foot">24 recall questions · one confusion clinic · one rapid-fire table · one blank-page test.</p>
+      </section>
+
+      <section class="session session--quick" id="q-session-1">
+        <header class="session-head"><span class="session-kicker">Session 1</span><h2>Equilibrium + Demand Shifts</h2></header>
+        <div class="session-body">
+          <h3 id="q-s1-12-lines">The chapter in 12 lines</h3>
+          <ul>
+            <li><strong>Market equilibrium</strong> is the price at which quantity demanded equals quantity supplied.</li>
+            <li>The <strong>equilibrium price</strong> clears the market; the <strong>equilibrium quantity</strong> is bought and sold at that price.</li>
+            <li><strong>Market demand</strong> slopes downward; <strong>market supply</strong> slopes upward.</li>
+            <li>The <strong>industry</strong> determines the price; each firm is a <strong>price taker</strong>.</li>
+            <li>Below equilibrium: Qd &gt; Qs → <strong>excess demand</strong> → price rises.</li>
+            <li>Above equilibrium: Qs &gt; Qd → <strong>excess supply</strong> → price falls.</li>
+            <li>Only at equilibrium is there no force pushing the price.</li>
+            <li>A <strong>viable industry</strong> has an equilibrium at a positive price and quantity.</li>
+            <li>A <strong>demand increase</strong> shifts D right → price rises, quantity rises.</li>
+            <li>A <strong>demand decrease</strong> shifts D left → price falls, quantity falls.</li>
+            <li>A <strong>supply increase</strong> shifts S right → price falls, quantity rises.</li>
+            <li>A <strong>supply decrease</strong> shifts S left → price rises, quantity falls.</li>
+          </ul>
+
+          <h3 id="q-s1-core">Equilibrium — the core table</h3>
+          <div class="table-wrap" role="region" aria-label="Equilibrium schedule for chocolates" tabindex="0">
+            <table>
+              <thead><tr><th>Price (₹)</th><th>Qd</th><th>Qs</th><th>Gap</th><th>Situation</th></tr></thead>
+              <tbody>
+                <tr><td>2</td><td>100</td><td>20</td><td>−80</td><td>Excess demand</td></tr>
+                <tr><td>4</td><td>80</td><td>40</td><td>−40</td><td>Excess demand</td></tr>
+                <tr><td><strong>6</strong></td><td><strong>60</strong></td><td><strong>60</strong></td><td><strong>0</strong></td><td><strong>Equilibrium</strong></td></tr>
+                <tr><td>8</td><td>40</td><td>80</td><td>+40</td><td>Excess supply</td></tr>
+                <tr><td>10</td><td>20</td><td>100</td><td>+80</td><td>Excess supply</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>In one line:</strong> at ₹6 the market clears at 60 chocolates. Below ₹6, buyers compete and push the price up; above ₹6, sellers compete and push it down.</p></div>
+
+          <h3 id="q-s1-rules">Which way does the price move?</h3>
+          <div class="table-wrap" role="region" aria-label="Direction of price and quantity changes" tabindex="0">
+            <table>
+              <thead><tr><th>Change</th><th>Curve that moves</th><th>Price</th><th>Quantity</th></tr></thead>
+              <tbody>
+                <tr><td>Price below equilibrium</td><td>No shift; excess demand</td><td>Rises</td><td>Qd falls, Qs rises</td></tr>
+                <tr><td>Price above equilibrium</td><td>No shift; excess supply</td><td>Falls</td><td>Qd rises, Qs falls</td></tr>
+                <tr><td>Demand increases</td><td>D shifts right</td><td>Rises</td><td>Rises</td></tr>
+                <tr><td>Demand decreases</td><td>D shifts left</td><td>Falls</td><td>Falls</td></tr>
+                <tr><td>Supply increases</td><td>S shifts right</td><td>Falls</td><td>Rises</td></tr>
+                <tr><td>Supply decreases</td><td>S shifts left</td><td>Rises</td><td>Falls</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s1-drill">Recall drill — Session 1</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>Define market equilibrium.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>A situation in which quantity demanded equals quantity supplied at a particular price.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>At what price and quantity does the chocolate market clear?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>₹6 and 60 chocolates.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>What happens when the price is above equilibrium?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Quantity supplied exceeds quantity demanded, creating excess supply. Sellers cut the price until the market clears.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>What happens when the price is below equilibrium?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Quantity demanded exceeds quantity supplied, creating excess demand. Buyers bid the price up until the market clears.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is equilibrium stable?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Any price above equilibrium creates excess supply and pushes the price down; any price below creates excess demand and pushes it up. Only at equilibrium is there no shortage or surplus.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Distinguish a movement along the demand curve from a shift of the demand curve.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>A movement along is caused by a change in the good’s own price. A shift is caused by a non-price factor such as income, tastes or the price of a related good.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>What is a viable industry?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>An industry whose demand and supply curves intersect at a positive price and positive quantity.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>List six factors that shift the demand curve.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Income; price of substitutes; price of complements; tastes and preferences; expectations of future prices; population and its composition.</p></details></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="session session--quick" id="q-session-2">
+        <header class="session-head"><span class="session-kicker">Session 2</span><h2>Supply Shifts + Both Curves</h2></header>
+        <div class="session-body">
+          <h3 id="q-s2-supply">Supply shifts in one table</h3>
+          <div class="table-wrap" role="region" aria-label="Supply shift factors and their effects" tabindex="0">
+            <table>
+              <thead><tr><th>Change</th><th>Supply</th><th>Price</th><th>Quantity</th></tr></thead>
+              <tbody>
+                <tr><td>Input prices rise</td><td>Falls (left)</td><td>Rises</td><td>Falls</td></tr>
+                <tr><td>Technology improves</td><td>Rises (right)</td><td>Falls</td><td>Rises</td></tr>
+                <tr><td>Tax on the good rises</td><td>Falls (left)</td><td>Rises</td><td>Falls</td></tr>
+                <tr><td>Subsidy is given</td><td>Rises (right)</td><td>Falls</td><td>Rises</td></tr>
+                <tr><td>More firms enter</td><td>Rises (right)</td><td>Falls</td><td>Rises</td></tr>
+                <tr><td>Sellers expect higher future prices</td><td>Falls today (left)</td><td>Rises</td><td>Falls</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 id="q-s2-combined">Both curves shift</h3>
+          <div class="table-wrap" role="region" aria-label="All twelve combined shifts" tabindex="0">
+            <table>
+              <thead><tr><th>Demand</th><th>Supply</th><th>Relative size</th><th>Price</th><th>Quantity</th></tr></thead>
+              <tbody>
+                <tr><td>↑</td><td>↑</td><td>Equal</td><td>Same</td><td>Rises</td></tr>
+                <tr><td>↑</td><td>↑</td><td>D rise &gt; S rise</td><td>Rises</td><td>Rises</td></tr>
+                <tr><td>↑</td><td>↑</td><td>D rise &lt; S rise</td><td>Falls</td><td>Rises</td></tr>
+                <tr><td>↓</td><td>↓</td><td>Equal</td><td>Same</td><td>Falls</td></tr>
+                <tr><td>↓</td><td>↓</td><td>D fall &gt; S fall</td><td>Falls</td><td>Falls</td></tr>
+                <tr><td>↓</td><td>↓</td><td>D fall &lt; S fall</td><td>Rises</td><td>Falls</td></tr>
+                <tr><td>↓</td><td>↑</td><td>Equal</td><td>Falls</td><td>Same</td></tr>
+                <tr><td>↓</td><td>↑</td><td>D fall &gt; S rise</td><td>Falls</td><td>Falls</td></tr>
+                <tr><td>↓</td><td>↑</td><td>D fall &lt; S rise</td><td>Falls</td><td>Rises</td></tr>
+                <tr><td>↑</td><td>↓</td><td>Equal</td><td>Rises</td><td>Same</td></tr>
+                <tr><td>↑</td><td>↓</td><td>D rise &gt; S fall</td><td>Rises</td><td>Rises</td></tr>
+                <tr><td>↑</td><td>↓</td><td>D rise &lt; S fall</td><td>Rises</td><td>Falls</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>The rule:</strong> same-direction shifts → quantity certain, price ambiguous. Opposite-direction shifts → price certain, quantity ambiguous. Use the relative size to settle the ambiguous variable.</p></div>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s2-drill">Recall drill — Session 2</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>List the factors that shift the supply curve.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Prices of factors of production; prices of other goods; technology; taxes and subsidies; expectations of future prices; goals of the firm; number of firms.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why does a rise in input prices reduce supply?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Higher input prices raise the cost of producing each unit. At every price, sellers now need a higher price to cover cost, so they offer less — supply shifts left.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Supply decreases. What happens to price and quantity?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Price rises and quantity falls.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Demand and supply both increase by equal amounts. What happens?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Price stays the same; quantity rises.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Demand increases more than supply. What happens?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Price rises; quantity rises.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Demand falls and supply rises by equal amounts. What happens?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Price falls; quantity stays the same.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Demand falls more than supply rises. What happens?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Price falls; quantity falls.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>State the certain-and-ambiguous rule.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>If the curves shift in the same direction, quantity is certain and price is uncertain. If they shift in opposite directions, price is certain and quantity is uncertain.</p></details></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="session session--quick" id="q-session-3">
+        <header class="session-head"><span class="session-kicker">Session 3</span><h2>Special Cases + Price Controls</h2></header>
+        <div class="session-body">
+          <h3 id="q-s3-special">Special cases</h3>
+          <div class="table-wrap" role="region" aria-label="Special cases with perfectly elastic and inelastic curves" tabindex="0">
+            <table>
+              <thead><tr><th>Fixed curve</th><th>Shape</th><th>Shift</th><th>Price</th><th>Quantity</th></tr></thead>
+              <tbody>
+                <tr><td>Supply perfectly elastic (Es = ∞)</td><td>Horizontal</td><td>Demand ↑</td><td>Same</td><td>Rises</td></tr>
+                <tr><td>Supply perfectly elastic (Es = ∞)</td><td>Horizontal</td><td>Demand ↓</td><td>Same</td><td>Falls</td></tr>
+                <tr><td>Demand perfectly elastic (Ed = ∞)</td><td>Horizontal</td><td>Supply ↑</td><td>Same</td><td>Rises</td></tr>
+                <tr><td>Demand perfectly elastic (Ed = ∞)</td><td>Horizontal</td><td>Supply ↓</td><td>Same</td><td>Falls</td></tr>
+                <tr><td>Supply perfectly inelastic (Es = 0)</td><td>Vertical</td><td>Demand ↑</td><td>Rises</td><td>Same</td></tr>
+                <tr><td>Supply perfectly inelastic (Es = 0)</td><td>Vertical</td><td>Demand ↓</td><td>Falls</td><td>Same</td></tr>
+                <tr><td>Demand perfectly inelastic (Ed = 0)</td><td>Vertical</td><td>Supply ↑</td><td>Falls</td><td>Same</td></tr>
+                <tr><td>Demand perfectly inelastic (Ed = 0)</td><td>Vertical</td><td>Supply ↓</td><td>Rises</td><td>Same</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Memory line:</strong> a horizontal curve fixes the price; a vertical curve fixes the quantity.</p></div>
+
+          <h3 id="q-s3-controls">Price ceiling and price floor</h3>
+          <div class="table-wrap" role="region" aria-label="Price ceiling versus price floor" tabindex="0">
+            <table>
+              <thead><tr><th>Basis</th><th>Price ceiling</th><th>Price floor</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Rule</strong></td><td>Maximum price</td><td>Minimum price</td></tr>
+                <tr><td><strong>Binding position</strong></td><td>Below equilibrium</td><td>Above equilibrium</td></tr>
+                <tr><td><strong>Market effect</strong></td><td>Qd &gt; Qs → shortage</td><td>Qs &gt; Qd → surplus</td></tr>
+                <tr><td><strong>Consequences</strong></td><td>Queues, rationing, black marketing, dual pricing</td><td>Unsold stock, procurement, buffer stock, illegal sales</td></tr>
+                <tr><td><strong>Examples</strong></td><td>Rent control, subsidised food grains, medicine caps</td><td>MSP for farmers, minimum wage</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>MSP:</strong> a price floor for crops. Government agencies buy at MSP when the market price falls below it; the grain becomes buffer stock. <strong>Minimum wage:</strong> a price floor in the labour market. Above the equilibrium wage, more workers want jobs than firms want to hire, creating unemployment.</p>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s3-drill">Recall drill — Session 3</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>Supply is perfectly elastic and demand rises. What happens to price and quantity?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Price stays the same; quantity rises.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Demand is perfectly elastic and supply falls. What happens?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Price stays the same; quantity falls.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Supply is perfectly inelastic and demand rises. What happens?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Quantity stays the same; price rises.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Demand is perfectly inelastic and supply rises. What happens?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Quantity stays the same; price falls.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Define price ceiling.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>A maximum price fixed by the government below the equilibrium price.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Define price floor.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>A minimum price fixed by the government above the equilibrium price.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why does a price ceiling create a shortage?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Because it is below equilibrium. At the lower controlled price, buyers demand more and sellers supply less, so Qd &gt; Qs.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why does a price floor create a surplus?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Because it is above equilibrium. At the higher minimum price, sellers supply more and buyers demand less, so Qs &gt; Qd.</p></details></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block clinic-block" id="q-clinic">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">Traps examiners love</span><h2>Confusion Clinic</h2><p>The one difference that decides the mark.</p></div>
+        </div>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="Confusion clinic" tabindex="0">
+            <table>
+              <thead><tr><th>Pair</th><th>The one difference</th></tr></thead>
+              <tbody>
+                <tr><td>Movement along vs shift</td><td>Own price changes vs a non-price determinant changes</td></tr>
+                <tr><td>Excess demand vs increase in demand</td><td>A gap at the current price vs a rightward shift of the whole curve</td></tr>
+                <tr><td>Excess supply vs decrease in supply</td><td>A gap at the current price vs a leftward shift of the whole curve</td></tr>
+                <tr><td>Demand ↑ vs supply ↑</td><td>Price rises vs price falls; quantity rises in both</td></tr>
+                <tr><td>Both curves ↑ vs both curves ↓</td><td>Quantity rises vs quantity falls; price is ambiguous in both</td></tr>
+                <tr><td>Shortage vs surplus</td><td>Qd &gt; Qs below equilibrium vs Qs &gt; Qd above equilibrium</td></tr>
+                <tr><td>Price ceiling vs price floor</td><td>Maximum below equilibrium vs minimum above equilibrium</td></tr>
+                <tr><td>Ceiling above equilibrium</td><td>Non-binding; the market stays at equilibrium</td></tr>
+                <tr><td>Floor below equilibrium</td><td>Non-binding; the market stays at equilibrium</td></tr>
+                <tr><td>Viable vs non-viable industry</td><td>Positive-quadrant intersection vs no positive-quadrant intersection</td></tr>
+                <tr><td>Perfectly elastic vs perfectly inelastic</td><td>Horizontal, price fixed vs vertical, quantity fixed</td></tr>
+                <tr><td>MSP vs minimum wage</td><td>Both floors: one in the crop market, one in the labour market</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block rapid-block" id="q-rapid">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">One-line answers</span><h2>Rapid Fire</h2><p>Cover the right column. Say the answer before you reveal it.</p></div>
+          <button class="cover-btn" type="button" data-cover-answers aria-pressed="false">Cover answers</button>
+        </div>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="Rapid fire questions and answers" tabindex="0">
+            <table class="rapid-table">
+              <thead><tr><th>Question</th><th>One-line answer</th></tr></thead>
+              <tbody>
+                <tr><td>Market equilibrium</td><td>Quantity demanded equals quantity supplied at a price</td></tr>
+                <tr><td>Equilibrium price</td><td>The price at which Qd = Qs</td></tr>
+                <tr><td>Equilibrium quantity</td><td>The quantity bought and sold at the equilibrium price</td></tr>
+                <tr><td>Chocolate market equilibrium</td><td>₹6 and 60 units</td></tr>
+                <tr><td>Price below equilibrium</td><td>Excess demand; price rises</td></tr>
+                <tr><td>Price above equilibrium</td><td>Excess supply; price falls</td></tr>
+                <tr><td>Excess demand formula</td><td>Qd − Qs when Qd &gt; Qs</td></tr>
+                <tr><td>Excess supply formula</td><td>Qs − Qd when Qs &gt; Qd</td></tr>
+                <tr><td>Stable equilibrium</td><td>Departures create forces that bring the market back</td></tr>
+                <tr><td>Price mechanism</td><td>Prices coordinate buyers’ and sellers’ decisions</td></tr>
+                <tr><td>Viable industry</td><td>D and S intersect at positive price and quantity</td></tr>
+                <tr><td>Non-viable industry</td><td>No intersection in the positive quadrant</td></tr>
+                <tr><td>Demand shift factors</td><td>Income, related-good prices, tastes, expectations, population</td></tr>
+                <tr><td>Demand increase</td><td>Price rises; quantity rises</td></tr>
+                <tr><td>Demand decrease</td><td>Price falls; quantity falls</td></tr>
+                <tr><td>Supply shift factors</td><td>Input prices, other-good prices, technology, taxes, expectations, goals, number of firms</td></tr>
+                <tr><td>Supply increase</td><td>Price falls; quantity rises</td></tr>
+                <tr><td>Supply decrease</td><td>Price rises; quantity falls</td></tr>
+                <tr><td>Both increase equally</td><td>Price same; quantity rises</td></tr>
+                <tr><td>Both increase, demand more</td><td>Price rises; quantity rises</td></tr>
+                <tr><td>Both increase, supply more</td><td>Price falls; quantity rises</td></tr>
+                <tr><td>Both decrease equally</td><td>Price same; quantity falls</td></tr>
+                <tr><td>Both decrease, demand more</td><td>Price falls; quantity falls</td></tr>
+                <tr><td>Both decrease, supply more</td><td>Price rises; quantity falls</td></tr>
+                <tr><td>Demand ↓, supply ↑ equally</td><td>Price falls; quantity same</td></tr>
+                <tr><td>Demand ↓ more than supply ↑</td><td>Price falls; quantity falls</td></tr>
+                <tr><td>Supply ↑ more than demand ↓</td><td>Price falls; quantity rises</td></tr>
+                <tr><td>Demand ↑, supply ↓ equally</td><td>Price rises; quantity same</td></tr>
+                <tr><td>Demand ↑ more than supply ↓</td><td>Price rises; quantity rises</td></tr>
+                <tr><td>Supply ↓ more than demand ↑</td><td>Price rises; quantity falls</td></tr>
+                <tr><td>Same-direction shifts</td><td>Quantity certain; price ambiguous</td></tr>
+                <tr><td>Opposite-direction shifts</td><td>Price certain; quantity ambiguous</td></tr>
+                <tr><td>Perfectly elastic supply + demand ↑</td><td>Price same; quantity rises</td></tr>
+                <tr><td>Perfectly inelastic supply + demand ↑</td><td>Price rises; quantity same</td></tr>
+                <tr><td>Perfectly elastic demand + supply ↑</td><td>Price same; quantity rises</td></tr>
+                <tr><td>Perfectly inelastic demand + supply ↑</td><td>Price falls; quantity same</td></tr>
+                <tr><td>Price ceiling</td><td>Maximum price below equilibrium</td></tr>
+                <tr><td>Ceiling effect</td><td>Shortage; Qd &gt; Qs</td></tr>
+                <tr><td>Ceiling above equilibrium</td><td>Non-binding; no effect</td></tr>
+                <tr><td>Black marketing</td><td>Selling above the legal maximum price</td></tr>
+                <tr><td>Rationing</td><td>Fixed quota per consumer at a controlled price</td></tr>
+                <tr><td>Dual pricing</td><td>Same good sold at controlled and open-market prices</td></tr>
+                <tr><td>Price floor</td><td>Minimum price above equilibrium</td></tr>
+                <tr><td>Floor effect</td><td>Surplus; Qs &gt; Qd</td></tr>
+                <tr><td>Floor below equilibrium</td><td>Non-binding; no effect</td></tr>
+                <tr><td>MSP</td><td>Price floor for crops; government procurement</td></tr>
+                <tr><td>Buffer stock</td><td>Government stock bought at support price, released in shortage</td></tr>
+                <tr><td>Minimum wage effect</td><td>Excess supply of labour; unemployment</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block blank-block" id="q-blank">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">From memory</span><h2>Blank Page Test</h2><p>10 minutes. Close the notes and tick each one you can write.</p></div>
+        </div>
+        <div class="blank-meter">
+          <span class="blank-count" data-blank-count>0 / 15 complete</span>
+          <span class="blank-bar" aria-hidden="true"><span data-blank-bar></span></span>
+          <button class="blank-reset" type="button" data-blank-reset>Reset</button>
+        </div>
+        <p>Close the file and write these from memory. Tick each one you complete.</p>
+        <ul class="blank-list">
+          <li><label class="blank-item"><input class="blank-check" data-blank="1" id="q-blank-11-1" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Definition of market equilibrium + equilibrium price and quantity</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="2" id="q-blank-11-2" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Equilibrium schedule: the five prices, Qd, Qs, and the ₹6 / 60 result</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="3" id="q-blank-11-3" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Why a price above equilibrium falls and a price below equilibrium rises</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="4" id="q-blank-11-4" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Excess demand vs excess supply + both formulas</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="5" id="q-blank-11-5" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Viable vs non-viable industry + the positive-quadrant test</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="6" id="q-blank-11-6" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Six demand-shift factors</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="7" id="q-blank-11-7" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Demand ↑ and demand ↓ → price and quantity</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="8" id="q-blank-11-8" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Seven supply-shift factors</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="9" id="q-blank-11-9" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Supply ↑ and supply ↓ → price and quantity</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="10" id="q-blank-11-10" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Same-direction vs opposite-direction shifts: which variable is certain?</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="11" id="q-blank-11-11" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">All twelve combined-shift cases</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="12" id="q-blank-11-12" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Perfectly elastic supply and demand — price fixed</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="13" id="q-blank-11-13" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Perfectly inelastic supply and demand — quantity fixed</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="14" id="q-blank-11-14" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Price ceiling → shortage + four effects</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="15" id="q-blank-11-15" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Price floor → surplus + MSP, buffer stock and minimum wage</span></label></li>
+        </ul>
+        <p class="blank-note"><strong>Scoring:</strong> 12–15 ticks = exam ready. 8–11 = redo the recall drills for the missed sections. Below 8 = read the session notes again, then repeat this test tomorrow.</p>
+      </section>
+
+      <section class="quick-block plan-block" id="q-plan">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">Exam morning</span><h2>15-Minute Revision Plan</h2><p>A timed route through the whole chapter, from first recall to the final line.</p></div>
+        </div>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="15-minute revision plan" tabindex="0">
+            <table class="plan-table">
+              <thead><tr><th>Minutes</th><th>Do this</th></tr></thead>
+              <tbody>
+                <tr><td>0–3</td><td>Session 1: equilibrium definition, the ₹6 / 60 schedule, excess demand and excess supply</td></tr>
+                <tr><td>3–6</td><td>Session 1: demand shifts, viable and non-viable industries</td></tr>
+                <tr><td>6–9</td><td>Session 2: supply shift factors, supply ↑ and ↓ effects</td></tr>
+                <tr><td>9–12</td><td>Session 2: the twelve combined-shift cases and the certain-and-ambiguous rule</td></tr>
+                <tr><td>12–15</td><td>Session 3: special cases, price ceiling, price floor, MSP, minimum wage, then Rapid Fire</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Final line to remember:</strong> demand and supply meet at the equilibrium price; demand shifts move price and quantity together, supply shifts move them in opposite directions, and a binding price control replaces the market price with a shortage or a surplus.</p>
+        </div>
+      </section>
+
+      <div class="quick-cta">
+        <div>
+          <span class="quick-cta-kicker">Need the reasoning?</span>
+          <p>Every table in quick revision is built from the full notes.</p>
+        </div>
+        <button class="mode-jump" type="button" data-mode-jump="notes">Read the full notes <span aria-hidden="true">→</span></button>
+      </div>
+      </div>
+
+      <nav class="pager" aria-label="Chapter navigation"><a class="pager-link prev" href="Chapter-10-Main-Market-Forms.html"><span class="pager-label">← Previous chapter</span><span class="pager-title">Chapter 10 · Main Market Forms</span></a></nav>
+
+      <footer class="page-footer">
+        <p><strong>Chapter 11 · Price Determination and Simple Applications</strong></p>
+        <p>Built from the Class 11 Microeconomics lecture notes and the standard NCERT treatment. Examples are closest real-world illustrations, not claims about exact market data.</p>
+        <p><a href="../index.html">← All subjects</a> <span>·</span> <a href="#main">Back to top</a></p>
+      </footer>
+    </main>
+  </div>
+
+  <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false" aria-controls="toc">
+    <span aria-hidden="true">☰</span> Contents
+  </button>
+
+  <script src="../Retail/retail.js?v=20261030a"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" font-family="DejaVu Sans, Verdana, sans-serif" role="img" aria-label="Downward sloping AR and MR curves with MR below AR under imperfect competition">
+<title>AR and MR Curves (Imperfect Competition)</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1b1b1b"/></marker>
+</defs>
+<rect x="0" y="0" width="760" height="480" fill="#ffffff"/>
+<text x="380" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#1b1b1b">AR and MR Curves (Imperfect Competition — Price Falls)</text>
+<line x1="70" y1="400" x2="70" y2="50" stroke="#1b1b1b" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="70" y1="400" x2="720" y2="400" stroke="#1b1b1b" stroke-width="1.5" marker-end="url(#arr)"/>
+<g stroke="#dddddd" stroke-width="1" stroke-dasharray="2,3">
+<line x1="70" y1="356.3" x2="720" y2="356.3"/><line x1="70" y1="312.5" x2="720" y2="312.5"/><line x1="70" y1="268.8" x2="720" y2="268.8"/><line x1="70" y1="225" x2="720" y2="225"/><line x1="70" y1="181.3" x2="720" y2="181.3"/><line x1="70" y1="137.5" x2="720" y2="137.5"/><line x1="70" y1="93.8" x2="720" y2="93.8"/><line x1="70" y1="50" x2="720" y2="50"/>
+</g>
+<line x1="70" y1="312.5" x2="720" y2="312.5" stroke="#1b1b1b" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="712" y="304" text-anchor="end" font-size="11" fill="#1b1b1b">MR = 0</text>
+<g font-size="11" fill="#1b1b1b" text-anchor="end">
+<text x="62" y="404">−4</text><text x="62" y="360">−2</text><text x="62" y="316">0</text><text x="62" y="273">2</text><text x="62" y="229">4</text><text x="62" y="185">6</text><text x="62" y="142">8</text><text x="62" y="98">10</text><text x="62" y="54">12</text>
+</g>
+<g font-size="11" fill="#1b1b1b" text-anchor="middle">
+<text x="151.3" y="420">1</text><text x="232.5" y="420">2</text><text x="313.8" y="420">3</text><text x="395" y="420">4</text><text x="476.3" y="420">5</text><text x="557.5" y="420">6</text><text x="638.8" y="420">7</text>
+</g>
+<line x1="70" y1="71.9" x2="700" y2="241.5" stroke="#1f77b4" stroke-width="2.6"/>
+<line x1="70" y1="50" x2="700" y2="389.2" stroke="#d62728" stroke-width="2.6"/>
+<g fill="#1f77b4">
+<circle cx="151.3" cy="93.8" r="4.5"/><circle cx="232.5" cy="115.6" r="4.5"/><circle cx="313.8" cy="137.5" r="4.5"/><circle cx="395" cy="159.4" r="4.5"/><circle cx="476.3" cy="181.3" r="4.5"/><circle cx="557.5" cy="203.1" r="4.5"/><circle cx="638.8" cy="225" r="4.5"/>
+</g>
+<g fill="#d62728">
+<circle cx="151.3" cy="93.8" r="4.5"/><circle cx="232.5" cy="137.5" r="4.5"/><circle cx="313.8" cy="181.3" r="4.5"/><circle cx="395" cy="225" r="4.5"/><circle cx="476.3" cy="268.8" r="4.5"/><circle cx="557.5" cy="312.5" r="4.5"/><circle cx="638.8" cy="356.3" r="4.5"/>
+</g>
+<text x="708" y="232" text-anchor="end" font-size="12.5" font-weight="bold" fill="#1f77b4">AR (= Price)</text>
+<text x="708" y="380" text-anchor="end" font-size="12.5" font-weight="bold" fill="#d62728">MR</text>
+<text x="480" y="228" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1b1b1b">MR lies below AR after Q1</text>
+<text x="350" y="378" text-anchor="middle" font-size="11.5" fill="#1b1b1b">MR = 0 at Q6 (TR maximum ₹30) — MR = −2 at Q7</text>
+<text x="24" y="225" font-size="12" fill="#1b1b1b" text-anchor="middle" transform="rotate(-90,24,225)">Price / Revenue (₹)</text>
+<text x="395" y="448" font-size="12" fill="#1b1b1b" text-anchor="middle">Units Sold (Q) — AR: 10, 9, 8, 7, 6, 5, 4 · MR: 10, 8, 6, 4, 2, 0, −2</text>
+</svg>

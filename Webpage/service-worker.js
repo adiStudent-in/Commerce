@@ -2,14 +2,14 @@
 /* Notes Hub — Class 11 Commerce PWA     */
 /* Version 1.0                           */
 
-var CACHE_NAME = 'study-os-v2';
+var CACHE_NAME = 'study-os-v3';
 var ASSETS_TO_CACHE = [
   './',
   './index.html',
   './Syllabus-Tracker.html',
   './assets/study-os.css',
   './assets/study-os.js',
-  'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap',
+  'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap',
   'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js'
 ];
 

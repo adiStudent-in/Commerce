@@ -148,6 +148,7 @@ html = f"""<!DOCTYPE html>
 <button id="tocBtn" aria-label="Open contents">&#9776;</button>
 <footer>Source: NCERT Hornbill &amp; Snapshots (Class XI) chapter notes &middot; English Notes</footer>
 <script>{JS}</script>
+<script src="../assets/toc-scrollspy.js"></script>
 </body>
 </html>"""
 OUT.write_text(html, encoding="utf-8")

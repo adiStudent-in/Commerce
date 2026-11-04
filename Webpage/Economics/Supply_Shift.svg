@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" font-family="DejaVu Sans, Verdana, sans-serif" role="img" aria-label="Increase and decrease as rightward and leftward shifts of the supply curve">
+<title>Shift in Supply Curve — Increase and Decrease</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1b1b1b"/></marker>
+<marker id="arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1a5e4a"/></marker>
+<marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62728"/></marker>
+</defs>
+<rect x="0" y="0" width="760" height="500" fill="#ffffff"/>
+<text x="380" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#1b1b1b">Shift in Supply Curve — Increase and Decrease</text>
+<line x1="90" y1="420" x2="90" y2="60" stroke="#1b1b1b" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="90" y1="420" x2="720" y2="420" stroke="#1b1b1b" stroke-width="1.5" marker-end="url(#arr)"/>
+<g font-size="11" fill="#1b1b1b" text-anchor="end">
+<text x="82" y="424">0</text><text x="82" y="334">4</text><text x="82" y="244">8</text><text x="82" y="203">10</text><text x="82" y="158">12</text><text x="82" y="68">16</text>
+</g>
+<g font-size="11" fill="#1b1b1b" text-anchor="middle">
+<text x="90" y="440">0</text><text x="240" y="440">50</text><text x="390" y="440">100</text><text x="540" y="440">150</text><text x="690" y="440">200</text>
+</g>
+<line x1="90" y1="252" x2="637" y2="60" stroke="#d62728" stroke-width="2.4"/>
+<line x1="90" y1="304" x2="720" y2="84" stroke="#1f77b4" stroke-width="2.8"/>
+<line x1="240" y1="304" x2="720" y2="136" stroke="#1a5e4a" stroke-width="2.4"/>
+<line x1="90" y1="199" x2="720" y2="199" stroke="#1b1b1b" stroke-width="1" stroke-dasharray="7,5"/>
+<g fill="#1b1b1b">
+<circle cx="240" cy="199" r="5"/><circle cx="390" cy="199" r="5"/><circle cx="540" cy="199" r="5"/>
+</g>
+<g font-size="11.5" font-weight="bold" style="paint-order:stroke" stroke="#ffffff" stroke-width="4">
+<text x="330" y="158" text-anchor="middle" fill="#d62728">S2S2</text>
+<text x="610" y="114" text-anchor="middle" fill="#1f77b4">SS</text>
+<text x="660" y="150" text-anchor="middle" fill="#1a5e4a">S1S1</text>
+</g>
+<text x="240" y="220" text-anchor="middle" font-size="11" fill="#1b1b1b">OQ2 = 50 (less)</text>
+<text x="390" y="220" text-anchor="middle" font-size="11" fill="#1b1b1b">OQ = 100</text>
+<text x="540" y="220" text-anchor="middle" font-size="11" fill="#1b1b1b">OQ1 = 150 (more)</text>
+<text x="96" y="190" font-size="11" font-weight="bold" fill="#1b1b1b">P = 10</text>
+<line x1="160" y1="285" x2="280" y2="285" stroke="#1a5e4a" stroke-width="2" marker-end="url(#arrG)"/>
+<text x="220" y="275" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a5e4a">Increase →</text>
+<line x1="560" y1="130" x2="465" y2="130" stroke="#d62728" stroke-width="2" marker-end="url(#arrR)"/>
+<text x="512" y="120" text-anchor="middle" font-size="11" font-weight="bold" fill="#d62728">← Decrease</text>
+<text x="620" y="330" text-anchor="middle" font-size="11" fill="#1a5e4a">Rightward: input price fall,</text>
+<text x="620" y="346" text-anchor="middle" font-size="11" fill="#1a5e4a">tax fall, better technology</text>
+<text x="620" y="372" text-anchor="middle" font-size="11" fill="#d62728">Leftward: input price rise,</text>
+<text x="620" y="388" text-anchor="middle" font-size="11" fill="#d62728">tax rise, outdated technology</text>
+<text x="30" y="240" font-size="12" fill="#1b1b1b" text-anchor="middle" transform="rotate(-90,30,240)">Price (Rs)</text>
+<text x="405" y="466" font-size="12" fill="#1b1b1b" text-anchor="middle">Quantity Supplied (units)</text>
+<text x="405" y="486" font-size="11" fill="#555555" text-anchor="middle">Own price constant — shift is caused by other factors</text>
+</svg>

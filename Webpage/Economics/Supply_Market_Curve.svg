@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" font-family="DejaVu Sans, Verdana, sans-serif" role="img" aria-label="Individual supply curves SA and SB summed horizontally into flatter market supply curve SM">
+<title>Individual and Market Supply Curves</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1b1b1b"/></marker>
+</defs>
+<rect x="0" y="0" width="760" height="500" fill="#ffffff"/>
+<text x="380" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#1b1b1b">Individual and Market Supply Curves</text>
+<line x1="70" y1="410" x2="70" y2="60" stroke="#1b1b1b" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="70" y1="410" x2="720" y2="410" stroke="#1b1b1b" stroke-width="1.5" marker-end="url(#arr)"/>
+<g stroke="#dddddd" stroke-width="1" stroke-dasharray="2,3">
+<line x1="70" y1="364" x2="720" y2="364"/><line x1="70" y1="314" x2="720" y2="314"/><line x1="70" y1="264" x2="720" y2="264"/><line x1="70" y1="214" x2="720" y2="214"/><line x1="70" y1="164" x2="720" y2="164"/><line x1="70" y1="114" x2="720" y2="114"/><line x1="70" y1="64" x2="720" y2="64"/>
+</g>
+<g font-size="11" fill="#1b1b1b" text-anchor="end">
+<text x="62" y="414">0</text><text x="62" y="368">1</text><text x="62" y="318">2</text><text x="62" y="268">3</text><text x="62" y="218">4</text><text x="62" y="168">5</text><text x="62" y="118">6</text><text x="62" y="68">7</text>
+</g>
+<g font-size="11" fill="#1b1b1b" text-anchor="middle">
+<text x="70" y="430">0</text><text x="162.9" y="430">10</text><text x="255.7" y="430">20</text><text x="348.6" y="430">30</text><text x="441.4" y="430">40</text><text x="534.3" y="430">50</text><text x="627.1" y="430">60</text><text x="720" y="430">70</text>
+</g>
+<polyline points="70,364 116.4,314 162.9,264 209.3,214 255.7,164 302.1,114" fill="none" stroke="#1f77b4" stroke-width="2.4"/>
+<polyline points="70,364 162.9,314 255.7,264 302.1,214 395,164 441.4,114" fill="none" stroke="#1a5e4a" stroke-width="2.4"/>
+<polyline points="70,364 209.3,314 348.6,264 441.4,214 580.7,164 673.6,114" fill="none" stroke="#d62728" stroke-width="2.8"/>
+<g fill="#1f77b4">
+<circle cx="116.4" cy="314" r="4"/><circle cx="162.9" cy="264" r="4"/><circle cx="209.3" cy="214" r="4"/><circle cx="255.7" cy="164" r="4"/><circle cx="302.1" cy="114" r="4"/>
+</g>
+<g fill="#1a5e4a">
+<circle cx="162.9" cy="314" r="4"/><circle cx="255.7" cy="264" r="4"/><circle cx="302.1" cy="214" r="4"/><circle cx="395" cy="164" r="4"/><circle cx="441.4" cy="114" r="4"/>
+</g>
+<g fill="#d62728">
+<circle cx="209.3" cy="314" r="4"/><circle cx="348.6" cy="264" r="4"/><circle cx="441.4" cy="214" r="4"/><circle cx="580.7" cy="164" r="4"/><circle cx="673.6" cy="114" r="4"/>
+</g>
+<g font-size="12.5" font-weight="bold">
+<text x="310" y="106" fill="#1f77b4">SA (Firm A)</text>
+<text x="449" y="106" fill="#1a5e4a">SB (Firm B)</text>
+<text x="648" y="102" fill="#d62728">SM (Market)</text>
+</g>
+<text x="395" y="70" text-anchor="middle" font-size="11.5" fill="#1b1b1b">SM = SA + SB at each price (horizontal summation) — SM is flatter than SA and SB</text>
+<text x="24" y="235" font-size="12" fill="#1b1b1b" text-anchor="middle" transform="rotate(-90,24,235)">Price (Rs)</text>
+<text x="395" y="458" font-size="12" fill="#1b1b1b" text-anchor="middle">Quantity Supplied (units)</text>
+<text x="395" y="480" font-size="11.5" fill="#555555" text-anchor="middle">Check: at Rs 5, SA 20 + SB 35 = SM 55</text>
+</svg>

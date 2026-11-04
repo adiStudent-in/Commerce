@@ -1,11 +1,11 @@
 {
-  "name": "Notes Hub - Class 11 Commerce",
-  "short_name": "Notes Hub",
-  "description": "Chapter-wise study notes for Class 11 Commerce (BST, Economics, Statistics)",
+  "name": "Study OS — Class XI Commerce",
+  "short_name": "Study OS",
+  "description": "Chapter-wise study notes and syllabus tracking for Class XI Commerce (BST, Economics, Statistics, English, Retail and Mathematics).",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#faf8f5",
-  "theme_color": "#1a5e4a",
+  "background_color": "#f4f0e6",
+  "theme_color": "#1d5545",
   "orientation": "any",
   "icons": [
     {

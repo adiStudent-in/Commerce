@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindmap Redesign &mdash; Chapter at a Glance | BST Class 11</title>
+  <meta name="description" content="Info-complete mindmap redesign for the BST chapter pages: every topic carries its key facts as short chips, so the whole chapter can be revised at a glance without opening a page. Three full-information layouts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf8f5; --surface: #ffffff; --text: #1b1b1b; --text-muted: #6b6b6b;
+      --accent: #1a5e4a; --accent-light: #e8f0ec; --border: #e8e4de;
+      --code-bg: #f0ede8; --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06); --radius: 8px;
+      --max-width: 1120px; --prose: 760px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { font-family: var(--font-body); font-weight: 400; font-size: 15.5px; line-height: 1.7; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
+    nav.top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,248,245,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    nav.top-nav .logo { font-family: var(--font-display); font-weight: 600; font-size: 17px; color: var(--accent); text-decoration: none; letter-spacing: -0.02em; }
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+    nav.top-nav .meta { font-size: 13px; color: var(--text-muted); }
+    .progress-bar { position: fixed; top: 60px; left: 0; right: 0; height: 2px; z-index: 99; background: transparent; }
+    .progress-bar .fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.1s linear; }
+    .wrapper { display: flex; max-width: 1280px; margin: 0 auto; padding: 80px 24px 60px; gap: 40px; }
+    main.content { flex: 1; max-width: var(--max-width); min-width: 0; }
+    .hero { padding: 48px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+    .hero .chapter-badge { display: inline-block; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); background: var(--accent-light); padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+    .hero h1 { font-family: var(--font-display); font-weight: 700; font-size: 38px; line-height: 1.2; letter-spacing: -0.025em; color: var(--text); margin-bottom: 12px; }
+    .hero .subtitle { font-size: 16px; color: var(--text-muted); font-weight: 400; max-width: var(--prose); }
+    section { margin-bottom: 48px; }
+    section h2 { font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.3; letter-spacing: -0.01em; color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    section p { margin-bottom: 14px; max-width: var(--prose); }
+    .jump-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 34px; }
+    .jump-row a { font-size: 12.5px; text-decoration: none; color: var(--accent); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; transition: all 0.15s ease; }
+    .jump-row a:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+    .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 26px 30px; margin: 26px 0; box-shadow: var(--shadow-sm); scroll-margin-top: 84px; }
+    .panel-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .style-tag { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--accent); background: var(--accent-light); border-radius: 20px; padding: 4px 10px; white-space: nowrap; }
+    .style-tag.baseline { color: var(--text-muted); background: var(--code-bg); }
+    .panel-head h3 { font-family: var(--font-display); font-size: 21px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+    .style-why { font-size: 13.5px; color: var(--text-muted); margin: 8px 0 14px; line-height: 1.65; max-width: var(--prose); }
+    .style-why strong { color: var(--accent); font-weight: 600; }
+    .usage-row { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px dashed var(--border); }
+    .u-pill { font-size: 11px; font-weight: 500; color: var(--accent); background: var(--accent-light); border-radius: 14px; padding: 3px 10px; white-space: nowrap; }
+    .u-pill.dim2 { color: var(--text-muted); background: var(--code-bg); }
+    .demo { padding-top: 16px; }
+    /* ==== shared fact chip ==== */
+    .pt { display: inline-flex; align-items: center; font-size: 10.6px; line-height: 1.55; color: #2f4f44; background: #f3f7f5; border: 1px solid #dce7e2; padding: 2px 9px; border-radius: 10px; }
+    .pt.tip { background: #fdf6e7; border-color: #ecd9a8; color: #7a5c12; }
+    /* ==== style 1 — glance board ==== */
+    .board-hub { text-align: center; margin-bottom: 16px; }
+    .board-hub-chip { display: inline-block; font-family: var(--font-display); font-weight: 700; font-size: 16px; color: #fff; background: var(--accent); padding: 9px 22px; border-radius: 22px; }
+    .board-hub-sub { font-size: 11.5px; color: var(--text-muted); margin-top: 8px; }
+    .board-hub::after { content: ""; display: block; width: 2px; height: 16px; background: repeating-linear-gradient(to bottom, var(--accent) 0 4px, transparent 4px 8px); margin: 8px auto 0; }
+    .chain { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; align-items: center; margin-top: 10px; }
+    .chain-seg { font-size: 10.6px; font-weight: 500; color: #fff; background: var(--accent); padding: 3px 10px; border-radius: 12px; }
+    .chain-seg.arrow { background: transparent; color: var(--accent); font-weight: 700; padding: 3px 2px; }
+    .board-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 12px; align-items: start; }
+    .bb { border: 1px solid var(--border); border-radius: 12px; background: var(--surface); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .bb.span2 { grid-column: span 2; }
+    .bb-head { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--accent-light); border-bottom: 1px solid var(--border); text-decoration: none; transition: background 0.15s ease; }
+    .bb-head:hover { background: #dceae2; }
+    .bb-num { width: 22px; height: 22px; flex: 0 0 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 11.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+    .bb-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: var(--text); }
+    .bb-meta { margin-left: auto; font-size: 10.5px; font-weight: 600; color: var(--accent); background: var(--surface); padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+    .bt-row { display: flex; gap: 8px; padding: 9px 12px 5px; align-items: baseline; text-decoration: none; }
+    .bt-row:hover { background: var(--accent-light); }
+    .bt-dot { flex: 0 0 5px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); position: relative; top: -2px; }
+    .bt-name { font-weight: 600; font-size: 13.2px; color: var(--text); line-height: 1.45; }
+    .bt-ref { margin-left: auto; font-size: 10.3px; color: var(--text-muted); white-space: nowrap; }
+    .bt-pts { display: flex; flex-wrap: wrap; gap: 5px; padding: 2px 12px 10px 25px; }
+    .bt.kid .bt-row { padding-left: 26px; }
+    .bt.kid .bt-pts { padding-left: 40px; }
+    .bt.kid .bt-dot { background: transparent; border: 1.5px solid #a8c7bb; }
+    /* ==== style 2 — expanding trunk ==== */
+    .trunk-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .tool-btn { font-family: var(--font-body); font-size: 12.5px; font-weight: 600; color: #fff; background: var(--accent); border: 1px solid var(--accent); border-radius: 20px; padding: 6px 14px; cursor: pointer; transition: all 0.15s ease; }
+    .tool-btn:hover { opacity: 0.9; }
+    .tool-btn.ghost { color: var(--accent); background: var(--surface); }
+    .tool-btn.ghost:hover { background: var(--accent-light); }
+    .trunk-hint { font-size: 11.5px; color: var(--text-muted); max-width: 420px; }
+    .trunk { display: flex; flex-direction: column; gap: 10px; }
+    .tk-branch { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow-sm); }
+    .tk-bar { width: 100%; display: flex; align-items: center; gap: 10px; padding: 11px 14px; background: var(--accent-light); border: 0; cursor: pointer; font-family: var(--font-body); text-align: left; }
+    .tk-bar:hover { background: #dceae2; }
+    .tk-caret { font-size: 10px; color: var(--accent); transition: transform 0.22s ease; }
+    .tk-bar.open > .tk-caret, .tk-head.open .tk-caret { transform: rotate(90deg); }
+    .tk-num { width: 22px; height: 22px; flex: 0 0 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 11.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+    .tk-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: var(--text); }
+    .tk-meta { margin-left: auto; font-size: 10.5px; font-weight: 600; color: var(--accent); white-space: nowrap; }
+    .tk-topics { display: none; padding: 2px 14px 10px; background: var(--surface); }
+    .tk-topics.open { display: block; }
+    .tk-topic { padding: 2px 0; }
+    .tk-topic.kid { margin-left: 22px; }
+    .tk-headline { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
+    .tk-name { font-weight: 600; font-size: 13.5px; color: var(--text); text-decoration: none; line-height: 1.45; }
+    .tk-name:hover { color: var(--accent); }
+    .tk-ref { font-size: 10.3px; color: var(--text-muted); white-space: nowrap; }
+    .tk-fbtn { flex: 0 0 20px; width: 20px; height: 20px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--accent); font-size: 9px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: all 0.15s ease; margin-left: auto; }
+    .tk-fbtn:hover { background: var(--accent-light); }
+    .tk-head.open .tk-fbtn { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .tk-facts { overflow: hidden; max-height: 0; transition: max-height 0.3s ease; padding-left: 13px; padding-right: 2px; }
+    .tk-in { display: flex; flex-wrap: wrap; gap: 5px; padding: 3px 0 9px; }
+    .tk-topic.kid .tk-facts { padding-left: 5px; }
+    .tk-topic.kid .bt-dot { background: transparent; border: 1.5px solid #a8c7bb; }
+    /* ==== style 3 — fact sheet table ==== */
+    .filter-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+    .f-pill { font-family: var(--font-body); font-size: 12px; font-weight: 500; color: var(--accent); background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 4px 12px; cursor: pointer; transition: all 0.15s ease; }
+    .f-pill:hover { border-color: var(--accent); }
+    .f-pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    table.facts { font-size: 13px; }
+    table.facts th { font-size: 11px; }
+    table.facts td { padding: 9px 12px; vertical-align: top; }
+    td.cbr { width: 150px; }
+    .cbr-num { display: inline-flex; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 10.5px; font-weight: 600; align-items: center; justify-content: center; margin-right: 7px; position: relative; top: 4px; }
+    .cbr-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--text); white-space: nowrap; }
+    .tp-name { font-weight: 600; font-size: 13.2px; }
+    .tp-name a { color: var(--text); text-decoration: none; }
+    .tp-name a:hover { color: var(--accent); }
+    .tp-pts { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+    td.kid .tp-name { padding-left: 14px; position: relative; }
+    td.kid .tp-name::before { content: ""; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; border: 1.5px solid #a8c7bb; }
+    td.kid .tp-pts { padding-left: 14px; }
+    td.ref a { font-size: 11px; font-weight: 600; color: var(--accent); text-decoration: none; white-space: nowrap; }
+    td.ref a:hover { text-decoration: underline; }
+    /* ==== shared furniture ==== */
+    .mermaid-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 16px; margin: 20px 0; overflow-x: auto; box-shadow: var(--shadow-sm); display: flex; justify-content: center; }
+    .mermaid-wrap .mermaid { width: 100%; display: flex; justify-content: center; font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; font-size: 12.5px; line-height: 1.6; white-space: pre; color: var(--text-muted); }
+    .mermaid-wrap svg { width: 100%; max-width: 780px; height: auto; display: block; }
+    .mermaid-wrap svg .nodeLabel, .mermaid-wrap svg .label, .mermaid-wrap svg text { font-family: var(--font-body) !important; }
+    .callout { background: #fff8e5; border-left: 3px solid #d4a12a; padding: 14px 18px; margin: 20px 0; border-radius: 0 var(--radius) var(--radius) 0; font-size: 15px; color: #5a4a1a; max-width: var(--prose); }
+    .callout strong { color: #7a5c12; font-weight: 600; }
+    .callout p:last-child { margin-bottom: 0; }
+    .table-wrap { overflow-x: auto; margin: 20px 0; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow-sm); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; }
+    table thead { background: var(--accent-light); }
+    table th { font-weight: 600; text-align: left; padding: 10px 14px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); border-bottom: 1px solid var(--border); white-space: nowrap; }
+    table td { padding: 10px 14px; border-top: 1px solid var(--border); color: var(--text); vertical-align: top; }
+    table tbody tr:first-child td { border-top: none; }
+    table tbody tr:hover { background: #f5f3ef; }
+    footer { text-align: center; padding: 32px 0 16px; border-top: 1px solid var(--border); margin-top: 24px; }
+    footer p { font-size: 13px; color: var(--text-muted); }
+    .fade-in { opacity: 0; transform: translateY(12px); animation: fadeUp 0.6s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { .fade-in { animation: none; opacity: 1; transform: none; } .tk-facts { transition: none; } }
+    @media (max-width: 1000px) { .bb.span2 { grid-column: auto; } }
+    @media (max-width: 680px) { .hero h1 { font-size: 28px; } section h2 { font-size: 22px; } .panel { padding: 20px 16px; } }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">&larr; BST <span>Notes</span></a>
+    <span class="meta">Class 11 &middot; Mindmap Redesign Preview</span>
+  </nav>
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+  <div class="wrapper">
+    <main class="content">
+
+      <section class="hero fade-in">
+        <span class="chapter-badge">Business Studies &middot; Mindmap Redesign</span>
+        <h1>Revise the Whole Chapter at a Glance</h1>
+        <p class="subtitle">A complete redesign: the map is no longer a diagram of topic names &mdash; every topic arrives with its <strong>key facts already written out as short chips</strong> (the 4 features, the 7 services, the GST numbers&hellip;), so you revise right here and never hop into the page to read a long paragraph. Three full-information layouts on the same Chapter 9 data.</p>
+      </section>
+
+      <div class="jump-row">
+        <a href="#style-0">0 &middot; Current (baseline)</a>
+        <a href="#style-1">1 &middot; Glance Board</a>
+        <a href="#style-2">2 &middot; Expanding Trunk</a>
+        <a href="#style-3">3 &middot; Fact Sheet Table</a>
+      </div>
+
+      <div class="panel" id="style-0">
+        <div class="panel-head">
+          <span class="style-tag baseline">Baseline</span>
+          <h3>What the chapter pages show now</h3>
+        </div>
+        <p class="style-why">Mermaid's auto-routed map: bare node names, no facts, nothing to expand. Useful as a skeleton &mdash; useless for revising without opening the chapter three times.</p>
+        <div class="demo">
+          <div class="mermaid-wrap">
+            <div class="mermaid">
+mindmap
+  root((Chapter 9))
+    Internal Trade
+      Meaning
+      Main features — 4
+      Two types
+    Wholesale Trade
+      Large quantities
+      Features — 7
+      Link: manufacturer to retailer
+      Services to manufacturer — 7
+      Services to retailer — 7
+    Retail Trade
+      Small lots to consumers
+      Features — 8
+      Classification — 5 bases
+      Itinerants — 4 types
+      Fixed shops
+        Small-scale — 5 types
+        Large-scale — departmental, chain
+      Services to consumers — 7
+      Services to maker — 5
+    Mail Order Business
+      7 features
+    GST
+      July 2017
+      Slabs 5 12 18 28
+      Council
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="style-1">
+        <div class="panel-head"><span class="style-tag">Style 1</span><h3>Glance Board &mdash; the whole chapter on the wall</h3></div>
+        <p class="style-why">Nothing hidden anywhere: one card per branch, and under every topic its <strong>key facts printed as chips</strong> &mdash; the exam-ready short version, not a teaser. Read top to bottom once and you have covered the chapter; print it and it becomes your poster.</p>
+        <div class="usage-row">
+          <span class="u-pill">All facts visible &mdash; zero clicking needed</span>
+          <span class="u-pill">Click topic / branch title &rarr; open section</span>
+          <span class="u-pill dim2">Print-friendly poster layout</span>
+        </div>
+        <div class="demo" id="demo1"></div>
+      </div>
+
+      <div class="panel" id="style-2">
+        <div class="panel-head"><span class="style-tag">Style 2</span><h3>Expanding Trunk &mdash; open the chapter fold by fold</h3></div>
+        <p class="style-why">Chapter bars, then topic rows &mdash; each one unfolds <strong>exactly its key-fact chips in place.</strong> Starts compact for a spine-check; press <strong>Expand everything</strong> and it becomes the full glance-board; press it again and it's back to a tidy spine. Facts still live here, not in a tooltip.</p>
+        <div class="usage-row">
+          <span class="u-pill">Click bar &rarr; unfold branch</span>
+          <span class="u-pill">Click row caret &rarr; unfold topic facts</span>
+          <span class="u-pill">Expand everything &rarr; full-glance mode</span>
+          <span class="u-pill">Topic name &rarr; open section</span>
+        </div>
+        <div class="demo" id="demo2"></div>
+      </div>
+
+      <div class="panel" id="style-3">
+        <div class="panel-head"><span class="style-tag">Style 3</span><h3>Fact Sheet Table &mdash; one row per topic</h3></div>
+        <p class="style-why">A compact chapter cheat-sheet: <strong>branch column, topic with its fact chips, and the section jump</strong> at the end. The fastest way to self-quiz &mdash; cover the middle column, say the facts, check yourself.</p>
+        <div class="usage-row">
+          <span class="u-pill">Filter pills &rarr; one branch only</span>
+          <span class="u-pill">Hover a row &rarr; highlight</span>
+          <span class="u-pill">&sect; column &rarr; open section</span>
+        </div>
+        <div class="demo" id="demo3"></div>
+      </div>
+
+      <section class="fade-in" id="compare">
+        <h2>Side-by-side &mdash; which layout for what</h2>
+        <p>All three carry the same complete fact layer; they differ in <strong>how much is open at once</strong>.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Layout</th><th>Facts at once</th><th>Interactions</th><th>Best for</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Glance Board</td><td>Everything, always open</td><td>Topic links; hover</td><td>Total-recall pass, printing as a poster</td></tr>
+              <tr><td>2</td><td>Expanding Trunk</td><td>Folded spine; unfolds to everything</td><td>Branch + topic folds, expand-everything</td><td>Interactive revision on screen, scoping to one branch</td></tr>
+              <tr><td>3</td><td>Fact Sheet Table</td><td>One row per topic, facts inline</td><td>Branch filters, row highlight, &sect; jumps</td><td>Self-quizzing and the most compact scan</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <p><strong>Next step.</strong> Tell me your pick &mdash; e.g. <strong>&ldquo;use 1&rdquo;</strong>, <strong>&ldquo;2 as the map, 3 as a cheat-sheet&rdquo;</strong> &mdash; and I'll wire it into the page builder so all nine chapters get this redesign automatically, with each chapter's facts lifted from its own Markdown.</p>
+        </div>
+      </section>
+
+      <footer>
+        <p>Preview data: Chapter 9 &middot; facts condensed from the Complete Easy Notes of the chapter &middot; style preview only &mdash; chapter pages unmodified</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    /* ============================================================
+       DATA — Chapter 9 structure + key facts per topic
+       (every fact traceable to the chapter markdown)
+       ============================================================ */
+    const PAGE = 'Chapter-9-Internal-Trade.html#';
+    const CHAIN = ['Manufacturer', '\u2192', 'Wholesaler', '\u2192', 'Retailer', '\u2192', 'Consumer'];
+    function t(text, ref, points, tip, sub) { return { text: text, ref: ref, points: points, tip: tip || null, sub: sub || 0 }; }
+    const BRANCHES = [
+      { n: 1, title: 'Internal Trade', rows: [
+        t('Meaning', 's1-1', ['Buying & selling within a country\u2019s geographical limits', 'Payments in home currency only']),
+        t('Main features (4)', 's1-2', ['Trade inside the country', 'Home currency only', 'Few (or no) formalities', 'Local modes of transport']),
+        t('Two types', 's1-3', ['Wholesale \u2014 goods in large quantities', 'Retail \u2014 small lots to final consumers']),
+      ]},
+      { n: 2, title: 'Wholesale Trade', rows: [
+        t('Large quantities', 's2-1', ['Definition: goods sold in large quantities', 'Buys bulk \u2192 sells small lots to retailers']),
+        t('Features (7)', 's2-1', ['Link between producer & retailer', 'Large quantities', 'One line of product', 'Large capital in stock', 'Sells in small lots', 'Low profit margin', 'First intermediary'], 'Sure marks: underline \u201cone line of product\u201d + \u201cfirst intermediary\u201d'),
+        t('Link: manufacturer to retailer', 's2-2', ['Wholesaler = first intermediary', 'Retailer = last link in the chain']),
+        t('Services to manufacturer (7)', 's4-1', ['Large-scale production + economies of scale', 'Marketing help', 'Expert advice', 'Storage', 'Finance \u2014 cash / advance payment', 'Bears risks (price fall, theft, spoilage, fire)', 'Production continuity']),
+        t('Services to retailer (7)', 's4-2', ['Goods availability', 'Grant of credit', 'Risk sharing', 'Specialised knowledge', 'Publicity', 'Marketing support', 'Economies of scale'], 'Most asked: grant of credit + risk sharing'),
+      ]},
+      { n: 3, title: 'Retail Trade', rows: [
+        t('Small lots to consumers', 's3-1', ['Sale in small lots to final consumers', 'Buys from wholesaler \u2192 sells to consumer']),
+        t('Features (8)', 's3-1', ['Last link in the chain', 'Sells directly to consumers', 'Variety of products', 'Small quantity', 'Residential location', 'Personal relations with customers', 'Keeps in touch \u2014 phone / TV / internet', 'Middleman']),
+        t('Classification (5 bases)', 's3-2', ['Size', 'Product mix', 'Pricing', 'Service level', 'Form of ownership']),
+        t('Itinerants (4 types)', 's3-4', ['No fixed place \u2014 move for customers', 'Also called mobile vendors', 'Low-price, daily-use, non-standard items', 'Hawkers & pedlars \u00b7 periodic markets \u00b7 cheap jacks \u00b7 street traders']),
+        t('Fixed shops', 's3-3', ['Fixed place of sale \u2014 customers come to them', 'Two groups: small-scale + large-scale']),
+        t('Small-scale (5 types)', 's3-5', ['General stores \u2014 residential areas', 'Single line / speciality \u2014 one line', 'Street shops \u2014 temporary platforms', 'Second-hand \u2014 used goods from auctions', 'Seconds \u2014 NEW goods with defects, discounted'], null, 1),
+        t('Large-scale (departmental, chain)', 's3-6', ['Departmental \u2014 many departments under one roof (BIG BAZAAR, Reliance)', 'Chain / multiple \u2014 identical shops, one owner (Bata, Pizza Hut)', 'Central purchase \u00b7 uniform prices \u00b7 cash sales (chain)'], null, 1),
+        t('Services to consumers (7)', 's4-3', ['Regular availability', 'Wide selection', 'New-products information', 'Demonstration + after-sale service', 'Home delivery', 'Convenient locations', 'Credit facility']),
+        t('Services to maker (5)', 's4-4', ['Helps distribution of goods', 'Personal selling', 'Enables large-scale production', 'Promotion help', 'Collects market information']),
+      ]},
+      { n: 4, title: 'Mail Order Business', rows: [
+        t('7 features', 's4-5', ['No direct contact \u2014 post/mail retail', 'Advertisements + catalogues', 'Orders by mail / online request', 'Delivery by post or courier', 'COD \u00b7 bank transfer \u00b7 online payment', 'Wide market area', 'Low operating cost \u2014 no showroom']),
+      ]},
+      { n: 5, title: 'GST', rows: [
+        t('July 2017', 's4-6', ['GST from July 2017', 'Merged service tax \u00b7 VAT \u00b7 excise duty']),
+        t('Slabs 5 12 18 28', 's4-6', ['Four slabs \u2014 5 \u00b7 12 \u00b7 18 \u00b7 28 per cent', 'Destination-based consumption tax'], 'Three numbers: July 2017 \u00b7 4 slabs \u00b7 no tax on export/SEZ'),
+        t('GST Council', 's4-7', ['Chair: Finance Minister', '30 members \u00b7 quorum 50%', 'States 2/3 weight\u00b7 Centre 1/3', 'Decisions by 75% majority']),
+      ]},
+    ];
+    const ACCENT = '#1a5e4a';
+
+    function secLabel(ref) { const m = /^s(\d+)-(\d+)$/.exec(ref); return m ? m[1] + '.' + m[2] : ''; }
+    function hrefOf(ref) { return PAGE + ref; }
+    function leafRows(b) { let c = 0; b.rows.forEach(x => { c += x.kids ? x.kids.length : 1; }); return c; }
+    const leafTotal = BRANCHES.reduce((n, b) => n + leafRows(b), 0);
+    function branchStart(b) { return secLabel(b.rows[0].ref); }
+    function escAttr(s) { return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+    function safe(name, fn) { try { fn(); } catch (err) { console.warn('style ' + name + ' failed', err); } }
+
+    /* ============================================================
+       STYLE 1 — GLANCE BOARD · whole chapter visible, facts as chips
+       ============================================================ */
+    function chipRow(row) {
+      const pts = document.createElement('div'); pts.className = row.sub ? 'bt-pts kid' : 'bt-pts';
+      (row.points || []).forEach(p => { const c = document.createElement('span'); c.className = 'pt'; c.textContent = p; pts.appendChild(c); });
+      if (row.tip) { const c = document.createElement('span'); c.className = 'pt tip'; c.textContent = '\u2605 ' + row.tip; pts.appendChild(c); }
+      return pts;
+    }
+    function buildBoard() {
+      const wrap = document.getElementById('demo1');
+      const hub = document.createElement('div'); hub.className = 'board-hub';
+      const seg = s => '<span class="chain-seg' + (s === '\u2192' ? ' arrow' : '') + '">' + s + '</span>';
+      hub.innerHTML = '<div class="board-hub-chip">Chapter 9 \u00b7 Internal Trade</div><div class="chain">' + CHAIN.map(seg).join('') + '</div>' +
+        '<p class="board-hub-sub">' + BRANCHES.length + ' branches \u00b7 ' + leafTotal + ' topics \u00b7 facts condensed from the chapter notes \u2014 revise right here, no hopping</p>';
+      wrap.appendChild(hub);
+      const grid = document.createElement('div'); grid.className = 'board-grid'; wrap.appendChild(grid);
+      BRANCHES.forEach(b => {
+        const bb = document.createElement('section'); bb.className = 'bb';
+        if (b.rows.length >= 7) bb.classList.add('span2');
+        const head = document.createElement('a'); head.className = 'bb-head'; head.href = PAGE + 'section-' + b.n;
+        head.innerHTML = '<span class="bb-num">' + b.n + '</span><span class="bb-title"></span><span class="bb-meta">' + b.rows.length + ' topics \u00b7 \u00a7' + branchStart(b) + '</span>';
+        head.querySelector('.bb-title').textContent = b.title;
+        head.setAttribute('title', 'Open Section ' + b.n + ' \u2014 ' + b.title);
+        bb.appendChild(head);
+        b.rows.forEach(row => {
+          const d = document.createElement('div'); d.className = 'bt' + (row.sub ? ' kid' : '');
+          const rowEl = document.createElement('a'); rowEl.className = 'bt-row'; rowEl.href = hrefOf(row.ref);
+          rowEl.innerHTML = '<span class="bt-dot"></span><span class="bt-name"></span><span class="bt-ref">\u00a7' + secLabel(row.ref) + '</span>';
+          rowEl.querySelector('.bt-name').textContent = row.text;
+          d.appendChild(rowEl);
+          d.appendChild(chipRow(row));
+          bb.appendChild(d);
+        });
+        grid.appendChild(bb);
+      });
+    }
+
+    /* ============================================================
+       STYLE 2 — EXPANDING TRUNK · folds branch → topic → facts
+       ============================================================ */
+    function buildTrunk() {
+      const wrap = document.getElementById('demo2');
+      const tools = document.createElement('div'); tools.className = 'trunk-tools';
+      tools.innerHTML = '<button type="button" class="tool-btn" id="trunkAll">Expand everything</button>' +
+        '<button type="button" class="tool-btn ghost" id="trunkNone">Collapse all</button>' +
+        '<span class="trunk-hint">Open a bar to scan one branch \u2014 or \u201cExpand everything\u201d for the whole chapter on one screen.</span>';
+      wrap.appendChild(tools);
+      const trunk = document.createElement('div'); trunk.className = 'trunk'; wrap.appendChild(trunk);
+      const branchPairs = [];
+      const factFns = [];
+      BRANCHES.forEach(b => {
+        const tk = document.createElement('div'); tk.className = 'tk-branch';
+        const bar = document.createElement('button'); bar.type = 'button'; bar.className = 'tk-bar'; bar.setAttribute('aria-expanded', 'false');
+        bar.innerHTML = '<span class="tk-caret">\u25b6</span><span class="tk-num">' + b.n + '</span><span class="tk-title"></span><span class="tk-meta">' + b.rows.length + ' topics \u00b7 \u00a7' + branchStart(b) + '</span>';
+        bar.querySelector('.tk-title').textContent = b.title;
+        const topics = document.createElement('div'); topics.className = 'tk-topics';
+        const setFactFns = [];
+        b.rows.forEach(row => {
+          const rowWrap = document.createElement('div'); rowWrap.className = 'tk-topic' + (row.sub ? ' kid' : '');
+          const headline = document.createElement('div'); headline.className = 'tk-headline';
+          const dot = document.createElement('span'); dot.className = 'bt-dot';
+          const nameLink = document.createElement('a'); nameLink.className = 'tk-name'; nameLink.href = hrefOf(row.ref); nameLink.textContent = row.text;
+          const ref = document.createElement('span'); ref.className = 'tk-ref'; ref.textContent = '\u00a7' + secLabel(row.ref);
+          const fbtn = document.createElement('button'); fbtn.type = 'button'; fbtn.className = 'tk-fbtn'; fbtn.innerHTML = '\u25b6';
+          fbtn.setAttribute('aria-expanded', 'false');
+          fbtn.setAttribute('aria-label', 'Show facts: ' + row.text);
+          headline.appendChild(dot); headline.appendChild(nameLink); headline.appendChild(ref); headline.appendChild(fbtn);
+          const facts = document.createElement('div'); facts.className = 'tk-facts';
+          const inner = document.createElement('div'); inner.className = 'tk-in';
+          (row.points || []).forEach(p => { const c = document.createElement('span'); c.className = 'pt'; c.textContent = p; inner.appendChild(c); });
+          if (row.tip) { const c = document.createElement('span'); c.className = 'pt tip'; c.textContent = '\u2605 ' + row.tip; inner.appendChild(c); }
+          facts.appendChild(inner);
+          function setFacts(open) {
+            facts.style.maxHeight = open ? (inner.scrollHeight + 14) + 'px' : '0px';
+            rowWrap.classList.toggle('open', open);
+            headline.classList.toggle('open', open);
+            fbtn.setAttribute('aria-expanded', String(open));
+            fbtn.setAttribute('aria-label', (open ? 'Hide facts: ' : 'Show facts: ') + row.text);
+          }
+          fbtn.addEventListener('click', () => setFacts(!rowWrap.classList.contains('open')));
+          rowWrap.appendChild(headline); rowWrap.appendChild(facts);
+          topics.appendChild(rowWrap);
+          setFactFns.push(function (open) { setFacts(open); });
+        });
+        function setBranch(open) {
+          topics.classList.toggle('open', open);
+          bar.classList.toggle('open', open);
+          bar.setAttribute('aria-expanded', String(open));
+        }
+        bar.addEventListener('click', () => setBranch(topics.classList.contains('open') ? false : true));
+        tk.appendChild(bar); tk.appendChild(topics);
+        trunk.appendChild(tk);
+        branchPairs.push({ set: setBranch });
+        factFns.push(setFactFns);
+      });
+      document.getElementById('trunkAll').addEventListener('click', () => {
+        branchPairs.forEach(x => x.set(true));
+        factFns.forEach(list => list.forEach(f => f(true)));
+      });
+      document.getElementById('trunkNone').addEventListener('click', () => {
+        factFns.forEach(list => list.forEach(f => f(false)));
+        branchPairs.forEach(x => x.set(false));
+      });
+    }
+
+    /* ============================================================
+       STYLE 3 — FACT SHEET TABLE · one row per topic + filters
+       ============================================================ */
+    function buildTable() {
+      const wrap = document.getElementById('demo3');
+      const filters = document.createElement('div'); filters.className = 'filter-row';
+      const mkPill = (label, br) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'f-pill'; b.textContent = label; b.dataset.br = String(br); return b; };
+      const allP = mkPill('All branches', '0'); allP.classList.add('active');
+      filters.appendChild(allP);
+      BRANCHES.forEach(b => filters.appendChild(mkPill(b.n + ' \u00b7 ' + b.title, b.n)));
+      wrap.appendChild(filters);
+      const tw = document.createElement('div'); tw.className = 'table-wrap'; wrap.appendChild(tw);
+      const table = document.createElement('table'); table.className = 'facts';
+      table.innerHTML = '<thead><tr><th>#</th><th>Branch</th><th>Topic &amp; key facts</th><th>Open</th></tr></thead>';
+      const tb = document.createElement('tbody'); table.appendChild(tb);
+      const rowsAll = [];
+      BRANCHES.forEach(b => {
+        b.rows.forEach((row, idx) => {
+          const tr = document.createElement('tr'); tr.dataset.br = String(b.n);
+          if (idx === 0) {
+            const td = document.createElement('td'); td.className = 'cbr'; td.rowSpan = b.rows.length;
+            td.innerHTML = '<span class="cbr-num">' + b.n + '</span><span class="cbr-title"></span>';
+            td.querySelector('.cbr-title').textContent = b.title;
+            tr.appendChild(td);
+          }
+          const tdT = document.createElement('td'); tdT.className = row.sub ? 'tp kid' : 'tp';
+          const wrapName = document.createElement('div'); wrapName.className = 'tp-name';
+          const a = document.createElement('a'); a.href = hrefOf(row.ref); a.textContent = row.text;
+          wrapName.appendChild(a); tdT.appendChild(wrapName);
+          const pts = document.createElement('div'); pts.className = 'tp-pts';
+          (row.points || []).forEach(p => { const c = document.createElement('span'); c.className = 'pt'; c.textContent = p; pts.appendChild(c); });
+          if (row.tip) { const c = document.createElement('span'); c.className = 'pt tip'; c.textContent = '\u2605 ' + row.tip; pts.appendChild(c); }
+          tdT.appendChild(pts); tr.appendChild(tdT);
+          const tdR = document.createElement('td'); tdR.className = 'ref';
+          const ra = document.createElement('a'); ra.href = hrefOf(row.ref); ra.textContent = '\u00a7' + secLabel(row.ref) + ' \u2192';
+          tdR.appendChild(ra); tr.appendChild(tdR);
+          tb.appendChild(tr); rowsAll.push(tr);
+        });
+      });
+      tw.appendChild(table);
+      filters.addEventListener('click', ev => {
+        const btn = ev.target.closest('.f-pill'); if (!btn) return;
+        filters.querySelectorAll('.f-pill').forEach(x => x.classList.toggle('active', x === btn));
+        const br = btn.dataset.br;
+        rowsAll.forEach(tr => { tr.style.display = (br === '0' || tr.dataset.br === br) ? '' : 'none'; });
+      });
+    }
+
+    /* ---- build everything ---- */
+    safe('1 board', buildBoard);
+    safe('2 trunk', buildTrunk);
+    safe('3 table', buildTable);
+
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'base',
+        themeVariables: {
+          'background': '#ffffff',
+          'primaryColor': '#e8f0ec',
+          'primaryTextColor': '#1b1b1b',
+          'primaryBorderColor': '#1a5e4a',
+          'lineColor': '#1a5e4a',
+          'secondaryColor': '#faf8f5',
+          'fontFamily': 'Outfit, -apple-system, sans-serif',
+          'fontSize': '13px',
+          'edgeLabelBackground': '#ffffff',
+          'nodeBorder': '#1a5e4a'
+        },
+        securityLevel: 'loose'
+      });
+    }
+  </script>
+</body>
+</html>

@@ -187,6 +187,7 @@ const aside=document.querySelector('aside'),btn=document.getElementById('tocBtn'
 btn.addEventListener('click',()=>aside.classList.toggle('open'));
 aside.addEventListener('click',e=>{if(e.target.tagName==='A')aside.classList.remove('open')});
 """
+SPY_TAG = '<script src="../assets/toc-scrollspy.js"></script>'
 
 def page_html(ch, title, subtitle, sections, pre_blocks, book):
     toc = ['<div class="toc-title">Contents</div>']
@@ -257,6 +258,7 @@ __BODY__
 <button id="tocBtn" aria-label="Open contents">&#9776;</button>
 <footer>__FOOT__</footer>
 <script>__JS__</script>
+__SPY__
 </body>
 </html>"""
     for k, v in {
@@ -264,7 +266,7 @@ __BODY__
         "__META__": f"Class XI &middot; {book} &middot; Chapter {ch}",
         "__TOC__": "\n".join(toc),
         "__BADGE__": f"{book} &middot; Class XI &middot; Chapter {ch}",
-        "__H1__": inline(title), "__SUBTITLE__": subtitle, "__BODY__": "\n".join(body), "__JS__": JS,
+        "__H1__": inline(title), "__SUBTITLE__": subtitle, "__BODY__": "\n".join(body), "__JS__": JS, "__SPY__": SPY_TAG,
         "__FOOT__": f"Source: NCERT {book} (Class XI) chapter notes &middot; English Notes",
     }.items():
         html = html.replace(k, v)

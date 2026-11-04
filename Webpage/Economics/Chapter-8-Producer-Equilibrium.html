@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en" data-retail-mode="notes">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Class 11 Microeconomics Chapter 8 Producer's Equilibrium – complete easy notes plus quick revision: profit and normal profit, TR–TC and MR–MC approaches, perfect and imperfect competition, profit cases, shutdown decision and a worked example.">
+  <meta name="theme-color" content="#1a5e4a">
+  <meta property="og:title" content="Chapter 8 – Producer's Equilibrium | Economics Notes + Quick Revision">
+  <meta property="og:description" content="Class 11 Microeconomics Chapter 8 Producer's Equilibrium – complete easy notes plus quick revision: TR–TC and MR–MC approaches, profit cases and the shutdown decision.">
+  <meta property="og:type" content="article">
+  <title>Chapter 8 – Producer's Equilibrium | Economics Notes + Quick Revision</title>
+  <link rel="icon" href="../assets/icon-192x192.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+  <link rel="stylesheet" href="../Retail/retail.css?v=20261030a">
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('study-os-theme');
+      if (savedTheme) {
+        savedTheme = JSON.parse(savedTheme);
+        if (savedTheme === 'dark') document.documentElement.dataset.theme = 'dark';
+      }
+    } catch (e) { /* first visit or storage blocked */ }
+    (function () {
+      var mode = null;
+      try { mode = localStorage.getItem('study-os-retail-mode'); } catch (e) { /* storage blocked */ }
+      var hash = location.hash.replace('#', '');
+      if (hash.indexOf('q-') === 0 || hash === 'quick') mode = 'quick';
+      else if (hash.indexOf('n-') === 0 || hash === 'notes') mode = 'notes';
+      if (mode !== 'quick') mode = 'notes';
+      document.documentElement.dataset.retailMode = mode;
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Chapter 8 – Producer's Equilibrium",
+    "description": "Class 11 Microeconomics Chapter 8 Producer's Equilibrium – complete easy notes plus quick revision.",
+    "learningResourceType": "Revision notes",
+    "educationalLevel": "Class 11",
+    "about": "Microeconomics",
+    "inLanguage": "en",
+    "isPartOf": { "@type": "Course", "name": "Microeconomics Class 11" }
+  }
+  </script>
+  <style>
+    /* Chapter-specific additions kept on top of the shared Retail shell. */
+    .chapter-figure {
+      margin: 24px 0;
+      padding: 14px;
+      border: 1px solid var(--r-line);
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: var(--r-shadow);
+    }
+    .chapter-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .chapter-figure figcaption {
+      margin-top: 12px;
+      padding: 0 4px;
+      color: #4b524b;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+    .chapter-figure figcaption strong { color: #1e241f; }
+
+    /* Tap-to-enlarge figures. The anchor is added by script; without it the image stays as-is. */
+    .chapter-figure .figure-zoom {
+      position: relative;
+      display: block;
+      border-radius: 8px;
+      cursor: zoom-in;
+      text-decoration: none;
+    }
+    .chapter-figure .figure-zoom:focus-visible {
+      outline: 3px solid var(--r-amber);
+      outline-offset: 3px;
+    }
+    .figure-zoom__hint {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      background: rgba(24, 37, 30, 0.88);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      color: #fffdf9;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .figure-zoom__hint svg { flex: none; }
+    .figure-zoom:hover .figure-zoom__hint,
+    .figure-zoom:focus-visible .figure-zoom__hint { background: rgba(24, 37, 30, 0.98); }
+
+    .figure-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: rgba(10, 14, 11, 0.88);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+    .figure-lightbox[hidden] { display: none !important; }
+    .figure-lightbox__dialog {
+      display: flex;
+      flex-direction: column;
+      width: min(1480px, 100%);
+      height: calc(100dvh - 32px);
+      max-height: 1120px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 14px;
+      background: #f7f4ed;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+    }
+    .figure-lightbox__bar {
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      background: #18251e;
+      color: #f7f4ed;
+    }
+    .figure-lightbox__title {
+      min-width: 0;
+      margin: 0;
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+    .figure-lightbox__title span {
+      display: block;
+      margin-top: 2px;
+      color: #c6d1c8;
+      font-size: 11px;
+      font-weight: 400;
+    }
+    .figure-lightbox__actions {
+      display: flex;
+      flex: none;
+      align-items: center;
+      gap: 6px;
+    }
+    .figure-lightbox__actions button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #f7f4ed;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .figure-lightbox__actions button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.14); }
+    .figure-lightbox__actions button:focus-visible {
+      outline: 2px solid #f2c14e;
+      outline-offset: 2px;
+    }
+    .figure-lightbox__actions button:disabled { opacity: 0.38; cursor: default; }
+    .figure-lightbox__icon { width: 36px; padding: 0; }
+    .figure-lightbox__level {
+      min-width: 44px;
+      padding: 0 6px;
+      font-variant-numeric: tabular-nums;
+    }
+    .figure-lightbox__close {
+      padding: 0 13px;
+      background: #f7f4ed !important;
+      color: #18251e !important;
+    }
+    .figure-lightbox__close:hover { background: #fff !important; }
+    .figure-lightbox__scroll {
+      flex: 1;
+      min-height: 0;
+      padding: 14px;
+      overflow: auto;
+      overscroll-behavior: contain;
+      background: #fff;
+      -webkit-overflow-scrolling: touch;
+    }
+    .figure-lightbox__scroll:focus-visible {
+      outline: 3px solid #8a5415;
+      outline-offset: -3px;
+    }
+    .figure-lightbox__scroll img {
+      display: block;
+      width: 100%;
+      max-width: none;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+
+    body.figure-lightbox-open { overflow: hidden; }
+
+    /* On a phone, tables scroll sideways; say so once in the hero. */
+    .hero-chips .chip-mobile-hint { display: none; }
+
+    .callout {
+      margin: 18px 0;
+      padding: 13px 18px;
+      border-left: 3px solid var(--r-amber);
+      border-radius: 0 10px 10px 0;
+      background: var(--r-amber-soft);
+      color: var(--r-ink-soft);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .callout p { margin: 0; }
+    .callout p + p { margin-top: 8px; }
+    .callout strong { color: var(--r-ink); }
+
+    .check-card.check-block { margin-top: 26px; }
+    .check-card .check-questions {
+      margin: 0 0 13px;
+      padding-left: 1.4em;
+      color: var(--r-ink-soft);
+    }
+    .check-card .check-questions li {
+      margin-bottom: 5px;
+      padding-left: 2px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .check-card .check-questions li::marker { color: var(--r-amber); font-weight: 600; }
+    .check-card .checklist ol,
+    .check-card .checklist ul {
+      margin: 10px 0 0;
+      padding-left: 1.4em;
+    }
+    .check-card .checklist li {
+      margin-bottom: 4px;
+      color: var(--r-ink-soft);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+    .check-card .checklist li::marker { color: var(--r-amber); font-weight: 600; }
+    .check-card .checklist .checklist-answer p { margin: 0 0 6px; font-size: 13.5px; }
+    .check-card .checklist .checklist-answer p:last-child { margin-bottom: 0; }
+
+    #n-keyterms .term-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #n-keyterms .term dd { font-size: 13px; line-height: 1.55; }
+
+    .session-body .formula-line {
+      margin: 12px 0;
+      padding: 12px 16px;
+      border: 1px solid var(--r-line);
+      border-radius: 10px;
+      background: var(--r-surface-2);
+      color: var(--r-ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+    .mini-card {
+      padding: 14px 16px;
+      border: 1px solid var(--r-line);
+      border-radius: 10px;
+      background: var(--r-surface-2);
+    }
+    .mini-card strong { display: block; color: var(--r-ink); font-size: 13.5px; }
+    .mini-card span { display: block; margin-top: 5px; color: var(--r-muted); font-size: 12.5px; line-height: 1.5; }
+
+    /* Page-scoped contrast fixes for the light theme. */
+    :root:not([data-theme="dark"]) .brand-sub,
+    :root:not([data-theme="dark"]) .toc-title,
+    :root:not([data-theme="dark"]) .toc-group,
+    :root:not([data-theme="dark"]) .toc-link.toc-sub,
+    :root:not([data-theme="dark"]) .toc-foot span,
+    :root:not([data-theme="dark"]) .pager-label,
+    :root:not([data-theme="dark"]) .page-footer p { color: #5f665e; }
+    :root:not([data-theme="dark"]) .section-kicker,
+    :root:not([data-theme="dark"]) .checklist summary { color: #8a5415; }
+    :root:not([data-theme="dark"]) .check-pill { background: #8a5415; color: #fffdf9; }
+
+    @media (max-width: 700px) {
+      #n-keyterms .term-grid { grid-template-columns: 1fr; }
+      .chapter-figure { padding: 9px; }
+      .mini-grid { grid-template-columns: 1fr; }
+      .hero-chips .chip-mobile-hint { display: inline-flex; }
+      .figure-zoom__hint { top: 6px; right: 6px; padding: 5px 8px; font-size: 10px; }
+      .figure-lightbox { padding: 8px; }
+      .figure-lightbox__dialog { height: calc(100dvh - 16px); border-radius: 10px; }
+      .figure-lightbox__bar { gap: 8px; padding: 8px 10px; }
+      .figure-lightbox__title { font-size: 11.5px; }
+      .figure-lightbox__title span { display: none; }
+      .figure-lightbox__actions { gap: 4px; }
+      .figure-lightbox__icon { width: 34px; min-height: 34px; }
+      .figure-lightbox__level { min-width: 40px; min-height: 34px; }
+      .figure-lightbox__close { min-height: 34px; padding: 0 10px; }
+      .figure-lightbox__scroll { padding: 10px; }
+      .figure-lightbox__scroll img { border-radius: 2px; }
+    }
+    @media print {
+      .chapter-figure { break-inside: avoid; box-shadow: none; }
+      .figure-zoom__hint,
+      .figure-lightbox { display: none !important; }
+    }
+  </style>
+</head>
+<body class="retail-page" data-unit="eco-8" data-base-title="Chapter 8 – Producer's Equilibrium" data-subject="Economics">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">S</span>
+      <span class="brand-copy"><span class="brand-name">Study OS</span><span class="brand-sub">Economics notes</span></span>
+    </a>
+    <div class="topbar-actions">
+      <div class="mode-switch" role="group" aria-label="Study mode">
+        <button type="button" data-set-mode="notes" aria-pressed="true" aria-controls="panel-notes" aria-label="Easy Notes">Notes</button>
+        <button type="button" data-set-mode="quick" aria-pressed="false" aria-controls="panel-quick" aria-label="Quick Revision">Quick</button>
+      </div>
+      <button class="icon-btn print-toggle" type="button" title="Print the open notes" aria-label="Print the open notes">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+      </button>
+      <button class="icon-btn dark-toggle" id="themeToggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="toc" id="toc" aria-label="On this page">
+      <div class="toc-top">
+        <p class="toc-title">On this page</p>
+        <span class="toc-mode" id="tocModeLabel">Easy Notes</span>
+      </div>
+      <nav class="toc-nav toc-nav--notes" data-mode-nav="notes" aria-label="Easy notes contents">
+<span class="toc-group">Start</span>
+<a class="toc-link toc-main" href="#n-start">Chapter at a glance</a>
+<a class="toc-link toc-main" href="#n-keyterms">Key Terms</a>
+<span class="toc-group">Sections</span>
+<a class="toc-link toc-main" href="#n-section-1">1 · Meaning of Producer's Equilibrium</a>
+<a class="toc-link toc-sub" href="#n-s1-1">1.1 The producer's problem</a>
+<a class="toc-link toc-sub" href="#n-s1-2">1.2 Profit, cost and normal profit</a>
+<a class="toc-link toc-sub" href="#n-s1-3">1.3 Two approaches, two settings</a>
+<a class="toc-link toc-main" href="#n-section-2">2 · Why Profit Is Maximised at MR = MC</a>
+<a class="toc-link toc-sub" href="#n-s2-1">2.1 Marginal revenue and marginal cost</a>
+<a class="toc-link toc-sub" href="#n-s2-2">2.2 The stopping rule</a>
+<a class="toc-link toc-sub" href="#n-s2-3">2.3 Why a maximum, not a minimum</a>
+<a class="toc-link toc-main" href="#n-section-3">3 · The TR–TC Approach</a>
+<a class="toc-link toc-sub" href="#n-s3-1">3.1 Profit as a gap</a>
+<a class="toc-link toc-sub" href="#n-s3-2">3.2 The three conditions</a>
+<a class="toc-link toc-sub" href="#n-s3-3">3.3 Reading the diagram</a>
+<a class="toc-link toc-sub" href="#n-s3-4">3.4 When the gap is never positive</a>
+<a class="toc-link toc-main" href="#n-section-4">4 · The MR–MC Approach</a>
+<a class="toc-link toc-sub" href="#n-s4-1">4.1 The two conditions</a>
+<a class="toc-link toc-sub" href="#n-s4-2">4.2 Why MR = MC alone is not enough</a>
+<a class="toc-link toc-sub" href="#n-s4-3">4.3 Either side of equilibrium</a>
+<a class="toc-link toc-sub" href="#n-s4-4">4.4 Perfect competition: P = MC</a>
+<a class="toc-link toc-sub" href="#n-s4-5">4.5 When price falls with output</a>
+<a class="toc-link toc-main" href="#n-section-5">5 · Profit, Normal Profit and Loss</a>
+<a class="toc-link toc-sub" href="#n-s5-1">5.1 Three situations</a>
+<a class="toc-link toc-sub" href="#n-s5-2">5.2 The same cases under perfect competition</a>
+<a class="toc-link toc-sub" href="#n-s5-3">5.3 The three situations in one diagram</a>
+<a class="toc-link toc-main" href="#n-section-6">6 · The Shutdown Decision</a>
+<a class="toc-link toc-sub" href="#n-s6-1">6.1 Fixed cost and the short run</a>
+<a class="toc-link toc-sub" href="#n-s6-2">6.2 The three price zones</a>
+<a class="toc-link toc-sub" href="#n-s6-3">6.3 A numerical illustration</a>
+<a class="toc-link toc-sub" href="#n-s6-4">6.4 Shutting down is not exiting</a>
+<a class="toc-link toc-main" href="#n-section-7">7 · A Worked Example</a>
+<a class="toc-link toc-sub" href="#n-s7-1">7.1 The table</a>
+<a class="toc-link toc-sub" href="#n-s7-2">7.2 The TR–TC reading</a>
+<a class="toc-link toc-sub" href="#n-s7-3">7.3 The MR–MC reading</a>
+<a class="toc-link toc-sub" href="#n-s7-4">7.4 Why not Q = 1?</a>
+<a class="toc-link toc-sub" href="#n-s7-5">7.5 The shutdown check</a>
+<a class="toc-link toc-main" href="#n-section-8">8 · Common Mistakes</a>
+<a class="toc-link toc-main" href="#n-section-9">9 · Recap, Formulas and Exam Practice</a>
+<a class="toc-link toc-sub" href="#n-recap">9.1 Chapter recap</a>
+<a class="toc-link toc-sub" href="#n-formulas">9.2 Formula sheet</a>
+<a class="toc-link toc-sub" href="#n-exam">9.3 Exam-style questions</a>
+<a class="toc-link toc-sub" href="#n-minute">9.4 One-minute revision</a>
+      </nav>
+      <nav class="toc-nav toc-nav--quick" data-mode-nav="quick" aria-label="Quick revision contents" hidden>
+<span class="toc-group">Start</span>
+<a class="toc-link toc-main" href="#q-start">Start here</a>
+<span class="toc-group">Sessions</span>
+<a class="toc-link toc-main" href="#q-session-1">Session 1 · Profit + TR–TC</a>
+<a class="toc-link toc-sub" href="#q-s1-lines">The chapter in 12 lines</a>
+<a class="toc-link toc-sub" href="#q-s1-core">Profit, cost and normal profit</a>
+<a class="toc-link toc-sub" href="#q-s1-trtc">The TR–TC test</a>
+<a class="toc-link toc-sub" href="#q-s1-drill">Recall drill — Session 1</a>
+<a class="toc-link toc-main" href="#q-session-2">Session 2 · MR–MC + Profit Cases</a>
+<a class="toc-link toc-sub" href="#q-s2-mrmc">The two MR–MC conditions</a>
+<a class="toc-link toc-sub" href="#q-s2-imperfect">Perfect vs imperfect competition</a>
+<a class="toc-link toc-sub" href="#q-s2-profit">Three profit situations</a>
+<a class="toc-link toc-sub" href="#q-s2-drill">Recall drill — Session 2</a>
+<a class="toc-link toc-main" href="#q-session-3">Session 3 · Shutdown + Worked Example</a>
+<a class="toc-link toc-sub" href="#q-s3-shutdown">The shutdown decision</a>
+<a class="toc-link toc-sub" href="#q-s3-worked">Worked example</a>
+<a class="toc-link toc-sub" href="#q-s3-exam">Exam lines and traps</a>
+<a class="toc-link toc-sub" href="#q-s3-drill">Recall drill — Session 3</a>
+<span class="toc-group">Drill room</span>
+<a class="toc-link toc-main" href="#q-clinic">Confusion Clinic</a>
+<a class="toc-link toc-main" href="#q-rapid">Rapid Fire</a>
+<a class="toc-link toc-main" href="#q-blank">Blank Page Test</a>
+<a class="toc-link toc-main" href="#q-plan">15-minute plan</a>
+      </nav>
+      <div class="toc-foot"><span>Chapter 8</span><span>Notes + quick</span></div>
+    </aside>
+
+    <main id="main" class="content">
+      <header class="hero">
+        <div class="hero-mark" aria-hidden="true">8</div>
+        <p class="eyebrow"><span>Microeconomics · Class 11</span><span>Chapter 8</span><span>Notes + quick revision</span></p>
+        <h1>Producer's Equilibrium</h1>
+        <p class="lede">A producer does not stop where revenue is highest. They stop where the last unit adds as much to revenue as it adds to cost — and where one more unit would cost more than it brings in.</p>
+        <div class="hero-chips">
+          <span class="chip">9 topic sections</span>
+          <span class="chip">≈ 45 min full read</span>
+          <span class="chip">≈ 18 min quick recall</span>
+          <span class="chip">21 check questions</span>
+          <span class="chip">5 figures</span>
+          <span class="chip chip-quiet">Built from the lecture notes</span>
+          <span class="chip chip-mobile-hint">Tap a figure to enlarge · swipe tables sideways</span>
+        </div>
+      </header>
+
+      <div class="mode-panel mode-panel--notes" id="panel-notes" role="region" aria-label="Easy Notes" data-mode="notes">
+      <section class="glance" id="n-start">
+        <div class="section-head">
+          <span class="section-kicker">The map</span>
+          <h2>Chapter at a glance</h2>
+          <p>Nine stops: from what profit really means to the shutdown decision and a full numerical. Tap a card to jump straight in.</p>
+        </div>
+        <div class="glance-grid">
+        <a class="glance-card" href="#n-section-1">
+          <span class="glance-num">1</span>
+          <span class="glance-body"><strong>Meaning of Producer's Equilibrium</strong><span>Maximum profit · normal profit inside cost · two approaches</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-2">
+          <span class="glance-num">2</span>
+          <span class="glance-body"><strong>Why Profit Is Maximised at MR = MC</strong><span>Marginal thinking · the stopping rule · rising MC</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-3">
+          <span class="glance-num">3</span>
+          <span class="glance-body"><strong>The TR–TC Approach</strong><span>Widest gap · two break-even points · minimum loss</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-4">
+          <span class="glance-num">4</span>
+          <span class="glance-body"><strong>The MR–MC Approach</strong><span>Two conditions · perfect competition · price falls with output</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-5">
+          <span class="glance-num">5</span>
+          <span class="glance-body"><strong>Profit, Normal Profit and Loss</strong><span>P &gt; AC · P = AC · P &lt; AC, all in one diagram</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-6">
+          <span class="glance-num">6</span>
+          <span class="glance-body"><strong>The Shutdown Decision</strong><span>Minimum AVC · minimum AC · produce or stop</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-7">
+          <span class="glance-num">7</span>
+          <span class="glance-body"><strong>A Worked Example</strong><span>Complete the table · read both approaches · check shutdown</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-8">
+          <span class="glance-num">8</span>
+          <span class="glance-body"><strong>Common Mistakes</strong><span>The ten errors that cost marks — and the correction</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-9">
+          <span class="glance-num">9</span>
+          <span class="glance-body"><strong>Recap, Formulas and Exam Practice</strong><span>One-page recap · formula sheet · answer pointers</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        </div>
+        <div class="unit-context">
+          <p><strong>The one-line idea:</strong> a producer stops expanding at the output where the last unit adds as much to revenue as it adds to cost — and where one more unit would add more to cost than to revenue.</p>
+          <p><strong>The core question:</strong> at what output should a producer stop expanding, and when should a loss-making firm shut down instead of producing?</p>
+        </div>
+      </section>
+
+      <section class="keyterms" id="n-keyterms">
+        <div class="section-head">
+          <span class="section-kicker">Speak the language</span>
+          <h2>Key Terms — Read These First</h2>
+          <p>The words that carry marks. Read them once now, then test yourself after the chapter.</p>
+        </div>
+        <dl class="term-grid">
+          <div class="term"><dt>Producer's equilibrium</dt><dd>The price and output combination at which a producer earns the maximum possible profit; if profit is impossible, the output of minimum loss.</dd></div>
+          <div class="term"><dt>Profit</dt><dd>The excess of total revenue over total cost: π = TR − TC.</dd></div>
+          <div class="term"><dt>Normal profit</dt><dd>The minimum return needed to keep the entrepreneur in that business; an implicit cost, so zero economic profit.</dd></div>
+          <div class="term"><dt>Supernormal profit</dt><dd>Profit above normal profit, remaining after every cost — including normal profit — has been paid.</dd></div>
+          <div class="term"><dt>Explicit cost</dt><dd>Actual money paid to outsiders: wages, rent, raw material, electricity.</dd></div>
+          <div class="term"><dt>Implicit cost</dt><dd>The value of the entrepreneur's own factors — own shop, savings, labour — including normal profit.</dd></div>
+          <div class="term"><dt>Total revenue (TR)</dt><dd>Price multiplied by quantity sold: TR = P × Q.</dd></div>
+          <div class="term"><dt>Total cost (TC)</dt><dd>Total fixed cost plus total variable cost, including normal profit as an implicit cost.</dd></div>
+          <div class="term"><dt>Marginal revenue (MR)</dt><dd>The addition to total revenue from selling one more unit: MR = ΔTR ÷ ΔQ.</dd></div>
+          <div class="term"><dt>Marginal cost (MC)</dt><dd>The addition to total cost from producing one more unit: MC = ΔTC ÷ ΔQ.</dd></div>
+          <div class="term"><dt>TR–TC approach</dt><dd>Choosing the output where the vertical gap between TR and TC is largest and then starts to fall.</dd></div>
+          <div class="term"><dt>MR–MC approach</dt><dd>Choosing the output where MR = MC and MC is rising, cutting MR from below.</dd></div>
+          <div class="term"><dt>Break-even point</dt><dd>An output where TR = TC, so profit is zero. A TR–TC diagram normally has two.</dd></div>
+          <div class="term"><dt>Break-even price</dt><dd>The minimum point of AC; at this price the firm earns normal profit and no more.</dd></div>
+          <div class="term"><dt>Shutdown point</dt><dd>The minimum point of AVC; below this price the firm stops producing in the short run.</dd></div>
+          <div class="term"><dt>Shutdown</dt><dd>A short-run decision to produce nothing while the firm still exists and pays fixed cost.</dd></div>
+          <div class="term"><dt>Exit</dt><dd>A long-run decision to leave the industry, sell capital and stop paying fixed cost.</dd></div>
+          <div class="term"><dt>Price taker</dt><dd>A firm that cannot influence market price; P = AR = MR, as under perfect competition.</dd></div>
+          <div class="term"><dt>Imperfect competition</dt><dd>A market setting in which the firm must lower price to sell more, so AR slopes down and MR &lt; AR.</dd></div>
+          <div class="term"><dt>Minimum loss</dt><dd>The least negative profit available when TC exceeds TR at every output; still an equilibrium.</dd></div>
+        </dl>
+      </section>
+
+      <section class="session" id="n-section-1">
+        <header class="session-head"><span class="session-kicker">Section 1</span><h2>Meaning of Producer's Equilibrium</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Equilibrium is not the output that earns the most revenue. It is the output where the gap between revenue and cost is as large as it can be — and beyond which that gap starts to shrink.</p></blockquote>
+
+          <section class="subsection" id="n-s1-1">
+            <h3>1.1 The producer's problem</h3>
+            <p>Selling more brings in more revenue, but it also costs more. Somewhere between producing nothing and producing everything, the gap between revenue and cost is widest. That output is the producer's equilibrium.</p>
+            <p><strong>Definition.</strong> Producer's equilibrium is the output at which a producer earns the maximum possible profit, given the cost of production and the revenue from sales. Under imperfect competition it is a <strong>price–output combination</strong>, because the firm also chooses price. Beyond that output, profit falls.</p>
+            <blockquote class="note"><p><strong>In simple words.</strong> It is the output at which the producer has no reason to expand and no reason to contract.</p></blockquote>
+            <p><strong>Example.</strong> A tea stall sells a cup for ₹10. The early cups cost little, because the stove is lit and the staff is paid anyway. Later cups cost more as extra help is hired and the stove is run longer. The owner keeps serving while each extra cup brings in more than it costs, and stops when the next cup would cost more than ₹10.</p>
+            <p><strong>Two decisions are hidden here.</strong> The firm decides <em>how much to produce</em> and, when it has market power, <em>what price to charge</em>. Under perfect competition the second decision is out of its hands: the market sets the price, and the firm only chooses output.</p>
+          </section>
+
+          <section class="subsection" id="n-s1-2">
+            <h3>1.2 Profit, cost and normal profit</h3>
+            <p><strong>Profit</strong> is the excess of total revenue over total cost.</p>
+            <div class="formula-line">π = TR − TC</div>
+            <p>Here π is profit, TR is total revenue and TC is total cost. A positive π means revenue exceeds cost; a negative π means the firm is making a loss.</p>
+            <p>Cost includes two kinds of items:</p>
+            <ul>
+              <li><strong>Explicit costs:</strong> actual payments to outsiders — wages, rent, raw material, electricity, transport.</li>
+              <li><strong>Implicit costs:</strong> the value of the entrepreneur's own shop, savings and labour. The owner could have rented the shop or worked elsewhere; that forgone earning is a cost of running this business.</li>
+            </ul>
+            <p><strong>Normal profit</strong> is the minimum return an entrepreneur must earn to stay in that business. It is the reward for the owner's own factors and is counted as an <strong>implicit cost</strong>. So normal profit is already inside TC.</p>
+            <div class="mini-grid">
+              <div class="mini-card"><strong>Normal profit</strong><span>The minimum return needed to keep the owner in the business. It is a cost, and corresponds to zero economic profit.</span></div>
+              <div class="mini-card"><strong>Supernormal profit</strong><span>What remains after every cost, including normal profit, has been paid. This is the “profit” the chapter maximises.</span></div>
+            </div>
+            <p><strong>Example.</strong> Meera could earn ₹45,000 a month as an employee. She runs her own tailoring shop instead. If the shop's revenue exceeds all other costs by exactly ₹45,000, her economic profit is zero — but she is earning normal profit, the amount she gave up.</p>
+            <p>So “maximum profit” in this chapter means <strong>supernormal profit</strong>: the surplus left after normal profit has also been covered. <strong>Zero economic profit is not “no profit”</strong>; it is the normal return that keeps the entrepreneur in the business.</p>
+            <div class="callout"><p><strong>Exam line.</strong> Normal profit is treated as a cost because it is the minimum return required to prevent the entrepreneur from moving to the next best alternative.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s1-3">
+            <h3>1.3 Two approaches, two market settings</h3>
+            <p>There are two equivalent ways to locate equilibrium:</p>
+            <div class="table-wrap" role="region" aria-label="The two approaches to producer's equilibrium" tabindex="0">
+              <table>
+                <thead><tr><th>Approach</th><th>What it compares</th><th>What we look for</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>TR–TC approach</strong></td><td>Total revenue with total cost at every output</td><td>The output where the gap TR − TC is largest and then starts to fall</td></tr>
+                  <tr><td><strong>MR–MC approach</strong></td><td>The addition to revenue from one more unit with the addition to cost</td><td>The output where MR = MC and MC is rising</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>The two approaches must agree. If the gap between TR and TC is widest, the last unit must have added equal amounts to both — that is exactly MR = MC.</p>
+            <p>The revenue side depends on the market setting:</p>
+            <ul>
+              <li><strong>Perfect competition:</strong> the firm is a price taker. Price is the same at every output, so MR is constant and P = AR = MR.</li>
+              <li><strong>Imperfect competition:</strong> the firm must lower price to sell more. AR slopes down, and MR falls below AR.</li>
+            </ul>
+            <p>This distinction matters later: a competitive firm's equilibrium can be written as P = MC, but a firm facing a downward-sloping demand curve must use MR = MC, which leaves P &gt; MC.</p>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Define producer's equilibrium in one sentence.</li>
+              <li><strong>Q2.</strong> A firm's TR is ₹5,000 and its TC is ₹4,200, which includes ₹600 of normal profit. Find its supernormal profit.</li>
+              <li><strong>Q3.</strong> Why is normal profit treated as a cost?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>The price and output combination at which the producer earns maximum profit, with profit falling beyond it; if supernormal profit is impossible, the output of minimum loss.</li>
+                <li>₹5,000 − ₹4,200 = ₹800. This is already supernormal profit because the ₹600 normal profit is inside TC.</li>
+                <li>It is the minimum return needed to keep the entrepreneur in the business. If it is not earned, the owner moves to the next best alternative, so it is a real cost of using the owner's factors.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-2">
+        <header class="session-head"><span class="session-kicker">Section 2</span><h2>Why Profit Is Maximised at MR = MC</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> A firm should keep producing an extra unit as long as that unit brings in more than it costs. It stops when the extra revenue and extra cost are equal.</p></blockquote>
+
+          <section class="subsection" id="n-s2-1">
+            <h3>2.1 Marginal revenue and marginal cost</h3>
+            <p><strong>Marginal revenue (MR)</strong> is the addition to total revenue from selling one more unit. <strong>Marginal cost (MC)</strong> is the addition to total cost from producing one more unit.</p>
+            <div class="formula-line">MR = ΔTR ÷ ΔQ          MC = ΔTC ÷ ΔQ</div>
+            <p>Here Δ means “change in”, TR is total revenue, TC is total cost and Q is output. Marginal values are about the <em>next</em> unit, not the average unit.</p>
+            <p><strong>A small example.</strong> Suppose the 5th unit adds ₹100 to revenue and ₹70 to cost. Producing it raises profit by ₹30, so the firm should produce it. If the 6th unit adds ₹100 to revenue but ₹120 to cost, it lowers profit by ₹20, so the firm should not produce it.</p>
+          </section>
+
+          <section class="subsection" id="n-s2-2">
+            <h3>2.2 The stopping rule</h3>
+            <div class="table-wrap" role="region" aria-label="The MR and MC stopping rule" tabindex="0">
+              <table>
+                <thead><tr><th>Comparison</th><th>What the next unit does</th><th>Decision</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>MR &gt; MC</strong></td><td>Brings in more than it costs; profit rises by MR − MC</td><td>Expand output</td></tr>
+                  <tr><td><strong>MR &lt; MC</strong></td><td>Costs more than it brings in; profit falls</td><td>Contract output</td></tr>
+                  <tr><td><strong>MR = MC</strong></td><td>Adds nothing to profit</td><td>Stay at this output</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Profit is not maximised because revenue is large, but because the <em>last</em> unit is exactly self-financing. If the firm stops before MR = MC, it leaves a profitable unit unproduced. If it goes beyond MR = MC, it produces a unit that destroys profit.</p>
+            <div class="callout"><p><strong>Not just MR = MC.</strong> The rule works only if MC is <strong>rising</strong> through the intersection. Before equilibrium MR is above MC; after it, MC is above MR. That switch is what makes the point a maximum.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s2-3">
+            <h3>2.3 Why a maximum, not a minimum</h3>
+            <p>A U-shaped MC curve can cut a horizontal MR line twice. On the falling arm, MC is still dropping below MR as output expands, so extra units continue to raise profit. Stopping at that first crossing would leave profit at a minimum, not a maximum.</p>
+            <p>Only the second crossing — where MC is rising and cuts MR from below — passes the test. This is why the MR–MC approach has two conditions, not one:</p>
+            <ol>
+              <li><strong>MR = MC</strong> — the necessary condition.</li>
+              <li><strong>MC is rising</strong> at that point — the sufficient condition.</li>
+            </ol>
+            <p>Section 4 shows both crossings on a diagram and explains why the falling-arm point is a trap.</p>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Define MR and MC, and state the profit-maximising rule.</li>
+              <li><strong>Q2.</strong> At 10 units, MR is ₹15 and MC is ₹9. The 11th unit would have an MC of ₹18. Should the firm produce it?</li>
+              <li><strong>Q3.</strong> Why does profit rise as long as MR exceeds MC?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>MR is the addition to TR from one more unit; MC is the addition to TC. Profit is maximised where MR = MC and MC is rising.</li>
+                <li>No. The 11th unit adds ₹15 to revenue and ₹18 to cost, so profit falls by ₹3.</li>
+                <li>When MR &gt; MC, the net addition to profit is positive, so total profit rises with every such unit.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-3">
+        <header class="session-head"><span class="session-kicker">Section 3</span><h2>The TR–TC Approach</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Plot total revenue and total cost against output. Profit is the vertical distance between them. Equilibrium is where that distance is widest — the peak of the profit gap.</p></blockquote>
+
+          <section class="subsection" id="n-s3-1">
+            <h3>3.1 Profit as a gap between two curves</h3>
+            <p>The firm compares total revenue and total cost at every output and picks the output where the vertical distance between them is greatest.</p>
+            <div class="formula-line">π(Q) = TR(Q) − TC(Q)</div>
+            <p>Here π(Q), TR(Q) and TC(Q) are profit, total revenue and total cost at output Q. On a diagram, TR and TC are two curves; profit is the gap between them.</p>
+            <p><strong>Why TR is a straight line for a price taker.</strong> Every unit sells at the same market price, so each extra unit adds the same revenue. TR rises steadily from the origin. TC starts at fixed cost even when output is zero, then rises slowly at first and faster later as diminishing returns set in.</p>
+          </section>
+
+          <section class="subsection" id="n-s3-2">
+            <h3>3.2 The three conditions</h3>
+            <ol>
+              <li><strong>The gap is at its maximum:</strong> TR − TC is larger here than at any other output.</li>
+              <li><strong>The gap is positive:</strong> TR &gt; TC, so the firm earns supernormal profit.</li>
+              <li><strong>The gap falls afterwards:</strong> beyond this output TC rises faster than TR, so extra units reduce profit.</li>
+            </ol>
+            <p>If no positive gap exists, the firm cannot earn supernormal profit. It then chooses the output where the gap is <em>least negative</em>: the minimum loss. That is still an equilibrium, because it is the best the firm can do with the market conditions it faces.</p>
+            <div class="callout"><p><strong>Watch the wording.</strong> “Maximum profit” can mean the largest positive profit or the smallest loss. In both cases, the firm is choosing the best available gap.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s3-3">
+            <h3>3.3 Reading the diagram</h3>
+            <figure class="chapter-figure">
+              <img src="Ch8_TR_TC.png" alt="Total revenue is a straight line from the origin and total cost starts at fixed cost, rises slowly then steeply. The vertical gap is widest at Q star; the curves cross at B1 and B2." loading="lazy" width="1613" height="1084">
+              <figcaption><strong>Figure 8.1 — TR, TC and the maximum profit gap.</strong> Total revenue and total cost against output for a price-taking firm. The gap TR − TC is widest at Q*; B<sub>1</sub> and B<sub>2</sub> are the break-even points.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> The shaded band is profit. It opens at B<sub>1</sub>, widens to its maximum at Q*, and closes at B<sub>2</sub>. Outside that range TC is above TR and the firm makes a loss. At Q* the slopes of the two curves are equal — that is MR = MC.</p>
+            <p>A <strong>break-even point</strong> is an output where total revenue equals total cost, so profit is zero. There are two: one where the firm stops making a loss as it expands, and one where it starts making a loss again.</p>
+            <div class="mini-grid">
+              <div class="mini-card"><strong>Before B₁</strong><span>TC is above TR. The firm makes a loss and has not yet reached the first break-even output.</span></div>
+              <div class="mini-card"><strong>Between B₁ and B₂</strong><span>TR is above TC. Profit is positive, and it peaks at Q* where the gap is widest.</span></div>
+              <div class="mini-card"><strong>At B₁ and B₂</strong><span>TR = TC. Profit is zero. These are the two break-even outputs, not the equilibrium output.</span></div>
+              <div class="mini-card"><strong>After B₂</strong><span>TC rises faster than TR. The gap turns negative again and the loss grows.</span></div>
+            </div>
+          </section>
+
+          <section class="subsection" id="n-s3-4">
+            <h3>3.4 When the gap is never positive</h3>
+            <p>Sometimes price is so low, or cost so high, that TC lies above TR at every output. The curves never cross, so there is no break-even point. The rule does not change: the firm looks for the widest gap, which is now the smallest loss, where the curves come closest.</p>
+            <blockquote class="note"><p><strong>Warning.</strong> “Equilibrium” does not mean “profit”. It means “the best output available”. For a firm in a bad market, that best outcome is the minimum loss.</p></blockquote>
+            <p>This is why a loss-making firm can still be in equilibrium. It is not failing to maximise profit; it is maximising profit subject to the fact that no positive profit exists. Section 6 then asks whether it should produce at all.</p>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> State the conditions for equilibrium under the TR–TC approach.</li>
+              <li><strong>Q2.</strong> Find the equilibrium output and profit for the schedule below.</li>
+              <li><strong>Q3.</strong> Why is equilibrium at the maximum gap, not at the highest TR?</li>
+            </ol>
+            <div class="table-wrap" role="region" aria-label="TR and TC schedule for the check question" tabindex="0">
+              <table>
+                <thead><tr><th>Output (units)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>TR (₹)</strong></td><td>0</td><td>20</td><td>40</td><td>60</td><td>80</td><td>100</td></tr>
+                  <tr><td><strong>TC (₹)</strong></td><td>30</td><td>44</td><td>53</td><td>58</td><td>69</td><td>92</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>(i) The gap between TR and TC is at its maximum; (ii) TR &gt; TC; (iii) after this output TC rises faster than TR.</li>
+                <li>Profit is −30, −24, −13, 2, 11 and 8. The gap is largest at 4 units, where profit is ₹11.</li>
+                <li>TR ignores cost. Profit, not revenue, is what the producer keeps, so a larger TR can still mean a smaller profit if TC rises even faster.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-4">
+        <header class="session-head"><span class="session-kicker">Section 4</span><h2>The MR–MC Approach</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Instead of comparing totals, compare the next unit's revenue with the next unit's cost. Stop exactly where the two are equal — but only on the rising arm of MC.</p></blockquote>
+
+          <section class="subsection" id="n-s4-1">
+            <h3>4.1 The two conditions</h3>
+            <ol>
+              <li><strong>MR = MC.</strong> The addition to revenue from the last unit equals the addition to cost.</li>
+              <li><strong>MC must be rising at that point.</strong> The MC curve must cut the MR curve from below, so MC exceeds MR just to the right of the intersection.</li>
+            </ol>
+            <p>The first is the <strong>necessary condition</strong>; the second is the <strong>sufficient condition</strong>. An answer that gives only MR = MC is incomplete and can lose a mark.</p>
+            <div class="formula-line">Necessary: MR = MC          Sufficient: MC rising (cuts MR from below)</div>
+          </section>
+
+          <section class="subsection" id="n-s4-2">
+            <h3>4.2 Why MR = MC alone is not enough</h3>
+            <p>A U-shaped MC curve can meet a horizontal MR line at two points, one on each arm. Only the rising-arm point is equilibrium.</p>
+            <figure class="chapter-figure">
+              <img src="Ch8_MR_MC.png" alt="A horizontal price line cuts a U-shaped marginal cost curve at R on the falling arm and E on the rising arm. Average cost is U-shaped, and the profit rectangle is shaded around E." loading="lazy" width="1613" height="1084">
+              <figcaption><strong>Figure 8.2 — MR, MC and AC with supernormal profit.</strong> A price-taking firm. MC cuts the price line at R and again at E. Only E, where MC is rising, is equilibrium; the shaded area is supernormal profit.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> At R, MC is falling. To its right MC is below MR, so extra units still add to profit; stopping there would be a mistake. R is a point of minimum profit. At E, MC is rising and crosses MR from below: to its left MR &gt; MC, to its right MC &gt; MR. Only E passes both tests.</p>
+            <div class="callout"><p><strong>Two crossings, one answer.</strong> The first crossing is tempting because it satisfies the equation. The direction of the crossing decides whether it is a maximum or a minimum.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s4-3">
+            <h3>4.3 Either side of equilibrium</h3>
+            <p><strong>Left of E:</strong> MR &gt; MC, so each extra unit adds more to revenue than to cost and output should expand.</p>
+            <p><strong>Right of E:</strong> MC &gt; MR, so each extra unit reduces profit and output should contract.</p>
+            <p><strong>At E:</strong> the two forces balance. There is no reason to move in either direction. That is exactly what “equilibrium” means.</p>
+          </section>
+
+          <section class="subsection" id="n-s4-4">
+            <h3>4.4 Perfect competition: P = MC</h3>
+            <p>A competitive firm is a price taker, so price, average revenue and marginal revenue are equal.</p>
+            <div class="formula-line">P = AR = MR</div>
+            <p>Substituting into the equilibrium condition gives the working rule for a competitive firm:</p>
+            <div class="formula-line">P = MC          with MC rising</div>
+            <p>This is not a different theory. It is the same MR = MC rule after replacing MR with price, which is legitimate only because the competitive firm can sell every extra unit at the unchanged market price.</p>
+            <div class="table-wrap" role="region" aria-label="Why a price taker can use P equals MC" tabindex="0">
+              <table>
+                <thead><tr><th>Feature</th><th>Perfect competition</th><th>Consequence</th></tr></thead>
+                <tbody>
+                  <tr><td>Price setting</td><td>Firm is a price taker</td><td>Price does not change when the firm changes output</td></tr>
+                  <tr><td>Average revenue</td><td>AR = P</td><td>Every unit sells at the same price</td></tr>
+                  <tr><td>Marginal revenue</td><td>MR = P</td><td>Each extra unit adds exactly the price</td></tr>
+                  <tr><td>Equilibrium</td><td>MR = MC becomes P = MC</td><td>Valid only with MC rising</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="subsection" id="n-s4-5">
+            <h3>4.5 When price falls with output</h3>
+            <p>A firm facing a downward-sloping demand curve cannot sell an extra unit at the old price. To sell more it must lower the price — and, in the usual textbook treatment, the lower price applies to every unit sold. The extra revenue from the new unit is therefore less than the price of that unit: <strong>MR lies below AR</strong>, and for a straight-line AR curve MR falls twice as fast.</p>
+            <p>The lecture table makes the equilibrium visible. Price falls as output rises, so this is not perfect competition.</p>
+            <div class="table-wrap" role="region" aria-label="Lecture table where price falls as output rises" tabindex="0">
+              <table>
+                <thead><tr><th>Output Q (units)</th><th>Price P = AR (₹)</th><th>TR (₹)</th><th>TC (₹)</th><th>MR (₹)</th><th>MC (₹)</th><th>Profit = TR − TC (₹)</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>8</td><td>8</td><td>6</td><td>8</td><td>6</td><td>2</td></tr>
+                  <tr><td>2</td><td>7</td><td>14</td><td>11</td><td>6</td><td>5</td><td>3</td></tr>
+                  <tr><td><strong>3</strong></td><td><strong>6</strong></td><td><strong>18</strong></td><td><strong>15</strong></td><td><strong>4</strong></td><td><strong>4</strong></td><td><strong>3</strong></td></tr>
+                  <tr><td>4</td><td>5</td><td>20</td><td>20</td><td>2</td><td>5</td><td>0</td></tr>
+                  <tr><td>5</td><td>4</td><td>20</td><td>26</td><td>0</td><td>6</td><td>−6</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>Reading the table.</strong></p>
+            <ul>
+              <li>Profit rises from ₹2 to ₹3, stays at ₹3 at 3 units, then falls to zero and turns negative.</li>
+              <li><strong>MR = MC at 3 units</strong>, where both are ₹4. MC rises to ₹5 at the next unit, so the second condition is satisfied.</li>
+              <li>At 3 units the price on the AR curve is <strong>₹6</strong>, while MC is <strong>₹4</strong>. Therefore <strong>P &gt; MC</strong> at equilibrium.</li>
+              <li>Profit is the same at 2 and 3 units because the third unit adds ₹4 of revenue and ₹4 of cost. The table's maximum is a plateau. Equilibrium is taken as 3 units because that is where MR = MC with MC rising; at 2 units MR (₹6) is still above MC (₹5), so the firm has not yet reached the stopping point, and beyond 3 units profit falls.</li>
+            </ul>
+            <p>Figure 8.3 draws the smooth version of the same idea with different numbers.</p>
+            <figure class="chapter-figure">
+              <img src="Ch8_Imperfect.png" alt="A downward-sloping average revenue curve with a steeper marginal revenue curve below it. Marginal cost rises and cuts MR at Q star equals 5; price on AR is 15 and MC is 10." loading="lazy" width="1612" height="1084">
+              <figcaption><strong>Figure 8.3 — Price falls with output: MR below AR, and P &gt; MC at equilibrium.</strong> When price falls with output, AR slopes down and MR lies below it. Equilibrium is where MR = MC at Q* = 5; price is read off AR at ₹15, while MC is only ₹10, so P &gt; MC.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> The equilibrium condition is still MR = MC, not P = MC. Price is then read vertically up from Q* to the AR curve. Because MR &lt; AR at every output, and MR = MC at equilibrium, price must exceed MC.</p>
+            <div class="table-wrap" role="region" aria-label="Perfect competition versus price falling with output" tabindex="0">
+              <table>
+                <thead><tr><th>Market setting</th><th>Revenue relation</th><th>Equilibrium condition</th><th>Price versus MC</th></tr></thead>
+                <tbody>
+                  <tr><td>Perfect competition</td><td>P = AR = MR</td><td>P = MC with MC rising</td><td>P = MC</td></tr>
+                  <tr><td>Price falls with output</td><td>P = AR &gt; MR</td><td>MR = MC with MC rising</td><td>P &gt; MC</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout"><p><strong>Exam trap.</strong> Do not write P = MC for a firm facing a downward-sloping demand curve. The general rule is MR = MC; only a price-taking firm can replace MR with P.</p></div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> State the two conditions for equilibrium under the MR–MC approach.</li>
+              <li><strong>Q2.</strong> MC cuts a horizontal MR line at Q = 2, where MC is falling, and again at Q = 8, where it is rising. Which is equilibrium?</li>
+              <li><strong>Q3.</strong> Why is the falling-arm intersection not an equilibrium? Why is price greater than MC at equilibrium when price falls with output?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>(i) MR = MC; (ii) MC must be rising, cutting MR from below.</li>
+                <li>Q = 8. At Q = 2, MC is still below MR to the right, so extra units add to profit. At Q = 8, MC is rising, so output beyond 8 reduces profit.</li>
+                <li>At the falling-arm crossing MC is below MR to its right, so producing more still adds to profit. When price falls with output, MR &lt; AR = P; equilibrium sets MR = MC, so P &gt; MC.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-5">
+        <header class="session-head"><span class="session-kicker">Section 5</span><h2>Profit, Normal Profit and Loss</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> MR = MC finds the output. Whether the firm is earning a fortune, just covering everything, or losing money depends on where price sits relative to average cost at that output.</p></blockquote>
+
+          <section class="subsection" id="n-s5-1">
+            <h3>5.1 Three situations</h3>
+            <p>Once equilibrium output is known, profit depends on where price stands relative to average cost.</p>
+            <div class="table-wrap" role="region" aria-label="The three profit situations" tabindex="0">
+              <table>
+                <thead><tr><th>Situation</th><th>Price and cost</th><th>Revenue and cost</th><th>Name</th></tr></thead>
+                <tbody>
+                  <tr><td>Favourable</td><td>P &gt; AC</td><td>TR &gt; TC</td><td><strong>Supernormal profit</strong></td></tr>
+                  <tr><td>Break-even</td><td>P = AC</td><td>TR = TC</td><td><strong>Normal profit</strong></td></tr>
+                  <tr><td>Unfavourable</td><td>P &lt; AC</td><td>TR &lt; TC</td><td><strong>Loss</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="formula-line">Profit per unit = P − AC          Total profit = (P − AC) × Q</div>
+            <p>Here P is price, AC is average cost at the equilibrium output and Q is that output. If the bracket is negative, the result is a loss.</p>
+            <p><strong>Supernormal profit</strong> is profit above normal profit — what remains after every cost, including the owner's normal return, is paid. <strong>Normal profit</strong> is zero economic profit: all costs are covered, including the implicit cost of the owner's factors. A <strong>loss</strong> means revenue does not cover full cost; in the short run the firm may still produce, as Section 6 explains.</p>
+          </section>
+
+          <section class="subsection" id="n-s5-2">
+            <h3>5.2 The same three cases under perfect competition</h3>
+            <p>For a competitive firm P = AR = MR, so one horizontal line is price, AR and MR at once. Compare that line with AC at equilibrium:</p>
+            <ul>
+              <li><strong>Above AC:</strong> the firm earns supernormal profit.</li>
+              <li><strong>Touching minimum AC:</strong> the firm earns normal profit.</li>
+              <li><strong>Below AC:</strong> the firm makes a loss.</li>
+            </ul>
+            <p>The firm cannot choose the price, so it adjusts quantity until P = MC. Price then determines whether the equilibrium rectangle is a profit or a loss.</p>
+            <div class="callout"><p><strong>Order of operations.</strong> First find Q* where P = MC (MC rising). Then compare P with AC at that same Q*. Never compare price with AC at a different output.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s5-3">
+            <h3>5.3 The three situations in one diagram</h3>
+            <p>Figure 8.4 stacks the three cases so each one stays readable. All three panels use the same cost curves; only the price line changes. Because the firm is a price taker, that line is price, AR and MR at once.</p>
+            <figure class="chapter-figure">
+              <img src="Ch8_Profit_Cases.png" alt="Three stacked panels share the same U-shaped average cost and marginal cost curves. Panel a has price above AC and a profit rectangle; panel b has price at minimum AC and normal profit; panel c has price below AC and a loss rectangle." loading="lazy" width="1717" height="2876">
+              <figcaption><strong>Figure 8.4 — The three profit situations: P &gt; AC, P = AC and P &lt; AC.</strong> The same cost curves under three prices. (a) Price above AC gives supernormal profit. (b) Price equal to minimum AC gives normal profit. (c) Price below AC gives a loss; because price is still above minimum AVC, the firm keeps producing in the short run.</figcaption>
+            </figure>
+            <p><strong>Reading each panel.</strong></p>
+            <ul>
+              <li><strong>(a) P &gt; AC.</strong> Equilibrium is at E, where the price line meets the rising MC. Profit per unit is P − AC, and total profit is the shaded rectangle (P − AC) × Q*.</li>
+              <li><strong>(b) P = AC.</strong> The price line touches the AC curve at its minimum. Profit per unit is zero, so the firm earns normal profit — zero economic profit. The profit rectangle collapses to a point. This price is the <strong>break-even price</strong>.</li>
+              <li><strong>(c) P &lt; AC.</strong> The vertical gap is now a loss per unit, AC − P, and the shaded rectangle is the total loss. The firm still produces because price is above minimum AVC; Section 6 explains why.</li>
+            </ul>
+            <p><strong>What to notice.</strong> Q* is different in each panel: as price changes, equilibrium slides along the MC curve. The test for profit is always the same — compare price with AC <em>at that equilibrium output</em>, not at some other output.</p>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Distinguish normal profit from supernormal profit.</li>
+              <li><strong>Q2.</strong> A firm sells 50 units at ₹20 each; AC is ₹16. Find profit. If price falls to ₹12, which panel of Figure 8.4 applies, and what is the loss?</li>
+              <li><strong>Q3.</strong> Why does a firm earning only normal profit stay in business?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>Normal profit is the minimum return needed to keep the entrepreneur in business and is included in cost; it is zero economic profit. Supernormal profit is what remains after normal profit has been paid.</li>
+                <li>Profit per unit = ₹20 − ₹16 = ₹4, total = ₹200. At ₹12, the loss per unit is ₹16 − ₹12 = ₹4 and the total loss is ₹200; this is panel (c), P &lt; AC.</li>
+                <li>Normal profit is already part of cost, so the owner earns exactly what the next best alternative offers. Leaving would not improve their position.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-6">
+        <header class="session-head"><span class="session-kicker">Section 6</span><h2>The Shutdown Decision</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> A loss-making firm does not automatically stop. Fixed cost is due anyway. The real question is whether producing makes the loss smaller than shutting down.</p></blockquote>
+
+          <section class="subsection" id="n-s6-1">
+            <h3>6.1 Fixed cost and the short run</h3>
+            <p>In the short run, fixed cost is payable whether the firm produces or not: rent and insurance do not vanish when the machines stop. So a loss-making firm asks not “am I making a loss?” but “is the loss smaller if I produce or if I stop?”</p>
+            <p><strong>Shutting down</strong> means producing nothing for now while the firm still exists and pays fixed cost. It is a short-run decision, and the firm can restart.</p>
+            <div class="callout"><p><strong>Key comparison.</strong> If the firm shuts down, its loss equals TFC. If it produces, its loss equals TFC − (TR − TVC). Producing is better whenever TR covers TVC and contributes something towards fixed cost.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s6-2">
+            <h3>6.2 The three price zones</h3>
+            <p>The answer depends on where price lies relative to two landmarks: minimum AVC and minimum AC. The diagram and zones below use a price-taking firm, so price is also marginal revenue.</p>
+            <ol>
+              <li><strong>At or above minimum AC.</strong> All costs are covered; the firm produces where MR = MC — that is, P = MC for this price taker — and earns normal or supernormal profit.</li>
+              <li><strong>Between minimum AVC and minimum AC.</strong> Revenue covers all variable cost and part of fixed cost, so the loss is smaller than the fixed cost lost by shutting down. The firm produces on.</li>
+              <li><strong>Below minimum AVC.</strong> Revenue does not cover variable cost, so producing adds to the loss; the firm shuts down and loses only fixed cost.</li>
+            </ol>
+            <div class="mini-grid">
+              <div class="mini-card"><strong>Shutdown point</strong><span>The minimum point of the AVC curve. Below this price the firm stops producing in the short run.</span></div>
+              <div class="mini-card"><strong>Break-even price</strong><span>The minimum point of the AC curve. At this price the firm earns normal profit; below it, it makes a loss.</span></div>
+            </div>
+            <p><strong>Do not confuse the two uses of “break-even”.</strong> Section 3's break-even points are <em>outputs</em> where TR = TC. The break-even <em>price</em> here is minimum AC. The shutdown price is minimum AVC, which lies below the break-even price.</p>
+            <figure class="chapter-figure">
+              <img src="Ch8_Shutdown.png" alt="A price line lies below U-shaped average cost but above average variable cost. The firm produces where price equals rising marginal cost, and the loss rectangle is shaded between AC and price." loading="lazy" width="1613" height="1084">
+              <figcaption><strong>Figure 8.5 — Loss when price lies between minimum AVC and minimum AC.</strong> A firm producing at a loss. Price lies below AC but above AVC, so the firm produces OQ* and loses the shaded area. S marks the shutdown price at minimum AVC; B marks the break-even price at minimum AC.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> At Q* the firm is on the rising part of MC, so P = MC holds. The loss rectangle has height AC − P and width Q*. Below the dashed line at minimum AVC the firm would produce nothing, because each unit would fail to cover its variable cost.</p>
+          </section>
+
+          <section class="subsection" id="n-s6-3">
+            <h3>6.3 A numerical illustration</h3>
+            <p>A firm has fixed cost ₹500 and variable cost ₹600 at 100 units, so TC is ₹1,100, AVC is ₹6 and AC is ₹11. Take ₹6 and ₹11 as the minimum AVC and minimum AC.</p>
+            <div class="table-wrap" role="region" aria-label="Shutdown decision at four prices" tabindex="0">
+              <table>
+                <thead><tr><th>Price (₹)</th><th>TR (₹)</th><th>TVC (₹)</th><th>Profit or loss if it produces (₹)</th><th>Loss if it shuts down (₹)</th><th>Decision</th></tr></thead>
+                <tbody>
+                  <tr><td>12</td><td>1,200</td><td>600</td><td>+100</td><td>500</td><td>Produce</td></tr>
+                  <tr><td>11</td><td>1,100</td><td>600</td><td>0</td><td>500</td><td>Produce</td></tr>
+                  <tr><td><strong>7</strong></td><td><strong>700</strong></td><td><strong>600</strong></td><td><strong>−400</strong></td><td><strong>500</strong></td><td><strong>Produce</strong></td></tr>
+                  <tr><td>5</td><td>500</td><td>600</td><td>−600</td><td>500</td><td>Shut down</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>At ₹12 the firm earns ₹100; at ₹11 it breaks even. At ₹7 it loses ₹400, but shutting down would cost ₹500, so producing is better by ₹100. At ₹5 revenue does not cover variable cost and the firm shuts down. At exactly ₹6 it is indifferent, because TR just covers TVC and the loss equals fixed cost either way.</p>
+            <p><strong>The decision rule in one line:</strong> produce if P ≥ minimum AVC; shut down if P &lt; minimum AVC.</p>
+          </section>
+
+          <section class="subsection" id="n-s6-4">
+            <h3>6.4 Shutting down is not exiting</h3>
+            <div class="table-wrap" role="region" aria-label="Shutdown versus exit" tabindex="0">
+              <table>
+                <thead><tr><th>Basis</th><th>Shutdown</th><th>Exit</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Time horizon</strong></td><td>Short run</td><td>Long run</td></tr>
+                  <tr><td><strong>Output</strong></td><td>Zero for now</td><td>Zero permanently</td></tr>
+                  <tr><td><strong>Fixed cost</strong></td><td>Still payable</td><td>No longer payable; capital is sold</td></tr>
+                  <tr><td><strong>Industry status</strong></td><td>Firm still exists in the industry and can restart</td><td>Firm leaves the industry</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>A shutdown is a pause, not a funeral. The firm keeps its factory and its place in the market; it simply waits for price to recover above minimum AVC.</p>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Define the shutdown price and the break-even price.</li>
+              <li><strong>Q2.</strong> A firm has TFC of ₹300 and TVC of ₹500 at 50 units. Price is ₹12. Should it produce or shut down?</li>
+              <li><strong>Q3.</strong> Why would a firm produce at a price below average cost?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>Shutdown point: minimum AVC, below which the firm stops producing. Break-even point: minimum AC, where profit is normal.</li>
+                <li>TR = ₹600 and TC = ₹800, so producing loses ₹200; shutting down costs ₹300. It should produce.</li>
+                <li>Part of cost is fixed and must be paid anyway. If price covers variable cost and contributes towards fixed cost, the loss from producing is smaller than the loss from shutting down.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-7">
+        <header class="session-head"><span class="session-kicker">Section 7</span><h2>A Worked Example</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> One table, read three ways: complete the marginal columns, find equilibrium with TR–TC, confirm it with MR–MC, then check whether the firm should produce at all.</p></blockquote>
+
+          <section class="subsection" id="n-s7-1">
+            <h3>7.1 The table</h3>
+            <p>A firm sells in a perfectly competitive market at ₹10. Complete the marginal columns and find equilibrium.</p>
+            <div class="table-wrap" role="region" aria-label="Worked example with price, revenue, cost and profit" tabindex="0">
+              <table>
+                <thead><tr><th>Output Q (units)</th><th>Price P (₹)</th><th>TR (₹)</th><th>TC (₹)</th><th>MR (₹)</th><th>MC (₹)</th><th>Profit (₹)</th></tr></thead>
+                <tbody>
+                  <tr><td>0</td><td>10</td><td>0</td><td>20</td><td>—</td><td>—</td><td>−20</td></tr>
+                  <tr><td>1</td><td>10</td><td>10</td><td>30</td><td>10</td><td>10</td><td>−20</td></tr>
+                  <tr><td>2</td><td>10</td><td>20</td><td>38</td><td>10</td><td>8</td><td>−18</td></tr>
+                  <tr><td>3</td><td>10</td><td>30</td><td>44</td><td>10</td><td>6</td><td>−14</td></tr>
+                  <tr><td><strong>4</strong></td><td><strong>10</strong></td><td><strong>40</strong></td><td><strong>52</strong></td><td><strong>10</strong></td><td><strong>8</strong></td><td><strong>−12</strong></td></tr>
+                  <tr><td>5</td><td>10</td><td>50</td><td>64</td><td>10</td><td>12</td><td>−14</td></tr>
+                  <tr><td>6</td><td>10</td><td>60</td><td>80</td><td>10</td><td>16</td><td>−20</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Each MR is ₹10 because price is constant. Each MC is the rise in TC from the previous row: 10, 8, 6, 8, 12 and 16. Profit is TR − TC.</p>
+          </section>
+
+          <section class="subsection" id="n-s7-2">
+            <h3>7.2 The TR–TC reading</h3>
+            <p>The profit column is the gap. It starts at −₹20, improves to −₹12 at 4 units, then worsens. The gap is at its maximum — here, its least negative — at <strong>4 units</strong>: between 4 and 5 units, TR rises by ₹10 while TC rises by ₹12.</p>
+            <p>Notice that the firm never earns a positive profit. Its equilibrium is still 4 units because that is where the gap is least negative. The minimum loss is ₹12.</p>
+          </section>
+
+          <section class="subsection" id="n-s7-3">
+            <h3>7.3 The MR–MC reading</h3>
+            <p>MR is ₹10 throughout. MC is ₹10 at the first unit, falls to ₹8 and ₹6, then rises to ₹8, ₹12 and ₹16.</p>
+            <ul>
+              <li>For units 2 to 4, MC is below MR, so each unit adds to profit; the first unit only matches MR.</li>
+              <li>At 5 units, MC is ₹12, above MR, so profit falls by ₹2 — exactly the fall from −₹12 to −₹14.</li>
+              <li>The table's equilibrium is <strong>4 units</strong>.</li>
+            </ul>
+          </section>
+
+          <section class="subsection" id="n-s7-4">
+            <h3>7.4 Why not Q = 1?</h3>
+            <p>At Q = 1, MR = MC = ₹10, yet profit is −₹20, the worst value in the table, because MC is <em>falling</em> there: it drops to ₹8 and ₹6 for the next units, well below MR. The MC curve cuts MR from above, not below — the same as point R in Figure 8.2 — so the second condition fails.</p>
+            <p>The table's second crossing lies between Q = 4 and Q = 5, where MC rises from ₹8 to ₹12 and passes through ₹10. On smooth curves MR = MC at about 4.5 units with MC rising. A discrete table cannot show half a unit, so it reports the last whole unit with MC below MR: 4 units.</p>
+            <div class="callout"><p><strong>Warning.</strong> Do not round up to 5 units because MC = ₹10 lies between 4 and 5. The fifth unit costs ₹12, more than the ₹10 it brings in.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s7-5">
+            <h3>7.5 The shutdown check</h3>
+            <p>Fixed cost is TC at zero output: ₹20. At 4 units TC is ₹52, so TVC is ₹32. Revenue of ₹40 covers variable cost and leaves ₹8 towards fixed cost, so the loss is ₹12 — less than the ₹20 lost by shutting down.</p>
+            <p>AVC is ₹32 ÷ 4 = ₹8, below the price of ₹10, so both tests are satisfied and the firm produces. This is a loss-making equilibrium, but it is still the best short-run choice.</p>
+            <div class="mini-grid">
+              <div class="mini-card"><strong>Produce at Q = 4</strong><span>Loss = ₹12. Revenue covers TVC of ₹32 and contributes ₹8 to the ₹20 fixed cost.</span></div>
+              <div class="mini-card"><strong>Shut down</strong><span>Loss = TFC = ₹20. Producing is better by ₹8, so the firm keeps running.</span></div>
+            </div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> In the table, MR = MC at Q = 1. Why is Q = 1 not equilibrium?</li>
+              <li><strong>Q2.</strong> Compare the loss at Q = 4 with the loss from shutting down. Which is smaller?</li>
+              <li><strong>Q3.</strong> Why is this equilibrium a minimum loss rather than a maximum profit?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>At Q = 1, MC is falling and stays below MR for the next units, so producing more still adds to profit. The condition that MC must be rising fails.</li>
+                <li>The loss at Q = 4 is ₹12; shutting down loses the fixed cost of ₹20. Producing is better by ₹8.</li>
+                <li>TC is above TR at every output, so no positive profit is available. The best the firm can do is the output where the gap is least negative.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-8">
+        <header class="session-head"><span class="session-kicker">Section 8</span><h2>Common Mistakes</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Most lost marks in this chapter come from mixing up <em>conditions</em>, <em>outputs</em> and <em>prices</em>. Read each wrong statement with its correction.</p></blockquote>
+          <div class="table-wrap" role="region" aria-label="Common mistakes and correct ideas" tabindex="0">
+            <table>
+              <thead><tr><th>Mistake</th><th>Correct idea</th></tr></thead>
+              <tbody>
+                <tr><td><strong>“MR = MC is the only condition.”</strong></td><td>MC must also be rising. A falling MC crossing gives minimum profit.</td></tr>
+                <tr><td><strong>“At equilibrium, price must equal MC.”</strong></td><td>P = MC only for a price taker. When price falls with output, MR &lt; AR, so P &gt; MC at equilibrium.</td></tr>
+                <tr><td><strong>“Profit depends on price versus MC.”</strong></td><td>MC locates the output; profit depends on price versus AC at that output.</td></tr>
+                <tr><td><strong>“Normal profit is paid after costs.”</strong></td><td>Normal profit is an implicit cost, already inside TC.</td></tr>
+                <tr><td><strong>“Zero economic profit means the firm should quit.”</strong></td><td>Zero economic profit is normal profit. The owner is earning the next best alternative.</td></tr>
+                <tr><td><strong>“Equilibrium always means profit.”</strong></td><td>Equilibrium is the best available outcome; it can be a minimum loss.</td></tr>
+                <tr><td><strong>“Produce where TR is highest.”</strong></td><td>Produce where TR − TC is highest, not where TR alone is highest.</td></tr>
+                <tr><td><strong>“The shutdown point is minimum AC.”</strong></td><td>The shutdown price is minimum AVC; minimum AC is the break-even price.</td></tr>
+                <tr><td><strong>“A firm shuts down as soon as P &lt; AC.”</strong></td><td>It shuts down only when P &lt; minimum AVC. Between minimum AVC and minimum AC it produces at a loss.</td></tr>
+                <tr><td><strong>“Shutting down means leaving the industry.”</strong></td><td>Shutting down is a short-run pause; exiting is a long-run departure.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Quick self-test.</strong> Cover the right column and explain each correction aloud. If you can do all ten without looking, the conceptual traps are handled.</p></div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-9">
+        <header class="session-head"><span class="session-kicker">Section 9</span><h2>Recap, Formulas and Exam Practice</h2></header>
+        <div class="session-body">
+          <section class="subsection" id="n-recap">
+            <h3>9.1 Chapter recap</h3>
+            <ul>
+              <li>Producer's equilibrium is the output of maximum profit, or minimum loss when profit is impossible.</li>
+              <li>Profit is TR − TC, and TC includes normal profit, so “profit” here means supernormal profit.</li>
+              <li>A firm expands while MR &gt; MC, contracts when MR &lt; MC, and stops where MR = MC with MC rising.</li>
+              <li>The TR–TC approach looks for the widest positive gap, which then falls.</li>
+              <li>There are two break-even points, where TR = TC, one on each side of equilibrium.</li>
+              <li>MR = MC alone is not enough; only the rising-arm crossing is equilibrium.</li>
+              <li>Under perfect competition P = AR = MR, so P = MC with MC rising.</li>
+              <li>When price falls with output, AR slopes down and MR lies below AR; equilibrium still needs MR = MC, so P &gt; MC.</li>
+              <li>At equilibrium, compare P with AC: above gives supernormal profit, equal gives normal profit, below gives a loss.</li>
+              <li>Profit or loss is the per-unit gap (P − AC) multiplied by Q*.</li>
+              <li>Below AC a firm may still produce; it shuts down only below minimum AVC, and the break-even price is minimum AC.</li>
+            </ul>
+          </section>
+
+          <section class="subsection" id="n-formulas">
+            <h3>9.2 Formula sheet</h3>
+            <div class="table-wrap" role="region" aria-label="Formula sheet for producer's equilibrium" tabindex="0">
+              <table>
+                <thead><tr><th>Concept</th><th>Formula</th><th>Remember</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Profit</strong></td><td>π = TR − TC</td><td>TC includes normal profit.</td></tr>
+                  <tr><td><strong>Marginal revenue</strong></td><td>MR = ΔTR ÷ ΔQ</td><td>Addition to TR from one more unit.</td></tr>
+                  <tr><td><strong>Marginal cost</strong></td><td>MC = ΔTC ÷ ΔQ</td><td>Addition to TC from one more unit.</td></tr>
+                  <tr><td><strong>TR–TC equilibrium</strong></td><td>TR − TC maximum, then falling</td><td>Gap must be positive for supernormal profit.</td></tr>
+                  <tr><td><strong>MR–MC equilibrium</strong></td><td>MR = MC and MC rising</td><td>Both conditions are needed.</td></tr>
+                  <tr><td><strong>Perfect competition</strong></td><td>P = AR = MR</td><td>Firm is a price taker.</td></tr>
+                  <tr><td><strong>Imperfect competition</strong></td><td>AR &gt; MR, so P &gt; MC at equilibrium</td><td>Firm must lower price to sell more.</td></tr>
+                  <tr><td><strong>Competitive equilibrium</strong></td><td>P = MC with MC rising</td><td>The same rule in price language.</td></tr>
+                  <tr><td><strong>Profit per unit</strong></td><td>P − AC</td><td>Multiply by Q for total profit.</td></tr>
+                  <tr><td><strong>Total profit or loss</strong></td><td>(P − AC) × Q</td><td>A negative value means a loss.</td></tr>
+                  <tr><td><strong>Three profit cases</strong></td><td>P &gt; AC, P = AC, P &lt; AC</td><td>Supernormal, normal, loss.</td></tr>
+                  <tr><td><strong>Break-even price</strong></td><td>Minimum AC</td><td>Normal profit, zero economic profit.</td></tr>
+                  <tr><td><strong>Shutdown price</strong></td><td>Minimum AVC</td><td>Below it, loss exceeds TFC.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="subsection" id="n-exam">
+            <h3>9.3 Exam-style questions</h3>
+            <p><strong>Very short answer (1 mark)</strong></p>
+            <ol>
+              <li>Define producer's equilibrium.</li>
+              <li>State the profit-maximising condition in terms of MR and MC.</li>
+              <li>What is the shutdown point of a firm?</li>
+              <li>If price is ₹8 and AC is ₹10, what is the profit per unit?</li>
+              <li>What is meant by normal profit?</li>
+            </ol>
+            <p><strong>Short answer (3 marks)</strong></p>
+            <ol>
+              <li>Why is MR = MC necessary but not sufficient for equilibrium?</li>
+              <li>Distinguish between the break-even price and the shutdown price.</li>
+              <li>A firm's TR is ₹900, TC is ₹1,000 and TFC is ₹300. Should it shut down in the short run?</li>
+              <li>Explain the TR–TC approach to producer's equilibrium.</li>
+              <li>When price falls with output, why is price greater than marginal cost at equilibrium?</li>
+            </ol>
+            <p><strong>Long answer (4–6 marks)</strong></p>
+            <ol>
+              <li>Explain producer's equilibrium using the MR–MC approach with a diagram.</li>
+              <li>Explain the TR–TC approach with a diagram. Why are there two break-even points?</li>
+              <li>Explain the shutdown decision in the short run, using a diagram.</li>
+              <li>Explain producer's equilibrium when price falls with output, using a schedule and a diagram.</li>
+              <li>Draw and explain the three profit situations of a firm.</li>
+            </ol>
+            <details class="checklist"><summary>Show answer pointers</summary>
+              <div class="checklist-answer">
+                <p><strong>Very short answer</strong></p>
+                <ol>
+                  <li>The price and output combination at which the producer earns maximum profit.</li>
+                  <li>MR = MC, with MC rising at the intersection.</li>
+                  <li>The minimum point of AVC; below this price the firm stops producing in the short run.</li>
+                  <li>Loss per unit = ₹10 − ₹8 = ₹2.</li>
+                  <li>The minimum return needed to keep the entrepreneur in business; zero economic profit.</li>
+                </ol>
+                <p><strong>Short answer</strong></p>
+                <ol>
+                  <li>MC can cut MR at two outputs. At the falling-arm crossing MC is still below MR to the right, so profit can be raised by expanding; only the rising-arm crossing is equilibrium.</li>
+                  <li>Break-even price = minimum AC (normal profit). Shutdown price = minimum AVC (price just covers variable cost); it lies below the break-even price.</li>
+                  <li>TVC = ₹700. TR of ₹900 covers TVC and leaves ₹200 for fixed cost, so the loss is ₹100, less than the ₹300 lost by shutting down.</li>
+                  <li>Profit is the gap between TR and TC. Equilibrium is where the gap is maximum and positive, and where TC then rises faster than TR.</li>
+                  <li>The firm must lower price to sell more, so AR &gt; MR. Equilibrium sets MR = MC; price is read off AR, so P &gt; MC.</li>
+                </ol>
+                <p><strong>Long answer</strong></p>
+                <ol>
+                  <li>State both conditions. MR is horizontal and U-shaped MC cuts it twice: R on the falling arm, E on the rising arm. Left of E MR &gt; MC; right of E MC &gt; MR.</li>
+                  <li>TR is a straight line from the origin; TC starts at fixed cost and rises at an increasing rate. The gap widens, peaks and narrows, and TR = TC at two outputs.</li>
+                  <li>TFC is payable at zero output. Between minimum AVC and minimum AC, revenue covers variable cost and part of fixed cost, so the firm produces where P = MC.</li>
+                  <li>Build a schedule with price falling as output rises. MR lies below AR. Find the output where MR = MC with MC rising; read the price from AR at that output, and note that P &gt; MC.</li>
+                  <li>Use one set of MC and AC curves. Place the price line above AC for supernormal profit, at minimum AC for normal profit, and below AC for a loss; mark E where P = MC and shade (P − AC) × Q*.</li>
+                </ol>
+              </div>
+            </details>
+          </section>
+
+          <section class="subsection" id="n-minute">
+            <h3>9.4 One-minute revision</h3>
+            <div class="table-wrap" role="region" aria-label="One-minute revision table" tabindex="0">
+              <table>
+                <thead><tr><th>Must know</th><th>The point</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Meaning</strong></td><td>Output of maximum profit, or minimum loss when profit is impossible.</td></tr>
+                  <tr><td><strong>Profit</strong></td><td>TR − TC, with normal profit already inside TC.</td></tr>
+                  <tr><td><strong>MR–MC rule</strong></td><td>MR = MC <strong>and</strong> MC rising.</td></tr>
+                  <tr><td><strong>Why MC rising</strong></td><td>Two intersections are possible; only the rising one is a maximum.</td></tr>
+                  <tr><td><strong>TR–TC rule</strong></td><td>Widest positive gap between TR and TC; two break-even points.</td></tr>
+                  <tr><td><strong>Perfect competition</strong></td><td>P = AR = MR, so equilibrium is P = MC with MC rising.</td></tr>
+                  <tr><td><strong>Price falls with output</strong></td><td>AR slopes down and MR &lt; AR; equilibrium is MR = MC, so P &gt; MC.</td></tr>
+                  <tr><td><strong>Three situations</strong></td><td>P &gt; AC supernormal; P = AC normal; P &lt; AC loss.</td></tr>
+                  <tr><td><strong>Shutdown</strong></td><td>Produce at a loss if P ≥ minimum AVC; stop below it.</td></tr>
+                  <tr><td><strong>Shutdown vs exit</strong></td><td>Short-run pause with fixed cost still due vs long-run departure.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </section>
+      </div>
+
+      <div class="mode-panel mode-panel--quick" id="panel-quick" role="region" aria-label="Quick Revision" data-mode="quick" hidden>
+      <section class="quick-brief" id="q-start">
+        <div class="quick-brief-head">
+          <span class="quick-kicker">18-minute recall</span>
+          <h2>Quick revision, done properly</h2>
+          <p><strong>How to use this file (30 seconds):</strong> read one block → cover it → answer the recall questions aloud → open the answer to check → move on. Total time: about 18 minutes.</p>
+        </div>
+        <ol class="recall-steps">
+          <li><span class="step-num">01</span><strong>Read</strong><span>one block of notes</span></li>
+          <li><span class="step-num">02</span><strong>Cover</strong><span>the page and recall</span></li>
+          <li><span class="step-num">03</span><strong>Answer</strong><span>the drill aloud</span></li>
+          <li><span class="step-num">04</span><strong>Check</strong><span>and move on</span></li>
+        </ol>
+        <div class="quick-map-head"><span>The three sessions</span><span>Tap to jump in</span></div>
+        <div class="quick-map">
+        <a class="quick-map-card" href="#q-session-1">
+          <span class="quick-map-num">S1</span>
+          <span class="quick-map-body"><strong>Profit + TR–TC</strong><span>What profit means, why normal profit is a cost, and how the TR–TC gap finds equilibrium</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="quick-map-card" href="#q-session-2">
+          <span class="quick-map-num">S2</span>
+          <span class="quick-map-body"><strong>MR–MC + Profit Cases</strong><span>The two conditions, perfect vs imperfect competition, and P against AC</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="quick-map-card" href="#q-session-3">
+          <span class="quick-map-num">S3</span>
+          <span class="quick-map-body"><strong>Shutdown + Worked Example</strong><span>Minimum AVC, minimum AC, the full table and the exam traps</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        </div>
+        <p class="quick-brief-foot">24 recall questions · one confusion clinic · one rapid-fire table · one blank-page test.</p>
+      </section>
+
+      <section class="session session--quick" id="q-session-1">
+        <header class="session-head"><span class="session-kicker">Session 1</span><h2>Profit + TR–TC</h2></header>
+        <div class="session-body">
+          <h3 id="q-s1-lines">The chapter in 12 lines</h3>
+          <ul>
+            <li><strong>Producer's equilibrium</strong> is the price–output combination of maximum profit, or minimum loss when profit is impossible.</li>
+            <li><strong>Profit</strong> = TR − TC. A negative profit is a loss.</li>
+            <li><strong>Normal profit</strong> is the minimum return needed to keep the owner in business; it is an implicit cost inside TC.</li>
+            <li><strong>Supernormal profit</strong> is what remains after every cost, including normal profit, is paid.</li>
+            <li>The <strong>TR–TC approach</strong> looks for the widest gap between total revenue and total cost.</li>
+            <li>For a price taker, <strong>TR is a straight line</strong> from the origin; TC starts at fixed cost and rises at an increasing rate.</li>
+            <li>A positive gap opens, peaks and closes. Equilibrium is at the peak.</li>
+            <li>The two crossings where <strong>TR = TC</strong> are the break-even points.</li>
+            <li><strong>MR</strong> is the addition to TR from one more unit; <strong>MC</strong> is the addition to TC.</li>
+            <li>If <strong>MR &gt; MC</strong>, expand; if <strong>MR &lt; MC</strong>, contract.</li>
+            <li>Stop where <strong>MR = MC</strong> — but only if <strong>MC is rising</strong>.</li>
+            <li>If no positive gap exists, equilibrium is the <strong>minimum loss</strong>, where the gap is least negative.</li>
+          </ul>
+
+          <h3 id="q-s1-core">Profit, cost and normal profit</h3>
+          <div class="table-wrap" role="region" aria-label="Normal profit versus supernormal profit" tabindex="0">
+            <table>
+              <thead><tr><th>Basis</th><th>Normal profit</th><th>Supernormal profit</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Meaning</strong></td><td>Minimum return needed to keep the entrepreneur in the business</td><td>Surplus left after every cost, including normal profit, is paid</td></tr>
+                <tr><td><strong>Where it sits</strong></td><td>Inside TC as an implicit cost</td><td>Above TC; the extra reward</td></tr>
+                <tr><td><strong>Economic profit</strong></td><td>Zero</td><td>Positive</td></tr>
+                <tr><td><strong>Diagram</strong></td><td>P = minimum AC</td><td>P &gt; AC at equilibrium</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="formula-line">π = TR − TC          TR = P × Q          TC includes normal profit</div>
+          <div class="callout"><p><strong>In one line:</strong> zero economic profit is not zero accounting profit. The owner is still earning normal profit, which is already counted as a cost.</p></div>
+
+          <h3 id="q-s1-trtc">The TR–TC test</h3>
+          <div class="table-wrap" role="region" aria-label="TR and TC schedule showing the maximum gap" tabindex="0">
+            <table>
+              <thead><tr><th>Output</th><th>TR (₹)</th><th>TC (₹)</th><th>Profit (₹)</th><th>What is happening</th></tr></thead>
+              <tbody>
+                <tr><td>0</td><td>0</td><td>30</td><td>−30</td><td>Loss equals fixed cost</td></tr>
+                <tr><td>1</td><td>20</td><td>44</td><td>−24</td><td>Loss shrinks</td></tr>
+                <tr><td>2</td><td>40</td><td>53</td><td>−13</td><td>Loss shrinks</td></tr>
+                <tr><td>3</td><td>60</td><td>58</td><td>+2</td><td>First break-even crossed</td></tr>
+                <tr><td><strong>4</strong></td><td><strong>80</strong></td><td><strong>69</strong></td><td><strong>+11</strong></td><td><strong>Widest gap: equilibrium</strong></td></tr>
+                <tr><td>5</td><td>100</td><td>92</td><td>+8</td><td>Gap is closing</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The maximum is at <strong>4 units</strong>, where profit is ₹11. TR is highest at 5 units, but TC rises by ₹23 while TR rises by only ₹20, so profit falls. This is why “produce where TR is highest” is wrong.</p>
+          <div class="callout"><p><strong>Three conditions:</strong> (1) the gap is at its maximum; (2) the gap is positive; (3) after that output, TC rises faster than TR. If the gap is never positive, choose the least negative gap.</p></div>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s1-drill">Recall drill — Session 1</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>Define producer's equilibrium.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>The price and output combination at which a producer earns maximum profit; if profit is impossible, the output of minimum loss.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Write the profit formula and say what “normal profit” means.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>π = TR − TC. Normal profit is the minimum return needed to keep the entrepreneur in the business; it is an implicit cost, so zero economic profit.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is normal profit included in cost?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Because without it the owner would leave for the next best alternative. It is a real opportunity cost of the owner's factors.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>What does the TR–TC approach look for?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>The output where the vertical gap between TR and TC is largest and then starts to fall; if TC is always above TR, the least negative gap.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is TR a straight line for a perfectly competitive firm?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Because the firm is a price taker: every unit sells at the same price, so each extra unit adds the same revenue.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>What are the two break-even points?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>The two outputs where TR = TC: one where the firm stops making a loss as it expands, and one where it starts making a loss again.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>From the table, find equilibrium and explain why 5 units is not better.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Equilibrium is 4 units, profit ₹11. At 5 units profit is ₹8 because TC rises by ₹23 while TR rises by ₹20.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Can equilibrium be a loss? Explain in one sentence.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Yes. When TC exceeds TR at every output, the best available outcome is the output where the loss is smallest, and that is still equilibrium.</p></details></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="session session--quick" id="q-session-2">
+        <header class="session-head"><span class="session-kicker">Session 2</span><h2>MR–MC + Profit Cases</h2></header>
+        <div class="session-body">
+          <h3 id="q-s2-mrmc">The two MR–MC conditions</h3>
+          <div class="table-wrap" role="region" aria-label="The two MR–MC conditions" tabindex="0">
+            <table>
+              <thead><tr><th>Condition</th><th>What it means</th><th>What goes wrong if it fails</th></tr></thead>
+              <tbody>
+                <tr><td><strong>MR = MC</strong></td><td>The last unit adds equal amounts to revenue and cost</td><td>If MR &gt; MC, expand; if MR &lt; MC, contract</td></tr>
+                <tr><td><strong>MC is rising</strong></td><td>MC cuts MR from below at that point</td><td>At a falling-arm crossing, MC is still below MR to the right, so profit can rise by expanding</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="formula-line">MR = ΔTR ÷ ΔQ          MC = ΔTC ÷ ΔQ</div>
+          <div class="callout"><p><strong>Both marks, both conditions.</strong> Write “MR = MC with MC rising” — not just “MR = MC”. The first is necessary; the second is sufficient.</p></div>
+          <div class="table-wrap" role="region" aria-label="Profit changes around equilibrium" tabindex="0">
+            <table>
+              <thead><tr><th>Position</th><th>Comparison</th><th>Effect of one more unit</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>Left of E</td><td>MR &gt; MC</td><td>Profit rises by MR − MC</td><td>Expand</td></tr>
+                <tr><td>At E</td><td>MR = MC</td><td>Profit does not change</td><td>Stay put</td></tr>
+                <tr><td>Right of E</td><td>MC &gt; MR</td><td>Profit falls by MC − MR</td><td>Contract</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 id="q-s2-imperfect">Perfect vs imperfect competition</h3>
+          <div class="table-wrap" role="region" aria-label="Perfect competition versus price falling with output" tabindex="0">
+            <table>
+              <thead><tr><th>Feature</th><th>Perfect competition</th><th>Price falls with output</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Price setting</strong></td><td>Price taker; market sets P</td><td>Must lower P to sell more</td></tr>
+                <tr><td><strong>AR curve</strong></td><td>Horizontal at P</td><td>Downward-sloping</td></tr>
+                <tr><td><strong>MR relation</strong></td><td>P = AR = MR</td><td>AR &gt; MR; MR falls twice as fast if AR is a straight line</td></tr>
+                <tr><td><strong>Equilibrium</strong></td><td>P = MC with MC rising</td><td>MR = MC with MC rising</td></tr>
+                <tr><td><strong>Price vs MC</strong></td><td>P = MC</td><td>P &gt; MC</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Why P &gt; MC when price falls with output:</strong> equilibrium sets MR = MC. But the firm must lower price to sell more, so AR (price) is above MR. Since MC equals MR and P equals AR, P must be above MC.</p>
+          <div class="table-wrap" role="region" aria-label="Lecture schedule with falling price" tabindex="0">
+            <table>
+              <thead><tr><th>Q</th><th>P = AR (₹)</th><th>TR (₹)</th><th>MR (₹)</th><th>MC (₹)</th><th>Profit (₹)</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>8</td><td>8</td><td>8</td><td>6</td><td>2</td></tr>
+                <tr><td>2</td><td>7</td><td>14</td><td>6</td><td>5</td><td>3</td></tr>
+                <tr><td><strong>3</strong></td><td><strong>6</strong></td><td><strong>18</strong></td><td><strong>4</strong></td><td><strong>4</strong></td><td><strong>3</strong></td></tr>
+                <tr><td>4</td><td>5</td><td>20</td><td>2</td><td>5</td><td>0</td></tr>
+                <tr><td>5</td><td>4</td><td>20</td><td>0</td><td>6</td><td>−6</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>At 3 units, MR = MC = ₹4 with MC rising. Price is read from AR at ₹6, so <strong>P &gt; MC</strong>. The profit plateau at 2 and 3 units is resolved in favour of 3 because at 2 units MR is still above MC.</p>
+
+          <h3 id="q-s2-profit">Three profit situations</h3>
+          <div class="table-wrap" role="region" aria-label="Three profit situations with formulas" tabindex="0">
+            <table>
+              <thead><tr><th>Situation</th><th>Price vs AC</th><th>Profit per unit</th><th>Total</th><th>Name</th></tr></thead>
+              <tbody>
+                <tr><td>Favourable</td><td>P &gt; AC</td><td>P − AC, positive</td><td>(P − AC) × Q*</td><td>Supernormal profit</td></tr>
+                <tr><td>Break-even</td><td>P = AC</td><td>Zero</td><td>Zero economic profit</td><td>Normal profit</td></tr>
+                <tr><td>Unfavourable</td><td>P &lt; AC</td><td>P − AC, negative</td><td>(P − AC) × Q*</td><td>Loss</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Locate first, compare second.</strong> Find Q* from P = MC (or MR = MC), then compare P with AC at that Q*. Never compare P with AC at a different output.</p></div>
+          <div class="table-wrap" role="region" aria-label="What changes across the three panels" tabindex="0">
+            <table>
+              <thead><tr><th>Panel</th><th>Price line</th><th>Equilibrium</th><th>Rectangle</th></tr></thead>
+              <tbody>
+                <tr><td>(a) Supernormal profit</td><td>Above AC</td><td>P cuts rising MC</td><td>(P − AC) × Q*, shaded profit</td></tr>
+                <tr><td>(b) Normal profit</td><td>At minimum AC</td><td>P = MC at minimum AC</td><td>Collapses to a point</td></tr>
+                <tr><td>(c) Loss</td><td>Below AC, above minimum AVC</td><td>P cuts rising MC</td><td>(AC − P) × Q*, shaded loss</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s2-drill">Recall drill — Session 2</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>State the two conditions for MR–MC equilibrium.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>(i) MR = MC; (ii) MC must be rising, cutting MR from below.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is MR = MC alone not enough?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>A U-shaped MC curve can cut MR twice. At the falling-arm crossing, MC is still below MR to the right, so expanding raises profit. Only the rising-arm crossing is a maximum.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>What is the rule for a perfectly competitive firm?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>P = MC with MC rising, because the price taker has P = AR = MR.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why does MR lie below AR when price falls with output?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>To sell another unit the firm must lower price on all units, so the extra revenue is less than the new price. For a straight-line AR, MR falls twice as fast.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>At equilibrium with falling price, why is P &gt; MC?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Equilibrium sets MR = MC, but P = AR &gt; MR. Therefore P &gt; MC.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>A firm has P = ₹20 and AC = ₹16 at 50 units. Find its profit.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Profit per unit = ₹4; total = ₹4 × 50 = ₹200.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>If P is below AC but above minimum AVC, what is the situation?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>A loss, but the firm still produces in the short run because revenue covers variable cost and contributes towards fixed cost.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Which price is the break-even price, and what profit is earned there?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Minimum AC. At that price the firm earns normal profit — zero economic profit.</p></details></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="session session--quick" id="q-session-3">
+        <header class="session-head"><span class="session-kicker">Session 3</span><h2>Shutdown + Worked Example</h2></header>
+        <div class="session-body">
+          <h3 id="q-s3-shutdown">The shutdown decision</h3>
+          <div class="table-wrap" role="region" aria-label="Three price zones and the shutdown decision" tabindex="0">
+            <table>
+              <thead><tr><th>Price zone</th><th>What revenue covers</th><th>Loss compared with shutdown</th><th>Decision</th></tr></thead>
+              <tbody>
+                <tr><td>P ≥ minimum AC</td><td>All costs</td><td>No loss; normal or supernormal profit</td><td>Produce at P = MC</td></tr>
+                <tr><td>Minimum AVC ≤ P &lt; minimum AC</td><td>All TVC and part of TFC</td><td>Smaller than TFC</td><td>Produce at a loss</td></tr>
+                <tr><td>P &lt; minimum AVC</td><td>Not even all TVC</td><td>Larger than TFC</td><td>Shut down</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="formula-line">Shutdown price = minimum AVC          Break-even price = minimum AC</div>
+          <p><strong>Key comparison:</strong> shut down and lose TFC. Produce and lose TFC − (TR − TVC). Produce if TR ≥ TVC, which is the same as P ≥ minimum AVC.</p>
+          <div class="table-wrap" role="region" aria-label="Numerical shutdown illustration" tabindex="0">
+            <table>
+              <thead><tr><th>Price (₹)</th><th>TR (₹)</th><th>TVC (₹)</th><th>Produce: profit/loss (₹)</th><th>Shut down: loss (₹)</th><th>Decision</th></tr></thead>
+              <tbody>
+                <tr><td>12</td><td>1,200</td><td>600</td><td>+100</td><td>500</td><td>Produce</td></tr>
+                <tr><td>11</td><td>1,100</td><td>600</td><td>0</td><td>500</td><td>Produce</td></tr>
+                <tr><td>7</td><td>700</td><td>600</td><td>−400</td><td>500</td><td>Produce</td></tr>
+                <tr><td>5</td><td>500</td><td>600</td><td>−600</td><td>500</td><td>Shut down</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Shutdown ≠ exit.</strong> Shutdown is short-run: output is zero, TFC continues, and the firm can restart. Exit is long-run: the firm leaves the industry and no longer pays fixed cost.</p></div>
+
+          <h3 id="q-s3-worked">Worked example</h3>
+          <p>Price is ₹10. TC is 20, 30, 38, 44, 52, 64 and 80 at outputs 0 to 6. MC is 10, 8, 6, 8, 12 and 16; profit is −20, −20, −18, −14, −12, −14 and −20.</p>
+          <div class="table-wrap" role="region" aria-label="Worked example summary" tabindex="0">
+            <table>
+              <thead><tr><th>Output</th><th>TC (₹)</th><th>MC (₹)</th><th>Profit (₹)</th><th>Reading</th></tr></thead>
+              <tbody>
+                <tr><td>0</td><td>20</td><td>—</td><td>−20</td><td>Shutdown loss = TFC</td></tr>
+                <tr><td>1</td><td>30</td><td>10</td><td>−20</td><td>First crossing, but MC is falling</td></tr>
+                <tr><td>2</td><td>38</td><td>8</td><td>−18</td><td>MC &lt; MR, expand</td></tr>
+                <tr><td>3</td><td>44</td><td>6</td><td>−14</td><td>MC &lt; MR, expand</td></tr>
+                <tr><td><strong>4</strong></td><td><strong>52</strong></td><td><strong>8</strong></td><td><strong>−12</strong></td><td><strong>Minimum loss: equilibrium</strong></td></tr>
+                <tr><td>5</td><td>64</td><td>12</td><td>−14</td><td>MC &gt; MR, contract</td></tr>
+                <tr><td>6</td><td>80</td><td>16</td><td>−20</td><td>Loss grows</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ul>
+            <li><strong>TR–TC:</strong> the gap is least negative at 4 units, so profit is −₹12.</li>
+            <li><strong>MR–MC:</strong> MR = ₹10. MC is ₹8 at 4 units and ₹12 at 5 units, so it crosses ₹10 between them with MC rising. The table reports the last whole unit: 4.</li>
+            <li><strong>Why not Q = 1?</strong> MR = MC = ₹10 there, but MC is falling and stays below MR for the next units. The second condition fails.</li>
+            <li><strong>Shutdown check:</strong> TFC = ₹20. At Q = 4, TVC = ₹52 − ₹20 = ₹32 and AVC = ₹8. P = ₹10 &gt; ₹8, so produce. Loss ₹12 &lt; shutdown loss ₹20.</li>
+          </ul>
+
+          <h3 id="q-s3-exam">Exam lines and traps</h3>
+          <div class="table-wrap" role="region" aria-label="Exam lines and traps" tabindex="0">
+            <table>
+              <thead><tr><th>Question</th><th>Exam-ready line</th></tr></thead>
+              <tbody>
+                <tr><td>Why must MC rise?</td><td>Two intersections are possible; only the rising one is a maximum.</td></tr>
+                <tr><td>Why P &gt; MC under imperfect competition?</td><td>MR = MC at equilibrium, but P = AR &gt; MR.</td></tr>
+                <tr><td>When does a firm shut down?</td><td>When P &lt; minimum AVC, so revenue cannot cover variable cost.</td></tr>
+                <tr><td>Why produce below AC?</td><td>Price still covers AVC and contributes to fixed cost, so the loss is smaller than TFC.</td></tr>
+                <tr><td>Break-even price vs shutdown price</td><td>Minimum AC (normal profit) vs minimum AVC (just covers variable cost).</td></tr>
+                <tr><td>Equilibrium with a loss?</td><td>Yes — equilibrium is the best available outcome, which can be the minimum loss.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Five-mark structure:</strong> define equilibrium → state both conditions → show the diagram/table → explain either side of E → finish with the profit or shutdown conclusion.</p></div>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s3-drill">Recall drill — Session 3</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>Define the shutdown price and the break-even price.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Shutdown price = minimum AVC; below it the firm stops producing. Break-even price = minimum AC; there the firm earns normal profit.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is the loss from producing smaller than TFC between minimum AVC and minimum AC?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Revenue covers all variable cost and leaves a contribution towards fixed cost, so only part of TFC is lost.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>TFC ₹300, TVC ₹500 at 50 units, P ₹12. Produce or shut down?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>TR = ₹600, TC = ₹800, so producing loses ₹200; shutting down loses ₹300. Produce.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>What is the difference between shutdown and exit?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Shutdown is a short-run pause with fixed cost still payable and the firm still in the industry. Exit is a long-run departure with capital sold and no fixed cost.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is Q = 4 the equilibrium in the worked example?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>It gives the least negative profit, −₹12. MC crosses MR between 4 and 5 units with MC rising, so 4 is the last whole unit where MC is below MR.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is Q = 1 not equilibrium even though MR = MC?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>MC is falling there and stays below MR for the next units, so expanding raises profit. The rising-MC condition fails.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>At Q = 4, find TFC, TVC, AVC and the shutdown decision.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>TFC = ₹20; TC = ₹52, so TVC = ₹32; AVC = ₹8. Price is ₹10, above AVC, so the firm produces. Loss is ₹12, less than the ₹20 shutdown loss.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Give the three-step method for any producer's equilibrium numerical.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Complete MR and MC; locate MR = MC with MC rising (or the widest TR − TC gap); then compare P with AC for profit/loss and with minimum AVC for the shutdown decision.</p></details></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block clinic-block" id="q-clinic">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">Traps examiners love</span><h2>Confusion Clinic</h2><p>The one difference that decides the mark.</p></div>
+        </div>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="Confusion clinic" tabindex="0">
+            <table>
+              <thead><tr><th>Pair</th><th>The one difference</th></tr></thead>
+              <tbody>
+                <tr><td>Normal profit vs supernormal profit</td><td>Minimum return inside cost, zero economic profit vs surplus above every cost</td></tr>
+                <tr><td>Accounting profit vs economic profit</td><td>TR minus explicit cost vs TR minus all cost, including normal profit</td></tr>
+                <tr><td>MR = MC vs P = MC</td><td>General rule vs the special case of a price taker, where P = MR</td></tr>
+                <tr><td>Necessary vs sufficient condition</td><td>MR = MC vs MC also rising through the intersection</td></tr>
+                <tr><td>First crossing vs second crossing</td><td>Falling MC gives minimum profit vs rising MC gives maximum profit</td></tr>
+                <tr><td>TR highest vs profit highest</td><td>Revenue alone vs the gap TR − TC</td></tr>
+                <tr><td>Break-even output vs break-even price</td><td>TR = TC at two outputs vs minimum AC, where profit is normal</td></tr>
+                <tr><td>Break-even price vs shutdown price</td><td>Minimum AC vs minimum AVC; shutdown price lies lower</td></tr>
+                <tr><td>P &lt; AC vs P &lt; minimum AVC</td><td>Loss but keep producing vs shut down immediately</td></tr>
+                <tr><td>Shutdown vs exit</td><td>Short-run pause, TFC still due vs long-run departure, capital sold</td></tr>
+                <tr><td>Equilibrium vs profit</td><td>Best available outcome vs a positive surplus; equilibrium can be a minimum loss</td></tr>
+                <tr><td>Profit per unit vs total profit</td><td>P − AC vs (P − AC) × Q</td></tr>
+                <tr><td>Perfect competition vs imperfect competition</td><td>P = AR = MR vs AR &gt; MR, so P &gt; MC</td></tr>
+                <tr><td>MC locates output vs AC decides profit</td><td>Equilibrium uses MC; the profit size uses AC at that output</td></tr>
+                <tr><td>Normal profit vs no profit</td><td>Zero economic profit, owner still rewarded vs revenue below full cost</td></tr>
+                <tr><td>AFC vs AVC vs AC</td><td>TFC ÷ Q vs TVC ÷ Q vs TC ÷ Q = AFC + AVC</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block rapid-block" id="q-rapid">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">One-line answers</span><h2>Rapid Fire</h2><p>Cover the right column. Say the answer before you reveal it.</p></div>
+          <button class="cover-btn" type="button" data-cover-answers aria-pressed="false">Cover answers</button>
+        </div>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="Rapid fire questions and answers" tabindex="0">
+            <table class="rapid-table">
+              <thead><tr><th>Question</th><th>One-line answer</th></tr></thead>
+              <tbody>
+                <tr><td>Producer's equilibrium</td><td>Price–output combination of maximum profit, or minimum loss</td></tr>
+                <tr><td>Profit</td><td>TR − TC</td></tr>
+                <tr><td>Normal profit</td><td>Minimum return needed to keep the owner in business; inside cost</td></tr>
+                <tr><td>Supernormal profit</td><td>Surplus after every cost, including normal profit</td></tr>
+                <tr><td>Explicit cost</td><td>Payment to outsiders: wages, rent, raw material</td></tr>
+                <tr><td>Implicit cost</td><td>Value of the owner's own factors, including normal profit</td></tr>
+                <tr><td>MR</td><td>ΔTR ÷ ΔQ</td></tr>
+                <tr><td>MC</td><td>ΔTC ÷ ΔQ</td></tr>
+                <tr><td>MR &gt; MC</td><td>Expand; profit rises</td></tr>
+                <tr><td>MR &lt; MC</td><td>Contract; profit falls</td></tr>
+                <tr><td>Equilibrium condition</td><td>MR = MC with MC rising</td></tr>
+                <tr><td>Why MC rising?</td><td>Two crossings are possible; only the rising one is a maximum</td></tr>
+                <tr><td>TR–TC approach</td><td>Choose the widest positive gap; if none, the least negative</td></tr>
+                <tr><td>Break-even outputs</td><td>The two outputs where TR = TC</td></tr>
+                <tr><td>No positive TR–TC gap</td><td>Equilibrium is still the minimum loss</td></tr>
+                <tr><td>Perfect competition revenue</td><td>P = AR = MR</td></tr>
+                <tr><td>Perfect competition equilibrium</td><td>P = MC with MC rising</td></tr>
+                <tr><td>Imperfect competition revenue</td><td>AR slopes down; MR &lt; AR</td></tr>
+                <tr><td>Falling-price equilibrium</td><td>MR = MC with MC rising</td></tr>
+                <tr><td>Price vs MC with falling price</td><td>P &gt; MC</td></tr>
+                <tr><td>Profit per unit</td><td>P − AC</td></tr>
+                <tr><td>Total profit</td><td>(P − AC) × Q</td></tr>
+                <tr><td>Three profit cases</td><td>P &gt; AC supernormal; P = AC normal; P &lt; AC loss</td></tr>
+                <tr><td>Break-even price</td><td>Minimum AC</td></tr>
+                <tr><td>Shutdown price</td><td>Minimum AVC</td></tr>
+                <tr><td>Shutdown rule</td><td>Produce if P ≥ minimum AVC; stop below it</td></tr>
+                <tr><td>Why produce below AC?</td><td>Revenue covers AVC and part of fixed cost, so loss is smaller than TFC</td></tr>
+                <tr><td>Shutdown vs exit</td><td>Short-run pause vs long-run departure</td></tr>
+                <tr><td>Worked example Q = 1 trap</td><td>MR = MC, but MC is falling, so it is minimum profit</td></tr>
+                <tr><td>Worked example equilibrium</td><td>Q = 4, profit = −₹12</td></tr>
+                <tr><td>Worked example shutdown</td><td>TFC ₹20; loss ₹12; produce</td></tr>
+                <tr><td>TFC at zero output</td><td>TC at Q = 0</td></tr>
+                <tr><td>AVC</td><td>TVC ÷ Q</td></tr>
+                <tr><td>AC</td><td>TC ÷ Q = AFC + AVC</td></tr>
+                <tr><td>Lecture table equilibrium</td><td>Q = 3, MR = MC = ₹4, P = ₹6</td></tr>
+                <tr><td>Price vs MC in lecture table</td><td>P = ₹6 &gt; MC = ₹4</td></tr>
+                <tr><td>P = ₹20, AC = ₹16, Q = 50</td><td>Profit = ₹200</td></tr>
+                <tr><td>TR ₹900, TC ₹1,000, TFC ₹300</td><td>Produce; loss ₹100 is less than ₹300</td></tr>
+                <tr><td>Minimum AVC vs minimum AC</td><td>Shutdown price lies below break-even price</td></tr>
+                <tr><td>Zero economic profit</td><td>Normal profit; the owner is still rewarded</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block blank-block" id="q-blank">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">From memory</span><h2>Blank Page Test</h2><p>10 minutes. Close the notes and tick each one you can write.</p></div>
+        </div>
+        <div class="blank-meter">
+          <span class="blank-count" data-blank-count>0 / 15 complete</span>
+          <span class="blank-bar" aria-hidden="true"><span data-blank-bar></span></span>
+          <button class="blank-reset" type="button" data-blank-reset>Reset</button>
+        </div>
+        <p>Close the file and write these from memory. Tick each one you complete.</p>
+        <ul class="blank-list">
+          <li><label class="blank-item"><input class="blank-check" data-blank="1" id="q-blank-8-1" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Definition of producer's equilibrium + maximum profit versus minimum loss</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="2" id="q-blank-8-2" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Profit formula + normal profit as an implicit cost</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="3" id="q-blank-8-3" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Normal profit vs supernormal profit: meaning, cost treatment and economic profit</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="4" id="q-blank-8-4" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">TR–TC approach: three conditions and the minimum-loss case</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="5" id="q-blank-8-5" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Why a TR–TC diagram has two break-even points, and what they mean</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="6" id="q-blank-8-6" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Definitions and formulas for MR and MC</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="7" id="q-blank-8-7" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">MR = MC with MC rising: both conditions and why each is needed</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="8" id="q-blank-8-8" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Why the falling-arm intersection is a minimum, not a maximum</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="9" id="q-blank-8-9" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Perfect vs imperfect competition: P = AR = MR vs AR &gt; MR, and the equilibrium rule</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="10" id="q-blank-8-10" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Lecture schedule: Q = 3, P = ₹6, MC = ₹4, and why P &gt; MC</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="11" id="q-blank-8-11" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Three profit cases + the formula (P − AC) × Q</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="12" id="q-blank-8-12" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Three shutdown zones: above AC, between AVC and AC, below AVC</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="13" id="q-blank-8-13" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Shutdown vs exit: time, fixed cost, output and industry status</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="14" id="q-blank-8-14" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Worked example: Q = 4, loss ₹12, TFC ₹20, TVC ₹32, AVC ₹8, produce</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="15" id="q-blank-8-15" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Full formula sheet: profit, MR, MC, gap, P = MC, P &gt; MC, (P − AC) × Q, minimum AC and AVC</span></label></li>
+        </ul>
+        <p class="blank-note"><strong>Scoring:</strong> 12–15 ticks = exam ready. 8–11 = redo the recall drills for the missed sections. Below 8 = read the session notes again, then repeat this test tomorrow.</p>
+      </section>
+
+      <section class="quick-block plan-block" id="q-plan">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">Exam morning</span><h2>15-Minute Revision Plan</h2><p>A timed route through the whole chapter, from first recall to the final line.</p></div>
+        </div>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="15-minute revision plan" tabindex="0">
+            <table class="plan-table">
+              <thead><tr><th>Minutes</th><th>Do this</th></tr></thead>
+              <tbody>
+                <tr><td>0–3</td><td>Session 1: profit and normal profit, TR–TC conditions, two break-even points, the ₹11 schedule</td></tr>
+                <tr><td>3–6</td><td>Session 2: MR = MC plus MC rising, why the falling crossing fails</td></tr>
+                <tr><td>6–9</td><td>Session 2: perfect vs imperfect competition, P &gt; MC, three profit cases and (P − AC) × Q</td></tr>
+                <tr><td>9–12</td><td>Session 3: shutdown zones, minimum AVC vs minimum AC, shutdown vs exit</td></tr>
+                <tr><td>12–15</td><td>Session 3: worked example Q = 4, then Rapid Fire and the Confusion Clinic</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Final line to remember:</strong> a producer stops where MR = MC with MC rising, not where revenue is highest. Profit is then read from P against AC; if price is below AC but above minimum AVC, the firm keeps producing because that loss is smaller than shutting down.</p>
+        </div>
+      </section>
+
+      <div class="quick-cta">
+        <div>
+          <span class="quick-cta-kicker">Need the reasoning?</span>
+          <p>Every table in quick revision is built from the full notes.</p>
+        </div>
+        <button class="mode-jump" type="button" data-mode-jump="notes">Read the full notes <span aria-hidden="true">→</span></button>
+      </div>
+      </div>
+
+      <nav class="pager" aria-label="Chapter navigation"><a class="pager-link prev" href="Chapter-7-Revenue.html"><span class="pager-label">← Previous chapter</span><span class="pager-title">Chapter 7 · Revenue</span></a><a class="pager-link next" href="Chapter-9-Supply.html"><span class="pager-label">Next chapter →</span><span class="pager-title">Chapter 9 · Supply</span></a></nav>
+
+      <footer class="page-footer">
+        <p><strong>Chapter 8 · Producer's Equilibrium</strong></p>
+        <p>Built from the Class 11 Microeconomics lecture notes and the standard NCERT treatment. Examples are closest real-world illustrations, not claims about exact market data.</p>
+        <p><a href="../index.html">← All subjects</a> <span>·</span> <a href="#main">Back to top</a></p>
+      </footer>
+    </main>
+  </div>
+
+  <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false" aria-controls="toc">
+    <span aria-hidden="true">☰</span> Contents
+  </button>
+
+  <div class="figure-lightbox" id="figureLightbox" hidden>
+    <div class="figure-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="figureLightboxTitle">
+      <div class="figure-lightbox__bar">
+        <p class="figure-lightbox__title" id="figureLightboxTitle">Figure<span>Swipe or scroll to explore. Use + and − to zoom.</span></p>
+        <div class="figure-lightbox__actions">
+          <button class="figure-lightbox__icon" type="button" data-lightbox-zoom-out aria-label="Zoom out" disabled>
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M20 20l-3.4-3.4"/></svg>
+          </button>
+          <button class="figure-lightbox__level" type="button" data-lightbox-level aria-label="Zoom 1×. Reset to fit.">1×</button>
+          <button class="figure-lightbox__icon" type="button" data-lightbox-zoom-in aria-label="Zoom in">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M11 8v6M20 20l-3.4-3.4"/></svg>
+          </button>
+          <button class="figure-lightbox__close" type="button" id="figureLightboxClose">Close</button>
+        </div>
+      </div>
+      <div class="figure-lightbox__scroll" id="figureLightboxScroll" tabindex="0" aria-label="Enlarged figure. Swipe, scroll or use the arrow keys to explore.">
+        <img id="figureLightboxImage" alt="" decoding="async">
+      </div>
+    </div>
+  </div>
+
+  <script src="../Retail/retail.js?v=20261030a"></script>
+  <script>
+    (function () {
+      'use strict';
+      var figures = document.querySelectorAll('.chapter-figure');
+      var overlay = document.getElementById('figureLightbox');
+      if (!figures.length || !overlay) return;
+
+      var dialog = overlay.querySelector('.figure-lightbox__dialog');
+      var titleEl = document.getElementById('figureLightboxTitle');
+      var imgEl = document.getElementById('figureLightboxImage');
+      var scrollEl = document.getElementById('figureLightboxScroll');
+      var closeBtn = document.getElementById('figureLightboxClose');
+      var zoomInBtn = overlay.querySelector('[data-lightbox-zoom-in]');
+      var zoomOutBtn = overlay.querySelector('[data-lightbox-zoom-out]');
+      var levelBtn = overlay.querySelector('[data-lightbox-level]');
+      var SCALES = [1, 1.25, 1.5, 2, 2.5, 3];
+      var scaleIndex = 0;
+      var baseWidth = 0;
+      var lastFocus = null;
+      var isPhone = window.matchMedia('(max-width: 700px)');
+      var resizeFrame = 0;
+
+      function contentWidth() {
+        var style = window.getComputedStyle(scrollEl);
+        var padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+        return Math.max(240, scrollEl.clientWidth - padding);
+      }
+
+      function levelText() {
+        return SCALES[scaleIndex] + '×';
+      }
+
+      function paintScale(preserveCentre) {
+        if (!baseWidth) baseWidth = contentWidth();
+        var oldWidth = imgEl.getBoundingClientRect().width || baseWidth;
+        var newWidth = Math.round(baseWidth * SCALES[scaleIndex]);
+        var centreX = 0;
+        var centreY = 0;
+        var ratio = 1;
+        if (preserveCentre) {
+          centreX = scrollEl.scrollLeft + scrollEl.clientWidth / 2;
+          centreY = scrollEl.scrollTop + scrollEl.clientHeight / 2;
+          ratio = newWidth / oldWidth;
+        }
+        imgEl.style.width = newWidth + 'px';
+        if (preserveCentre) {
+          scrollEl.scrollLeft = Math.max(0, centreX * ratio - scrollEl.clientWidth / 2);
+          scrollEl.scrollTop = Math.max(0, centreY * ratio - scrollEl.clientHeight / 2);
+        }
+        var label = levelText();
+        levelBtn.textContent = label;
+        levelBtn.setAttribute('aria-label', 'Zoom ' + label + '. Reset to fit.');
+        zoomOutBtn.disabled = scaleIndex === 0;
+        zoomInBtn.disabled = scaleIndex === SCALES.length - 1;
+      }
+
+      function setScale(index, preserveCentre) {
+        scaleIndex = Math.max(0, Math.min(SCALES.length - 1, index));
+        paintScale(preserveCentre);
+      }
+
+      function openLightbox(link, fig) {
+        var source = fig.querySelector('img');
+        var heading = fig.querySelector('figcaption strong');
+        var title = heading ? heading.textContent.trim() : (source.alt || 'Figure');
+
+        lastFocus = link;
+        titleEl.firstChild.nodeValue = title;
+        imgEl.src = source.currentSrc || source.src;
+        imgEl.alt = source.alt || '';
+        baseWidth = 0;
+        setScale(isPhone.matches ? 3 : 0, false);
+        overlay.hidden = false;
+        document.body.classList.add('figure-lightbox-open');
+        window.requestAnimationFrame(function () {
+          baseWidth = contentWidth();
+          paintScale(false);
+          scrollEl.scrollLeft = 0;
+          scrollEl.scrollTop = 0;
+          closeBtn.focus();
+        });
+      }
+
+      function closeLightbox() {
+        if (overlay.hidden) return;
+        overlay.hidden = true;
+        document.body.classList.remove('figure-lightbox-open');
+        if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+        lastFocus = null;
+      }
+
+      Array.prototype.forEach.call(figures, function (fig) {
+        var image = fig.querySelector('img');
+        if (!image || image.closest('.figure-zoom')) return;
+        var heading = fig.querySelector('figcaption strong');
+        var title = heading ? heading.textContent.trim() : (image.alt || 'figure');
+        var link = document.createElement('a');
+        link.className = 'figure-zoom';
+        link.href = image.getAttribute('src');
+        link.setAttribute('aria-label', 'Tap to enlarge ' + title);
+        image.parentNode.insertBefore(link, image);
+        link.appendChild(image);
+
+        var hint = document.createElement('span');
+        hint.className = 'figure-zoom__hint';
+        hint.setAttribute('aria-hidden', 'true');
+        hint.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H3v6M15 3h6v6M9 21H3v-6M21 15v6h-6"/></svg><span>Tap to enlarge</span>';
+        link.appendChild(hint);
+
+        link.addEventListener('click', function (event) {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          openLightbox(link, fig);
+        });
+      });
+
+      zoomInBtn.addEventListener('click', function () { setScale(scaleIndex + 1, true); });
+      zoomOutBtn.addEventListener('click', function () { setScale(scaleIndex - 1, true); });
+      levelBtn.addEventListener('click', function () { setScale(0, true); });
+      closeBtn.addEventListener('click', closeLightbox);
+      overlay.addEventListener('click', function (event) {
+        if (event.target === overlay) closeLightbox();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (overlay.hidden) return;
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeLightbox();
+          return;
+        }
+        if (event.key === 'Tab') {
+          var focusables = Array.prototype.slice.call(
+            dialog.querySelectorAll('button:not([disabled]), a[href], [tabindex="0"]')
+          );
+          if (!focusables.length) return;
+          var first = focusables[0];
+          var last = focusables[focusables.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+          return;
+        }
+        var step = 70;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+          event.preventDefault();
+          if (event.key === 'ArrowLeft') scrollEl.scrollLeft -= step;
+          if (event.key === 'ArrowRight') scrollEl.scrollLeft += step;
+          if (event.key === 'ArrowUp') scrollEl.scrollTop -= step;
+          if (event.key === 'ArrowDown') scrollEl.scrollTop += step;
+        }
+      });
+
+      window.addEventListener('resize', function () {
+        if (overlay.hidden) return;
+        window.cancelAnimationFrame(resizeFrame);
+        resizeFrame = window.requestAnimationFrame(function () {
+          baseWidth = contentWidth();
+          paintScale(true);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

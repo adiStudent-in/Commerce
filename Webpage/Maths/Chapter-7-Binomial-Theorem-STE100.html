@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 7 — Binomial Theorem (Revision Notes) | Maths Class 11</title>
+  <meta name="description" content="Class 11 Maths Chapter 7 Binomial Theorem — STE100 easy revision notes: plain-English theorem, Pascal's triangle, formula wall, common traps and 42 solved practice questions for CBSE 2026-27.">
+  <meta name="chapter-id" content="maths-7-ste">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navigation ─── */
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+
+    nav.top-nav .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── Layout ─── */
+    .wrapper {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      gap: 40px;
+    }
+
+    /* ─── Sidebar (TOC) ─── */
+    aside.toc {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    aside.toc h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    aside.toc a {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    aside.toc a:hover,
+    aside.toc a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    /* ─── Main Content ─── */
+    main.content {
+      flex: 1;
+      max-width: var(--max-width);
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .hero .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ─── Section Styling ─── */
+    section { margin-bottom: 48px; }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.35;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    section h4 {
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    section p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    /* ─── Blockquote ─── */
+    blockquote {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    blockquote strong { font-weight: 600; }
+
+    /* ─── Callout box ─── */
+    .callout {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: #5a4a1a;
+    }
+
+    /* ─── Tables ─── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    table thead {
+      background: var(--accent-light);
+    }
+
+    table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    table tbody tr:first-child td { border-top: none; }
+
+    table tbody tr:hover { background: #f5f3ef; }
+
+    table td:first-child { font-weight: 500; white-space: nowrap; }
+
+    /* ─── Code / Tree ─── */
+    pre {
+      background: #1a1a2e;
+      color: #e4e4f0;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    /* ─── Lists ─── */
+    section ul, section ol {
+      margin: 12px 0 16px;
+      padding-left: 24px;
+    }
+
+    section li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    section ul ul { margin: 4px 0 4px 16px; }
+
+    /* ─── Horizontal Rule ─── */
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* ─── Key Terms ─── */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .terms-grid .term {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
+
+    .terms-grid .term strong {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .terms-grid .term span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── Progress ─── */
+    .progress-bar {
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      height: 2px;
+      z-index: 99;
+      background: transparent;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    /* ─── Mobile Toggle ─── */
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ─── Highlights ─── */
+    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
+    section p strong { color: var(--accent); font-weight: 600; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        top: auto;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150;
+        transition: max-height 0.35s ease;
+        padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      aside.toc h3 { margin-bottom: 12px; }
+      .toc-toggle { display: block; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .terms-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Animations ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+  </style>
+  <style>
+    /* ─── LaTeX formulas (KaTeX; additive — BST shell untouched) ─── */
+    .tex-block { display: block; text-align: center; padding: 8px 4px; overflow-x: auto; }
+    .katex { font-size: 1.06em; }
+    .katex-display { margin: 0; }
+    /* ─── Practice dropdowns (additive — BST shell untouched) ─── */
+    details.qa { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin: 12px 0; box-shadow: var(--shadow-sm); }
+    details.qa summary { cursor: pointer; padding: 12px 16px; font-weight: 600; font-size: 15px; color: var(--text); list-style: none; line-height: 1.55; }
+    details.qa summary::-webkit-details-marker { display: none; }
+    details.qa summary::marker { content: ""; }
+    details.qa summary::before { content: "+"; color: var(--accent); font-weight: 700; margin-right: 10px; }
+    details.qa[open] summary::before { content: "\2013"; }
+    details.qa summary:hover { color: var(--accent); }
+    details.qa[open] { border-left: 3px solid var(--accent); }
+    details.qa .sol { padding: 2px 16px 14px 42px; }
+    details.qa .sol p, details.qa .sol ul, details.qa .sol ol { margin-bottom: 10px; }
+    details.qa .sol ul, details.qa .sol ol { padding-left: 22px; }
+    details.qa .sol li { margin-bottom: 6px; }
+  </style>
+  <style>
+    /* ─── STE100 revision page additions (additive — shell untouched) ─── */
+    .cb { color: var(--accent); font-weight: 700; margin-right: 6px; }
+    blockquote .tex-block { margin: 4px 0; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">← Maths <span>Notes</span></a>
+    <span class="meta">Class 11 · Chapter 7 · Revision</span>
+    <button class="mindmap-toggle" aria-label="Open mind map" title="Mind Map"><span class="mm-icon">🗺️</span> Mind Map</button>
+  </nav>
+
+  <!-- Progress -->
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+<!-- Mobile TOC Toggle -->
+  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">☰ Contents</button>
+
+  <!-- Layout -->
+  <div class="wrapper">
+
+    <!-- Sidebar TOC -->
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#syllabus" class="toc-h2">1. Syllabus Check</a>
+      <a href="#key-words" class="toc-h2">2. Key Words</a>
+      <a href="#theorem" class="toc-h2">3. The Binomial Theorem</a>
+      <a href="#proof" class="toc-h2">4. Why It Works — The Proof</a>
+      <a href="#pascal" class="toc-h2">5. Pascal's Triangle</a>
+      <a href="#coefficients" class="toc-h2">6. Binomial Coefficients</a>
+      <a href="#expansions" class="toc-h2">7. Writing Expansions</a>
+      <a href="#applications" class="toc-h2">8. Simple Applications</a>
+      <a href="#general-middle" class="toc-h2">9. General & Middle Term</a>
+      <a href="#formula-wall" class="toc-h2">10. Formula Wall</a>
+      <a href="#traps" class="toc-h2">11. Common Traps</a>
+      <a href="#exam-types" class="toc-h2">12. Exam Question Types</a>
+      <a href="#practice" class="toc-h2">13. Practice Bank — 42 Qs</a>
+      <a href="#writing-tips" class="toc-h2">14. Exam Writing Tips</a>
+      <a href="#recap" class="toc-h2">15. One-Page Recap</a>
+      <a href="#appendix" class="toc-h2">16. Appendix A — Reference Only</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- Hero -->
+      <header class="hero fade-in">
+        <span class="chapter-badge">Chapter 7 · STE100 Revision Notes</span>
+        <h1>Binomial Theorem</h1>
+        <p class="subtitle">Class 11 Mathematics — Easy Revision Notes (STE100) · CBSE 2026-27</p>
+      </header>
+
+<blockquote><strong>Big picture.</strong> A <strong>binomial</strong> is an expression with exactly two terms, like <span class="tex" data-tex="a + b">a + b</span> or <span class="tex" data-tex="2x - 3">2x − 3</span>. The <strong>binomial theorem</strong> turns a bracket like <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span> into a long sum of simple terms — without multiplying the brackets again and again. The coefficient numbers come from <span class="tex" data-tex="{}^nC_r"><sup>n</sup>C<sub>r</sub></span> ("n choose r") and from <strong>Pascal's triangle</strong>. The chapter ends with <strong>simple applications</strong>: big powers like <span class="tex" data-tex="99^5">99<sup>5</sup></span>, "which is larger" comparisons, divisibility proofs, and useful sums of binomial coefficients.<br><strong>How to use these notes.</strong> Read one section at a time. Each section follows the same order: <strong>Definition → Why it works → Worked example → CHECK</strong>. Do the CHECK before you move on. Section 10 is the formula wall. Section 11 lists the traps. Section 13 has the full practice bank with step-by-step solutions.</blockquote>
+
+      <section id="syllabus" class="fade-in">
+        <h2>1. 🗺️ Syllabus check — read this first</h2>
+<p>These notes follow the <strong>CBSE Class 11 Mathematics (041) syllabus, session 2026-27</strong>, Unit-II (Algebra), topic 4: <em>Binomial Theorem</em> (NCERT rationalised Chapter 7).</p>
+<div class="table-wrap"><table><thead><tr><th>Topic</th><th>Status for the board exam</th></tr></thead><tbody><tr><td>Historical perspective (a short fact)</td><td>✅ In syllabus — rarely asked</td></tr><tr><td>Statement <strong>and proof</strong> of the binomial theorem, for positive integral indices</td><td>✅ In syllabus</td></tr><tr><td>Pascal's triangle</td><td>✅ In syllabus</td></tr><tr><td>Simple applications: expanding brackets</td><td>✅ In syllabus</td></tr><tr><td>Simple applications: evaluating large powers (<span class="tex" data-tex="99^5">99<sup>5</sup></span>, <span class="tex" data-tex="101^5">101<sup>5</sup></span>, …)</td><td>✅ In syllabus</td></tr><tr><td>Simple applications: "which is larger" comparisons</td><td>✅ In syllabus</td></tr><tr><td>Simple applications: divisibility and coefficient-sum proofs</td><td>✅ In syllabus</td></tr><tr><td>General and middle term in binomial expansion</td><td>📝 Formative only — practice at school, not in the board exam</td></tr><tr><td>Approximation <span class="tex" data-tex="(1+x)^n \approx 1 + nx">(1+x)<sup>n</sup> ≈ 1 + nx</span></td><td>❌ Old book — deleted</td></tr><tr><td>Binomial theorem for a negative or fractional index</td><td>❌ Never in Class 11</td></tr></tbody></table></div>
+<blockquote><strong>Teacher's note.</strong> The exam almost always asks one of three things: <strong>expand</strong> a bracket, <strong>evaluate</strong> a large power, or <strong>prove</strong> a statement (divisibility or a coefficient sum). The theorem's own proof is also in the syllabus — the full two-step induction proof is in Section 4. Do not skip it.</blockquote>
+      </section>
+
+      <section id="key-words" class="fade-in">
+        <h2>2. 📖 Key words — read these first</h2>
+<div class="table-wrap"><table><thead><tr><th>Word</th><th>Simple meaning</th></tr></thead><tbody><tr><td>Binomial</td><td>An expression with exactly two terms: <span class="tex" data-tex="a+b">a+b</span>, <span class="tex" data-tex="2x-3">2x−3</span>, <span class="tex" data-tex="x^2+5">x<sup>2</sup>+5</span></td></tr><tr><td>Expansion</td><td>The bracket <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span> written as a long sum of terms</td></tr><tr><td>Binomial theorem</td><td>The formula for <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span>, true for every positive integer <span class="tex" data-tex="n">n</span></td></tr><tr><td>Positive integral index</td><td>The power <span class="tex" data-tex="n = 1, 2, 3, \dots">n = 1, 2, 3, …</span> — a counting number</td></tr><tr><td>Pascal's triangle</td><td>A triangle of numbers. Row <span class="tex" data-tex="n">n</span> gives the coefficients of <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span></td></tr><tr><td>Binomial coefficient</td><td>The number <span class="tex" data-tex="{}^nC_r"><sup>n</sup>C<sub>r</sub></span> in front of a term of the expansion</td></tr><tr><td><span class="tex" data-tex="{}^nC_r"><sup>n</sup>C<sub>r</sub></span></td><td>"n choose r": <span class="tex" data-tex="{}^nC_r = \dfrac{n!}{r!\,(n-r)!}"><sup>n</sup>C<sub>r</sub> = (n!)/(r! (n−r)!)</span></td></tr><tr><td>Term</td><td>One piece of the expansion, like <span class="tex" data-tex="1512x^5">1512x<sup>5</sup></span></td></tr><tr><td>Coefficient</td><td>The number part of a term, without the powers. In <span class="tex" data-tex="1512x^5">1512x<sup>5</sup></span> the coefficient is <strong>1512</strong></td></tr><tr><td>General term</td><td>The formula for a typical term: <span class="tex" data-tex="T_{r+1} = {}^nC_r\, a^{n-r}b^r">T<sub>r+1</sub> = <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r</sup></span> — 📝 formative only</td></tr><tr><td>Middle term</td><td>The centre of the expansion. One if <span class="tex" data-tex="n">n</span> is even, two if <span class="tex" data-tex="n">n</span> is odd — 📝 formative only</td></tr><tr><td>Independent term</td><td>A term with no <span class="tex" data-tex="x">x</span> in it</td></tr><tr><td>Identity</td><td>An equation true for every value of the variable, like <span class="tex" data-tex="{}^nC_0 + {}^nC_1 + \dots + {}^nC_n = 2^n"><sup>n</sup>C<sub>0</sub> + <sup>n</sup>C<sub>1</sub> + … + <sup>n</sup>C<sub>n</sub> = 2<sup>n</sup></span></td></tr></tbody></table></div>
+      </section>
+
+      <section id="theorem" class="fade-in">
+        <h2>3. 🔑 The binomial theorem — statement</h2>
+<p><strong>A little history.</strong> The numbers of Pascal's triangle were known in India long before Blaise Pascal. Indian mathematicians (Pingala, and Halayudha around the 10th century) used them to count poetic metres. Omar Khayyam (Persia) and Yang Hui (China) also studied them. In 1654 Pascal wrote a full study of the triangle — in Europe the numbers now carry his name. The theorem for positive integral indices is proved by <strong>induction</strong>; the full proof is in Section 4.</p>
+<p><strong>Statement.</strong> For every positive integer <span class="tex" data-tex="n">n</span>:</p>
+<div class="tex tex-block" data-tex="(a+b)^n = {}^nC_0\, a^n + {}^nC_1\, a^{n-1}b + {}^nC_2\, a^{n-2}b^2 + \dots + {}^nC_n\, b^n">(a+b)<sup>n</sup> = <sup>n</sup>C<sub>0</sub> a<sup>n</sup> + <sup>n</sup>C<sub>1</sub> a<sup>n−1</sup>b + <sup>n</sup>C<sub>2</sub> a<sup>n−2</sup>b<sup>2</sup> + … + <sup>n</sup>C<sub>n</sub> b<sup>n</sup></div>
+<p>In sigma notation:</p>
+<div class="tex tex-block" data-tex="(a+b)^n = \sum_{r=0}^{n} {}^nC_r\, a^{n-r} b^r">(a+b)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup> b<sup>r</sup></div>
+<p><strong>The pattern of every expansion.</strong> Look at <span class="tex" data-tex="(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3">(a+b)<sup>3</sup> = a<sup>3</sup> + 3a<sup>2</sup>b + 3ab<sup>2</sup> + b<sup>3</sup></span>:</p>
+<ul><li>The number of terms is <span class="tex" data-tex="n + 1">n + 1</span>. Here <span class="tex" data-tex="n = 3">n = 3</span>, so there are <strong>4 terms</strong>.</li><li>The powers of <span class="tex" data-tex="a">a</span> go down: <span class="tex" data-tex="3, 2, 1, 0">3, 2, 1, 0</span>.</li><li>The powers of <span class="tex" data-tex="b">b</span> go up: <span class="tex" data-tex="0, 1, 2, 3">0, 1, 2, 3</span>.</li><li>In every term, (power of <span class="tex" data-tex="a">a</span>) + (power of <span class="tex" data-tex="b">b</span>) <span class="tex" data-tex="= n">= n</span>. Here every pair adds to 3.</li><li>The coefficients <span class="tex" data-tex="1, 3, 3, 1">1, 3, 3, 1</span> are <span class="tex" data-tex="{}^3C_0, {}^3C_1, {}^3C_2, {}^3C_3"><sup>3</sup>C<sub>0</sub>, <sup>3</sup>C<sub>1</sub>, <sup>3</sup>C<sub>2</sub>, <sup>3</sup>C<sub>3</sub></span>.</li></ul>
+<p><strong>Worked example 1.</strong> Write the expansion of <span class="tex" data-tex="(x+2)^4">(x+2)<sup>4</sup></span>.</p>
+<ul><li>Here <span class="tex" data-tex="n = 4">n = 4</span>, so 5 terms. The coefficients are <span class="tex" data-tex="{}^4C_0 = 1"><sup>4</sup>C<sub>0</sub> = 1</span>, <span class="tex" data-tex="{}^4C_1 = 4"><sup>4</sup>C<sub>1</sub> = 4</span>, <span class="tex" data-tex="{}^4C_2 = 6"><sup>4</sup>C<sub>2</sub> = 6</span>, <span class="tex" data-tex="{}^4C_3 = 4"><sup>4</sup>C<sub>3</sub> = 4</span>, <span class="tex" data-tex="{}^4C_4 = 1"><sup>4</sup>C<sub>4</sub> = 1</span>.</li><li>Write the powers of <span class="tex" data-tex="x">x</span> (going down) and the powers of 2 (going up):</li></ul>
+<div class="tex tex-block" data-tex="(x+2)^4 = {}^4C_0\, x^4 + {}^4C_1\, x^3(2) + {}^4C_2\, x^2(2)^2 + {}^4C_3\, x(2)^3 + {}^4C_4 (2)^4">(x+2)<sup>4</sup> = <sup>4</sup>C<sub>0</sub> x<sup>4</sup> + <sup>4</sup>C<sub>1</sub> x<sup>3</sup>(2) + <sup>4</sup>C<sub>2</sub> x<sup>2</sup>(2)<sup>2</sup> + <sup>4</sup>C<sub>3</sub> x(2)<sup>3</sup> + <sup>4</sup>C<sub>4</sub> (2)<sup>4</sup></div>
+<ul><li>Simplify each term: <span class="tex" data-tex="1 \cdot x^4 + 4 \cdot 2x^3 + 6 \cdot 4x^2 + 4 \cdot 8x + 1 \cdot 16">1 · x<sup>4</sup> + 4 · 2x<sup>3</sup> + 6 · 4x<sup>2</sup> + 4 · 8x + 1 · 16</span></li><li>Final answer: <span class="tex" data-tex="x^4 + 8x^3 + 24x^2 + 32x + 16">x<sup>4</sup> + 8x<sup>3</sup> + 24x<sup>2</sup> + 32x + 16</span>.</li></ul>
+<p>✅ <span class="tex" data-tex="(x+2)^4 = x^4 + 8x^3 + 24x^2 + 32x + 16">(x+2)<sup>4</sup> = x<sup>4</sup> + 8x<sup>3</sup> + 24x<sup>2</sup> + 32x + 16</span>.</p>
+<p><strong>Worked example 2 (the special case <span class="tex" data-tex="(1+x)^n">(1+x)<sup>n</sup></span>).</strong> Put <span class="tex" data-tex="a = 1">a = 1</span> in the theorem. The powers of 1 disappear, and the coefficients stand alone:</p>
+<div class="tex tex-block" data-tex="(1+x)^n = {}^nC_0 + {}^nC_1 x + {}^nC_2 x^2 + \dots + {}^nC_n x^n">(1+x)<sup>n</sup> = <sup>n</sup>C<sub>0</sub> + <sup>n</sup>C<sub>1</sub> x + <sup>n</sup>C<sub>2</sub> x<sup>2</sup> + … + <sup>n</sup>C<sub>n</sub> x<sup>n</sup></div>
+<p>Example: <span class="tex" data-tex="(1+x)^5 = 1 + 5x + 10x^2 + 10x^3 + 5x^4 + x^5">(1+x)<sup>5</sup> = 1 + 5x + 10x<sup>2</sup> + 10x<sup>3</sup> + 5x<sup>4</sup> + x<sup>5</sup></span>.</p>
+<p><strong>CHECK 1.</strong> Write the expansion of <span class="tex" data-tex="(x+3)^4">(x+3)<sup>4</sup></span>. Then count its terms.</p>
+<details class="qa"><summary>Show answer</summary><div class="sol">
+<ul><li>Coefficients: 1, 4, 6, 4, 1. Powers of <span class="tex" data-tex="x">x</span> go down, powers of 3 go up.</li><li><span class="tex" data-tex="(x+3)^4 = x^4 + 4x^3(3) + 6x^2(9) + 4x(27) + 81">(x+3)<sup>4</sup> = x<sup>4</sup> + 4x<sup>3</sup>(3) + 6x<sup>2</sup>(9) + 4x(27) + 81</span></li><li><span class="tex" data-tex="= x^4 + 12x^3 + 54x^2 + 108x + 81">= x<sup>4</sup> + 12x<sup>3</sup> + 54x<sup>2</sup> + 108x + 81</span></li><li><strong>5 terms.</strong></li></ul>
+</div></details>
+      </section>
+
+      <section id="proof" class="fade-in">
+        <h2>4. 🏗️ Why it works — the proof</h2>
+<p>The syllabus says "statement <strong>and proof</strong>". The proof uses <strong>induction</strong> (the Principle of Mathematical Induction). It has two steps. This is all you need to write in the exam.</p>
+<p><strong>The claim.</strong> For every positive integer <span class="tex" data-tex="n">n</span>:</p>
+<div class="tex tex-block" data-tex="(a+b)^n = \sum_{r=0}^{n} {}^nC_r\, a^{n-r} b^r">(a+b)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup> b<sup>r</sup></div>
+<p><strong>Step 1 — check the claim for <span class="tex" data-tex="n = 1">n = 1</span>.</strong></p>
+<ul><li>Left side: <span class="tex" data-tex="(a+b)^1 = a + b">(a+b)<sup>1</sup> = a + b</span>.</li><li>Right side: <span class="tex" data-tex="{}^1C_0\, a^1 + {}^1C_1\, b^1 = a + b"><sup>1</sup>C<sub>0</sub> a<sup>1</sup> + <sup>1</sup>C<sub>1</sub> b<sup>1</sup> = a + b</span>.</li><li>Both sides match. ✓</li></ul>
+<p><strong>Step 2 — assume the claim for <span class="tex" data-tex="n">n</span>, then prove it for <span class="tex" data-tex="n + 1">n + 1</span>.</strong></p>
+<p>Assume <span class="tex" data-tex="(a+b)^n = \sum_{r=0}^{n} {}^nC_r\, a^{n-r}b^r">(a+b)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r</sup></span>. Multiply both sides by <span class="tex" data-tex="(a+b)">(a+b)</span>:</p>
+<div class="tex tex-block" data-tex="(a+b)^{n+1} = (a+b)\sum_{r=0}^{n} {}^nC_r\, a^{n-r}b^r = \sum_{r=0}^{n} {}^nC_r\, a^{n+1-r}b^r + \sum_{r=0}^{n} {}^nC_r\, a^{n-r}b^{r+1}">(a+b)<sup>n+1</sup> = (a+b)Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n+1−r</sup>b<sup>r</sup> + Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r+1</sup></div>
+<p>In the second sum, change the counter to <span class="tex" data-tex="k = r + 1">k = r + 1</span> (so <span class="tex" data-tex="r = k - 1">r = k − 1</span>):</p>
+<div class="tex tex-block" data-tex="\sum_{r=0}^{n} {}^nC_r\, a^{n-r}b^{r+1} = \sum_{k=1}^{n+1} {}^nC_{k-1}\, a^{n+1-k}b^{k}">Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r+1</sup> = Σ<sub>k=1</sub><sup>n+1</sup> <sup>n</sup>C<sub>k−1</sub> a<sup>n+1−k</sup>b<sup>k</sup></div>
+<p>Now put the two sums together. The first sum runs from <span class="tex" data-tex="r = 0">r = 0</span> to <span class="tex" data-tex="n">n</span>; the second runs from <span class="tex" data-tex="k = 1">k = 1</span> to <span class="tex" data-tex="n + 1">n + 1</span>. Every middle term gets a pair of coefficients. Use <strong>Pascal's rule</strong>:</p>
+<div class="tex tex-block" data-tex="{}^nC_k + {}^nC_{k-1} = {}^{n+1}C_k"><sup>n</sup>C<sub>k</sub> + <sup>n</sup>C<sub>k−1</sub> = <sup>n+1</sup>C<sub>k</sub></div>
+<p>Then:</p>
+<div class="tex tex-block" data-tex="(a+b)^{n+1} = \sum_{k=0}^{n+1} {}^{n+1}C_k\, a^{n+1-k}b^{k}">(a+b)<sup>n+1</sup> = Σ<sub>k=0</sub><sup>n+1</sup> <sup>n+1</sup>C<sub>k</sub> a<sup>n+1−k</sup>b<sup>k</sup></div>
+<p>That is the claim for <span class="tex" data-tex="n + 1">n + 1</span>. So the claim is true for every positive integer <span class="tex" data-tex="n">n</span>. ∎</p>
+<p><strong>The one-line intuition (write this too — it shows understanding).</strong> In the expansion of <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span>, the term <span class="tex" data-tex="a^{n-r}b^r">a<sup>n−r</sup>b<sup>r</sup></span> comes from choosing <span class="tex" data-tex="b">b</span> from <span class="tex" data-tex="r">r</span> of the <span class="tex" data-tex="n">n</span> brackets, and <span class="tex" data-tex="a">a</span> from the other <span class="tex" data-tex="n - r">n − r</span> brackets. The number of ways to choose those <span class="tex" data-tex="r">r</span> brackets is <span class="tex" data-tex="{}^nC_r"><sup>n</sup>C<sub>r</sub></span>. That is where the coefficients come from.</p>
+<p><strong>CHECK 2.</strong> Write the two steps of the induction proof in your own words. No full algebra needed.</p>
+<details class="qa"><summary>Show answer</summary><div class="sol">
+<ul><li><strong>Base step:</strong> for <span class="tex" data-tex="n = 1">n = 1</span>, the formula gives <span class="tex" data-tex="{}^1C_0 a + {}^1C_1 b = a + b"><sup>1</sup>C<sub>0</sub> a + <sup>1</sup>C<sub>1</sub> b = a + b</span>, which matches <span class="tex" data-tex="(a+b)^1">(a+b)<sup>1</sup></span>.</li><li><strong>Induction step:</strong> assume the formula for <span class="tex" data-tex="n">n</span>. Multiply by <span class="tex" data-tex="(a+b)">(a+b)</span>. Combine the two sums term by term with Pascal's rule <span class="tex" data-tex="{}^nC_k + {}^nC_{k-1} = {}^{n+1}C_k"><sup>n</sup>C<sub>k</sub> + <sup>n</sup>C<sub>k−1</sub> = <sup>n+1</sup>C<sub>k</sub></span>. The result is the formula for <span class="tex" data-tex="n + 1">n + 1</span>.</li></ul>
+</div></details>
+      </section>
+
+      <section id="pascal" class="fade-in">
+        <h2>5. 🔺 Pascal's triangle</h2>
+<p>Pascal's triangle is a quick way to write the binomial coefficients without factorials.</p>
+<p><strong>How to build it.</strong> Start with a 1 at the top. Every new number is the <strong>sum of the two numbers above it</strong>. Where nothing is above, take 0.</p>
+<div class="table-wrap"><table><thead><tr><th>Row <span class="tex" data-tex="n">n</span></th><th>Numbers</th><th>These are</th></tr></thead><tbody><tr><td>0</td><td><span class="tex" data-tex="1">1</span></td><td><span class="tex" data-tex="{}^0C_0"><sup>0</sup>C<sub>0</sub></span></td></tr><tr><td>1</td><td><span class="tex" data-tex="1, 1">1, 1</span></td><td><span class="tex" data-tex="{}^1C_0, {}^1C_1"><sup>1</sup>C<sub>0</sub>, <sup>1</sup>C<sub>1</sub></span></td></tr><tr><td>2</td><td><span class="tex" data-tex="1, 2, 1">1, 2, 1</span></td><td><span class="tex" data-tex="{}^2C_0, \dots, {}^2C_2"><sup>2</sup>C<sub>0</sub>, …, <sup>2</sup>C<sub>2</sub></span></td></tr><tr><td>3</td><td><span class="tex" data-tex="1, 3, 3, 1">1, 3, 3, 1</span></td><td><span class="tex" data-tex="{}^3C_0, \dots, {}^3C_3"><sup>3</sup>C<sub>0</sub>, …, <sup>3</sup>C<sub>3</sub></span></td></tr><tr><td>4</td><td><span class="tex" data-tex="1, 4, 6, 4, 1">1, 4, 6, 4, 1</span></td><td><span class="tex" data-tex="{}^4C_0, \dots, {}^4C_4"><sup>4</sup>C<sub>0</sub>, …, <sup>4</sup>C<sub>4</sub></span></td></tr><tr><td>5</td><td><span class="tex" data-tex="1, 5, 10, 10, 5, 1">1, 5, 10, 10, 5, 1</span></td><td><span class="tex" data-tex="{}^5C_0, \dots, {}^5C_5"><sup>5</sup>C<sub>0</sub>, …, <sup>5</sup>C<sub>5</sub></span></td></tr><tr><td>6</td><td><span class="tex" data-tex="1, 6, 15, 20, 15, 6, 1">1, 6, 15, 20, 15, 6, 1</span></td><td><span class="tex" data-tex="{}^6C_0, \dots, {}^6C_6"><sup>6</sup>C<sub>0</sub>, …, <sup>6</sup>C<sub>6</sub></span></td></tr></tbody></table></div>
+<p><strong>How to read it.</strong> Row <span class="tex" data-tex="n">n</span> gives the coefficients of <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span>, in order. For example, row 4 is <span class="tex" data-tex="1, 4, 6, 4, 1">1, 4, 6, 4, 1</span>, so:</p>
+<div class="tex tex-block" data-tex="(a+b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4">(a+b)<sup>4</sup> = a<sup>4</sup> + 4a<sup>3</sup>b + 6a<sup>2</sup>b<sup>2</sup> + 4ab<sup>3</sup> + b<sup>4</sup></div>
+<p><strong>Three facts to remember.</strong></p>
+<ul><li>Every row starts and ends with 1.</li><li>Every row reads the same from both sides (symmetric).</li><li>Row <span class="tex" data-tex="n">n</span> has <span class="tex" data-tex="n + 1">n + 1</span> numbers.</li></ul>
+<p><strong>Why the triangle builds the coefficients.</strong> Each number is the sum of the two numbers above it. In coefficient language that is exactly Pascal's rule:</p>
+<div class="tex tex-block" data-tex="{}^nC_r + {}^nC_{r-1} = {}^{n+1}C_r"><sup>n</sup>C<sub>r</sub> + <sup>n</sup>C<sub>r−1</sub> = <sup>n+1</sup>C<sub>r</sub></div>
+<p>This is the same identity you used in the proof. The triangle and the theorem are the same idea in two shapes.</p>
+<p><strong>Worked example 3.</strong> Write row 7 of Pascal's triangle from row 6.</p>
+<ul><li>Row 6: <span class="tex" data-tex="1, 6, 15, 20, 15, 6, 1">1, 6, 15, 20, 15, 6, 1</span>.</li><li>Now add neighbours: <span class="tex" data-tex="1">1</span>; <span class="tex" data-tex="1 + 6 = 7">1 + 6 = 7</span>; <span class="tex" data-tex="6 + 15 = 21">6 + 15 = 21</span>; <span class="tex" data-tex="15 + 20 = 35">15 + 20 = 35</span>; <span class="tex" data-tex="20 + 15 = 35">20 + 15 = 35</span>; <span class="tex" data-tex="15 + 6 = 21">15 + 6 = 21</span>; <span class="tex" data-tex="6 + 1 = 7">6 + 1 = 7</span>; <span class="tex" data-tex="1">1</span>.</li><li>Row 7: <span class="tex" data-tex="1, 7, 21, 35, 35, 21, 7, 1">1, 7, 21, 35, 35, 21, 7, 1</span>.</li></ul>
+<p>✅ These are the coefficients of <span class="tex" data-tex="(a+b)^7">(a+b)<sup>7</sup></span>.</p>
+<p><strong>CHECK 3.</strong> Use row 5 of Pascal's triangle to write the expansion of <span class="tex" data-tex="(x-y)^5">(x−y)<sup>5</sup></span>.</p>
+<details class="qa"><summary>Show answer</summary><div class="sol">
+<ul><li>Row 5: <span class="tex" data-tex="1, 5, 10, 10, 5, 1">1, 5, 10, 10, 5, 1</span>.</li><li>With alternating signs (odd powers of <span class="tex" data-tex="y">y</span> get minus):</li><li><span class="tex" data-tex="(x-y)^5 = x^5 - 5x^4y + 10x^3y^2 - 10x^2y^3 + 5xy^4 - y^5">(x−y)<sup>5</sup> = x<sup>5</sup> − 5x<sup>4</sup>y + 10x<sup>3</sup>y<sup>2</sup> − 10x<sup>2</sup>y<sup>3</sup> + 5xy<sup>4</sup> − y<sup>5</sup></span></li><li>It has <strong>6 terms.</strong></li></ul>
+</div></details>
+      </section>
+
+      <section id="coefficients" class="fade-in">
+        <h2>6. 🎲 Binomial coefficients — the toolbox</h2>
+<p>The numbers <span class="tex" data-tex="{}^nC_r"><sup>n</sup>C<sub>r</sub></span> follow four handy rules. They turn long sums into one-line answers.</p>
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th>What it says</th></tr></thead><tbody><tr><td><span class="tex" data-tex="{}^nC_0 = 1"><sup>n</sup>C<sub>0</sub> = 1</span> and <span class="tex" data-tex="{}^nC_n = 1"><sup>n</sup>C<sub>n</sub> = 1</span></td><td>Every expansion starts and ends with coefficient 1</td></tr><tr><td><span class="tex" data-tex="{}^nC_1 = n"><sup>n</sup>C<sub>1</sub> = n</span></td><td>The second coefficient equals <span class="tex" data-tex="n">n</span></td></tr><tr><td><span class="tex" data-tex="{}^nC_r = {}^nC_{n-r}"><sup>n</sup>C<sub>r</sub> = <sup>n</sup>C<sub>n−r</sub></span></td><td>Symmetry: choosing <span class="tex" data-tex="r">r</span> items is the same as leaving out <span class="tex" data-tex="n - r">n − r</span> items</td></tr><tr><td><span class="tex" data-tex="{}^nC_r + {}^nC_{r-1} = {}^{n+1}C_r"><sup>n</sup>C<sub>r</sub> + <sup>n</sup>C<sub>r−1</sub> = <sup>n+1</sup>C<sub>r</sub></span></td><td>Pascal's rule — the engine behind the triangle and the proof</td></tr></tbody></table></div>
+<p><strong>Worked example 4.</strong> Show that <span class="tex" data-tex="{}^7C_3 = {}^7C_4"><sup>7</sup>C<sub>3</sub> = <sup>7</sup>C<sub>4</sub></span>, and find the value.</p>
+<ul><li>Symmetry: <span class="tex" data-tex="{}^7C_3 = {}^7C_{7-3} = {}^7C_4"><sup>7</sup>C<sub>3</sub> = <sup>7</sup>C<sub>7−3</sub> = <sup>7</sup>C<sub>4</sub></span>. ✓</li><li>Value: <span class="tex" data-tex="{}^7C_3 = \dfrac{7 \times 6 \times 5}{3 \times 2 \times 1} = 35"><sup>7</sup>C<sub>3</sub> = (7 × 6 × 5)/(3 × 2 × 1) = 35</span>.</li></ul>
+<p>✅ Both coefficients equal 35.</p>
+<p><strong>Worked example 5 (find <span class="tex" data-tex="n">n</span> from a symmetry).</strong> If <span class="tex" data-tex="{}^nC_8 = {}^nC_6"><sup>n</sup>C<sub>8</sub> = <sup>n</sup>C<sub>6</sub></span>, find <span class="tex" data-tex="n">n</span>.</p>
+<ul><li>The rule: <span class="tex" data-tex="{}^nC_r = {}^nC_s"><sup>n</sup>C<sub>r</sub> = <sup>n</sup>C<sub>s</sub></span> gives <span class="tex" data-tex="r = s">r = s</span> <strong>or</strong> <span class="tex" data-tex="r + s = n">r + s = n</span>.</li><li>Here <span class="tex" data-tex="8 = 6">8 = 6</span> is false. So use the sum: <span class="tex" data-tex="8 + 6 = n">8 + 6 = n</span>.</li><li>Check: <span class="tex" data-tex="{}^{14}C_8 = {}^{14}C_6"><sup>14</sup>C<sub>8</sub> = <sup>14</sup>C<sub>6</sub></span>. ✓</li></ul>
+<p>✅ <span class="tex" data-tex="n = 14">n = 14</span>.</p>
+<p><strong>CHECK 4.</strong> Evaluate <span class="tex" data-tex="{}^6C_2 + {}^6C_3"><sup>6</sup>C<sub>2</sub> + <sup>6</sup>C<sub>3</sub></span> in two ways: directly, and with Pascal's rule.</p>
+<details class="qa"><summary>Show answer</summary><div class="sol">
+<ul><li>Directly: <span class="tex" data-tex="{}^6C_2 = 15"><sup>6</sup>C<sub>2</sub> = 15</span> and <span class="tex" data-tex="{}^6C_3 = 20"><sup>6</sup>C<sub>3</sub> = 20</span>, so the sum is <span class="tex" data-tex="35">35</span>.</li><li>Pascal's rule with <span class="tex" data-tex="n = 6">n = 6</span>, <span class="tex" data-tex="r = 3">r = 3</span>: <span class="tex" data-tex="{}^6C_3 + {}^6C_2 = {}^7C_3 = 35"><sup>6</sup>C<sub>3</sub> + <sup>6</sup>C<sub>2</sub> = <sup>7</sup>C<sub>3</sub> = 35</span>. ✓</li><li>Both give <span class="tex" data-tex="35">35</span>.</li></ul>
+</div></details>
+      </section>
+
+      <section id="expansions" class="fade-in">
+        <h2>7. 🧩 Writing expansions — methods and special cases</h2>
+<p><strong>Method for <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span>.</strong> Four steps:</p>
+<ol><li>Write <span class="tex" data-tex="n + 1">n + 1</span> terms. Powers of <span class="tex" data-tex="a">a</span> go down (<span class="tex" data-tex="n">n</span> to <span class="tex" data-tex="0">0</span>). Powers of <span class="tex" data-tex="b">b</span> go up (<span class="tex" data-tex="0">0</span> to <span class="tex" data-tex="n">n</span>).</li><li>Put the coefficients <span class="tex" data-tex="{}^nC_0, {}^nC_1, \dots, {}^nC_n"><sup>n</sup>C<sub>0</sub>, <sup>n</sup>C<sub>1</sub>, …, <sup>n</sup>C<sub>n</sub></span> in front — or read them from Pascal's triangle.</li><li>Substitute the actual values of <span class="tex" data-tex="a">a</span> and <span class="tex" data-tex="b">b</span>.</li><li>Simplify the numbers.</li></ol>
+<p><strong>Method for <span class="tex" data-tex="(a-b)^n">(a−b)<sup>n</sup></span>.</strong> Replace <span class="tex" data-tex="b">b</span> by <span class="tex" data-tex="-b">−b</span> in the theorem. The signs alternate:</p>
+<div class="tex tex-block" data-tex="(a-b)^n = {}^nC_0\, a^n - {}^nC_1\, a^{n-1}b + {}^nC_2\, a^{n-2}b^2 - \dots + (-1)^n\, {}^nC_n\, b^n">(a−b)<sup>n</sup> = <sup>n</sup>C<sub>0</sub> a<sup>n</sup> − <sup>n</sup>C<sub>1</sub> a<sup>n−1</sup>b + <sup>n</sup>C<sub>2</sub> a<sup>n−2</sup>b<sup>2</sup> − … + (−1)<sup>n</sup> <sup>n</sup>C<sub>n</sub> b<sup>n</sup></div>
+<p><strong>The sign rule.</strong> A term with an <strong>odd</strong> power of <span class="tex" data-tex="b">b</span> gets a <strong>minus</strong> sign. A term with an even power of <span class="tex" data-tex="b">b</span> gets a <strong>plus</strong> sign.</p>
+<p><strong>Worked example 6.</strong> Expand <span class="tex" data-tex="(2x-3)^4">(2x−3)<sup>4</sup></span>.</p>
+<ul><li>Here <span class="tex" data-tex="n = 4">n = 4</span>: coefficients <span class="tex" data-tex="1, 4, 6, 4, 1">1, 4, 6, 4, 1</span>. Now <span class="tex" data-tex="a = 2x">a = 2x</span> and <span class="tex" data-tex="b = 3">b = 3</span>, with alternating signs.</li><li><span class="tex" data-tex="(2x-3)^4 = (2x)^4 - 4(2x)^3(3) + 6(2x)^2(3^2) - 4(2x)(3^3) + 3^4">(2x−3)<sup>4</sup> = (2x)<sup>4</sup> − 4(2x)<sup>3</sup>(3) + 6(2x)<sup>2</sup>(3<sup>2</sup>) − 4(2x)(3<sup>3</sup>) + 3<sup>4</sup></span></li><li><span class="tex" data-tex="= 16x^4 - 4 \cdot 8x^3 \cdot 3 + 6 \cdot 4x^2 \cdot 9 - 4 \cdot 2x \cdot 27 + 81">= 16x<sup>4</sup> − 4 · 8x<sup>3</sup> · 3 + 6 · 4x<sup>2</sup> · 9 − 4 · 2x · 27 + 81</span></li><li><span class="tex" data-tex="= 16x^4 - 96x^3 + 216x^2 - 216x + 81">= 16x<sup>4</sup> − 96x<sup>3</sup> + 216x<sup>2</sup> − 216x + 81</span></li></ul>
+<p>✅ <span class="tex" data-tex="(2x-3)^4 = 16x^4 - 96x^3 + 216x^2 - 216x + 81">(2x−3)<sup>4</sup> = 16x<sup>4</sup> − 96x<sup>3</sup> + 216x<sup>2</sup> − 216x + 81</span>.</p>
+<p><strong>Worked example 7 (minus sign inside the bracket).</strong> Expand <span class="tex" data-tex="(1-2x)^5">(1−2x)<sup>5</sup></span>.</p>
+<ul><li>Here <span class="tex" data-tex="a = 1">a = 1</span> and <span class="tex" data-tex="b = 2x">b = 2x</span>. Coefficients: <span class="tex" data-tex="1, 5, 10, 10, 5, 1">1, 5, 10, 10, 5, 1</span>.</li><li><span class="tex" data-tex="(1-2x)^5 = 1 - 5(2x) + 10(2x)^2 - 10(2x)^3 + 5(2x)^4 - (2x)^5">(1−2x)<sup>5</sup> = 1 − 5(2x) + 10(2x)<sup>2</sup> − 10(2x)<sup>3</sup> + 5(2x)<sup>4</sup> − (2x)<sup>5</sup></span></li><li><span class="tex" data-tex="= 1 - 10x + 40x^2 - 80x^3 + 80x^4 - 32x^5">= 1 − 10x + 40x<sup>2</sup> − 80x<sup>3</sup> + 80x<sup>4</sup> − 32x<sup>5</sup></span></li></ul>
+<p>✅ <span class="tex" data-tex="(1-2x)^5 = 1 - 10x + 40x^2 - 80x^3 + 80x^4 - 32x^5">(1−2x)<sup>5</sup> = 1 − 10x + 40x<sup>2</sup> − 80x<sup>3</sup> + 80x<sup>4</sup> − 32x<sup>5</sup></span>.</p>
+<p><strong>Counting terms.</strong> The expansion of <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span> has <span class="tex" data-tex="n + 1">n + 1</span> terms. Quick facts: <span class="tex" data-tex="(a+b)^{10}">(a+b)<sup>10</sup></span> has 11 terms; <span class="tex" data-tex="(2x-3y)^9">(2x−3y)<sup>9</sup></span> also has 10 terms — the two letters do not change the count.</p>
+<p><strong>Finding one coefficient without writing everything.</strong> For a bracket like <span class="tex" data-tex="(2x+3)^6">(2x+3)<sup>6</sup></span>, write the running term pattern <span class="tex" data-tex="{}^6C_r (2x)^{6-r} 3^r"><sup>6</sup>C<sub>r</sub> (2x)<sup>6−r</sup> 3<sup>r</sup></span>. Then solve for the power you need. This is the "general term" idea — NCERT keeps it as a formative topic (Section 9).</p>
+<p><strong>CHECK 5.</strong> Expand <span class="tex" data-tex="(x-2)^5">(x−2)<sup>5</sup></span>.</p>
+<details class="qa"><summary>Show answer</summary><div class="sol">
+<ul><li>Coefficients: <span class="tex" data-tex="1, 5, 10, 10, 5, 1">1, 5, 10, 10, 5, 1</span>. Signs alternate (odd power of 2 gets minus).</li><li><span class="tex" data-tex="(x-2)^5 = x^5 - 5x^4(2) + 10x^3(4) - 10x^2(8) + 5x(16) - 32">(x−2)<sup>5</sup> = x<sup>5</sup> − 5x<sup>4</sup>(2) + 10x<sup>3</sup>(4) − 10x<sup>2</sup>(8) + 5x(16) − 32</span></li><li><span class="tex" data-tex="= x^5 - 10x^4 + 40x^3 - 80x^2 + 80x - 32">= x<sup>5</sup> − 10x<sup>4</sup> + 40x<sup>3</sup> − 80x<sup>2</sup> + 80x − 32</span></li></ul>
+</div></details>
+      </section>
+
+      <section id="applications" class="fade-in">
+        <h2>8. ⚙️ Simple applications — powers, divisibility and identities</h2>
+<h3>8.1 Evaluating a large power</h3>
+<p>Write the base near a round number, then expand.</p>
+<p><strong>Example.</strong> Evaluate <span class="tex" data-tex="99^5">99<sup>5</sup></span>.</p>
+<ul><li><span class="tex" data-tex="99 = 100 - 1">99 = 100 − 1</span>. So <span class="tex" data-tex="99^5 = (100-1)^5">99<sup>5</sup> = (100−1)<sup>5</sup></span>.</li><li><span class="tex" data-tex="= 100^5 - 5 \cdot 100^4 + 10 \cdot 100^3 - 10 \cdot 100^2 + 5 \cdot 100 - 1">= 100<sup>5</sup> − 5 · 100<sup>4</sup> + 10 · 100<sup>3</sup> − 10 · 100<sup>2</sup> + 5 · 100 − 1</span></li><li><span class="tex" data-tex="= 10000000000 - 500000000 + 10000000 - 100000 + 500 - 1">= 10000000000 − 500000000 + 10000000 − 100000 + 500 − 1</span></li><li><span class="tex" data-tex="= 9509900499">= 9509900499</span></li></ul>
+<p>✅ <span class="tex" data-tex="99^5 = 9509900499">99<sup>5</sup> = 9509900499</span>.</p>
+<p><strong>Method.</strong> Powers of the round number are easy (powers of 10 here). Write them in a column, keep the signs from the sign rule, and add carefully.</p>
+<h3>8.2 Which number is larger?</h3>
+<p><strong>Example.</strong> Which is larger: <span class="tex" data-tex="(1.1)^{10000}">(1.1)<sup>10000</sup></span> or <span class="tex" data-tex="1000">1000</span>?</p>
+<ul><li><span class="tex" data-tex="(1.1)^{10000} = (1 + 0.1)^{10000} = 1 + 10000(0.1) + {}^{10000}C_2(0.1)^2 + \dots">(1.1)<sup>10000</sup> = (1 + 0.1)<sup>10000</sup> = 1 + 10000(0.1) + <sup>10000</sup>C<sub>2</sub>(0.1)<sup>2</sup> + …</span></li><li><span class="tex" data-tex="= 1 + 1000 + (\text{positive terms})">= 1 + 1000 + (positive terms)</span></li><li><span class="tex" data-tex="= 1001 + (\text{positive terms})">= 1001 + (positive terms)</span></li></ul>
+<p>✅ <span class="tex" data-tex="(1.1)^{10000}">(1.1)<sup>10000</sup></span> is larger — its first two terms already beat 1000.</p>
+<p><strong>Method.</strong> Expand two or three terms. If they already beat the other number, the whole value beats it too. Every coefficient and power here is positive, so nothing can cancel down.</p>
+<h3>8.3 Divisibility proofs</h3>
+<p><strong>Example.</strong> Show that <span class="tex" data-tex="9^{n+1} - 8n - 9">9<sup>n+1</sup> − 8n − 9</span> is divisible by <span class="tex" data-tex="64">64</span>, for every positive integer <span class="tex" data-tex="n">n</span>.</p>
+<ul><li><span class="tex" data-tex="9^{n+1} = 9 \cdot 9^n = 9(1+8)^n">9<sup>n+1</sup> = 9 · 9<sup>n</sup> = 9(1+8)<sup>n</sup></span></li><li>Expand the bracket:</li></ul>
+<div class="tex tex-block" data-tex="9(1+8)^n = 9\left[1 + 8n + \frac{n(n-1)}{2} \cdot 8^2 + \dots\right] = 9 + 72n + 64k">9(1+8)<sup>n</sup> = 9[1 + 8n + (n(n−1))/(2) · 8<sup>2</sup> + …] = 9 + 72n + 64k</div>
+<ul><li>Here <span class="tex" data-tex="k">k</span> is an integer: every term from the third onward carries <span class="tex" data-tex="8^2 = 64">8<sup>2</sup> = 64</span>.</li><li>So <span class="tex" data-tex="9^{n+1} - 8n - 9 = (9 + 72n + 64k) - 8n - 9 = 64n + 64k = 64(n + k)">9<sup>n+1</sup> − 8n − 9 = (9 + 72n + 64k) − 8n − 9 = 64n + 64k = 64(n + k)</span>.</li></ul>
+<p>✅ Divisible by 64. ∎</p>
+<p><strong>Method.</strong> Write the power as <span class="tex" data-tex="(1 + \text{round number})^n">(1 + round number)<sup>n</sup></span>, expand, and collect the factor you need (<span class="tex" data-tex="64">64</span> here). Then arrange the expression so that factor stands alone.</p>
+<h3>8.4 Sums of binomial coefficients</h3>
+<p><strong>Example.</strong> Evaluate <span class="tex" data-tex="{}^nC_0 + {}^nC_1 + \dots + {}^nC_n"><sup>n</sup>C<sub>0</sub> + <sup>n</sup>C<sub>1</sub> + … + <sup>n</sup>C<sub>n</sub></span>.</p>
+<ul><li>Put <span class="tex" data-tex="a = b = 1">a = b = 1</span> in the theorem: <span class="tex" data-tex="(1+1)^n = \sum_{r=0}^{n} {}^nC_r">(1+1)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub></span>.</li><li>So the sum is <span class="tex" data-tex="2^n">2<sup>n</sup></span>. For <span class="tex" data-tex="n = 8">n = 8</span>: <span class="tex" data-tex="256">256</span>.</li></ul>
+<p>✅ Sum <span class="tex" data-tex="= 2^n">= 2<sup>n</sup></span>.</p>
+<p><strong>Two more results in the same style.</strong></p>
+<ul><li>Put <span class="tex" data-tex="a = 1">a = 1</span>, <span class="tex" data-tex="b = -1">b = −1</span>: <span class="tex" data-tex="(1-1)^n = \sum_{r=0}^{n} {}^nC_r (-1)^r">(1−1)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> (−1)<sup>r</sup></span>, so <span class="tex" data-tex="{}^nC_0 - {}^nC_1 + {}^nC_2 - \dots = 0"><sup>n</sup>C<sub>0</sub> − <sup>n</sup>C<sub>1</sub> + <sup>n</sup>C<sub>2</sub> − … = 0</span> (for <span class="tex" data-tex="n \ge 1">n ≥ 1</span>).</li><li>Add the two lines: <span class="tex" data-tex="{}^nC_0 + {}^nC_2 + {}^nC_4 + \dots = 2^{\,n-1}"><sup>n</sup>C<sub>0</sub> + <sup>n</sup>C<sub>2</sub> + <sup>n</sup>C<sub>4</sub> + … = 2<sup>n−1</sup></span> and <span class="tex" data-tex="{}^nC_1 + {}^nC_3 + {}^nC_5 + \dots = 2^{\,n-1}"><sup>n</sup>C<sub>1</sub> + <sup>n</sup>C<sub>3</sub> + <sup>n</sup>C<sub>5</sub> + … = 2<sup>n−1</sup></span>.</li></ul>
+<p><strong>Example.</strong> Prove that <span class="tex" data-tex="\sum_{r=0}^{n} 3^r\, {}^nC_r = 4^n">Σ<sub>r=0</sub><sup>n</sup> 3<sup>r</sup> <sup>n</sup>C<sub>r</sub> = 4<sup>n</sup></span>.</p>
+<ul><li>Put <span class="tex" data-tex="a = 1">a = 1</span>, <span class="tex" data-tex="b = 3">b = 3</span> in the theorem: <span class="tex" data-tex="(1+3)^n = \sum_{r=0}^{n} {}^nC_r \cdot 1^{n-r} \cdot 3^r">(1+3)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> · 1<sup>n−r</sup> · 3<sup>r</sup></span>.</li><li>The powers of 1 disappear, so the right side is exactly <span class="tex" data-tex="\sum_{r=0}^{n} 3^r\, {}^nC_r">Σ<sub>r=0</sub><sup>n</sup> 3<sup>r</sup> <sup>n</sup>C<sub>r</sub></span>.</li></ul>
+<p>✅ The sum equals <span class="tex" data-tex="4^n">4<sup>n</sup></span>. ∎</p>
+<p><strong>CHECK 6.</strong> Evaluate <span class="tex" data-tex="{}^8C_0 + {}^8C_1 + \dots + {}^8C_8"><sup>8</sup>C<sub>0</sub> + <sup>8</sup>C<sub>1</sub> + … + <sup>8</sup>C<sub>8</sub></span>. Then evaluate the even-index sum <span class="tex" data-tex="{}^8C_0 + {}^8C_2 + {}^8C_4 + {}^8C_6 + {}^8C_8"><sup>8</sup>C<sub>0</sub> + <sup>8</sup>C<sub>2</sub> + <sup>8</sup>C<sub>4</sub> + <sup>8</sup>C<sub>6</sub> + <sup>8</sup>C<sub>8</sub></span>.</p>
+<details class="qa"><summary>Show answer</summary><div class="sol">
+<ul><li>All coefficients: <span class="tex" data-tex="2^8 = 256">2<sup>8</sup> = 256</span>.</li><li>Even-index sum: <span class="tex" data-tex="2^{8-1} = 2^7 = 128">2<sup>8−1</sup> = 2<sup>7</sup> = 128</span>.</li><li>Quick check: odd-index sum is also 128, and <span class="tex" data-tex="128 + 128 = 256">128 + 128 = 256</span>. ✓</li></ul>
+</div></details>
+      </section>
+
+      <section id="general-middle" class="fade-in">
+        <h2>9. 📝 General term and middle term (formative only)</h2>
+<blockquote><strong>Read this box for school tests, not for the board paper.</strong> CBSE 2026-27 marks this topic as <strong>formative only</strong>. It is in the NCERT book and it is useful, but it carries <strong>no summative (board) weightage</strong>. The board paper will not require the general-term formula. School tests often ask it — so learn it, and practise Topic F of the bank.</blockquote>
+<h3>9.1 General term</h3>
+<p>Number the terms of <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span> from <span class="tex" data-tex="T_1">T<sub>1</sub></span> (first) to <span class="tex" data-tex="T_{n+1}">T<sub>n+1</sub></span> (last). The term at position <span class="tex" data-tex="r + 1">r + 1</span> is:</p>
+<div class="tex tex-block" data-tex="T_{r+1} = {}^nC_r\, a^{n-r}\, b^r">T<sub>r+1</sub> = <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup> b<sup>r</sup></div>
+<p><strong>Why.</strong> The power of <span class="tex" data-tex="b">b</span> tells you the position: the term <span class="tex" data-tex="T_{r+1}">T<sub>r+1</sub></span> carries <span class="tex" data-tex="b^r">b<sup>r</sup></span>. Check on <span class="tex" data-tex="(a+b)^3">(a+b)<sup>3</sup></span>: the third term of <span class="tex" data-tex="a^3 + 3a^2b + 3ab^2 + b^3">a<sup>3</sup> + 3a<sup>2</sup>b + 3ab<sup>2</sup> + b<sup>3</sup></span> is <span class="tex" data-tex="3ab^2">3ab<sup>2</sup></span>, and the formula with <span class="tex" data-tex="r = 2">r = 2</span> gives <span class="tex" data-tex="{}^3C_2\, a^{1}b^{2} = 3ab^2"><sup>3</sup>C<sub>2</sub> a<sup>1</sup>b<sup>2</sup> = 3ab<sup>2</sup></span>. ✓</p>
+<p><strong>Worked example 8.</strong> Find the 5th term of <span class="tex" data-tex="(x-2)^7">(x−2)<sup>7</sup></span>.</p>
+<ul><li>"5th term" means <span class="tex" data-tex="r + 1 = 5">r + 1 = 5</span>, so <span class="tex" data-tex="r = 4">r = 4</span>.</li><li><span class="tex" data-tex="T_5 = {}^7C_4\, x^{7-4}(-2)^4 = 35 \cdot x^3 \cdot 16">T<sub>5</sub> = <sup>7</sup>C<sub>4</sub> x<sup>7−4</sup>(−2)<sup>4</sup> = 35 · x<sup>3</sup> · 16</span></li></ul>
+<p>✅ <span class="tex" data-tex="T_5 = 560x^3">T<sub>5</sub> = 560x<sup>3</sup></span>.</p>
+<h3>9.2 Middle term</h3>
+<ul><li>If <span class="tex" data-tex="n">n</span> is <strong>even</strong>, there is <strong>one</strong> middle term. Its position is <span class="tex" data-tex="\dfrac{n}{2} + 1">(n)/(2) + 1</span>.</li><li>If <span class="tex" data-tex="n">n</span> is <strong>odd</strong>, there are <strong>two</strong> middle terms. Their positions are <span class="tex" data-tex="\dfrac{n+1}{2}">(n+1)/(2)</span> and <span class="tex" data-tex="\dfrac{n+3}{2}">(n+3)/(2)</span>.</li></ul>
+<p><strong>Worked example 9.</strong> Find the middle term of <span class="tex" data-tex="(x + 2y)^8">(x + 2y)<sup>8</sup></span>.</p>
+<ul><li><span class="tex" data-tex="n = 8">n = 8</span> — even. The middle term is at position <span class="tex" data-tex="\dfrac{8}{2} + 1 = 5">(8)/(2) + 1 = 5</span>, so <span class="tex" data-tex="r = 4">r = 4</span>.</li><li><span class="tex" data-tex="T_5 = {}^8C_4\, x^4 (2y)^4 = 70 \cdot x^4 \cdot 16y^4">T<sub>5</sub> = <sup>8</sup>C<sub>4</sub> x<sup>4</sup> (2y)<sup>4</sup> = 70 · x<sup>4</sup> · 16y<sup>4</sup></span></li></ul>
+<p>✅ Middle term <span class="tex" data-tex="= 1120x^4y^4">= 1120x<sup>4</sup>y<sup>4</sup></span>.</p>
+<p><strong>CHECK 7.</strong> Find the middle terms of <span class="tex" data-tex="(x+y)^9">(x+y)<sup>9</sup></span>.</p>
+<details class="qa"><summary>Show answer</summary><div class="sol">
+<ul><li><span class="tex" data-tex="n = 9">n = 9</span> — odd, so two middle terms: positions <span class="tex" data-tex="\dfrac{9+1}{2} = 5">(9+1)/(2) = 5</span> and <span class="tex" data-tex="\dfrac{9+3}{2} = 6">(9+3)/(2) = 6</span>.</li><li><span class="tex" data-tex="T_5 = {}^9C_4\, x^5y^4 = 126x^5y^4">T<sub>5</sub> = <sup>9</sup>C<sub>4</sub> x<sup>5</sup>y<sup>4</sup> = 126x<sup>5</sup>y<sup>4</sup></span></li><li><span class="tex" data-tex="T_6 = {}^9C_5\, x^4y^5 = 126x^4y^5">T<sub>6</sub> = <sup>9</sup>C<sub>5</sub> x<sup>4</sup>y<sup>5</sup> = 126x<sup>4</sup>y<sup>5</sup></span></li><li>Nice pattern: the two answers are mirror images. ✓</li></ul>
+</div></details>
+      </section>
+
+      <section id="formula-wall" class="fade-in">
+        <h2>10. ⚡ Formula wall</h2>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Result</th><th>Exact condition</th></tr></thead><tbody><tr><td>1</td><td><span class="tex" data-tex="(a+b)^n = \sum_{r=0}^{n} {}^nC_r\, a^{n-r}b^r">(a+b)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r</sup></span></td><td><span class="tex" data-tex="n">n</span> = positive integer</td></tr><tr><td>2</td><td><span class="tex" data-tex="(a-b)^n = \sum_{r=0}^{n} (-1)^r\, {}^nC_r\, a^{n-r}b^r">(a−b)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> (−1)<sup>r</sup> <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r</sup></span></td><td>minus sign for odd powers of <span class="tex" data-tex="b">b</span></td></tr><tr><td>3</td><td><span class="tex" data-tex="(1+x)^n = {}^nC_0 + {}^nC_1 x + \dots + {}^nC_n x^n">(1+x)<sup>n</sup> = <sup>n</sup>C<sub>0</sub> + <sup>n</sup>C<sub>1</sub> x + … + <sup>n</sup>C<sub>n</sub> x<sup>n</sup></span></td><td>special case <span class="tex" data-tex="a = 1">a = 1</span></td></tr><tr><td>4</td><td>Number of terms in <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span></td><td><span class="tex" data-tex="n + 1">n + 1</span></td></tr><tr><td>5</td><td><span class="tex" data-tex="{}^nC_0 = {}^nC_n = 1"><sup>n</sup>C<sub>0</sub> = <sup>n</sup>C<sub>n</sub> = 1</span>; <span class="tex" data-tex="{}^nC_1 = n"><sup>n</sup>C<sub>1</sub> = n</span></td><td>any positive integer <span class="tex" data-tex="n">n</span></td></tr><tr><td>6</td><td><span class="tex" data-tex="{}^nC_r = {}^nC_{n-r}"><sup>n</sup>C<sub>r</sub> = <sup>n</sup>C<sub>n−r</sub></span></td><td>symmetry</td></tr><tr><td>7</td><td><span class="tex" data-tex="{}^nC_r + {}^nC_{r-1} = {}^{n+1}C_r"><sup>n</sup>C<sub>r</sub> + <sup>n</sup>C<sub>r−1</sub> = <sup>n+1</sup>C<sub>r</sub></span></td><td>Pascal's rule</td></tr><tr><td>8</td><td><span class="tex" data-tex="{}^nC_0 + {}^nC_1 + \dots + {}^nC_n = 2^n"><sup>n</sup>C<sub>0</sub> + <sup>n</sup>C<sub>1</sub> + … + <sup>n</sup>C<sub>n</sub> = 2<sup>n</sup></span></td><td>put <span class="tex" data-tex="a = b = 1">a = b = 1</span></td></tr><tr><td>9</td><td><span class="tex" data-tex="{}^nC_0 + {}^nC_2 + {}^nC_4 + \dots = 2^{\,n-1}"><sup>n</sup>C<sub>0</sub> + <sup>n</sup>C<sub>2</sub> + <sup>n</sup>C<sub>4</sub> + … = 2<sup>n−1</sup></span></td><td><span class="tex" data-tex="n \ge 1">n ≥ 1</span>; put <span class="tex" data-tex="b = -1">b = −1</span>, then add</td></tr><tr><td>10</td><td><span class="tex" data-tex="{}^nC_0 - {}^nC_1 + {}^nC_2 - \dots = 0"><sup>n</sup>C<sub>0</sub> − <sup>n</sup>C<sub>1</sub> + <sup>n</sup>C<sub>2</sub> − … = 0</span></td><td><span class="tex" data-tex="n \ge 1">n ≥ 1</span>; put <span class="tex" data-tex="a = 1">a = 1</span>, <span class="tex" data-tex="b = -1">b = −1</span></td></tr><tr><td>11</td><td><span class="tex" data-tex="T_{r+1} = {}^nC_r\, a^{n-r}b^r">T<sub>r+1</sub> = <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r</sup></span></td><td>📝 formative only</td></tr><tr><td>12</td><td>Middle term: position <span class="tex" data-tex="\dfrac{n}{2} + 1">(n)/(2) + 1</span> if <span class="tex" data-tex="n">n</span> is even; two terms if <span class="tex" data-tex="n">n</span> is odd</td><td>📝 formative only</td></tr></tbody></table></div>
+      </section>
+
+      <section id="traps" class="fade-in">
+        <h2>11. 🪤 Common traps</h2>
+<ol><li><strong>Count the terms as <span class="tex" data-tex="n + 1">n + 1</span>.</strong> <span class="tex" data-tex="(a+b)^5">(a+b)<sup>5</sup></span> has 6 terms, not 5. Check this first in every expansion question.</li><li><strong>In every term, powers add to <span class="tex" data-tex="n">n</span>.</strong> (Power of <span class="tex" data-tex="a">a</span>) + (power of <span class="tex" data-tex="b">b</span>) <span class="tex" data-tex="= n">= n</span>. Use this one-second check on every term you write.</li><li><strong>Signs in <span class="tex" data-tex="(a-b)^n">(a−b)<sup>n</sup></span>.</strong> A term with an odd power of <span class="tex" data-tex="b">b</span> gets a minus sign. A lost sign is the most common lost mark.</li><li><strong><span class="tex" data-tex="{}^nC_0 = 1"><sup>n</sup>C<sub>0</sub> = 1</span>.</strong> It is never 0. Also <span class="tex" data-tex="{}^nC_1 = n"><sup>n</sup>C<sub>1</sub> = n</span>, and every row starts and ends with 1.</li><li><strong><span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span> is not <span class="tex" data-tex="a^n + b^n">a<sup>n</sup> + b<sup>n</sup></span>.</strong> Never. Try <span class="tex" data-tex="n = 2">n = 2</span>: <span class="tex" data-tex="(a+b)^2 = a^2 + 2ab + b^2">(a+b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup></span>.</li><li><strong>The <span class="tex" data-tex="2^n">2<sup>n</sup></span> trick needs <span class="tex" data-tex="a = b = 1">a = b = 1</span> exactly.</strong> With <span class="tex" data-tex="a = 1">a = 1</span>, <span class="tex" data-tex="b = -1">b = −1</span> you get 0, not <span class="tex" data-tex="2^n">2<sup>n</sup></span>.</li><li><strong>The alternating sum is 0 only for <span class="tex" data-tex="n \ge 1">n ≥ 1</span>.</strong> For <span class="tex" data-tex="n = 0">n = 0</span> the sum is 1.</li><li><strong>Term vs coefficient.</strong> "Find the term" needs the whole piece, like <span class="tex" data-tex="1512x^5">1512x<sup>5</sup></span>. "Find the coefficient" needs only the number, <span class="tex" data-tex="1512">1512</span>.</li><li><strong>General term position is <span class="tex" data-tex="r + 1">r + 1</span>.</strong> The term <span class="tex" data-tex="T_{r+1}">T<sub>r+1</sub></span> carries <span class="tex" data-tex="b^r">b<sup>r</sup></span>. Off by one, and the answer changes. (📝 formative topic)</li><li><strong>Middle term: check the parity of <span class="tex" data-tex="n">n</span> first.</strong> One middle term if <span class="tex" data-tex="n">n</span> is even; two middle terms if <span class="tex" data-tex="n">n</span> is odd. (📝 formative topic)</li><li><strong>Divisibility proofs: keep the block factor visible.</strong> Write <span class="tex" data-tex="64k">64k</span> as one piece and pull it out at the end. Do not mix it into the other numbers.</li><li><strong>Big powers: pick the right split.</strong> <span class="tex" data-tex="99 = 100 - 1">99 = 100 − 1</span>, <span class="tex" data-tex="101 = 100 + 1">101 = 100 + 1</span>, <span class="tex" data-tex="102 = 100 + 2">102 = 100 + 2</span>. Expanding powers of 10 is easy; expanding powers of 99 is not.</li></ol>
+      </section>
+
+      <section id="exam-types" class="fade-in">
+        <h2>12. 🎯 Exam question types (and the method for each)</h2>
+<div class="table-wrap"><table><thead><tr><th>Question type</th><th>What to do</th><th>Tool</th></tr></thead><tbody><tr><td>Expand a bracket</td><td>Write <span class="tex" data-tex="n+1">n+1</span> terms; coefficients from <span class="tex" data-tex="{}^nC_r"><sup>n</sup>C<sub>r</sub></span> or Pascal; substitute; simplify</td><td>Theorem, sign rule</td></tr><tr><td>Evaluate a big power</td><td>Split near 100; expand; add the terms with signs</td><td>Theorem + sign rule</td></tr><tr><td>Which is larger?</td><td>Expand the first two or three terms; compare with the other number</td><td>Theorem (few terms)</td></tr><tr><td>Divisibility proof</td><td>Write the power as <span class="tex" data-tex="(1+8)^n">(1+8)<sup>n</sup></span> or <span class="tex" data-tex="(1+7)^n">(1+7)<sup>n</sup></span>; expand; collect the block factor</td><td>Theorem</td></tr><tr><td>Sum of all binomial coefficients</td><td>Put <span class="tex" data-tex="a = b = 1">a = b = 1</span></td><td><span class="tex" data-tex="2^n">2<sup>n</sup></span></td></tr><tr><td>Alternating coefficient sum</td><td>Put <span class="tex" data-tex="a = 1">a = 1</span>, <span class="tex" data-tex="b = -1">b = −1</span></td><td><span class="tex" data-tex="0">0</span> (for <span class="tex" data-tex="n \ge 1">n ≥ 1</span>)</td></tr><tr><td>Sum of even-index (or odd-index) coefficients</td><td>Put <span class="tex" data-tex="b = -1">b = −1</span>; add the two lines; halve</td><td><span class="tex" data-tex="2^{\,n-1}">2<sup>n−1</sup></span></td></tr><tr><td>Weighted coefficient sum</td><td>Match the weights to <span class="tex" data-tex="b^r">b<sup>r</sup></span>; put <span class="tex" data-tex="b = ">b =</span> the weight</td><td>Theorem</td></tr><tr><td>Write a row of Pascal's triangle</td><td>Add neighbours from the row above</td><td>Pascal's rule</td></tr><tr><td>State and prove the theorem</td><td>Two steps: base <span class="tex" data-tex="n = 1">n = 1</span>; multiply by <span class="tex" data-tex="(a+b)">(a+b)</span>; combine with Pascal's rule</td><td>Induction</td></tr><tr><td>Find <span class="tex" data-tex="n">n</span> from <span class="tex" data-tex="{}^nC_8 = {}^nC_6"><sup>n</sup>C<sub>8</sub> = <sup>n</sup>C<sub>6</sub></span></td><td>Use <span class="tex" data-tex="r = s">r = s</span> or <span class="tex" data-tex="r + s = n">r + s = n</span></td><td>Symmetry</td></tr><tr><td>Specific term or coefficient 📝</td><td>Start from <span class="tex" data-tex="T_{r+1} = {}^nC_r\, a^{n-r}b^r">T<sub>r+1</sub> = <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r</sup></span>; solve for <span class="tex" data-tex="r">r</span></td><td>General term</td></tr><tr><td>Middle term 📝</td><td>Find the position from the parity of <span class="tex" data-tex="n">n</span></td><td>Middle term rule</td></tr><tr><td>Term independent of <span class="tex" data-tex="x">x</span> 📝</td><td>Set the power of <span class="tex" data-tex="x">x</span> to 0; solve for <span class="tex" data-tex="r">r</span></td><td>General term</td></tr></tbody></table></div>
+      </section>
+
+      <section id="practice" class="fade-in">
+        <h2>13. 💪 Practice bank — full solutions</h2>
+<blockquote><strong>How to train with this bank.</strong> Cover the answer. Solve the question on paper first. Then open the dropdown and compare every step. Marks and difficulty are shown on each question: ★☆☆ basic, ★★☆ board level, ★★★ HOTS.<br><br><strong>Marked questions that match the board paper:</strong> 1 mark (MCQ / very short), 2 marks (short), 3 marks (short answer), 5 marks (long answer).</blockquote>
+<h3>Topic A — Expansions with the theorem</h3>
+<details class="qa"><summary><strong>Q1.</strong> (2 marks · ★☆☆) Expand <span class="tex" data-tex="(x+2)^5">(x+2)<sup>5</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — <span class="tex" data-tex="n = 5">n = 5</span>, so 6 terms. Coefficients: <span class="tex" data-tex="1, 5, 10, 10, 5, 1">1, 5, 10, 10, 5, 1</span>.</li><li>Step 2 — powers of <span class="tex" data-tex="x">x</span> go down, powers of 2 go up:</li></ul>
+<div class="tex tex-block" data-tex="(x+2)^5 = x^5 + 5x^4(2) + 10x^3(4) + 10x^2(8) + 5x(16) + 32">(x+2)<sup>5</sup> = x<sup>5</sup> + 5x<sup>4</sup>(2) + 10x<sup>3</sup>(4) + 10x<sup>2</sup>(8) + 5x(16) + 32</div>
+<ul><li>Step 3 — simplify each term: <span class="tex" data-tex="x^5 + 10x^4 + 40x^3 + 80x^2 + 80x + 32">x<sup>5</sup> + 10x<sup>4</sup> + 40x<sup>3</sup> + 80x<sup>2</sup> + 80x + 32</span></li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="x^5 + 10x^4 + 40x^3 + 80x^2 + 80x + 32">x<sup>5</sup> + 10x<sup>4</sup> + 40x<sup>3</sup> + 80x<sup>2</sup> + 80x + 32</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q2.</strong> (3 marks · ★☆☆) Expand <span class="tex" data-tex="(2x+3)^4">(2x+3)<sup>4</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — <span class="tex" data-tex="n = 4">n = 4</span>: coefficients <span class="tex" data-tex="1, 4, 6, 4, 1">1, 4, 6, 4, 1</span>. Here <span class="tex" data-tex="a = 2x">a = 2x</span>, <span class="tex" data-tex="b = 3">b = 3</span>.</li><li>Step 2 — no alternating signs (both terms are positive):</li></ul>
+<div class="tex tex-block" data-tex="(2x+3)^4 = (2x)^4 + 4(2x)^3(3) + 6(2x)^2(3^2) + 4(2x)(3^3) + 3^4">(2x+3)<sup>4</sup> = (2x)<sup>4</sup> + 4(2x)<sup>3</sup>(3) + 6(2x)<sup>2</sup>(3<sup>2</sup>) + 4(2x)(3<sup>3</sup>) + 3<sup>4</sup></div>
+<ul><li>Step 3 — simplify: <span class="tex" data-tex="16x^4 + 4 \cdot 8x^3 \cdot 3 + 6 \cdot 4x^2 \cdot 9 + 4 \cdot 2x \cdot 27 + 81">16x<sup>4</sup> + 4 · 8x<sup>3</sup> · 3 + 6 · 4x<sup>2</sup> · 9 + 4 · 2x · 27 + 81</span></li><li>Step 4 — finish the numbers: <span class="tex" data-tex="16x^4 + 96x^3 + 216x^2 + 216x + 81">16x<sup>4</sup> + 96x<sup>3</sup> + 216x<sup>2</sup> + 216x + 81</span></li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="16x^4 + 96x^3 + 216x^2 + 216x + 81">16x<sup>4</sup> + 96x<sup>3</sup> + 216x<sup>2</sup> + 216x + 81</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q3.</strong> (3 marks · ★★☆) Expand <span class="tex" data-tex="\left(\dfrac{x}{3} + \dfrac{1}{x}\right)^5">((x)/(3) + (1)/(x))<sup>5</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — <span class="tex" data-tex="n = 5">n = 5</span>: coefficients <span class="tex" data-tex="1, 5, 10, 10, 5, 1">1, 5, 10, 10, 5, 1</span>. Here <span class="tex" data-tex="a = \dfrac{x}{3}">a = (x)/(3)</span>, <span class="tex" data-tex="b = \dfrac{1}{x}">b = (1)/(x)</span>.</li><li>Step 2 — write each term with <span class="tex" data-tex="{}^5C_r"><sup>5</sup>C<sub>r</sub></span>:</li></ul>
+<div class="tex tex-block" data-tex="T_{r+1} = {}^5C_r \left(\dfrac{x}{3}\right)^{5-r} \left(\dfrac{1}{x}\right)^r = {}^5C_r \cdot \dfrac{x^{5-2r}}{3^{\,5-r}}">T<sub>r+1</sub> = <sup>5</sup>C<sub>r</sub> ((x)/(3))<sup>5−r</sup> ((1)/(x))<sup>r</sup> = <sup>5</sup>C<sub>r</sub> · (x<sup>5−2r</sup>)/(3<sup>5−r</sup>)</div>
+<ul><li>Step 3 — list the six terms:</li></ul>
+<div class="tex tex-block" data-tex="r = 0: \dfrac{x^5}{243}, \quad r = 1: \dfrac{5x^3}{81}, \quad r = 2: \dfrac{10x}{27}, \quad r = 3: \dfrac{10}{9x}, \quad r = 4: \dfrac{5}{3x^3}, \quad r = 5: \dfrac{1}{x^5}">r = 0: (x<sup>5</sup>)/(243), r = 1: (5x<sup>3</sup>)/(81), r = 2: (10x)/(27), r = 3: (10)/(9x), r = 4: (5)/(3x<sup>3</sup>), r = 5: (1)/(x<sup>5</sup>)</div>
+<ul><li>Step 4 — join with <span class="tex" data-tex="+">+</span> signs.</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="\dfrac{x^5}{243} + \dfrac{5x^3}{81} + \dfrac{10x}{27} + \dfrac{10}{9x} + \dfrac{5}{3x^3} + \dfrac{1}{x^5}">(x<sup>5</sup>)/(243) + (5x<sup>3</sup>)/(81) + (10x)/(27) + (10)/(9x) + (5)/(3x<sup>3</sup>) + (1)/(x<sup>5</sup>)</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q4.</strong> (3 marks · ★★☆) Expand <span class="tex" data-tex="\left(\dfrac{2}{x} - \dfrac{x}{2}\right)^4">((2)/(x) − (x)/(2))<sup>4</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — <span class="tex" data-tex="n = 4">n = 4</span>: coefficients <span class="tex" data-tex="1, 4, 6, 4, 1">1, 4, 6, 4, 1</span>. Here <span class="tex" data-tex="a = \dfrac{2}{x}">a = (2)/(x)</span>, <span class="tex" data-tex="b = \dfrac{x}{2}">b = (x)/(2)</span>, with alternating signs.</li><li>Step 2 — expand directly:</li></ul>
+<div class="tex tex-block" data-tex="\left(\dfrac{2}{x}\right)^4 - 4\left(\dfrac{2}{x}\right)^3\left(\dfrac{x}{2}\right) + 6\left(\dfrac{2}{x}\right)^2\left(\dfrac{x}{2}\right)^2 - 4\left(\dfrac{2}{x}\right)\left(\dfrac{x}{2}\right)^3 + \left(\dfrac{x}{2}\right)^4">((2)/(x))<sup>4</sup> − 4((2)/(x))<sup>3</sup>((x)/(2)) + 6((2)/(x))<sup>2</sup>((x)/(2))<sup>2</sup> − 4((2)/(x))((x)/(2))<sup>3</sup> + ((x)/(2))<sup>4</sup></div>
+<ul><li>Step 3 — simplify each term: <span class="tex" data-tex="\dfrac{16}{x^4} - 4 \cdot \dfrac{8}{x^3} \cdot \dfrac{x}{2} + 6 \cdot \dfrac{4}{x^2} \cdot \dfrac{x^2}{4} - 4 \cdot \dfrac{2}{x} \cdot \dfrac{x^3}{8} + \dfrac{x^4}{16}">(16)/(x<sup>4</sup>) − 4 · (8)/(x<sup>3</sup>) · (x)/(2) + 6 · (4)/(x<sup>2</sup>) · (x<sup>2</sup>)/(4) − 4 · (2)/(x) · (x<sup>3</sup>)/(8) + (x<sup>4</sup>)/(16)</span></li><li>Step 4 — reduce the fractions: <span class="tex" data-tex="\dfrac{16}{x^4} - \dfrac{16}{x^2} + 6 - x^2 + \dfrac{x^4}{16}">(16)/(x<sup>4</sup>) − (16)/(x<sup>2</sup>) + 6 − x<sup>2</sup> + (x<sup>4</sup>)/(16)</span></li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="\dfrac{16}{x^4} - \dfrac{16}{x^2} + 6 - x^2 + \dfrac{x^4}{16}">(16)/(x<sup>4</sup>) − (16)/(x<sup>2</sup>) + 6 − x<sup>2</sup> + (x<sup>4</sup>)/(16)</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q5.</strong> (3 marks · ★★☆) Evaluate <span class="tex" data-tex="(\sqrt{3} + \sqrt{2})^6">(√(3) + √(2))<sup>6</sup></span> using the binomial theorem.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — <span class="tex" data-tex="n = 6">n = 6</span>: coefficients <span class="tex" data-tex="1, 6, 15, 20, 15, 6, 1">1, 6, 15, 20, 15, 6, 1</span>.</li><li>Step 2 — a term <span class="tex" data-tex="(\sqrt{3})^{k}(\sqrt{2})^{j}">(√(3))<sup>k</sup>(√(2))<sup>j</sup></span> is an integer when <span class="tex" data-tex="k, j">k, j</span> are both even; it is a multiple of <span class="tex" data-tex="\sqrt{6}">√(6)</span> when <span class="tex" data-tex="k, j">k, j</span> are both odd.</li><li>Step 3 — add the integer terms:</li></ul>
+<div class="tex tex-block" data-tex="(\sqrt{3})^6 + 15(\sqrt{3})^4(\sqrt{2})^2 + 15(\sqrt{3})^2(\sqrt{2})^4 + (\sqrt{2})^6 = 27 + 270 + 180 + 8 = 485">(√(3))<sup>6</sup> + 15(√(3))<sup>4</sup>(√(2))<sup>2</sup> + 15(√(3))<sup>2</sup>(√(2))<sup>4</sup> + (√(2))<sup>6</sup> = 27 + 270 + 180 + 8 = 485</div>
+<ul><li>Step 4 — add the <span class="tex" data-tex="\sqrt{6}">√(6)</span> terms:</li></ul>
+<div class="tex tex-block" data-tex="6(\sqrt{3})^5(\sqrt{2}) + 20(\sqrt{3})^3(\sqrt{2})^3 + 6(\sqrt{3})(\sqrt{2})^5 = 54\sqrt{6} + 120\sqrt{6} + 24\sqrt{6} = 198\sqrt{6}">6(√(3))<sup>5</sup>(√(2)) + 20(√(3))<sup>3</sup>(√(2))<sup>3</sup> + 6(√(3))(√(2))<sup>5</sup> = 54√(6) + 120√(6) + 24√(6) = 198√(6)</div>
+<ul><li>Step 5 — combine: <span class="tex" data-tex="485 + 198\sqrt{6}">485 + 198√(6)</span>.</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="(\sqrt{3} + \sqrt{2})^6 = 485 + 198\sqrt{6}">(√(3) + √(2))<sup>6</sup> = 485 + 198√(6)</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q6.</strong> (3 marks · ★★☆) Expand <span class="tex" data-tex="\left(x + \dfrac{1}{x}\right)^6">(x + (1)/(x))<sup>6</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — <span class="tex" data-tex="n = 6">n = 6</span>: coefficients <span class="tex" data-tex="1, 6, 15, 20, 15, 6, 1">1, 6, 15, 20, 15, 6, 1</span>.</li><li>Step 2 — term pattern: <span class="tex" data-tex="{}^6C_r\, x^{6-r}\left(\dfrac{1}{x}\right)^r = {}^6C_r\, x^{\,6-2r}"><sup>6</sup>C<sub>r</sub> x<sup>6−r</sup>((1)/(x))<sup>r</sup> = <sup>6</sup>C<sub>r</sub> x<sup>6−2r</sup></span>.</li><li>Step 3 — list the terms: <span class="tex" data-tex="x^6 + 6x^4 + 15x^2 + 20 + \dfrac{15}{x^2} + \dfrac{6}{x^4} + \dfrac{1}{x^6}">x<sup>6</sup> + 6x<sup>4</sup> + 15x<sup>2</sup> + 20 + (15)/(x<sup>2</sup>) + (6)/(x<sup>4</sup>) + (1)/(x<sup>6</sup>)</span></li><li>Step 4 — note the middle term <span class="tex" data-tex="20">20</span> is a constant (the term independent of <span class="tex" data-tex="x">x</span>).</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="x^6 + 6x^4 + 15x^2 + 20 + \dfrac{15}{x^2} + \dfrac{6}{x^4} + \dfrac{1}{x^6}">x<sup>6</sup> + 6x<sup>4</sup> + 15x<sup>2</sup> + 20 + (15)/(x<sup>2</sup>) + (6)/(x<sup>4</sup>) + (1)/(x<sup>6</sup>)</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q7.</strong> (3 marks · ★★☆) Expand <span class="tex" data-tex="(3-2x)^5">(3−2x)<sup>5</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — <span class="tex" data-tex="n = 5">n = 5</span>: coefficients <span class="tex" data-tex="1, 5, 10, 10, 5, 1">1, 5, 10, 10, 5, 1</span>. Here <span class="tex" data-tex="a = 3">a = 3</span>, <span class="tex" data-tex="b = 2x">b = 2x</span>, with alternating signs.</li><li>Step 2 — expand: <span class="tex" data-tex="3^5 - 5(3^4)(2x) + 10(3^3)(2x)^2 - 10(3^2)(2x)^3 + 5(3)(2x)^4 - (2x)^5">3<sup>5</sup> − 5(3<sup>4</sup>)(2x) + 10(3<sup>3</sup>)(2x)<sup>2</sup> − 10(3<sup>2</sup>)(2x)<sup>3</sup> + 5(3)(2x)<sup>4</sup> − (2x)<sup>5</sup></span></li><li>Step 3 — simplify: <span class="tex" data-tex="243 - 5 \cdot 81 \cdot 2x + 10 \cdot 27 \cdot 4x^2 - 10 \cdot 9 \cdot 8x^3 + 5 \cdot 3 \cdot 16x^4 - 32x^5">243 − 5 · 81 · 2x + 10 · 27 · 4x<sup>2</sup> − 10 · 9 · 8x<sup>3</sup> + 5 · 3 · 16x<sup>4</sup> − 32x<sup>5</sup></span></li><li>Step 4 — finish: <span class="tex" data-tex="243 - 810x + 1080x^2 - 720x^3 + 240x^4 - 32x^5">243 − 810x + 1080x<sup>2</sup> − 720x<sup>3</sup> + 240x<sup>4</sup> − 32x<sup>5</sup></span></li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="243 - 810x + 1080x^2 - 720x^3 + 240x^4 - 32x^5">243 − 810x + 1080x<sup>2</sup> − 720x<sup>3</sup> + 240x<sup>4</sup> − 32x<sup>5</sup></span>.</strong></p>
+</div></details>
+<h3>Topic B — Evaluating large powers and comparisons</h3>
+<details class="qa"><summary><strong>Q8.</strong> (2 marks · ★☆☆) Evaluate <span class="tex" data-tex="99^3">99<sup>3</sup></span> using the binomial theorem.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — split: <span class="tex" data-tex="99 = 100 - 1">99 = 100 − 1</span>.</li><li>Step 2 — expand <span class="tex" data-tex="(100-1)^3 = 100^3 - 3 \cdot 100^2 + 3 \cdot 100 - 1">(100−1)<sup>3</sup> = 100<sup>3</sup> − 3 · 100<sup>2</sup> + 3 · 100 − 1</span></li><li>Step 3 — simplify: <span class="tex" data-tex="1000000 - 30000 + 300 - 1">1000000 − 30000 + 300 − 1</span></li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="99^3 = 970299">99<sup>3</sup> = 970299</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q9.</strong> (3 marks · ★★☆) Evaluate <span class="tex" data-tex="101^5">101<sup>5</sup></span> using the binomial theorem.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — split: <span class="tex" data-tex="101 = 100 + 1">101 = 100 + 1</span>.</li><li>Step 2 — expand: <span class="tex" data-tex="100^5 + 5 \cdot 100^4 + 10 \cdot 100^3 + 10 \cdot 100^2 + 5 \cdot 100 + 1">100<sup>5</sup> + 5 · 100<sup>4</sup> + 10 · 100<sup>3</sup> + 10 · 100<sup>2</sup> + 5 · 100 + 1</span></li><li>Step 3 — each power of 100 is a 1 followed by zeros: <span class="tex" data-tex="10000000000 + 500000000 + 10000000 + 100000 + 500 + 1">10000000000 + 500000000 + 10000000 + 100000 + 500 + 1</span></li><li>Step 4 — add carefully.</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="101^5 = 10510100501">101<sup>5</sup> = 10510100501</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q10.</strong> (3 marks · ★★☆) Evaluate <span class="tex" data-tex="96^3">96<sup>3</sup></span> using the binomial theorem.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — split: <span class="tex" data-tex="96 = 100 - 4">96 = 100 − 4</span>.</li><li>Step 2 — expand: <span class="tex" data-tex="100^3 - 3 \cdot 100^2 \cdot 4 + 3 \cdot 100 \cdot 4^2 - 4^3">100<sup>3</sup> − 3 · 100<sup>2</sup> · 4 + 3 · 100 · 4<sup>2</sup> − 4<sup>3</sup></span></li><li>Step 3 — simplify: <span class="tex" data-tex="1000000 - 120000 + 4800 - 64">1000000 − 120000 + 4800 − 64</span></li><li>Step 4 — add: <span class="tex" data-tex="1000000 - 120000 = 880000">1000000 − 120000 = 880000</span>; then <span class="tex" data-tex="880000 + 4800 = 884800">880000 + 4800 = 884800</span>; then <span class="tex" data-tex="884800 - 64 = 884736">884800 − 64 = 884736</span>.</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="96^3 = 884736">96<sup>3</sup> = 884736</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q11.</strong> (3 marks · ★★☆) Evaluate <span class="tex" data-tex="102^4">102<sup>4</sup></span> using the binomial theorem.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — split: <span class="tex" data-tex="102 = 100 + 2">102 = 100 + 2</span>.</li><li>Step 2 — expand: <span class="tex" data-tex="100^4 + 4 \cdot 100^3 \cdot 2 + 6 \cdot 100^2 \cdot 2^2 + 4 \cdot 100 \cdot 2^3 + 2^4">100<sup>4</sup> + 4 · 100<sup>3</sup> · 2 + 6 · 100<sup>2</sup> · 2<sup>2</sup> + 4 · 100 · 2<sup>3</sup> + 2<sup>4</sup></span></li><li>Step 3 — simplify: <span class="tex" data-tex="100000000 + 8000000 + 240000 + 3200 + 16">100000000 + 8000000 + 240000 + 3200 + 16</span></li><li>Step 4 — add.</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="102^4 = 108243216">102<sup>4</sup> = 108243216</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q12.</strong> (3 marks · ★★☆) Which is larger: <span class="tex" data-tex="(1.01)^{1000000}">(1.01)<sup>1000000</sup></span> or <span class="tex" data-tex="10000">10000</span>?</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — write the power with a small bracket: <span class="tex" data-tex="(1.01)^{1000000} = (1 + 0.01)^{1000000}">(1.01)<sup>1000000</sup> = (1 + 0.01)<sup>1000000</sup></span>.</li><li>Step 2 — expand the first terms:</li></ul>
+<div class="tex tex-block" data-tex="1 + 1000000(0.01) + (\text{positive terms}) = 1 + 10000 + (\text{positive terms})">1 + 1000000(0.01) + (positive terms) = 1 + 10000 + (positive terms)</div>
+<ul><li>Step 3 — compare: the value is more than <span class="tex" data-tex="10001">10001</span>, and every further term is positive.</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="(1.01)^{1000000}">(1.01)<sup>1000000</sup></span> is larger than <span class="tex" data-tex="10000">10000</span>.</strong></p>
+</div></details>
+<h3>Topic C — The theorem, divisibility and coefficient identities</h3>
+<details class="qa"><summary><strong>Q13.</strong> (5 marks · ★★☆) State and prove the binomial theorem for positive integral indices.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — <strong>statement:</strong> for every positive integer <span class="tex" data-tex="n">n</span>, <span class="tex" data-tex="(a+b)^n = \sum_{r=0}^{n} {}^nC_r\, a^{n-r}b^r">(a+b)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r</sup></span>.</li><li>Step 2 — <strong>base step:</strong> for <span class="tex" data-tex="n = 1">n = 1</span>, left side is <span class="tex" data-tex="a + b">a + b</span>, right side is <span class="tex" data-tex="{}^1C_0 a + {}^1C_1 b = a + b"><sup>1</sup>C<sub>0</sub> a + <sup>1</sup>C<sub>1</sub> b = a + b</span>. ✓</li><li>Step 3 — <strong>assume</strong> the statement for <span class="tex" data-tex="n">n</span>, then multiply by <span class="tex" data-tex="(a+b)">(a+b)</span>:</li></ul>
+<div class="tex tex-block" data-tex="(a+b)^{n+1} = \sum_{r=0}^{n} {}^nC_r\, a^{n+1-r}b^r + \sum_{r=0}^{n} {}^nC_r\, a^{n-r}b^{r+1}">(a+b)<sup>n+1</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n+1−r</sup>b<sup>r</sup> + Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r+1</sup></div>
+<ul><li>Step 4 — in the second sum, put <span class="tex" data-tex="k = r+1">k = r+1</span>. Now match the two sums term by term and use Pascal's rule <span class="tex" data-tex="{}^nC_k + {}^nC_{k-1} = {}^{n+1}C_k"><sup>n</sup>C<sub>k</sub> + <sup>n</sup>C<sub>k−1</sub> = <sup>n+1</sup>C<sub>k</sub></span>:</li></ul>
+<div class="tex tex-block" data-tex="(a+b)^{n+1} = \sum_{k=0}^{n+1} {}^{n+1}C_k\, a^{n+1-k}b^{k}">(a+b)<sup>n+1</sup> = Σ<sub>k=0</sub><sup>n+1</sup> <sup>n+1</sup>C<sub>k</sub> a<sup>n+1−k</sup>b<sup>k</sup></div>
+<ul><li>Step 5 — this is the statement for <span class="tex" data-tex="n+1">n+1</span>. By induction, it is true for every positive integer <span class="tex" data-tex="n">n</span>. ∎</li></ul>
+<p>✅ <strong>Answer: proved — base step plus the induction step.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q14.</strong> (3 marks · ★★☆) Show that <span class="tex" data-tex="3^{2n+2} - 8n - 9">3<sup>2n+2</sup> − 8n − 9</span> is divisible by 8, for every positive integer <span class="tex" data-tex="n">n</span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — rewrite the power: <span class="tex" data-tex="3^{2n+2} = 9^{n+1} = 9 \cdot 9^n = 9(1+8)^n">3<sup>2n+2</sup> = 9<sup>n+1</sup> = 9 · 9<sup>n</sup> = 9(1+8)<sup>n</sup></span>.</li><li>Step 2 — expand the bracket. Every term from the third onward carries <span class="tex" data-tex="8^2 = 64">8<sup>2</sup> = 64</span>:</li></ul>
+<div class="tex tex-block" data-tex="9(1+8)^n = 9\left[1 + 8n + \frac{n(n-1)}{2} \cdot 64 + \dots\right] = 9 + 72n + 64k">9(1+8)<sup>n</sup> = 9[1 + 8n + (n(n−1))/(2) · 64 + …] = 9 + 72n + 64k</div>
+<ul><li>Step 3 — subtract:</li></ul>
+<div class="tex tex-block" data-tex="3^{2n+2} - 8n - 9 = (9 + 72n + 64k) - 8n - 9 = 64n + 64k = 8(8n + 8k)">3<sup>2n+2</sup> − 8n − 9 = (9 + 72n + 64k) − 8n − 9 = 64n + 64k = 8(8n + 8k)</div>
+<ul><li>Step 4 — the bracket is an integer, so the expression is a multiple of 8 (and of 64).</li></ul>
+<p>✅ <strong>Answer: proved — the expression equals <span class="tex" data-tex="8 \times (\text{integer})">8 × (integer)</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q15.</strong> (3 marks · ★★☆) Show that <span class="tex" data-tex="8^n - 7n - 1">8<sup>n</sup> − 7n − 1</span> is divisible by <span class="tex" data-tex="49">49</span>, for every positive integer <span class="tex" data-tex="n">n</span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — write the power with a small bracket: <span class="tex" data-tex="8^n = (1+7)^n">8<sup>n</sup> = (1+7)<sup>n</sup></span>.</li><li>Step 2 — expand. Every term from the third onward carries <span class="tex" data-tex="7^2 = 49">7<sup>2</sup> = 49</span>:</li></ul>
+<div class="tex tex-block" data-tex="(1+7)^n = 1 + 7n + \frac{n(n-1)}{2} \cdot 49 + \frac{n(n-1)(n-2)}{6} \cdot 343 + \dots = 1 + 7n + 49m">(1+7)<sup>n</sup> = 1 + 7n + (n(n−1))/(2) · 49 + (n(n−1)(n−2))/(6) · 343 + … = 1 + 7n + 49m</div>
+<ul><li>Step 3 — subtract: <span class="tex" data-tex="8^n - 7n - 1 = (1 + 7n + 49m) - 7n - 1 = 49m">8<sup>n</sup> − 7n − 1 = (1 + 7n + 49m) − 7n − 1 = 49m</span>.</li><li>Step 4 — <span class="tex" data-tex="m">m</span> is an integer, so the expression is a multiple of 49.</li></ul>
+<p>✅ <strong>Answer: proved.</strong> (This is the same method as the <span class="tex" data-tex="64">64</span> example in Section 8 — find the block factor, then pull it out.)</p>
+</div></details>
+<details class="qa"><summary><strong>Q16.</strong> (3 marks · ★★☆) (a) Prove that <span class="tex" data-tex="\sum_{r=0}^{n} 3^r\, {}^nC_r = 4^n">Σ<sub>r=0</sub><sup>n</sup> 3<sup>r</sup> <sup>n</sup>C<sub>r</sub> = 4<sup>n</sup></span>. (b) Hence evaluate <span class="tex" data-tex="\sum_{r=0}^{n} 2^r\, {}^nC_r">Σ<sub>r=0</sub><sup>n</sup> 2<sup>r</sup> <sup>n</sup>C<sub>r</sub></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — (a) put <span class="tex" data-tex="a = 1">a = 1</span>, <span class="tex" data-tex="b = 3">b = 3</span> in <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span>:</li></ul>
+<div class="tex tex-block" data-tex="(1+3)^n = \sum_{r=0}^{n} {}^nC_r\, 1^{n-r} \cdot 3^r = \sum_{r=0}^{n} 3^r\, {}^nC_r">(1+3)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> 1<sup>n−r</sup> · 3<sup>r</sup> = Σ<sub>r=0</sub><sup>n</sup> 3<sup>r</sup> <sup>n</sup>C<sub>r</sub></div>
+<ul><li>Step 2 — the left side is <span class="tex" data-tex="4^n">4<sup>n</sup></span>, so the sum is <span class="tex" data-tex="4^n">4<sup>n</sup></span>. ∎</li><li>Step 3 — (b) the same trick with <span class="tex" data-tex="b = 2">b = 2</span>: the sum is <span class="tex" data-tex="(1+2)^n = 3^n">(1+2)<sup>n</sup> = 3<sup>n</sup></span>.</li></ul>
+<p>✅ <strong>Answer: (a) <span class="tex" data-tex="4^n">4<sup>n</sup></span>; (b) <span class="tex" data-tex="3^n">3<sup>n</sup></span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q17.</strong> (3 marks · ★★☆) Show that <span class="tex" data-tex="{}^nC_0 - {}^nC_1 + {}^nC_2 - \dots + (-1)^n\,{}^nC_n = 0"><sup>n</sup>C<sub>0</sub> − <sup>n</sup>C<sub>1</sub> + <sup>n</sup>C<sub>2</sub> − … + (−1)<sup>n</sup> <sup>n</sup>C<sub>n</sub> = 0</span> for <span class="tex" data-tex="n \ge 1">n ≥ 1</span>, and state the value for <span class="tex" data-tex="n = 6">n = 6</span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — put <span class="tex" data-tex="a = 1">a = 1</span>, <span class="tex" data-tex="b = -1">b = −1</span> in the theorem:</li></ul>
+<div class="tex tex-block" data-tex="(1-1)^n = \sum_{r=0}^{n} {}^nC_r\, 1^{n-r}(-1)^r = {}^nC_0 - {}^nC_1 + {}^nC_2 - \dots">(1−1)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> 1<sup>n−r</sup>(−1)<sup>r</sup> = <sup>n</sup>C<sub>0</sub> − <sup>n</sup>C<sub>1</sub> + <sup>n</sup>C<sub>2</sub> − …</div>
+<ul><li>Step 2 — the left side is <span class="tex" data-tex="0^n = 0">0<sup>n</sup> = 0</span> (true for every <span class="tex" data-tex="n \ge 1">n ≥ 1</span>).</li><li>Step 3 — for <span class="tex" data-tex="n = 6">n = 6</span> the value is still 0.</li></ul>
+<p>✅ <strong>Answer: proved for <span class="tex" data-tex="n \ge 1">n ≥ 1</span>; value at <span class="tex" data-tex="n = 6">n = 6</span> is <span class="tex" data-tex="0">0</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q18.</strong> (3 marks · ★★★) Prove that <span class="tex" data-tex="{}^nC_0 + {}^nC_2 + {}^nC_4 + \dots = 2^{\,n-1}"><sup>n</sup>C<sub>0</sub> + <sup>n</sup>C<sub>2</sub> + <sup>n</sup>C<sub>4</sub> + … = 2<sup>n−1</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — put <span class="tex" data-tex="a = b = 1">a = b = 1</span>:</li></ul>
+<div class="tex tex-block" data-tex="{}^nC_0 + {}^nC_1 + {}^nC_2 + \dots = 2^n \qquad \dots(1)"><sup>n</sup>C<sub>0</sub> + <sup>n</sup>C<sub>1</sub> + <sup>n</sup>C<sub>2</sub> + … = 2<sup>n</sup> …(1)</div>
+<ul><li>Step 2 — put <span class="tex" data-tex="a = 1">a = 1</span>, <span class="tex" data-tex="b = -1">b = −1</span>:</li></ul>
+<div class="tex tex-block" data-tex="{}^nC_0 - {}^nC_1 + {}^nC_2 - \dots = 0 \qquad \dots(2)"><sup>n</sup>C<sub>0</sub> − <sup>n</sup>C<sub>1</sub> + <sup>n</sup>C<sub>2</sub> − … = 0 …(2)</div>
+<ul><li>Step 3 — add (1) and (2). The odd-index terms cancel:</li></ul>
+<div class="tex tex-block" data-tex="2\left({}^nC_0 + {}^nC_2 + {}^nC_4 + \dots\right) = 2^n">2(<sup>n</sup>C<sub>0</sub> + <sup>n</sup>C<sub>2</sub> + <sup>n</sup>C<sub>4</sub> + …) = 2<sup>n</sup></div>
+<ul><li>Step 4 — divide both sides by 2.</li></ul>
+<p>✅ <strong>Answer: the even-index sum is <span class="tex" data-tex="2^{\,n-1}">2<sup>n−1</sup></span> (and so is the odd-index sum).</strong></p>
+</div></details>
+<h3>Topic D — Binomial coefficients and sums</h3>
+<details class="qa"><summary><strong>Q19.</strong> (2 marks · ★☆☆) Evaluate <span class="tex" data-tex="{}^{10}C_0 + {}^{10}C_1 + \dots + {}^{10}C_{10}"><sup>10</sup>C<sub>0</sub> + <sup>10</sup>C<sub>1</sub> + … + <sup>10</sup>C<sub>10</sub></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — the sum of all binomial coefficients of index <span class="tex" data-tex="n">n</span> is <span class="tex" data-tex="2^n">2<sup>n</sup></span> (put <span class="tex" data-tex="a = b = 1">a = b = 1</span>).</li><li>Step 2 — here <span class="tex" data-tex="n = 10">n = 10</span>: <span class="tex" data-tex="2^{10} = 1024">2<sup>10</sup> = 1024</span>.</li></ul>
+<p>✅ <strong>Answer: 1024.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q20.</strong> (2 marks · ★☆☆) If <span class="tex" data-tex="{}^nC_4 = {}^nC_5"><sup>n</sup>C<sub>4</sub> = <sup>n</sup>C<sub>5</sub></span>, find <span class="tex" data-tex="n">n</span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — the rule: <span class="tex" data-tex="{}^nC_r = {}^nC_s"><sup>n</sup>C<sub>r</sub> = <sup>n</sup>C<sub>s</sub></span> gives <span class="tex" data-tex="r = s">r = s</span> or <span class="tex" data-tex="r + s = n">r + s = n</span>.</li><li>Step 2 — <span class="tex" data-tex="4 = 5">4 = 5</span> is false, so use the sum: <span class="tex" data-tex="n = 4 + 5 = 9">n = 4 + 5 = 9</span>.</li><li>Step 3 — check: <span class="tex" data-tex="{}^9C_4 = 126"><sup>9</sup>C<sub>4</sub> = 126</span> and <span class="tex" data-tex="{}^9C_5 = 126"><sup>9</sup>C<sub>5</sub> = 126</span>. ✓</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="n = 9">n = 9</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q21.</strong> (3 marks · ★★☆) Find the positive integer <span class="tex" data-tex="n">n</span> for which <span class="tex" data-tex="{}^nC_3 = 20"><sup>n</sup>C<sub>3</sub> = 20</span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — write the formula: <span class="tex" data-tex="{}^nC_3 = \dfrac{n(n-1)(n-2)}{3 \times 2 \times 1} = 20"><sup>n</sup>C<sub>3</sub> = (n(n−1)(n−2))/(3 × 2 × 1) = 20</span>.</li><li>Step 2 — multiply out: <span class="tex" data-tex="n(n-1)(n-2) = 120">n(n−1)(n−2) = 120</span>.</li><li>Step 3 — try small values: <span class="tex" data-tex="n = 6">n = 6</span> gives <span class="tex" data-tex="6 \times 5 \times 4 = 120">6 × 5 × 4 = 120</span>. ✓</li><li>(The values <span class="tex" data-tex="n = 5">n = 5</span> and below give less than 120; large values give more.)</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="n = 6">n = 6</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q22.</strong> (3 marks · ★★☆) Evaluate <span class="tex" data-tex="{}^9C_3 + {}^9C_4"><sup>9</sup>C<sub>3</sub> + <sup>9</sup>C<sub>4</sub></span> using Pascal's rule. Check the answer directly.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — Pascal's rule with <span class="tex" data-tex="n = 9">n = 9</span>, <span class="tex" data-tex="r = 4">r = 4</span>: <span class="tex" data-tex="{}^9C_4 + {}^9C_3 = {}^{10}C_4"><sup>9</sup>C<sub>4</sub> + <sup>9</sup>C<sub>3</sub> = <sup>10</sup>C<sub>4</sub></span>.</li><li>Step 2 — <span class="tex" data-tex="{}^{10}C_4 = \dfrac{10 \times 9 \times 8 \times 7}{4 \times 3 \times 2 \times 1} = 210"><sup>10</sup>C<sub>4</sub> = (10 × 9 × 8 × 7)/(4 × 3 × 2 × 1) = 210</span>.</li><li>Step 3 — direct check: <span class="tex" data-tex="{}^9C_3 = 84"><sup>9</sup>C<sub>3</sub> = 84</span>, <span class="tex" data-tex="{}^9C_4 = 126"><sup>9</sup>C<sub>4</sub> = 126</span>, and <span class="tex" data-tex="84 + 126 = 210">84 + 126 = 210</span>. ✓</li></ul>
+<p>✅ <strong>Answer: 210.</strong></p>
+</div></details>
+<h3>Topic E — Pascal's triangle and patterns</h3>
+<details class="qa"><summary><strong>Q23.</strong> (2 marks · ★☆☆) Write row 8 of Pascal's triangle, using row 7: <span class="tex" data-tex="1, 7, 21, 35, 35, 21, 7, 1">1, 7, 21, 35, 35, 21, 7, 1</span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — start with 1. Then add neighbours: <span class="tex" data-tex="1+7 = 8">1+7 = 8</span>; <span class="tex" data-tex="7+21 = 28">7+21 = 28</span>; <span class="tex" data-tex="21+35 = 56">21+35 = 56</span>; <span class="tex" data-tex="35+35 = 70">35+35 = 70</span>; <span class="tex" data-tex="35+21 = 56">35+21 = 56</span>; <span class="tex" data-tex="21+7 = 28">21+7 = 28</span>; <span class="tex" data-tex="7+1 = 8">7+1 = 8</span>; then 1.</li><li>Step 2 — write in order.</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="1, 8, 28, 56, 70, 56, 28, 8, 1">1, 8, 28, 56, 70, 56, 28, 8, 1</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q24.</strong> (2 marks · ★☆☆) (a) How many numbers are in row 9 of Pascal's triangle? (b) What is their sum?</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — row <span class="tex" data-tex="n">n</span> has <span class="tex" data-tex="n + 1">n + 1</span> numbers. For row 9: <span class="tex" data-tex="9 + 1 = 10">9 + 1 = 10</span> numbers.</li><li>Step 2 — the sum of row 9 is <span class="tex" data-tex="2^9">2<sup>9</sup></span>.</li></ul>
+<p>✅ <strong>Answer: (a) 10 numbers; (b) <span class="tex" data-tex="2^9 = 512">2<sup>9</sup> = 512</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q25.</strong> (3 marks · ★★☆) In the expansion of <span class="tex" data-tex="(a+b)^{10}">(a+b)<sup>10</sup></span>: (i) how many terms are there? (ii) what is the coefficient of the 4th term?</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — (i) the number of terms is <span class="tex" data-tex="n + 1 = 11">n + 1 = 11</span>.</li><li>Step 2 — (ii) the 4th term is <span class="tex" data-tex="{}^{10}C_3\, a^{7}b^{3}"><sup>10</sup>C<sub>3</sub> a<sup>7</sup>b<sup>3</sup></span>. Its coefficient is <span class="tex" data-tex="{}^{10}C_3"><sup>10</sup>C<sub>3</sub></span>.</li><li>Step 3 — <span class="tex" data-tex="{}^{10}C_3 = \dfrac{10 \times 9 \times 8}{3 \times 2 \times 1} = 120"><sup>10</sup>C<sub>3</sub> = (10 × 9 × 8)/(3 × 2 × 1) = 120</span>.</li></ul>
+<p>✅ <strong>Answer: (i) 11 terms; (ii) coefficient <span class="tex" data-tex="= 120">= 120</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q26.</strong> (3 marks · ★★☆) Row 10 of Pascal's triangle is <span class="tex" data-tex="1, 10, 45, 120, 210, 252, 210, 120, 45, 10, 1">1, 10, 45, 120, 210, 252, 210, 120, 45, 10, 1</span>. (i) Write the expansion of <span class="tex" data-tex="(1+x)^{10}">(1+x)<sup>10</sup></span> up to the term in <span class="tex" data-tex="x^2">x<sup>2</sup></span>. (ii) State the coefficient of <span class="tex" data-tex="x^5">x<sup>5</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — (i) read the numbers in order: <span class="tex" data-tex="1 + 10x + 45x^2 + \dots">1 + 10x + 45x<sup>2</sup> + …</span></li><li>Step 2 — (ii) the term with <span class="tex" data-tex="x^5">x<sup>5</sup></span> is <span class="tex" data-tex="{}^{10}C_5\, x^5"><sup>10</sup>C<sub>5</sub> x<sup>5</sup></span>. From row 10, <span class="tex" data-tex="{}^{10}C_5 = 252"><sup>10</sup>C<sub>5</sub> = 252</span>.</li></ul>
+<p>✅ <strong>Answer: (i) <span class="tex" data-tex="1 + 10x + 45x^2 + \dots">1 + 10x + 45x<sup>2</sup> + …</span>; (ii) 252.</strong></p>
+</div></details>
+<h3>Topic F — General term and middle term (📝 formative practice)</h3>
+<blockquote>These questions go beyond the board scope. Practise them for school tests.</blockquote>
+<details class="qa"><summary><strong>Q27.</strong> (3 marks · ★★☆) Find the coefficient of <span class="tex" data-tex="x^5">x<sup>5</sup></span> in <span class="tex" data-tex="(x+3)^8">(x+3)<sup>8</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — general term: <span class="tex" data-tex="T_{r+1} = {}^8C_r\, x^{8-r} \cdot 3^r">T<sub>r+1</sub> = <sup>8</sup>C<sub>r</sub> x<sup>8−r</sup> · 3<sup>r</sup></span>.</li><li>Step 2 — we need the power of <span class="tex" data-tex="x">x</span> to be 5: <span class="tex" data-tex="8 - r = 5">8 − r = 5</span>, so <span class="tex" data-tex="r = 3">r = 3</span>.</li><li>Step 3 — <span class="tex" data-tex="T_4 = {}^8C_3 \cdot 3^3 = 56 \times 27 = 1512">T<sub>4</sub> = <sup>8</sup>C<sub>3</sub> · 3<sup>3</sup> = 56 × 27 = 1512</span>.</li></ul>
+<p>✅ <strong>Answer: the term is <span class="tex" data-tex="1512x^5">1512x<sup>5</sup></span>, so the coefficient is 1512.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q28.</strong> (3 marks · ★★☆) Find the term independent of <span class="tex" data-tex="x">x</span> in the expansion of <span class="tex" data-tex="\left(\dfrac{3}{2}x^2 - \dfrac{1}{3x}\right)^9">((3)/(2)x<sup>2</sup> − (1)/(3x))<sup>9</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — general term:</li></ul>
+<div class="tex tex-block" data-tex="T_{r+1} = {}^9C_r \left(\dfrac{3}{2}x^2\right)^{9-r} \left(-\dfrac{1}{3x}\right)^r = {}^9C_r \left(\dfrac{3}{2}\right)^{9-r} \left(-\dfrac{1}{3}\right)^r x^{\,18-3r}">T<sub>r+1</sub> = <sup>9</sup>C<sub>r</sub> ((3)/(2)x<sup>2</sup>)<sup>9−r</sup> (−(1)/(3x))<sup>r</sup> = <sup>9</sup>C<sub>r</sub> ((3)/(2))<sup>9−r</sup> (−(1)/(3))<sup>r</sup> x<sup>18−3r</sup></div>
+<ul><li>Step 2 — "independent of <span class="tex" data-tex="x">x</span>" means the power of <span class="tex" data-tex="x">x</span> is 0: <span class="tex" data-tex="18 - 3r = 0">18 − 3r = 0</span>, so <span class="tex" data-tex="r = 6">r = 6</span>.</li><li>Step 3 — the sign is positive (<span class="tex" data-tex="r = 6">r = 6</span> is even). Now compute:</li></ul>
+<div class="tex tex-block" data-tex="T_7 = {}^9C_6 \left(\dfrac{3}{2}\right)^3 \left(\dfrac{1}{3}\right)^6 = 84 \cdot \dfrac{27}{8} \cdot \dfrac{1}{729} = \dfrac{84}{216} = \dfrac{7}{18}">T<sub>7</sub> = <sup>9</sup>C<sub>6</sub> ((3)/(2))<sup>3</sup> ((1)/(3))<sup>6</sup> = 84 · (27)/(8) · (1)/(729) = (84)/(216) = (7)/(18)</div>
+<p>✅ <strong>Answer: <span class="tex" data-tex="\dfrac{7}{18}">(7)/(18)</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q29.</strong> (3 marks · ★★☆) Find the middle terms in the expansion of <span class="tex" data-tex="\left(3 - \dfrac{x^3}{6}\right)^7">(3 − (x<sup>3</sup>)/(6))<sup>7</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — <span class="tex" data-tex="n = 7">n = 7</span> is odd, so there are two middle terms: positions <span class="tex" data-tex="\dfrac{7+1}{2} = 4">(7+1)/(2) = 4</span> and <span class="tex" data-tex="\dfrac{7+3}{2} = 5">(7+3)/(2) = 5</span>.</li><li>Step 2 — 4th term (<span class="tex" data-tex="r = 3">r = 3</span>):</li></ul>
+<div class="tex tex-block" data-tex="T_4 = {}^7C_3 \cdot 3^4 \left(-\dfrac{x^3}{6}\right)^3 = 35 \cdot 81 \cdot \left(-\dfrac{x^9}{216}\right) = -\dfrac{105x^9}{8}">T<sub>4</sub> = <sup>7</sup>C<sub>3</sub> · 3<sup>4</sup> (−(x<sup>3</sup>)/(6))<sup>3</sup> = 35 · 81 · (−(x<sup>9</sup>)/(216)) = −(105x<sup>9</sup>)/(8)</div>
+<ul><li>Step 3 — 5th term (<span class="tex" data-tex="r = 4">r = 4</span>):</li></ul>
+<div class="tex tex-block" data-tex="T_5 = {}^7C_4 \cdot 3^3 \left(\dfrac{x^3}{6}\right)^4 = 35 \cdot 27 \cdot \dfrac{x^{12}}{1296} = \dfrac{35x^{12}}{48}">T<sub>5</sub> = <sup>7</sup>C<sub>4</sub> · 3<sup>3</sup> ((x<sup>3</sup>)/(6))<sup>4</sup> = 35 · 27 · (x<sup>12</sup>)/(1296) = (35x<sup>12</sup>)/(48)</div>
+<p>✅ <strong>Answer: <span class="tex" data-tex="-\dfrac{105x^9}{8}">−(105x<sup>9</sup>)/(8)</span> and <span class="tex" data-tex="\dfrac{35x^{12}}{48}">(35x<sup>12</sup>)/(48)</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q30.</strong> (3 marks · ★★☆) Find the middle term in the expansion of <span class="tex" data-tex="\left(\dfrac{x}{3} + 9y\right)^{10}">((x)/(3) + 9y)<sup>10</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — <span class="tex" data-tex="n = 10">n = 10</span> is even. The middle term is at position <span class="tex" data-tex="\dfrac{10}{2} + 1 = 6">(10)/(2) + 1 = 6</span>, so <span class="tex" data-tex="r = 5">r = 5</span>.</li><li>Step 2:</li></ul>
+<div class="tex tex-block" data-tex="T_6 = {}^{10}C_5 \left(\dfrac{x}{3}\right)^5 (9y)^5 = 252 \cdot \dfrac{x^5}{3^5} \cdot 9^5 y^5">T<sub>6</sub> = <sup>10</sup>C<sub>5</sub> ((x)/(3))<sup>5</sup> (9y)<sup>5</sup> = 252 · (x<sup>5</sup>)/(3<sup>5</sup>) · 9<sup>5</sup> y<sup>5</sup></div>
+<ul><li>Step 3 — combine the powers of 3: <span class="tex" data-tex="\dfrac{9^5}{3^5} = 3^5 = 243">(9<sup>5</sup>)/(3<sup>5</sup>) = 3<sup>5</sup> = 243</span>.</li><li>Step 4 — multiply: <span class="tex" data-tex="252 \times 243 = 61236">252 × 243 = 61236</span>.</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="61236x^5y^5">61236x<sup>5</sup>y<sup>5</sup></span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q31.</strong> (3 marks · ★★☆) Find the coefficient of <span class="tex" data-tex="x^6y^3">x<sup>6</sup>y<sup>3</sup></span> in the expansion of <span class="tex" data-tex="(x+2y)^9">(x+2y)<sup>9</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — general term: <span class="tex" data-tex="T_{r+1} = {}^9C_r\, x^{9-r}(2y)^r">T<sub>r+1</sub> = <sup>9</sup>C<sub>r</sub> x<sup>9−r</sup>(2y)<sup>r</sup></span>.</li><li>Step 2 — we need <span class="tex" data-tex="y^3">y<sup>3</sup></span>, so <span class="tex" data-tex="r = 3">r = 3</span>. Check <span class="tex" data-tex="x">x</span>: <span class="tex" data-tex="9 - 3 = 6">9 − 3 = 6</span>. ✓</li><li>Step 3 — <span class="tex" data-tex="T_4 = {}^9C_3 \cdot 2^3 = 84 \times 8 = 672">T<sub>4</sub> = <sup>9</sup>C<sub>3</sub> · 2<sup>3</sup> = 84 × 8 = 672</span>.</li></ul>
+<p>✅ <strong>Answer: 672.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q32.</strong> (2 marks · ★☆☆) Find the positive value of <span class="tex" data-tex="m">m</span> for which the coefficient of <span class="tex" data-tex="x^2">x<sup>2</sup></span> in <span class="tex" data-tex="(1+x)^m">(1+x)<sup>m</sup></span> is 6.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — the coefficient of <span class="tex" data-tex="x^2">x<sup>2</sup></span> in <span class="tex" data-tex="(1+x)^m">(1+x)<sup>m</sup></span> is <span class="tex" data-tex="{}^mC_2"><sup>m</sup>C<sub>2</sub></span>.</li><li>Step 2 — set <span class="tex" data-tex="{}^mC_2 = \dfrac{m(m-1)}{2} = 6"><sup>m</sup>C<sub>2</sub> = (m(m−1))/(2) = 6</span>, so <span class="tex" data-tex="m(m-1) = 12">m(m−1) = 12</span>.</li><li>Step 3 — try small values: <span class="tex" data-tex="m = 4">m = 4</span> gives <span class="tex" data-tex="4 \times 3 = 12">4 × 3 = 12</span>. ✓</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="m = 4">m = 4</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q33.</strong> (3 marks · ★★★) If the coefficients of the <span class="tex" data-tex="(r-5)">(r−5)</span>th and <span class="tex" data-tex="(2r-1)">(2r−1)</span>th terms in the expansion of <span class="tex" data-tex="(1+x)^{34}">(1+x)<sup>34</sup></span> are equal, find <span class="tex" data-tex="r">r</span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — the coefficient of the <span class="tex" data-tex="(r-5)">(r−5)</span>th term is <span class="tex" data-tex="{}^{34}C_{r-6}"><sup>34</sup>C<sub>r−6</sub></span>. The coefficient of the <span class="tex" data-tex="(2r-1)">(2r−1)</span>th term is <span class="tex" data-tex="{}^{34}C_{2r-2}"><sup>34</sup>C<sub>2r−2</sub></span>.</li><li>Step 2 — equal coefficients: either <span class="tex" data-tex="r - 6 = 2r - 2">r − 6 = 2r − 2</span>, giving <span class="tex" data-tex="r = -4">r = −4</span> (rejected — <span class="tex" data-tex="r">r</span> must be a positive integer), or the sum condition:</li></ul>
+<div class="tex tex-block" data-tex="(r-6) + (2r-2) = 34">(r−6) + (2r−2) = 34</div>
+<ul><li>Step 3 — solve: <span class="tex" data-tex="3r - 8 = 34">3r − 8 = 34</span>, so <span class="tex" data-tex="3r = 42">3r = 42</span>, giving <span class="tex" data-tex="r = 14">r = 14</span>.</li><li>Step 4 — check: the coefficients are <span class="tex" data-tex="{}^{34}C_8"><sup>34</sup>C<sub>8</sub></span> and <span class="tex" data-tex="{}^{34}C_{26}"><sup>34</sup>C<sub>26</sub></span>, and <span class="tex" data-tex="{}^{34}C_{26} = {}^{34}C_8"><sup>34</sup>C<sub>26</sub> = <sup>34</sup>C<sub>8</sub></span>. ✓</li></ul>
+<p>✅ <strong>Answer: <span class="tex" data-tex="r = 14">r = 14</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q34.</strong> (3 marks · ★★☆) Find the coefficient of <span class="tex" data-tex="x^5">x<sup>5</sup></span> in <span class="tex" data-tex="(1+x)^3(1+x)^4">(1+x)<sup>3</sup>(1+x)<sup>4</sup></span>.</summary><div class="sol">
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — multiply the brackets first: <span class="tex" data-tex="(1+x)^3(1+x)^4 = (1+x)^7">(1+x)<sup>3</sup>(1+x)<sup>4</sup> = (1+x)<sup>7</sup></span>.</li><li>Step 2 — the coefficient of <span class="tex" data-tex="x^5">x<sup>5</sup></span> in <span class="tex" data-tex="(1+x)^7">(1+x)<sup>7</sup></span> is <span class="tex" data-tex="{}^7C_5"><sup>7</sup>C<sub>5</sub></span>.</li><li>Step 3 — <span class="tex" data-tex="{}^7C_5 = {}^7C_2 = \dfrac{7 \times 6}{2} = 21"><sup>7</sup>C<sub>5</sub> = <sup>7</sup>C<sub>2</sub> = (7 × 6)/(2) = 21</span>.</li></ul>
+<p>✅ <strong>Answer: 21.</strong></p>
+</div></details>
+<h3>Topic G — Objective practice (Section A style)</h3>
+<details class="qa"><summary><strong>Q35.</strong> (1 mark · ★☆☆ MCQ) The number of terms in the expansion of <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span>, where <span class="tex" data-tex="n">n</span> is a positive integer, is:</summary><div class="sol">
+<p>(a) <span class="tex" data-tex="n-1">n−1</span> &nbsp;&nbsp; (b) <span class="tex" data-tex="n">n</span> &nbsp;&nbsp; (c) <span class="tex" data-tex="n+1">n+1</span> &nbsp;&nbsp; (d) <span class="tex" data-tex="2n">2n</span></p>
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — the powers of <span class="tex" data-tex="b">b</span> run from 0 to <span class="tex" data-tex="n">n</span>: that is <span class="tex" data-tex="n + 1">n + 1</span> different values.</li><li>Step 2 — so there are <span class="tex" data-tex="n + 1">n + 1</span> terms.</li></ul>
+<p>✅ <strong>Answer: (c) <span class="tex" data-tex="n+1">n+1</span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q36.</strong> (1 mark · ★☆☆ MCQ) The coefficient of <span class="tex" data-tex="x^4">x<sup>4</sup></span> in the expansion of <span class="tex" data-tex="(x+1)^6">(x+1)<sup>6</sup></span> is:</summary><div class="sol">
+<p>(a) <span class="tex" data-tex="15">15</span> &nbsp;&nbsp; (b) <span class="tex" data-tex="20">20</span> &nbsp;&nbsp; (c) <span class="tex" data-tex="6">6</span> &nbsp;&nbsp; (d) <span class="tex" data-tex="30">30</span></p>
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — the term with <span class="tex" data-tex="x^4">x<sup>4</sup></span> is <span class="tex" data-tex="{}^6C_4\, x^4 \cdot 1^{2}"><sup>6</sup>C<sub>4</sub> x<sup>4</sup> · 1<sup>2</sup></span>.</li><li>Step 2 — <span class="tex" data-tex="{}^6C_4 = 15"><sup>6</sup>C<sub>4</sub> = 15</span>.</li></ul>
+<p>✅ <strong>Answer: (a) 15.</strong> (Watch out: the coefficients of <span class="tex" data-tex="(x+1)^6">(x+1)<sup>6</sup></span> are <span class="tex" data-tex="1, 6, 15, 20, 15, 6, 1">1, 6, 15, 20, 15, 6, 1</span> — the <em>fifth</em> number is also 15, but the correct entry here is the 4th, <span class="tex" data-tex="{}^6C_4"><sup>6</sup>C<sub>4</sub></span>; both equal 15. The distractor 20 is <span class="tex" data-tex="{}^6C_3"><sup>6</sup>C<sub>3</sub></span>.)</p>
+</div></details>
+<details class="qa"><summary><strong>Q37.</strong> (1 mark · ★☆☆ MCQ) <span class="tex" data-tex="{}^nC_0 + {}^nC_1 + \dots + {}^nC_n"><sup>n</sup>C<sub>0</sub> + <sup>n</sup>C<sub>1</sub> + … + <sup>n</sup>C<sub>n</sub></span> equals:</summary><div class="sol">
+<p>(a) <span class="tex" data-tex="2^n">2<sup>n</sup></span> &nbsp;&nbsp; (b) <span class="tex" data-tex="2^{\,n-1}">2<sup>n−1</sup></span> &nbsp;&nbsp; (c) <span class="tex" data-tex="n^2">n<sup>2</sup></span> &nbsp;&nbsp; (d) <span class="tex" data-tex="2n">2n</span></p>
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — put <span class="tex" data-tex="a = b = 1">a = b = 1</span> in <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span>: the left side is <span class="tex" data-tex="(1+1)^n = 2^n">(1+1)<sup>n</sup> = 2<sup>n</sup></span>.</li></ul>
+<p>✅ <strong>Answer: (a) <span class="tex" data-tex="2^n">2<sup>n</sup></span>.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q38.</strong> (1 mark · ★☆☆ Assertion–Reason) Assertion (A): The expansion of <span class="tex" data-tex="(x-y)^6">(x−y)<sup>6</sup></span> has 7 terms. Reason (R): The expansion of <span class="tex" data-tex="(a+b)^n">(a+b)<sup>n</sup></span> has <span class="tex" data-tex="n+1">n+1</span> terms.</summary><div class="sol">
+<p>Choose: (a) both true, R explains A (b) both true, R does not explain A (c) A true, R false (d) A false, R true</p>
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — check A: <span class="tex" data-tex="n = 6">n = 6</span>, so the expansion has <span class="tex" data-tex="6 + 1 = 7">6 + 1 = 7</span> terms ✓ (signs change, but no terms disappear).</li><li>Step 2 — check R: the standard term-count rule ✓ true.</li><li>Step 3 — R is exactly the rule used in A, so R explains A.</li></ul>
+<p>✅ <strong>Answer: (a).</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q39.</strong> (1 mark · ★☆☆ MCQ) In the expansion of <span class="tex" data-tex="(x+2)^5">(x+2)<sup>5</sup></span>, the coefficient of <span class="tex" data-tex="x^3">x<sup>3</sup></span> is:</summary><div class="sol">
+<p>(a) <span class="tex" data-tex="40">40</span> &nbsp;&nbsp; (b) <span class="tex" data-tex="80">80</span> &nbsp;&nbsp; (c) <span class="tex" data-tex="10">10</span> &nbsp;&nbsp; (d) <span class="tex" data-tex="20">20</span></p>
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — the term with <span class="tex" data-tex="x^3">x<sup>3</sup></span> is <span class="tex" data-tex="{}^5C_2\, x^3 (2)^2"><sup>5</sup>C<sub>2</sub> x<sup>3</sup> (2)<sup>2</sup></span>.</li><li>Step 2 — <span class="tex" data-tex="{}^5C_2 = 10"><sup>5</sup>C<sub>2</sub> = 10</span> and <span class="tex" data-tex="2^2 = 4">2<sup>2</sup> = 4</span>, so the coefficient is <span class="tex" data-tex="10 \times 4 = 40">10 × 4 = 40</span>.</li></ul>
+<p>✅ <strong>Answer: (a) 40.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q40.</strong> (1 mark · ★★☆ MCQ) In the expansion of <span class="tex" data-tex="(2+3x)^4">(2+3x)<sup>4</sup></span>, the coefficient of <span class="tex" data-tex="x^2">x<sup>2</sup></span> is:</summary><div class="sol">
+<p>(a) <span class="tex" data-tex="216">216</span> &nbsp;&nbsp; (b) <span class="tex" data-tex="54">54</span> &nbsp;&nbsp; (c) <span class="tex" data-tex="108">108</span> &nbsp;&nbsp; (d) <span class="tex" data-tex="81">81</span></p>
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 — the term with <span class="tex" data-tex="x^2">x<sup>2</sup></span> is <span class="tex" data-tex="{}^4C_2 \cdot 2^2 \cdot (3x)^2"><sup>4</sup>C<sub>2</sub> · 2<sup>2</sup> · (3x)<sup>2</sup></span>.</li><li>Step 2 — <span class="tex" data-tex="{}^4C_2 = 6"><sup>4</sup>C<sub>2</sub> = 6</span>, <span class="tex" data-tex="2^2 = 4">2<sup>2</sup> = 4</span>, <span class="tex" data-tex="3^2 = 9">3<sup>2</sup> = 9</span>, so the coefficient is <span class="tex" data-tex="6 \times 4 \times 9 = 216">6 × 4 × 9 = 216</span>.</li></ul>
+<p>✅ <strong>Answer: (a) 216.</strong></p>
+</div></details>
+<h3>Topic H — Case-study practice (Section E style)</h3>
+<details class="qa"><summary><strong>Q41.</strong> (4 marks · ★★☆ Case study) A student expands <span class="tex" data-tex="(1+x)^7">(1+x)<sup>7</sup></span>.</summary><div class="sol">
+<p>(i) How many terms does the expansion have? (ii) What is the sum of all its coefficients? (iii) What is the coefficient of <span class="tex" data-tex="x^3">x<sup>3</sup></span>?</p>
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 (i) — here <span class="tex" data-tex="n = 7">n = 7</span>, so the number of terms is <span class="tex" data-tex="7 + 1 = 8">7 + 1 = 8</span>.</li><li>Step 2 (ii) — the sum of all coefficients of <span class="tex" data-tex="(1+x)^n">(1+x)<sup>n</sup></span> is <span class="tex" data-tex="2^n">2<sup>n</sup></span> (this is the case <span class="tex" data-tex="a = b = 1">a = b = 1</span> of the theorem).</li></ul>
+<div class="tex tex-block" data-tex="2^7 = 128">2<sup>7</sup> = 128</div>
+<ul><li>Step 3 (iii) — the coefficient of <span class="tex" data-tex="x^3">x<sup>3</sup></span> is <span class="tex" data-tex="{}^7C_3"><sup>7</sup>C<sub>3</sub></span>.</li></ul>
+<div class="tex tex-block" data-tex="{}^7C_3 = \dfrac{7 \times 6 \times 5}{3 \times 2 \times 1} = 35"><sup>7</sup>C<sub>3</sub> = (7 × 6 × 5)/(3 × 2 × 1) = 35</div>
+<p>✅ <strong>Answers: (i) 8 terms; (ii) 128; (iii) 35.</strong></p>
+</div></details>
+<details class="qa"><summary><strong>Q42.</strong> (4 marks · ★★☆ Case study) Row 6 of Pascal's triangle is <span class="tex" data-tex="1, 6, 15, 20, 15, 6, 1">1, 6, 15, 20, 15, 6, 1</span>.</summary><div class="sol">
+<p>(i) Write row 7. (ii) What is the sum of the numbers in row 6? (iii) Show one pair of equal numbers in row 6, and write the pair with <span class="tex" data-tex="{}^nC_r"><sup>n</sup>C<sub>r</sub></span> notation.</p>
+<p><strong>Solution.</strong></p>
+<ul><li>Step 1 (i) — add neighbours: <span class="tex" data-tex="1">1</span>; <span class="tex" data-tex="1+6 = 7">1+6 = 7</span>; <span class="tex" data-tex="6+15 = 21">6+15 = 21</span>; <span class="tex" data-tex="15+20 = 35">15+20 = 35</span>; <span class="tex" data-tex="20+15 = 35">20+15 = 35</span>; <span class="tex" data-tex="15+6 = 21">15+6 = 21</span>; <span class="tex" data-tex="6+1 = 7">6+1 = 7</span>; <span class="tex" data-tex="1">1</span>.</li><li>Step 2 (ii) — sum of row <span class="tex" data-tex="n">n</span> is <span class="tex" data-tex="2^n">2<sup>n</sup></span>: <span class="tex" data-tex="2^6 = 64">2<sup>6</sup> = 64</span>. Check: <span class="tex" data-tex="1+6+15+20+15+6+1 = 64">1+6+15+20+15+6+1 = 64</span>. ✓</li><li>Step 3 (iii) — the row reads the same from both sides. One pair: <span class="tex" data-tex="{}^6C_2 = {}^6C_4 = 15"><sup>6</sup>C<sub>2</sub> = <sup>6</sup>C<sub>4</sub> = 15</span>.</li></ul>
+<p>✅ <strong>Answers: (i) <span class="tex" data-tex="1, 7, 21, 35, 35, 21, 7, 1">1, 7, 21, 35, 35, 21, 7, 1</span>; (ii) 64; (iii) <span class="tex" data-tex="{}^6C_2 = {}^6C_4 = 15"><sup>6</sup>C<sub>2</sub> = <sup>6</sup>C<sub>4</sub> = 15</span> (also <span class="tex" data-tex="{}^6C_1 = {}^6C_5 = 6"><sup>6</sup>C<sub>1</sub> = <sup>6</sup>C<sub>5</sub> = 6</span>).</strong></p>
+</div></details>
+      </section>
+
+      <section id="writing-tips" class="fade-in">
+        <h2>14. ✍️ Exam writing tips from a maths teacher</h2>
+<ol><li><strong>Write the formula first.</strong> Then substitute. Examiners give marks for visible steps, not just the final number.</li><li><strong>First line of every expansion question: the term count.</strong> Write "<span class="tex" data-tex="n + 1">n + 1</span> terms" before you start. It is often worth a mark by itself.</li><li><strong>In <span class="tex" data-tex="(a-b)^n">(a−b)<sup>n</sup></span>, fix the signs before the numbers.</strong> Place all minus signs on the odd powers of <span class="tex" data-tex="b">b</span> first; simplify only after.</li><li><strong>Big powers: show the split line.</strong> Write <span class="tex" data-tex="99 = 100 - 1">99 = 100 − 1</span> (or <span class="tex" data-tex="101 = 100 + 1">101 = 100 + 1</span>) as its own line. Then expand.</li><li><strong>Divisibility proofs: end with a conclusion.</strong> Finish with "… <span class="tex" data-tex="= 64(n+k)">= 64(n+k)</span>, where <span class="tex" data-tex="n+k">n+k</span> is an integer. So the expression is divisible by 64." The conclusion line earns the last mark.</li><li><strong>Coefficient-sum proofs: name the substitution.</strong> Write "Put <span class="tex" data-tex="a = b = 1">a = b = 1</span> in the binomial theorem" — the examiner sees the method instantly.</li><li><strong>Induction proof: label the steps.</strong> Write "Base step" and "Induction step" clearly. Use Pascal's rule by name when you combine the sums.</li><li><strong>Keep exact values.</strong> Add big numbers in a neat column, aligned by place value. No rounding in this chapter.</li><li><strong>Formative term questions: start from <span class="tex" data-tex="T_{r+1}">T<sub>r+1</sub></span>.</strong> First line: <span class="tex" data-tex="T_{r+1} = {}^nC_r\, a^{n-r}b^r">T<sub>r+1</sub> = <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r</sup></span>. Then solve for <span class="tex" data-tex="r">r</span>. Show the position logic ("5th term → <span class="tex" data-tex="r = 4">r = 4</span>").</li><li><strong>One-second check on every term: powers must add to <span class="tex" data-tex="n">n</span>.</strong> If a term shows <span class="tex" data-tex="a^4b^3">a<sup>4</sup>b<sup>3</sup></span> in a power-6 expansion, you have made an error.</li></ol>
+      </section>
+
+      <section id="recap" class="fade-in">
+        <h2>15. 🔄 One-page recap — 60-second self-test</h2>
+<p>Tick each line only after you can say the answer out loud.</p>
+<ul><li><span class="cb">☐</span> Binomial theorem statement, with its condition? <em>(<span class="tex" data-tex="(a+b)^n = \sum_{r=0}^{n} {}^nC_r\, a^{n-r}b^r">(a+b)<sup>n</sup> = Σ<sub>r=0</sub><sup>n</sup> <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r</sup></span>, for every positive integer <span class="tex" data-tex="n">n</span>.)</em></li><li><span class="cb">☐</span> The proof in two steps? <em>(Base: <span class="tex" data-tex="n = 1">n = 1</span>. Step: assume for <span class="tex" data-tex="n">n</span>, multiply by <span class="tex" data-tex="(a+b)">(a+b)</span>, combine with Pascal's rule <span class="tex" data-tex="{}^nC_k + {}^nC_{k-1} = {}^{n+1}C_k"><sup>n</sup>C<sub>k</sub> + <sup>n</sup>C<sub>k−1</sub> = <sup>n+1</sup>C<sub>k</sub></span>.)</em></li><li><span class="cb">☐</span> Term count and the two power patterns? <em>(<span class="tex" data-tex="n+1">n+1</span> terms; power of <span class="tex" data-tex="a">a</span> falls, power of <span class="tex" data-tex="b">b</span> rises; they always add to <span class="tex" data-tex="n">n</span>.)</em></li><li><span class="cb">☐</span> Sign rule for <span class="tex" data-tex="(a-b)^n">(a−b)<sup>n</sup></span>? <em>(Odd power of <span class="tex" data-tex="b">b</span> → minus sign.)</em></li><li><span class="cb">☐</span> Pascal's triangle facts? <em>(Row <span class="tex" data-tex="n">n</span> has <span class="tex" data-tex="n+1">n+1</span> numbers, starts and ends with 1, is symmetric; each number is the sum of the two above.)</em></li><li><span class="cb">☐</span> Evaluate <span class="tex" data-tex="99^5">99<sup>5</sup></span> path? <em>(Split <span class="tex" data-tex="100-1">100−1</span>, expand by the theorem, add with signs → <span class="tex" data-tex="9509900499">9509900499</span>.)</em></li><li><span class="cb">☐</span> Divisibility skeleton? <em>(<span class="tex" data-tex="9^{n+1} = 9(1+8)^n = 9 + 72n + 64k">9<sup>n+1</sup> = 9(1+8)<sup>n</sup> = 9 + 72n + 64k</span>, so <span class="tex" data-tex="9^{n+1} - 8n - 9 = 64(n+k)">9<sup>n+1</sup> − 8n − 9 = 64(n+k)</span>.)</em></li><li><span class="cb">☐</span> The three coefficient sums? <em>(<span class="tex" data-tex="2^n">2<sup>n</sup></span> total; <span class="tex" data-tex="2^{\,n-1}">2<sup>n−1</sup></span> for even or odd indices; alternating sum <span class="tex" data-tex="0">0</span>.)</em></li><li><span class="cb">☐</span> Quick values: <span class="tex" data-tex="{}^7C_3"><sup>7</sup>C<sub>3</sub></span>? <em>[35]</em> Sum of row 7? <em>[128]</em> <span class="tex" data-tex="{}^8C_0 + \dots + {}^8C_8"><sup>8</sup>C<sub>0</sub> + … + <sup>8</sup>C<sub>8</sub></span>? <em>[256]</em></li><li><span class="cb">☐</span> General term and middle term (formative)? <em>(<span class="tex" data-tex="T_{r+1} = {}^nC_r\, a^{n-r}b^r">T<sub>r+1</sub> = <sup>n</sup>C<sub>r</sub> a<sup>n−r</sup>b<sup>r</sup></span>; one middle term if <span class="tex" data-tex="n">n</span> is even, two if <span class="tex" data-tex="n">n</span> is odd.)</em></li></ul>
+      </section>
+
+      <section id="appendix" class="fade-in">
+        <h2>16. 📦 Appendix A — reference only</h2>
+<blockquote><strong>Read this box only if a school test follows an old book.</strong> These topics are <strong>not</strong> in the CBSE 2026-27 summative syllabus for this chapter.</blockquote>
+<h3>A.1 Approximation — deleted from the old book</h3>
+<p>The old book taught a shortcut for small <span class="tex" data-tex="x">x</span>: <span class="tex" data-tex="(1+x)^n \approx 1 + nx">(1+x)<sup>n</sup> ≈ 1 + nx</span> (keep only the first two terms). Example: <span class="tex" data-tex="(1.01)^5 \approx 1 + 5(0.01) = 1.05">(1.01)<sup>5</sup> ≈ 1 + 5(0.01) = 1.05</span> (true value <span class="tex" data-tex="\approx 1.0510">≈ 1.0510</span>). This approximation is <strong>not in the current syllabus</strong> — do not use it in board answers.</p>
+<h3>A.2 Negative and fractional indices — never in Class 11</h3>
+<p>Newton extended the binomial theorem to indices like <span class="tex" data-tex="-1">−1</span> or <span class="tex" data-tex="\frac{1}{2}">(1)/(2)</span>, giving infinite series. Example: <span class="tex" data-tex="(1+x)^{-1} = 1 - x + x^2 - x^3 + \dots">(1+x)<sup>−1</sup> = 1 − x + x<sup>2</sup> − x<sup>3</sup> + …</span> This is <strong>outside the Class 11 course</strong>. The theorem in this chapter is only for positive integral indices.</p>
+<h3>A.3 Things the internet adds that are not in this chapter</h3>
+<ul><li><strong>Multinomial theorem</strong> — expansions of <span class="tex" data-tex="(a+b+c)^n">(a+b+c)<sup>n</sup></span>.</li><li><strong>General index theorem</strong> — any real <span class="tex" data-tex="n">n</span>.</li><li><strong>Approximation tricks</strong> inside main answers.</li><li>Very large "<span class="tex" data-tex="C">C</span> chains" and double-sigma notation.</li></ul>
+<p>None of these are part of NCERT Binomial Theorem for Class 11. Skip them for tests that follow NCERT.</p>
+<p><em>Prepared for CBSE Class 11 Mathematics (041), session 2026-27. Sources: NCERT Class 11 Maths (rationalised) Chapter 7; CBSE curriculum 2026-27, Unit-II (Algebra), topic 4.</em></p>
+      </section>
+
+      <script>
+        const KEY_TERMS_DATA = [{"term": "Binomial", "definition": "An expression with exactly two terms: a+b, 2x−3, x²+5"}, {"term": "Expansion", "definition": "The bracket (a+b)ⁿ written as a long sum of terms"}, {"term": "Binomial theorem", "definition": "The formula for (a+b)ⁿ, true for every positive integer n"}, {"term": "Positive integral index", "definition": "The power n = 1, 2, 3, … — a counting number"}, {"term": "Pascal's triangle", "definition": "A triangle of numbers. Row n gives the coefficients of (a+b)ⁿ"}, {"term": "Binomial coefficient", "definition": "The number ⁿCr in front of a term of the expansion"}, {"term": "ⁿCr", "definition": "\"n choose r\": ⁿCr = (n!)/(r! (n−r)!)"}, {"term": "Term", "definition": "One piece of the expansion, like 1512x⁵"}, {"term": "Coefficient", "definition": "The number part of a term, without the powers. In 1512x⁵ the coefficient is 1512"}, {"term": "General term", "definition": "The formula for a typical term: Tr₊₁ = ⁿCr aⁿ⁻rbr — 📝 formative only"}, {"term": "Middle term", "definition": "The centre of the expansion. One if n is even, two if n is odd — 📝 formative only"}, {"term": "Independent term", "definition": "A term with no x in it"}, {"term": "Identity", "definition": "An equation true for every value of the variable, like ⁿC₀ + ⁿC₁ + … + ⁿCₙ = 2ⁿ"}];
+      </script>
+
+      <footer>
+        <p>Source: NCERT Class XI Mathematics (Rationalised), Chapter 7 · CBSE 2026-27 syllabus (041) · Easy-language revision notes (STE100 style)</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    // ─── Mobile TOC toggle ───
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+
+    tocToggle.addEventListener('click', () => {
+      toc.classList.toggle('open');
+    });
+
+    // Close TOC on link click (mobile)
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toc.classList.remove('open');
+      });
+    });
+
+    // ─── Scroll Progress ───
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    // ─── Active TOC link on scroll ───
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+  <script>
+    // ─── Render LaTeX (data-tex) with KaTeX; Unicode fallback stays if CDN fails ───
+    function renderTex() {
+      if (!window.katex) return;
+      document.querySelectorAll('.tex[data-tex]').forEach(function (el) {
+        if (el.dataset.rendered) return;
+        try {
+          el.innerHTML = window.katex.renderToString(el.getAttribute('data-tex'), {
+            displayMode: el.classList.contains('tex-block'),
+            throwOnError: false
+          });
+          el.dataset.rendered = '1';
+        } catch (e) { /* keep Unicode fallback */ }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', renderTex);
+    window.addEventListener('load', renderTex);
+  </script>
+
+  <script id="chapter-mindmap-data" type="application/json">"# Binomial Theorem — Easy Revision (STE100)\n\n## Syllabus (CBSE 2026-27)\n- In syllabus: historical perspective, theorem + proof, Pascal's triangle, simple applications\n- Formative only: general and middle term in binomial expansion\n- Not in syllabus: approximation, negative or fractional index\n\n## The theorem\n- (a+b)^n = nC0 a^n + nC1 a^(n−1) b + … + nCn b^n for every positive integer n\n- n + 1 terms; powers of a fall n to 0; powers of b rise 0 to n\n- power of a + power of b = n in every term\n\n## Proof by induction\n- Base: n = 1 gives a + b on both sides\n- Step: assume for n, multiply by (a+b), combine with Pascal's rule nCr + nC(r−1) = (n+1)Cr\n\n## Pascal's triangle\n- Row n gives the coefficients of (a+b)^n (n = 0, 1, 2, …)\n- Each number = sum of the two above\n- Row n has n + 1 numbers; rows start and end with 1; rows are symmetric\n\n## Coefficient toolbox\n- nC0 = nCn = 1; nC1 = n; nCr = nC(n−r)\n- C0 + C1 + … + Cn = 2^n\n- C0 + C2 + … = C1 + C3 + … = 2^(n−1)\n- C0 − C1 + C2 − … = 0 for n ≥ 1\n\n## Simple applications\n- Big powers: write 99 = 100 − 1, expand, add carefully\n- Which is larger: expand two or three terms and compare\n- Divisibility: 9^(n+1) − 8n − 9 = 64 × integer\n- Identities: put a = b = 1, or b = −1, or b = 3\n\n## General and middle term (formative)\n- T(r+1) = nCr a^(n−r) b^r — b^r tells the position\n- n even: one middle term, position n/2 + 1\n- n odd: two middle terms\n- Independent term: set the power of x to 0\n\n## Traps\n- Number of terms is n + 1, not n\n- (a − b)^n: odd power of b → minus sign\n- nC0 = 1, never 0\n- 2^n only when a = b = 1\n- Term carries powers; coefficient is only the number\n"</script>
+
+  <script src="../assets/study-os.js"></script>
+<script src="../assets/toc-scrollspy.js"></script>
+</body>
+</html>

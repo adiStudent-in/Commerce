@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" font-family="DejaVu Sans, Verdana, sans-serif" role="img" aria-label="Downward sloping MR cut from below by U-shaped MC at point E output 3 where MC equals MR equals 4">
+<title>Producer Equilibrium — Price Falls (Point E)</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1b1b1b"/></marker>
+</defs>
+<rect x="0" y="0" width="760" height="500" fill="#ffffff"/>
+<text x="380" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#1b1b1b">Producer Equilibrium — Price Falls (Imperfect Competition)</text>
+<text x="380" y="50" text-anchor="middle" font-size="12" fill="#555555">Schedule: Price 8, 7, 6, 5, 4 · MR 8, 6, 4, 2, 0 · MC 6, 5, 4, 5, 6 · Profit max ₹3 at output 3</text>
+<line x1="70" y1="410" x2="70" y2="60" stroke="#1b1b1b" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="70" y1="410" x2="720" y2="410" stroke="#1b1b1b" stroke-width="1.5" marker-end="url(#arr)"/>
+<g stroke="#dddddd" stroke-width="1" stroke-dasharray="2,3">
+<line x1="70" y1="371.3" x2="720" y2="371.3"/><line x1="70" y1="332.5" x2="720" y2="332.5"/><line x1="70" y1="293.8" x2="720" y2="293.8"/><line x1="70" y1="255" x2="720" y2="255"/><line x1="70" y1="216.3" x2="720" y2="216.3"/><line x1="70" y1="177.5" x2="720" y2="177.5"/><line x1="70" y1="138.8" x2="720" y2="138.8"/><line x1="70" y1="100" x2="720" y2="100"/>
+</g>
+<g font-size="11" fill="#1b1b1b" text-anchor="end">
+<text x="62" y="414">0</text><text x="62" y="375">1</text><text x="62" y="336">2</text><text x="62" y="298">3</text><text x="62" y="259">4</text><text x="62" y="220">5</text><text x="62" y="181">6</text><text x="62" y="143">7</text><text x="62" y="104">8</text>
+</g>
+<g font-size="11" fill="#1b1b1b" text-anchor="middle">
+<text x="188" y="430">1</text><text x="306" y="430">2</text><text x="424" y="430">3</text><text x="542" y="430">4</text><text x="660" y="430">5</text>
+</g>
+<line x1="70" y1="61.3" x2="720" y2="274.7" stroke="#1f77b4" stroke-width="2.6"/>
+<line x1="70" y1="22.5" x2="660" y2="410" stroke="#7f3fbf" stroke-width="2.6"/>
+<path d="M188,177.5 L306,216.3 L424,255 L542,216.3 L660,177.5" fill="none" stroke="#d62728" stroke-width="2.8"/>
+<g fill="#d62728">
+<circle cx="188" cy="177.5" r="4.5"/><circle cx="306" cy="216.3" r="4.5"/><circle cx="424" cy="255" r="4.5"/><circle cx="542" cy="216.3" r="4.5"/><circle cx="660" cy="177.5" r="4.5"/>
+</g>
+<circle cx="424" cy="255" r="10" fill="none" stroke="#1a5e4a" stroke-width="2.5"/>
+<line x1="424" y1="255" x2="424" y2="410" stroke="#1a5e4a" stroke-width="1.2" stroke-dasharray="6,4"/>
+<text x="424" y="228" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a5e4a">E ★</text>
+<text x="712" y="278" text-anchor="end" font-size="12.5" font-weight="bold" fill="#1f77b4">AR (= Price, falls)</text>
+<text x="712" y="398" text-anchor="end" font-size="12.5" font-weight="bold" fill="#7f3fbf">MR (falls faster, below AR)</text>
+<text x="670" y="160" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#d62728">MC (U-shaped)</text>
+<text x="424" y="348" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1a5e4a">OM = 3 · MC = MR = 4</text>
+<text x="424" y="366" text-anchor="middle" font-size="11.5" fill="#1b1b1b">After E: MC = 5 &gt; MR = 2 ✓</text>
+<text x="424" y="384" text-anchor="middle" font-size="11.5" fill="#1b1b1b">MC cuts MR from below — EQUILIBRIUM</text>
+<text x="150" y="120" text-anchor="middle" font-size="11" fill="#1b1b1b">Price &gt; MR always;</text>
+<text x="150" y="136" text-anchor="middle" font-size="11" fill="#1b1b1b">so at E, Price (₹6) &gt; MC (₹4)</text>
+<text x="24" y="235" font-size="12" fill="#1b1b1b" text-anchor="middle" transform="rotate(-90,24,235)">Revenue / Cost (₹)</text>
+<text x="395" y="460" font-size="12" fill="#1b1b1b" text-anchor="middle">Output (units)</text>
+<text x="395" y="480" font-size="11.5" fill="#555555" text-anchor="middle">Profit: 2, 3, 3, 0, −6 — maximum ₹3 at output 3</text>
+</svg>

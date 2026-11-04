@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 8 — Sequences and Series | Maths Class 11</title>
+  <meta name="description" content="Class 11 Maths Chapter 8 Sequences and Series: concept-first master notes — sequences, series, GP general term and sum, infinite GP, GM, AM-GM relation, formula wall, traps and exam question types.">
+  <meta name="chapter-id" content="maths-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/study-os.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #1b1b1b;
+      --text-muted: #6b6b6b;
+      --accent: #1a5e4a;
+      --accent-light: #e8f0ec;
+      --border: #e8e4de;
+      --code-bg: #f0ede8;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 8px;
+      --max-width: 820px;
+      --sidebar-width: 260px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navigation ─── */
+    nav.top-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav.top-nav .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav.top-nav .logo:hover { opacity: 0.7; }
+    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
+
+    nav.top-nav .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── Layout ─── */
+    .wrapper {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      gap: 40px;
+    }
+
+    /* ─── Sidebar (TOC) ─── */
+    aside.toc {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    aside.toc::-webkit-scrollbar { width: 4px; }
+    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    aside.toc h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    aside.toc a {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    aside.toc a:hover,
+    aside.toc a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
+    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
+
+    /* ─── Main Content ─── */
+    main.content {
+      flex: 1;
+      max-width: var(--max-width);
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .hero .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ─── Section Styling ─── */
+    section { margin-bottom: 48px; }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.35;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    section h4 {
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    section p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    /* ─── Blockquote ─── */
+    blockquote {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 14px 20px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    blockquote strong { font-weight: 600; }
+
+    /* ─── Callout box ─── */
+    .callout {
+      background: #fff8e5;
+      border-left: 3px solid #d4a12a;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: #5a4a1a;
+    }
+
+    /* ─── Tables ─── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    table thead {
+      background: var(--accent-light);
+    }
+
+    table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    table tbody tr:first-child td { border-top: none; }
+
+    table tbody tr:hover { background: #f5f3ef; }
+
+    table td:first-child { font-weight: 500; white-space: nowrap; }
+
+    /* ─── Code / Tree ─── */
+    pre {
+      background: #1a1a2e;
+      color: #e4e4f0;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    /* ─── Lists ─── */
+    section ul, section ol {
+      margin: 12px 0 16px;
+      padding-left: 24px;
+    }
+
+    section li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    section ul ul { margin: 4px 0 4px 16px; }
+
+    /* ─── Horizontal Rule ─── */
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* ─── Key Terms ─── */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .terms-grid .term {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
+
+    .terms-grid .term strong {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .terms-grid .term span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── Progress ─── */
+    .progress-bar {
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      height: 2px;
+      z-index: 99;
+      background: transparent;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
+    /* ─── Mobile Toggle ─── */
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ─── Highlights ─── */
+    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
+    section p strong { color: var(--accent); font-weight: 600; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
+      aside.toc {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        top: auto;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 150;
+        transition: max-height 0.35s ease;
+        padding: 0 20px;
+      }
+      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
+      aside.toc h3 { margin-bottom: 12px; }
+      .toc-toggle { display: block; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 32px 0 28px; }
+      section h2 { font-size: 22px; }
+      section { margin-bottom: 36px; }
+      table { font-size: 13px; }
+      table th, table td { padding: 8px 10px; }
+      pre { padding: 16px; font-size: 12.5px; }
+      nav.top-nav { padding: 0 16px; }
+      nav.top-nav .meta { display: none; }
+      .terms-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Animations ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+  </style>
+  <style>
+    /* ─── LaTeX formulas (KaTeX; additive — BST shell untouched) ─── */
+    .tex-block { display: block; text-align: center; padding: 8px 4px; overflow-x: auto; }
+    .katex { font-size: 1.06em; }
+    .katex-display { margin: 0; }
+    /* ─── Practice dropdowns (additive — BST shell untouched) ─── */
+    details.qa { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin: 12px 0; box-shadow: var(--shadow-sm); }
+    details.qa summary { cursor: pointer; padding: 12px 16px; font-weight: 600; font-size: 15px; color: var(--text); list-style: none; line-height: 1.55; }
+    details.qa summary::-webkit-details-marker { display: none; }
+    details.qa summary::marker { content: ""; }
+    details.qa summary::before { content: "+"; color: var(--accent); font-weight: 700; margin-right: 10px; }
+    details.qa[open] summary::before { content: "\2013"; }
+    details.qa summary:hover { color: var(--accent); }
+    details.qa[open] { border-left: 3px solid var(--accent); }
+    details.qa .sol { padding: 2px 16px 14px 42px; }
+    details.qa .sol p, details.qa .sol ul, details.qa .sol ol { margin-bottom: 10px; }
+    details.qa .sol ul, details.qa .sol ol { padding-left: 22px; }
+    details.qa .sol li { margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="top-nav">
+    <a href="../index.html" class="logo">← Maths <span>Notes</span></a>
+    <span class="meta">Class 11 · Chapter 8</span>
+    <button class="mindmap-toggle" aria-label="Open mind map" title="Mind Map"><span class="mm-icon">🗺️</span> Mind Map</button>
+  </nav>
+
+  <!-- Progress -->
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+<!-- Mobile TOC Toggle -->
+  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">☰ Contents</button>
+
+  <!-- Layout -->
+  <div class="wrapper">
+
+    <!-- Sidebar TOC -->
+    <aside class="toc" id="toc">
+      <h3>Contents</h3>
+      <a href="#big-picture" class="toc-h2">Big Picture</a>
+      <a href="#scope" class="toc-h2">Syllabus Scope</a>
+      <a href="#sequences" class="toc-h2">Sequences</a>
+      <a href="#series" class="toc-h2">Series and Sigma Notation</a>
+      <a href="#gp" class="toc-h2">Geometric Progression</a>
+      <a href="#gp-sum" class="toc-h2">Sum of n Terms of a GP</a>
+      <a href="#infinite-gp" class="toc-h2">Infinite GP and Its Sum</a>
+      <a href="#gm" class="toc-h2">Geometric Mean</a>
+      <a href="#am-gm" class="toc-h2">Relation Between AM and GM</a>
+      <a href="#formula-wall" class="toc-h2">Formula Wall</a>
+      <a href="#traps" class="toc-h2">Ten Traps</a>
+      <a href="#exam-types" class="toc-h2">Standard Exam Question Types</a>
+      <a href="#practice-questions" class="toc-h2">Practice Questions + Solutions</a>
+      <a href="#appendix-r" class="toc-h2">Appendix R (Removed Topics)</a>
+      <a href="#key-terms" class="toc-h2">Key Terms</a>
+      <a href="#quick-recap" class="toc-h2">Quick Recap</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- Hero -->
+      <header class="hero fade-in">
+        <span class="chapter-badge">Chapter 8 · NCERT Rationalized</span>
+        <h1>Sequences and Series</h1>
+        <p class="subtitle">Class 11 Mathematics — Concept-First Master Notes</p>
+      </header>
+
+<!-- Big Picture -->
+      <section id="big-picture" class="fade-in">
+        <h2>&#x1f4cc; Big Picture</h2>
+        <blockquote>
+          A <strong>sequence</strong> is a list of numbers written in order. A <strong>series</strong> is the same list with <strong>+ signs</strong> between the terms.<br>
+          Most of this chapter is about one special list — the <strong>Geometric Progression (GP)</strong>, where every step <strong>multiplies by the same number</strong> — plus one famous comparison: <span class="tex" data-tex="A \geq G">AM ≥ GM</span>.
+        </blockquote>
+        <p><strong>How to use these notes:</strong> read sections 1–7 in order (each one needs the previous). Every formula has a <strong>"why"</strong> line — learn the why and you can rebuild the formula in the exam even if you forget it. Section 8 is the formula wall for last-day revision. Section 9 lists the exact traps examiners set.</p>
+      </section>
+
+      <!-- 0. Syllabus scope -->
+      <section id="scope" class="fade-in">
+        <h2>0. &#x1f5fa;&#xfe0f; Syllabus Scope (read first)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Status</th><th>Topics</th></tr></thead>
+            <tbody>
+              <tr><td>&#x2705; IN (board syllabus)</td><td>Sequences; Series and sigma notation; <strong>GP</strong> — general term, sum of n terms, <strong>infinite GP and its sum</strong>; <strong>GM</strong> (single + n GMs); <strong>AM</strong> — single arithmetic mean; <strong>relation between AM and GM</strong></td></tr>
+              <tr><td>&#x23ed;&#xfe0f; OUT (deleted 2023)</td><td>Full <strong>AP theory</strong> (nth term, sum formulas, AP properties as examinable topics); <strong>special sums</strong> <span class="tex" data-tex="\sum n,\ \sum n^2,\ \sum n^3">Σn, Σn², Σn³</span></td></tr>
+              <tr><td>&#x1f4dd; Practice only</td><td>Special sums <span class="tex" data-tex="\sum k,\ \sum k^2,\ \sum k^3">Σk, Σk², Σk³</span> (practice material — deleted from board summative assessment)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <blockquote>CBSE 2026-27 scope, Unit II-5: Sequence and Series; Arithmetic Mean (A.M.); GP — general term, sum of n terms, infinite GP and its sum; GM; relation between AM and GM.</blockquote>
+        <p>The words "Arithmetic Mean" survive only because Section 7 defines <span class="tex" data-tex="A = \frac{a+b}{2}">A = (a+b)/2</span>. Full AP theory is gone from the book. <strong>Appendix R</strong> at the end covers the deleted AP + special-sum material as clearly-marked <strong>reference only</strong> (useful for school tests based on old books — not board-required).</p>
+      </section>
+
+      <!-- 1. Sequences -->
+      <section id="sequences" class="fade-in">
+        <h2>1. &#x1f522; Sequences — ordered lists</h2>
+        <blockquote><strong>Sequence</strong> = terms written in a fixed order: <span class="tex" data-tex="a_1,\ a_2,\ a_3,\ \dots,\ a_n,\ \dots">a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, …, a<sub>n</sub>, …</span><br>Each entry is a <strong>term</strong>. The <strong>nth term</strong> (general term) is the rule that produces any term directly.</blockquote>
+        <h3>Finite vs infinite</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Meaning</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>Finite</td><td>Stops after some fixed number of terms</td><td>2, 4, 6, 8 (4 terms)</td></tr>
+              <tr><td>Infinite</td><td>Goes on forever (… at the end)</td><td>2, 4, 6, 8, …</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Three ways a sequence can be given</h3>
+        <p><strong>1. By a formula for a<sub>n</sub></strong> (most common in exams)</p>
+        <ul>
+          <li>Even numbers: <span class="tex" data-tex="a_n = 2n">a<sub>n</sub> = 2n</span> → 2, 4, 6, 8, …</li>
+          <li>Odd numbers: <span class="tex" data-tex="a_n = 2n - 1">a<sub>n</sub> = 2n − 1</span> → 1, 3, 5, 7, …</li>
+          <li>Worked check: <span class="tex" data-tex="a_n = (n-1)(2-n)(3+n)">a<sub>n</sub> = (n−1)(2−n)(3+n)</span> gives <span class="tex" data-tex="a_1 = 0,\ a_2 = 0,\ a_3 = -12">a<sub>1</sub> = <strong>0</strong>, a<sub>2</sub> = <strong>0</strong>, a<sub>3</sub> = <strong>−12</strong></span></li>
+        </ul>
+        <p><strong>2. By recurrence</strong> (each term built from previous ones)</p>
+        <ul>
+          <li><strong>Fibonacci:</strong> <span class="tex" data-tex="a_1 = a_2 = 1,\quad a_n = a_{n-1} + a_{n-2}\ \ (n > 2)">a<sub>1</sub> = a<sub>2</sub> = 1, a<sub>n</sub> = a<sub>n−1</sub> + a<sub>n−2</sub> for n &gt; 2</span> → <strong>1, 1, 2, 3, 5, 8, 13</strong>, …</li>
+        </ul>
+        <p><strong>3. By description only</strong> (no formula exists — and that is fine)</p>
+        <ul>
+          <li>Primes: 2, 3, 5, 7, 11, … — there is no single formula generating only primes.</li>
+        </ul>
+        <div class="callout"><strong>Concept:</strong> a sequence is a <strong>function</strong> whose domain is <span class="tex" data-tex="\mathbb{N} = \{1, 2, 3, \dots\}">N = {1, 2, 3, …}</span> (infinite sequence) or <span class="tex" data-tex="\{1, 2, \dots, k\}">{1, 2, …, k}</span> (finite sequence with k terms). <span class="tex" data-tex="a_n">a<sub>n</sub></span> is just "the output at input n".</div>
+      </section>
+
+      <!-- 2. Series -->
+      <section id="series" class="fade-in">
+        <h2>2. &#x2795; Series and Σ notation — adding the list up</h2>
+        <blockquote><strong>Series</strong> = the terms of a sequence joined by + signs: <span class="tex" data-tex="a_1 + a_2 + a_3 + \dots">a<sub>1</sub> + a<sub>2</sub> + a<sub>3</sub> + …</span> (+ …).<br><strong>NCERT Remark (exam favourite):</strong> the <em>series</em> is the <strong>indicated sum</strong>; the <em>"sum of the series"</em> is the <strong>number</strong> you get after adding.</blockquote>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Sequence</th><th>Associated series</th></tr></thead>
+            <tbody>
+              <tr><td>2, 4, 6, …, 2n</td><td>2 + 4 + 6 + … + 2n</td></tr>
+              <tr><td>3, 5, 7, 9</td><td>3 + 5 + 7 + 9 (finite — adds to 24)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Sigma (Σ) notation — shorthand, not a formula</h3>
+        <p><span class="tex" data-tex="a_1 + a_2 + \dots + a_n">a<sub>1</sub> + a<sub>2</sub> + … + a<sub>n</sub></span> is abbreviated <span class="tex" data-tex="\sum_{k=1}^{n} a_k"><strong>Σ(k=1 to n) a<sub>k</sub></strong></span>.</p>
+        <ul>
+          <li>Read it as: "start k at 1, write <span class="tex" data-tex="a_k">a<sub>k</sub></span> for each k, add everything up to n".</li>
+          <li>Example: <span class="tex" data-tex="2 + 4 + 6 + \dots + 2n = \sum_{k=1}^{n} 2k">2 + 4 + 6 + … + 2n = <strong>Σ(k=1 to n) 2k</strong></span>.</li>
+        </ul>
+        <div class="callout">⚠️ <span class="tex" data-tex="\sum">Σ</span> denotes the <strong>process of adding</strong>, not the answer.</div>
+        <h3>Recurrence → series (worked)</h3>
+        <p>Rule: <span class="tex" data-tex="a_1 = 3,\quad a_n = a_{n-1} + 2">a<sub>1</sub> = 3, a<sub>n</sub> = a<sub>n−1</sub> + 2</span>.</p>
+        <ul>
+          <li>Terms: 3, <strong>5</strong>, <strong>7</strong>, <strong>9</strong> (each = previous + 2)</li>
+          <li>Series: 3 + 5 + 7 + 9 (finite; its sum is 24 by direct adding)</li>
+        </ul>
+      </section>
+
+      <!-- 3. GP -->
+      <section id="gp" class="fade-in">
+        <h2>3. &#x2716;&#xfe0f; Geometric Progression (GP) — multiply by the same number every step</h2>
+        <blockquote><strong>GP definition:</strong> every term is <strong>non-zero</strong>, and the ratio of each term to the previous one is a <strong>constant <span class="tex" data-tex="r \neq 0">r (≠ 0)</span></strong>: <span class="tex" data-tex="\frac{a_{k+1}}{a_k} = r \quad (k \geq 1)">a<sub>k+1</sub> / a<sub>k</sub> = r for all k ≥ 1</span>. First term <span class="tex" data-tex="a \neq 0"><strong>a ≠ 0</strong></span>.</blockquote>
+        <ul>
+          <li>Standard finite form: <span class="tex" data-tex="a,\ ar,\ ar^2,\ \dots,\ ar^{n-1}"><strong>a, ar, ar², …, arⁿ⁻¹</strong></span> (n terms)</li>
+          <li>Standard infinite form: <span class="tex" data-tex="a,\ ar,\ ar^2,\ \dots"><strong>a, ar, ar², …</strong></span></li>
+        </ul>
+        <div class="callout"><strong>Why the exponent is n−1:</strong> the 1st term must be <span class="tex" data-tex="a \cdot r^0 = a">a × r⁰ = a</span> (anything to power 0 is 1), so the nth term carries <span class="tex" data-tex="r^{n-1}">rⁿ⁻¹</span>, not <span class="tex" data-tex="r^n">rⁿ</span>. This off-by-one is the chapter's most repeated silly mistake.</div>
+        <h3>The general (nth) term</h3>
+        <div class="tex tex-block" data-tex="a_n = a\cdot r^{n-1}\qquad (n \geq 1)">a<sub>n</sub> = a · rⁿ⁻¹, for n ≥ 1. (a = first term, r = common ratio)</div>
+        <p><strong>Ratio test</strong> (is it a GP?): divide consecutive terms — 2nd/1st, 3rd/2nd, … If every ratio is equal, it is a GP and that value is r.</p>
+        <h3>Worked examples</h3>
+        <ol>
+          <li>2, 6, 18, … → <span class="tex" data-tex="r = \frac{6}{2} = \frac{18}{6} = 3">r = 6/2 = 18/6 = <strong>3</strong></span>. <span class="tex" data-tex="a_6 = 2\cdot 3^5 = 2\cdot 243 = 486">a<sub>6</sub> = 2 × 3<sup>5</sup> = 2 × 243 = <strong>486</strong></span>.</li>
+          <li>First term 3, 4th term 24 → <span class="tex" data-tex="3r^3 = 24 \Rightarrow r^3 = 8 \Rightarrow r = 2">3·r³ = 24 → r³ = 8 → <strong>r = 2</strong></span>. Terms: 3, 6, 12, 24. ✓</li>
+          <li>NOT a GP: 2, 6, 12, … (<span class="tex" data-tex="\frac{6}{2} = 3">6/2 = 3</span> but <span class="tex" data-tex="\frac{12}{6} = 2">12/6 = 2</span> — ratios differ).</li>
+        </ol>
+        <h3>Retained GP properties (short list)</h3>
+        <ul>
+          <li>Multiplying or dividing <strong>every</strong> term by the same non-zero k gives another GP (same r).</li>
+          <li>Reciprocals <span class="tex" data-tex="\frac{1}{a_1},\ \frac{1}{a_2},\ \dots">1/a<sub>1</sub>, 1/a<sub>2</sub>, …</span> form a GP.</li>
+          <li>Term-by-term product or quotient of two GPs is a GP.</li>
+          <li>Ends multiply equal: <span class="tex" data-tex="a_1\cdot a_n = a_2\cdot a_{n-1} = \dots">a<sub>1</sub>·a<sub>n</sub> = a<sub>2</sub>·a<sub>n−1</sub> = …</span> (mirror pairs).</li>
+          <li>nth term from the last = <span class="tex" data-tex="\dfrac{l}{r^{n-1}}">l / rⁿ⁻¹</span>, where l is the last term.</li>
+        </ul>
+      </section>
+
+      <!-- 4. GP sum -->
+      <section id="gp-sum" class="fade-in">
+        <h2>4. &#x1f9ee; Sum of the first n terms of a GP</h2>
+        <h3>The derivation (learn this once — it is the whole concept)</h3>
+        <p>Let <span class="tex" data-tex="S_n = a + ar + ar^2 + \dots + ar^{n-1}">S<sub>n</sub> = a + ar + ar² + … + arⁿ⁻¹</span>. Multiply everything by r:</p>
+        <div class="tex tex-block" data-tex="r\cdot S_n = ar + ar^2 + \dots + ar^{n-1} + ar^n">r·S<sub>n</sub> = ar + ar² + … + arⁿ⁻¹ + arⁿ.</div>
+        <div class="tex tex-block" data-tex="S_n - r\cdot S_n = a - ar^n">Subtract: S<sub>n</sub> − r·S<sub>n</sub> = a − arⁿ (every middle term cancels — that is the magic).</div>
+        <div class="tex tex-block" data-tex="(1 - r)\cdot S_n = a(1 - r^n)">(1 − r)·S<sub>n</sub> = a(1 − rⁿ).</div>
+        <h3>The formulas (both forms are identical algebra)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Case</th><th>Formula</th><th>When to use</th></tr></thead>
+            <tbody>
+              <tr><td>r ≠ 1</td><td><span class="tex" data-tex="S_n = \dfrac{a(1-r^n)}{1-r}"><strong>S<sub>n</sub> = a(1 − rⁿ) / (1 − r)</strong></span></td><td>Default form</td></tr>
+              <tr><td>r ≠ 1</td><td><span class="tex" data-tex="S_n = \dfrac{a(r^n-1)}{r-1}"><strong>S<sub>n</sub> = a(rⁿ − 1) / (r − 1)</strong></span></td><td>Same formula; use when r &gt; 1 so the denominator stays positive</td></tr>
+              <tr><td>r = 1</td><td><span class="tex" data-tex="S_n = n\cdot a"><strong>S<sub>n</sub> = n·a</strong></span></td><td>All terms equal a (the fraction forms would divide by zero!)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Worked examples</h3>
+        <ol>
+          <li>1 + 2 + 4 + … + 512 → a = 1, r = 2, and <span class="tex" data-tex="512 = 2^9">512 = 2<sup>9</sup></span> so n = 10.<br><span class="tex" data-tex="S_{10} = \dfrac{2^{10}-1}{2-1} = 1024 - 1 = 1023">S<sub>10</sub> = (2<sup>10</sup> − 1)/(2 − 1) = 1024 − 1 = <strong>1023</strong></span>.</li>
+          <li>a = 3, r = 1/2, n = 4 → terms 3, 3/2, 3/4, 3/8.<br><span class="tex" data-tex="S_4 = \dfrac{3\left(1-(1/2)^4\right)}{1-1/2} = \dfrac{45}{8} = 5.625">S<sub>4</sub> = 3(1 − (1/2)<sup>4</sup>)/(1 − 1/2) = 3(15/16)/(1/2) = <strong>45/8 = 5.625</strong></span>. Direct check: 3 + 1.5 + 0.75 + 0.375 = 5.625. ✓</li>
+          <li><strong>Application (depreciation):</strong> machine worth ₹1250 loses 20% value yearly → values form a GP with r = 0.8.<br>After 5 years: <span class="tex" data-tex="1250 \times 0.8^5 = 1250 \times 0.32768 = 409.60">1250 × 0.8<sup>5</sup> = 1250 × 0.32768 = <strong>₹409.60</strong></span>.</li>
+        </ol>
+      </section>
+
+      <!-- 5. Infinite GP -->
+      <section id="infinite-gp" class="fade-in">
+        <h2>5. &#x267e;&#xfe0f; Infinite GP and its sum — the <span class="tex" data-tex="|r| < 1">|r| &lt; 1</span> rule</h2>
+        <h3>The concept (why only some infinite lists add up to a number)</h3>
+        <blockquote>If <span class="tex" data-tex="|r| < 1">|r| &lt; 1</span>, powers <strong>shrink to 0</strong>: <span class="tex" data-tex="(1/2)^{10} \approx 0.001,\quad (1/2)^{20} \approx 0.000001">(1/2)<sup>10</sup> ≈ 0.001, (1/2)<sup>20</sup> ≈ 0.000001</span>, …<br>So for large n, <span class="tex" data-tex="r^n \approx 0">rⁿ ≈ 0</span> and the finite-sum formula <span class="tex" data-tex="S_n = \dfrac{a(1-r^n)}{1-r}">S<sub>n</sub> = a(1 − rⁿ)/(1 − r)</span> settles down to <span class="tex" data-tex="\dfrac{a}{1-r}"><strong>a/(1 − r)</strong></span>.<br>If <span class="tex" data-tex="|r| \geq 1">|r| ≥ 1</span>, terms never die out — the infinite sum <strong>does not exist</strong> in this chapter. This condition is the examiner's favourite trap.</blockquote>
+        <h3>The formula (with its strict condition)</h3>
+        <div class="tex tex-block" data-tex="S_\infty = \dfrac{a}{1-r}\qquad \text{valid ONLY if } |r| < 1"><strong>S<sub>∞</sub> = a / (1 − r), valid ONLY if |r| &lt; 1.</strong></div>
+        <p>Always verify <span class="tex" data-tex="|r| < 1">|r| &lt; 1</span> <strong>before</strong> using it.</p>
+        <h3>Worked examples</h3>
+        <ol>
+          <li>1 + 1/2 + 1/4 + … → a = 1, r = 1/2 (|r| &lt; 1 ✓). <span class="tex" data-tex="S_\infty = \dfrac{1}{1-1/2} = 2">S<sub>∞</sub> = 1/(1 − 1/2) = <strong>2</strong></span>.</li>
+          <li>3 + 1 + 1/3 + … → a = 3, r = 1/3 ✓. <span class="tex" data-tex="S_\infty = \dfrac{3}{1-1/3} = \dfrac{3}{2/3} = \dfrac{9}{2}">S<sub>∞</sub> = 3/(1 − 1/3) = 3/(2/3) = <strong>9/2</strong></span>.</li>
+          <li>5 − 5 + 5 − 5 + … → <span class="tex" data-tex="r = -1 \Rightarrow |r| = 1 \geq 1 \Rightarrow \text{no sum}">r = −1, |r| = 1 ≶ 1 → <strong>no sum</strong></span> (terms just flip forever).</li>
+        </ol>
+      </section>
+
+      <!-- 6. GM -->
+      <section id="gm" class="fade-in">
+        <h2>6. &#x1f4d0; Geometric Mean (GM)</h2>
+        <h3>Single GM</h3>
+        <div class="tex tex-block" data-tex="G^2 = ab,\qquad G = +\sqrt{ab}\quad (a, b > 0)">If a, G, b are in GP with <strong>a, b &gt; 0</strong>, then G² = ab and <strong>G = +√(ab)</strong> (NCERT takes the positive root).</div>
+        <ul>
+          <li>Worked: GM of 4 and 16 = <span class="tex" data-tex="\sqrt{4\cdot 16} = \sqrt{64} = 8">√(4×16) = √64 = <strong>8</strong></span>. Check: 4, 8, 16 has ratio 2. ✓</li>
+        </ul>
+        <h3>Inserting n GMs between a and b</h3>
+        <p>Treat b as the (n+2)th term: <span class="tex" data-tex="b = a\cdot r^{n+1}">b = a·rⁿ⁺¹</span>, so <span class="tex" data-tex="r = \left(\frac{b}{a}\right)^{1/(n+1)}">r = (b/a)<sup>1/(n+1)</sup></span> (principal positive root; −r is also real when n+1 is even) and <span class="tex" data-tex="G_k = a\cdot r^k \quad (k = 1\dots n)">G<sub>k</sub> = a·r<sup>k</sup> for k = 1…n</span>.</p>
+        <ul>
+          <li><strong>Worked (NCERT-type):</strong> insert 3 numbers between 1 and 256.<br><span class="tex" data-tex="r^4 = 256 \Rightarrow r = +4 \text{ or } -4">r<sup>4</sup> = 256 → <strong>r = +4 or −4</strong></span> (real roots) → <strong>4, 16, 64</strong> or <strong>−4, 16, −64</strong>.<br>(The single-GM positivity rule applies to <span class="tex" data-tex="G = \sqrt{ab}">G = √(ab)</span>, not to every insertion case — negative r is allowed here.)</li>
+          <li><strong>Corollary:</strong> product of the n inserted GMs = <span class="tex" data-tex="(ab)^{n/2}">(ab)<sup>n/2</sup></span> (= <span class="tex" data-tex="G^n">Gⁿ</span> where G is the single GM).</li>
+        </ul>
+      </section>
+
+      <!-- 7. AM-GM -->
+      <section id="am-gm" class="fade-in">
+        <h2>7. &#x2696;&#xfe0f; Relationship between AM and GM</h2>
+        <h3>Definitions</h3>
+        <ul>
+          <li><strong>Arithmetic Mean</strong> of a and b: <span class="tex" data-tex="A = \frac{a+b}{2}"><strong>A = (a + b)/2</strong></span> (this is the "A.M." named in the syllabus).</li>
+          <li><strong>Geometric Mean</strong> of a and b (positive): <span class="tex" data-tex="G = \sqrt{ab}"><strong>G = √(ab)</strong></span>.</li>
+        </ul>
+        <h3>The theorem + NCERT proof (learn the 3 lines)</h3>
+        <div class="tex tex-block" data-tex="A \geq G\qquad \text{for positive reals } a, b;\quad A = G \iff a = b">For positive real numbers a, b: <strong>A ≥ G</strong>, with equality <strong>iff a = b</strong>.</div>
+        <p>Proof: <span class="tex" data-tex="A - G = \frac{a+b}{2} - \sqrt{ab} = \frac{a + b - 2\sqrt{ab}}{2} = \frac{(\sqrt{a}-\sqrt{b})^2}{2} \geq 0">A − G = (a + b)/2 − √(ab) = (a + b − 2√(ab))/2 = <strong>(√a − √b)²/2 ≥ 0</strong></span> (a square is never negative). It equals 0 exactly when <span class="tex" data-tex="\sqrt{a} = \sqrt{b}">√a = √b</span>, i.e. <span class="tex" data-tex="a = b"><strong>a = b</strong></span>. ∎</p>
+        <h3>Application (prove with AM ≥ GM)</h3>
+        <p>For positive x, y, z, show <span class="tex" data-tex="(x+y)(y+z)(z+x) \geq 8xyz"><strong>(x+y)(y+z)(z+x) ≥ 8xyz</strong></span>:</p>
+        <ul>
+          <li><span class="tex" data-tex="x + y \geq 2\sqrt{xy},\quad y + z \geq 2\sqrt{yz},\quad z + x \geq 2\sqrt{zx}">x + y ≥ 2√(xy), y + z ≥ 2√(yz), z + x ≥ 2√(zx)</span> (AM ≥ GM on each pair).</li>
+          <li>Multiply: <span class="tex" data-tex="\text{LHS} \geq 8\sqrt{xy\cdot yz\cdot zx} = 8xyz">LHS ≥ 8√(xy·yz·zx) = 8√(x²y²z²) = <strong>8xyz</strong></span>. ∎</li>
+        </ul>
+        <div class="callout"><strong>Boundary:</strong> the mean of n numbers <span class="tex" data-tex="\frac{a_1+\dots+a_n}{n}">(a<sub>1</sub>+…+a<sub>n</sub>)/n</span> is just a definition here. The n-variable AM ≥ GM inequality is <strong>not proved</strong> in the main Class 11 text — do not present it as an NCERT result.</div>
+      </section>
+
+      <!-- 8. Formula wall -->
+      <section id="formula-wall" class="fade-in">
+        <h2>8. &#x26a1; Formula Wall (board-required only)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Result</th><th>Exact condition</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Series <span class="tex" data-tex="a_1+\dots+a_n = \sum_{k=1}^{n} a_k">a<sub>1</sub>+…+a<sub>n</sub> = Σ(k=1 to n) a<sub>k</sub></span></td><td>Notation — always valid</td></tr>
+              <tr><td>2</td><td>GP nth term: <span class="tex" data-tex="a_n = a\cdot r^{n-1}">a<sub>n</sub> = a·rⁿ⁻¹</span></td><td>a ≠ 0, r ≠ 0, n ≥ 1</td></tr>
+              <tr><td>3</td><td>GP sum: <span class="tex" data-tex="S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1}">S<sub>n</sub> = a(1−rⁿ)/(1−r) = a(rⁿ−1)/(r−1)</span></td><td>r ≠ 1</td></tr>
+              <tr><td>4</td><td>GP sum: <span class="tex" data-tex="S_n = n\cdot a">S<sub>n</sub> = n·a</span></td><td>r = 1</td></tr>
+              <tr><td>5</td><td>Infinite GP: <span class="tex" data-tex="S_\infty = \dfrac{a}{1-r}">S<sub>∞</sub> = a/(1−r)</span></td><td><strong>|r| &lt; 1</strong> (strict)</td></tr>
+              <tr><td>6</td><td>Single GM: <span class="tex" data-tex="G = \sqrt{ab}">G = √(ab)</span></td><td>a, b &gt; 0 (positive root)</td></tr>
+              <tr><td>7</td><td>n GMs: <span class="tex" data-tex="r = \left(\frac{b}{a}\right)^{1/(n+1)},\ G_k = a\cdot r^k">r = (b/a)<sup>1/(n+1)</sup> (also −r when n+1 even), G<sub>k</sub> = a·r<sup>k</sup></span></td><td>a, b &gt; 0; k = 1…n</td></tr>
+              <tr><td>8</td><td>Single AM: <span class="tex" data-tex="A = \frac{a+b}{2}">A = (a+b)/2</span></td><td>a, b any reals</td></tr>
+              <tr><td>9</td><td><span class="tex" data-tex="A \geq G">AM ≥ GM</span>, equality iff a = b</td><td>a, b positive reals</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 9. Traps -->
+      <section id="traps" class="fade-in">
+        <h2>9. &#x1faa4; Ten Traps (night-before checklist)</h2>
+        <ol>
+          <li><strong>Series ≠ sum.</strong> Series = the indicated sum (<span class="tex" data-tex="a_1+a_2+\dots">a<sub>1</sub>+a<sub>2</sub>+…</span>); "sum of the series" = the number. (NCERT Remark.)</li>
+          <li><strong>Not every sequence has a formula.</strong> Primes have none; some sequences need recurrence or words.</li>
+          <li><strong>GP needs non-zero everything:</strong> first term <span class="tex" data-tex="a \neq 0">a ≠ 0</span> and ratio <span class="tex" data-tex="r \neq 0">r ≠ 0</span>. r = 0 is not allowed.</li>
+          <li><strong>nth term exponent is n−1</strong>, not n. (First term = <span class="tex" data-tex="a\cdot r^0 = a">a·r⁰ = a</span>.)</li>
+          <li><strong>Never use the fraction sum formula when r = 1</strong> — division by zero. Use <span class="tex" data-tex="S_n = na">S<sub>n</sub> = na</span>.</li>
+          <li><strong>Infinite GP needs <span class="tex" data-tex="|r| < 1">|r| &lt; 1</span> — always check first.</strong> r = 1, r = −1, r = 2… all have no infinite sum.</li>
+          <li><strong>GM sign:</strong> for positive a, b, NCERT's GM is <span class="tex" data-tex="+\sqrt{ab}"><strong>+√(ab)</strong></span>. <span class="tex" data-tex="-\sqrt{ab}">−√(ab)</span> squares correctly but is not the NCERT GM.</li>
+          <li><strong>AM ≥ GM needs positive numbers</strong>, and equality holds (<span class="tex" data-tex="A = G">A = G</span>) exactly when a = b — not strict &gt;.</li>
+          <li><strong><span class="tex" data-tex="\sum">Σ</span> is the adding process</strong>, not the answer.</li>
+          <li><span class="tex" data-tex="\sum n^3 = \left(\sum n\right)^2 = \left[\frac{n(n+1)}{2}\right]^2"><strong>Σn³ = (Σn)²</strong>, i.e. [n(n+1)/2]²</span> — one mirror site misprints it as <span class="tex" data-tex="\left[\frac{n(n+1)(2n+1)}{6}\right]^2">[n(n+1)(2n+1)/6]²</span>, which is <strong>wrong</strong>. (The formula itself sits in Appendix R — deleted from boards.)</li>
+        </ol>
+      </section>
+
+      <!-- 10. Exam types -->
+      <section id="exam-types" class="fade-in">
+        <h2>10. &#x1f3af; Standard Exam Question Types (and the method for each)</h2>
+        <ul>
+          <li><strong>Write first terms from a<sub>n</sub></strong> — substitute n = 1, 2, 3… directly.</li>
+          <li><strong>Find an indicated term</strong> (e.g. <span class="tex" data-tex="a_n = (n-1)(2-n)(3+n)">a<sub>n</sub> = (n−1)(2−n)(3+n)</span>) — careful bracket arithmetic.</li>
+          <li><strong>Build a series from a recurrence</strong> — generate terms step by step, then join with +.</li>
+          <li><strong>GP nth term / sum given a, r</strong> — identify a, r first; watch the n−1 exponent.</li>
+          <li><strong>Depreciation / growth cascade</strong> (<span class="tex" data-tex="1250\times 0.8^5">1250×0.8<sup>5</sup></span> type; sides halving each step) — model as GP, then apply <span class="tex" data-tex="a_n">a<sub>n</sub></span> or <span class="tex" data-tex="S_n">S<sub>n</sub></span>.</li>
+          <li><strong>Insert GMs between two numbers</strong> — <span class="tex" data-tex="b = a\cdot r^{n+1}">b = a·rⁿ⁺¹</span> route; remember ± roots are both real answers.</li>
+          <li><strong>Infinite GP: verify <span class="tex" data-tex="|r| < 1">|r| &lt; 1</span>, then <span class="tex" data-tex="\dfrac{a}{1-r}">a/(1−r)</span></strong> — or find a/r backwards from a given <span class="tex" data-tex="S_\infty">S<sub>∞</sub></span>.</li>
+          <li><strong>Prove AM ≥ GM / deduce product inequalities</strong> — the <span class="tex" data-tex="(\sqrt{a}-\sqrt{b})^2">(√a−√b)²</span> proof, then apply per-pair and multiply.</li>
+          <li><strong>Sigma reading</strong> — expand <span class="tex" data-tex="\sum">Σ</span> into terms or compress a listed sum into <span class="tex" data-tex="\sum">Σ</span> (notation only).</li>
+        </ul>
+      </section>
+
+      <!-- 11. Practice questions -->
+      <section id="practice-questions" class="fade-in">
+        <h2>11. &#x1f4aa; Practice Questions with Full Solutions</h2>
+        <div class="callout">23 exam-style questions — one set per topic. Cover the solution, solve it yourself, then open the dropdown to match every step.</div>
+        <h3>Sequences</h3>
+        <details class="qa"><summary><strong>Q1.</strong> Write the first five terms of the sequence with <span class="tex" data-tex="a_n = n(n+2)">a<sub>n</sub> = n(n + 2)</span>.</summary><div class="sol">
+          <p><strong>Solution.</strong> Substitute n = 1, 2, 3, 4, 5 directly:</p>
+          <ul>
+            <li>a<sub>1</sub> = 1 × 3 = <strong>3</strong></li>
+            <li>a<sub>2</sub> = 2 × 4 = <strong>8</strong></li>
+            <li>a<sub>3</sub> = 3 × 5 = <strong>15</strong></li>
+            <li>a<sub>4</sub> = 4 × 6 = <strong>24</strong></li>
+            <li>a<sub>5</sub> = 5 × 7 = <strong>35</strong></li>
+          </ul>
+          <p>✅ <strong>Sequence: 3, 8, 15, 24, 35.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q2.</strong> Find the 10th term of the sequence <span class="tex" data-tex="a_n = (-1)^{n-1}\cdot 5^{n+1}">a<sub>n</sub> = (−1)ⁿ⁻¹ · 5ⁿ⁺¹</span>.</summary><div class="sol">
+          <p><strong>Solution.</strong> Put n = 10:</p>
+          <ul>
+            <li>Sign: (−1)<sup>9</sup> = <strong>−1</strong> (odd exponent keeps the minus).</li>
+            <li>Power: 5<sup>11</sup> = 5<sup>10</sup> × 5 = 9,765,625 × 5 = <strong>48,828,125</strong>.</li>
+            <li>a<sub>10</sub> = −1 × 48,828,125.</li>
+          </ul>
+          <p>✅ <strong>a<sub>10</sub> = −48,828,125.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q3.</strong> Write the first five terms of the sequence defined by <span class="tex" data-tex="a_1 = 3,\quad a_n = 3a_{n-1} + 2">a<sub>1</sub> = 3 and a<sub>n</sub> = 3a<sub>n−1</sub> + 2</span> for n &gt; 1.</summary><div class="sol">
+          <p><strong>Solution.</strong> Build each term from the previous one:</p>
+          <ul>
+            <li>a<sub>1</sub> = <strong>3</strong> (given)</li>
+            <li>a<sub>2</sub> = 3 × 3 + 2 = <strong>11</strong></li>
+            <li>a<sub>3</sub> = 3 × 11 + 2 = <strong>35</strong></li>
+            <li>a<sub>4</sub> = 3 × 35 + 2 = <strong>107</strong></li>
+            <li>a<sub>5</sub> = 3 × 107 + 2 = <strong>323</strong></li>
+          </ul>
+          <p>✅ <strong>Sequence: 3, 11, 35, 107, 323.</strong></p>
+        </div></details>
+        <h3>Series and sigma notation</h3>
+        <details class="qa"><summary><strong>Q4.</strong> For <span class="tex" data-tex="a_n = n^2 + 2n">a<sub>n</sub> = n² + 2n</span>, write the first three terms and the corresponding series.</summary><div class="sol">
+          <p><strong>Solution.</strong> Substitute n = 1, 2, 3:</p>
+          <ul>
+            <li>a<sub>1</sub> = 1 + 2 = <strong>3</strong></li>
+            <li>a<sub>2</sub> = 4 + 4 = <strong>8</strong></li>
+            <li>a<sub>3</sub> = 9 + 6 = <strong>15</strong></li>
+          </ul>
+          <p>✅ <strong>Series: 3 + 8 + 15.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q5.</strong> Expand <span class="tex" data-tex="\sum_{k=1}^{10}(2k-1)">Σ(k=1 to 10)(2k − 1)</span> and find its sum by pairing — no formula allowed.</summary><div class="sol">
+          <ul>
+            <li>Step 1 — expand: k = 1…10 gives <strong>1, 3, 5, 7, 9, 11, 13, 15, 17, 19</strong>.</li>
+            <li>Step 2 — pair first with last: (1 + 19) + (3 + 17) + (5 + 15) + (7 + 13) + (9 + 11).</li>
+            <li>Step 3 — each pair = 20, and there are 5 pairs: 20 × 5 = <strong>100</strong>.</li>
+          </ul>
+          <p>✅ <strong>Sum = 100.</strong></p>
+        </div></details>
+        <h3>GP — general term</h3>
+        <details class="qa"><summary><strong>Q6.</strong> Find the 10th term of the GP 5, 25, 125, …</summary><div class="sol">
+          <ul>
+            <li>Step 1 — identify: a = 5, r = 25/5 = <strong>5</strong>.</li>
+            <li>Step 2 — apply <span class="tex" data-tex="a_n = a\cdot r^{n-1}">a<sub>n</sub> = a·rⁿ⁻¹</span>: <span class="tex" data-tex="a_{10} = 5\cdot 5^9 = 5^{10}">a<sub>10</sub> = 5 × 5<sup>9</sup> = 5<sup>10</sup></span>.</li>
+            <li>Step 3 — compute: 5<sup>9</sup> = 1,953,125, so 5<sup>10</sup> = 1,953,125 × 5 = <strong>9,765,625</strong>.</li>
+          </ul>
+          <p>✅ <strong>a<sub>10</sub> = 9,765,625.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q7.</strong> Which term of the GP <span class="tex" data-tex="2,\ 2\sqrt{2},\ 4,\ \dots">2, 2√2, 4, …</span> is 128?</summary><div class="sol">
+          <ul>
+            <li>Step 1 — identify: a = 2, <span class="tex" data-tex="r = \sqrt{2}">r = <strong>√2</strong></span> (check: 4/(2√2) = 2/√2 = √2 ✓).</li>
+            <li>Step 2 — set up: <span class="tex" data-tex="2\cdot(\sqrt{2})^{n-1} = 128">2·(√2)ⁿ⁻¹ = 128</span> → <span class="tex" data-tex="(\sqrt{2})^{n-1} = 64">(√2)ⁿ⁻¹ = 64</span>.</li>
+            <li>Step 3 — match powers of √2: 64 = 2<sup>6</sup> = (√2)<sup>12</sup>, so n − 1 = 12 → <strong>n = 13</strong>.</li>
+          </ul>
+          <p>✅ <strong>128 is the 13th term.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q8.</strong> The 4th term of a GP is the square of its 2nd term, and the first term is −3. Find the 7th term.</summary><div class="sol">
+          <ul>
+            <li>Step 1 — translate: <span class="tex" data-tex="a\cdot r^3 = (a\cdot r)^2 = a^2 r^2">a·r³ = (a·r)² = a²r²</span>.</li>
+            <li>Step 2 — substitute a = −3: <span class="tex" data-tex="-3r^3 = 9r^2">−3r³ = 9r²</span>. Since r ≠ 0, divide by 3r²: −r = 3 → <strong>r = −3</strong>.</li>
+            <li>Step 3 — verify: a<sub>4</sub> = −3 × (−27) = 81; a<sub>2</sub> = −3 × −3 = 9; 9² = 81 ✓.</li>
+            <li>Step 4 — <span class="tex" data-tex="a_7 = a\cdot r^6 = -3\times(-3)^6 = -3\times 729">a<sub>7</sub> = a·r<sup>6</sup> = −3 × (−3)<sup>6</sup> = −3 × 729</span>.</li>
+          </ul>
+          <p>✅ <strong>a<sub>7</sub> = −2,187.</strong></p>
+        </div></details>
+        <h3>GP — sum of n terms</h3>
+        <details class="qa"><summary><strong>Q9.</strong> Find the sum of 1 + 3 + 9 + … to 8 terms.</summary><div class="sol">
+          <ul>
+            <li>Step 1 — identify: a = 1, r = 3, n = 8. Since r &gt; 1, use <span class="tex" data-tex="S_n = \dfrac{a(r^n-1)}{r-1}">S<sub>n</sub> = a(rⁿ − 1)/(r − 1)</span>.</li>
+            <li>Step 2 — powers: 3<sup>8</sup> = 6,561.</li>
+            <li>Step 3 — <span class="tex" data-tex="S_8 = \dfrac{6561-1}{2} = \dfrac{6560}{2}">S<sub>8</sub> = (6,561 − 1)/2 = 6,560/2</span>.</li>
+          </ul>
+          <p>✅ <strong>S<sub>8</sub> = 3,280.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q10.</strong> How many terms of the GP 3, 9, 27, … add up to 120?</summary><div class="sol">
+          <ul>
+            <li>Step 1 — identify: a = 3, r = 3. Equation: <span class="tex" data-tex="\dfrac{3(3^n-1)}{3-1} = 120">3(3ⁿ − 1)/(3 − 1) = 120</span>.</li>
+            <li>Step 2 — simplify: 3(3ⁿ − 1)/2 = 120 → 3ⁿ − 1 = 80 → 3ⁿ = 81 = 3<sup>4</sup> → <strong>n = 4</strong>.</li>
+            <li>Step 3 — check: 3 + 9 + 27 + 81 = 120 ✓.</li>
+          </ul>
+          <p>✅ <strong>4 terms.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q11.</strong> Find the sum to 20 terms of 0.15 + 0.015 + 0.0015 + …</summary><div class="sol">
+          <ul>
+            <li>Step 1 — identify: a = 0.15, r = 0.015/0.15 = <strong>0.1</strong>.</li>
+            <li>Step 2 — apply <span class="tex" data-tex="S_n = \dfrac{a(1-r^n)}{1-r}">S<sub>n</sub> = a(1 − rⁿ)/(1 − r)</span>: <span class="tex" data-tex="S_{20} = \dfrac{0.15(1-0.1^{20})}{0.9}">S<sub>20</sub> = 0.15(1 − 0.1<sup>20</sup>)/0.9</span>.</li>
+            <li>Step 3 — simplify: 0.15/0.9 = 15/90 = <strong>1/6</strong>.</li>
+          </ul>
+          <p>✅ <strong>S<sub>20</sub> = (1/6)(1 − 10<sup>−20</sup>).</strong></p>
+        </div></details>
+        <h3>Infinite GP</h3>
+        <details class="qa"><summary><strong>Q12.</strong> Find the sum to infinity of 0.5 + 0.05 + 0.005 + …</summary><div class="sol">
+          <ul>
+            <li>Step 1 — identify: a = 0.5, r = 0.05/0.5 = <strong>0.1</strong>.</li>
+            <li>Step 2 — check the condition: |0.1| &lt; 1 ✓, so S<sub>∞</sub> exists.</li>
+            <li>Step 3 — <span class="tex" data-tex="S_\infty = \dfrac{0.5}{1-0.1} = \dfrac{0.5}{0.9} = \dfrac{5}{9}">S<sub>∞</sub> = 0.5/(1 − 0.1) = 0.5/0.9 = 5/9</span>.</li>
+          </ul>
+          <p>✅ <strong>S<sub>∞</sub> = 5/9.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q13.</strong> The sum to infinity of a GP is 15 and the common ratio is 2/3. Find the first term.</summary><div class="sol">
+          <ul>
+            <li>Step 1 — write the equation: <span class="tex" data-tex="\dfrac{a}{1-2/3} = 15">a/(1 − 2/3) = 15</span>.</li>
+            <li>Step 2 — simplify: a/(1/3) = 15 → 3a = 15 → <strong>a = 5</strong>.</li>
+            <li>Step 3 — sanity check: |2/3| &lt; 1 ✓, and 5/(1/3) = 15 ✓.</li>
+          </ul>
+          <p>✅ <strong>First term = 5.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q14 (trap demo).</strong> Can the sum to infinity of a GP (r ≠ 0) ever equal exactly half the first term?</summary><div class="sol">
+          <ul>
+            <li>Step 1 — set up: <span class="tex" data-tex="\dfrac{a}{1-r} = \dfrac{a}{2}">a/(1 − r) = a/2</span>. Since a ≠ 0, cancel a: <span class="tex" data-tex="\dfrac{1}{1-r} = \dfrac{1}{2}">1/(1 − r) = 1/2</span>.</li>
+            <li>Step 2 — solve: 1 − r = 2 → <strong>r = −1</strong>.</li>
+            <li>Step 3 — check the condition: |−1| = 1, which is NOT &lt; 1 — so no infinite sum exists for r = −1.</li>
+          </ul>
+          <p>✅ <strong>Impossible — this is exactly why you must verify |r| &lt; 1 first.</strong></p>
+        </div></details>
+        <h3>Geometric Mean</h3>
+        <details class="qa"><summary><strong>Q15.</strong> Find the geometric mean of 0.04 and 0.09, and verify it sits in a GP.</summary><div class="sol">
+          <ul>
+            <li>Step 1 — <span class="tex" data-tex="G = \sqrt{0.04\times 0.09} = \sqrt{0.0036} = 0.06">G = √(0.04 × 0.09) = √0.0036 = <strong>0.06</strong></span> (positive root, per NCERT).</li>
+            <li>Step 2 — verify: 0.06/0.04 = 1.5 and 0.09/0.06 = 1.5 — equal ratios ✓.</li>
+          </ul>
+          <p>✅ <strong>GM = 0.06 (sequence 0.04, 0.06, 0.09).</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q16.</strong> Insert 4 geometric means between 2 and 64, then verify them with the product rule.</summary><div class="sol">
+          <ul>
+            <li>Step 1 — 64 is the 6th term: <span class="tex" data-tex="64 = 2\cdot r^5 \Rightarrow r^5 = 32 \Rightarrow r = 2">64 = 2·r<sup>5</sup> → r<sup>5</sup> = 32 → <strong>r = 2</strong></span>.</li>
+            <li>Step 2 — the means: 2×2 = <strong>4</strong>, then <strong>8</strong>, <strong>16</strong>, <strong>32</strong> (check: 32 × 2 = 64 ✓).</li>
+            <li>Step 3 — product rule: 4 × 8 × 16 × 32 = 16,384; <span class="tex" data-tex="(ab)^{n/2} = (2\times 64)^2 = 128^2 = 16384">(ab)ⁿ⁾² = (2 × 64)² = 128² = 16,384</span> ✓.</li>
+          </ul>
+          <p>✅ <strong>GMs: 4, 8, 16, 32.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q17.</strong> Three positive numbers x, 10, y are in GP and x + y = 52. Find x and y.</summary><div class="sol">
+          <ul>
+            <li>Step 1 — GM condition: <span class="tex" data-tex="10^2 = xy \Rightarrow xy = 100">10² = xy → <strong>xy = 100</strong></span>.</li>
+            <li>Step 2 — with x + y = 52, x and y are roots of <span class="tex" data-tex="t^2 - 52t + 100 = 0">t² − 52t + 100 = 0</span>.</li>
+            <li>Step 3 — <span class="tex" data-tex="t = \frac{52\pm\sqrt{2704-400}}{2} = \frac{52\pm 48}{2}">t = (52 ± √(2,704 − 400))/2 = (52 ± 48)/2</span> → t = 50 or t = 2.</li>
+          </ul>
+          <p>✅ <strong>{x, y} = {50, 2}</strong> — i.e. 50, 10, 2 (r = 1/5) or 2, 10, 50 (r = 5).</p>
+        </div></details>
+        <h3>AM–GM relation</h3>
+        <details class="qa"><summary><strong>Q18.</strong> The AM and GM of two positive numbers are 10 and 8 respectively. Find the numbers.</summary><div class="sol">
+          <ul>
+            <li>Step 1 — translate: <span class="tex" data-tex="\frac{a+b}{2} = 10 \Rightarrow a+b = 20">(a + b)/2 = 10 → <strong>a + b = 20</strong></span>; <span class="tex" data-tex="\sqrt{ab} = 8 \Rightarrow ab = 64">√(ab) = 8 → <strong>ab = 64</strong></span>.</li>
+            <li>Step 2 — a and b are roots of <span class="tex" data-tex="t^2 - 20t + 64 = 0">t² − 20t + 64 = 0</span>.</li>
+            <li>Step 3 — <span class="tex" data-tex="t = \frac{20\pm\sqrt{400-256}}{2} = \frac{20\pm 12}{2}">t = (20 ± √(400 − 256))/2 = (20 ± 12)/2</span> → t = 16 or t = 4.</li>
+          </ul>
+          <p>✅ <strong>The numbers are 4 and 16</strong> (check: (4+16)/2 = 10 ✓, √(64) = 8 ✓).</p>
+        </div></details>
+        <details class="qa"><summary><strong>Q19.</strong> For x &gt; 0, prove that <span class="tex" data-tex="x + \frac{1}{x} \geq 2">x + 1/x ≥ 2</span>, and state when equality holds.</summary><div class="sol">
+          <ul>
+            <li>Step 1 — apply AM ≥ GM to the two positive numbers x and 1/x: <span class="tex" data-tex="\frac{x + 1/x}{2} \geq \sqrt{x\cdot 1/x}">(x + 1/x)/2 ≥ √(x · 1/x)</span>.</li>
+            <li>Step 2 — simplify: √(1) = 1, so <span class="tex" data-tex="x + \frac{1}{x} \geq 2">x + 1/x ≥ <strong>2</strong></span>.</li>
+            <li>Step 3 — equality iff the two numbers are equal: <span class="tex" data-tex="x = \frac{1}{x} \Rightarrow x^2 = 1 \Rightarrow x = 1">x = 1/x → x² = 1 → <strong>x = 1</strong></span> (x &gt; 0).</li>
+          </ul>
+          <p>✅ <strong>Proved; equality at x = 1.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q20.</strong> Prove that <span class="tex" data-tex="a^2 + b^2 \geq 2ab">a² + b² ≥ 2ab</span> for all real a, b, using AM ≥ GM.</summary><div class="sol">
+          <ul>
+            <li>Step 1 — easy case first: if ab ≤ 0, then 2ab ≤ 0 ≤ a² + b² (a sum of squares is never negative) — done.</li>
+            <li>Step 2 — now let ab &gt; 0, so a² and b² are both positive. Apply AM ≥ GM to them: <span class="tex" data-tex="\frac{a^2+b^2}{2} \geq \sqrt{a^2b^2} = |ab| = ab">(a² + b²)/2 ≥ √(a²b²) = |ab| = ab</span> (since ab &gt; 0).</li>
+            <li>Step 3 — multiply by 2: a² + b² ≥ 2ab. Equality iff a² = b², i.e. a = ±b (with ab ≥ 0 this means a = b).</li>
+          </ul>
+          <p>✅ <strong>Proved for all real a, b.</strong></p>
+        </div></details>
+        <h3>Appendix R practice (removed from boards — reference only)</h3>
+        <details class="qa"><summary><strong>Q21.</strong> Find the 20th term of the AP 10, 7, 4, …</summary><div class="sol">
+          <ul>
+            <li>Step 1 — identify: a = 10, d = 7 − 10 = <strong>−3</strong> (APs can decrease!).</li>
+            <li>Step 2 — <span class="tex" data-tex="a_{20} = a + 19d = 10 + 19\times(-3) = 10 - 57">a<sub>20</sub> = a + 19d = 10 + 19 × (−3) = 10 − 57</span>.</li>
+          </ul>
+          <p>✅ <strong>a<sub>20</sub> = −47.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q22.</strong> Find the sum of the first 15 multiples of 8.</summary><div class="sol">
+          <ul>
+            <li>Step 1 — the series is 8, 16, …, 120 (15th term = 8 × 15 = 120).</li>
+            <li>Step 2 — use <span class="tex" data-tex="S_n = \frac{n}{2}\cdot(a+l)">S<sub>n</sub> = n/2·(a + l)</span>: <span class="tex" data-tex="S_{15} = \frac{15}{2}\times(8+120) = 15\times 64">S<sub>15</sub> = 15/2 × (8 + 120) = 15 × 64</span>.</li>
+          </ul>
+          <p>✅ <strong>S<sub>15</sub> = 960.</strong></p>
+        </div></details>
+        <details class="qa"><summary><strong>Q23.</strong> Find <span class="tex" data-tex="1^2 + 2^2 + \dots + 10^2">1² + 2² + … + 10²</span>.</summary><div class="sol">
+          <ul>
+            <li>Apply <span class="tex" data-tex="\sum n^2 = \frac{n(n+1)(2n+1)}{6}">Σn² = n(n+1)(2n+1)/6</span> with n = 10: <span class="tex" data-tex="\frac{10\times 11\times 21}{6} = \frac{2310}{6}">10 × 11 × 21/6 = 2,310/6</span>.</li>
+          </ul>
+          <p>✅ <strong>Sum = 385.</strong></p>
+        </div></details>
+      </section>
+
+      <!-- R. Appendix -->
+      <section id="appendix-r" class="fade-in">
+        <h2>R. &#x1f4e6; Appendix R — Removed from rationalized NCERT (reference only)</h2>
+        <div class="callout">Everything below was in the <strong>old</strong> Chapter 9 but was <strong>deleted in the 2023 rationalization</strong> (old §9.4 AP theory, old §9.7 special sums, with related examples/exercises). Revise it only if your school test follows the old book. Formulas here are still mathematically correct.</div>
+        <h3>R1. Arithmetic Progression (AP) — essentials</h3>
+        <ul>
+          <li><strong>Definition:</strong> <span class="tex" data-tex="a_{n+1} = a_n + d">a<sub>n+1</sub> = a<sub>n</sub> + d</span>, constant difference d (any real — APs can decrease!). Form: <span class="tex" data-tex="a,\ a+d,\ a+2d,\ \dots">a, a+d, a+2d, …</span></li>
+          <li><strong>nth term:</strong> <span class="tex" data-tex="a_n = a + (n-1)d">a<sub>n</sub> = a + (n−1)d</span>. Last term <span class="tex" data-tex="l = a + (n-1)d">l = a + (n−1)d</span>.</li>
+          <li><strong>Sum:</strong> <span class="tex" data-tex="S_n = \frac{n}{2}\cdot[2a+(n-1)d] = \frac{n}{2}\cdot(a+l)">S<sub>n</sub> = n/2·[2a + (n−1)d] = <strong>n/2·(a + l)</strong></span>.</li>
+          <li><strong>Term from sum:</strong> <span class="tex" data-tex="a_n = S_n - S_{n-1}\ \ (n \geq 2)">a<sub>n</sub> = S<sub>n</sub> − S<sub>n−1</sub> (n ≥ 2)</span>; <span class="tex" data-tex="a_1 = S_1">a<sub>1</sub> = S<sub>1</sub></span>. If <span class="tex" data-tex="S_n = pn + qn^2">S<sub>n</sub> = pn + qn²</span> then <span class="tex" data-tex="d = 2q">d = 2q</span>.</li>
+          <li><strong>Single AM:</strong> a, A, b in AP → <span class="tex" data-tex="A = \frac{a+b}{2}">A = (a+b)/2</span>.</li>
+          <li><strong>n AMs between a and b:</strong> <span class="tex" data-tex="d = \frac{b-a}{n+1}">d = (b−a)/(n+1)</span>, <span class="tex" data-tex="A_k = a + k\cdot d">A<sub>k</sub> = a + k·d</span>. Their sum = <span class="tex" data-tex="\frac{n(a+b)}{2}">n(a+b)/2</span>.</li>
+          <li><strong>Worked:</strong> 3, 7, 11, … (a = 3, d = 4): <span class="tex" data-tex="a_{10} = 3 + 9\times 4 = 39">a<sub>10</sub> = 3 + 9×4 = <strong>39</strong></span>; <span class="tex" data-tex="S_{10} = \frac{10}{2}\times(3+39) = 210">S<sub>10</sub> = 10/2×(3+39) = 5×42 = <strong>210</strong></span>.</li>
+          <li><strong>Worked:</strong> 3 AMs between 4 and 16: <span class="tex" data-tex="d = \frac{12}{4} = 3">d = 12/4 = 3</span> → <strong>7, 10, 13</strong> (sum 30 = 3×20/2 ✓).</li>
+        </ul>
+        <h3>R2. Special sums (deleted from board assessment — practice only)</h3>
+        <ul>
+          <li><span class="tex" data-tex="\sum n = \frac{n(n+1)}{2}">Σn = 1+2+…+n = <strong>n(n+1)/2</strong></span></li>
+          <li><span class="tex" data-tex="\sum n^2 = \frac{n(n+1)(2n+1)}{6}">Σn² = 1²+2²+…+n² = <strong>n(n+1)(2n+1)/6</strong></span></li>
+          <li><span class="tex" data-tex="\sum n^3 = \left[\frac{n(n+1)}{2}\right]^2 = \left(\sum n\right)^2">Σn³ = 1³+2³+…+n³ = <strong>[n(n+1)/2]² = (Σn)²</strong></span></li>
+          <li>Check at n = 3: <span class="tex" data-tex="6 = \frac{3\times 4}{2}">6 = 3×4/2</span> ✓; <span class="tex" data-tex="14 = \frac{3\times 4\times 7}{6}">1+4+9 = 14 = 3×4×7/6</span> ✓; <span class="tex" data-tex="36 = 6^2">1+8+27 = 36 = 6²</span> ✓.</li>
+          <li>Method (old NCERT): if <span class="tex" data-tex="a_n">a<sub>n</sub></span> is a polynomial in n, split into <span class="tex" data-tex="\sum n^3/\sum n^2/\sum n">Σn³/Σn²/Σn</span>/constant pieces and sum each.</li>
+        </ul>
+        <h3>R3. Things the internet adds that were NEVER in this chapter</h3>
+        <p>Harmonic Mean <span class="tex" data-tex="\frac{2ab}{a+b}">2ab/(a+b)</span>, <span class="tex" data-tex="H<G<A">H&lt;G&lt;A</span> chains, <span class="tex" data-tex="G^2 = AH">G² = AH</span>, arithmetico-geometric series, <span class="tex" data-tex="a-d,\ a,\ a+d">"a−d, a, a+d"</span> selection templates, boxed odd/even sums — <strong>none of these are in NCERT Sequences and Series</strong>. Ignore them for boards.</p>
+      </section>
+
+      <hr>
+
+      <!-- Key Terms -->
+      <section id="key-terms" class="fade-in">
+        <h2>&#x1f4dd; Key Terms to Remember</h2>
+        <div class="terms-grid">
+          <div class="term"><strong>Sequence</strong><span>Ordered list a₁, a₂, …; the nth term gives any term directly</span></div><div class="term"><strong>Finite / Infinite sequence</strong><span>Stops after k terms (domain {1…k}) vs goes on forever (domain N)</span></div><div class="term"><strong>Recurrence</strong><span>Rule building each term from previous ones (e.g. Fibonacci)</span></div><div class="term"><strong>Series</strong><span>Sequence joined by + signs — the indicated sum, not the number</span></div><div class="term"><strong>Sigma (Σ) notation</strong><span>Σ(k=1 to n) aₖ abbreviates a₁+…+aₙ</span></div><div class="term"><strong>GP (Geometric Progression)</strong><span>Non-zero terms with constant ratio r ≠ 0</span></div><div class="term"><strong>Common ratio (r)</strong><span>aₖ₊₁/aₖ; general term aₙ = a·rⁿ⁻¹</span></div><div class="term"><strong>Infinite GP sum</strong><span>a/(1−r), strictly only when |r| < 1</span></div><div class="term"><strong>GM (Geometric Mean)</strong><span>G = √(ab) for a, b > 0; G² = ab</span></div><div class="term"><strong>AM (Arithmetic Mean)</strong><span>A = (a+b)/2; AM ≥ GM with equality iff a = b</span></div>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Quick Recap -->
+      <section id="quick-recap" class="fade-in">
+        <h2>&#x1f504; Quick Recap (60-second self-test — answers in brackets)</h2>
+        <ul>
+          <li>Sequence vs series in one line? (List in order vs list joined by +.)</li>
+          <li>GP general term + why n−1? (<span class="tex" data-tex="a_n = ar^{n-1}">a<sub>n</sub> = arⁿ⁻¹</span>; first term needs <span class="tex" data-tex="r^0">r⁰</span>.)</li>
+          <li>Both GP sum forms + the r = 1 case? (Fractions for <span class="tex" data-tex="r \neq 1">r ≠ 1</span>; <span class="tex" data-tex="S_n = na">S<sub>n</sub> = na</span> for r = 1.)</li>
+          <li>Infinite GP condition + formula? (<span class="tex" data-tex="|r| < 1">|r| &lt; 1</span>, then <span class="tex" data-tex="\dfrac{a}{1-r}">a/(1−r)</span>.)</li>
+          <li>Single GM + single AM? (<span class="tex" data-tex="\sqrt{ab}">√(ab)</span>; <span class="tex" data-tex="\frac{a+b}{2}">(a+b)/2</span>.)</li>
+          <li>AM ≥ GM proof in 3 lines + equality case? (<span class="tex" data-tex="\dfrac{(\sqrt{a}-\sqrt{b})^2}{2} \geq 0">(√a−√b)²/2 ≥ 0</span>; equality iff a = b.)</li>
+          <li>Spot checks: <span class="tex" data-tex="S_\infty">S<sub>∞</sub></span> of <span class="tex" data-tex="5 + \frac{5}{3} + \frac{5}{9} + \dots\ \left[= \frac{15}{2}\right]">5 + 5/3 + 5/9 + … [= 15/2]</span>; one GM between 2 and 8 [= 4]; <span class="tex" data-tex="a_6">a<sub>6</sub></span> of 2, 6, 18, … [= 486].</li>
+        </ul>
+      </section>
+
+      <script>
+        const KEY_TERMS_DATA = [{"term": "Sequence", "definition": "Ordered list a₁, a₂, …; the nth term gives any term directly"}, {"term": "Finite / Infinite sequence", "definition": "Stops after k terms (domain {1…k}) vs goes on forever (domain N)"}, {"term": "Recurrence", "definition": "Rule building each term from previous ones (e.g. Fibonacci)"}, {"term": "Series", "definition": "Sequence joined by + signs — the indicated sum, not the number"}, {"term": "Sigma (Σ) notation", "definition": "Σ(k=1 to n) aₖ abbreviates a₁+…+aₙ"}, {"term": "GP (Geometric Progression)", "definition": "Non-zero terms with constant ratio r ≠ 0"}, {"term": "Common ratio (r)", "definition": "aₖ₊₁/aₖ; general term aₙ = a·rⁿ⁻¹"}, {"term": "Infinite GP sum", "definition": "a/(1−r), strictly only when |r| < 1"}];
+      </script>
+
+      <footer>
+        <p>Source: NCERT Mathematics Class XI, Chapter 8 (Rationalized) · Reprint 2026-27</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    // ─── Mobile TOC toggle ───
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+
+    tocToggle.addEventListener('click', () => {
+      toc.classList.toggle('open');
+    });
+
+    // Close TOC on link click (mobile)
+    toc.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toc.classList.remove('open');
+      });
+    });
+
+    // ─── Scroll Progress ───
+    const progressFill = document.getElementById('progressFill');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressFill.style.width = progress + '%';
+    });
+
+    // ─── Active TOC link on scroll ───
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+  <script>
+    // ─── Render LaTeX (data-tex) with KaTeX; Unicode fallback stays if CDN fails ───
+    function renderTex() {
+      if (!window.katex) return;
+      document.querySelectorAll('.tex[data-tex]').forEach(function (el) {
+        if (el.dataset.rendered) return;
+        try {
+          el.innerHTML = window.katex.renderToString(el.getAttribute('data-tex'), {
+            displayMode: el.classList.contains('tex-block'),
+            throwOnError: false
+          });
+          el.dataset.rendered = '1';
+        } catch (e) { /* keep Unicode fallback */ }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', renderTex);
+    window.addEventListener('load', renderTex);
+  </script>
+
+  <script id="chapter-mindmap-data" type="application/json">"# Sequences and Series\n\n## 1. Sequences\n- Ordered list a1, a2, ..., an\n- Finite (stops) vs Infinite (goes on)\n- Given by formula / recurrence / description\n- Fibonacci: 1, 1, 2, 3, 5, 8, 13\n- Primes have no formula\n\n## 2. Series and Sigma\n- Series = terms joined by + (indicated sum)\n- Sum of series = the number (don't mix them)\n- Sigma: sum a1..an = Σ(k=1 to n) ak\n\n## 3. GP\n- Non-zero terms, constant ratio r (r ≠ 0)\n- a, ar, ar², ..., ar^(n-1)\n- nth term: an = a·r^(n-1) (exponent n-1!)\n- Ratio test: equal consecutive ratios\n\n## 4. Sum of n terms\n- Trick: S − rS cancels middle terms\n- r ≠ 1: Sn = a(1−r^n)/(1−r) = a(r^n−1)/(r−1)\n- r = 1: Sn = n·a (no division by zero)\n\n## 5. Infinite GP\n- Powers shrink to 0 ONLY if |r| < 1\n- S∞ = a/(1−r), check |r| < 1 first\n- |r| ≥ 1 → no sum (exam trap)\n\n## 6. GM\n- a, G, b in GP (a,b > 0): G = +√(ab)\n- n GMs: r = (b/a)^(1/(n+1)), Gk = a·r^k\n- 1 and 256 → r = ±4\n\n## 7. AM vs GM\n- A = (a+b)/2, G = √(ab), a,b positive\n- A ≥ G; proof: A−G = (√a−√b)²/2 ≥ 0\n- Equality iff a = b\n\n## 8. Formula Wall\n- an = ar^(n-1) | Sn fractions (r≠1), na (r=1)\n- S∞ = a/(1−r) for |r|<1\n- G = √(ab) | A = (a+b)/2 | A ≥ G\n\n## 9. Traps\n- Series ≠ sum; r ≠ 0; exponent n−1\n- Never fraction-sum at r = 1\n- Infinite needs |r| < 1\n- GM is +√(ab); AM–GM needs positives\n"
+  </script>
+
+  <script src="../assets/study-os.js"></script>
+<script src="../assets/toc-scrollspy.js"></script>
+</body>
+</html>
