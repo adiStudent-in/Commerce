@@ -1037,12 +1037,11 @@
     .focus-item {
       position: relative;
       display: grid;
-      grid-template-columns: 19px minmax(0, 1fr);
+      grid-template-columns: 19px minmax(0, 1fr) 24px;
       gap: 11px;
       align-items: start;
       padding: 11px 0;
       border-bottom: 1px solid var(--band-line);
-      cursor: pointer;
     }
 
     .focus-item:last-child { border-bottom: 0; }
@@ -1097,6 +1096,7 @@
       font-size: 12.5px;
       line-height: 1.5;
       color: #f2ebde;
+      cursor: pointer;
       transition: color 0.18s ease, opacity 0.18s ease;
     }
 
@@ -1116,6 +1116,175 @@
       text-decoration-thickness: 1px;
       text-decoration-color: color-mix(in srgb, var(--band-muted) 65%, transparent);
     }
+
+    .focus-edit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      margin: -2px -4px 0 0;
+      padding: 0;
+      border: 0;
+      border-radius: 4px;
+      background: transparent;
+      color: var(--band-muted);
+      opacity: 0.55;
+      cursor: pointer;
+      transition: opacity 0.18s ease, color 0.18s ease, background-color 0.18s ease;
+    }
+
+    .focus-edit svg { width: 13px; height: 13px; }
+
+    .focus-item:hover .focus-edit,
+    .focus-edit:focus-visible {
+      opacity: 1;
+      color: var(--band-accent);
+      background: rgba(245, 239, 227, 0.08);
+    }
+
+    .focus-add {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      width: 100%;
+      margin-top: 3px;
+      padding: 11px 0 3px;
+      border: 0;
+      background: none;
+      color: var(--band-muted);
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-align: left;
+      cursor: pointer;
+      transition: color 0.18s ease;
+    }
+
+    .focus-add svg { width: 13px; height: 13px; flex: 0 0 auto; }
+    .focus-add:hover { color: var(--band-accent); }
+
+    /* Focus editor dialog */
+
+    .focus-dialog {
+      width: min(460px, calc(100vw - 32px));
+      max-height: calc(100dvh - 32px);
+      margin: auto;
+      padding: 0;
+      overflow: auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: 0 28px 90px rgba(10, 12, 10, 0.38);
+    }
+
+    .focus-dialog::backdrop {
+      background: rgba(10, 12, 10, 0.58);
+      backdrop-filter: blur(3px);
+    }
+
+    .focus-dialog form { padding: 25px 26px 22px; }
+
+    .focus-dialog .dialog-kicker {
+      display: block;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .focus-dialog h2 {
+      margin-top: 8px;
+      font-family: var(--font-display);
+      font-size: 29px;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .focus-dialog .dialog-copy {
+      margin-top: 7px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .focus-field {
+      display: block;
+      margin-top: 18px;
+    }
+
+    .focus-field > span {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .focus-field select,
+    .focus-field input {
+      width: 100%;
+      min-height: 42px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 13px;
+    }
+
+    .focus-field select:focus,
+    .focus-field input:focus {
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 1px;
+      border-color: transparent;
+    }
+
+    .focus-field small {
+      display: block;
+      margin-top: 6px;
+      font-size: 10.5px;
+      line-height: 1.4;
+      color: var(--faint);
+    }
+
+    .dialog-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .dialog-actions .btn { min-height: 38px; padding: 8px 15px; font-size: 12.5px; }
+
+    .dialog-actions-right {
+      display: flex;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .dialog-delete {
+      padding: 2px 0;
+      border: 0;
+      border-bottom: 1px solid color-mix(in srgb, var(--clay) 50%, transparent);
+      background: none;
+      color: var(--clay);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .dialog-delete:hover { border-bottom-color: var(--clay); }
 
     .focus-foot {
       display: flex;
@@ -2169,6 +2338,7 @@
       }
       .focus-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
       .focus-item:nth-last-child(2) { border-bottom: 0; }
+      .focus-add { grid-column: 1 / -1; }
       .focus-foot { grid-column: 1 / -1; }
     }
 
@@ -2233,6 +2403,8 @@
       .topbar { padding: 0 14px; }
       .topbar .search { max-width: none; }
       .search kbd { display: none; }
+      .focus-dialog form { padding: 21px 19px 19px; }
+      .focus-dialog h2 { font-size: 25px; }
       .content { padding: 0 14px 94px; }
       .masthead { padding-top: 25px; }
       .masthead h1 { font-size: clamp(35px, 9vw, 45px); }
@@ -2691,6 +2863,35 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<dialog class="focus-dialog" id="focusDialog" aria-labelledby="focusDialogTitle">
+  <form id="focusForm">
+    <span class="dialog-kicker" id="focusDialogKicker">Today’s focus</span>
+    <h2 id="focusDialogTitle">Add a focus</h2>
+    <p class="dialog-copy">Pick a chapter or write a small task. Checkmarks reset each day; the list stays.</p>
+
+    <label class="focus-field">
+      <span>Chapter</span>
+      <select id="focusChapter">
+        <option value="">Custom to-do — no chapter</option>
+      </select>
+      <small>Choosing a chapter drops a ready-to-edit revision task into the field below.</small>
+    </label>
+
+    <label class="focus-field">
+      <span>To-do</span>
+      <input id="focusText" type="text" maxlength="140" placeholder="e.g. Revise the demand curve, write 10 flashcards…" autocomplete="off" required>
+    </label>
+
+    <div class="dialog-actions">
+      <button class="dialog-delete" id="focusDelete" type="button" hidden>Remove</button>
+      <div class="dialog-actions-right">
+        <button class="btn btn-quiet" id="focusCancel" type="button">Cancel</button>
+        <button class="btn btn-primary" type="submit">Save focus</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+
 <script>
     'use strict';
 
@@ -2704,7 +2905,9 @@
       english: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.4C10.4 4.9 8.3 4.4 4.3 4.4v13c4 0 6.1.5 7.7 2 1.6-1.5 3.7-2 7.7-2v-13c-4 0-6.1.5-7.7 2Z"/><path d="M12 6.4v13"/></svg>',
       maths: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20 12 4l8.5 16h-17Z"/><path d="M7.6 20 12 11.5 16.4 20"/></svg>',
       arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
-      check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 4.5 4.5L20 6.6"/></svg>'
+      check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 4.5 4.5L20 6.6"/></svg>',
+      plus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
+      pencil: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4.2L19 9.2 14.8 5 4 15.8V20Z"/><path d="m13.6 6.2 4.2 4.2"/></svg>'
     };
 
     const icon = (name) => ICONS[name] || ICONS.bst;
@@ -2793,12 +2996,14 @@
       { key: 'maths', group: 'Mathematics', num: '9', title: 'Straight Lines — Easy Revision', meta: 'STE100 easy notes · slopes, forms of a line & solved examples', file: 'Maths/Chapter-9-Straight-Lines-STE100.html' }
     ];
 
-    const FOCUS = [
-      { id: 'focus-bst', text: 'Revise BST Ch.1 — business vs profession vs employment', meta: 'Business Studies · Chapter 1' },
-      { id: 'focus-eco', text: 'Micro Ch.3 — one diagram: movement vs shift in demand', meta: 'Micro-Economics · Chapter 3' },
-      { id: 'focus-eng', text: 'Read 10 pages — The Portrait of a Lady', meta: 'English · Hornbill' }
+    const DEFAULT_FOCUS = [
+      { id: 'focus-bst', text: 'Revise BST Ch.1 — business vs profession vs employment', meta: 'Business Studies · Chapter 1', chapter: 'BST/Chapter-1-Business-Trade-and-Commerce.html' },
+      { id: 'focus-eco', text: 'Micro Ch.3 — one diagram: movement vs shift in demand', meta: 'Micro-Economics · Chapter 3', chapter: 'Economics/Chapter-3-Demand-STE.html' },
+      { id: 'focus-eng', text: 'Read 10 pages — The Portrait of a Lady', meta: 'English · Hornbill · Chapter 1', chapter: 'English/Chapter-1-The-Portrait-of-a-Lady.html' }
     ];
 
+    const FOCUS_TASKS_KEY = 'studyos-focus-tasks-v1';
+    const MAX_FOCUS_TASKS = 6;
     const TOTAL_NOTES = DATA.length;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const now = new Date();
@@ -2808,7 +3013,9 @@
 
     let activeFilter = 'all';
     let query = '';
+    let focusItems = loadFocusTasks();
     let focusState = readJSON(todayKey) || {};
+    let editingFocusId = null;
     let toastTimer = 0;
     let lastFocused = null;
 
@@ -3076,32 +3283,178 @@
 
     /* ─── Today's focus ─── */
 
-    function renderFocus() {
-      $('#focusList').innerHTML = FOCUS.map((item) => {
-        const done = Boolean(focusState[item.id]);
-        return `<label class="focus-item${done ? ' done' : ''}">
-          <input type="checkbox" data-focus="${item.id}"${done ? ' checked' : ''}>
-          <span class="focus-box" aria-hidden="true">${icon('check')}</span>
-          <span class="focus-txt">${item.text}<span class="focus-meta">${item.meta}</span></span>
-        </label>`;
+    const noteByFile = new Map(DATA.map((note) => [note.file, note]));
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, (char) => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]
+      ));
+    }
+
+    function makeFocusId() {
+      return 'focus-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7);
+    }
+
+    function loadFocusTasks() {
+      const saved = readJSON(FOCUS_TASKS_KEY);
+      if (!Array.isArray(saved)) return DEFAULT_FOCUS.map((task) => ({ ...task }));
+
+      const seen = new Set();
+      const tasks = [];
+
+      saved.slice(0, MAX_FOCUS_TASKS).forEach((task) => {
+        if (!task || typeof task !== 'object') return;
+        const text = typeof task.text === 'string' ? task.text.trim().slice(0, 140) : '';
+        if (!text) return;
+
+        let id = typeof task.id === 'string' && /^[a-z0-9-]{1,80}$/i.test(task.id) ? task.id : makeFocusId();
+        if (seen.has(id)) id = makeFocusId();
+        seen.add(id);
+
+        tasks.push({
+          id,
+          text,
+          meta: typeof task.meta === 'string' ? task.meta.slice(0, 120) : '',
+          chapter: typeof task.chapter === 'string' ? task.chapter : ''
+        });
+      });
+
+      return tasks;
+    }
+
+    function saveFocusTasks() {
+      writeJSON(FOCUS_TASKS_KEY, focusItems);
+    }
+
+    function focusMeta(note) {
+      const unitWord = note.group === 'Retail' ? 'Unit' : 'Chapter';
+      return `${note.group} · ${unitWord} ${note.num}`;
+    }
+
+    function populateFocusChapters() {
+      const select = $('#focusChapter');
+      const options = SUBJECTS.map((subject) => {
+        const notes = DATA.filter((note) => note.key === subject.key);
+        if (!notes.length) return '';
+
+        const items = notes.map((note) => {
+          const groupLabel = note.group === subject.name
+            ? ''
+            : note.group.replace(/^English · /, '') + ' · ';
+          const label = `${groupLabel}${note.num}. ${note.title}`;
+          return `<option value="${escapeHTML(note.file)}">${escapeHTML(label)}</option>`;
+        }).join('');
+
+        return `<optgroup label="${escapeHTML(subject.name)}">${items}</optgroup>`;
       }).join('');
+
+      select.innerHTML = '<option value="">Custom to-do — no chapter</option>' + options;
+    }
+
+    function renderFocus() {
+      const rows = focusItems.map((item) => {
+        const done = Boolean(focusState[item.id]);
+        const checkId = 'focus-check-' + item.id;
+        const meta = item.meta ? `<span class="focus-meta">${escapeHTML(item.meta)}</span>` : '';
+        return `<div class="focus-item${done ? ' done' : ''}">
+          <input type="checkbox" id="${checkId}" data-focus="${escapeHTML(item.id)}"${done ? ' checked' : ''}>
+          <label class="focus-box" for="${checkId}" aria-hidden="true">${icon('check')}</label>
+          <label class="focus-txt" for="${checkId}">${escapeHTML(item.text)}${meta}</label>
+          <button class="focus-edit" type="button" data-focus-edit="${escapeHTML(item.id)}" aria-label="Edit focus task" title="Edit task">${icon('pencil')}</button>
+        </div>`;
+      }).join('');
+
+      $('#focusList').innerHTML = rows +
+        `<button class="focus-add" type="button" data-focus-add>${icon('plus')} Add a chapter or to-do</button>`;
       updateFocus();
     }
 
     function updateFocus(announce = false) {
-      const done = FOCUS.filter((item) => focusState[item.id]).length;
-      $('#focusCount').textContent = `${done} / ${FOCUS.length}`;
+      const total = focusItems.length;
+      const done = focusItems.filter((item) => focusState[item.id]).length;
+      $('#focusCount').textContent = `${done} / ${total}`;
 
       const note = $('#focusNote');
-      if (done === FOCUS.length) note.textContent = 'All three done. Close the book.';
-      else if (done === 0) note.textContent = 'Three small wins. That’s the page.';
-      else note.textContent = `${FOCUS.length - done} left. Small pages count.`;
+      if (total === 0) note.textContent = 'No focus yet. Add a chapter or a small to-do.';
+      else if (done === total) note.textContent = 'All done. Close the book.';
+      else if (done === 0) note.textContent = 'Small wins. That’s the page.';
+      else note.textContent = `${total - done} left. Small pages count.`;
 
       $('#focusReset').hidden = done === 0;
 
-      if (announce && done === FOCUS.length) {
-        showToast('All three done — that’s today’s page.');
+      if (announce && total > 0 && done === total) {
+        showToast('All done — that’s today’s page.');
       }
+    }
+
+    function openFocusDialog(id = null) {
+      const task = id ? focusItems.find((item) => item.id === id) : null;
+      editingFocusId = task ? task.id : null;
+
+      $('#focusDialogKicker').textContent = task ? 'Edit focus' : 'Today’s focus';
+      $('#focusDialogTitle').textContent = task ? 'Edit this focus' : 'Add a focus';
+      $('#focusDelete').hidden = !task;
+      $('#focusChapter').value = task && task.chapter ? task.chapter : '';
+      $('#focusText').value = task ? task.text : '';
+
+      const dialog = $('#focusDialog');
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else dialog.setAttribute('open', '');
+
+      $('#focusText').focus();
+      $('#focusText').select();
+    }
+
+    function closeFocusDialog() {
+      const dialog = $('#focusDialog');
+      if (typeof dialog.close === 'function') dialog.close();
+      else dialog.removeAttribute('open');
+      editingFocusId = null;
+    }
+
+    function submitFocusDialog() {
+      const textInput = $('#focusText');
+      const text = textInput.value.trim();
+      if (!text) {
+        textInput.focus();
+        showToast('Write a small task first.');
+        return;
+      }
+
+      const chapter = $('#focusChapter').value;
+      const note = noteByFile.get(chapter);
+      const meta = note ? focusMeta(note) : '';
+
+      if (editingFocusId) {
+        const task = focusItems.find((item) => item.id === editingFocusId);
+        if (!task) return;
+        task.text = text;
+        task.chapter = chapter;
+        task.meta = meta;
+        showToast('Focus updated.');
+      } else {
+        if (focusItems.length >= MAX_FOCUS_TASKS) {
+          showToast('Six focus tasks is plenty for one day.');
+          return;
+        }
+        focusItems.push({ id: makeFocusId(), text, meta, chapter });
+        showToast('Added to today’s focus.');
+      }
+
+      saveFocusTasks();
+      renderFocus();
+      closeFocusDialog();
+    }
+
+    function deleteFocusTask() {
+      if (!editingFocusId) return;
+      focusItems = focusItems.filter((item) => item.id !== editingFocusId);
+      delete focusState[editingFocusId];
+      saveFocusTasks();
+      writeJSON(todayKey, focusState);
+      renderFocus();
+      closeFocusDialog();
+      showToast('Focus removed.');
     }
 
     /* ─── Theme ─── */
@@ -3386,12 +3739,44 @@
         updateFocus(true);
       });
 
+      $('#focusList').addEventListener('click', (event) => {
+        if (event.target.closest('[data-focus-add]')) {
+          openFocusDialog();
+          return;
+        }
+        const edit = event.target.closest('[data-focus-edit]');
+        if (edit) openFocusDialog(edit.dataset.focusEdit);
+      });
+
       $('#focusReset').addEventListener('click', () => {
         focusState = {};
         writeJSON(todayKey, focusState);
         renderFocus();
-        showToast('A fresh page. Three small wins to go.');
+        showToast('A fresh page. Small wins to go.');
       });
+
+      $('#focusChapter').addEventListener('change', () => {
+        const note = noteByFile.get($('#focusChapter').value);
+        if (!note) return;
+        const textInput = $('#focusText');
+        textInput.value = `Revise ${note.title}`;
+        textInput.focus();
+        textInput.select();
+      });
+
+      $('#focusForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+        submitFocusDialog();
+      });
+
+      $('#focusCancel').addEventListener('click', closeFocusDialog);
+      $('#focusDelete').addEventListener('click', deleteFocusTask);
+
+      const focusDialog = $('#focusDialog');
+      focusDialog.addEventListener('click', (event) => {
+        if (event.target === focusDialog) closeFocusDialog();
+      });
+      focusDialog.addEventListener('close', () => { editingFocusId = null; });
 
       $('#lightBtn').addEventListener('click', () => setTheme('light'));
       $('#darkBtn').addEventListener('click', () => setTheme('dark'));
@@ -3447,6 +3832,7 @@
       renderSubjects();
       renderFilters();
       renderNotes();
+      populateFocusChapters();
       renderFocus();
       renderContinue();
       renderUpNext();
