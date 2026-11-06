@@ -1,1049 +1,1830 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-retail-mode="notes">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 4 — Elasticity of Demand | Economics Notes</title>
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Class 11 Microeconomics Chapter 4 Elasticity of Demand – complete easy notes plus quick revision: why elasticity is needed, the percentage method, the five degrees, the total expenditure and geometric methods, determinants, revenue and policy uses.">
+  <meta name="theme-color" content="#1a5e4a">
+  <meta property="og:title" content="Chapter 4 – Elasticity of Demand | Economics Notes + Quick Revision">
+  <meta property="og:description" content="Class 11 Microeconomics Chapter 4 Elasticity of Demand – complete easy notes plus quick revision: the percentage method, five degrees, total expenditure, geometric method and determinants.">
+  <meta property="og:type" content="article">
+  <title>Chapter 4 – Elasticity of Demand | Economics Notes + Quick Revision</title>
+  <link rel="icon" href="../assets/icon-192x192.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/study-os.css">
+  <link rel="stylesheet" href="../Retail/retail.css?v=20261030a">
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('study-os-theme');
+      if (savedTheme) {
+        savedTheme = JSON.parse(savedTheme);
+        if (savedTheme === 'dark') document.documentElement.dataset.theme = 'dark';
+      }
+    } catch (e) { /* first visit or storage blocked */ }
+    (function () {
+      var mode = null;
+      try { mode = localStorage.getItem('study-os-retail-mode'); } catch (e) { /* storage blocked */ }
+      var hash = location.hash.replace('#', '');
+      if (hash.indexOf('q-') === 0 || hash === 'quick') mode = 'quick';
+      else if (hash.indexOf('n-') === 0 || hash === 'notes') mode = 'notes';
+      if (mode !== 'quick') mode = 'notes';
+      document.documentElement.dataset.retailMode = mode;
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Chapter 4 – Elasticity of Demand",
+    "description": "Class 11 Microeconomics Chapter 4 Elasticity of Demand – complete easy notes plus quick revision.",
+    "learningResourceType": "Revision notes",
+    "educationalLevel": "Class 11",
+    "about": "Microeconomics",
+    "inLanguage": "en",
+    "isPartOf": { "@type": "Course", "name": "Microeconomics Class 11" }
+  }
+  </script>
   <style>
-    :root {
-      --accent: #1a5e4a;
-      --accent-light: #e8f0ec;
-      --bg: #faf8f5;
-      --surface: #ffffff;
-      --text: #1b1b1b;
-      --text-muted: #6b6b6b;
-      --border: #e8e4de;
-      --max-width: 820px;
-      --sidebar-width: 260px;
-      --callout-bg: #fff8e5;
-      --callout-border: #d4a12a;
+    /* Chapter-specific additions kept on top of the shared Retail shell. */
+    .chapter-figure {
+      margin: 24px 0;
+      padding: 14px;
+      border: 1px solid var(--r-line);
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: var(--r-shadow);
+    }
+    .chapter-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .chapter-figure figcaption {
+      margin-top: 12px;
+      padding: 0 4px;
+      color: #4b524b;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+    .chapter-figure figcaption strong { color: #1e241f; }
+
+    /* Tap-to-enlarge figures. The anchor is added by script; without it the image stays as-is. */
+    .chapter-figure .figure-zoom {
+      position: relative;
+      display: block;
+      border-radius: 8px;
+      cursor: zoom-in;
+      text-decoration: none;
+    }
+    .chapter-figure .figure-zoom:focus-visible {
+      outline: 3px solid var(--r-amber);
+      outline-offset: 3px;
+    }
+    .figure-zoom__hint {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      background: rgba(24, 37, 30, 0.88);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      color: #fffdf9;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .figure-zoom__hint svg { flex: none; }
+    .figure-zoom:hover .figure-zoom__hint,
+    .figure-zoom:focus-visible .figure-zoom__hint { background: rgba(24, 37, 30, 0.98); }
+
+    .figure-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: rgba(10, 14, 11, 0.88);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+    .figure-lightbox[hidden] { display: none !important; }
+    .figure-lightbox__dialog {
+      display: flex;
+      flex-direction: column;
+      width: min(1480px, 100%);
+      height: calc(100dvh - 32px);
+      max-height: 1120px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 14px;
+      background: #f7f4ed;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+    }
+    .figure-lightbox__bar {
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      background: #18251e;
+      color: #f7f4ed;
+    }
+    .figure-lightbox__title {
+      min-width: 0;
+      margin: 0;
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+    .figure-lightbox__title span {
+      display: block;
+      margin-top: 2px;
+      color: #c6d1c8;
+      font-size: 11px;
+      font-weight: 400;
+    }
+    .figure-lightbox__actions {
+      display: flex;
+      flex: none;
+      align-items: center;
+      gap: 6px;
+    }
+    .figure-lightbox__actions button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #f7f4ed;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .figure-lightbox__actions button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.14); }
+    .figure-lightbox__actions button:focus-visible {
+      outline: 2px solid #f2c14e;
+      outline-offset: 2px;
+    }
+    .figure-lightbox__actions button:disabled { opacity: 0.38; cursor: default; }
+    .figure-lightbox__icon { width: 36px; padding: 0; }
+    .figure-lightbox__level {
+      min-width: 44px;
+      padding: 0 6px;
+      font-variant-numeric: tabular-nums;
+    }
+    .figure-lightbox__close {
+      padding: 0 13px;
+      background: #f7f4ed !important;
+      color: #18251e !important;
+    }
+    .figure-lightbox__close:hover { background: #fff !important; }
+    .figure-lightbox__scroll {
+      flex: 1;
+      min-height: 0;
+      padding: 14px;
+      overflow: auto;
+      overscroll-behavior: contain;
+      background: #fff;
+      -webkit-overflow-scrolling: touch;
+    }
+    .figure-lightbox__scroll:focus-visible {
+      outline: 3px solid #8a5415;
+      outline-offset: -3px;
+    }
+    .figure-lightbox__scroll img {
+      display: block;
+      width: 100%;
+      max-width: none;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 4px;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body.figure-lightbox-open { overflow: hidden; }
 
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 15.5px;
-      line-height: 1.75;
-      padding-top: 60px;
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    img { max-width: 100%; height: auto; display: block; border-radius: 8px; margin: 24px auto; }
-
-    .mermaid { margin: 24px 0; text-align: center; background: var(--surface); padding: 16px; border-radius: 8px; border: 1px solid var(--border); }
-
-    .top-nav {
-      position: fixed; top: 0; left: 0; right: 0; height: 60px; z-index: 100;
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      background: rgba(250,248,245,0.85);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 32px;
-    }
-    .top-nav .logo {
-      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 18px;
-      color: var(--accent); letter-spacing: -0.02em; text-decoration: none;
-    }
-    .top-nav .logo:hover { opacity: 0.7; }
-    .top-nav .meta { font-size: 13px; color: var(--text-muted); }
-
-    .progress-bar {
-      position: fixed; top: 60px; left: 0; height: 2px; z-index: 99;
-      background: var(--accent); width: 0%;
-      transition: width 0.1s linear;
-    }
-
-    .wrapper {
-      display: flex; max-width: 1200px; margin: 0 auto; padding: 0 24px;
-      gap: 40px;
-    }
-
-    .sidebar-toc {
-      width: var(--sidebar-width); flex-shrink: 0;
-      position: sticky; top: 80px; max-height: calc(100vh - 100px);
-      overflow-y: auto; padding: 8px 0;
-    }
-    .sidebar-toc::-webkit-scrollbar { width: 4px; }
-    .sidebar-toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-    .sidebar-toc::-webkit-scrollbar-track { background: transparent; }
-
-    .sidebar-toc .toc-label {
-      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--text-muted); margin-bottom: 12px; font-weight: 600;
-    }
-    .sidebar-toc a {
-      display: block; font-size: 13.5px; color: var(--text-muted);
-      padding: 5px 0 5px 16px;
-      border-left: 2px solid transparent;
-      transition: all 0.2s ease;
-    }
-    .sidebar-toc a:hover, .sidebar-toc a.active {
-      color: var(--accent); border-left-color: var(--accent); text-decoration: none;
-    }
-    .sidebar-toc a.sub { padding-left: 40px; font-size: 13px; }
-
-    .toc-toggle {
-      display: none; position: fixed; bottom: 24px; right: 24px; z-index: 200;
-      width: 48px; height: 48px; border-radius: 50%;
-      background: var(--accent); color: #fff; border: none;
-      font-size: 20px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-      align-items: center; justify-content: center;
-    }
-    .toc-drawer {
-      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 190;
-      background: var(--surface); border-radius: 16px 16px 0 0;
-      box-shadow: 0 -8px 32px rgba(0,0,0,0.12);
-      max-height: 60vh; overflow-y: auto; padding: 20px 24px 32px;
-      transform: translateY(100%); transition: transform 0.3s ease;
-    }
-    .toc-drawer.open { transform: translateY(0); }
-    .toc-drawer .toc-label {
-      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--text-muted); margin-bottom: 12px; font-weight: 600;
-    }
-    .toc-drawer a {
-      display: block; font-size: 14px; color: var(--text-muted);
-      padding: 6px 0; border-bottom: 1px solid var(--border);
-    }
-    .toc-drawer a:last-child { border-bottom: none; }
-    .toc-drawer a.sub { padding-left: 20px; font-size: 13.5px; }
-    .toc-drawer-overlay {
-      display: none; position: fixed; inset: 0; z-index: 180;
-      background: rgba(0,0,0,0.3);
-    }
-    .toc-drawer-overlay.open { display: block; }
-
-    .main-content {
-      flex: 1; max-width: var(--max-width); padding: 40px 0 80px;
-    }
-
-    .hero { margin-bottom: 48px; }
-    .hero .badge {
-      display: inline-block; background: var(--accent-light); color: var(--accent);
-      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
-      font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 38px;
-      line-height: 1.2; letter-spacing: -0.025em; color: var(--text); margin-bottom: 12px;
-    }
-    .hero .subtitle {
-      font-size: 16px; color: var(--text-muted); line-height: 1.6;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 26px;
-      color: var(--text); margin-top: 48px; margin-bottom: 16px;
-      padding-bottom: 10px; border-bottom: 1px solid var(--border);
-    }
-    h3 {
-      font-family: 'Playfair Display', serif; font-weight: 600; font-size: 20px;
-      color: var(--text); margin-top: 32px; margin-bottom: 12px;
-    }
-    h4 {
-      font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 15.5px;
-      color: var(--text); margin-top: 24px; margin-bottom: 8px;
-    }
-
-    p { margin-bottom: 16px; }
-
-    .table-wrap {
-      overflow-x: auto; border: 1px solid var(--border); border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.03); margin: 20px 0 28px;
-    }
-    .table-wrap table {
-      width: 100%; border-collapse: collapse; font-size: 14px;
-    }
-    .table-wrap thead {
-      background: var(--accent-light);
-    }
-    .table-wrap th {
-      font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
-      color: var(--accent); font-weight: 600; padding: 12px 14px; text-align: left;
-      white-space: nowrap;
-    }
-    .table-wrap td {
-      padding: 11px 14px; vertical-align: top; border-top: 1px solid var(--border);
-    }
-    .table-wrap tbody tr:hover { background: #f5f3ef; }
-    .table-wrap td:first-child { font-weight: 600; white-space: nowrap; }
-
-    blockquote {
-      background: var(--accent-light); border-left: 3px solid var(--accent);
-      padding: 16px 20px; margin: 20px 0 24px; border-radius: 0 6px 6px 0;
-      font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px;
-      color: var(--text); line-height: 1.6;
-    }
-    blockquote p { margin-bottom: 0; }
-    blockquote p + p { margin-top: 8px; }
+    /* On a phone, tables scroll sideways; say so once in the hero. */
+    .hero-chips .chip-mobile-hint { display: none; }
 
     .callout {
-      background: var(--callout-bg); border-left: 3px solid var(--callout-border);
-      padding: 16px 20px; margin: 20px 0 24px; border-radius: 0 6px 6px 0;
-      font-size: 15px; line-height: 1.6;
+      margin: 18px 0;
+      padding: 13px 18px;
+      border-left: 3px solid var(--r-amber);
+      border-radius: 0 10px 10px 0;
+      background: var(--r-amber-soft);
+      color: var(--r-ink-soft);
+      font-size: 14px;
+      line-height: 1.6;
     }
-    .callout strong:first-child { color: #8b6914; }
+    .callout p { margin: 0; }
+    .callout p + p { margin-top: 8px; }
+    .callout strong { color: var(--r-ink); }
 
-    pre {
-      background: #1a1a2e; color: #e4e4f0; padding: 20px 24px; margin: 20px 0 24px;
-      border-radius: 8px; font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-      font-size: 13.5px; line-height: 1.65; overflow-x: auto; white-space: pre;
+    .check-card.check-block { margin-top: 26px; }
+    .check-card .check-questions {
+      margin: 0 0 13px;
+      padding-left: 1.4em;
+      color: var(--r-ink-soft);
     }
-    code { font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace; font-size: 13.5px; }
-    p code { background: #f0ede8; padding: 1px 6px; border-radius: 4px; color: var(--accent); }
+    .check-card .check-questions li {
+      margin-bottom: 5px;
+      padding-left: 2px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .check-card .check-questions li::marker { color: var(--r-amber); font-weight: 600; }
+    .check-card .checklist ol,
+    .check-card .checklist ul {
+      margin: 10px 0 0;
+      padding-left: 1.4em;
+    }
+    .check-card .checklist li {
+      margin-bottom: 4px;
+      color: var(--r-ink-soft);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+    .check-card .checklist li::marker { color: var(--r-amber); font-weight: 600; }
+    .check-card .checklist .checklist-answer p { margin: 0 0 6px; font-size: 13.5px; }
+    .check-card .checklist .checklist-answer p:last-child { margin-bottom: 0; }
 
-    ul, ol { padding-left: 24px; margin-bottom: 16px; }
-    li { margin-bottom: 4px; }
-    ul ul, ol ol { margin-bottom: 0; }
+    #n-keyterms .term-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #n-keyterms .term dd { font-size: 13px; line-height: 1.55; }
 
-    .terms-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px; margin: 20px 0 28px;
-    }
-    .term-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-      padding: 16px 18px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-      transition: box-shadow 0.2s ease;
-    }
-    .term-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
-    .term-card .term-name { font-weight: 600; color: var(--accent); font-size: 14.5px; margin-bottom: 4px; }
-    .term-card .term-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
-
-    hr {
-      border: none; height: 1px; background: var(--border); margin: 40px 0;
+    .session-body .formula-line {
+      margin: 12px 0;
+      padding: 12px 16px;
+      border: 1px solid var(--r-line);
+      border-radius: 10px;
+      background: var(--r-surface-2);
+      color: var(--r-ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      white-space: pre-wrap;
     }
 
-    .footer {
-      margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
-      font-size: 13px; color: var(--text-muted); text-align: center;
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
     }
+    .mini-card {
+      padding: 14px 16px;
+      border: 1px solid var(--r-line);
+      border-radius: 10px;
+      background: var(--r-surface-2);
+    }
+    .mini-card strong { display: block; color: var(--r-ink); font-size: 13.5px; }
+    .mini-card span { display: block; margin-top: 5px; color: var(--r-muted); font-size: 12.5px; line-height: 1.5; }
 
-    .fade-in {
-      opacity: 0; transform: translateY(12px);
-      animation: fadeUp 0.5s ease forwards;
-    }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .hero { animation-delay: 0.1s; }
-    section:nth-of-type(1) { animation-delay: 0.15s; }
-    section:nth-of-type(2) { animation-delay: 0.2s; }
-    section:nth-of-type(3) { animation-delay: 0.25s; }
-    section:nth-of-type(4) { animation-delay: 0.3s; }
-    section:nth-of-type(5) { animation-delay: 0.35s; }
-    section:nth-of-type(6) { animation-delay: 0.4s; }
-    section:nth-of-type(7) { animation-delay: 0.45s; }
-    section:nth-of-type(8) { animation-delay: 0.5s; }
-    section:nth-of-type(9) { animation-delay: 0.55s; }
-    section:nth-of-type(10) { animation-delay: 0.6s; }
-    section:nth-of-type(11) { animation-delay: 0.65s; }
-    section:nth-of-type(12) { animation-delay: 0.7s; }
-    section:nth-of-type(13) { animation-delay: 0.75s; }
+    /* Page-scoped contrast fixes for the light theme. */
+    :root:not([data-theme="dark"]) .brand-sub,
+    :root:not([data-theme="dark"]) .toc-title,
+    :root:not([data-theme="dark"]) .toc-group,
+    :root:not([data-theme="dark"]) .toc-link.toc-sub,
+    :root:not([data-theme="dark"]) .toc-foot span,
+    :root:not([data-theme="dark"]) .pager-label,
+    :root:not([data-theme="dark"]) .page-footer p { color: #5f665e; }
+    :root:not([data-theme="dark"]) .section-kicker,
+    :root:not([data-theme="dark"]) .checklist summary { color: #8a5415; }
+    :root:not([data-theme="dark"]) .check-pill { background: #8a5415; color: #fffdf9; }
+    :root:not([data-theme="dark"]) .toc-mode,
+    :root:not([data-theme="dark"]) .quick-map-num,
+    :root:not([data-theme="dark"]) .drill-toggle,
+    :root:not([data-theme="dark"]) .plan-table td:first-child { color: #8a5415; }
 
-    @media (max-width: 900px) {
-      .sidebar-toc { display: none; }
-      .toc-toggle { display: flex; }
-      .wrapper { padding: 0 20px; }
+    /* Dark-theme badge and link contrast. White on the light mint/amber badges is too faint. */
+    :root[data-theme="dark"] .session-kicker,
+    :root[data-theme="dark"] .check-pill { color: #12271f; }
+    :root[data-theme="dark"] .session--quick .session-kicker { color: #fffdf9; }
+    :root[data-theme="dark"] .toc-link.active,
+    :root[data-theme="dark"] .toc-sub.active { color: #8fd8bd; border-left-color: #8fd8bd; }
+    :root[data-theme="dark"] .cover-btn { color: #7fd0b4; }
+    :root[data-theme="dark"] .cover-btn:hover { color: #a9e7d2; }
+
+    @media (max-width: 700px) {
+      #n-keyterms .term-grid { grid-template-columns: 1fr; }
+      .chapter-figure { padding: 9px; }
+      .mini-grid { grid-template-columns: 1fr; }
+      .hero-chips .chip-mobile-hint { display: inline-flex; }
+      .figure-zoom__hint { top: 6px; right: 6px; padding: 5px 8px; font-size: 10px; }
+      .figure-lightbox { padding: 8px; }
+      .figure-lightbox__dialog { height: calc(100dvh - 16px); border-radius: 10px; }
+      .figure-lightbox__bar { gap: 8px; padding: 8px 10px; }
+      .figure-lightbox__title { font-size: 11.5px; }
+      .figure-lightbox__title span { display: none; }
+      .figure-lightbox__actions { gap: 4px; }
+      .figure-lightbox__icon { width: 34px; min-height: 34px; }
+      .figure-lightbox__level { min-width: 40px; min-height: 34px; }
+      .figure-lightbox__close { min-height: 34px; padding: 0 10px; }
+      .figure-lightbox__scroll { padding: 10px; }
+      .figure-lightbox__scroll img { border-radius: 2px; }
     }
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 28px; }
-      h2 { font-size: 22px; }
-      .table-wrap td { font-size: 13px; padding: 8px 10px; }
-      .table-wrap th { font-size: 12px; padding: 8px 10px; }
-      pre { font-size: 12.5px; padding: 16px; }
-      .terms-grid { grid-template-columns: 1fr; }
-      .top-nav .meta { display: none; }
-      .top-nav { padding: 0 16px; }
-      .wrapper { padding: 0 16px; }
+    /* Keep chart labels clear: show the zoom hint on hover, and move it into the caption on phones. */
+    @media (hover: hover) and (pointer: fine) {
+      .chapter-figure .figure-zoom__hint { opacity: 0; transition: opacity 0.16s ease; }
+      .chapter-figure .figure-zoom:hover .figure-zoom__hint,
+      .chapter-figure .figure-zoom:focus-visible .figure-zoom__hint { opacity: 1; }
+    }
+    @media (max-width: 720px) {
+      .chapter-figure .figure-zoom__hint { display: none; }
+      .chapter-figure figcaption::after {
+        content: "Tap the figure to enlarge.";
+        display: block;
+        margin-top: 5px;
+        color: var(--r-accent);
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+    }
+    @media print {
+      .chapter-figure { break-inside: avoid; box-shadow: none; }
+      .figure-zoom__hint,
+      .chapter-figure figcaption::after,
+      .figure-lightbox { display: none !important; }
     }
   </style>
 </head>
-<body>
+<body class="retail-page" data-unit="eco-4" data-base-title="Chapter 4 – Elasticity of Demand" data-subject="Economics">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
 
-  <nav class="top-nav">
-    <a href="../index.html" class="logo">← Economics Notes</a>
-    <span class="meta">Class 11 · Chapter 4</span>
-  </nav>
+  <header class="topbar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">S</span>
+      <span class="brand-copy"><span class="brand-name">Study OS</span><span class="brand-sub">Economics notes</span></span>
+    </a>
+    <div class="topbar-actions">
+      <div class="mode-switch" role="group" aria-label="Study mode">
+        <button type="button" data-set-mode="notes" aria-pressed="true" aria-controls="panel-notes" aria-label="Easy Notes">Notes</button>
+        <button type="button" data-set-mode="quick" aria-pressed="false" aria-controls="panel-quick" aria-label="Quick Revision">Quick</button>
+      </div>
+      <button class="icon-btn print-toggle" type="button" title="Print the open notes" aria-label="Print the open notes">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+      </button>
+      <button class="icon-btn dark-toggle" id="themeToggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+      </button>
+    </div>
+  </header>
 
-  <div class="progress-bar" id="progressBar"></div>
-
-<div class="wrapper">
-
-    <aside class="sidebar-toc" id="sidebarToc">
-      <div class="toc-label">On this page</div>
-      <a href="#meaning">Meaning of Elasticity</a>
-      <a href="#types">Types of Elasticity</a>
-      <a href="#price-elasticity">Price Elasticity — Definition &amp; Formula</a>
-      <a href="#degrees">Degrees of Price Elasticity</a>
-      <a href="#percentage-method">Percentage Method</a>
-      <a href="#total-expenditure">Total Expenditure Method</a>
-      <a href="#factors">Factors Affecting Elasticity</a>
-      <a href="#cross-income">Cross &amp; Income Elasticity</a>
-      <a href="#exam-questions">Exam Questions</a>
-      <a href="#glossary">Key Terms Glossary</a>
+  <div class="layout">
+    <aside class="toc" id="toc" aria-label="On this page">
+      <div class="toc-top">
+        <p class="toc-title">On this page</p>
+        <span class="toc-mode" id="tocModeLabel">Easy Notes</span>
+      </div>
+      <nav class="toc-nav toc-nav--notes" data-mode-nav="notes" aria-label="Easy notes contents">
+<span class="toc-group">Start</span>
+<a class="toc-link toc-main" href="#n-start">Chapter at a glance</a>
+<a class="toc-link toc-main" href="#n-keyterms">Key Terms</a>
+<span class="toc-group">Sections</span>
+<a class="toc-link toc-main" href="#n-section-1">1 · Why elasticity?</a>
+<a class="toc-link toc-sub" href="#n-s1-1">1.1 The gap in the law of demand</a>
+<a class="toc-link toc-sub" href="#n-s1-2">1.2 Definition</a>
+<a class="toc-link toc-sub" href="#n-s1-3">1.3 A pure number</a>
+<a class="toc-link toc-sub" href="#n-s1-4">1.4 Elastic, inelastic, unitary</a>
+<a class="toc-link toc-main" href="#n-section-2">2 · The percentage method</a>
+<a class="toc-link toc-sub" href="#n-s2-1">2.1 Formula and terms</a>
+<a class="toc-link toc-sub" href="#n-s2-2">2.2 Why percentages, and which base?</a>
+<a class="toc-link toc-sub" href="#n-s2-3">2.3 A worked price cut</a>
+<a class="toc-link toc-sub" href="#n-s2-4">2.4 Six worked examples</a>
+<a class="toc-link toc-sub" href="#n-s2-5">2.5 The base matters</a>
+<a class="toc-link toc-main" href="#n-section-3">3 · The five degrees</a>
+<a class="toc-link toc-sub" href="#n-s3-1">3.1 The five cases</a>
+<a class="toc-link toc-sub" href="#n-s3-2">3.2 The shapes</a>
+<a class="toc-link toc-sub" href="#n-s3-3">3.3 Reading the curves correctly</a>
+<a class="toc-link toc-main" href="#n-section-4">4 · Total expenditure method</a>
+<a class="toc-link toc-sub" href="#n-s4-1">4.1 The test</a>
+<a class="toc-link toc-sub" href="#n-s4-2">4.2 The three cases</a>
+<a class="toc-link toc-sub" href="#n-s4-3">4.3 Seeing the test on a curve</a>
+<a class="toc-link toc-sub" href="#n-s4-4">4.4 Why it is only a rough test</a>
+<a class="toc-link toc-main" href="#n-section-5">5 · The geometric method</a>
+<a class="toc-link toc-sub" href="#n-s5-1">5.1 The segment formula</a>
+<a class="toc-link toc-sub" href="#n-s5-2">5.2 Midpoint and halves</a>
+<a class="toc-link toc-sub" href="#n-s5-3">5.3 Intercept cases</a>
+<a class="toc-link toc-main" href="#n-section-6">6 · Determinants of elasticity</a>
+<a class="toc-link toc-sub" href="#n-s6-1">6.1 The determinants</a>
+<a class="toc-link toc-sub" href="#n-s6-2">6.2 Options versus lock-in</a>
+<a class="toc-link toc-main" href="#n-section-7">7 · Elasticity and revenue</a>
+<a class="toc-link toc-sub" href="#n-s7-1">7.1 The seller's question</a>
+<a class="toc-link toc-sub" href="#n-s7-2">7.2 A café example</a>
+<a class="toc-link toc-sub" href="#n-s7-3">7.3 The marginal revenue link</a>
+<a class="toc-link toc-main" href="#n-section-8">8 · Elasticity in policy and business</a>
+<a class="toc-link toc-sub" href="#n-s8-1">8.1 Five applications</a>
+<a class="toc-link toc-sub" href="#n-s8-2">8.2 The qualifications</a>
+<a class="toc-link toc-main" href="#n-section-9">9 · Mistakes, recap and exam practice</a>
+<a class="toc-link toc-sub" href="#n-s9-1">9.1 Common mistakes</a>
+<a class="toc-link toc-sub" href="#n-recap">9.2 Chapter recap</a>
+<a class="toc-link toc-sub" href="#n-formulas">9.3 Formula sheet</a>
+<a class="toc-link toc-sub" href="#n-exam">9.4 Exam-style questions</a>
+<a class="toc-link toc-sub" href="#n-minute">9.5 One-minute revision</a>
+      </nav>
+      <nav class="toc-nav toc-nav--quick" data-mode-nav="quick" aria-label="Quick revision contents" hidden>
+<span class="toc-group">Start</span>
+<a class="toc-link toc-main" href="#q-start">Start here</a>
+<span class="toc-group">Sessions</span>
+<a class="toc-link toc-main" href="#q-session-1">Session 1 · Meaning, method and degrees</a>
+<a class="toc-link toc-sub" href="#q-s1-lines">The chapter in 12 lines</a>
+<a class="toc-link toc-sub" href="#q-s1-meaning">Why elasticity exists</a>
+<a class="toc-link toc-sub" href="#q-s1-method">The percentage method</a>
+<a class="toc-link toc-sub" href="#q-s1-degrees">The five degrees</a>
+<a class="toc-link toc-sub" href="#q-s1-drill">Recall drill — Session 1</a>
+<a class="toc-link toc-main" href="#q-session-2">Session 2 · TE and geometric methods</a>
+<a class="toc-link toc-sub" href="#q-s2-te">The total expenditure test</a>
+<a class="toc-link toc-sub" href="#q-s2-cases">The three TE cases</a>
+<a class="toc-link toc-sub" href="#q-s2-geometric">The geometric method</a>
+<a class="toc-link toc-sub" href="#q-s2-limits">Limits and comparison</a>
+<a class="toc-link toc-sub" href="#q-s2-drill">Recall drill — Session 2</a>
+<a class="toc-link toc-main" href="#q-session-3">Session 3 · Determinants, revenue and uses</a>
+<a class="toc-link toc-sub" href="#q-s3-determinants">Determinants of elasticity</a>
+<a class="toc-link toc-sub" href="#q-s3-revenue">Elasticity and revenue</a>
+<a class="toc-link toc-sub" href="#q-s3-uses">Uses in policy and business</a>
+<a class="toc-link toc-sub" href="#q-s3-drill">Recall drill — Session 3</a>
+<span class="toc-group">Drill room</span>
+<a class="toc-link toc-main" href="#q-clinic">Confusion Clinic</a>
+<a class="toc-link toc-main" href="#q-rapid">Rapid Fire</a>
+<a class="toc-link toc-main" href="#q-blank">Blank Page Test</a>
+<a class="toc-link toc-main" href="#q-plan">15-minute plan</a>
+      </nav>
+      <div class="toc-foot"><span>Chapter 4</span><span>Notes + quick</span></div>
     </aside>
 
-    <main class="main-content">
-
-      <div class="hero fade-in">
-        <div class="badge">Chapter 4</div>
+    <main id="main" class="content">
+      <header class="hero">
+        <div class="hero-mark" aria-hidden="true">4</div>
+        <p class="eyebrow"><span>Microeconomics · Class 11</span><span>Chapter 4</span><span>Notes + quick revision</span></p>
         <h1>Elasticity of Demand</h1>
-        <p class="subtitle">Measuring the degree of responsiveness of quantity demanded — how much does demand change when price, income, or related goods' prices change?</p>
-      </div>
-
-      <!-- 1. Meaning -->
-      <section id="meaning" class="fade-in">
-        <h2>1. Meaning of Elasticity of Demand</h2>
-
-        <h3>The Big Idea:</h3>
-        <blockquote>In Chapter 3 (Demand), we studied the <strong>Law of Demand</strong> — Price ↑ → Demand ↓. But we never asked <strong>HOW MUCH</strong> demand changes when price changes.<br><br>
-        <strong>Elasticity of Demand</strong> measures the <strong>degree of responsiveness</strong> of quantity demanded to changes in its determinants.</blockquote>
-
-        <h3>Real Life Understanding (From Lecture):</h3>
-        <blockquote>"Pichle chapter mein humne pada tha ki price badhne pe demand girti hai aur price girne pe demand badhti hai. Iss baar padhenge ki uska <strong>magnitude</strong> kya hai — kitna badhta hai, kitna girti hai?"</blockquote>
-
-        <h3>Simple Example:</h3>
-        <p>AC ka price ₹30,000 se ₹35,000 ho gaya → Log nahi kharidenge (High impact — Elastic)</p>
-        <p>Sui (needle) ka price ₹2 se ₹4 ho gaya → Koi farak nahi padta (Low impact — Inelastic)</p>
-
-        <h3>Definition:</h3>
-        <blockquote><strong>Elasticity of Demand</strong> = The ratio of <strong>percentage change in quantity demanded</strong> to <strong>percentage change in the determinant</strong> (price, income, etc.)</blockquote>
-      </section>
-
-      <hr>
-
-      <!-- 2. Types -->
-      <section id="types" class="fade-in">
-        <h2>2. Types of Elasticity of Demand</h2>
-
-        <p>There are <strong>three types</strong> of elasticity of demand based on which factor changes:</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Type</th><th>What Changes?</th><th>Measures</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Price Elasticity of Demand</strong></td><td>Price of the good itself</td><td>How much demand responds to price change</td></tr>
-              <tr><td><strong>Income Elasticity of Demand</strong></td><td>Consumer's income</td><td>How much demand responds to income change</td></tr>
-              <tr><td><strong>Cross Elasticity of Demand</strong></td><td>Price of related goods</td><td>How much demand responds to price of substitutes/complements</td></tr>
-            </tbody>
-          </table>
+        <p class="lede">The law of demand says price and quantity move in opposite directions. Elasticity says how far. That one number decides whether a price cut raises a shop's revenue, how much of a tax buyers end up paying, and why a cinema can charge students less than business travellers.</p>
+        <div class="hero-chips">
+          <span class="chip">9 topic sections</span>
+          <span class="chip">≈ 40 min full read</span>
+          <span class="chip">≈ 18 min quick recall</span>
+          <span class="chip">24 check questions</span>
+          <span class="chip">6 figures</span>
+          <span class="chip chip-quiet">Built from the lecture notes</span>
+          <span class="chip chip-mobile-hint">Tap a figure to enlarge · swipe tables sideways</span>
         </div>
+      </header>
 
-        <div class="callout">
-          <strong>Important for Class 11:</strong> According to the CBSE syllabus, <strong>Price Elasticity of Demand</strong> is the main topic. Income and Cross Elasticity are only briefly covered.
+      <div class="mode-panel mode-panel--notes" id="panel-notes" role="region" aria-label="Easy Notes" data-mode="notes">
+      <section class="glance" id="n-start">
+        <div class="section-head">
+          <span class="section-kicker">The map</span>
+          <h2>Chapter at a glance</h2>
+          <p>Nine stops: from why the law of demand is incomplete to the exact number that decides a price change, and the exam lines that carry marks. Tap a card to jump straight in.</p>
         </div>
-      </section>
-
-      <hr>
-
-      <!-- 3. Price Elasticity Formula -->
-      <section id="price-elasticity" class="fade-in">
-        <h2>3. Price Elasticity of Demand — Definition &amp; Formula</h2>
-
-        <h3>Definition:</h3>
-        <blockquote><strong>Price Elasticity of Demand</strong> (Ed) is the <strong>percentage change in quantity demanded</strong> divided by the <strong>percentage change in price</strong>.</blockquote>
-
-        <h3>Formula:</h3>
-        <pre>Ed = Percentage Change in Quantity Demanded / Percentage Change in Price</pre>
-
-        <h3>Mathematical Expression:</h3>
-        <pre>Ed = (%ΔQ) / (%ΔP)
-
-where:
-%ΔQ = (Change in Q / Original Q) × 100
-%ΔP = (Change in P / Original P) × 100</pre>
-
-        <h3>More Detailed Formula:</h3>
-        <pre>Ed = (ΔQ / Q) × 100 / (ΔP / P) × 100
-
-Simplifies to:
-Ed = (ΔQ / ΔP) × (P / Q)</pre>
-
-        <p>Where:</p>
-        <ul>
-          <li>ΔQ = Change in quantity demanded</li>
-          <li>ΔP = Change in price</li>
-          <li>Q = Original quantity</li>
-          <li>P = Original price</li>
-        </ul>
-
-        <h3>Important Note about Sign:</h3>
-        <blockquote>Since price and quantity have an <strong>inverse relationship</strong> (Law of Demand), Ed is always <strong>negative</strong>. But in exams, we take the <strong>absolute value (ignoring the negative sign)</strong>.</blockquote>
-
-        <h3>Example Calculation:</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Situation</th><th>Price</th><th>Quantity</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Original</strong></td><td>₹10</td><td>100 units</td></tr>
-              <tr><td><strong>New</strong></td><td>₹8</td><td>140 units</td></tr>
-            </tbody>
-          </table>
+        <div class="glance-grid">
+        <a class="glance-card" href="#n-section-1">
+          <span class="glance-num">1</span>
+          <span class="glance-body"><strong>Why Elasticity?</strong><span>Direction vs size · definition · a pure number · elastic, inelastic, unitary</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-2">
+          <span class="glance-num">2</span>
+          <span class="glance-body"><strong>The Percentage Method</strong><span>The formula · initial base · six worked examples · why the base matters</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-3">
+          <span class="glance-num">3</span>
+          <span class="glance-body"><strong>The Five Degrees</strong><span>0, less than 1, 1, more than 1, infinity · shapes · reading curves correctly</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-4">
+          <span class="glance-num">4</span>
+          <span class="glance-body"><strong>Total Expenditure Method</strong><span>P × Q · three cases · the TE curve · why it is only a rough test</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-5">
+          <span class="glance-num">5</span>
+          <span class="glance-body"><strong>The Geometric Method</strong><span>Lower ÷ upper · midpoint · intercept cases · slope is not elasticity</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-6">
+          <span class="glance-num">6</span>
+          <span class="glance-body"><strong>Determinants</strong><span>Substitutes · necessity · uses · postponement · budget share · habits · time</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-7">
+          <span class="glance-num">7</span>
+          <span class="glance-body"><strong>Elasticity and Revenue</strong><span>Price cut vs price rise · the café example · MR = AR(1 − 1/E<sub>d</sub>)</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-8">
+          <span class="glance-num">8</span>
+          <span class="glance-body"><strong>Policy and Business</strong><span>Taxation · monopoly pricing · devaluation · price discrimination · wages</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-9">
+          <span class="glance-num">9</span>
+          <span class="glance-body"><strong>Mistakes, Recap and Exam Practice</strong><span>Nine traps · formula sheet · answer pointers · one-minute revision</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
         </div>
-        <pre>%ΔQ = (140 - 100) / 100 × 100 = 40%
-%ΔP = (8 - 10) / 10 × 100 = -20%
-
-Ed = 40% / -20% = |-2| = 2
-
-Since |Ed| > 1 → Relatively Elastic Demand</pre>
-      </section>
-
-      <hr>
-
-      <!-- 4. Degrees -->
-      <section id="degrees" class="fade-in">
-        <h2>4. Degrees of Price Elasticity of Demand</h2>
-
-        <p>There are <strong>five degrees</strong> of price elasticity:</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Degree</th><th>Value</th><th>Shape of Curve</th><th>Meaning</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Perfectly Inelastic</strong></td><td>Ed = 0</td><td>Vertical line</td><td>No change in demand despite price change</td></tr>
-              <tr><td><strong>Relatively Inelastic</strong></td><td>0 < Ed < 1</td><td>Steeper slope</td><td>Demand changes less than price</td></tr>
-              <tr><td><strong>Unitary Elastic</strong></td><td>Ed = 1</td><td>Rectangular hyperbola</td><td>Demand changes exactly as much as price</td></tr>
-              <tr><td><strong>Relatively Elastic</strong></td><td>1 < Ed < ∞</td><td>Flatter slope</td><td>Demand changes more than price</td></tr>
-              <tr><td><strong>Perfectly Elastic</strong></td><td>Ed = ∞</td><td>Horizontal line</td><td>Infinite change in demand at same price</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <img src="Degrees_Elasticity.png" alt="All five degrees of Price Elasticity of Demand">
-
-        <div class="callout">
-          <strong>From Lecture:</strong> "Jitna zyada yeh graph tilt hota jayega — utna zyada effect. Dekho: No effect → Kam effect → Barabar effect → Zyada effect → Angeet (infinite) effect!"
-        </div>
-
-        <h3>Degree 1: Perfectly Inelastic Demand (Ed = 0)</h3>
-        <blockquote><strong>Meaning:</strong> Quantity demanded does NOT change at all when price changes.</blockquote>
-        <p><strong>Diagram:</strong> A <strong>vertical</strong> demand curve parallel to the Y-axis.</p>
-        <p><strong>Example:</strong> Life-saving medicines (insulin for diabetic patient), Salt (basic necessity)</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Price</th><th>Quantity Demanded</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>₹10</td><td>100</td></tr>
-              <tr><td>₹20</td><td>100</td></tr>
-              <tr><td>₹30</td><td>100</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <blockquote>"Jab aapko zindagi aur maut ka sawaal ho — aap paisa nahi dekhte. Khun ki bottle kitni bhi mehngi ho — aapko lena padega!"</blockquote>
-
-        <h3>Degree 2: Relatively Inelastic Demand (0 < Ed < 1)</h3>
-        <blockquote><strong>Meaning:</strong> Percentage change in quantity demanded is <strong>LESS than</strong> percentage change in price.</blockquote>
-        <p><strong>Diagram:</strong> A <strong>steep</strong> demand curve.</p>
-        <p><strong>Example:</strong> Basic food items (wheat, rice, milk), Medicines</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Price</th><th>Quantity Demanded</th><th>% Change</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>₹10</td><td>100</td><td>—</td></tr>
-              <tr><td>₹12 (+20%)</td><td>90 (-10%)</td><td>Ed = 10/20 = <strong>0.5</strong> (< 1)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Degree 3: Unitary Elastic Demand (Ed = 1)</h3>
-        <blockquote><strong>Meaning:</strong> Percentage change in quantity demanded is <strong>EQUAL to</strong> percentage change in price.</blockquote>
-        <p><strong>Diagram:</strong> A <strong>rectangular hyperbola</strong> — total expenditure remains constant.</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Price</th><th>Quantity</th><th>Total Expenditure</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>₹10</td><td>100</td><td>1000</td></tr>
-              <tr><td>₹8</td><td>125</td><td>1000</td></tr>
-              <tr><td>₹5</td><td>200</td><td>1000</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Degree 4: Relatively Elastic Demand (1 < Ed < ∞)</h3>
-        <blockquote><strong>Meaning:</strong> Percentage change in quantity demanded is <strong>MORE than</strong> percentage change in price.</blockquote>
-        <p><strong>Diagram:</strong> A <strong>flatter</strong> demand curve.</p>
-        <p><strong>Example:</strong> Luxury goods (AC, car, designer clothes), Items with many substitutes</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Price</th><th>Quantity Demanded</th><th>% Change</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>₹10</td><td>100</td><td>—</td></tr>
-              <tr><td>₹12 (+20%)</td><td>60 (-40%)</td><td>Ed = 40/20 = <strong>2</strong> (> 1)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Degree 5: Perfectly Elastic Demand (Ed = ∞)</h3>
-        <blockquote><strong>Meaning:</strong> Consumers will buy <strong>all they want</strong> at one price, but nothing at a slightly higher price.</blockquote>
-        <p><strong>Diagram:</strong> A <strong>horizontal</strong> demand curve parallel to the X-axis.</p>
-        <p><strong>Example:</strong> Agricultural products in a perfectly competitive market</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Price</th><th>Quantity Demanded</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>₹20</td><td>Any amount</td></tr>
-              <tr><td>₹21</td><td>0</td></tr>
-            </tbody>
-          </table>
+        <div class="unit-context">
+          <p><strong>The one-line idea:</strong> elasticity measures how strongly quantity demanded responds to a price change; the law of demand gives the direction, elasticity gives the size.</p>
+          <p><strong>The core question:</strong> if price changes by 1%, by what percentage does quantity demanded change — and what does that mean for total spending?</p>
         </div>
       </section>
 
-      <hr>
-
-      <!-- 5. Percentage Method -->
-      <section id="percentage-method" class="fade-in">
-        <h2>5. Percentage Method (Proportionate Method)</h2>
-
-        <h3>Also Called:</h3>
-        <ul>
-          <li><strong>Flux Method</strong></li>
-          <li><strong>Proportional Method</strong></li>
-          <li><strong>Mathematical Method</strong></li>
-          <li><strong>Marshall's Method</strong></li>
-        </ul>
-
-        <h3>Formula:</h3>
-        <pre>Ed = (%ΔQ) / (%ΔP)
-    = (ΔQ / Q) / (ΔP / P)
-    = (ΔQ / ΔP) × (P / Q)</pre>
-
-        <h3>Step-by-Step Calculation:</h3>
-        <ol>
-          <li>Find Change in Quantity (ΔQ) = New Q - Original Q</li>
-          <li>Find Change in Price (ΔP) = New P - Original P</li>
-          <li>Calculate %ΔQ = (ΔQ / Q) × 100</li>
-          <li>Calculate %ΔP = (ΔP / P) × 100</li>
-          <li>Divide %ΔQ by %ΔP</li>
-          <li>Take absolute value (ignore negative sign)</li>
-        </ol>
-
-        <h3>Example 1: Calculating Ed</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th></th><th>Price</th><th>Quantity</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Original</strong></td><td>₹20</td><td>50 units</td></tr>
-              <tr><td><strong>New</strong></td><td>₹15</td><td>75 units</td></tr>
-            </tbody>
-          </table>
+      <section class="keyterms" id="n-keyterms">
+        <div class="section-head">
+          <span class="section-kicker">Speak the language</span>
+          <h2>Key Terms — Read These First</h2>
+          <p>The words that carry marks. Read them once now, then test yourself after the chapter.</p>
         </div>
-        <pre>ΔQ = 75 - 50 = 25
-ΔP = 15 - 20 = -5
+        <dl class="term-grid">
+          <div class="term"><dt>Price elasticity of demand</dt><dd>The percentage change in quantity demanded divided by the percentage change in the good's own price, other things constant.</dd></div>
+          <div class="term"><dt>Elastic demand</dt><dd>Quantity changes proportionately more than price: |E<sub>d</sub>| &gt; 1.</dd></div>
+          <div class="term"><dt>Inelastic demand</dt><dd>Quantity changes proportionately less than price: 0 &lt; |E<sub>d</sub>| &lt; 1.</dd></div>
+          <div class="term"><dt>Unitary elastic demand</dt><dd>The percentage changes in price and quantity are equal: |E<sub>d</sub>| = 1.</dd></div>
+          <div class="term"><dt>Perfectly inelastic demand</dt><dd>Quantity does not change at all when price changes: E<sub>d</sub> = 0, a vertical curve.</dd></div>
+          <div class="term"><dt>Perfectly elastic demand</dt><dd>Buyers will take any quantity at the ruling price: E<sub>d</sub> = ∞, a horizontal curve.</dd></div>
+          <div class="term"><dt>Percentage method</dt><dd>E<sub>d</sub> = %ΔQ ÷ %ΔP, using initial values as the base. Also called the proportionate or flux method.</dd></div>
+          <div class="term"><dt>Absolute value</dt><dd>The size of the coefficient without its negative sign: |E<sub>d</sub>|. The sign only records the inverse price–quantity relation.</dd></div>
+          <div class="term"><dt>Rectangular hyperbola</dt><dd>The curve on which P × Q is constant at every point; elasticity is 1 throughout.</dd></div>
+          <div class="term"><dt>Total expenditure (TE)</dt><dd>Price × quantity bought: TE = P × Q. Also called outlay.</dd></div>
+          <div class="term"><dt>Total revenue (TR)</dt><dd>Price × quantity sold: TR = P × Q. From the seller's side, TE and TR are the same amount.</dd></div>
+          <div class="term"><dt>Expenditure test</dt><dd>A rough method that reads elasticity from the direction of the change in TE when price changes.</dd></div>
+          <div class="term"><dt>Geometric method</dt><dd>Point elasticity on a straight-line demand curve: E<sub>d</sub> = lower segment ÷ upper segment.</dd></div>
+          <div class="term"><dt>Upper and lower segments</dt><dd>The two parts into which a point divides the demand line: AE above the point, EB below it.</dd></div>
+          <div class="term"><dt>Midpoint</dt><dd>The point where the two segments are equal; elasticity is exactly 1 there.</dd></div>
+          <div class="term"><dt>Determinants of elasticity</dt><dd>The factors that make demand more or less responsive: substitutes, nature of the good, uses, postponement, budget share, habits, time, complements and price level.</dd></div>
+          <div class="term"><dt>Substitute</dt><dd>A good that can replace another. More close substitutes make demand more elastic.</dd></div>
+          <div class="term"><dt>Complement</dt><dd>A good used together with another. An essential complement makes demand less elastic.</dd></div>
+          <div class="term"><dt>Budget share</dt><dd>The fraction of a buyer's spending that goes to the good. A small share makes demand less elastic.</dd></div>
+          <div class="term"><dt>Price discrimination</dt><dd>Charging different prices in separate markets with different elasticities.</dd></div>
+          <div class="term"><dt>Marginal revenue (MR)</dt><dd>The addition to total revenue from one more unit sold: MR = AR(1 − 1/E<sub>d</sub>).</dd></div>
+        </dl>
+      </section>
 
-%ΔQ = (25/50) × 100 = 50%
-%ΔP = (-5/20) × 100 = -25%
+      <section class="session" id="n-section-1">
+        <header class="session-head"><span class="session-kicker">Section 1</span><h2>Why Elasticity? Meaning and Definition</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> The law of demand tells us the direction of the price–quantity relationship. It is silent on the size. Elasticity fills that gap with a single unit-free number.</p></blockquote>
 
-Ed = 50% / -25% = |-2| = 2
+          <section class="subsection" id="n-s1-1">
+            <h3>1.1 The gap in the law of demand</h3>
+            <p>The law of demand says that, other things constant, a rise in price reduces quantity demanded and a fall in price raises it. That is a statement about <strong>direction</strong>, not <strong>size</strong>.</p>
+            <p>Two goods can obey the law and still behave very differently. A 10% rise in the price of salt may cut quantity by 1%. The same 10% rise in the price of a cold drink may cut quantity by 25%. Both curves slope downward; one is almost vertical, the other much flatter.</p>
+            <div class="callout"><p><strong>In simple words.</strong> The law of demand tells you which way the seesaw tips; elasticity tells you how far.</p></div>
+          </section>
 
-Since Ed = 2 > 1 → Relatively Elastic Demand</pre>
+          <section class="subsection" id="n-s1-2">
+            <h3>1.2 Definition</h3>
+            <p><strong>Definition.</strong> Price elasticity of demand is the degree of responsiveness of quantity demanded to a change in the good's own price, other things remaining constant. It is the percentage change in quantity demanded divided by the percentage change in price.</p>
+            <p>The concept is associated with Alfred Marshall's <em>Principles of Economics</em> (1890). In this chapter, “elasticity” means <strong>price</strong> elasticity unless stated otherwise.</p>
+            <p>Demand is <strong>elastic</strong> when the percentage change in quantity exceeds the percentage change in price. It is <strong>inelastic</strong> when the quantity change is proportionately smaller. When the two are equal, demand is <strong>unitary elastic</strong>.</p>
+            <div class="callout"><p><strong>Quick example.</strong> Price rises 10%. Quantity falls 20%: elastic. Quantity falls 4%: inelastic. Quantity falls 10%: unitary.</p></div>
+          </section>
 
-        <h3>Example 2: Using Direct Formula</h3>
-        <pre>Ed = (ΔQ / ΔP) × (P / Q)
-   = (25 / -5) × (20 / 50)
-   = (-5) × (0.4)
-   = |-2| = 2</pre>
+          <section class="subsection" id="n-s1-3">
+            <h3>1.3 A pure number</h3>
+            <p>Elasticity compares two percentage changes, so the units cancel. A value of 2 means quantity responds twice as strongly, in percentage terms, as price. It is not 2 kilograms or ₹2. That is why we can compare the price sensitivity of salt and gold with the same number.</p>
+            <p>Because price and quantity move in opposite directions, the calculated coefficient is usually negative. Economists report the <strong>absolute value</strong>, |E<sub>d</sub>|. The sign only records the inverse relationship; the size tells you the responsiveness.</p>
+            <figure class="chapter-figure">
+              <img src="Ch4_Response_Gap.png" alt="Two panels. The left panel shows a steep demand curve for salt: a 10 percent price rise cuts quantity by 1 percent. The right panel shows a flat demand curve for a cold drink: the same 10 percent price rise cuts quantity by 25 percent." loading="lazy" width="1954" height="1037">
+              <figcaption><strong>Figure 4.1 — The same price rise, two very different responses.</strong> Both panels start at the same price and quantity and both obey the law of demand. A 10% price rise cuts salt purchases by only 1%, but cold-drink purchases by 25%. The steep curve is inelastic; the flat curve is elastic.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> The direction is the same in both panels; only the size differs. Elasticity is the number that captures that size.</p>
+          </section>
 
-        <img src="Percentage_Method.png" alt="Percentage Method illustration showing elasticity calculation on a demand curve">
+          <section class="subsection" id="n-s1-4">
+            <h3>1.4 Elastic, inelastic, unitary</h3>
+            <div class="table-wrap" role="region" aria-label="Elastic, inelastic and unitary demand" tabindex="0">
+              <table>
+                <thead><tr><th>Label</th><th>Coefficient</th><th>Meaning</th><th>Everyday example</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Elastic</strong></td><td>|E<sub>d</sub>| &gt; 1</td><td>Quantity moves proportionately more than price</td><td>Cold drinks, branded clothing</td></tr>
+                  <tr><td><strong>Unitary</strong></td><td>|E<sub>d</sub>| = 1</td><td>The two percentage changes are equal</td><td>A good with constant total spending</td></tr>
+                  <tr><td><strong>Inelastic</strong></td><td>0 &lt; |E<sub>d</sub>| &lt; 1</td><td>Quantity moves proportionately less than price</td><td>Salt, matchsticks, insulin</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>“Elastic” does <strong>not</strong> mean “large quantity”. A market can sell millions of units and still be inelastic if buyers barely respond to price. Elasticity is about responsiveness, not size.</p>
+          </section>
 
-        <div class="callout">
-          <strong>Key Point:</strong> This method was given by <strong>Professor Marshall</strong>. It is also known as the <strong>Flux Method</strong> or <strong>Proportionate Method</strong>. The same formula works for all five degrees of elasticity.
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Define price elasticity of demand. Why is it needed when the law of demand already exists?</li>
+              <li><strong>Q2.</strong> Price of X rises 10% and quantity falls 20%. Price of Y rises 10% and quantity falls 5%. Which demand is more elastic?</li>
+              <li><strong>Q3.</strong> Why might a 10% rise in the price of salt and a 10% rise in the price of a luxury watch produce different percentage falls in quantity?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>It is the percentage change in quantity demanded divided by the percentage change in the good's own price, other things constant. The law gives only the direction; elasticity measures the size of the response.</li>
+                <li>X: E<sub>d</sub> = 20/10 = 2. Y: E<sub>d</sub> = 5/10 = 0.5. Demand for X is more elastic.</li>
+                <li>Salt is a necessity with few substitutes and a small budget share, so its demand is inelastic. A watch is a luxury with substitutes and a large budget share, so its demand is more elastic.</li>
+              </ol></div>
+            </details>
+          </div>
         </div>
       </section>
 
-      <hr>
+      <section class="session" id="n-section-2">
+        <header class="session-head"><span class="session-kicker">Section 2</span><h2>The Percentage Method</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Elasticity is a ratio of two percentage changes. The only two decisions are which base to divide by and what to do with the negative sign.</p></blockquote>
 
-      <!-- 6. Total Expenditure Method -->
-      <section id="total-expenditure" class="fade-in">
-        <h2>6. Total Expenditure Method (Total Outlay Method)</h2>
+          <section class="subsection" id="n-s2-1">
+            <h3>2.1 Formula and terms</h3>
+            <p>The percentage method is also called the <strong>proportionate</strong>, <strong>flux</strong> or <strong>mathematical</strong> method.</p>
+            <div class="formula-line">E<sub>d</sub> = %ΔQ ÷ %ΔP = (ΔQ/Q) ÷ (ΔP/P) = (ΔQ/ΔP) × (P/Q)</div>
+            <p>Q and P are the <strong>initial</strong> quantity and price; Q<sub>1</sub> and P<sub>1</sub> are the new values; ΔQ = Q<sub>1</sub> − Q and ΔP = P<sub>1</sub> − P. The 100 in each percentage cancels, which gives the ratio form.</p>
+            <div class="callout"><p><strong>Pointer.</strong> The formula uses the <em>initial</em> P and Q. If the question gives only the new values, find the changes first.</p></div>
+          </section>
 
-        <h3>Also Called:</h3>
-        <ul>
-          <li><strong>Total Outlay Method</strong></li>
-          <li><strong>Total Revenue Method</strong></li>
-        </ul>
+          <section class="subsection" id="n-s2-2">
+            <h3>2.2 Why percentages, and which base?</h3>
+            <p>Absolute changes are not comparable. A ₹1 fall means something different for a pen and a car. Ten extra units is large for a shop selling 50 and small for one selling 10,000. Percentages scale the change to the initial value, cancel units and produce a pure number.</p>
+            <p>Use the <strong>initial value as the base</strong>, as in the standard CBSE formula. If price falls, ΔP is negative and ΔQ is positive; if price rises, ΔP is positive and ΔQ is negative. The ratio is negative either way, so take the absolute value. Do not reverse the formula when the direction changes.</p>
+            <div class="callout"><p><strong>Warning.</strong> The same absolute change can give different coefficients from different starting points. A ₹2 fall from ₹10 is 20%; a ₹2 rise from ₹8 is 25%. Always check the base before comparing two elasticities.</p></div>
+          </section>
 
-        <h3>The Concept:</h3>
-        <blockquote>This method examines the <strong>relationship between price change and total expenditure</strong> (P × Q) to determine elasticity.</blockquote>
+          <section class="subsection" id="n-s2-3">
+            <h3>2.3 A worked price cut</h3>
+            <p>Price falls from ₹10 to ₹8; quantity rises from 100 to 140 units. The price change is −20%, the quantity change is +40%, so E<sub>d</sub> = 40 ÷ (−20) = −2. The absolute value is 2: elastic.</p>
+            <figure class="chapter-figure">
+              <img src="Ch4_Percentage_Method.png" alt="A demand curve with point A at price 10 rupees and quantity 100, and point B at price 8 rupees and quantity 140. A vertical arrow shows the 2 rupee price fall and a horizontal arrow shows the 40 unit quantity rise. A formula box shows elasticity equals 40 percent divided by minus 20 percent, which equals minus 2." loading="lazy" width="1776" height="1237">
+              <figcaption><strong>Figure 4.2 — The percentage method on one price cut.</strong> Price falls from ₹10 to ₹8 and quantity rises from 100 to 140 units. The price change is −20%, the quantity change is +40%, and E<sub>d</sub> = 40 ÷ (−20) = −2. The absolute value is 2, so demand is elastic.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> The vertical step is the price change; the horizontal step is the quantity change. Each is divided by its own <strong>initial</strong> value, not by the new one.</p>
+          </section>
 
-        <h3>The Logic:</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Situation</th><th>Price Change</th><th>Total Expenditure (P × Q)</th><th>Elasticity</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Case 1</strong></td><td>Price ↑</td><td>TE <strong>also</strong> ↑ (moves in same direction)</td><td>Ed < 1 (Inelastic)</td></tr>
-              <tr><td></td><td>Price ↓</td><td>TE <strong>also</strong> ↓ (moves in same direction)</td><td>Ed < 1 (Inelastic)</td></tr>
-              <tr><td><strong>Case 2</strong></td><td>Price ↑</td><td>TE <strong>falls</strong> (moves in opposite direction)</td><td>Ed > 1 (Elastic)</td></tr>
-              <tr><td></td><td>Price ↓</td><td>TE <strong>rises</strong> (moves in opposite direction)</td><td>Ed > 1 (Elastic)</td></tr>
-              <tr><td><strong>Case 3</strong></td><td>Price ↑ or ↓</td><td>TE <strong>remains constant</strong> (no change)</td><td>Ed = 1 (Unitary)</td></tr>
-            </tbody>
-          </table>
-        </div>
+          <section class="subsection" id="n-s2-4">
+            <h3>2.4 Six worked examples</h3>
+            <div class="table-wrap" role="region" aria-label="Six worked elasticity examples" tabindex="0">
+              <table>
+                <thead><tr><th>#</th><th>Change</th><th>%ΔQ</th><th>%ΔP</th><th>E<sub>d</sub></th><th>Result</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>Price ₹10 → ₹8; quantity 100 → 140</td><td>+40%</td><td>−20%</td><td>−2</td><td>Elastic</td></tr>
+                  <tr><td>2</td><td>Price ₹5 → ₹4; quantity 20 → 24</td><td>+20%</td><td>−20%</td><td>−1</td><td>Unitary</td></tr>
+                  <tr><td>3</td><td>Price ₹8 → ₹10; quantity 40 → 32</td><td>−20%</td><td>+25%</td><td>−0.8</td><td>Inelastic</td></tr>
+                  <tr><td>4</td><td>Price ₹20 → ₹16; quantity 40 → 50</td><td>+25%</td><td>−20%</td><td>−1.25</td><td>Elastic</td></tr>
+                  <tr><td>5</td><td>Price falls 5%; quantity rises 12%</td><td>+12%</td><td>−5%</td><td>−2.4</td><td>Elastic</td></tr>
+                  <tr><td>6</td><td>Price ₹10 → ₹5; E<sub>d</sub> = 3; initial Q = 40</td><td>+150%</td><td>−50%</td><td>−3</td><td>New Q = 100</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>Example 6 in steps.</strong> The price fall is 50%. Taking absolute values, 3 = %ΔQ ÷ 50%, so %ΔQ = 150%. New quantity = 40 + 1.5 × 40 = 100 units.</p>
+          </section>
 
-        <img src="Total_Expenditure_Method.png" alt="Total Expenditure Method showing three cases of elasticity">
-
-        <h3>Real Life Understanding (From Lecture):</h3>
-        <blockquote>"Grocery mein 50 tarah ki cheezein hoti hain — tel, chawal, gehu, masale, chips, kurkure, machis, agarbatti. Jab mehngai badhti hai — aadmi machis kam nahi kharidta (₹2 ki cheez), par tel ya chawal ka kam kar deta hai (₹200 ki cheez)!"</blockquote>
-
-        <h3>Explanation of the Three Cases:</h3>
-
-        <p><strong>Case 1: Inelastic Demand (Ed < 1)</strong> — Price ↑, TE also ↑</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th></th><th>Price</th><th>Quantity</th><th>Total Expenditure</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Before</strong></td><td>₹10</td><td>100</td><td>₹1000</td></tr>
-              <tr><td><strong>After</strong></td><td>₹12 (↑20%)</td><td>90 (↓10%)</td><td>₹1080 (<strong>↑</strong>)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p><strong>Case 2: Elastic Demand (Ed > 1)</strong> — Price ↑, TE ↓</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th></th><th>Price</th><th>Quantity</th><th>Total Expenditure</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Before</strong></td><td>₹10</td><td>100</td><td>₹1000</td></tr>
-              <tr><td><strong>After</strong></td><td>₹12 (↑20%)</td><td>50 (↓50%)</td><td>₹600 (<strong>↓</strong>)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p><strong>Case 3: Unitary Elastic (Ed = 1)</strong> — Price ↑, TE unchanged</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th></th><th>Price</th><th>Quantity</th><th>Total Expenditure</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Before</strong></td><td>₹10</td><td>100</td><td>₹1000</td></tr>
-              <tr><td><strong>After</strong></td><td>₹12 (↑20%)</td><td>83.3 (↓16.7%)</td><td>₹1000 (<strong>Same</strong>)</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <hr>
-
-      <!-- 7. Factors -->
-      <section id="factors" class="fade-in">
-        <h2>7. Factors Affecting Price Elasticity of Demand</h2>
-
-        <img src="Factors_Elasticity.png" alt="Factors affecting price elasticity of demand">
-
-        <h3>Factor 1: Nature of the Commodity</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Type of Good</th><th>Elasticity</th><th>Example</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Necessities</strong> (आवश्यक वस्तुएँ)</td><td>Inelastic (Ed < 1)</td><td>Salt, food grains, medicines</td></tr>
-              <tr><td><strong>Luxuries</strong> (विलासिता की वस्तुएँ)</td><td>Elastic (Ed > 1)</td><td>AC, car, diamond</td></tr>
-              <tr><td><strong>Comforts</strong></td><td>Moderate</td><td>Fan, TV, fridge</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Factor 2: Availability of Substitutes</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Substitutes Available</th><th>Elasticity</th><th>Example</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Many substitutes</strong></td><td>Elastic (Ed > 1)</td><td>Tea ↔ Coffee, Pepsi ↔ Coke</td></tr>
-              <tr><td><strong>No/less substitutes</strong></td><td>Inelastic (Ed < 1)</td><td>Salt, petrol, life-saving drugs</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Factor 3: Share in Total Expenditure</h3>
-        <blockquote>"Jis cheez pe aap zyada kharch karte ho — uska price change effect karega. Sui ₹2 ki 4 ho gayi — koi farak nahi. Par tel ₹200 ka 300 ho gaya — toh log kam kharidenge!"</blockquote>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Share in Budget</th><th>Elasticity</th><th>Example</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Large share</strong> (ज्यादा पोर्शन)</td><td>Elastic (Ed > 1)</td><td>Oil, rice, petrol</td></tr>
-              <tr><td><strong>Small share</strong> (कम पोर्शन)</td><td>Inelastic (Ed < 1)</td><td>Matchbox, salt, pins</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Factor 4: Time Period</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Time Period</th><th>Elasticity</th><th>Reason</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Short run</strong> (कम समय)</td><td>Inelastic (Ed < 1)</td><td>Can't immediately change habits/find substitutes</td></tr>
-              <tr><td><strong>Long run</strong> (ज्यादा समय)</td><td>Elastic (Ed > 1)</td><td>More time to adjust, find substitutes</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <blockquote>"Petrol kal se band ho gaya — log ₹200/ltr bhi dene ko taiyaar hain! Par 1 saal mila toh log EV gaadi le lenge."</blockquote>
-
-        <h3>Factor 5: Habit / Addiction</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Habit</th><th>Elasticity</th><th>Example</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Addictive goods</strong></td><td>Inelastic (Ed < 1)</td><td>Cigarettes, alcohol, coffee</td></tr>
-              <tr><td><strong>Non-addictive</strong></td><td>Elastic (Ed > 1)</td><td>Normal goods</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Factor 6: Number of Uses</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Number of Uses</th><th>Elasticity</th><th>Example</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Multiple uses</strong></td><td>Elastic (Ed > 1)</td><td>Electricity, milk</td></tr>
-              <tr><td><strong>Single use</strong></td><td>Inelastic (Ed < 1)</td><td>Medicine for specific disease</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Summary Table of Factors:</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Factor</th><th>Makes Demand Elastic</th><th>Makes Demand Inelastic</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Nature</strong></td><td>Luxury goods</td><td>Necessity goods</td></tr>
-              <tr><td><strong>Substitutes</strong></td><td>Many substitutes</td><td>Few/no substitutes</td></tr>
-              <tr><td><strong>Share in budget</strong></td><td>Large share</td><td>Small share</td></tr>
-              <tr><td><strong>Time</strong></td><td>Long period</td><td>Short period</td></tr>
-              <tr><td><strong>Habit</strong></td><td>Non-addictive</td><td>Addictive</td></tr>
-              <tr><td><strong>Uses</strong></td><td>Multiple uses</td><td>Single use</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <hr>
-
-      <!-- 8. Cross & Income Elasticity -->
-      <section id="cross-income" class="fade-in">
-        <h2>8. Cross Elasticity &amp; Income Elasticity of Demand</h2>
-
-        <h3>Cross Elasticity of Demand</h3>
-        <blockquote><strong>Cross Elasticity of Demand</strong> measures the responsiveness of quantity demanded of Good X to a change in the price of Good Y.</blockquote>
-
-        <h4>Formula:</h4>
-        <pre>Ec = %ΔQx / %ΔPy</pre>
-
-        <h4>Types based on Relationship:</h4>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Relationship</th><th>Cross Elasticity</th><th>Example</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Substitute Goods</strong></td><td><strong>Positive</strong> (Ec > 0)</td><td>Tea price ↑ → Coffee demand ↑</td></tr>
-              <tr><td><strong>Complementary Goods</strong></td><td><strong>Negative</strong> (Ec < 0)</td><td>Car price ↑ → Petrol demand ↓</td></tr>
-              <tr><td><strong>Unrelated Goods</strong></td><td><strong>Zero</strong> (Ec = 0)</td><td>Pen price ↑ → No change in milk demand</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Income Elasticity of Demand</h3>
-        <blockquote><strong>Income Elasticity of Demand</strong> measures the responsiveness of quantity demanded to a change in consumer's income.</blockquote>
-
-        <h4>Formula:</h4>
-        <pre>Ey = %ΔQ / %ΔY</pre>
-
-        <h4>Types based on Good:</h4>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Type of Good</th><th>Income Elasticity</th><th>Example</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Normal Goods</strong></td><td><strong>Positive</strong> (Ey > 0)</td><td>Most goods — income ↑ → demand ↑</td></tr>
-              <tr><td><strong>Inferior Goods</strong></td><td><strong>Negative</strong> (Ey < 0)</td><td>Cheap goods — income ↑ → demand ↓</td></tr>
-              <tr><td><strong>Necessities</strong></td><td>0 < Ey < 1</td><td>Food grains — demand increases but less than income</td></tr>
-              <tr><td><strong>Luxuries</strong></td><td>Ey > 1</td><td>Cars, jewelry — demand increases more than income</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <hr>
-
-      <!-- 9. Exam Questions -->
-      <section id="exam-questions" class="fade-in">
-        <h2>Important Exam Questions</h2>
-
-        <h3>Short Questions (2-3 Marks):</h3>
-        <ol>
-          <li><strong>Define Price Elasticity of Demand.</strong> Write its formula.</li>
-          <li><strong>Distinguish between Elastic and Inelastic Demand.</strong></li>
-          <li><strong>What is Perfectly Inelastic Demand?</strong> Give an example.</li>
-          <li><strong>State the Total Expenditure Method</strong> of measuring elasticity.</li>
-          <li><strong>What is Cross Elasticity of Demand?</strong> Give an example of substitute goods.</li>
-          <li><strong>State any two factors</strong> affecting price elasticity of demand.</li>
-          <li><strong>What is Unitary Elastic Demand?</strong> When does it occur?</li>
-          <li><strong>Give the formula</strong> for measuring price elasticity of demand.</li>
-          <li><strong>What is Income Elasticity of Demand?</strong> Differentiate between normal and inferior goods.</li>
-          <li><strong>Why is demand for salt inelastic</strong> but demand for AC elastic?</li>
-        </ol>
-
-        <h3>Long Questions (4-6 Marks):</h3>
-        <ol>
-          <li><strong>Explain the degrees of Price Elasticity of Demand</strong> with the help of diagrams.</li>
-          <li><strong>Explain the Percentage Method</strong> of measuring price elasticity of demand with an example.</li>
-          <li><strong>Explain the Total Expenditure Method</strong> of measuring price elasticity of demand. How does it help determine whether demand is elastic, inelastic, or unitary?</li>
-          <li><strong>Explain the various factors</strong> affecting price elasticity of demand in detail.</li>
-          <li><strong>Distinguish between Perfectly Elastic and Perfectly Inelastic Demand</strong> with the help of diagrams and examples.</li>
-          <li><strong>Calculate price elasticity of demand</strong> from the following data:
+          <section class="subsection" id="n-s2-5">
+            <h3>2.5 The base matters</h3>
+            <p>The same ₹2 price change and 1-unit quantity change can give different coefficients:</p>
             <ul>
-              <li>Original Price = ₹20, Original Quantity = 100 units</li>
-              <li>New Price = ₹15, New Quantity = 150 units</li>
+              <li>₹10 → ₹8, quantity 4 → 5: E<sub>d</sub> = 25% ÷ 20% = 1.25.</li>
+              <li>₹8 → ₹10, quantity 5 → 4: E<sub>d</sub> = 20% ÷ 25% = 0.8.</li>
             </ul>
-          </li>
-          <li><strong>Explain Cross Elasticity of Demand</strong> and <strong>Income Elasticity of Demand</strong> with examples.</li>
-        </ol>
+            <p>The absolute changes are identical; the bases are not. Elasticity is a local measure around a starting point, not a fixed property of a good for all price changes.</p>
+          </section>
 
-        <h3>Numerical Questions:</h3>
-        <ol>
-          <li>
-            <strong>Calculate Price Elasticity of Demand:</strong>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr><th></th><th>Price</th><th>Quantity</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td><strong>Original</strong></td><td>₹25</td><td>80 units</td></tr>
-                  <tr><td><strong>New</strong></td><td>₹20</td><td>120 units</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </li>
-          <li>
-            <strong>Calculate Price Elasticity of Demand:</strong>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr><th></th><th>Price</th><th>Quantity</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td><strong>Original</strong></td><td>₹30</td><td>200 units</td></tr>
-                  <tr><td><strong>New</strong></td><td>₹36</td><td>180 units</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </li>
-          <li>A consumer buys 50 units of a good at ₹10 each. When the price falls to ₹8, he buys 80 units. Calculate price elasticity of demand using the percentage method.</li>
-          <li>
-            From the following data, determine whether demand is elastic, inelastic, or unitary:
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr><th>Price</th><th>Total Expenditure</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>₹5</td><td>500</td></tr>
-                  <tr><td>₹4</td><td>520</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </li>
-          <li>When the price of Good X rises from ₹10 to ₹12, the quantity demanded of Good Y increases from 40 to 60 units. Calculate Cross Elasticity of Demand and identify the relationship between X and Y.</li>
-        </ol>
-
-        <div class="callout">
-          <strong>Tip:</strong> Elasticity is one of the most practical concepts in Economics. It helps businesses set prices and governments decide tax policies. Master the formula and the five degrees — they will follow you through Class 12 as well!
-        </div>
-
-        <div class="callout">
-          <strong>Graph Tip:</strong> Practice drawing all 5 types of demand curves:<br>
-          1. Perfectly Inelastic (Vertical)<br>
-          2. Relatively Inelastic (Steep)<br>
-          3. Unitary Elastic (Rectangular Hyperbola)<br>
-          4. Relatively Elastic (Flat)<br>
-          5. Perfectly Elastic (Horizontal)
-        </div>
-
-        <blockquote><strong>Formula to Remember:</strong> Ed = (ΔQ/ΔP) × (P/Q)</blockquote>
-      </section>
-
-      <hr>
-
-      <!-- 10. Glossary -->
-      <section id="glossary" class="fade-in">
-        <h2>Key Terms Glossary</h2>
-
-        <div class="terms-grid">
-          <div class="term-card">
-            <div class="term-name">Price Elasticity of Demand</div>
-            <div class="term-desc">% change in Qd / % change in Price</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Perfectly Inelastic (Ed = 0)</div>
-            <div class="term-desc">No change in demand despite price change</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Relatively Inelastic (0&lt;Ed&lt;1)</div>
-            <div class="term-desc">Demand changes less than price</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Unitary Elastic (Ed = 1)</div>
-            <div class="term-desc">Demand changes equal to price</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Relatively Elastic (1&lt;Ed&lt;∞)</div>
-            <div class="term-desc">Demand changes more than price</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Perfectly Elastic (Ed = ∞)</div>
-            <div class="term-desc">Infinite demand at a given price</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Percentage Method</div>
-            <div class="term-desc">Ed = (%ΔQ)/(%ΔP) given by Marshall</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Total Expenditure Method</div>
-            <div class="term-desc">Uses P×Q relationship to find elasticity</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Cross Elasticity</div>
-            <div class="term-desc">%ΔQx / %ΔPy (for related goods)</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Income Elasticity</div>
-            <div class="term-desc">%ΔQ / %ΔY (for income changes)</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Substitute Goods</div>
-            <div class="term-desc">Cross elasticity &gt; 0</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Complementary Goods</div>
-            <div class="term-desc">Cross elasticity &lt; 0</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Normal Goods</div>
-            <div class="term-desc">Income elasticity &gt; 0</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Inferior Goods</div>
-            <div class="term-desc">Income elasticity &lt; 0</div>
-          </div>
-          <div class="term-card">
-            <div class="term-name">Flux Method</div>
-            <div class="term-desc">Another name for Percentage Method</div>
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Why use percentage changes instead of absolute changes?</li>
+              <li><strong>Q2.</strong> Price falls from ₹12 to ₹9; quantity rises from 60 to 75. Calculate E<sub>d</sub> and classify demand.</li>
+              <li><strong>Q3.</strong> A shopkeeper says, “Price fell by ₹2 and sales rose by 10 units, so demand is elastic.” What is missing?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>Absolute changes are not comparable across goods or market sizes. Percentages use the initial values, cancel units and give a pure number.</li>
+                <li>%ΔQ = 15/60 × 100 = 25%; %ΔP = −3/12 × 100 = −25%; E<sub>d</sub> = 25 ÷ (−25) = −1. |E<sub>d</sub>| = 1: unitary elastic.</li>
+                <li>He needs percentage changes, not absolute changes. Without the initial price and quantity, ₹2 and 10 units could imply any elasticity.</li>
+              </ol></div>
+            </details>
           </div>
         </div>
       </section>
 
-  <script id="chapter-terms-data" type="application/json">
-  [{"term":"Price Elasticity of Demand","definition":"Percentage change in quantity demanded divided by percentage change in Price"},{"term":"Perfectly Inelastic (Ed = 0)","definition":"No change in demand despite price change"},{"term":"Relatively Inelastic (0<Ed<1)","definition":"Demand changes less than price"},{"term":"Unitary Elastic (Ed = 1)","definition":"Demand changes equal to price"},{"term":"Relatively Elastic (1<Ed<∞)","definition":"Demand changes more than price"},{"term":"Perfectly Elastic (Ed = ∞)","definition":"Infinite demand at a given price"},{"term":"Percentage Method","definition":"Ed = (percentage change in Qd) / (percentage change in P), given by Marshall"},{"term":"Total Expenditure Method","definition":"Uses P x Q relationship to find elasticity"},{"term":"Cross Elasticity","definition":"Percentage change in Qd of X / Percentage change in price of Y"},{"term":"Income Elasticity","definition":"Percentage change in Qd / Percentage change in income"},{"term":"Substitute Goods","definition":"Cross elasticity > 0"},{"term":"Complementary Goods","definition":"Cross elasticity < 0"},{"term":"Normal Goods","definition":"Income elasticity > 0"},{"term":"Inferior Goods","definition":"Income elasticity < 0"}]
-  </script>
-      <div class="footer">
-        <p>Economics Notes · Class 11 · Chapter 4 — Elasticity of Demand</p>
+      <section class="session" id="n-section-3">
+        <header class="session-head"><span class="session-kicker">Section 3</span><h2>The Five Degrees of Elasticity</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Elasticity runs on a scale from zero to infinity. Five benchmark cases cover the scale, and each has a characteristic shape.</p></blockquote>
+
+          <section class="subsection" id="n-s3-1">
+            <h3>3.1 The five cases</h3>
+            <div class="table-wrap" role="region" aria-label="The five degrees of price elasticity" tabindex="0">
+              <table>
+                <thead><tr><th>Degree</th><th>Value</th><th>Shape</th><th>Example</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Perfectly inelastic</strong></td><td>E<sub>d</sub> = 0</td><td>Vertical line</td><td>Life-saving medicine with no substitute (extreme)</td></tr>
+                  <tr><td><strong>Relatively inelastic</strong></td><td>0 &lt; E<sub>d</sub> &lt; 1</td><td>Steep curve</td><td>Salt, matchsticks</td></tr>
+                  <tr><td><strong>Unitary elastic</strong></td><td>E<sub>d</sub> = 1</td><td>Rectangular hyperbola</td><td>A good with constant total expenditure</td></tr>
+                  <tr><td><strong>Relatively elastic</strong></td><td>E<sub>d</sub> &gt; 1</td><td>Flat curve</td><td>Branded clothing, cold drinks</td></tr>
+                  <tr><td><strong>Perfectly elastic</strong></td><td>E<sub>d</sub> = ∞</td><td>Horizontal line</td><td>A firm under perfect competition</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <ul>
+              <li><strong>E<sub>d</sub> = 0:</strong> quantity does not change when price changes.</li>
+              <li><strong>0 &lt; E<sub>d</sub> &lt; 1:</strong> quantity changes proportionately less than price.</li>
+              <li><strong>E<sub>d</sub> = 1:</strong> the two percentage changes are equal; P × Q is constant along a rectangular hyperbola.</li>
+              <li><strong>E<sub>d</sub> &gt; 1:</strong> quantity changes proportionately more than price.</li>
+              <li><strong>E<sub>d</sub> = ∞:</strong> at the ruling price buyers will take any quantity; a tiny price rise reduces demand to zero. A perfectly competitive firm, a price taker, faces this horizontal curve.</li>
+            </ul>
+          </section>
+
+          <section class="subsection" id="n-s3-2">
+            <h3>3.2 The shapes</h3>
+            <figure class="chapter-figure">
+              <img src="Ch4_Degrees.png" alt="Five small panels showing the degrees of elasticity: a vertical perfectly inelastic curve, a steep relatively inelastic curve, a rectangular hyperbola for unitary elasticity, a flat relatively elastic curve and a horizontal perfectly elastic curve. A sixth panel summarises how to read the shapes." loading="lazy" width="1982" height="1407">
+              <figcaption><strong>Figure 4.3 — The five degrees of price elasticity.</strong> Five benchmark demand curves, one for each degree. The vertical curve is perfectly inelastic, the horizontal curve perfectly elastic, and the middle panels run from steep to flat, with a rectangular hyperbola for unitary elasticity.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> Vertical means quantity does not respond; horizontal means buyers will take any quantity at the going price. Between them, steep is less responsive and flat is more responsive. The unitary curve is a curve, not a straight line, because only a rectangular hyperbola keeps P × Q constant at every point.</p>
+          </section>
+
+          <section class="subsection" id="n-s3-3">
+            <h3>3.3 Reading the curves correctly</h3>
+            <div class="callout"><p><strong>Warning.</strong> Do not read elasticity from steepness alone. On a single straight-line demand curve the coefficient changes from infinity at the price axis to zero at the quantity axis. The five panels above are drawn so that the labelled elasticity holds along the whole curve; Section 5 shows the straight-line case.</p></div>
+            <p>Two demand curves can be compared by steepness only when they pass through the same point. Even then, the comparison is about the responsiveness at that point, not about the slope of the whole line.</p>
+            <div class="table-wrap" role="region" aria-label="Shape and response at a glance" tabindex="0">
+              <table>
+                <thead><tr><th>Shape</th><th>What a price rise does</th><th>Elasticity</th></tr></thead>
+                <tbody>
+                  <tr><td>Vertical</td><td>Quantity unchanged</td><td>0</td></tr>
+                  <tr><td>Steep</td><td>Quantity falls a little</td><td>Between 0 and 1</td></tr>
+                  <tr><td>Rectangular hyperbola</td><td>Quantity falls just enough to keep P × Q constant</td><td>1</td></tr>
+                  <tr><td>Flat</td><td>Quantity falls a lot</td><td>Greater than 1</td></tr>
+                  <tr><td>Horizontal</td><td>Quantity falls to zero at any higher price</td><td>Infinity</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Match each degree to its shape: 0, 0 &lt; E<sub>d</sub> &lt; 1, 1, &gt; 1, ∞.</li>
+              <li><strong>Q2.</strong> A demand curve is a rectangular hyperbola. Price rises from ₹10 to ₹12. What happens to total expenditure?</li>
+              <li><strong>Q3.</strong> Why is a perfectly competitive firm's demand curve horizontal, and what is its elasticity?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>0: vertical; 0 &lt; E<sub>d</sub> &lt; 1: steep; 1: rectangular hyperbola; &gt; 1: flat; ∞: horizontal.</li>
+                <li>It stays unchanged. E<sub>d</sub> = 1 everywhere on a rectangular hyperbola, so the price rise is exactly offset by the fall in quantity.</li>
+                <li>The firm is a price taker: it can sell any quantity at the market price but nothing above it. Its demand curve is horizontal, so E<sub>d</sub> = ∞.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-4">
+        <header class="session-head"><span class="session-kicker">Section 4</span><h2>The Total Expenditure Method</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> When price changes, total spending is pulled in two directions. Elasticity decides which pull wins, so the direction of the change in spending reveals the elasticity.</p></blockquote>
+
+          <section class="subsection" id="n-s4-1">
+            <h3>4.1 The test</h3>
+            <p><strong>Total expenditure</strong> is price times quantity. The method based on it is also called the <strong>outlay</strong> method. From the seller's side, total expenditure is <strong>total revenue</strong>.</p>
+            <div class="formula-line">TE = P × Q</div>
+            <p>When price falls, two forces act on expenditure: each unit is cheaper (pulls TE down), but more units are bought (pushes TE up). Elasticity decides which force wins.</p>
+            <ul>
+              <li>If demand is <strong>elastic</strong>, the quantity effect dominates and TE rises.</li>
+              <li>If demand is <strong>inelastic</strong>, the price effect dominates and TE falls.</li>
+              <li>If demand is <strong>unitary</strong>, the two effects offset and TE is unchanged.</li>
+            </ul>
+          </section>
+
+          <section class="subsection" id="n-s4-2">
+            <h3>4.2 The three cases</h3>
+            <div class="table-wrap" role="region" aria-label="Total expenditure test for elasticity" tabindex="0">
+              <table>
+                <thead><tr><th>Elasticity</th><th>Price falls</th><th>Price rises</th><th>Direction of price and TE</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>E<sub>d</sub> &gt; 1</strong></td><td>TE rises</td><td>TE falls</td><td>Opposite</td></tr>
+                  <tr><td><strong>E<sub>d</sub> = 1</strong></td><td>TE unchanged</td><td>TE unchanged</td><td>No change</td></tr>
+                  <tr><td><strong>E<sub>d</sub> &lt; 1</strong></td><td>TE falls</td><td>TE rises</td><td>Same</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Start at ₹10 and 100 units, so TE = ₹1,000. Price falls to ₹8. Three alternative quantity responses give three outcomes:</p>
+            <div class="table-wrap" role="region" aria-label="Three quantity responses to the same price cut" tabindex="0">
+              <table>
+                <thead><tr><th>Response</th><th>New quantity</th><th>New TE (₹)</th><th>TE change</th></tr></thead>
+                <tbody>
+                  <tr><td>Elastic</td><td>140</td><td>1,120</td><td>Rose</td></tr>
+                  <tr><td>Unitary (TE test)</td><td>125</td><td>1,000</td><td>Unchanged</td></tr>
+                  <tr><td>Inelastic</td><td>105</td><td>840</td><td>Fell</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>These are alternatives, not a sequence. For a price rise, read the table in reverse: elastic → TE falls; unitary → unchanged; inelastic → TE rises.</p>
+          </section>
+
+          <section class="subsection" id="n-s4-3">
+            <h3>4.3 Seeing the test on a demand curve</h3>
+            <figure class="chapter-figure">
+              <img src="Ch4_Total_Expenditure.png" alt="Two stacked panels. The top panel shows a straight-line demand curve with an elastic upper half and an inelastic lower half, and the midpoint marked. The bottom panel shows total expenditure rising to a maximum at the midpoint and then falling." loading="lazy" width="1812" height="1381">
+              <figcaption><strong>Figure 4.4 — Total expenditure and elasticity along one demand curve.</strong> The top panel divides a straight-line demand curve into an elastic upper half and an inelastic lower half. The bottom panel shows total expenditure: it rises as price falls while demand is elastic, peaks where E<sub>d</sub> = 1, and falls when demand is inelastic.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> Start at A (price ₹16, quantity 40), where TE is ₹640. Cut price towards M: TE rises to ₹1,000. At M, E<sub>d</sub> = 1 and TE is maximum. Cut price further towards B: TE falls back to ₹640 even though quantity is much larger.</p>
+          </section>
+
+          <section class="subsection" id="n-s4-4">
+            <h3>4.4 Why it is only a rough test</h3>
+            <ul>
+              <li>It gives a <strong>direction</strong>, not a coefficient. It can say “elastic”, not “E<sub>d</sub> = 2.3”.</li>
+              <li>It cannot separate E<sub>d</sub> = 0 from 0 &lt; E<sub>d</sub> &lt; 1: both make TE fall when price falls. It cannot separate E<sub>d</sub> = ∞ from E<sub>d</sub> &gt; 1: both make TE rise when price falls.</li>
+              <li>It assumes other factors are constant. If income or tastes change too, the TE change may not be due to price.</li>
+              <li>Discrete arithmetic can blur the boundary. For ₹8 → ₹10 and 40 → 32 units, the percentage method gives E<sub>d</sub> = 0.8, while TE happens to stay at ₹320. The expenditure test reads direction; the percentage method gives the coefficient.</li>
+            </ul>
+            <div class="callout"><p><strong>In simple words.</strong> The expenditure test is a thermometer, not a precision instrument.</p></div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> State the relation between price and TE for E<sub>d</sub> &gt; 1, E<sub>d</sub> = 1 and E<sub>d</sub> &lt; 1.</li>
+              <li><strong>Q2.</strong> Price rises from ₹20 to ₹25 and TE falls from ₹2,000 to ₹1,800. What is the elasticity range?</li>
+              <li><strong>Q3.</strong> Why can the TE method not distinguish E<sub>d</sub> = 0 from E<sub>d</sub> = 0.5?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>E<sub>d</sub> &gt; 1: opposite directions. E<sub>d</sub> = 1: TE unchanged. E<sub>d</sub> &lt; 1: same direction.</li>
+                <li>Price rose and TE fell, so they moved oppositely: demand is elastic (E<sub>d</sub> &gt; 1).</li>
+                <li>In both cases a price fall reduces TE and a price rise raises it. The direction is the same; only the size differs, and the method does not measure size.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-5">
+        <header class="session-head"><span class="session-kicker">Section 5</span><h2>The Geometric Method</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> On a straight-line demand curve, a point divides the line into two segments. The ratio of those segments is the elasticity at that point — no price or quantity table needed.</p></blockquote>
+
+          <section class="subsection" id="n-s5-1">
+            <h3>5.1 The segment formula</h3>
+            <p>The <strong>geometric</strong> or <strong>point</strong> method measures elasticity at one point on a straight-line demand curve using the two segments cut by that point.</p>
+            <div class="formula-line">E<sub>d</sub> = lower segment ÷ upper segment = EB ÷ AE</div>
+            <p>A is the price-axis intercept, B the quantity-axis intercept, and E the point. AE is the upper segment; EB is the lower segment. Because the line is straight, the ratio of the segments equals the ratio of their horizontal projections, so the quantities can be read off the quantity axis.</p>
+            <div class="callout"><p><strong>Memory line.</strong> Lower over upper. The lower segment is the one nearer the quantity axis.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s5-2">
+            <h3>5.2 Midpoint and halves</h3>
+            <figure class="chapter-figure">
+              <img src="Ch4_Geometric.png" alt="A straight-line demand curve from point A on the price axis at 20 rupees to point B on the quantity axis at 100 units. Point E is at price 15 and quantity 25, and point M is the midpoint at price 10 and quantity 50. Dashed lines project E and M to the axes." loading="lazy" width="1812" height="1242">
+              <figcaption><strong>Figure 4.5 — Point elasticity on a straight-line demand curve.</strong> At E, the lower segment EB is three times the upper segment AE, so E<sub>d</sub> = 3. At the midpoint M, the segments are equal and E<sub>d</sub> = 1.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> Above M, the lower segment is longer, so E<sub>d</sub> &gt; 1. Below M, the lower segment is shorter, so E<sub>d</sub> &lt; 1. At M the two are equal, so E<sub>d</sub> = 1. At A the upper segment is zero, so E<sub>d</sub> → ∞; at B the lower segment is zero, so E<sub>d</sub> = 0.</p>
+            <p>At E, price is ₹15 and quantity is 25 units. The horizontal projections are 25 and 75:</p>
+            <div class="formula-line">E<sub>d</sub> = EB ÷ AE = 75 ÷ 25 = 3</div>
+            <p>The point formula gives the same result:</p>
+            <div class="formula-line">E<sub>d</sub> = (P ÷ Q) × (1 ÷ |slope|) = (15 ÷ 25) × (1 ÷ 0.2) = 3</div>
+            <p>where the slope is |ΔP/ΔQ| = 20/100 = 0.2 for this line.</p>
+          </section>
+
+          <section class="subsection" id="n-s5-3">
+            <h3>5.3 Intercept cases</h3>
+            <div class="table-wrap" role="region" aria-label="Elasticity at different positions on a straight-line demand curve" tabindex="0">
+              <table>
+                <thead><tr><th>Position</th><th>Upper AE</th><th>Lower EB</th><th>E<sub>d</sub></th></tr></thead>
+                <tbody>
+                  <tr><td>At A (price axis)</td><td>0</td><td>AB</td><td>∞</td></tr>
+                  <tr><td>Above M</td><td>Smaller</td><td>Larger</td><td>&gt; 1</td></tr>
+                  <tr><td>At M</td><td>Equal</td><td>Equal</td><td>1</td></tr>
+                  <tr><td>Below M</td><td>Larger</td><td>Smaller</td><td>&lt; 1</td></tr>
+                  <tr><td>At B (quantity axis)</td><td>AB</td><td>0</td><td>0</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Two lessons: <strong>slope is not elasticity</strong>, because a straight line has one slope but elasticity changes from infinity to zero; and <strong>position matters</strong>, so compare two curves at the same price and quantity, not by steepness alone.</p>
+            <div class="callout"><p><strong>Exam line.</strong> On a straight-line demand curve, the upper half is elastic, the midpoint is unit elastic, and the lower half is inelastic.</p></div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> State the geometric formula and the elasticity at the midpoint.</li>
+              <li><strong>Q2.</strong> A straight-line demand curve cuts the price axis at ₹20 and the quantity axis at 100 units. Find E<sub>d</sub> at Q = 25.</li>
+              <li><strong>Q3.</strong> Why is elasticity infinite at the price-axis intercept and zero at the quantity-axis intercept?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>E<sub>d</sub> = EB/AE, lower ÷ upper. At the midpoint the segments are equal, so E<sub>d</sub> = 1.</li>
+                <li>At Q = 25, the price is ₹15. Lower horizontal segment = 75, upper = 25, so E<sub>d</sub> = 75/25 = 3.</li>
+                <li>At A the upper segment is zero, so division by zero makes E<sub>d</sub> → ∞. At B the lower segment is zero, so E<sub>d</sub> = 0/AB = 0.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-6">
+        <header class="session-head"><span class="session-kicker">Section 6</span><h2>Determinants of Price Elasticity</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Elasticity is not a fixed property of a good. It changes with the buyer's options: substitutes, time, uses, habits and how much of the budget the good takes.</p></blockquote>
+
+          <section class="subsection" id="n-s6-1">
+            <h3>6.1 The determinants</h3>
+            <div class="table-wrap" role="region" aria-label="Determinants of price elasticity" tabindex="0">
+              <table>
+                <thead><tr><th>Determinant</th><th>Effect</th><th>Example</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Availability of substitutes</strong></td><td>More substitutes → more elastic</td><td>A soap brand vs soap in general</td></tr>
+                  <tr><td><strong>Nature of the good</strong></td><td>Necessity → inelastic; luxury → elastic</td><td>Salt vs a foreign holiday</td></tr>
+                  <tr><td><strong>Number of uses</strong></td><td>More uses → more elastic</td><td>Milk vs a single-use medicine</td></tr>
+                  <tr><td><strong>Postponement of consumption</strong></td><td>Can postpone → more elastic</td><td>Car vs urgent medicine</td></tr>
+                  <tr><td><strong>Share of income</strong></td><td>Small share → inelastic; large → elastic</td><td>Matchbox vs refrigerator</td></tr>
+                  <tr><td><strong>Habits</strong></td><td>Strong habit or addiction → inelastic</td><td>Cigarettes for a regular smoker</td></tr>
+                  <tr><td><strong>Time period</strong></td><td>Longer period → more elastic</td><td>Petrol in the short vs long run</td></tr>
+                  <tr><td><strong>Complementarity</strong></td><td>Used with another good → often less elastic</td><td>Petrol for a car; printer cartridge</td></tr>
+                  <tr><td><strong>Price level</strong></td><td>Higher price → generally more elastic</td><td>A ₹50,000 watch vs a ₹500 watch</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>The strongest factor is substitutes. If buyers can switch easily, a price rise sends them away quickly. This is why demand for “salt” is inelastic but demand for a particular salt brand is more elastic: the brand has rivals.</p>
+          </section>
+
+          <section class="subsection" id="n-s6-2">
+            <h3>6.2 Options versus lock-in</h3>
+            <figure class="chapter-figure">
+              <img src="Ch4_Determinants.png" alt="A diagram with price elasticity in the centre. The left column lists factors that make demand more elastic: close substitutes, luxury, many uses, postponable purchases, a large budget share and a long time period. The right column lists factors that make demand less elastic: necessity, habit or addiction, essential complement, small budget share, short time period and few substitutes." loading="lazy" width="2152" height="1352">
+              <figcaption><strong>Figure 4.6 — What makes demand more or less elastic.</strong> Elasticity is high when buyers have options and low when they are locked in. The same good can move between the two columns as substitutes, habits, time and budget shares change.</figcaption>
+            </figure>
+            <p>Necessities, habits and essential complements all reduce the buyer's options. Luxuries, postponable purchases and goods with many uses increase them. Time matters because adjustment takes time: petrol demand is less elastic in the short run, when drivers still have the same cars, than in the long run, when they can buy efficient vehicles or use public transport.</p>
+            <div class="callout"><p><strong>A useful summary.</strong> Elasticity is high when buyers have <strong>options</strong> — substitutes, time, other uses, budget room. It is low when they are <strong>locked in</strong> — necessity, habit, addiction, or an essential complement.</p></div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Why is the demand for salt usually inelastic?</li>
+              <li><strong>Q2.</strong> A new soap brand has many close substitutes; a life-saving insulin brand has few. Which demand is more elastic?</li>
+              <li><strong>Q3.</strong> Why does demand become more elastic over a longer time period?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>Salt is a necessity with few substitutes, a small budget share and habitual purchase, so quantity responds little to price.</li>
+                <li>The soap brand. Buyers can switch to rivals; insulin buyers have few alternatives and the good is essential.</li>
+                <li>Consumers have more time to change habits, find substitutes or buy efficient equipment, so the quantity response can work itself out.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-7">
+        <header class="session-head"><span class="session-kicker">Section 7</span><h2>Elasticity and Total Revenue</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Every seller is really asking an elasticity question: if I cut price, will the extra units make up for the lower price per unit?</p></blockquote>
+
+          <section class="subsection" id="n-s7-1">
+            <h3>7.1 The seller's question</h3>
+            <p>From the seller's side, total expenditure is <strong>total revenue</strong>:</p>
+            <div class="formula-line">TR = P × Q</div>
+            <p>P is price per unit and Q is quantity sold. Before changing price, a seller asks whether extra units will compensate for the lower price per unit. Elasticity answers that.</p>
+            <div class="table-wrap" role="region" aria-label="Elasticity and total revenue" tabindex="0">
+              <table>
+                <thead><tr><th>Elasticity</th><th>Price rises</th><th>Price falls</th><th>Seller's reading</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>E<sub>d</sub> &gt; 1</strong></td><td>TR falls</td><td>TR rises</td><td>A price cut raises revenue</td></tr>
+                  <tr><td><strong>E<sub>d</sub> = 1</strong></td><td>TR unchanged</td><td>TR unchanged</td><td>Price changes do not raise revenue</td></tr>
+                  <tr><td><strong>E<sub>d</sub> &lt; 1</strong></td><td>TR rises</td><td>TR falls</td><td>A price rise raises revenue</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>Read it with Figure 4.4.</strong> The TE curve is the revenue curve seen from the buyer's side. It rises while demand is elastic, peaks at the midpoint where E<sub>d</sub> = 1, and falls when demand is inelastic.</p>
+          </section>
+
+          <section class="subsection" id="n-s7-2">
+            <h3>7.2 A café example</h3>
+            <p>A café sells 100 cups at ₹50, so its total revenue is ₹5,000. It cuts price to ₹45 and sells 130 cups, so revenue is ₹5,850. The changes are −10% in price and +30% in quantity, so E<sub>d</sub> = 30/10 = 3. Revenue rises by ₹850.</p>
+            <p>Whether <strong>profit</strong> rises depends on the cost of the extra 30 cups. If each extra cup costs ₹40 to make, the extra revenue of ₹850 is partly eaten by ₹1,200 of extra cost, and profit falls even though revenue rises.</p>
+            <div class="callout"><p><strong>Warning.</strong> Revenue maximisation is not profit maximisation. A price cut can raise TR and still lower profit if extra output costs more than the extra revenue.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s7-3">
+            <h3>7.3 The marginal revenue link</h3>
+            <p>Chapter 7 gives the exact relationship:</p>
+            <div class="formula-line">MR = AR × (1 − 1/E<sub>d</sub>)</div>
+            <p>MR is marginal revenue, AR is average revenue (price), and E<sub>d</sub> is the absolute value of elasticity.</p>
+            <ul>
+              <li>If E<sub>d</sub> &gt; 1, the bracket is positive, so MR &gt; 0 and TR is still rising.</li>
+              <li>If E<sub>d</sub> = 1, MR = 0 and TR is at its maximum.</li>
+              <li>If E<sub>d</sub> &lt; 1, MR &lt; 0 and TR is falling.</li>
+            </ul>
+            <p>This is why a seller facing a straight-line demand curve maximises revenue at the midpoint, exactly where E<sub>d</sub> = 1 in Figure 4.4.</p>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> If E<sub>d</sub> = 0.6, what happens to TR when price rises?</li>
+              <li><strong>Q2.</strong> Price falls from ₹50 to ₹45 and quantity rises from 100 to 130. Find E<sub>d</sub> and the change in TR.</li>
+              <li><strong>Q3.</strong> Why does a price cut raise revenue only when demand is elastic?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>TR rises. Demand is inelastic, so the price effect dominates.</li>
+                <li>%ΔP = −10%, %ΔQ = 30%, so E<sub>d</sub> = 3. TR rises from ₹5,000 to ₹5,850, an increase of ₹850.</li>
+                <li>The price cut lowers revenue per unit but raises units sold. With elastic demand, the percentage rise in quantity exceeds the percentage fall in price, so the quantity effect wins.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-8">
+        <header class="session-head"><span class="session-kicker">Section 8</span><h2>Elasticity in Policy and Business</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Elasticity is not just an exam calculation. It shapes tax policy, monopoly pricing, export earnings, price discrimination and wage bargaining.</p></blockquote>
+
+          <section class="subsection" id="n-s8-1">
+            <h3>8.1 Five applications</h3>
+            <div class="table-wrap" role="region" aria-label="Uses of elasticity in policy and business" tabindex="0">
+              <table>
+                <thead><tr><th>Use</th><th>How elasticity matters</th><th>Example</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Taxation</strong></td><td>Tax inelastic goods to raise revenue with little loss of quantity; consumers bear more of the tax when demand is inelastic relative to supply</td><td>Salt, fuel, tobacco</td></tr>
+                  <tr><td><strong>Monopoly pricing</strong></td><td>A price-maker studies elasticity before changing price; profit-maximising output lies on the elastic range, where MR is positive</td><td>Patented medicine</td></tr>
+                  <tr><td><strong>Devaluation</strong></td><td>Exports become cheaper abroad; elastic export demand raises earnings, inelastic demand lowers them</td><td>Textiles vs specialised machinery</td></tr>
+                  <tr><td><strong>Price discrimination</strong></td><td>Charge more where demand is inelastic, less where it is elastic</td><td>Student discounts, airline fares</td></tr>
+                  <tr><td><strong>Wage bargaining</strong></td><td>Inelastic labour demand means a wage rise causes a smaller employment fall, giving workers more power</td><td>Doctors, specialised engineers</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="subsection" id="n-s8-2">
+            <h3>8.2 The qualifications</h3>
+            <p><strong>Taxation</strong> is not only about revenue. A tax on salt may be revenue-safe but regressive, hitting poor households harder; elasticity predicts the revenue effect, not the fairness.</p>
+            <p><strong>Devaluation</strong> works through export demand. A cheaper currency lowers the foreign price of exports. If foreign buyers respond strongly, quantity rises enough to raise earnings; if they respond weakly, the price fall dominates and earnings fall.</p>
+            <p><strong>Price discrimination</strong> requires different elasticities and separate markets. Students are more price-sensitive than business travellers, so cinemas and airlines discount to students while charging business travellers more. If resale is easy, the low-price buyer undercuts the high-price market and the scheme collapses.</p>
+            <div class="callout"><p><strong>A final warning.</strong> Elasticity predicts direction, not the whole decision. Governments also care about fairness, firms about costs, and unions about the total wage bill.</p></div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Why do governments often tax goods with inelastic demand?</li>
+              <li><strong>Q2.</strong> A country devalues and export demand is inelastic. What happens to export earnings?</li>
+              <li><strong>Q3.</strong> Why can a seller charge different prices to two groups?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>A tax raises price without a large fall in quantity, so revenue is relatively stable and more of the tax is passed to consumers when demand is inelastic relative to supply.</li>
+                <li>Earnings fall: the foreign-currency price falls, but quantity rises less than proportionately.</li>
+                <li>The groups have different elasticities and the markets can be kept separate. The seller charges more to the inelastic group and less to the elastic group.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-9">
+        <header class="session-head"><span class="session-kicker">Section 9</span><h2>Common Mistakes, Recap and Exam Practice</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Most lost marks in this chapter come from three places: the wrong base, the wrong direction in the geometric formula, and treating slope as elasticity. Fix those and the rest is practice.</p></blockquote>
+
+          <section class="subsection" id="n-s9-1">
+            <h3>9.1 Common mistakes</h3>
+            <div class="table-wrap" role="region" aria-label="Common mistakes in elasticity" tabindex="0">
+              <table>
+                <thead><tr><th>Mistake</th><th>Correct idea</th></tr></thead>
+                <tbody>
+                  <tr><td>Reporting elasticity as negative and treating the sign as strength</td><td>Report the absolute value; the sign only shows the inverse relationship.</td></tr>
+                  <tr><td>Using the new price or quantity as the base</td><td>Use the initial values in the standard CBSE formula.</td></tr>
+                  <tr><td>Thinking elastic demand means a large quantity demanded</td><td>Elasticity is responsiveness, not market size.</td></tr>
+                  <tr><td>Treating a steep curve as inelastic at every point</td><td>On a straight line, elasticity changes from infinity to zero; slope is not elasticity.</td></tr>
+                  <tr><td>Thinking E<sub>d</sub> = 1 means quantity is constant</td><td>It means the percentage changes are equal; quantity does change.</td></tr>
+                  <tr><td>Treating unchanged TE as an exact proof of E<sub>d</sub> = 1 in every example</td><td>The expenditure test is rough; discrete arithmetic can blur the boundary.</td></tr>
+                  <tr><td>Using the TE test to separate E<sub>d</sub> = 0 from E<sub>d</sub> &lt; 1</td><td>It cannot; both move TE in the same direction.</td></tr>
+                  <tr><td>Writing upper ÷ lower in the geometric method</td><td>It is lower ÷ upper.</td></tr>
+                  <tr><td>Confusing a movement along the curve with a shift</td><td>Own-price changes move along the curve; income or taste changes shift it.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="subsection" id="n-recap">
+            <h3>9.2 Chapter recap</h3>
+            <ul>
+              <li>Elasticity measures the size of the quantity response; the law of demand gives only the direction.</li>
+              <li>E<sub>d</sub> = (ΔQ/Q) ÷ (ΔP/P), using initial values and reporting the absolute value.</li>
+              <li>The five degrees: 0 vertical, less than 1 steep, 1 rectangular hyperbola, more than 1 flat, infinity horizontal.</li>
+              <li>TE method: E<sub>d</sub> &gt; 1 → opposite; E<sub>d</sub> &lt; 1 → same; E<sub>d</sub> = 1 → unchanged. It is only a rough test.</li>
+              <li>Geometric method: E<sub>d</sub> = lower ÷ upper; midpoint 1; upper half elastic, lower half inelastic; intercepts infinity and zero.</li>
+              <li>Elasticity is higher with substitutes, luxuries, many uses, postponement, a large budget share, a long time period and a high price level; lower for necessities, habits and essential complements.</li>
+              <li>A price cut raises TR when demand is elastic, lowers it when inelastic, and leaves it unchanged when unitary. Revenue maximisation is not profit maximisation.</li>
+              <li>Elasticity informs taxation, monopoly pricing, devaluation, price discrimination and wage bargaining.</li>
+            </ul>
+          </section>
+
+          <section class="subsection" id="n-formulas">
+            <h3>9.3 Formula sheet</h3>
+            <div class="table-wrap" role="region" aria-label="Elasticity formula sheet" tabindex="0">
+              <table>
+                <thead><tr><th>Concept</th><th>Formula</th><th>Remember</th></tr></thead>
+                <tbody>
+                  <tr><td>Percentage change</td><td>%ΔX = ((X<sub>1</sub> − X<sub>0</sub>) ÷ X<sub>0</sub>) × 100</td><td>Divide by the initial value</td></tr>
+                  <tr><td>Price elasticity</td><td>E<sub>d</sub> = %ΔQ ÷ %ΔP = (ΔQ/Q) ÷ (ΔP/P)</td><td>Take the absolute value</td></tr>
+                  <tr><td>Expanded form</td><td>E<sub>d</sub> = (ΔQ/ΔP) × (P/Q)</td><td>ΔQ = Q<sub>1</sub> − Q; ΔP = P<sub>1</sub> − P</td></tr>
+                  <tr><td>Total expenditure</td><td>TE = P × Q</td><td>Same as total revenue</td></tr>
+                  <tr><td>TE test</td><td>E<sub>d</sub> &gt; 1: opposite; E<sub>d</sub> &lt; 1: same; E<sub>d</sub> = 1: unchanged</td><td>Direction only</td></tr>
+                  <tr><td>Geometric method</td><td>E<sub>d</sub> = EB ÷ AE</td><td>Lower ÷ upper; midpoint 1</td></tr>
+                  <tr><td>Point elasticity</td><td>E<sub>d</sub> = (P/Q) × (1 ÷ |slope|)</td><td>Slope = ΔP/ΔQ; use absolute value</td></tr>
+                  <tr><td>Revenue link</td><td>MR = AR × (1 − 1/E<sub>d</sub>)</td><td>E<sub>d</sub> as absolute value; E<sub>d</sub> = 1 ⇒ MR = 0</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="subsection" id="n-exam">
+            <h3>9.4 Exam-style questions</h3>
+            <p><strong>Very short answer (1 mark)</strong></p>
+            <ol>
+              <li>Define price elasticity of demand.</li>
+              <li>What is E<sub>d</sub> at the midpoint of a straight-line demand curve?</li>
+              <li>What is the shape of a perfectly inelastic demand curve?</li>
+              <li>A 10% price rise cuts quantity by 5%. Is demand elastic or inelastic?</li>
+              <li>Price falls and demand is elastic. What happens to total expenditure?</li>
+            </ol>
+            <p><strong>Short answer (3 marks)</strong></p>
+            <ol>
+              <li>Why does the percentage method use percentage changes rather than absolute changes?</li>
+              <li>Calculate E<sub>d</sub> when price falls from ₹20 to ₹16 and quantity rises from 40 to 50 units. Interpret the result.</li>
+              <li>Distinguish perfectly elastic from perfectly inelastic demand, with the shape of each curve.</li>
+              <li>Explain the total expenditure method and its three cases.</li>
+            </ol>
+            <p><strong>Long answer (4–6 marks)</strong></p>
+            <ol>
+              <li>Explain the percentage method with a worked example and two precautions.</li>
+              <li>Explain the geometric method on a straight-line demand curve, including the midpoint, the two halves and the intercept cases.</li>
+              <li>Explain any five determinants of price elasticity with examples.</li>
+            </ol>
+            <details class="checklist"><summary>Answer pointers</summary>
+              <div class="checklist-answer">
+                <p><strong>Very short answer.</strong></p>
+                <ol>
+                  <li>Percentage change in quantity demanded divided by percentage change in own price, other things constant.</li>
+                  <li>E<sub>d</sub> = 1.</li>
+                  <li>A vertical straight line.</li>
+                  <li>Inelastic (E<sub>d</sub> = 0.5).</li>
+                  <li>Total expenditure rises.</li>
+                </ol>
+                <p><strong>Short answer.</strong></p>
+                <ol>
+                  <li>Absolute changes are not comparable across goods or market sizes; percentages use initial values, cancel units and give a pure number.</li>
+                  <li>%ΔQ = 10/40 × 100 = 25%; %ΔP = −4/20 × 100 = −20%; E<sub>d</sub> = 1.25. Elastic.</li>
+                  <li>Perfectly elastic: horizontal, E<sub>d</sub> = ∞, any quantity at the ruling price. Perfectly inelastic: vertical, E<sub>d</sub> = 0, quantity unchanged when price changes.</li>
+                  <li>TE = P × Q. E<sub>d</sub> &gt; 1: opposite; E<sub>d</sub> = 1: unchanged; E<sub>d</sub> &lt; 1: same. It is a rough directional test.</li>
+                </ol>
+                <p><strong>Long answer.</strong></p>
+                <ol>
+                  <li>E<sub>d</sub> = %ΔQ/%ΔP, initial values, full numerical example, absolute value. Precautions: use the initial base; do not confuse absolute with percentage changes.</li>
+                  <li>E<sub>d</sub> = EB/AE. Midpoint: EB = AE, so E<sub>d</sub> = 1. Above: EB &gt; AE, E<sub>d</sub> &gt; 1. Below: EB &lt; AE, E<sub>d</sub> &lt; 1. At A: infinity; at B: zero.</li>
+                  <li>Any five: substitutes, necessity/luxury, uses, postponement, budget share, habits, time, complementarity, price level. Give an example and the direction of the effect for each.</li>
+                </ol>
+              </div>
+            </details>
+          </section>
+
+          <section class="subsection" id="n-minute">
+            <h3>9.5 One-minute revision</h3>
+            <div class="table-wrap" role="region" aria-label="One-minute revision for elasticity" tabindex="0">
+              <table>
+                <thead><tr><th>Non-negotiable</th><th>One-line version</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Definition</strong></td><td>E<sub>d</sub> = %ΔQ ÷ %ΔP, absolute value</td></tr>
+                  <tr><td><strong>Base</strong></td><td>Initial price and quantity</td></tr>
+                  <tr><td><strong>Degrees</strong></td><td>0 vertical; less than 1 steep; 1 rectangular hyperbola; more than 1 flat; infinity horizontal</td></tr>
+                  <tr><td><strong>TE test</strong></td><td>E<sub>d</sub> &gt; 1 opposite; E<sub>d</sub> &lt; 1 same; E<sub>d</sub> = 1 unchanged; rough only</td></tr>
+                  <tr><td><strong>Geometric</strong></td><td>Lower ÷ upper; midpoint 1; upper half &gt; 1, lower half &lt; 1</td></tr>
+                  <tr><td><strong>Revenue</strong></td><td>Elastic → cut price to raise TR; inelastic → raise price</td></tr>
+                  <tr><td><strong>Determinants</strong></td><td>Substitutes, necessity, uses, postponement, budget share, habits, time, complements, price level</td></tr>
+                  <tr><td><strong>Caution</strong></td><td>Slope is not elasticity; elasticity changes along a straight line</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </section>
       </div>
 
+      <div class="mode-panel mode-panel--quick" id="panel-quick" role="region" aria-label="Quick Revision" data-mode="quick" hidden>
+      <section class="quick-brief" id="q-start">
+        <div class="quick-brief-head">
+          <span class="quick-kicker">18-minute recall</span>
+          <h2>Quick revision, done properly</h2>
+          <p><strong>How to use this file (30 seconds):</strong> read one block → cover it → answer the recall questions aloud → open the answer to check → move on. Total time: about 18 minutes.</p>
+        </div>
+        <ol class="recall-steps">
+          <li><span class="step-num">01</span><strong>Read</strong><span>one block of notes</span></li>
+          <li><span class="step-num">02</span><strong>Cover</strong><span>the page and recall</span></li>
+          <li><span class="step-num">03</span><strong>Answer</strong><span>the drill aloud</span></li>
+          <li><span class="step-num">04</span><strong>Check</strong><span>and move on</span></li>
+        </ol>
+        <div class="quick-map-head"><span>The three sessions</span><span>Tap to jump in</span></div>
+        <div class="quick-map">
+        <a class="quick-map-card" href="#q-session-1">
+          <span class="quick-map-num">S1</span>
+          <span class="quick-map-body"><strong>Meaning, method and degrees</strong><span>Why elasticity exists, the percentage formula and the five shapes</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="quick-map-card" href="#q-session-2">
+          <span class="quick-map-num">S2</span>
+          <span class="quick-map-body"><strong>Total expenditure and geometric method</strong><span>The TE test, its three cases, point elasticity and its limits</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="quick-map-card" href="#q-session-3">
+          <span class="quick-map-num">S3</span>
+          <span class="quick-map-body"><strong>Determinants, revenue and uses</strong><span>What makes demand responsive, how TR changes and where policy uses it</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        </div>
+        <p class="quick-brief-foot">24 recall questions · one confusion clinic · one rapid-fire table · one blank-page test.</p>
+      </section>
+
+      <section class="session session--quick" id="q-session-1">
+        <header class="session-head"><span class="session-kicker">Session 1</span><h2>Meaning, method and degrees</h2></header>
+        <div class="session-body">
+          <h3 id="q-s1-lines">The chapter in 12 lines</h3>
+          <ul>
+            <li>The law of demand gives the <strong>direction</strong>; elasticity gives the <strong>size</strong>.</li>
+            <li><strong>E<sub>d</sub> = %ΔQ ÷ %ΔP</strong>, other things constant.</li>
+            <li>Report the <strong>absolute value</strong>; the negative sign only records the inverse relation.</li>
+            <li>Use the <strong>initial</strong> price and quantity as the base.</li>
+            <li>Elasticity is a <strong>pure number</strong>, so salt and gold can be compared.</li>
+            <li><strong>|E<sub>d</sub>| &gt; 1</strong> elastic; <strong>= 1</strong> unitary; <strong>&lt; 1</strong> inelastic.</li>
+            <li><strong>E<sub>d</sub> = 0</strong>: vertical. Quantity does not respond.</li>
+            <li><strong>E<sub>d</sub> = ∞</strong>: horizontal. Any quantity at the ruling price.</li>
+            <li><strong>E<sub>d</sub> = 1</strong>: rectangular hyperbola, so P × Q is constant.</li>
+            <li>Steep usually means less elastic; flat usually means more elastic — <strong>at the same point</strong>.</li>
+            <li><strong>Slope is not elasticity</strong>: one straight line has one slope but many elasticities.</li>
+            <li>Perfectly competitive firms face a <strong>horizontal</strong> demand curve: E<sub>d</sub> = ∞.</li>
+          </ul>
+
+          <h3 id="q-s1-meaning">Why elasticity exists</h3>
+          <p>A 10% price rise may cut salt purchases by 1% and cold-drink purchases by 25%. Both obey the law of demand; the law cannot tell them apart. Elasticity measures the difference.</p>
+          <div class="table-wrap" role="region" aria-label="Elastic and inelastic meaning" tabindex="0">
+            <table>
+              <thead><tr><th>Label</th><th>Coefficient</th><th>Meaning</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Elastic</strong></td><td>|E<sub>d</sub>| &gt; 1</td><td>%ΔQ is larger than %ΔP</td></tr>
+                <tr><td><strong>Unitary</strong></td><td>|E<sub>d</sub>| = 1</td><td>%ΔQ equals %ΔP</td></tr>
+                <tr><td><strong>Inelastic</strong></td><td>0 &lt; |E<sub>d</sub>| &lt; 1</td><td>%ΔQ is smaller than %ΔP</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Not size:</strong> “elastic” does not mean “large quantity”. It means buyers are responsive to price.</p></div>
+
+          <h3 id="q-s1-method">The percentage method</h3>
+          <div class="formula-line">E<sub>d</sub> = %ΔQ ÷ %ΔP = (ΔQ/Q) ÷ (ΔP/P) = (ΔQ/ΔP) × (P/Q)</div>
+          <p>Use the <strong>initial</strong> Q and P. If price falls ₹10 → ₹8 and quantity rises 100 → 140:</p>
+          <div class="table-wrap" role="region" aria-label="Worked percentage method" tabindex="0">
+            <table>
+              <thead><tr><th>Step</th><th>Calculation</th><th>Result</th></tr></thead>
+              <tbody>
+                <tr><td>%ΔQ</td><td>40 ÷ 100 × 100</td><td>+40%</td></tr>
+                <tr><td>%ΔP</td><td>−2 ÷ 10 × 100</td><td>−20%</td></tr>
+                <tr><td>E<sub>d</sub></td><td>+40 ÷ (−20)</td><td>−2</td></tr>
+                <tr><td>|E<sub>d</sub>|</td><td>size only</td><td>2 → elastic</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Base warning:</strong> a ₹2 fall from ₹10 is 20%; a ₹2 rise from ₹8 is 25%. The same absolute change can give different coefficients.</p></div>
+
+          <h3 id="q-s1-degrees">The five degrees</h3>
+          <div class="table-wrap" role="region" aria-label="The five degrees quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Degree</th><th>Value</th><th>Shape</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Perfectly inelastic</strong></td><td>0</td><td>Vertical</td><td>Essential medicine with no substitute</td></tr>
+                <tr><td><strong>Relatively inelastic</strong></td><td>0 to 1</td><td>Steep</td><td>Salt, matchsticks</td></tr>
+                <tr><td><strong>Unitary</strong></td><td>1</td><td>Rectangular hyperbola</td><td>Constant total spending</td></tr>
+                <tr><td><strong>Relatively elastic</strong></td><td>Above 1</td><td>Flat</td><td>Cold drinks, branded clothing</td></tr>
+                <tr><td><strong>Perfectly elastic</strong></td><td>∞</td><td>Horizontal</td><td>Firm under perfect competition</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Two warnings:</strong> a steep curve is not automatically inelastic at every point, and E<sub>d</sub> = 1 does not mean quantity is constant — it means the percentage changes match.</p></div>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s1-drill">Recall drill — Session 1</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>Define price elasticity of demand and explain why the law of demand is incomplete without it.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>It is the percentage change in quantity demanded divided by the percentage change in the good's own price, other things constant. The law gives only the direction of the response; elasticity gives its size.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Price rises 10% and quantity falls 20%. Price rises 10% and quantity falls 5%. Calculate both elasticities and classify them.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>First: 20 ÷ 10 = 2, elastic. Second: 5 ÷ 10 = 0.5, inelastic. The first good is twice as responsive.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why use percentage changes, and which values go in the base?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Percentages cancel units and make changes comparable across goods and market sizes. Use the initial price and quantity as the base, as in the standard CBSE formula.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Price falls from ₹10 to ₹8; quantity rises from 100 to 140. Find E<sub>d</sub>.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>%ΔQ = 40 ÷ 100 × 100 = 40%; %ΔP = −2 ÷ 10 × 100 = −20%; E<sub>d</sub> = 40 ÷ (−20) = −2. |E<sub>d</sub>| = 2, elastic.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Price rises from ₹8 to ₹10; quantity falls from 40 to 32. Find E<sub>d</sub>.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>%ΔQ = −8 ÷ 40 × 100 = −20%; %ΔP = 2 ÷ 8 × 100 = 25%; E<sub>d</sub> = −20 ÷ 25 = −0.8. |E<sub>d</sub>| = 0.8, inelastic.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>A 5% fall in price raises quantity by 12%. Find E<sub>d</sub>.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>E<sub>d</sub> = 12 ÷ 5 = 2.4. Elastic.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>E<sub>d</sub> = 3; price falls from ₹10 to ₹5; initial quantity is 40. Find the new quantity.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>The price fall is 50%. %ΔQ = 3 × 50% = 150%. New quantity = 40 + 1.5 × 40 = <strong>100 units</strong>.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Match each degree to its shape: 0, between 0 and 1, 1, above 1, infinity.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>0: vertical. Between 0 and 1: steep. 1: rectangular hyperbola. Above 1: flat. Infinity: horizontal.</p></details></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="session session--quick" id="q-session-2">
+        <header class="session-head"><span class="session-kicker">Session 2</span><h2>Total expenditure and geometric method</h2></header>
+        <div class="session-body">
+          <h3 id="q-s2-te">The total expenditure test</h3>
+          <p><strong>TE = P × Q.</strong> When price falls, each unit earns less but more units are sold. Elasticity decides which effect wins.</p>
+          <div class="formula-line">TE = P × Q          E<sub>d</sub> &gt; 1 → TE moves opposite to price</div>
+          <div class="callout"><p><strong>One-line test:</strong> price and TE moving in <em>opposite</em> directions means elastic; moving in the <em>same</em> direction means inelastic; no change means unitary.</p></div>
+
+          <h3 id="q-s2-cases">The three cases</h3>
+          <div class="table-wrap" role="region" aria-label="Total expenditure cases quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Elasticity</th><th>Price falls</th><th>Price rises</th><th>Reading</th></tr></thead>
+              <tbody>
+                <tr><td><strong>E<sub>d</sub> &gt; 1</strong></td><td>TE rises</td><td>TE falls</td><td>Opposite directions</td></tr>
+                <tr><td><strong>E<sub>d</sub> = 1</strong></td><td>TE unchanged</td><td>TE unchanged</td><td>No change</td></tr>
+                <tr><td><strong>E<sub>d</sub> &lt; 1</strong></td><td>TE falls</td><td>TE rises</td><td>Same direction</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Example:</strong> at ₹10 and 100 units, TE = ₹1,000. A cut to ₹8 gives TE = ₹1,120 if quantity rises to 140 (elastic), ₹1,000 at 125 (unitary), or ₹840 at 105 (inelastic).</p>
+          <div class="callout"><p><strong>Rough test only:</strong> TE cannot separate 0 from 0.5, or infinity from 2. It gives a direction, not a coefficient.</p></div>
+
+          <h3 id="q-s2-geometric">The geometric method</h3>
+          <div class="formula-line">E<sub>d</sub> = lower segment ÷ upper segment = EB ÷ AE</div>
+          <p>On a straight-line demand curve from A (price axis) to B (quantity axis), a point E divides the line. Above the midpoint, EB &gt; AE, so E<sub>d</sub> &gt; 1. At the midpoint, EB = AE, so E<sub>d</sub> = 1. Below it, EB &lt; AE, so E<sub>d</sub> &lt; 1.</p>
+          <div class="table-wrap" role="region" aria-label="Point elasticity positions" tabindex="0">
+            <table>
+              <thead><tr><th>Position</th><th>E<sub>d</sub></th><th>Reason</th></tr></thead>
+              <tbody>
+                <tr><td>At A (price axis)</td><td>∞</td><td>Upper segment is zero</td></tr>
+                <tr><td>Upper half</td><td>Above 1</td><td>Lower segment is longer</td></tr>
+                <tr><td>Midpoint</td><td>1</td><td>Segments are equal</td></tr>
+                <tr><td>Lower half</td><td>Below 1</td><td>Upper segment is longer</td></tr>
+                <tr><td>At B (quantity axis)</td><td>0</td><td>Lower segment is zero</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Worked check:</strong> a line cuts the axes at ₹20 and 100 units. At Q = 25, P = ₹15. Lower projection = 75, upper = 25, so E<sub>d</sub> = 75 ÷ 25 = 3.</p></div>
+
+          <h3 id="q-s2-limits">Limits and comparison</h3>
+          <div class="table-wrap" role="region" aria-label="Comparing the three elasticity methods" tabindex="0">
+            <table>
+              <thead><tr><th>Method</th><th>What it gives</th><th>Main limit</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Percentage</strong></td><td>An exact coefficient</td><td>Needs initial and new P and Q</td></tr>
+                <tr><td><strong>Total expenditure</strong></td><td>A direction: elastic, unitary or inelastic</td><td>Cannot measure size or separate the extremes</td></tr>
+                <tr><td><strong>Geometric</strong></td><td>Elasticity at a point on a straight line</td><td>Only for a straight-line demand curve</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Slope is not elasticity:</strong> a straight line has one slope, but elasticity falls from infinity at A to zero at B.</p></div>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s2-drill">Recall drill — Session 2</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>State the TE test for E<sub>d</sub> &gt; 1, E<sub>d</sub> = 1 and E<sub>d</sub> &lt; 1.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>E<sub>d</sub> &gt; 1: price and TE move oppositely. E<sub>d</sub> = 1: TE unchanged. E<sub>d</sub> &lt; 1: price and TE move in the same direction.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Price falls from ₹20 to ₹16 and TE rises. What can you say about elasticity?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Price and TE moved in opposite directions, so demand is elastic (E<sub>d</sub> &gt; 1). The quantity effect dominated.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why can the TE method not distinguish E<sub>d</sub> = 0 from E<sub>d</sub> = 0.5?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Both are inelastic, so both make TE fall when price falls and rise when price rises. The direction is identical; the method does not measure the size of the response.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>State the geometric formula and the elasticity at the midpoint.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>E<sub>d</sub> = EB ÷ AE, lower ÷ upper. At the midpoint the segments are equal, so E<sub>d</sub> = 1.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>A straight line cuts the price axis at ₹20 and the quantity axis at 100 units. Find E<sub>d</sub> at Q = 25.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>At Q = 25, P = ₹15. The lower horizontal projection is 75 and the upper is 25, so E<sub>d</sub> = 75 ÷ 25 = 3.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is E<sub>d</sub> infinite at A and zero at B?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>At A the upper segment is zero, so the ratio EB/AE divides by zero and tends to infinity. At B the lower segment is zero, so EB/AE = 0.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is slope not elasticity?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>A straight line has a constant slope, but its elasticity changes from infinity at the price axis to zero at the quantity axis. Elasticity depends on the ratio P/Q as well as the slope.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>A point on a straight-line demand curve has E<sub>d</sub> = 2. Is it above or below the midpoint?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Above the midpoint. In the upper half the lower segment is longer than the upper segment, so E<sub>d</sub> &gt; 1.</p></details></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="session session--quick" id="q-session-3">
+        <header class="session-head"><span class="session-kicker">Session 3</span><h2>Determinants, revenue and uses</h2></header>
+        <div class="session-body">
+          <h3 id="q-s3-determinants">Determinants of elasticity</h3>
+          <div class="table-wrap" role="region" aria-label="Determinants quick table" tabindex="0">
+            <table>
+              <thead><tr><th>More elastic</th><th>Less elastic</th></tr></thead>
+              <tbody>
+                <tr><td>Close substitutes available</td><td>Few or no substitutes</td></tr>
+                <tr><td>Luxury</td><td>Necessity</td></tr>
+                <tr><td>Many uses</td><td>Single use</td></tr>
+                <tr><td>Purchase can be postponed</td><td>Urgent purchase</td></tr>
+                <tr><td>Large share of the budget</td><td>Small share of the budget</td></tr>
+                <tr><td>Long time period</td><td>Short time period</td></tr>
+                <tr><td>Habit is weak</td><td>Habit or addiction</td></tr>
+                <tr><td>No essential complement</td><td>Essential complement</td></tr>
+                <tr><td>Higher price level</td><td>Lower price level</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>The master idea:</strong> elasticity is high when buyers have <em>options</em> and low when they are <em>locked in</em>.</p></div>
+
+          <h3 id="q-s3-revenue">Elasticity and revenue</h3>
+          <div class="table-wrap" role="region" aria-label="Revenue quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Elasticity</th><th>Price rise</th><th>Price fall</th></tr></thead>
+              <tbody>
+                <tr><td><strong>E<sub>d</sub> &gt; 1</strong></td><td>TR falls</td><td>TR rises</td></tr>
+                <tr><td><strong>E<sub>d</sub> = 1</strong></td><td>TR unchanged</td><td>TR unchanged</td></tr>
+                <tr><td><strong>E<sub>d</sub> &lt; 1</strong></td><td>TR rises</td><td>TR falls</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="formula-line">MR = AR × (1 − 1/E<sub>d</sub>)</div>
+          <p>With E<sub>d</sub> as the absolute value: elastic → MR positive; unitary → MR = 0 and TR maximum; inelastic → MR negative.</p>
+          <div class="callout"><p><strong>Café check:</strong> 100 cups at ₹50 gives TR ₹5,000. At ₹45 and 130 cups, TR is ₹5,850. E<sub>d</sub> = 30 ÷ 10 = 3, so the price cut raises revenue. Profit still depends on the cost of the extra cups.</p></div>
+
+          <h3 id="q-s3-uses">Uses in policy and business</h3>
+          <div class="table-wrap" role="region" aria-label="Uses of elasticity quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Use</th><th>Elasticity logic</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Taxation</strong></td><td>Tax inelastic goods: revenue is stable and buyers bear more of the tax</td></tr>
+                <tr><td><strong>Monopoly pricing</strong></td><td>Choose output on the elastic range, where MR is positive</td></tr>
+                <tr><td><strong>Devaluation</strong></td><td>Export earnings rise only if export demand is elastic</td></tr>
+                <tr><td><strong>Price discrimination</strong></td><td>Charge more to the inelastic group, less to the elastic group; keep markets separate</td></tr>
+                <tr><td><strong>Wage bargaining</strong></td><td>Inelastic labour demand means a wage rise costs few jobs</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Exam caution:</strong> elasticity predicts the direction of a revenue or earnings change, not the whole policy decision. Fairness and costs also matter.</p></div>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s3-drill">Recall drill — Session 3</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>Why is the demand for salt inelastic but the demand for one salt brand more elastic?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Salt as a whole is a necessity with few substitutes and a small budget share. A single brand has rival brands that buyers can switch to, so its demand is more elastic.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why does petrol demand become more elastic in the long run?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>In the long run drivers can change cars, buy efficient vehicles, move closer to work or use public transport. More adjustment options make quantity more responsive.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>E<sub>d</sub> = 0.6 and price rises. What happens to TR?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>TR rises. Demand is inelastic, so the price effect dominates the fall in quantity.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Price falls from ₹50 to ₹45 and quantity rises from 100 to 130. Find E<sub>d</sub> and the TR change.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>%ΔP = −10%, %ΔQ = +30%, so E<sub>d</sub> = 3. TR rises from ₹5,000 to ₹5,850, an increase of ₹850.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>State the MR formula. What is MR when E<sub>d</sub> = 1?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>MR = AR × (1 − 1/E<sub>d</sub>). When E<sub>d</sub> = 1, the bracket is zero, so MR = 0 and TR is at its maximum.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why does a profit-maximising monopolist choose output on the elastic range?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>On the elastic range MR is positive, so extra output adds to revenue. A profit-maximiser never chooses the inelastic range, where MR is negative and cutting output would raise revenue.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why can a cinema charge students less than business travellers?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Students have more elastic demand and can be kept in a separate market with ID checks. Business travellers have inelastic demand, so the cinema can charge them more.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>A country devalues and export demand is inelastic. What happens to export earnings?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Export earnings fall. The foreign-currency price falls, but quantity rises less than proportionately, so the price effect dominates.</p></details></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block clinic-block" id="q-clinic">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">Traps examiners love</span><h2>Confusion Clinic</h2><p>The one difference that decides the mark.</p></div>
+        </div>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="Confusion clinic for elasticity of demand" tabindex="0">
+            <table>
+              <thead><tr><th>Pair</th><th>The one difference</th></tr></thead>
+              <tbody>
+                <tr><td>Elasticity vs slope</td><td>Responsiveness at a point vs steepness of the line; one slope can give many elasticities</td></tr>
+                <tr><td>Elastic vs large quantity</td><td>Elastic means responsive to price, not a large market</td></tr>
+                <tr><td>Percentage change vs absolute change</td><td>Divide by the initial value vs subtract the values</td></tr>
+                <tr><td>Initial base vs new base</td><td>Standard CBSE formula uses the initial P and Q</td></tr>
+                <tr><td>Negative sign vs strength</td><td>The sign shows the inverse relation; the absolute value shows strength</td></tr>
+                <tr><td>E<sub>d</sub> = 0 vs E<sub>d</sub> = 0.5</td><td>Both are inelastic; TE cannot separate them</td></tr>
+                <tr><td>E<sub>d</sub> = ∞ vs E<sub>d</sub> = 2</td><td>Both are elastic; TE cannot separate them</td></tr>
+                <tr><td>Unchanged TE vs E<sub>d</sub> exactly 1</td><td>Unchanged TE is a rough signal; discrete arithmetic can blur it</td></tr>
+                <tr><td>Lower segment vs upper segment</td><td>Geometric method is lower ÷ upper, not the reverse</td></tr>
+                <tr><td>Midpoint vs any point</td><td>Only the midpoint has E<sub>d</sub> = 1</td></tr>
+                <tr><td>Necessity vs luxury</td><td>Inelastic vs elastic</td></tr>
+                <tr><td>Substitute vs complement</td><td>More substitutes make demand more elastic; an essential complement makes it less elastic</td></tr>
+                <tr><td>Short run vs long run</td><td>Demand is usually less elastic in the short run</td></tr>
+                <tr><td>Revenue maximisation vs profit maximisation</td><td>TR peaks at E<sub>d</sub> = 1; profit also depends on costs</td></tr>
+                <tr><td>Movement along vs shift</td><td>Own-price change vs income or taste change</td></tr>
+                <tr><td>Devaluation with elastic vs inelastic exports</td><td>Earnings rise vs earnings fall</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block rapid-block" id="q-rapid">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">One-line answers</span><h2>Rapid Fire</h2><p>Cover the right column. Say the answer before you reveal it.</p></div>
+          <button class="cover-btn" type="button" data-cover-answers aria-pressed="false">Cover answers</button>
+        </div>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="Rapid fire questions and answers for elasticity" tabindex="0">
+            <table class="rapid-table">
+              <thead><tr><th>Question</th><th>One-line answer</th></tr></thead>
+              <tbody>
+                <tr><td>Elasticity of demand</td><td>%ΔQ ÷ %ΔP, other things constant</td></tr>
+                <tr><td>Why needed?</td><td>The law of demand gives direction, not size</td></tr>
+                <tr><td>Base</td><td>Initial price and quantity</td></tr>
+                <tr><td>Sign</td><td>Negative; report the absolute value</td></tr>
+                <tr><td>Elastic</td><td>|E<sub>d</sub>| &gt; 1</td></tr>
+                <tr><td>Unitary</td><td>|E<sub>d</sub>| = 1</td></tr>
+                <tr><td>Inelastic</td><td>0 &lt; |E<sub>d</sub>| &lt; 1</td></tr>
+                <tr><td>Perfectly inelastic shape</td><td>Vertical line</td></tr>
+                <tr><td>Perfectly elastic shape</td><td>Horizontal line</td></tr>
+                <tr><td>Unitary shape</td><td>Rectangular hyperbola</td></tr>
+                <tr><td>P × Q on a rectangular hyperbola</td><td>Constant</td></tr>
+                <tr><td>Perfectly competitive firm's demand</td><td>Horizontal; E<sub>d</sub> = ∞</td></tr>
+                <tr><td>TE formula</td><td>P × Q</td></tr>
+                <tr><td>TE when price falls and demand is elastic</td><td>TE rises</td></tr>
+                <tr><td>TE when price rises and demand is inelastic</td><td>TE rises</td></tr>
+                <tr><td>TE when price changes and E<sub>d</sub> = 1</td><td>Unchanged</td></tr>
+                <tr><td>TE test gives</td><td>A direction, not a coefficient</td></tr>
+                <tr><td>Geometric formula</td><td>Lower segment ÷ upper segment</td></tr>
+                <tr><td>At the midpoint</td><td>E<sub>d</sub> = 1</td></tr>
+                <tr><td>At the price-axis intercept</td><td>E<sub>d</sub> = ∞</td></tr>
+                <tr><td>At the quantity-axis intercept</td><td>E<sub>d</sub> = 0</td></tr>
+                <tr><td>Upper half of a straight line</td><td>Elastic</td></tr>
+                <tr><td>Lower half of a straight line</td><td>Inelastic</td></tr>
+                <tr><td>Slope vs elasticity</td><td>Slope is constant; elasticity changes along the line</td></tr>
+                <tr><td>Strongest determinant</td><td>Availability of close substitutes</td></tr>
+                <tr><td>Necessity</td><td>Inelastic</td></tr>
+                <tr><td>Luxury</td><td>Elastic</td></tr>
+                <tr><td>Habit or addiction</td><td>Inelastic</td></tr>
+                <tr><td>Small budget share</td><td>Inelastic</td></tr>
+                <tr><td>Long time period</td><td>More elastic</td></tr>
+                <tr><td>Essential complement</td><td>Less elastic</td></tr>
+                <tr><td>Price cut with elastic demand</td><td>TR rises</td></tr>
+                <tr><td>Price rise with inelastic demand</td><td>TR rises</td></tr>
+                <tr><td>MR formula</td><td>MR = AR(1 − 1/E<sub>d</sub>)</td></tr>
+                <tr><td>MR when E<sub>d</sub> = 1</td><td>Zero; TR maximum</td></tr>
+                <tr><td>Revenue vs profit</td><td>Revenue maximum is not profit maximum</td></tr>
+                <tr><td>Tax inelastic goods</td><td>Stable revenue; buyers bear more of the tax</td></tr>
+                <tr><td>Devaluation with elastic exports</td><td>Export earnings rise</td></tr>
+                <tr><td>Price discrimination needs</td><td>Different elasticities and separate markets</td></tr>
+                <tr><td>Salt vs one salt brand</td><td>Salt inelastic; the brand more elastic</td></tr>
+                <tr><td>Worked example at ₹10 → ₹8, 100 → 140</td><td>E<sub>d</sub> = 40 ÷ (−20) = −2; elastic</td></tr>
+                <tr><td>Worked example at ₹8 → ₹10, 40 → 32</td><td>E<sub>d</sub> = −20 ÷ 25 = −0.8; inelastic</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block blank-block" id="q-blank">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">From memory</span><h2>Blank Page Test</h2><p>10 minutes. Close the notes and tick each one you can write.</p></div>
+        </div>
+        <div class="blank-meter">
+          <span class="blank-count" data-blank-count>0 / 15 complete</span>
+          <span class="blank-bar" aria-hidden="true"><span data-blank-bar></span></span>
+          <button class="blank-reset" type="button" data-blank-reset>Reset</button>
+        </div>
+        <p>Close the file and write these from memory. Tick each one you complete.</p>
+        <ul class="blank-list">
+          <li><label class="blank-item"><input class="blank-check" data-blank="1" id="q-blank-4-1" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Definition of elasticity and why the law of demand is incomplete</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="2" id="q-blank-4-2" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">The percentage formula and the initial-base rule</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="3" id="q-blank-4-3" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Why the sign is dropped and what the absolute value means</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="4" id="q-blank-4-4" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">The five degrees, their values and their shapes</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="5" id="q-blank-4-5" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Elastic, inelastic and unitary in words, with one example each</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="6" id="q-blank-4-6" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Full calculation for ₹10 → ₹8, quantity 100 → 140</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="7" id="q-blank-4-7" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">The base-matters example: ₹10 → ₹8 vs ₹8 → ₹10</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="8" id="q-blank-4-8" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">TE formula and the three TE cases</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="9" id="q-blank-4-9" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Why the TE test is rough, with one limitation</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="10" id="q-blank-4-10" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Geometric formula, midpoint and both intercepts</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="11" id="q-blank-4-11" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Why slope is not elasticity</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="12" id="q-blank-4-12" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Any six determinants, each with its direction</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="13" id="q-blank-4-13" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Revenue table for E<sub>d</sub> &gt; 1, = 1 and &lt; 1</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="14" id="q-blank-4-14" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">MR formula and why MR = 0 at E<sub>d</sub> = 1</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="15" id="q-blank-4-15" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Three uses: taxation, devaluation and price discrimination</span></label></li>
+        </ul>
+        <p class="blank-note"><strong>Scoring:</strong> 12–15 ticks = exam ready. 8–11 = redo the recall drills for the missed sessions. Below 8 = read the session notes again, then repeat this test tomorrow.</p>
+      </section>
+
+      <section class="quick-block plan-block" id="q-plan">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">Exam morning</span><h2>15-Minute Revision Plan</h2><p>A timed route through the whole chapter, from first recall to the final line.</p></div>
+        </div>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="15-minute revision plan for elasticity" tabindex="0">
+            <table class="plan-table">
+              <thead><tr><th>Minutes</th><th>Do this</th></tr></thead>
+              <tbody>
+                <tr><td>0–4</td><td>Session 1: meaning, definition, the percentage method, the initial base and the six worked examples</td></tr>
+                <tr><td>4–7</td><td>Session 1: the five degrees and their shapes; then Session 2: the TE test and its three cases</td></tr>
+                <tr><td>7–11</td><td>Session 2: the geometric formula, midpoint, intercepts and the limits of each method</td></tr>
+                <tr><td>11–15</td><td>Session 3: determinants, the revenue table, the MR link, the five uses and Rapid Fire</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Final line to remember:</strong> elasticity is %ΔQ ÷ %ΔP, measured from the initial values and reported as an absolute number. Elastic demand means price and total expenditure move in opposite directions; inelastic means they move together; unitary means no change. On a straight-line demand curve, elasticity is lower ÷ upper, equal to 1 at the midpoint, infinity at the price axis and zero at the quantity axis.</p>
+        </div>
+      </section>
+
+      <div class="quick-cta">
+        <div>
+          <span class="quick-cta-kicker">Need the reasoning?</span>
+          <p>Every table in quick revision is built from the full notes.</p>
+        </div>
+        <button class="mode-jump" type="button" data-mode-jump="notes">Read the full notes <span aria-hidden="true">→</span></button>
+      </div>
+      </div>
+
+
+      <nav class="pager" aria-label="Chapter navigation"><a class="pager-link prev" href="Chapter-3-Demand.html"><span class="pager-label">← Previous chapter</span><span class="pager-title">Chapter 3 · Demand</span></a><a class="pager-link next" href="Chapter-5-Production-Function.html"><span class="pager-label">Next chapter →</span><span class="pager-title">Chapter 5 · Production Function</span></a></nav>
+
+      <footer class="page-footer">
+        <p><strong>Chapter 4 · Elasticity of Demand</strong></p>
+        <p>Built from the Class 11 Microeconomics lecture notes and the standard NCERT treatment. Examples are closest real-world illustrations, not claims about exact market data.</p>
+        <p><a href="../index.html">← All subjects</a> <span>·</span> <a href="#main">Back to top</a></p>
+      </footer>
     </main>
   </div>
+<button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false" aria-controls="toc">
+    <span aria-hidden="true">☰</span> Contents
+  </button>
 
-  <button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">☰</button>
-  <div class="toc-drawer-overlay" id="tocOverlay"></div>
-  <div class="toc-drawer" id="tocDrawer">
-    <div class="toc-label">On this page</div>
-    <a href="#meaning">Meaning of Elasticity</a>
-    <a href="#types">Types of Elasticity</a>
-    <a href="#price-elasticity">Price Elasticity — Definition &amp; Formula</a>
-    <a href="#degrees">Degrees of Price Elasticity</a>
-    <a href="#percentage-method">Percentage Method</a>
-    <a href="#total-expenditure">Total Expenditure Method</a>
-    <a href="#factors">Factors Affecting Elasticity</a>
-    <a href="#cross-income">Cross &amp; Income Elasticity</a>
-    <a href="#exam-questions">Exam Questions</a>
+  <div class="figure-lightbox" id="figureLightbox" hidden>
+    <div class="figure-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="figureLightboxTitle">
+      <div class="figure-lightbox__bar">
+        <p class="figure-lightbox__title" id="figureLightboxTitle">Figure<span>Swipe or scroll to explore. Use + and − to zoom.</span></p>
+        <div class="figure-lightbox__actions">
+          <button class="figure-lightbox__icon" type="button" data-lightbox-zoom-out aria-label="Zoom out" disabled>
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M20 20l-3.4-3.4"/></svg>
+          </button>
+          <button class="figure-lightbox__level" type="button" data-lightbox-level aria-label="Zoom 1×. Reset to fit.">1×</button>
+          <button class="figure-lightbox__icon" type="button" data-lightbox-zoom-in aria-label="Zoom in">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M11 8v6M20 20l-3.4-3.4"/></svg>
+          </button>
+          <button class="figure-lightbox__close" type="button" id="figureLightboxClose">Close</button>
+        </div>
+      </div>
+      <div class="figure-lightbox__scroll" id="figureLightboxScroll" tabindex="0" aria-label="Enlarged figure. Swipe, scroll or use the arrow keys to explore.">
+        <img id="figureLightboxImage" alt="" decoding="async">
+      </div>
+    </div>
   </div>
 
+  <script src="../Retail/retail.js?v=20261030a"></script>
   <script>
-    const progressBar = document.getElementById('progressBar');
-    window.addEventListener('scroll', function() {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
-    });
+    (function () {
+      'use strict';
+      var figures = document.querySelectorAll('.chapter-figure');
+      var overlay = document.getElementById('figureLightbox');
+      if (!figures.length || !overlay) return;
 
-    const tocLinks = document.querySelectorAll('.sidebar-toc a');
-    const sections = [];
-    tocLinks.forEach(function(link) {
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        const section = document.getElementById(href.substring(1));
-        if (section) sections.push({ el: section, link: link });
+      var dialog = overlay.querySelector('.figure-lightbox__dialog');
+      var titleEl = document.getElementById('figureLightboxTitle');
+      var imgEl = document.getElementById('figureLightboxImage');
+      var scrollEl = document.getElementById('figureLightboxScroll');
+      var closeBtn = document.getElementById('figureLightboxClose');
+      var zoomInBtn = overlay.querySelector('[data-lightbox-zoom-in]');
+      var zoomOutBtn = overlay.querySelector('[data-lightbox-zoom-out]');
+      var levelBtn = overlay.querySelector('[data-lightbox-level]');
+      var SCALES = [1, 1.25, 1.5, 2, 2.5, 3];
+      var scaleIndex = 0;
+      var baseWidth = 0;
+      var lastFocus = null;
+      var isPhone = window.matchMedia('(max-width: 700px)');
+      var resizeFrame = 0;
+
+      function contentWidth() {
+        var style = window.getComputedStyle(scrollEl);
+        var padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+        return Math.max(240, scrollEl.clientWidth - padding);
       }
-    });
-    window.addEventListener('scroll', function() {
-      const scrollPos = window.scrollY + 120;
-      let current = null;
-      sections.forEach(function(item) {
-        if (item.el.offsetTop <= scrollPos) current = item;
+
+      function levelText() {
+        return SCALES[scaleIndex] + '×';
+      }
+
+      function paintScale(preserveCentre) {
+        if (!baseWidth) baseWidth = contentWidth();
+        var oldWidth = imgEl.getBoundingClientRect().width || baseWidth;
+        var newWidth = Math.round(baseWidth * SCALES[scaleIndex]);
+        var centreX = 0;
+        var centreY = 0;
+        var ratio = 1;
+        if (preserveCentre) {
+          centreX = scrollEl.scrollLeft + scrollEl.clientWidth / 2;
+          centreY = scrollEl.scrollTop + scrollEl.clientHeight / 2;
+          ratio = newWidth / oldWidth;
+        }
+        imgEl.style.width = newWidth + 'px';
+        if (preserveCentre) {
+          scrollEl.scrollLeft = Math.max(0, centreX * ratio - scrollEl.clientWidth / 2);
+          scrollEl.scrollTop = Math.max(0, centreY * ratio - scrollEl.clientHeight / 2);
+        }
+        var label = levelText();
+        levelBtn.textContent = label;
+        levelBtn.setAttribute('aria-label', 'Zoom ' + label + '. Reset to fit.');
+        zoomOutBtn.disabled = scaleIndex === 0;
+        zoomInBtn.disabled = scaleIndex === SCALES.length - 1;
+      }
+
+      function setScale(index, preserveCentre) {
+        scaleIndex = Math.max(0, Math.min(SCALES.length - 1, index));
+        paintScale(preserveCentre);
+      }
+
+      function openLightbox(link, fig) {
+        var source = fig.querySelector('img');
+        var heading = fig.querySelector('figcaption strong');
+        var title = heading ? heading.textContent.trim() : (source.alt || 'Figure');
+
+        lastFocus = link;
+        titleEl.firstChild.nodeValue = title;
+        imgEl.src = source.currentSrc || source.src;
+        imgEl.alt = source.alt || '';
+        baseWidth = 0;
+        setScale(isPhone.matches ? 3 : 0, false);
+        overlay.hidden = false;
+        document.body.classList.add('figure-lightbox-open');
+        window.requestAnimationFrame(function () {
+          baseWidth = contentWidth();
+          paintScale(false);
+          scrollEl.scrollLeft = 0;
+          scrollEl.scrollTop = 0;
+          closeBtn.focus();
+        });
+      }
+
+      function closeLightbox() {
+        if (overlay.hidden) return;
+        overlay.hidden = true;
+        document.body.classList.remove('figure-lightbox-open');
+        if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+        lastFocus = null;
+      }
+
+      Array.prototype.forEach.call(figures, function (fig) {
+        var image = fig.querySelector('img');
+        if (!image || image.closest('.figure-zoom')) return;
+        var heading = fig.querySelector('figcaption strong');
+        var title = heading ? heading.textContent.trim() : (image.alt || 'figure');
+        var link = document.createElement('a');
+        link.className = 'figure-zoom';
+        link.href = image.getAttribute('src');
+        link.setAttribute('aria-label', 'Tap to enlarge ' + title);
+        image.parentNode.insertBefore(link, image);
+        link.appendChild(image);
+
+        var hint = document.createElement('span');
+        hint.className = 'figure-zoom__hint';
+        hint.setAttribute('aria-hidden', 'true');
+        hint.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H3v6M15 3h6v6M9 21H3v-6M21 15v6h-6"/></svg><span>Tap to enlarge</span>';
+        link.appendChild(hint);
+
+        link.addEventListener('click', function (event) {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          openLightbox(link, fig);
+        });
       });
-      sections.forEach(function(item) { item.link.classList.remove('active'); });
-      if (current) current.link.classList.add('active');
-    });
 
-    const toggleBtn = document.getElementById('tocToggle');
-    const drawer = document.getElementById('tocDrawer');
-    const overlay = document.getElementById('tocOverlay');
-    function openDrawer() { drawer.classList.add('open'); overlay.classList.add('open'); }
-    function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); }
-    toggleBtn.addEventListener('click', openDrawer);
-    overlay.addEventListener('click', closeDrawer);
-    drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeDrawer); });
+      zoomInBtn.addEventListener('click', function () { setScale(scaleIndex + 1, true); });
+      zoomOutBtn.addEventListener('click', function () { setScale(scaleIndex - 1, true); });
+      levelBtn.addEventListener('click', function () { setScale(0, true); });
+      closeBtn.addEventListener('click', closeLightbox);
+      overlay.addEventListener('click', function (event) {
+        if (event.target === overlay) closeLightbox();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (overlay.hidden) return;
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeLightbox();
+          return;
+        }
+        if (event.key === 'Tab') {
+          var focusables = Array.prototype.slice.call(
+            dialog.querySelectorAll('button:not([disabled]), a[href], [tabindex="0"]')
+          );
+          if (!focusables.length) return;
+          var first = focusables[0];
+          var last = focusables[focusables.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+          return;
+        }
+        var step = 70;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+          event.preventDefault();
+          if (event.key === 'ArrowLeft') scrollEl.scrollLeft -= step;
+          if (event.key === 'ArrowRight') scrollEl.scrollLeft += step;
+          if (event.key === 'ArrowUp') scrollEl.scrollTop -= step;
+          if (event.key === 'ArrowDown') scrollEl.scrollTop += step;
+        }
+      });
+
+      window.addEventListener('resize', function () {
+        if (overlay.hidden) return;
+        window.cancelAnimationFrame(resizeFrame);
+        resizeFrame = window.requestAnimationFrame(function () {
+          baseWidth = contentWidth();
+          paintScale(true);
+        });
+      });
+    })();
   </script>
-
-  <script src="../assets/study-os.js"></script>
-<script src="../assets/toc-scrollspy.js"></script>
 </body>
 </html>

@@ -72,6 +72,154 @@
     }
     .chapter-figure figcaption strong { color: #1e241f; }
 
+    /* Tap-to-enlarge figures. The anchor is added by script; without it the image stays as-is. */
+    .chapter-figure .figure-zoom {
+      position: relative;
+      display: block;
+      border-radius: 8px;
+      cursor: zoom-in;
+      text-decoration: none;
+    }
+    .chapter-figure .figure-zoom:focus-visible {
+      outline: 3px solid var(--r-amber);
+      outline-offset: 3px;
+    }
+    .figure-zoom__hint {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      background: rgba(24, 37, 30, 0.88);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      color: #fffdf9;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .figure-zoom__hint svg { flex: none; }
+    .figure-zoom:hover .figure-zoom__hint,
+    .figure-zoom:focus-visible .figure-zoom__hint { background: rgba(24, 37, 30, 0.98); }
+
+    .figure-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: rgba(10, 14, 11, 0.88);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+    .figure-lightbox[hidden] { display: none !important; }
+    .figure-lightbox__dialog {
+      display: flex;
+      flex-direction: column;
+      width: min(1480px, 100%);
+      height: calc(100dvh - 32px);
+      max-height: 1120px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 14px;
+      background: #f7f4ed;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+    }
+    .figure-lightbox__bar {
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      background: #18251e;
+      color: #f7f4ed;
+    }
+    .figure-lightbox__title {
+      min-width: 0;
+      margin: 0;
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+    .figure-lightbox__title span {
+      display: block;
+      margin-top: 2px;
+      color: #c6d1c8;
+      font-size: 11px;
+      font-weight: 400;
+    }
+    .figure-lightbox__actions {
+      display: flex;
+      flex: none;
+      align-items: center;
+      gap: 6px;
+    }
+    .figure-lightbox__actions button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #f7f4ed;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .figure-lightbox__actions button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.14); }
+    .figure-lightbox__actions button:focus-visible {
+      outline: 2px solid #f2c14e;
+      outline-offset: 2px;
+    }
+    .figure-lightbox__actions button:disabled { opacity: 0.38; cursor: default; }
+    .figure-lightbox__icon { width: 36px; padding: 0; }
+    .figure-lightbox__level {
+      min-width: 44px;
+      padding: 0 6px;
+      font-variant-numeric: tabular-nums;
+    }
+    .figure-lightbox__close {
+      padding: 0 13px;
+      background: #f7f4ed !important;
+      color: #18251e !important;
+    }
+    .figure-lightbox__close:hover { background: #fff !important; }
+    .figure-lightbox__scroll {
+      flex: 1;
+      min-height: 0;
+      padding: 14px;
+      overflow: auto;
+      overscroll-behavior: contain;
+      background: #fff;
+      -webkit-overflow-scrolling: touch;
+    }
+    .figure-lightbox__scroll:focus-visible {
+      outline: 3px solid #8a5415;
+      outline-offset: -3px;
+    }
+    .figure-lightbox__scroll img {
+      display: block;
+      width: 100%;
+      max-width: none;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+
+    body.figure-lightbox-open { overflow: hidden; }
+
+    .hero-chips .chip-mobile-hint { display: none; }
+
     .callout {
       margin: 18px 0;
       padding: 13px 18px;
@@ -149,9 +297,68 @@
       #n-keyterms .term-grid { grid-template-columns: 1fr; }
       .chapter-figure { padding: 9px; }
       .policy-grid { grid-template-columns: 1fr; }
+      .hero-chips .chip-mobile-hint { display: inline-flex; }
+      .figure-zoom__hint { top: 6px; right: 6px; padding: 5px 8px; font-size: 10px; }
+      .figure-lightbox { padding: 8px; }
+      .figure-lightbox__dialog { height: calc(100dvh - 16px); border-radius: 10px; }
+      .figure-lightbox__bar { gap: 8px; padding: 8px 10px; }
+      .figure-lightbox__title { font-size: 11.5px; }
+      .figure-lightbox__title span { display: none; }
+      .figure-lightbox__actions { gap: 4px; }
+      .figure-lightbox__icon { width: 34px; min-height: 34px; }
+      .figure-lightbox__level { min-width: 40px; min-height: 34px; }
+      .figure-lightbox__close { min-height: 34px; padding: 0 10px; }
+      .figure-lightbox__scroll { padding: 10px; }
+      .figure-lightbox__scroll img { border-radius: 2px; }
     }
+    /* Keep chart labels clear: show the zoom hint on hover, and move it into the caption on phones. */
+    @media (hover: hover) and (pointer: fine) {
+      .chapter-figure .figure-zoom__hint { opacity: 0; transition: opacity 0.16s ease; }
+      .chapter-figure .figure-zoom:hover .figure-zoom__hint,
+      .chapter-figure .figure-zoom:focus-visible .figure-zoom__hint { opacity: 1; }
+    }
+    @media (max-width: 720px) {
+      .chapter-figure .figure-zoom__hint { display: none; }
+      .chapter-figure figcaption::after {
+        content: "Tap the figure to enlarge.";
+        display: block;
+        margin-top: 5px;
+        color: var(--r-accent);
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+    }
+    /* Page-scoped contrast fixes for the light theme. */
+    :root:not([data-theme="dark"]) .brand-sub,
+    :root:not([data-theme="dark"]) .toc-title,
+    :root:not([data-theme="dark"]) .toc-group,
+    :root:not([data-theme="dark"]) .toc-link.toc-sub,
+    :root:not([data-theme="dark"]) .toc-foot span,
+    :root:not([data-theme="dark"]) .pager-label,
+    :root:not([data-theme="dark"]) .page-footer p { color: #5f665e; }
+    :root:not([data-theme="dark"]) .section-kicker,
+    :root:not([data-theme="dark"]) .checklist summary { color: #8a5415; }
+    :root:not([data-theme="dark"]) .check-pill { background: #8a5415; color: #fffdf9; }
+    :root:not([data-theme="dark"]) .toc-mode,
+    :root:not([data-theme="dark"]) .quick-map-num,
+    :root:not([data-theme="dark"]) .drill-toggle,
+    :root:not([data-theme="dark"]) .plan-table td:first-child { color: #8a5415; }
+
+    /* Dark-theme badge and link contrast. White on the light mint/amber badges is too faint. */
+    :root[data-theme="dark"] .session-kicker,
+    :root[data-theme="dark"] .check-pill { color: #12271f; }
+    :root[data-theme="dark"] .session--quick .session-kicker { color: #fffdf9; }
+    :root[data-theme="dark"] .toc-link.active,
+    :root[data-theme="dark"] .toc-sub.active { color: #8fd8bd; border-left-color: #8fd8bd; }
+    :root[data-theme="dark"] .cover-btn { color: #7fd0b4; }
+    :root[data-theme="dark"] .cover-btn:hover { color: #a9e7d2; }
+
     @media print {
       .chapter-figure { break-inside: avoid; box-shadow: none; }
+      .figure-zoom__hint,
+      .chapter-figure figcaption::after,
+      .figure-lightbox { display: none !important; }
     }
   </style>
 </head>
@@ -160,7 +367,7 @@
   <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
 
   <header class="topbar">
-    <a class="brand" href="../index.html" aria-label="Study OS home">
+    <a class="brand" href="../index.html">
       <span class="brand-mark">S</span>
       <span class="brand-copy"><span class="brand-name">Study OS</span><span class="brand-sub">Economics notes</span></span>
     </a>
@@ -273,6 +480,7 @@
           <span class="chip">≈ 16 min quick recall</span>
           <span class="chip">21 check questions</span>
           <span class="chip">7 figures</span>
+          <span class="chip chip-mobile-hint">Tap a figure to enlarge · swipe tables sideways</span>
           <span class="chip chip-quiet">Built from the lecture notes</span>
         </div>
       </header>
@@ -698,7 +906,7 @@
               <li><strong>Demand falls less than supply:</strong> the supply effect dominates. Price <strong>rises</strong> and quantity <strong>falls</strong>.</li>
             </ul>
             <figure class="chapter-figure">
-              <img src="Ch11_Both_Decrease.png" alt="Three panels show demand and supply both shifting left. In panel (a), equal falls leave price at ₹6 and reduce quantity to 50. In panel (b), demand falls more, so price falls to ₹5.50 and quantity to 45. In panel (c), supply falls more, so price rises to ₹6.50 and quantity falls to 45." loading="lazy" width="3125" height="1008">
+              <picture><source media="(max-width: 720px)" srcset="Ch11_Both_Decrease_Stacked.png" width="944" height="2487"><img src="Ch11_Both_Decrease.png" alt="Three panels show demand and supply both shifting left. In panel (a), equal falls leave price at ₹6 and reduce quantity to 50. In panel (b), demand falls more, so price falls to ₹5.50 and quantity to 45. In panel (c), supply falls more, so price rises to ₹6.50 and quantity falls to 45." loading="lazy" width="3125" height="1008"></picture>
               <figcaption><strong>Figure 11.5 — Both demand and supply decrease.</strong> Both curves shift left. (a) Equal shifts: price stays at ₹6, quantity falls to 50. (b) Demand falls more: price falls to ₹5.50 and quantity to 45. (c) Supply falls more: price rises to ₹6.50 and quantity falls to 45.</figcaption>
             </figure>
             <p><strong>What to notice.</strong> Quantity falls in all three panels because both shifts reduce quantity. Price is the ambiguous variable: it stays the same, falls or rises depending on which curve shifted more. The labels D₁ and S₁ mark the new curves; the old curves remain for comparison.</p>
@@ -1423,6 +1631,196 @@
     <span aria-hidden="true">☰</span> Contents
   </button>
 
+  <div class="figure-lightbox" id="figureLightbox" hidden>
+    <div class="figure-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="figureLightboxTitle">
+      <div class="figure-lightbox__bar">
+        <p class="figure-lightbox__title" id="figureLightboxTitle">Figure<span>Swipe or scroll to explore. Use + and − to zoom.</span></p>
+        <div class="figure-lightbox__actions">
+          <button class="figure-lightbox__icon" type="button" data-lightbox-zoom-out aria-label="Zoom out" disabled>
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M20 20l-3.4-3.4"/></svg>
+          </button>
+          <button class="figure-lightbox__level" type="button" data-lightbox-level aria-label="Zoom 1×. Reset to fit.">1×</button>
+          <button class="figure-lightbox__icon" type="button" data-lightbox-zoom-in aria-label="Zoom in">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M11 8v6M20 20l-3.4-3.4"/></svg>
+          </button>
+          <button class="figure-lightbox__close" type="button" id="figureLightboxClose">Close</button>
+        </div>
+      </div>
+      <div class="figure-lightbox__scroll" id="figureLightboxScroll" tabindex="0" aria-label="Enlarged figure. Swipe, scroll or use the arrow keys to explore.">
+        <img id="figureLightboxImage" alt="" decoding="async">
+      </div>
+    </div>
+  </div>
+
   <script src="../Retail/retail.js?v=20261030a"></script>
+
+  <script>
+    (function () {
+      'use strict';
+      var figures = document.querySelectorAll('.chapter-figure');
+      var overlay = document.getElementById('figureLightbox');
+      if (!figures.length || !overlay) return;
+
+      var dialog = overlay.querySelector('.figure-lightbox__dialog');
+      var titleEl = document.getElementById('figureLightboxTitle');
+      var imgEl = document.getElementById('figureLightboxImage');
+      var scrollEl = document.getElementById('figureLightboxScroll');
+      var closeBtn = document.getElementById('figureLightboxClose');
+      var zoomInBtn = overlay.querySelector('[data-lightbox-zoom-in]');
+      var zoomOutBtn = overlay.querySelector('[data-lightbox-zoom-out]');
+      var levelBtn = overlay.querySelector('[data-lightbox-level]');
+      var SCALES = [1, 1.25, 1.5, 2, 2.5, 3];
+      var scaleIndex = 0;
+      var baseWidth = 0;
+      var lastFocus = null;
+      var isPhone = window.matchMedia('(max-width: 700px)');
+      var resizeFrame = 0;
+
+      function contentWidth() {
+        var style = window.getComputedStyle(scrollEl);
+        var padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+        return Math.max(240, scrollEl.clientWidth - padding);
+      }
+
+      function levelText() {
+        return SCALES[scaleIndex] + '×';
+      }
+
+      function paintScale(preserveCentre) {
+        if (!baseWidth) baseWidth = contentWidth();
+        var oldWidth = imgEl.getBoundingClientRect().width || baseWidth;
+        var newWidth = Math.round(baseWidth * SCALES[scaleIndex]);
+        var centreX = 0;
+        var centreY = 0;
+        var ratio = 1;
+        if (preserveCentre) {
+          centreX = scrollEl.scrollLeft + scrollEl.clientWidth / 2;
+          centreY = scrollEl.scrollTop + scrollEl.clientHeight / 2;
+          ratio = newWidth / oldWidth;
+        }
+        imgEl.style.width = newWidth + 'px';
+        if (preserveCentre) {
+          scrollEl.scrollLeft = Math.max(0, centreX * ratio - scrollEl.clientWidth / 2);
+          scrollEl.scrollTop = Math.max(0, centreY * ratio - scrollEl.clientHeight / 2);
+        }
+        var label = levelText();
+        levelBtn.textContent = label;
+        levelBtn.setAttribute('aria-label', 'Zoom ' + label + '. Reset to fit.');
+        zoomOutBtn.disabled = scaleIndex === 0;
+        zoomInBtn.disabled = scaleIndex === SCALES.length - 1;
+      }
+
+      function setScale(index, preserveCentre) {
+        scaleIndex = Math.max(0, Math.min(SCALES.length - 1, index));
+        paintScale(preserveCentre);
+      }
+
+      function openLightbox(link, fig) {
+        var source = fig.querySelector('img');
+        var heading = fig.querySelector('figcaption strong');
+        var title = heading ? heading.textContent.trim() : (source.alt || 'Figure');
+
+        lastFocus = link;
+        titleEl.firstChild.nodeValue = title;
+        imgEl.src = source.currentSrc || source.src;
+        imgEl.alt = source.alt || '';
+        baseWidth = 0;
+        setScale(isPhone.matches ? 3 : 0, false);
+        overlay.hidden = false;
+        document.body.classList.add('figure-lightbox-open');
+        window.requestAnimationFrame(function () {
+          baseWidth = contentWidth();
+          paintScale(false);
+          scrollEl.scrollLeft = 0;
+          scrollEl.scrollTop = 0;
+          closeBtn.focus();
+        });
+      }
+
+      function closeLightbox() {
+        if (overlay.hidden) return;
+        overlay.hidden = true;
+        document.body.classList.remove('figure-lightbox-open');
+        if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+        lastFocus = null;
+      }
+
+      Array.prototype.forEach.call(figures, function (fig) {
+        var image = fig.querySelector('img');
+        if (!image || image.closest('.figure-zoom')) return;
+        var heading = fig.querySelector('figcaption strong');
+        var title = heading ? heading.textContent.trim() : (image.alt || 'figure');
+        var link = document.createElement('a');
+        link.className = 'figure-zoom';
+        link.href = image.getAttribute('src');
+        link.setAttribute('aria-label', 'Tap to enlarge ' + title);
+        var frame = image.closest('picture') || image;
+        frame.parentNode.insertBefore(link, frame);
+        link.appendChild(frame);
+
+        var hint = document.createElement('span');
+        hint.className = 'figure-zoom__hint';
+        hint.setAttribute('aria-hidden', 'true');
+        hint.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H3v6M15 3h6v6M9 21H3v-6M21 15v6h-6"/></svg><span>Tap to enlarge</span>';
+        link.appendChild(hint);
+
+        link.addEventListener('click', function (event) {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          openLightbox(link, fig);
+        });
+      });
+
+      zoomInBtn.addEventListener('click', function () { setScale(scaleIndex + 1, true); });
+      zoomOutBtn.addEventListener('click', function () { setScale(scaleIndex - 1, true); });
+      levelBtn.addEventListener('click', function () { setScale(0, true); });
+      closeBtn.addEventListener('click', closeLightbox);
+      overlay.addEventListener('click', function (event) {
+        if (event.target === overlay) closeLightbox();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (overlay.hidden) return;
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeLightbox();
+          return;
+        }
+        if (event.key === 'Tab') {
+          var focusables = Array.prototype.slice.call(
+            dialog.querySelectorAll('button:not([disabled]), a[href], [tabindex="0"]')
+          );
+          if (!focusables.length) return;
+          var first = focusables[0];
+          var last = focusables[focusables.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+          return;
+        }
+        var step = 70;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+          event.preventDefault();
+          if (event.key === 'ArrowLeft') scrollEl.scrollLeft -= step;
+          if (event.key === 'ArrowRight') scrollEl.scrollLeft += step;
+          if (event.key === 'ArrowUp') scrollEl.scrollTop -= step;
+          if (event.key === 'ArrowDown') scrollEl.scrollTop += step;
+        }
+      });
+
+      window.addEventListener('resize', function () {
+        if (overlay.hidden) return;
+        window.cancelAnimationFrame(resizeFrame);
+        resizeFrame = window.requestAnimationFrame(function () {
+          baseWidth = contentWidth();
+          paintScale(true);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -337,9 +337,28 @@
       .figure-lightbox__scroll { padding: 10px; }
       .figure-lightbox__scroll img { border-radius: 2px; }
     }
+    /* Keep chart labels clear: show the zoom hint on hover, and move it into the caption on phones. */
+    @media (hover: hover) and (pointer: fine) {
+      .chapter-figure .figure-zoom__hint { opacity: 0; transition: opacity 0.16s ease; }
+      .chapter-figure .figure-zoom:hover .figure-zoom__hint,
+      .chapter-figure .figure-zoom:focus-visible .figure-zoom__hint { opacity: 1; }
+    }
+    @media (max-width: 720px) {
+      .chapter-figure .figure-zoom__hint { display: none; }
+      .chapter-figure figcaption::after {
+        content: "Tap the figure to enlarge.";
+        display: block;
+        margin-top: 5px;
+        color: var(--r-accent);
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+    }
     @media print {
       .chapter-figure { break-inside: avoid; box-shadow: none; }
       .figure-zoom__hint,
+      .chapter-figure figcaption::after,
       .figure-lightbox { display: none !important; }
     }
   </style>
