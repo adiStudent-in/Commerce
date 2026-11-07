@@ -1,1157 +1,1828 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-retail-mode="notes">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 1 — Introduction to Microeconomics | Economics Class 11</title>
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Class 11 Microeconomics Chapter 1 Introduction to Microeconomics – complete easy notes plus quick revision: scarcity and choice, the central problems, opportunity cost, the production possibility frontier, and the micro/macro and positive/normative distinctions.">
+  <meta name="theme-color" content="#1a5e4a">
+  <meta property="og:title" content="Chapter 1 – Introduction to Microeconomics | Economics Notes + Quick Revision">
+  <meta property="og:description" content="Class 11 Microeconomics Chapter 1 Introduction to Microeconomics – complete easy notes plus quick revision: the economic problem, opportunity cost, PPF shifts and rotations, and the two key distinctions.">
+  <meta property="og:type" content="article">
+  <title>Chapter 1 – Introduction to Microeconomics | Economics Notes + Quick Revision</title>
+  <link rel="icon" href="../assets/icon-192x192.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/study-os.css">
+  <link rel="stylesheet" href="../Retail/retail.css?v=20261030a">
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('study-os-theme');
+      if (savedTheme) {
+        savedTheme = JSON.parse(savedTheme);
+        if (savedTheme === 'dark') document.documentElement.dataset.theme = 'dark';
+      }
+    } catch (e) { /* first visit or storage blocked */ }
+    (function () {
+      var mode = null;
+      try { mode = localStorage.getItem('study-os-retail-mode'); } catch (e) { /* storage blocked */ }
+      var hash = location.hash.replace('#', '');
+      if (hash.indexOf('q-') === 0 || hash === 'quick') mode = 'quick';
+      else if (hash.indexOf('n-') === 0 || hash === 'notes') mode = 'notes';
+      if (mode !== 'quick') mode = 'notes';
+      document.documentElement.dataset.retailMode = mode;
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Chapter 1 – Introduction to Microeconomics",
+    "description": "Class 11 Microeconomics Chapter 1 Introduction to Microeconomics – complete easy notes plus quick revision.",
+    "learningResourceType": "Revision notes",
+    "educationalLevel": "Class 11",
+    "about": "Microeconomics",
+    "inLanguage": "en",
+    "isPartOf": { "@type": "Course", "name": "Microeconomics Class 11" }
+  }
+  </script>
   <style>
-    :root {
-      --bg: #faf8f5;
-      --surface: #ffffff;
-      --text: #1b1b1b;
-      --text-muted: #6b6b6b;
-      --accent: #1a5e4a;
-      --accent-light: #e8f0ec;
-      --border: #e8e4de;
-      --code-bg: #f0ede8;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
-      --radius: 8px;
-      --max-width: 820px;
-      --sidebar-width: 260px;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'Outfit', -apple-system, sans-serif;
+    /* Chapter-specific additions kept on top of the shared Retail shell. */
+    .chapter-figure {
+      margin: 24px 0;
+      padding: 14px;
+      border: 1px solid var(--r-line);
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: var(--r-shadow);
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-
-    body {
-      font-family: var(--font-body);
-      font-weight: 400;
-      font-size: 15.5px;
-      line-height: 1.7;
-      color: var(--text);
-      background: var(--bg);
-      -webkit-font-smoothing: antialiased;
+    .chapter-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
     }
+    .chapter-figure figcaption {
+      margin-top: 12px;
+      padding: 0 4px;
+      color: #4b524b;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+    .chapter-figure figcaption strong { color: #1e241f; }
 
-    nav.top-nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(250,248,245,0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 24px;
-      height: 60px;
+    /* Tap-to-enlarge figures. The anchor is added by script; without it the image stays as-is. */
+    .chapter-figure .figure-zoom {
+      position: relative;
+      display: block;
+      border-radius: 8px;
+      cursor: zoom-in;
+      text-decoration: none;
+    }
+    .chapter-figure .figure-zoom:focus-visible {
+      outline: 3px solid var(--r-amber);
+      outline-offset: 3px;
+    }
+    .figure-zoom__hint {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      background: rgba(24, 37, 30, 0.88);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      color: #fffdf9;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .figure-zoom__hint svg { flex: none; }
+    .figure-zoom:hover .figure-zoom__hint,
+    .figure-zoom:focus-visible .figure-zoom__hint { background: rgba(24, 37, 30, 0.98); }
+
+    .figure-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: rgba(10, 14, 11, 0.88);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+    .figure-lightbox[hidden] { display: none !important; }
+    .figure-lightbox__dialog {
       display: flex;
+      flex-direction: column;
+      width: min(1480px, 100%);
+      height: calc(100dvh - 32px);
+      max-height: 1120px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 14px;
+      background: #f7f4ed;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+    }
+    .figure-lightbox__bar {
+      display: flex;
+      flex: none;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      background: #18251e;
+      color: #f7f4ed;
     }
-
-    nav.top-nav .logo {
-      font-family: var(--font-display);
+    .figure-lightbox__title {
+      min-width: 0;
+      margin: 0;
+      font-size: 12.5px;
       font-weight: 600;
-      font-size: 17px;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: -0.02em;
+      line-height: 1.45;
     }
-
-    nav.top-nav .logo:hover { opacity: 0.7; }
-    nav.top-nav .logo span { font-weight: 400; color: var(--text-muted); }
-
-    nav.top-nav .meta {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .wrapper {
-      display: flex;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-      gap: 40px;
-    }
-
-    aside.toc {
-      width: var(--sidebar-width);
-      flex-shrink: 0;
-      position: sticky;
-      top: 80px;
-      align-self: flex-start;
-      max-height: calc(100vh - 100px);
-      overflow-y: auto;
-      padding-right: 8px;
-    }
-
-    aside.toc::-webkit-scrollbar { width: 4px; }
-    aside.toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-    aside.toc h3 {
-      font-family: var(--font-display);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-
-    aside.toc a {
+    .figure-lightbox__title span {
       display: block;
-      font-size: 13.5px;
-      font-weight: 400;
-      color: var(--text-muted);
-      text-decoration: none;
-      padding: 5px 0;
-      border-left: 2px solid transparent;
-      padding-left: 12px;
-      transition: all 0.2s ease;
-      line-height: 1.4;
-    }
-
-    aside.toc a:hover,
-    aside.toc a.active {
-      color: var(--accent);
-      border-left-color: var(--accent);
-    }
-
-    aside.toc .toc-h2 { font-weight: 500; margin-top: 4px; }
-    aside.toc .toc-h3 { padding-left: 24px; font-size: 13px; }
-
-    main.content {
-      flex: 1;
-      max-width: var(--max-width);
-    }
-
-    .hero {
-      padding: 48px 0 40px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 40px;
-    }
-
-    .hero .chapter-badge {
-      display: inline-block;
+      margin-top: 2px;
+      color: #c6d1c8;
       font-size: 11px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      background: var(--accent-light);
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-    }
-
-    .hero h1 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 38px;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--text);
-      margin-bottom: 12px;
-    }
-
-    .hero .subtitle {
-      font-size: 16px;
-      color: var(--text-muted);
       font-weight: 400;
     }
-
-    section { margin-bottom: 48px; }
-
-    section h2 {
-      font-family: var(--font-display);
+    .figure-lightbox__actions {
+      display: flex;
+      flex: none;
+      align-items: center;
+      gap: 6px;
+    }
+    .figure-lightbox__actions button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #f7f4ed;
+      font-family: inherit;
+      font-size: 12px;
       font-weight: 600;
-      font-size: 26px;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
+      line-height: 1;
+      cursor: pointer;
+    }
+    .figure-lightbox__actions button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.14); }
+    .figure-lightbox__actions button:focus-visible {
+      outline: 2px solid #f2c14e;
+      outline-offset: 2px;
+    }
+    .figure-lightbox__actions button:disabled { opacity: 0.38; cursor: default; }
+    .figure-lightbox__icon { width: 36px; padding: 0; }
+    .figure-lightbox__level {
+      min-width: 44px;
+      padding: 0 6px;
+      font-variant-numeric: tabular-nums;
+    }
+    .figure-lightbox__close {
+      padding: 0 13px;
+      background: #f7f4ed !important;
+      color: #18251e !important;
+    }
+    .figure-lightbox__close:hover { background: #fff !important; }
+    .figure-lightbox__scroll {
+      flex: 1;
+      min-height: 0;
+      padding: 14px;
+      overflow: auto;
+      overscroll-behavior: contain;
+      background: #fff;
+      -webkit-overflow-scrolling: touch;
+    }
+    .figure-lightbox__scroll:focus-visible {
+      outline: 3px solid #8a5415;
+      outline-offset: -3px;
+    }
+    .figure-lightbox__scroll img {
+      display: block;
+      width: 100%;
+      max-width: none;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 4px;
     }
 
-    section h3 {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 1.35;
-      color: var(--text);
-      margin-top: 28px;
-      margin-bottom: 12px;
-    }
+    body.figure-lightbox-open { overflow: hidden; }
 
-    section h4 {
-      font-weight: 600;
-      font-size: 15.5px;
-      color: var(--text);
-      margin-top: 20px;
-      margin-bottom: 8px;
-    }
-
-    section p {
-      margin-bottom: 14px;
-      color: var(--text);
-    }
-
-    blockquote {
-      background: var(--accent-light);
-      border-left: 3px solid var(--accent);
-      padding: 14px 20px;
-      margin: 20px 0;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text);
-    }
-
-    blockquote strong { font-weight: 600; }
+    /* On a phone, tables scroll sideways; say so once in the hero. */
+    .hero-chips .chip-mobile-hint { display: none; }
 
     .callout {
-      background: #fff8e5;
-      border-left: 3px solid #d4a12a;
-      padding: 14px 18px;
-      margin: 20px 0;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      font-size: 15px;
-      color: #5a4a1a;
+      margin: 18px 0;
+      padding: 13px 18px;
+      border-left: 3px solid var(--r-amber);
+      border-radius: 0 10px 10px 0;
+      background: var(--r-amber-soft);
+      color: var(--r-ink-soft);
+      font-size: 14px;
+      line-height: 1.6;
     }
+    .callout p { margin: 0; }
+    .callout p + p { margin-top: 8px; }
+    .callout strong { color: var(--r-ink); }
 
-    .table-wrap {
-      overflow-x: auto;
-      margin: 20px 0;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--surface);
-      box-shadow: var(--shadow-sm);
+    .check-card.check-block { margin-top: 26px; }
+    .check-card .check-questions {
+      margin: 0 0 13px;
+      padding-left: 1.4em;
+      color: var(--r-ink-soft);
     }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    .check-card .check-questions li {
+      margin-bottom: 5px;
+      padding-left: 2px;
       font-size: 14px;
       line-height: 1.55;
     }
-
-    table thead { background: var(--accent-light); }
-
-    table th {
-      font-weight: 600;
-      text-align: left;
-      padding: 10px 14px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      white-space: nowrap;
+    .check-card .check-questions li::marker { color: var(--r-amber); font-weight: 600; }
+    .check-card .checklist ol,
+    .check-card .checklist ul {
+      margin: 10px 0 0;
+      padding-left: 1.4em;
     }
-
-    table td {
-      padding: 10px 14px;
-      border-top: 1px solid var(--border);
-      color: var(--text);
-      vertical-align: top;
-    }
-
-    table tbody tr:first-child td { border-top: none; }
-    table tbody tr:hover { background: #f5f3ef; }
-    table td:first-child { font-weight: 500; white-space: nowrap; }
-
-    /* Images */
-    .img-wrap {
-      margin: 24px 0;
-      text-align: center;
-    }
-
-    .img-wrap img {
-      max-width: 100%;
-      height: auto;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      display: inline-block;
-    }
-
-    pre {
-      background: #1a1a2e;
-      color: #e4e4f0;
-      padding: 20px 24px;
-      border-radius: var(--radius);
-      font-size: 13.5px;
-      line-height: 1.65;
-      overflow-x: auto;
-      margin: 20px 0;
-      font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    }
-
-    section ul, section ol {
-      margin: 12px 0 16px;
-      padding-left: 24px;
-    }
-
-    section li {
-      margin-bottom: 6px;
-      line-height: 1.6;
-    }
-
-    section ul ul { margin: 4px 0 4px 16px; }
-
-    hr {
-      border: none;
-      height: 1px;
-      background: var(--border);
-      margin: 40px 0;
-    }
-
-    .terms-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 12px;
-      margin: 16px 0;
-    }
-
-    .terms-grid .term {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.2s ease;
-    }
-
-    .terms-grid .term:hover { box-shadow: var(--shadow-md); }
-
-    .terms-grid .term strong {
-      display: block;
-      color: var(--accent);
-      font-weight: 600;
+    .check-card .checklist li {
       margin-bottom: 4px;
-      font-size: 14px;
-    }
-
-    .terms-grid .term span {
+      color: var(--r-ink-soft);
       font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.55;
     }
+    .check-card .checklist li::marker { color: var(--r-amber); font-weight: 600; }
+    .check-card .checklist .checklist-answer p { margin: 0 0 6px; font-size: 13.5px; }
+    .check-card .checklist .checklist-answer p:last-child { margin-bottom: 0; }
 
-    footer {
-      text-align: center;
-      padding: 32px 0 16px;
-      border-top: 1px solid var(--border);
-      margin-top: 24px;
-    }
+    #n-keyterms .term-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #n-keyterms .term dd { font-size: 13px; line-height: 1.55; }
 
-    footer p {
+    .session-body .formula-line {
+      margin: 12px 0;
+      padding: 12px 16px;
+      border: 1px solid var(--r-line);
+      border-radius: 10px;
+      background: var(--r-surface-2);
+      color: var(--r-ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: 13px;
-      color: var(--text-muted);
+      line-height: 1.7;
+      white-space: pre-wrap;
     }
 
-    .progress-bar {
-      position: fixed;
-      top: 60px; left: 0; right: 0;
-      height: 2px;
-      z-index: 99;
-      background: transparent;
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
     }
-
-    .progress-bar .fill {
-      height: 100%;
-      width: 0%;
-      background: var(--accent);
-      transition: width 0.1s linear;
+    .mini-card {
+      padding: 14px 16px;
+      border: 1px solid var(--r-line);
+      border-radius: 10px;
+      background: var(--r-surface-2);
     }
+    .mini-card strong { display: block; color: var(--r-ink); font-size: 13.5px; }
+    .mini-card span { display: block; margin-top: 5px; color: var(--r-muted); font-size: 12.5px; line-height: 1.5; }
 
-    .toc-toggle {
-      display: none;
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 6px 12px;
-      font-family: var(--font-body);
-      font-size: 13px;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 200;
-      background: var(--surface);
-      box-shadow: var(--shadow-md);
+    /* Page-scoped contrast fixes for the light theme. */
+    :root:not([data-theme="dark"]) .brand-sub,
+    :root:not([data-theme="dark"]) .toc-title,
+    :root:not([data-theme="dark"]) .toc-group,
+    :root:not([data-theme="dark"]) .toc-link.toc-sub,
+    :root:not([data-theme="dark"]) .toc-foot span,
+    :root:not([data-theme="dark"]) .pager-label,
+    :root:not([data-theme="dark"]) .page-footer p { color: #5f665e; }
+    :root:not([data-theme="dark"]) .section-kicker,
+    :root:not([data-theme="dark"]) .checklist summary { color: #8a5415; }
+    :root:not([data-theme="dark"]) .check-pill { background: #8a5415; color: #fffdf9; }
+    :root:not([data-theme="dark"]) .toc-mode,
+    :root:not([data-theme="dark"]) .quick-map-num,
+    :root:not([data-theme="dark"]) .drill-toggle,
+    :root:not([data-theme="dark"]) .plan-table td:first-child { color: #8a5415; }
+
+    /* Dark-theme badge and link contrast. White on the light mint/amber badges is too faint. */
+    :root[data-theme="dark"] .session-kicker,
+    :root[data-theme="dark"] .check-pill { color: #12271f; }
+    :root[data-theme="dark"] .session--quick .session-kicker { color: #fffdf9; }
+    :root[data-theme="dark"] .toc-link.active,
+    :root[data-theme="dark"] .toc-sub.active { color: #8fd8bd; border-left-color: #8fd8bd; }
+    :root[data-theme="dark"] .cover-btn { color: #7fd0b4; }
+    :root[data-theme="dark"] .cover-btn:hover { color: #a9e7d2; }
+
+    @media (max-width: 700px) {
+      #n-keyterms .term-grid { grid-template-columns: 1fr; }
+      .chapter-figure { padding: 9px; }
+      .mini-grid { grid-template-columns: 1fr; }
+      .hero-chips .chip-mobile-hint { display: inline-flex; }
+      .figure-zoom__hint { top: 6px; right: 6px; padding: 5px 8px; font-size: 10px; }
+      .figure-lightbox { padding: 8px; }
+      .figure-lightbox__dialog { height: calc(100dvh - 16px); border-radius: 10px; }
+      .figure-lightbox__bar { gap: 8px; padding: 8px 10px; }
+      .figure-lightbox__title { font-size: 11.5px; }
+      .figure-lightbox__title span { display: none; }
+      .figure-lightbox__actions { gap: 4px; }
+      .figure-lightbox__icon { width: 34px; min-height: 34px; }
+      .figure-lightbox__level { min-width: 40px; min-height: 34px; }
+      .figure-lightbox__close { min-height: 34px; padding: 0 10px; }
+      .figure-lightbox__scroll { padding: 10px; }
+      .figure-lightbox__scroll img { border-radius: 2px; }
     }
-
-    .toc-toggle:hover { color: var(--accent); border-color: var(--accent); }
-
-    .mermaid-wrap {
-      padding: 24px;
-      background: var(--surface);
+    /* Keep chart labels clear: show the zoom hint on hover, and move it into the caption on phones. */
+    @media (hover: hover) and (pointer: fine) {
+      .chapter-figure .figure-zoom__hint { opacity: 0; transition: opacity 0.16s ease; }
+      .chapter-figure .figure-zoom:hover .figure-zoom__hint,
+      .chapter-figure .figure-zoom:focus-visible .figure-zoom__hint { opacity: 1; }
     }
-
-    .mermaid-wrap .mermaid {
-      background: transparent;
-      margin: 0 auto;
-      text-align: center;
-      font-family: var(--font-body);
-    }
-
-    .mermaid svg {
-      max-width: 100%;
-      height: auto;
-    }
-
-    section ul li strong, section ol li strong { color: var(--accent); font-weight: 600; }
-    section p strong { color: var(--accent); font-weight: 600; }
-
-    @media (max-width: 900px) {
-      .wrapper { flex-direction: column; padding: 80px 16px 60px; }
-      aside.toc {
-        position: fixed;
-        bottom: 0; left: 0; right: 0;
-        top: auto;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        background: var(--surface);
-        border-top: 1px solid var(--border);
-        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
-        z-index: 150;
-        transition: max-height 0.35s ease;
-        padding: 0 20px;
+    @media (max-width: 720px) {
+      .chapter-figure .figure-zoom__hint { display: none; }
+      .chapter-figure figcaption::after {
+        content: "Tap the figure to enlarge.";
+        display: block;
+        margin-top: 5px;
+        color: var(--r-accent);
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
       }
-      aside.toc.open { max-height: 50vh; overflow-y: auto; padding: 20px; }
-      aside.toc h3 { margin-bottom: 12px; }
-      .toc-toggle { display: block; }
     }
-
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 28px; }
-      .hero { padding: 32px 0 28px; }
-      section h2 { font-size: 22px; }
-      section { margin-bottom: 36px; }
-      table { font-size: 13px; }
-      table th, table td { padding: 8px 10px; }
-      pre { padding: 16px; font-size: 12.5px; }
-      nav.top-nav { padding: 0 16px; }
-      nav.top-nav .meta { display: none; }
-      .terms-grid { grid-template-columns: 1fr; }
+    @media print {
+      .chapter-figure { break-inside: avoid; box-shadow: none; }
+      .figure-zoom__hint,
+      .chapter-figure figcaption::after,
+      .figure-lightbox { display: none !important; }
     }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.6s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero { animation-delay: 0.1s; }
-    section:nth-of-type(1) { animation-delay: 0.15s; }
-    section:nth-of-type(2) { animation-delay: 0.2s; }
-    section:nth-of-type(3) { animation-delay: 0.25s; }
-    section:nth-of-type(4) { animation-delay: 0.3s; }
-    section:nth-of-type(5) { animation-delay: 0.35s; }
-    section:nth-of-type(6) { animation-delay: 0.4s; }
-    section:nth-of-type(7) { animation-delay: 0.45s; }
-    section:nth-of-type(8) { animation-delay: 0.5s; }
-    section:nth-of-type(9) { animation-delay: 0.55s; }
-    section:nth-of-type(10) { animation-delay: 0.6s; }
-    section:nth-of-type(11) { animation-delay: 0.65s; }
-    section:nth-of-type(12) { animation-delay: 0.7s; }
-    section:nth-of-type(13) { animation-delay: 0.75s; }
-    section:nth-of-type(14) { animation-delay: 0.8s; }
-    section:nth-of-type(15) { animation-delay: 0.85s; }
-    section:nth-of-type(16) { animation-delay: 0.9s; }
   </style>
 </head>
-<body>
+<body class="retail-page" data-unit="eco-1" data-base-title="Chapter 1 – Introduction to Microeconomics" data-subject="Economics">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
 
-  <nav class="top-nav">
-    <a href="../index.html" class="logo">← Economics <span>Notes</span></a>
-    <span class="meta">Class 11 · Chapter 1</span>
-  </nav>
+  <header class="topbar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">S</span>
+      <span class="brand-copy"><span class="brand-name">Study OS</span><span class="brand-sub">Economics notes</span></span>
+    </a>
+    <div class="topbar-actions">
+      <div class="mode-switch" role="group" aria-label="Study mode">
+        <button type="button" data-set-mode="notes" aria-pressed="true" aria-controls="panel-notes" aria-label="Easy Notes">Notes</button>
+        <button type="button" data-set-mode="quick" aria-pressed="false" aria-controls="panel-quick" aria-label="Quick Revision">Quick</button>
+      </div>
+      <button class="icon-btn print-toggle" type="button" title="Print the open notes" aria-label="Print the open notes">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+      </button>
+      <button class="icon-btn dark-toggle" id="themeToggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+      </button>
+    </div>
+  </header>
 
-  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
-
-<button class="toc-toggle" id="tocToggle" aria-label="Toggle table of contents">&#x2630; Contents</button>
-
-  <div class="wrapper">
-
-    <aside class="toc" id="toc">
-      <h3>Contents</h3>
-      <a href="#economy" class="toc-h2">What is an Economy?</a>
-      <a href="#scarcity-story" class="toc-h3">Why Study Economics?</a>
-      <a href="#scarcity" class="toc-h2">Scarcity</a>
-      <a href="#economic-problem" class="toc-h2">Economic Problem</a>
-      <a href="#positive-normative" class="toc-h2">Positive vs Normative Economics</a>
-      <a href="#micro-macro" class="toc-h2">Micro vs Macroeconomics</a>
-      <a href="#central-problems" class="toc-h2">Central Problems of an Economy</a>
-      <a href="#opportunity-cost" class="toc-h2">Opportunity Cost</a>
-      <a href="#ppf" class="toc-h2">Production Possibility Frontier</a>
-      <a href="#moc" class="toc-h3">Marginal Opportunity Cost</a>
-      <a href="#shape-ppf" class="toc-h3">Shape of PPF</a>
-      <a href="#attainable" class="toc-h3">Attainable &amp; Unattainable</a>
-      <a href="#shift" class="toc-h3">Shift in PPF</a>
-      <a href="#rotation" class="toc-h3">Rotation in PPF</a>
-      <a href="#summary" class="toc-h2">Chapter Summary</a>
-      <a href="#exam-questions" class="toc-h2">Exam Questions</a>
+  <div class="layout">
+    <aside class="toc" id="toc" aria-label="On this page">
+      <div class="toc-top">
+        <p class="toc-title">On this page</p>
+        <span class="toc-mode" id="tocModeLabel">Easy Notes</span>
+      </div>
+      <nav class="toc-nav toc-nav--notes" data-mode-nav="notes" aria-label="Easy notes contents">
+<span class="toc-group">Start</span>
+<a class="toc-link toc-main" href="#n-start">Chapter at a glance</a>
+<a class="toc-link toc-main" href="#n-keyterms">Key Terms</a>
+<span class="toc-group">Sections</span>
+<a class="toc-link toc-main" href="#n-section-1">1 · Scarcity, choice and the economic problem</a>
+<a class="toc-link toc-sub" href="#n-s1-1">1.1 What an economy does</a>
+<a class="toc-link toc-sub" href="#n-s1-2">1.2 Why scarcity is the root</a>
+<a class="toc-link toc-sub" href="#n-s1-3">1.3 Economics as a social science</a>
+<a class="toc-link toc-main" href="#n-section-2">2 · The central problems of an economy</a>
+<a class="toc-link toc-sub" href="#n-s2-1">2.1 What to produce?</a>
+<a class="toc-link toc-sub" href="#n-s2-2">2.2 How to produce?</a>
+<a class="toc-link toc-sub" href="#n-s2-3">2.3 For whom to produce?</a>
+<a class="toc-link toc-sub" href="#n-s2-4">2.4 Full use and growth</a>
+<a class="toc-link toc-main" href="#n-section-3">3 · Opportunity cost</a>
+<a class="toc-link toc-sub" href="#n-s3-1">3.1 Definition</a>
+<a class="toc-link toc-sub" href="#n-s3-2">3.2 Only the next best counts</a>
+<a class="toc-link toc-sub" href="#n-s3-3">3.3 Examples</a>
+<a class="toc-link toc-sub" href="#n-s3-4">3.4 Opportunity cost and the PPF</a>
+<a class="toc-link toc-main" href="#n-section-4">4 · The production possibility frontier</a>
+<a class="toc-link toc-sub" href="#n-s4-1">4.1 Definition and assumptions</a>
+<a class="toc-link toc-sub" href="#n-s4-2">4.2 A schedule</a>
+<a class="toc-link toc-sub" href="#n-s4-3">4.3 Why it slopes downward</a>
+<a class="toc-link toc-sub" href="#n-s4-4">4.4 Why it is concave</a>
+<a class="toc-link toc-main" href="#n-section-5">5 · Reading the PPF</a>
+<a class="toc-link toc-sub" href="#n-s5-1">5.1 Attainable, efficient and unattainable</a>
+<a class="toc-link toc-sub" href="#n-s5-2">5.2 Efficiency is not fairness</a>
+<a class="toc-link toc-main" href="#n-section-6">6 · Shifting and rotating the PPF</a>
+<a class="toc-link toc-sub" href="#n-s6-1">6.1 Shifts</a>
+<a class="toc-link toc-sub" href="#n-s6-2">6.2 Rotations</a>
+<a class="toc-link toc-sub" href="#n-s6-3">6.3 Uses and limitations</a>
+<a class="toc-link toc-main" href="#n-section-7">7 · Microeconomics and macroeconomics</a>
+<a class="toc-link toc-sub" href="#n-s7-1">7.1 Microeconomics</a>
+<a class="toc-link toc-sub" href="#n-s7-2">7.2 Macroeconomics</a>
+<a class="toc-link toc-sub" href="#n-s7-3">7.3 Differences</a>
+<a class="toc-link toc-sub" href="#n-s7-4">7.4 Interdependence</a>
+<a class="toc-link toc-main" href="#n-section-8">8 · Positive and normative economics</a>
+<a class="toc-link toc-sub" href="#n-s8-1">8.1 Positive economics</a>
+<a class="toc-link toc-sub" href="#n-s8-2">8.2 Normative economics</a>
+<a class="toc-link toc-sub" href="#n-s8-3">8.3 How to identify the two</a>
+<a class="toc-link toc-sub" href="#n-s8-4">8.4 A different distinction</a>
+<a class="toc-link toc-main" href="#n-section-9">9 · Mistakes, recap and exam practice</a>
+<a class="toc-link toc-sub" href="#n-s9-1">9.1 Common mistakes</a>
+<a class="toc-link toc-sub" href="#n-recap">9.2 Chapter recap</a>
+<a class="toc-link toc-sub" href="#n-formulas">9.3 Formula sheet</a>
+<a class="toc-link toc-sub" href="#n-exam">9.4 Exam-style questions</a>
+<a class="toc-link toc-sub" href="#n-minute">9.5 One-minute revision</a>
+      </nav>
+      <nav class="toc-nav toc-nav--quick" data-mode-nav="quick" aria-label="Quick revision contents" hidden>
+<span class="toc-group">Start</span>
+<a class="toc-link toc-main" href="#q-start">Start here</a>
+<span class="toc-group">Sessions</span>
+<a class="toc-link toc-main" href="#q-session-1">Session 1 · Scarcity, central problems and opportunity cost</a>
+<a class="toc-link toc-sub" href="#q-s1-lines">The chapter in 12 lines</a>
+<a class="toc-link toc-sub" href="#q-s1-terms">The words that carry marks</a>
+<a class="toc-link toc-sub" href="#q-s1-central">The three central problems</a>
+<a class="toc-link toc-sub" href="#q-s1-opp">Opportunity cost, worked</a>
+<a class="toc-link toc-sub" href="#q-s1-drill">Recall drill — Session 1</a>
+<a class="toc-link toc-main" href="#q-session-2">Session 2 · The production possibility frontier</a>
+<a class="toc-link toc-sub" href="#q-s2-def">Definition and assumptions</a>
+<a class="toc-link toc-sub" href="#q-s2-schedule">The schedule and MRT</a>
+<a class="toc-link toc-sub" href="#q-s2-reading">Reading the curve</a>
+<a class="toc-link toc-sub" href="#q-s2-shifts">Shifts and rotations</a>
+<a class="toc-link toc-sub" href="#q-s2-drill">Recall drill — Session 2</a>
+<a class="toc-link toc-main" href="#q-session-3">Session 3 · Micro vs macro, positive vs normative</a>
+<a class="toc-link toc-sub" href="#q-s3-micro">Microeconomics and macroeconomics</a>
+<a class="toc-link toc-sub" href="#q-s3-positive">Positive and normative</a>
+<a class="toc-link toc-sub" href="#q-s3-grid">The two distinctions combine</a>
+<a class="toc-link toc-sub" href="#q-s3-drill">Recall drill — Session 3</a>
+<span class="toc-group">Drill room</span>
+<a class="toc-link toc-main" href="#q-clinic">Confusion Clinic</a>
+<a class="toc-link toc-main" href="#q-rapid">Rapid Fire</a>
+<a class="toc-link toc-main" href="#q-blank">Blank Page Test</a>
+<a class="toc-link toc-main" href="#q-plan">15-minute plan</a>
+      </nav>
+      <div class="toc-foot"><span>Chapter 1</span><span>Notes + quick</span></div>
     </aside>
 
-    <main class="content">
-
-      <header class="hero fade-in">
-        <span class="chapter-badge">Chapter 1</span>
+    <main id="main" class="content">
+      <header class="hero">
+        <div class="hero-mark" aria-hidden="true">1</div>
+        <p class="eyebrow"><span>Microeconomics · Class 11</span><span>Chapter 1</span><span>Notes + quick revision</span></p>
         <h1>Introduction to Microeconomics</h1>
-        <p class="subtitle">Understanding the foundations of Economics — scarcity, choice, opportunity cost, and the Production Possibility Frontier.</p>
+        <p class="lede">Every economy faces the same squeeze: unlimited wants, limited resources, and resources that can always be used another way. This chapter gives that squeeze a name — the economic problem — and builds the tools that follow it everywhere: opportunity cost, the production possibility frontier, and the micro/macro and positive/normative distinctions.</p>
+        <div class="hero-chips">
+          <span class="chip">9 topic sections</span>
+          <span class="chip">≈ 35 min full read</span>
+          <span class="chip">≈ 18 min quick recall</span>
+          <span class="chip">24 check questions</span>
+          <span class="chip">4 figures</span>
+          <span class="chip chip-quiet">Built from the lecture notes</span>
+          <span class="chip chip-mobile-hint">Tap a figure to enlarge · swipe tables sideways</span>
+        </div>
       </header>
 
-      <!-- 1. Economy -->
-      <section id="economy" class="fade-in">
-        <h2>1. What is an Economy?</h2>
-        <blockquote>
-          An <strong>Economy</strong> is a <strong>system</strong> that provides people the <strong>means to work and earn a living</strong>.
-        </blockquote>
-        <p><strong>Simple Definition:</strong></p>
-        <blockquote>An Economy is a system which provides people the means to work and earn a living.</blockquote>
-
-        <h3>Real Life Examples (From Lecture):</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Person</th><th>Work</th><th>How They Earn</th></tr></thead>
-            <tbody>
-              <tr><td>Prashant Bhaiya</td><td>Farming</td><td>Grows crops, sells them for money</td></tr>
-              <tr><td>Shovit Bhaiya</td><td>Railway Tickets</td><td>Works in railway department</td></tr>
-              <tr><td>Digra Bhaiya</td><td>Truck Driving</td><td>Drives a truck for living</td></tr>
-            </tbody>
-          </table>
+      <div class="mode-panel mode-panel--notes" id="panel-notes" role="region" aria-label="Easy Notes" data-mode="notes">
+      <section class="glance" id="n-start">
+        <div class="section-head">
+          <span class="section-kicker">The map</span>
+          <h2>Chapter at a glance</h2>
+          <p>Nine stops: from the mismatch that creates economics to the two pairs of distinctions examiners test. Tap a card to jump straight in.</p>
         </div>
-        <blockquote>Everyone is earning through their work in different ways – that's what an <strong>Economy</strong> is!</blockquote>
-      </section>
-
-      <hr>
-
-      <!-- 2. Scarcity Story -->
-      <section id="scarcity-story" class="fade-in">
-        <h2>2. Why Study Economics? – The Story of Scarcity</h2>
-        <p>We study Economics because of <strong>Scarcity</strong> (shortage/lack of resources).</p>
-        <h3>Story: Four Brothers at a Fair with ₹50</h3>
-        <blockquote>
-          Four brothers had only <strong>₹50</strong> in total. They went to a fair:<br>
-          Pizza costs more than they had<br>
-          Pastry = ₹50 (too expensive for four people)<br>
-          Chaat = ₹100 (way beyond budget)<br>
-          Sugarcane Juice = ₹10 (Yes! They could afford this!)
-        </blockquote>
-        <p><strong>Moral:</strong> Our <strong>Wants</strong> are unlimited, but <strong>Resources</strong> are limited → This creates an <strong>Economic Problem</strong>.</p>
-      </section>
-
-      <hr>
-
-      <!-- 3. Scarcity -->
-      <section id="scarcity" class="fade-in">
-        <h2>3. Scarcity – The Mother of Economics</h2>
-        <blockquote><strong>Scarcity</strong> = Supply is limited, but Demand is unlimited!</blockquote>
-        <h3>Example:</h3>
-        <ul>
-          <li>100 people want a Car (Demand)</li>
-          <li>But we only have 10 Cars available (Supply)</li>
-          <li>→ This is <strong>Scarcity</strong></li>
-        </ul>
-        <blockquote><strong>Scarcity is the reason Economics was born!</strong></blockquote>
-
-        <h3>Two Aspects of Scarcity:</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Aspect</th><th>Explanation</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Limited Supply</strong></td><td>Resources like Petrol, Land, Money, Time are all limited</td></tr>
-              <tr><td><strong>Alternative Uses</strong></td><td>Petrol is used not just in Cars but in Airplanes, Machines, etc.</td></tr>
-            </tbody>
-          </table>
+        <div class="glance-grid">
+        <a class="glance-card" href="#n-section-1">
+          <span class="glance-num">1</span>
+          <span class="glance-body"><strong>Scarcity, Choice and the Economic Problem</strong><span>Production, consumption and capital formation · why wants outrun means</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-2">
+          <span class="glance-num">2</span>
+          <span class="glance-body"><strong>The Central Problems of an Economy</strong><span>What, how and for whom to produce · full use and growth</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-3">
+          <span class="glance-num">3</span>
+          <span class="glance-body"><strong>Opportunity Cost</strong><span>The next best alternative · money cost vs real cost · the PPF link</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-4">
+          <span class="glance-num">4</span>
+          <span class="glance-body"><strong>The Production Possibility Frontier</strong><span>Assumptions · the schedule · MRT · why the curve is concave</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-5">
+          <span class="glance-num">5</span>
+          <span class="glance-body"><strong>Reading the PPF</strong><span>Attainable, efficient and unattainable points · efficiency is not fairness</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-6">
+          <span class="glance-num">6</span>
+          <span class="glance-body"><strong>Shifting and Rotating the PPF</strong><span>Growth shifts · one-good change rotates · unemployment moves inside</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-7">
+          <span class="glance-num">7</span>
+          <span class="glance-body"><strong>Microeconomics and Macroeconomics</strong><span>Individual units vs aggregates · price theory vs income theory</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-8">
+          <span class="glance-num">8</span>
+          <span class="glance-body"><strong>Positive and Normative Economics</strong><span>What is vs what ought to be · how to spot the signal words</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="glance-card" href="#n-section-9">
+          <span class="glance-num">9</span>
+          <span class="glance-body"><strong>Mistakes, Recap and Exam Practice</strong><span>Seven traps · formula sheet · answer pointers · one-minute revision</span></span>
+          <span class="glance-arrow" aria-hidden="true">→</span>
+        </a>
         </div>
-        <blockquote><strong>Definition of Economics:</strong> "Economics is the study of how society manages its <strong>scarce resources</strong>."</blockquote>
+        <div class="unit-context">
+          <p><strong>The one-line idea:</strong> economics studies how people and societies choose to use scarce resources that have alternative uses, so every choice carries a forgone alternative.</p>
+          <p><strong>The core question:</strong> how does a society allocate scarce resources among competing wants?</p>
+        </div>
       </section>
 
-      <hr>
+      <section class="keyterms" id="n-keyterms">
+        <div class="section-head">
+          <span class="section-kicker">Speak the language</span>
+          <h2>Key Terms — Read These First</h2>
+          <p>The words that carry marks. Read them once now, then test yourself after the chapter.</p>
+        </div>
+        <dl class="term-grid">
+          <div class="term"><dt>Economy</dt><dd>A system by which people obtain a living through production, consumption and capital formation.</dd></div>
+          <div class="term"><dt>Scarcity</dt><dd>The supply of a resource is limited in relation to the demand for it.</dd></div>
+          <div class="term"><dt>Economic problem</dt><dd>The problem of choice involving unlimited wants and limited resources that have alternative uses.</dd></div>
+          <div class="term"><dt>Allocation of resources</dt><dd>Assigning scarce resources so that society's wants are satisfied as fully as possible.</dd></div>
+          <div class="term"><dt>Opportunity cost</dt><dd>The value of the next best alternative forgone when a choice is made.</dd></div>
+          <div class="term"><dt>Production possibility frontier (PPF)</dt><dd>The possible combinations of two goods an economy can produce with given resources and technology, assuming full and efficient use.</dd></div>
+          <div class="term"><dt>Marginal rate of transformation (MRT)</dt><dd>The units of one good sacrificed to produce one additional unit of the other; the absolute slope of the PPF.</dd></div>
+          <div class="term"><dt>Attainable point</dt><dd>A combination on or inside the PPF that the economy can produce.</dd></div>
+          <div class="term"><dt>Efficient point</dt><dd>A combination on the PPF where more of one good requires less of the other.</dd></div>
+          <div class="term"><dt>Microeconomics</dt><dd>The study of individual units — a consumer, firm, industry or single market; also called price theory.</dd></div>
+          <div class="term"><dt>Macroeconomics</dt><dd>The study of economy-wide aggregates such as national income, output, the price level and employment; also called income and employment theory.</dd></div>
+          <div class="term"><dt>Positive economics</dt><dd>The study of economic facts and relationships as they are; its statements are testable.</dd></div>
+          <div class="term"><dt>Normative economics</dt><dd>The study of what ought to be; it involves value judgements and recommends action.</dd></div>
+        </dl>
+      </section>
 
-      <!-- 4. Economic Problem -->
-      <section id="economic-problem" class="fade-in">
-        <h2>4. Economic Problem</h2>
-        <h3>Three Main Reasons:</h3>
-        <pre>&#x250c;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
-&#x2502;               ECONOMIC PROBLEM                  &#x2502;
-&#x2502;                                                    &#x2502;
-&#x2502;  1. Unlimited Wants                                &#x2502;
-&#x2502;  2. Scarce Resources (Limited)                     &#x2502;
-&#x2502;  3. Alternative Uses of Resources                  &#x2502;
-&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;</pre>
+      <section class="session" id="n-section-1">
+        <header class="session-head"><span class="session-kicker">Section 1</span><h2>Scarcity, Choice and the Economic Problem</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Economics begins with a mismatch: wants never end, resources do, and every resource can be used in more than one way. That mismatch is not a temporary shortage — it is the permanent condition that forces choice.</p></blockquote>
 
-        <h3>Story of Bablu Bhaiya – Unlimited Wants:</h3>
-        <p>Bablu Bhaiya's wishes:</p>
-        <ol>
-          <li>Get married</li>
-          <li>Have 101 children</li>
-          <li>Build a big house</li>
-          <li>Buy a car</li>
-          <li>Build a muscular body (dumble workout)</li>
+          <section class="subsection" id="n-s1-1">
+            <h3>1.1 What an economy does</h3>
+            <p><strong>Definition.</strong> An <strong>economy</strong> is a system by which people obtain a living through production, consumption and capital formation.</p>
+            <ol>
+              <li><strong>Production</strong> — converting resources into goods and services.</li>
+              <li><strong>Consumption</strong> — using goods and services to satisfy wants.</li>
+              <li><strong>Capital formation</strong> — setting aside part of current output as machines, buildings and inventories, so future production rises.</li>
+            </ol>
+            <p><strong>Economic agents</strong> — households, firms and the government — make these decisions.</p>
+            <div class="callout"><p><strong>Example.</strong> A Punjab farmer grows wheat (production), the family eats part of it (consumption), and the surplus buys a tractor (capital formation). The tractor is not consumed now; it raises next year's output.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s1-2">
+            <h3>1.2 Why scarcity is the root of the economic problem</h3>
+            <p><strong>Definition.</strong> <strong>Scarcity</strong> means that the supply of a resource is limited in relation to the demand for it.</p>
+            <p>Three facts together produce the economic problem.</p>
+            <ol>
+              <li><strong>Human wants are unlimited.</strong> A student who gets a phone soon wants earphones; satisfying one want creates another.</li>
+              <li><strong>Resources are scarce.</strong> Land, labour, capital and entrepreneurship are available in limited quantities.</li>
+              <li><strong>Resources have alternative uses.</strong> A hectare can grow wheat or hold a school; a worker can join a factory or drive a taxi. Using a resource for one purpose means giving up another.</li>
+            </ol>
+            <p><strong>Definition.</strong> The <strong>economic problem</strong> is the problem of choice involving the satisfaction of unlimited wants out of limited resources that have alternative uses.</p>
+            <blockquote class="note"><p><strong>In simple words.</strong> Wants are unlimited, means are limited, and every means can be used in more than one way. That combination forces everyone to choose.</p></blockquote>
+            <div class="callout"><p><strong>Scarcity is not poverty.</strong> Scarcity exists even in a rich economy: its resources are still not enough to satisfy every want at once. Poverty is a low level of income; scarcity is limited means relative to unlimited wants.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s1-3">
+            <h3>1.3 Economics as a social science</h3>
+            <p><strong>Definition.</strong> <strong>Economics</strong> is a social science that studies how a society chooses to use its scarce resources, which have alternative uses, to produce goods and services and to distribute them among different groups.</p>
+            <p>It is a <strong>social science</strong> because it studies human behaviour systematically: it observes choices, builds theories and tests predictions. It is not a physical science, because its subject matter is people and institutions, not matter and energy.</p>
+            <div class="callout"><p><strong>Why the definition mentions distribution.</strong> Production alone is not enough. The same output can leave one group rich and another poor, so economics studies both how goods are produced and how they are shared.</p></div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Why is scarcity called the root of the economic problem?</li>
+              <li><strong>Q2.</strong> A student has four free hours and spends all of them revising Economics, leaving no time for Mathematics. Identify the scarce resource, the alternative use and the choice.</li>
+              <li><strong>Q3.</strong> Why do more alternative uses make choice more difficult?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>Because wants are unlimited, resources are scarce, and those resources have alternative uses. Together they force a choice.</li>
+                <li>The scarce resource is time. Its alternative use is revising Mathematics. The choice is Economics instead of Mathematics.</li>
+                <li>Each extra use is another forgone benefit to compare, so more options mean more ranking and a higher cost of choosing.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-2">
+        <header class="session-head"><span class="session-kicker">Section 2</span><h2>The Central Problems of an Economy</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Every economy, rich or poor, market or planned, must answer the same three questions. The answers differ; the questions do not.</p></blockquote>
+          <p><strong>Allocation of resources</strong> means assigning scarce resources so that society's wants are satisfied as fully as possible. Every economy must answer three central problems; other problems such as inflation and unemployment grow out of them.</p>
+
+          <section class="subsection" id="n-s2-1">
+            <h3>2.1 What to produce?</h3>
+            <p>This has two parts:</p>
+            <ul>
+              <li><strong>Which goods</strong> — consumer goods such as rice and clothes, or capital goods such as machines? Civil goods such as medicines, or defence goods such as aircraft?</li>
+              <li><strong>How much</strong> of each selected good?</li>
+            </ul>
+            <div class="callout"><p><strong>Example.</strong> A state can build a 500-bed hospital or an industrial park. The hospital improves health now; the park creates jobs later. Choosing more capital goods today means less consumption today but a larger productive capacity tomorrow.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s2-2">
+            <h3>2.2 How to produce?</h3>
+            <p>This concerns the <strong>technique of production</strong> — the combination of inputs used.</p>
+            <p><strong>Definition.</strong> A <strong>labour-intensive technique</strong> uses more labour and less capital per unit of output; a <strong>capital-intensive technique</strong> uses more capital and less labour.</p>
+            <div class="callout"><p><strong>Example.</strong> A garment factory can sew shirts with 60 tailors or with 6 automated machines and 12 operators. Both produce shirts; they use different mixes of labour and capital.</p></div>
+            <p>The choice depends on factor availability and prices. India has abundant labour, so labour-intensive methods are common; Japan, with scarce labour and abundant capital, uses capital-intensive methods. Quality and employment goals also matter: a technique that is cheap per shirt may still be rejected if it destroys too many jobs.</p>
+          </section>
+
+          <section class="subsection" id="n-s2-3">
+            <h3>2.3 For whom to produce?</h3>
+            <p>This is the problem of <strong>distribution</strong> — who will consume the output. Production is carried out by land, labour, capital and entrepreneurship, and output is distributed as <strong>factor incomes</strong>: rent, wages, interest and profit. So “for whom” is ultimately about the distribution of income.</p>
+            <ul>
+              <li><strong>Personal distribution</strong> — how income is shared among households.</li>
+              <li><strong>Functional distribution</strong> — how income is shared among the factors of production.</li>
+            </ul>
+            <div class="callout"><p><strong>Example.</strong> A Noida phone factory can target premium buyers or budget buyers. The choice changes not just the price but who can afford the phone.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s2-4">
+            <h3>2.4 Full use and growth of resources</h3>
+            <p><strong>Full utilisation.</strong> Idle factories or unemployed graduates mean the economy operates inside its PPF; the waste is unused capacity, not missing capacity.</p>
+            <p><strong>Growth of resources.</strong> More or better resources and technology shift the PPF outward.</p>
+            <div class="callout"><p><strong>Keep the two apart.</strong> Full use is about operating <em>on</em> the frontier. Growth is about pushing the frontier <em>outward</em>. Unemployment is a point inside; growth is a new curve.</p></div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Why are these called central problems?</li>
+              <li><strong>Q2.</strong> A state is choosing between a medical college and an industrial park. Identify the central problem, and state one “how” and one “for whom” decision that follows.</li>
+              <li><strong>Q3.</strong> Why is “for whom to produce” a question about income distribution?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>They are the most basic questions every economy must answer; unemployment and inequality arise from the answers.</li>
+                <li>“What to produce”: health services versus industrial output. “How”: labour- or capital-intensive construction. “For whom”: whether seats or jobs go to low-income households.</li>
+                <li>Output is distributed as rent, wages, interest and profit, so factor ownership and prices decide who can buy the goods.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-3">
+        <header class="session-head"><span class="session-kicker">Section 3</span><h2>Opportunity Cost</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Once resources have alternative uses, every yes is also a no. Opportunity cost gives that no a value, and it is the concept that turns “choice” from a slogan into a number.</p></blockquote>
+
+          <section class="subsection" id="n-s3-1">
+            <h3>3.1 Definition</h3>
+            <p><strong>Definition.</strong> <strong>Opportunity cost</strong> is the value of the next best alternative forgone when a choice is made.</p>
+            <p>Because resources are scarce and have alternative uses, choosing one option means rejecting another; the best rejected option is the true cost.</p>
+            <blockquote class="note"><p><strong>In simple words.</strong> The real cost of what you choose is the best thing you did not choose.</p></blockquote>
+          </section>
+
+          <section class="subsection" id="n-s3-2">
+            <h3>3.2 Only the next best alternative counts</h3>
+            <p>Opportunity cost is <strong>not</strong> the sum of everything given up. It is the value of the single best alternative that would actually have been chosen.</p>
+            <div class="callout"><p><strong>Example.</strong> Meera earns ₹40,000 in a bank. She gets offers of ₹30,000 as an executive and ₹35,000 as a journalist.</p></div>
+            <div class="table-wrap" role="region" aria-label="Meera's job options and opportunity cost" tabindex="0">
+              <table>
+                <thead><tr><th>Choice</th><th>Income</th><th>Next best alternative</th><th>Opportunity cost</th></tr></thead>
+                <tbody>
+                  <tr><td>Stay in the bank</td><td>₹40,000</td><td>Journalist at ₹35,000</td><td>₹35,000</td></tr>
+                  <tr><td>Become a journalist</td><td>₹35,000</td><td>Bank at ₹40,000</td><td>₹40,000</td></tr>
+                  <tr><td>Become an executive</td><td>₹30,000</td><td>Bank at ₹40,000</td><td>₹40,000</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Adding the two rejected offers is wrong: Meera cannot take both jobs, so only the best one is forgone. Staying in the bank costs ₹35,000, not ₹65,000.</p>
+          </section>
+
+          <section class="subsection" id="n-s3-3">
+            <h3>3.3 Examples</h3>
+            <p><strong>Land.</strong> One hectare can produce 1,000 kg of rice or 1,500 kg of pulses. Choosing pulses costs 1,000 kg of rice; choosing rice costs 1,500 kg of pulses.</p>
+            <p><strong>Time.</strong> An hour spent watching a film could have been spent revising. If revision is the next best use, the film's opportunity cost includes the revision forgone.</p>
+            <p>Opportunity cost is wider than money cost. A shopkeeper who owns his shop forgoes the rent he could have earned by letting it out; that rent is a cost even though no rent is paid.</p>
+            <div class="callout"><p><strong>Exam line.</strong> Opportunity cost is a <em>real</em> cost, not necessarily a money cost. It exists whenever a choice excludes an alternative.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s3-4">
+            <h3>3.4 Opportunity cost and the PPF</h3>
+            <p>Along a PPF, more X means withdrawing resources from Y. The Y sacrificed for one more X is X's opportunity cost; because the slope measures this sacrifice, the PPF is also called the <strong>opportunity cost curve</strong>.</p>
+            <p>On a straight-line PPF the opportunity cost is constant. On the usual concave PPF it rises as X expands — the point developed in Section 4.</p>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> “Opportunity cost is the sum of all alternatives forgone.” Correct this statement.</li>
+              <li><strong>Q2.</strong> A farmer can grow 800 kg of wheat or 1,200 kg of mustard on one hectare. He chooses wheat. What is the opportunity cost? What would it be if he chose mustard?</li>
+              <li><strong>Q3.</strong> Why is the PPF called the opportunity cost curve?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>False. Opportunity cost is the value of the next best alternative only, not the sum of every alternative.</li>
+                <li>Choosing wheat gives up 1,200 kg of mustard. Choosing mustard gives up 800 kg of wheat.</li>
+                <li>More of one good means less of the other. The slope measures the Y sacrificed per extra unit of X, which is X's opportunity cost.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-4">
+        <header class="session-head"><span class="session-kicker">Section 4</span><h2>The Production Possibility Frontier</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> The PPF is scarcity drawn as a line. Everything inside is affordable, everything outside is not, and the shape of the line records the opportunity cost of moving along it.</p></blockquote>
+
+          <section class="subsection" id="n-s4-1">
+            <h3>4.1 Definition and assumptions</h3>
+            <p><strong>Definition.</strong> The <strong>production possibility frontier (PPF)</strong> shows the possible combinations of two goods an economy can produce with given resources and technology, assuming full and efficient use.</p>
+            <p>Also called the production possibility curve or transformation curve.</p>
+            <p>The PPF assumes:</p>
+            <ol>
+              <li>only two goods are produced;</li>
+              <li>resources are fixed in quantity but transferable between uses;</li>
+              <li>resources are fully and efficiently used;</li>
+              <li>technology is constant.</li>
+            </ol>
+            <p>A fifth feature is not an assumption but the reason for the curve's shape: resources are <strong>not equally efficient</strong> in both uses. That is why the PPF is normally concave rather than a straight line.</p>
+          </section>
+
+          <section class="subsection" id="n-s4-2">
+            <h3>4.2 A production possibility schedule</h3>
+            <div class="table-wrap" role="region" aria-label="Production possibility schedule and MRT" tabindex="0">
+              <table>
+                <thead><tr><th>Combination</th><th>Good X (units)</th><th>Good Y (units)</th><th>Y sacrificed (units)</th><th>MRT = Y sacrificed ÷ X gained</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>0</td><td>30</td><td>—</td><td>—</td></tr>
+                  <tr><td>2</td><td>1</td><td>26</td><td>4</td><td>4</td></tr>
+                  <tr><td>3</td><td>2</td><td>21</td><td>5</td><td>5</td></tr>
+                  <tr><td>4</td><td>3</td><td>15</td><td>6</td><td>6</td></tr>
+                  <tr><td>5</td><td>4</td><td>8</td><td>7</td><td>7</td></tr>
+                  <tr><td>6</td><td>5</td><td>0</td><td>8</td><td>8</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Each step adds one unit of X, but the Y sacrificed rises from 4 to 8. This is <strong>increasing marginal opportunity cost</strong>.</p>
+            <figure class="chapter-figure">
+              <img src="Ch1_PPF_Basic.png" alt="A downward-sloping, concave production possibility frontier from 30 units of Y to 5 units of X. Point A lies on the curve, point B inside the shaded attainable region, and point C outside it." loading="lazy" width="1605" height="1082">
+              <figcaption><strong>Figure 1.1 — A concave production possibility frontier.</strong> The curve joins the maximum combinations of Good X and Good Y. A lies on the frontier, B inside it, and C outside it.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> The curve slopes downward and is concave: each extra unit of X costs more Y. The shaded area is attainable; the frontier is its upper boundary; C is beyond current capacity.</p>
+          </section>
+
+          <section class="subsection" id="n-s4-3">
+            <h3>4.3 Why the PPF slopes downward</h3>
+            <p>Resources used for X are taken from Y. With full employment, more X means less Y. The downward slope is therefore the graphical form of opportunity cost: the only way to get more X is to give up some Y.</p>
+          </section>
+
+          <section class="subsection" id="n-s4-4">
+            <h3>4.4 Why the PPF is concave: increasing MRT</h3>
+            <p><strong>Definition.</strong> The <strong>marginal rate of transformation (MRT)</strong> is the units of one good sacrificed to produce one additional unit of the other. It is the absolute slope of the PPF.</p>
+            <div class="formula-line">MRT = ΔY / ΔX</div>
+            <p>ΔY is the fall in Good Y, taken as a positive number (the sacrifice), and ΔX is the rise in Good X.</p>
+            <p>For the schedule, moving from 2 to 3 units of X:</p>
+            <div class="formula-line">MRT = (21 − 15) / (3 − 2) = 6 / 1 = 6</div>
+            <p>So the third unit of X costs 6 units of Y. The slope of the curve is −MRT, because Y falls as X rises.</p>
+            <p>The PPF is concave to the origin because <strong>MRT increases</strong> as X expands: in the table it rises from 4 to 5 to 6 to 7 to 8.</p>
+            <p>Why? Resources are not equally efficient. The first resources shifted into X are relatively best at X and least costly to withdraw from Y. As X expands, resources better at Y are shifted, so each extra unit of X costs more Y.</p>
+            <div class="formula-line">unequal resource efficiency → less suitable resources shifted → each extra X costs more Y → MRT rises → opportunity cost rises → PPF is concave</div>
+            <figure class="chapter-figure">
+              <img src="Ch1_Opportunity_Cost.png" alt="A concave frontier for butter and guns. Moving from A to B costs 1 gun, from B to C costs 2 guns, and from C to D costs 3 guns for each extra unit of butter." loading="lazy" width="1605" height="1082">
+              <figcaption><strong>Figure 1.2 — Increasing opportunity cost along a PPF.</strong> Each extra unit of butter costs more guns than the unit before it: 1 gun, then 2, then 3. Rising MRT is the formal reason the curve is concave.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> The arrows get longer as butter increases. That is rising opportunity cost drawn directly on the curve.</p>
+            <div class="callout"><p><strong>Say it fully.</strong> “The PPF is concave because opportunity cost increases” is true but incomplete. The formal cause is <strong>rising MRT</strong>, which comes from resources being unequally efficient. If resources were equally efficient, MRT would be constant and the PPF a straight line.</p></div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Define the PPF and state any three assumptions.</li>
+              <li><strong>Q2.</strong> Using the schedule, calculate MRT when X rises from 4 to 5 units and from 1 to 2 units. Why do the values differ?</li>
+              <li><strong>Q3.</strong> Why is a PPF normally concave rather than a straight line?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>The PPF shows possible combinations of two goods with given resources and technology, assuming full and efficient use. Assumptions: two goods; fixed but transferable resources; full and efficient use; constant technology; unequal resource efficiency.</li>
+                <li>From 4 to 5 units, Y falls from 8 to 0, so MRT = 8; from 1 to 2 units, Y falls from 26 to 21, so MRT = 5. Later units of X use resources better suited to Y.</li>
+                <li>A straight line means constant MRT, which requires equal resource efficiency. Real resources differ, so shifting them raises MRT and makes the curve concave.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-5">
+        <header class="session-head"><span class="session-kicker">Section 5</span><h2>Reading the PPF</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> A PPF is not just a curve to draw; it is a map with three zones. Knowing which zone a point sits in answers most one-mark and three-mark questions.</p></blockquote>
+
+          <section class="subsection" id="n-s5-1">
+            <h3>5.1 Attainable, efficient and unattainable points</h3>
+            <p><strong>Attainable</strong> combinations lie on or inside the PPF. <strong>Efficient</strong> combinations lie on it: more of one good would require less of the other — this is <strong>productive efficiency</strong>. <strong>Inefficient</strong> combinations lie inside: idle resources allow more of one good without giving up the other. <strong>Unattainable</strong> combinations lie outside.</p>
+            <div class="table-wrap" role="region" aria-label="Points on, inside and outside the PPF" tabindex="0">
+              <table>
+                <thead><tr><th>Position</th><th>Meaning</th><th>Example in Figure 1.1</th></tr></thead>
+                <tbody>
+                  <tr><td>On the PPF</td><td>Attainable and efficient; full use of resources</td><td>A</td></tr>
+                  <tr><td>Inside the PPF</td><td>Attainable but inefficient; idle or misused resources</td><td>B</td></tr>
+                  <tr><td>Outside the PPF</td><td>Unattainable with current resources and technology</td><td>C</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>In Figure 1.1, A is efficient, B is attainable but inefficient, and C is unattainable. An economy can move from B towards A by using its existing capacity better; it cannot reach C without growth.</p>
+            <div class="callout"><p><strong>Warning.</strong> Inside points are attainable, not unattainable; only outside points are unattainable. “Inside” means the economy is wasting capacity, not that the combination is impossible.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s5-2">
+            <h3>5.2 Efficiency is not fairness</h3>
+            <p>The PPF shows <strong>productive efficiency</strong>, not the best point for society. Every point on the curve is technically efficient, yet they distribute goods very differently. Which point is desirable depends on preferences and distribution — a normative question.</p>
+            <div class="callout"><p><strong>Example.</strong> A point with many hospitals and few factories can be efficient, and so can the reverse. The PPF does not say which is better; it only says both use all resources.</p></div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> “A point inside the PPF is unattainable.” Is this true?</li>
+              <li><strong>Q2.</strong> Point C in Figure 1.1 is outside the PPF. What does this mean, and what change could make it attainable?</li>
+              <li><strong>Q3.</strong> Does an efficient point on the PPF also tell us the bundle is fair? Explain.</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>False. A point inside is attainable but inefficient; only outside points are unattainable.</li>
+                <li>C cannot be produced now. Growth of resources or better technology, especially for Y, could move the frontier through C.</li>
+                <li>No. The PPF shows productive efficiency only. Fairness depends on how output is distributed, which is a normative question.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-6">
+        <header class="session-head"><span class="session-kicker">Section 6</span><h2>Shifting and Rotating the PPF</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> A PPF changes in two different ways, and examiners test whether you can tell them apart. Capacity for both goods shifts the whole curve; capacity for one good rotates it.</p></blockquote>
+
+          <section class="subsection" id="n-s6-1">
+            <h3>6.1 Shifts of the PPF</h3>
+            <p>When resources or technology change for <strong>both</strong> goods, the whole curve shifts.</p>
+            <p><strong>Outward shift.</strong> More or better resources, or better technology for both goods, shift the PPF rightward. Sources include new natural resources, more labour, foreign capital, skill development and better health.</p>
+            <p><strong>Inward shift.</strong> A decrease in resources or technological degradation shifts the PPF leftward. An earthquake destroying factories or a war damaging infrastructure can shrink capacity.</p>
+            <figure class="chapter-figure">
+              <img src="Ch1_PPF_Shift.png" alt="Two concave production possibility frontiers. The original curve P runs from 30 units of Y to 5 units of X; the new curve P1 runs from 36 units of Y to 6 units of X, with an arrow showing the outward shift." loading="lazy" width="1605" height="1082">
+              <figcaption><strong>Figure 1.3 — Outward shift of the PPF.</strong> Growth of resources or better technology for both goods shifts the PPF outward from P to P₁. Both intercepts rise: maximum X from 5 to 6 and maximum Y from 30 to 36.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> Both intercepts rise, and previously unattainable bundles may become attainable. This is growth of capacity, not movement along the curve.</p>
+            <div class="callout"><p><strong>Important.</strong> Unemployment does <strong>not</strong> shift the PPF. It moves the economy inside the existing frontier. The curve assumes full use; idle resources are a failure to reach it.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s6-2">
+            <h3>6.2 Rotations of the PPF</h3>
+            <p>When capacity changes for <strong>only one</strong> good, the PPF rotates around the intercept of the unchanged good.</p>
+            <ul>
+              <li><strong>Outward on the X-axis:</strong> improvement for Good X only; maximum X rises, maximum Y is unchanged.</li>
+              <li><strong>Outward on the Y-axis:</strong> improvement for Good Y only; maximum Y rises, maximum X is unchanged.</li>
+              <li><strong>Inward on an axis:</strong> a fall in capacity for that good rotates the curve inward on that axis.</li>
+            </ul>
+            <figure class="chapter-figure">
+              <img src="Ch1_PPF_Rotation.png" alt="Two concave frontiers. The original curve P runs from 30 units of Y to 5 units of X. The rotated curve P1 starts at the same Y intercept of 30 but reaches 7 units of X, with an arrow showing the outward rotation." loading="lazy" width="1605" height="1082">
+              <figcaption><strong>Figure 1.4 — Rotation of the PPF on the X-axis.</strong> An improvement in capability for Good X only rotates the PPF outward from P to P₁; the Y-intercept stays at 30 while the X-intercept moves from 5 to 7.</figcaption>
+            </figure>
+            <p><strong>What to notice.</strong> The Y-intercept is unchanged, while the X-intercept rises. The curve is flatter at every level of X. This is a rotation, not a general outward shift.</p>
+          </section>
+
+          <section class="subsection" id="n-s6-3">
+            <h3>6.3 Uses and limitations of the PPF</h3>
+            <p>The PPF shows <strong>scarcity</strong> as the boundary, <strong>choice and opportunity cost</strong> as movement along the curve, <strong>efficiency</strong> on the curve, and <strong>growth</strong> as a shift or rotation.</p>
+            <p>Its limitations: it assumes only two goods, fixed resources, constant technology and full efficient use; it treats resources as easily transferable; it shows productive efficiency only, not fairness; and it ignores trade.</p>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Why does massive unemployment not shift the PPF left?</li>
+              <li><strong>Q2.</strong> A technology improves only cloth production. What happens to the PPF?</li>
+              <li><strong>Q3.</strong> State two uses and two limitations of the PPF.</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>The PPF assumes full use. Unemployment means existing capacity is idle, so the economy operates inside the curve; capacity has not fallen.</li>
+                <li>Only cloth capability rises, so the PPF rotates outward on the cloth axis; the intercept for the other good is unchanged.</li>
+                <li>Uses: shows scarcity, choice, opportunity cost, efficiency and growth. Limitations: only two goods, fixed resources and technology, resources treated as easily transferable, no fairness, no trade.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-7">
+        <header class="session-head"><span class="session-kicker">Section 7</span><h2>Microeconomics and Macroeconomics</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> The same economy can be studied close up or from a distance. Micro is the close-up; macro is the wide shot. Neither is more important — they answer different questions.</p></blockquote>
+
+          <section class="subsection" id="n-s7-1">
+            <h3>7.1 Microeconomics</h3>
+            <p><strong>Definition.</strong> <strong>Microeconomics</strong> (Greek <em>mikros</em>, small) studies the behaviour of individual units of an economy — a consumer, household, firm, industry or the market for a single commodity.</p>
+            <p>It examines consumer choice, a firm's output and price, and commodity prices. Its tools are <strong>demand and supply</strong>.</p>
+            <div class="callout"><p><strong>Examples.</strong> The price of onions in Delhi; a firm hiring ten workers; the market for one brand of phone.</p></div>
+            <p>Because it mainly studies price determination in individual markets, microeconomics is called <strong>price theory</strong>.</p>
+          </section>
+
+          <section class="subsection" id="n-s7-2">
+            <h3>7.2 Macroeconomics</h3>
+            <p><strong>Definition.</strong> <strong>Macroeconomics</strong> (Greek <em>makros</em>, large) studies aggregates of the economy as a whole — national income, aggregate output, aggregate consumption, the general price level, employment and the balance of payments.</p>
+            <p>Its tools are <strong>aggregate demand and aggregate supply</strong>.</p>
+            <div class="callout"><p><strong>Examples.</strong> India's GDP growth; the inflation rate; the unemployment rate; the budget deficit.</p></div>
+            <p>Because it focuses on economy-wide income and employment, macroeconomics is called <strong>income and employment theory</strong>.</p>
+          </section>
+
+          <section class="subsection" id="n-s7-3">
+            <h3>7.3 Differences</h3>
+            <div class="table-wrap" role="region" aria-label="Microeconomics and macroeconomics compared" tabindex="0">
+              <table>
+                <thead><tr><th>Basis</th><th>Microeconomics</th><th>Macroeconomics</th></tr></thead>
+                <tbody>
+                  <tr><td>Meaning</td><td>Individual units</td><td>Aggregates of the whole economy</td></tr>
+                  <tr><td>Main tools</td><td>Demand and supply</td><td>Aggregate demand and aggregate supply</td></tr>
+                  <tr><td>Basic objective</td><td>Price of a commodity or factor</td><td>Level of income and employment</td></tr>
+                  <tr><td>Aggregation</td><td>Limited; market demand sums individual demands</td><td>Highest; aggregate demand is for the whole economy</td></tr>
+                  <tr><td>Standard assumption</td><td>Macro variables such as national income are constant</td><td>Micro variables such as individual prices are constant</td></tr>
+                  <tr><td>Other name</td><td>Price theory</td><td>Income and employment theory</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="subsection" id="n-s7-4">
+            <h3>7.4 Interdependence</h3>
+            <p>The branches are not watertight. A petrol price rise is micro, but it raises transport costs and inflation — a macro outcome. A recession lowers national income and demand in individual markets.</p>
+            <div class="callout"><p><strong>Exam line.</strong> The division is a matter of convenience, not a wall. Micro decisions add up to macro outcomes, and macro conditions reshape micro choices.</p></div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Why is micro called price theory and macro income and employment theory?</li>
+              <li><strong>Q2.</strong> Classify: (a) the price of tomatoes in Mumbai; (b) India's inflation rate; (c) a firm hiring ten workers; (d) national income.</li>
+              <li><strong>Q3.</strong> How can one firm's wage decision matter for macro policy?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>Micro mainly studies how individual commodity and factor prices are determined. Macro mainly studies economy-wide income and employment.</li>
+                <li>(a) Micro; (b) macro; (c) micro; (d) macro.</li>
+                <li>Wage decisions across firms add up to the national wage level, affecting costs, prices, inflation and employment.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-8">
+        <header class="session-head"><span class="session-kicker">Section 8</span><h2>Positive and Normative Economics</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> One question asks what is true; the other asks what is desirable. Mixing them is the fastest way to lose a classification mark.</p></blockquote>
+
+          <section class="subsection" id="n-s8-1">
+            <h3>8.1 Positive economics</h3>
+            <p><strong>Definition.</strong> <strong>Positive economics</strong> studies economic facts and relationships as they are — what is, was or will be. It describes and predicts.</p>
+            <p>Positive statements can be tested against data: “India's population is above 140 crore”; “a higher cigarette tax reduces smoking.” Positive economics is <strong>neutral between ends</strong> — it can describe a policy's effects without saying the policy is good.</p>
+            <div class="callout"><p><strong>Warning.</strong> “Positive” does not mean “correct” or “optimistic”. A positive statement can be false: “India is larger than China in land area” is positive, though false, because it can be checked.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s8-2">
+            <h3>8.2 Normative economics</h3>
+            <p><strong>Definition.</strong> <strong>Normative economics</strong> studies what ought to be — how problems should be solved. It involves value judgements.</p>
+            <p>“The government should spend more on healthcare” is normative: data can show what spending would achieve, but not that health <em>ought</em> to have priority over defence. Normative economics is <strong>suggestive</strong>: it recommends action, and the final judgement rests on values.</p>
+          </section>
+
+          <section class="subsection" id="n-s8-3">
+            <h3>8.3 How to identify the two</h3>
+            <ul>
+              <li><strong>Should, ought, must, fair, better, justified</strong> usually signal normative statements: they recommend or evaluate.</li>
+              <li><strong>Is, was, will be, causes, leads to, if–then</strong> usually signal positive statements: they describe or predict.</li>
+            </ul>
+            <div class="callout"><p><strong>Example.</strong> “Rising food prices hurt poor households, so the government should expand ration shops.” The first clause is positive; the second is normative. One sentence can contain both.</p></div>
+          </section>
+
+          <section class="subsection" id="n-s8-4">
+            <h3>8.4 A different distinction from micro and macro</h3>
+            <p>Micro/macro is the <strong>level of analysis</strong>; positive/normative is the <strong>type of statement</strong>. They combine in four ways.</p>
+            <div class="table-wrap" role="region" aria-label="Micro and macro combined with positive and normative" tabindex="0">
+              <table>
+                <thead><tr><th>Level</th><th>Positive</th><th>Normative</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Micro</strong></td><td>“The price of wheat rose by 4% in June.”</td><td>“Wheat should be subsidised for poor households.”</td></tr>
+                  <tr><td><strong>Macro</strong></td><td>“India's GDP grew by 7% last year.”</td><td>“The RBI should cut interest rates to raise growth.”</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout"><p><strong>Test yourself.</strong> Ask two separate questions: “Is it about a part or the whole?” (micro or macro) and “Is it a fact or a value judgement?” (positive or normative). The two answers are independent.</p></div>
+          </section>
+
+          <div class="check-card check-block">
+            <div class="check-top"><span class="check-pill">Check yourself</span><span class="check-time">3 questions</span></div>
+            <ol class="check-questions">
+              <li><strong>Q1.</strong> Define positive and normative economics. Why does “positive” not mean “correct”?</li>
+              <li><strong>Q2.</strong> Classify: (a) “India's population crossed 140 crore.” (b) “India should control its population.” (c) “A higher cigarette tax reduces smoking.” (d) “The rich should pay more tax.” (e) “Demonetisation was justified.”</li>
+              <li><strong>Q3.</strong> Can a normative statement be tested as true or false with data?</li>
+            </ol>
+            <details class="checklist"><summary>Show answers</summary>
+              <div class="checklist-answer"><ol>
+                <li>Positive studies what is and is testable; normative studies what ought to be and involves value judgements. “Positive” means factual, not correct.</li>
+                <li>(a) Positive; (b) normative; (c) positive; (d) normative; (e) normative — “justified” is a value judgement.</li>
+                <li>Not by data alone. Data can show a policy's consequences, but whether they are desirable depends on values. Two people can accept the same data and still disagree.</li>
+              </ol></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="session" id="n-section-9">
+        <header class="session-head"><span class="session-kicker">Section 9</span><h2>Common Mistakes, Recap and Exam Practice</h2></header>
+        <div class="session-body">
+          <blockquote class="note"><p><strong>The idea of this section.</strong> Most lost marks come from a handful of confusions: opportunity cost with the sum of alternatives, an inside point with an impossible one, a shift with a rotation, and positive with “good”. Fix those and the chapter becomes quick revision.</p></blockquote>
+
+          <section class="subsection" id="n-s9-1">
+            <h3>9.1 Common mistakes</h3>
+            <div class="table-wrap" role="region" aria-label="Common mistakes in introduction to microeconomics" tabindex="0">
+              <table>
+                <thead><tr><th>Mistake</th><th>Correct idea</th></tr></thead>
+                <tbody>
+                  <tr><td>“Opportunity cost is the sum of all alternatives.”</td><td>It is the value of the next best alternative only.</td></tr>
+                  <tr><td>“A point inside the PPF is unattainable.”</td><td>It is attainable but inefficient; only points outside are unattainable.</td></tr>
+                  <tr><td>“The PPF is concave because resources are equally efficient.”</td><td>It is concave because resources are <em>not</em> equally efficient, so MRT rises.</td></tr>
+                  <tr><td>“Unemployment shifts the PPF left.”</td><td>It moves the economy inside the existing PPF.</td></tr>
+                  <tr><td>“Growth for one good shifts the whole PPF right.”</td><td>It rotates the PPF on that good's axis.</td></tr>
+                  <tr><td>“MRT = ΔX ÷ ΔY.”</td><td>MRT = Y sacrificed ÷ X gained, the absolute slope.</td></tr>
+                  <tr><td>“Positive economics means good economics.”</td><td>It means factual and testable; it can be false.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="subsection" id="n-recap">
+            <h3>9.2 Chapter recap</h3>
+            <ul>
+              <li>Scarcity, unlimited wants and alternative uses together create the economic problem, which is a problem of choice.</li>
+              <li>Every economy must decide what to produce, how to produce and for whom; full use and growth of resources are related questions.</li>
+              <li>Opportunity cost is the value of the next best alternative forgone, not the total of all rejected options.</li>
+              <li>The PPF shows maximum combinations of two goods with given resources and technology, assuming full and efficient use.</li>
+              <li>It is concave because MRT rises; resources are not equally efficient in both uses.</li>
+              <li>Points on the PPF are efficient, inside points are attainable but inefficient, and outside points are unattainable.</li>
+              <li>Micro is price theory; macro is income and employment theory.</li>
+              <li>Positive statements describe and are testable; normative statements prescribe and rest on values.</li>
+            </ul>
+          </section>
+
+          <section class="subsection" id="n-formulas">
+            <h3>9.3 Formula sheet</h3>
+            <div class="table-wrap" role="region" aria-label="Introduction to microeconomics formula sheet" tabindex="0">
+              <table>
+                <thead><tr><th>Concept</th><th>Formula</th><th>Remember</th></tr></thead>
+                <tbody>
+                  <tr><td>Opportunity cost</td><td>Value of the next best alternative forgone</td><td>Not the sum of all alternatives</td></tr>
+                  <tr><td>Marginal rate of transformation</td><td>MRT = (units of Y sacrificed) ÷ (units of X gained)</td><td>The absolute slope of the PPF</td></tr>
+                  <tr><td>Marginal opportunity cost</td><td>Units of one good sacrificed for one more unit of another</td><td>Equals MRT when X rises by one unit</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="subsection" id="n-exam">
+            <h3>9.4 Exam-style questions</h3>
+            <p><strong>Very short answer (1 mark)</strong></p>
+            <ol>
+              <li>Define opportunity cost.</li>
+              <li>What is MRT?</li>
+              <li>Why does the PPF slope downward?</li>
+              <li>Which branch studies national income and the general price level?</li>
+              <li>“The government should reduce inequality.” Positive or normative?</li>
+            </ol>
+            <p><strong>Short answer (3 marks)</strong></p>
+            <ol>
+              <li>Explain any three reasons why an economic problem arises.</li>
+              <li>Distinguish micro from macroeconomics on any three bases.</li>
+              <li>A PPF schedule gives the combinations below. Calculate MRT as X rises from 1 to 2 units and from 2 to 3 units, and comment.</li>
+            </ol>
+            <div class="table-wrap" role="region" aria-label="PPF schedule for the short answer question" tabindex="0">
+              <table>
+                <thead><tr><th>Good X (units)</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Good Y (units)</strong></td><td>20</td><td>17</td><td>13</td><td>8</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <ol start="4">
+              <li>Explain the effect on the PPF of (a) an earthquake that destroys factories and (b) a technology that improves only cloth production.</li>
+            </ol>
+            <p><strong>Long answer (4–6 marks)</strong></p>
+            <ol>
+              <li>Explain the three central problems of an economy with examples.</li>
+              <li>Why is the PPF concave? Explain with a schedule and MRT.</li>
+              <li>Distinguish positive from normative economics with examples. How is this different from micro/macro?</li>
+            </ol>
+            <details class="checklist"><summary>Answer pointers</summary>
+              <div class="checklist-answer">
+                <p><strong>Very short answers.</strong></p>
+                <ol>
+                  <li>The value of the next best alternative forgone.</li>
+                  <li>Units of one good sacrificed for one more unit of the other; the absolute slope of the PPF.</li>
+                  <li>More of one good requires transferring resources from the other, so the other must fall.</li>
+                  <li>Macroeconomics.</li>
+                  <li>Normative, because “should” expresses a value judgement.</li>
+                </ol>
+                <p><strong>Short answers.</strong></p>
+                <ol>
+                  <li>Unlimited wants, scarce resources and alternative uses; together they force choice.</li>
+                  <li>Individual units versus aggregates; demand and supply versus aggregate demand and aggregate supply; price versus income and employment determination.</li>
+                  <li>From 1 to 2 units, Y falls from 17 to 13, so MRT = 4. From 2 to 3 units, Y falls from 13 to 8, so MRT = 5. Rising MRT fits a concave PPF.</li>
+                  <li>(a) Resources are destroyed, so the PPF shifts inward. (b) Only cloth capability rises, so the PPF rotates outward on the cloth axis.</li>
+                </ol>
+                <p><strong>Long answers.</strong></p>
+                <ol>
+                  <li>What: choose goods and quantities, e.g. hospitals versus industrial parks. How: labour- or capital-intensive techniques. For whom: distribute output through rent, wages, interest and profit.</li>
+                  <li>Define MRT and give a schedule with rising MRT. Explain unequal resource efficiency: as X expands, resources better suited to Y are shifted, so each extra X costs more Y. Rising MRT makes the curve concave.</li>
+                  <li>Positive: what is, testable, e.g. “prices rose by 6%”. Normative: what ought to be, value judgement, e.g. “prices should not rise”. Micro/macro concerns individual units versus aggregates; either can be positive or normative.</li>
+                </ol>
+              </div>
+            </details>
+          </section>
+
+          <section class="subsection" id="n-minute">
+            <h3>9.5 One-minute revision</h3>
+            <div class="table-wrap" role="region" aria-label="One-minute revision for introduction to microeconomics" tabindex="0">
+              <table>
+                <thead><tr><th>Must know</th><th>One-line version</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Economic problem</strong></td><td>Unlimited wants plus scarce resources with alternative uses force choice.</td></tr>
+                  <tr><td><strong>Central problems</strong></td><td>What, how and for whom to produce.</td></tr>
+                  <tr><td><strong>Opportunity cost</strong></td><td>Value of the next best alternative forgone.</td></tr>
+                  <tr><td><strong>PPF</strong></td><td>Maximum combinations of two goods with given resources and technology.</td></tr>
+                  <tr><td><strong>Points</strong></td><td>On = efficient; inside = attainable but inefficient; outside = unattainable.</td></tr>
+                  <tr><td><strong>Shifts</strong></td><td>Growth shifts; one-good change rotates; unemployment moves inside.</td></tr>
+                  <tr><td><strong>Micro vs macro</strong></td><td>Individual units and price theory versus aggregates and income theory.</td></tr>
+                  <tr><td><strong>Positive vs normative</strong></td><td>What is and testable versus what ought to be and value judgement.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </section>
+      </div>
+
+      <div class="mode-panel mode-panel--quick" id="panel-quick" role="region" aria-label="Quick Revision" data-mode="quick" hidden>
+      <section class="quick-brief" id="q-start">
+        <div class="quick-brief-head">
+          <span class="quick-kicker">18-minute recall</span>
+          <h2>Quick revision, done properly</h2>
+          <p><strong>How to use this file (30 seconds):</strong> read one block → cover it → answer the recall questions aloud → open the answer to check → move on. Total time: about 18 minutes.</p>
+        </div>
+        <ol class="recall-steps">
+          <li><span class="step-num">01</span><strong>Read</strong><span>one block of notes</span></li>
+          <li><span class="step-num">02</span><strong>Cover</strong><span>the page and recall</span></li>
+          <li><span class="step-num">03</span><strong>Answer</strong><span>the drill aloud</span></li>
+          <li><span class="step-num">04</span><strong>Check</strong><span>and move on</span></li>
         </ol>
-        <blockquote><strong>Problem:</strong> He has only a <strong>₹1</strong> coin in his pocket, but everything costs so much more!</blockquote>
-
-        <h3>Important Definition:</h3>
-        <blockquote>
-          <strong>Economic Problem</strong> arises because:<br>
-          Human wants are <strong>unlimited</strong><br>
-          Resources are <strong>scarce</strong> (limited)<br>
-          Resources have <strong>alternative uses</strong>
-        </blockquote>
-
-        <h3>Example: The 1 Liter Milk Problem</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Person Wants</th><th>Dish</th></tr></thead>
-            <tbody>
-              <tr><td>One wants Tea</td><td>Tea</td></tr>
-              <tr><td>One wants Coffee</td><td>Coffee</td></tr>
-              <tr><td>One wants Buttermilk</td><td>Buttermilk</td></tr>
-              <tr><td>One wants Paneer</td><td>Paneer</td></tr>
-              <tr><td>One wants Ghee</td><td>Ghee</td></tr>
-              <tr><td>One wants Butter</td><td>Butter</td></tr>
-              <tr><td>One wants Sweets</td><td>Sweets</td></tr>
-            </tbody>
-          </table>
+        <div class="quick-map-head"><span>The three sessions</span><span>Tap to jump in</span></div>
+        <div class="quick-map">
+        <a class="quick-map-card" href="#q-session-1">
+          <span class="quick-map-num">S1</span>
+          <span class="quick-map-body"><strong>Scarcity, central problems and opportunity cost</strong><span>The economic problem · what, how, for whom · the next best alternative</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="quick-map-card" href="#q-session-2">
+          <span class="quick-map-num">S2</span>
+          <span class="quick-map-body"><strong>The production possibility frontier</strong><span>Assumptions · schedule and MRT · reading points · shifts vs rotations</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="quick-map-card" href="#q-session-3">
+          <span class="quick-map-num">S3</span>
+          <span class="quick-map-body"><strong>Micro vs macro, positive vs normative</strong><span>Individual units vs aggregates · facts vs value judgements</span></span>
+          <span class="quick-map-arrow" aria-hidden="true">→</span>
+        </a>
         </div>
-        <blockquote><strong>Problem:</strong> With just 1 liter of milk, you cannot fulfill everyone's different wishes → You have to make a <strong>Choice</strong>!</blockquote>
+        <p class="quick-brief-foot">24 recall questions · one confusion clinic · one rapid-fire table · one blank-page test.</p>
       </section>
 
-      <hr>
+      <section class="session session--quick" id="q-session-1">
+        <header class="session-head"><span class="session-kicker">Session 1</span><h2>Scarcity, central problems and opportunity cost</h2></header>
+        <div class="session-body">
+          <h3 id="q-s1-lines">The chapter in 12 lines</h3>
+          <ul>
+            <li>Economics studies choice under <strong>scarcity</strong>.</li>
+            <li>An economy <strong>produces, consumes and forms capital</strong>.</li>
+            <li>Wants are unlimited, resources are scarce, and resources have <strong>alternative uses</strong>.</li>
+            <li>Those three facts create the <strong>economic problem</strong>: choice.</li>
+            <li>Every economy answers <strong>what, how and for whom</strong> to produce.</li>
+            <li><strong>What</strong> = which goods and how much.</li>
+            <li><strong>How</strong> = the technique: labour- or capital-intensive.</li>
+            <li><strong>For whom</strong> = distribution through factor incomes.</li>
+            <li><strong>Full use</strong> means operating on the PPF; <strong>growth</strong> means shifting it outward.</li>
+            <li><strong>Opportunity cost</strong> is the value of the next best alternative forgone.</li>
+            <li>Only the <strong>single best</strong> rejected alternative counts.</li>
+            <li>The PPF slope measures <strong>opportunity cost</strong>.</li>
+          </ul>
 
-      <!-- 5. Positive vs Normative -->
-      <section id="positive-normative" class="fade-in">
-        <h2>5. Positive vs Normative Economics</h2>
-        <h3>Positive Economics</h3>
-        <blockquote><strong>Positive Economics</strong> deals with <strong>"What Is"</strong> – It gives factual statements that can be verified.</blockquote>
-        <h3>Normative Economics</h3>
-        <blockquote><strong>Normative Economics</strong> deals with <strong>"What Ought to Be"</strong> – It gives value judgments / opinions.</blockquote>
-        <h3>Comparison Table:</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Basis</th><th>Positive Economics</th><th>Normative Economics</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Deals With</strong></td><td>What Is (facts)</td><td>What Ought to Be (opinions)</td></tr>
-              <tr><td><strong>Verification</strong></td><td>Can be verified with actual data</td><td>Cannot be verified with data</td></tr>
-              <tr><td><strong>Nature</strong></td><td>Objective (factual)</td><td>Subjective / Suggestive</td></tr>
-              <tr><td><strong>Value Judgement</strong></td><td>No value judgement</td><td>Involves value judgement</td></tr>
-              <tr><td><strong>Purpose</strong></td><td>Description of economic activity</td><td>Ideal description of how things should work</td></tr>
-              <tr><td><strong>Example 1</strong></td><td>"India's prices are rising"</td><td>"India should take steps to control rising prices"</td></tr>
-              <tr><td><strong>Example 2</strong></td><td>"Income inequality exists in India"</td><td>"Income inequality should be reduced"</td></tr>
-            </tbody>
-          </table>
+          <h3 id="q-s1-terms">The words that carry marks</h3>
+          <div class="table-wrap" role="region" aria-label="Key terms quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Term</th><th>Meaning</th><th>Watch out</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Scarcity</strong></td><td>Supply of a resource is limited relative to demand</td><td>Not the same as poverty</td></tr>
+                <tr><td><strong>Economic problem</strong></td><td>Choice with unlimited wants and limited resources with alternative uses</td><td>Choice is the core</td></tr>
+                <tr><td><strong>Allocation</strong></td><td>Assigning scarce resources to satisfy wants</td><td>Every economy must do it</td></tr>
+                <tr><td><strong>Opportunity cost</strong></td><td>Value of the next best alternative forgone</td><td>Not the sum of all alternatives</td></tr>
+                <tr><td><strong>Factor incomes</strong></td><td>Rent, wages, interest and profit</td><td>They decide “for whom”</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>One-line test:</strong> if the question says “limited means and unlimited wants”, answer <em>economic problem</em>. If it says “best alternative given up”, answer <em>opportunity cost</em>.</p></div>
+
+          <h3 id="q-s1-central">The three central problems</h3>
+          <div class="table-wrap" role="region" aria-label="Central problems of an economy quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Problem</th><th>Question</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><strong>What to produce</strong></td><td>Which goods, and how much of each?</td><td>Hospital versus industrial park; consumer versus capital goods</td></tr>
+                <tr><td><strong>How to produce</strong></td><td>Which technique and input mix?</td><td>60 tailors versus 6 machines and 12 operators</td></tr>
+                <tr><td><strong>For whom to produce</strong></td><td>Who gets the output?</td><td>Premium versus budget phone buyers</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-wrap" role="region" aria-label="Full use and growth quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Idea</th><th>What happens</th><th>Picture</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Full use</strong></td><td>Existing capacity is used fully</td><td>Move from inside the PPF to the curve</td></tr>
+                <tr><td><strong>Growth</strong></td><td>More or better resources or technology</td><td>Shift the PPF outward</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 id="q-s1-opp">Opportunity cost, worked</h3>
+          <p>Meera earns ₹40,000 in a bank; her alternatives are ₹30,000 as an executive and ₹35,000 as a journalist.</p>
+          <div class="table-wrap" role="region" aria-label="Opportunity cost worked table" tabindex="0">
+            <table>
+              <thead><tr><th>Choice</th><th>Next best alternative</th><th>Opportunity cost</th></tr></thead>
+              <tbody>
+                <tr><td>Stay in the bank</td><td>Journalist at ₹35,000</td><td>₹35,000</td></tr>
+                <tr><td>Become a journalist</td><td>Bank at ₹40,000</td><td>₹40,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="formula-line">Opportunity cost = value of the <em>next best</em> alternative forgone</div>
+          <p>One hectare gives 1,000 kg rice or 1,500 kg pulses. Choosing pulses costs 1,000 kg rice; choosing rice costs 1,500 kg pulses.</p>
+          <div class="callout"><p><strong>Trap:</strong> adding the rejected options is wrong. Meera cannot take both jobs, so her opportunity cost is ₹35,000, not ₹65,000.</p></div>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s1-drill">Recall drill — Session 1</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>Define the economic problem.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>The problem of choice involving the satisfaction of unlimited wants out of limited resources that have alternative uses.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is scarcity not the same as poverty?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Scarcity means limited means relative to unlimited wants and exists even in rich economies. Poverty is a low level of income.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>State the three central problems of an economy.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>What to produce, how to produce, and for whom to produce.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Distinguish labour-intensive from capital-intensive techniques.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Labour-intensive uses more labour and less capital per unit of output; capital-intensive uses more capital and less labour.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>What does “for whom to produce” mean, and why is it about income distribution?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>It is the distribution of output. Output is paid out as rent, wages, interest and profit, so factor ownership and prices decide who can buy the goods.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Define opportunity cost and correct the “sum of all alternatives” error.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Opportunity cost is the value of the next best alternative forgone. It is not the sum of every rejected option, because only one alternative would actually have been chosen.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Meera earns ₹40,000 in a bank; offers are ₹30,000 and ₹35,000. Find the opportunity cost of staying and of becoming a journalist.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Staying: the next best alternative is journalism at ₹35,000, so ₹35,000. Becoming a journalist: the next best is the bank at ₹40,000, so ₹40,000.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>One hectare gives 1,000 kg rice or 1,500 kg pulses. Find both opportunity costs.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Choosing pulses costs 1,000 kg of rice. Choosing rice costs 1,500 kg of pulses.</p></details></li>
+            </ol>
+          </div>
         </div>
       </section>
 
-      <hr>
+      <section class="session session--quick" id="q-session-2">
+        <header class="session-head"><span class="session-kicker">Session 2</span><h2>The production possibility frontier</h2></header>
+        <div class="session-body">
+          <h3 id="q-s2-def">Definition and assumptions</h3>
+          <p>The <strong>PPF</strong> shows the possible combinations of two goods an economy can produce with given resources and technology, assuming full and efficient use. Also called the production possibility curve or transformation curve.</p>
+          <div class="table-wrap" role="region" aria-label="PPF assumptions quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Assumption</th><th>Meaning</th></tr></thead>
+              <tbody>
+                <tr><td>Two goods</td><td>Only Good X and Good Y are produced</td></tr>
+                <tr><td>Fixed but transferable resources</td><td>Quantity is fixed; inputs can move between uses</td></tr>
+                <tr><td>Full and efficient use</td><td>No idle or wasted resources</td></tr>
+                <tr><td>Constant technology</td><td>The technique does not change</td></tr>
+                <tr><td>Unequal resource efficiency</td><td>Not an assumption but the reason the curve is concave</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-      <!-- 6. Micro vs Macro -->
-      <section id="micro-macro" class="fade-in">
-        <h2>6. Microeconomics vs Macroeconomics</h2>
-        <h3>Microeconomics (Study in Class 11)</h3>
-        <blockquote><strong>Microeconomics</strong> = Study of <strong>Individual</strong> Economic Units (one person, one firm, one product)</blockquote>
-        <h3>Macroeconomics (Study in Class 12)</h3>
-        <blockquote><strong>Macroeconomics</strong> = Study of <strong>Aggregate</strong> (entire) Economy (whole country)</blockquote>
-        <h3>Difference Table:</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Basis</th><th>Microeconomics</th><th>Macroeconomics</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Meaning</strong></td><td>Studies individual units</td><td>Studies aggregate economy</td></tr>
-              <tr><td><strong>Tools</strong></td><td>Demand &amp; Supply of individual product</td><td>Aggregate Demand &amp; Aggregate Supply</td></tr>
-              <tr><td><strong>Objective</strong></td><td>Determine price of a commodity</td><td>Determine income &amp; employment level of economy</td></tr>
-              <tr><td><strong>Scope</strong></td><td>Limited (narrow scope)</td><td>Highest (wide scope)</td></tr>
-              <tr><td><strong>Assumption</strong></td><td>Macro variables assumed constant (ceteris paribus)</td><td>Micro variables assumed constant</td></tr>
-              <tr><td><strong>Other Names</strong></td><td><strong>Price Theory</strong></td><td><strong>Income &amp; Employment Theory</strong></td></tr>
-              <tr><td><strong>Examples</strong></td><td>Your monthly income, price of 1 kg sugar</td><td>India's National Income, Total Employment</td></tr>
-            </tbody>
-          </table>
+          <h3 id="q-s2-schedule">The schedule and MRT</h3>
+          <div class="table-wrap" role="region" aria-label="PPF schedule quick table" tabindex="0">
+            <table>
+              <thead><tr><th>X</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Y</strong></td><td>30</td><td>26</td><td>21</td><td>15</td><td>8</td><td>0</td></tr>
+                <tr><td><strong>MRT</strong></td><td>—</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="formula-line">MRT = ΔY / ΔX = Y sacrificed ÷ X gained</div>
+          <p>From X = 2 to X = 3: MRT = (21 − 15) ÷ (3 − 2) = 6. The slope of the PPF is <strong>−MRT</strong>.</p>
+          <div class="callout"><p><strong>Why concave:</strong> resources are not equally efficient. As X expands, inputs better suited to Y are shifted, so each extra X costs more Y. Rising MRT = rising opportunity cost = concave curve.</p></div>
+
+          <h3 id="q-s2-reading">Reading the curve</h3>
+          <div class="table-wrap" role="region" aria-label="Points on the PPF quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Position</th><th>Attainable?</th><th>Efficient?</th><th>Meaning</th></tr></thead>
+              <tbody>
+                <tr><td><strong>On the PPF</strong></td><td>Yes</td><td>Yes</td><td>Full and efficient use — e.g. A</td></tr>
+                <tr><td><strong>Inside the PPF</strong></td><td>Yes</td><td>No</td><td>Idle resources — e.g. B</td></tr>
+                <tr><td><strong>Outside the PPF</strong></td><td>No</td><td>—</td><td>Unattainable now — e.g. C</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Efficiency is not fairness.</strong> Every point on the curve is efficient, but they distribute goods differently. Which point is desirable is a normative question.</p></div>
+
+          <h3 id="q-s2-shifts">Shifts and rotations</h3>
+          <div class="table-wrap" role="region" aria-label="PPF shifts and rotations quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Change</th><th>Effect on PPF</th><th>Intercepts</th></tr></thead>
+              <tbody>
+                <tr><td>Resources or technology improve for both goods</td><td>Parallel outward shift</td><td>Both rise (5→6 X, 30→36 Y)</td></tr>
+                <tr><td>Resources destroyed for both goods</td><td>Parallel inward shift</td><td>Both fall</td></tr>
+                <tr><td>Improvement for X only</td><td>Rotation outward on X-axis</td><td>X rises 5→7; Y stays 30</td></tr>
+                <tr><td>Improvement for Y only</td><td>Rotation outward on Y-axis</td><td>Y rises; X unchanged</td></tr>
+                <tr><td>Unemployment</td><td>No shift; economy moves inside</td><td>Unchanged</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Golden test:</strong> did capacity change for <em>both</em> goods? Shift. For <em>one</em> good? Rotation. Did workers simply lose jobs? Move inside.</p></div>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s2-drill">Recall drill — Session 2</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>Define the PPF and give its two other names.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>It shows the possible combinations of two goods an economy can produce with given resources and technology, assuming full and efficient use. Also called the production possibility curve and the transformation curve.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>State the four assumptions of the PPF.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Two goods; resources fixed in quantity but transferable; resources fully and efficiently used; technology constant. Unequal resource efficiency explains the concave shape.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Using the schedule, find MRT from 0 to 1 unit of X and from 4 to 5 units.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>0→1: Y falls 30 to 26, so MRT = 4. 4→5: Y falls 8 to 0, so MRT = 8.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is the PPF concave?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Resources are not equally efficient. As X expands, resources better suited to Y are shifted, so each extra X costs more Y. MRT rises, and rising opportunity cost makes the curve concave.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>What does a point inside, on, and outside the PPF mean?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Inside: attainable but inefficient (idle resources). On: attainable and efficient. Outside: unattainable with current resources and technology.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why does unemployment not shift the PPF left?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>The PPF assumes full use. Unemployment means existing capacity is idle, so the economy operates inside the curve; capacity itself has not fallen.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Distinguish a shift from a rotation of the PPF.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>A shift changes capacity for both goods, so both intercepts move. A rotation changes capacity for one good, so one intercept moves while the other stays fixed.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>A technology improves only Good Y. Describe the change.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Only Y capability rises, so the PPF rotates outward around the X intercept: the Y intercept rises, the X intercept is unchanged, and the curve becomes steeper at every X.</p></details></li>
+            </ol>
+          </div>
         </div>
-
-        <h3>Ceteris Paribus (All Other Things Being Equal):</h3>
-        <blockquote>When you want to check one variable, you keep all other variables <strong>constant</strong>.</blockquote>
-        <p><strong>Real Life Example:</strong> To check how much electricity AC consumes, you switch off all other appliances (lights, fan, TV) and run only the AC. This way you isolate one variable's effect → This is <strong>Ceteris Paribus</strong>.</p>
       </section>
 
-      <hr>
+      <section class="session session--quick" id="q-session-3">
+        <header class="session-head"><span class="session-kicker">Session 3</span><h2>Micro vs macro, positive vs normative</h2></header>
+        <div class="session-body">
+          <h3 id="q-s3-micro">Microeconomics and macroeconomics</h3>
+          <div class="table-wrap" role="region" aria-label="Micro and macro quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Basis</th><th>Micro</th><th>Macro</th></tr></thead>
+              <tbody>
+                <tr><td>Meaning</td><td>Individual units — consumer, firm, industry, one market</td><td>Aggregates of the whole economy</td></tr>
+                <tr><td>Tools</td><td>Demand and supply</td><td>Aggregate demand and aggregate supply</td></tr>
+                <tr><td>Objective</td><td>Price of a commodity or factor</td><td>Level of income and employment</td></tr>
+                <tr><td>Other name</td><td>Price theory</td><td>Income and employment theory</td></tr>
+                <tr><td>Example</td><td>Price of onions in Delhi</td><td>India's inflation rate</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Not watertight:</strong> a petrol price rise is micro, but it raises transport costs and inflation — a macro outcome. A recession lowers national income and demand in individual markets.</p></div>
 
-      <!-- 7. Central Problems -->
-      <section id="central-problems" class="fade-in">
-        <h2>7. Central Problems of an Economy</h2>
-        <pre>&#x250c;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
-&#x2502;              CENTRAL PROBLEMS OF ECONOMY             &#x2502;
-&#x251c;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2524;
-&#x2502;                                                    &#x2502;
-&#x2502;   1. WHAT to Produce?                              &#x2502;
-&#x2502;      &#x251c;&#x2500;&#x2500; Which commodities to produce?             &#x2502;
-&#x2502;      &#x2514;&#x2500;&#x2500; How much quantity?                        &#x2502;
-&#x2502;                                                    &#x2502;
-&#x2502;   2. HOW to Produce?                               &#x2502;
-&#x2502;      &#x251c;&#x2500;&#x2500; Labour Intensive Technique                &#x2502;
-&#x2502;      &#x2514;&#x2500;&#x2500; Capital Intensive Technique               &#x2502;
-&#x2502;                                                    &#x2502;
-&#x2502;   3. FOR WHOM to Produce?                          &#x2502;
-&#x2502;      &#x2514;&#x2500;&#x2500; Who gets the goods? (Distribution)        &#x2502;
-&#x2502;                                                    &#x2502;
-&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;</pre>
+          <h3 id="q-s3-positive">Positive and normative</h3>
+          <div class="table-wrap" role="region" aria-label="Positive and normative quick table" tabindex="0">
+            <table>
+              <thead><tr><th>Basis</th><th>Positive</th><th>Normative</th></tr></thead>
+              <tbody>
+                <tr><td>Question</td><td>What is, was or will be</td><td>What ought to be</td></tr>
+                <tr><td>Nature</td><td>Factual and testable</td><td>Value judgement</td></tr>
+                <tr><td>Purpose</td><td>Describe and predict</td><td>Recommend and evaluate</td></tr>
+                <tr><td>Signal words</td><td>is, was, will be, causes, leads to</td><td>should, ought, must, fair, justified</td></tr>
+                <tr><td>Example</td><td>“Cigarette tax reduces smoking.”</td><td>“The government should raise cigarette tax.”</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><p><strong>Positive ≠ correct.</strong> “India is larger than China in land area” is positive, though false, because it can be checked. Positive means factual, not true.</p></div>
 
-        <h3>1. WHAT to Produce?</h3>
-        <blockquote><strong>Question:</strong> Which goods should be produced and in what quantity?</blockquote>
-        <p><strong>Example:</strong> Mom asks every day "What should I cook today?"</p>
-        <ul>
-          <li>Should I make Idli?</li>
-          <li>Should I make Dosa?</li>
-          <li>Should I make Pav Bhaji?</li>
-          <li>→ Everyone gives a different suggestion!</li>
+          <h3 id="q-s3-grid">The two distinctions combine</h3>
+          <div class="table-wrap" role="region" aria-label="Micro and macro crossed with positive and normative" tabindex="0">
+            <table>
+              <thead><tr><th>Level</th><th>Positive</th><th>Normative</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Micro</strong></td><td>“Wheat price rose 4% in June.”</td><td>“Wheat should be subsidised.”</td></tr>
+                <tr><td><strong>Macro</strong></td><td>“GDP grew 7% last year.”</td><td>“The RBI should cut rates.”</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Micro/macro</strong> is the level of analysis; <strong>positive/normative</strong> is the type of statement. The answers are independent.</p>
+
+          <div class="drill">
+            <div class="drill-head"><h3 id="q-s3-drill">Recall drill — Session 3</h3><button aria-expanded="false" class="drill-toggle" data-drill-toggle type="button">Open all answers</button></div>
+            <ol class="drill-list">
+              <li class="drill-item"><p class="drill-question"><strong>Define microeconomics and macroeconomics.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Micro studies individual units of an economy — a consumer, firm, industry or single market. Macro studies economy-wide aggregates such as national income, output, the price level and employment.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why is micro called price theory and macro income and employment theory?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Micro mainly studies how individual commodity and factor prices are determined. Macro mainly studies economy-wide income and employment.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Classify: (a) price of tomatoes in Mumbai; (b) India's inflation rate; (c) a firm hiring ten workers; (d) national income.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>(a) Micro; (b) macro; (c) micro; (d) macro.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Give any three differences between micro and macro.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Individual units versus aggregates; demand and supply versus aggregate demand and aggregate supply; price of a commodity versus level of income and employment. Also price theory versus income and employment theory.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Define positive and normative economics.</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Positive studies facts and relationships as they are and is testable. Normative studies what ought to be and involves value judgements.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Why does “positive” not mean “correct”?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Positive means factual and testable. A positive statement can be false, because it can be checked and rejected.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>Classify: (a) “Population crossed 140 crore.” (b) “India should control population.” (c) “Higher cigarette tax reduces smoking.” (d) “The rich should pay more tax.” (e) “Demonetisation was justified.”</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>(a) Positive; (b) normative; (c) positive; (d) normative; (e) normative — “justified” is a value judgement.</p></details></li>
+              <li class="drill-item"><p class="drill-question"><strong>How is the micro/macro distinction different from positive/normative?</strong></p><details class="drill-answer"><summary class="drill-summary">Show answer</summary><p>Micro/macro is the level of analysis — a part versus the whole. Positive/normative is the type of statement — fact versus value judgement. Either level can contain either type.</p></details></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block clinic-block" id="q-clinic">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">Traps examiners love</span><h2>Confusion Clinic</h2><p>The one difference that decides the mark.</p></div>
+        </div>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="Confusion clinic for introduction to microeconomics" tabindex="0">
+            <table>
+              <thead><tr><th>Pair</th><th>The one difference</th></tr></thead>
+              <tbody>
+                <tr><td>Scarcity vs poverty</td><td>Limited means relative to wants vs a low level of income</td></tr>
+                <tr><td>Want vs choice</td><td>What people desire vs what they actually select under scarcity</td></tr>
+                <tr><td>Economic problem vs unemployment</td><td>Permanent scarcity and choice vs idle resources inside the PPF</td></tr>
+                <tr><td>What vs how to produce</td><td>Which goods and quantities vs the input mix and technique</td></tr>
+                <tr><td>How vs for whom</td><td>Technique of production vs distribution of output</td></tr>
+                <tr><td>Personal vs functional distribution</td><td>Among households vs among factors of production</td></tr>
+                <tr><td>Full use vs growth</td><td>Operating on the PPF vs shifting the PPF outward</td></tr>
+                <tr><td>Opportunity cost vs money cost</td><td>Next best alternative forgone vs the cash actually paid</td></tr>
+                <tr><td>Opportunity cost vs all alternatives</td><td>Only the best rejected option vs the sum of every rejected option</td></tr>
+                <tr><td>PPF vs opportunity cost curve</td><td>The same curve seen as capacity vs seen as sacrifice</td></tr>
+                <tr><td>MRT vs opportunity cost</td><td>Units of Y per extra X vs the value of the next best alternative</td></tr>
+                <tr><td>MRT vs slope</td><td>Absolute slope (positive) vs slope (−MRT)</td></tr>
+                <tr><td>Attainable vs efficient</td><td>On or inside the PPF vs only on the PPF</td></tr>
+                <tr><td>Inside vs outside the PPF</td><td>Attainable but inefficient vs unattainable</td></tr>
+                <tr><td>Efficient vs fair</td><td>No wasted resources vs a desirable distribution</td></tr>
+                <tr><td>Shift vs rotation</td><td>Capacity changes for both goods vs for one good</td></tr>
+                <tr><td>Growth vs movement along the PPF</td><td>A new curve vs a different point on the same curve</td></tr>
+                <tr><td>Unemployment vs capacity loss</td><td>Inside the same PPF vs an inward shift</td></tr>
+                <tr><td>Concave vs convex PPF</td><td>MRT rises vs MRT falls</td></tr>
+                <tr><td>Equal vs unequal resource efficiency</td><td>Straight-line PPF vs concave PPF</td></tr>
+                <tr><td>Micro vs macro</td><td>Individual units vs economy-wide aggregates</td></tr>
+                <tr><td>Price theory vs income theory</td><td>Micro's other name vs macro's other name</td></tr>
+                <tr><td>Positive vs normative</td><td>What is and testable vs what ought to be and valued</td></tr>
+                <tr><td>Positive vs correct</td><td>Factual and checkable vs actually true</td></tr>
+                <tr><td>Micro/macro vs positive/normative</td><td>Level of analysis vs type of statement</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block rapid-block" id="q-rapid">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">One-line answers</span><h2>Rapid Fire</h2><p>Cover the right column. Say the answer before you reveal it.</p></div>
+          <button class="cover-btn" type="button" data-cover-answers aria-pressed="false">Cover answers</button>
+        </div>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="Rapid fire questions and answers for introduction to microeconomics" tabindex="0">
+            <table class="rapid-table">
+              <thead><tr><th>Question</th><th>One-line answer</th></tr></thead>
+              <tbody>
+                <tr><td>Economics studies</td><td>Choice under scarcity</td></tr>
+                <tr><td>Economy</td><td>System of production, consumption and capital formation</td></tr>
+                <tr><td>Three economic activities</td><td>Production, consumption, capital formation</td></tr>
+                <tr><td>Economic agents</td><td>Households, firms and government</td></tr>
+                <tr><td>Scarcity</td><td>Supply of a resource is limited relative to demand</td></tr>
+                <tr><td>Three roots of the economic problem</td><td>Unlimited wants, scarce resources, alternative uses</td></tr>
+                <tr><td>Economic problem</td><td>Choice with unlimited wants and limited resources with alternative uses</td></tr>
+                <tr><td>Scarcity vs poverty</td><td>Limited means vs low income</td></tr>
+                <tr><td>Allocation of resources</td><td>Assigning scarce resources to satisfy wants</td></tr>
+                <tr><td>Three central problems</td><td>What, how and for whom to produce</td></tr>
+                <tr><td>What to produce has</td><td>Which goods, and how much of each</td></tr>
+                <tr><td>How to produce</td><td>Choice of technique and input mix</td></tr>
+                <tr><td>Labour-intensive</td><td>More labour, less capital per unit</td></tr>
+                <tr><td>Capital-intensive</td><td>More capital, less labour per unit</td></tr>
+                <tr><td>For whom to produce</td><td>Distribution of output</td></tr>
+                <tr><td>Factor incomes</td><td>Rent, wages, interest and profit</td></tr>
+                <tr><td>Personal distribution</td><td>Income among households</td></tr>
+                <tr><td>Functional distribution</td><td>Income among factors of production</td></tr>
+                <tr><td>Full use means</td><td>Operating on the PPF</td></tr>
+                <tr><td>Growth means</td><td>PPF shifting outward</td></tr>
+                <tr><td>Opportunity cost</td><td>Value of the next best alternative forgone</td></tr>
+                <tr><td>How many alternatives count?</td><td>Only the single best rejected one</td></tr>
+                <tr><td>Meera stays in bank</td><td>Opportunity cost ₹35,000, not ₹65,000</td></tr>
+                <tr><td>Opportunity cost is</td><td>A real cost, not necessarily a money cost</td></tr>
+                <tr><td>PPF</td><td>Maximum combinations of two goods with given resources and technology</td></tr>
+                <tr><td>PPF is also called</td><td>Production possibility curve / transformation curve</td></tr>
+                <tr><td>PPF assumes</td><td>Two goods, fixed transferable resources, full efficient use, constant technology</td></tr>
+                <tr><td>Schedule: Y at X = 0 to 5</td><td>30, 26, 21, 15, 8, 0</td></tr>
+                <tr><td>MRT formula</td><td>Y sacrificed ÷ X gained = ΔY/ΔX</td></tr>
+                <tr><td>MRT at 2→3 X</td><td>(21 − 15)/1 = 6</td></tr>
+                <tr><td>PPF slope</td><td>−MRT</td></tr>
+                <tr><td>Why PPF slopes down</td><td>More X means resources withdrawn from Y</td></tr>
+                <tr><td>Why PPF is concave</td><td>Resources are not equally efficient, so MRT rises</td></tr>
+                <tr><td>If resources were equally efficient</td><td>Constant MRT; straight-line PPF</td></tr>
+                <tr><td>Point on PPF</td><td>Attainable and efficient</td></tr>
+                <tr><td>Point inside PPF</td><td>Attainable but inefficient</td></tr>
+                <tr><td>Point outside PPF</td><td>Unattainable</td></tr>
+                <tr><td>A in Figure 1.1</td><td>On the PPF, efficient</td></tr>
+                <tr><td>B in Figure 1.1</td><td>Inside, attainable but inefficient</td></tr>
+                <tr><td>C in Figure 1.1</td><td>Outside, unattainable</td></tr>
+                <tr><td>PPF shows which efficiency?</td><td>Productive efficiency, not fairness</td></tr>
+                <tr><td>Growth for both goods</td><td>Parallel outward shift</td></tr>
+                <tr><td>Figures 1.3 intercepts</td><td>X 5→6; Y 30→36</td></tr>
+                <tr><td>Growth for one good</td><td>Rotation on that good's axis</td></tr>
+                <tr><td>Figure 1.4 intercepts</td><td>X 5→7; Y stays 30</td></tr>
+                <tr><td>Unemployment does what?</td><td>Moves economy inside the PPF; no shift</td></tr>
+                <tr><td>Uses of PPF</td><td>Scarcity, choice, opportunity cost, efficiency, growth</td></tr>
+                <tr><td>Limitations of PPF</td><td>Two goods, fixed resources, no fairness, no trade</td></tr>
+                <tr><td>Micro studies</td><td>Individual units</td></tr>
+                <tr><td>Micro's other name</td><td>Price theory</td></tr>
+                <tr><td>Macro studies</td><td>Economy-wide aggregates</td></tr>
+                <tr><td>Macro's other name</td><td>Income and employment theory</td></tr>
+                <tr><td>Micro tools</td><td>Demand and supply</td></tr>
+                <tr><td>Macro tools</td><td>Aggregate demand and aggregate supply</td></tr>
+                <tr><td>Micro vs macro is</td><td>A level-of-analysis distinction</td></tr>
+                <tr><td>Positive economics</td><td>What is; factual and testable</td></tr>
+                <tr><td>Normative economics</td><td>What ought to be; value judgement</td></tr>
+                <tr><td>Positive means</td><td>Factual, not correct</td></tr>
+                <tr><td>Normative signal words</td><td>Should, ought, must, fair, justified</td></tr>
+                <tr><td>Positive signal words</td><td>Is, was, will be, causes, leads to</td></tr>
+                <tr><td>Positive vs normative is</td><td>A type-of-statement distinction</td></tr>
+                <tr><td>Golden test</td><td>Part or whole? Fact or value?</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-block blank-block" id="q-blank">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">From memory</span><h2>Blank Page Test</h2><p>10 minutes. Close the notes and tick each one you can write.</p></div>
+        </div>
+        <div class="blank-meter">
+          <span class="blank-count" data-blank-count>0 / 15 complete</span>
+          <span class="blank-bar" aria-hidden="true"><span data-blank-bar></span></span>
+          <button class="blank-reset" type="button" data-blank-reset>Reset</button>
+        </div>
+        <p>Close the file and write these from memory. Tick each one you complete.</p>
+        <ul class="blank-list">
+          <li><label class="blank-item"><input class="blank-check" data-blank="1" id="q-blank-1-1" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Definition of the economic problem and its three roots</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="2" id="q-blank-1-2" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">The economy's three activities and the three economic agents</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="3" id="q-blank-1-3" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">The three central problems, each with one example</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="4" id="q-blank-1-4" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Labour-intensive vs capital-intensive techniques</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="5" id="q-blank-1-5" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Opportunity cost: definition and the next-best rule</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="6" id="q-blank-1-6" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Meera's calculation: ₹35,000 vs ₹40,000, and why not ₹65,000</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="7" id="q-blank-1-7" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">PPF: definition, two other names and four assumptions</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="8" id="q-blank-1-8" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">The six-row PPF schedule with Y sacrificed and MRT</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="9" id="q-blank-1-9" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Why the PPF slopes down and why it is concave</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="10" id="q-blank-1-10" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">MRT formula and the 2→3 units calculation</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="11" id="q-blank-1-11" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Attainable, efficient, inefficient and unattainable, with A/B/C</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="12" id="q-blank-1-12" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Shift vs rotation, with one example of each</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="13" id="q-blank-1-13" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Why unemployment does not shift the PPF</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="14" id="q-blank-1-14" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Micro vs macro: meaning, tools and other names</span></label></li>
+          <li><label class="blank-item"><input class="blank-check" data-blank="15" id="q-blank-1-15" type="checkbox"/><span aria-hidden="true" class="blank-box"></span><span class="blank-text">Positive vs normative: definitions, signal words and a 2×2 example</span></label></li>
         </ul>
-
-        <h3>2. HOW to Produce?</h3>
-        <blockquote><strong>Question:</strong> How should we produce – using Labour (people) or Capital (machines)?</blockquote>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Technique</th><th>Meaning</th><th>Real Example</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Labour Intensive</strong></td><td>Use more human labour</td><td>Building a bridge in India (many workers)</td></tr>
-              <tr><td><strong>Capital Intensive</strong></td><td>Use more machines</td><td>Building a bridge in USA (machines)</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p><strong>India</strong> → Labour Intensive (labour is cheaper and abundant)<br>
-        <strong>USA</strong> → Capital Intensive (machines are more advanced)</p>
-
-        <h3>3. FOR WHOM to Produce?</h3>
-        <blockquote><strong>Question:</strong> Who should get the goods that are produced?</blockquote>
-        <p><strong>Example from Lecture:</strong></p>
-        <ul>
-          <li>A poor man comes → hasn't eaten for 2 days</li>
-          <li>A beautiful woman comes → asking for food</li>
-          <li>A rich man comes → wants a fancy meal</li>
-        </ul>
-        <blockquote><strong>Problem:</strong> Whom should we produce for? → Society must make a <strong>Choice</strong> about distribution!</blockquote>
+        <p class="blank-note"><strong>Scoring:</strong> 12–15 ticks = exam ready. 8–11 = redo the recall drills for the missed sessions. Below 8 = read the session notes again, then repeat this test tomorrow.</p>
       </section>
 
-      <hr>
-
-      <!-- 8. Opportunity Cost -->
-      <section id="opportunity-cost" class="fade-in">
-        <h2>8. Opportunity Cost</h2>
-        <div class="callout">
-          <strong>&#x26a0;&#xfe0f; This is one of the MOST IMPORTANT concepts of the chapter!</strong>
+      <section class="quick-block plan-block" id="q-plan">
+        <div class="quick-block-head">
+          <div><span class="section-kicker">Exam morning</span><h2>15-Minute Revision Plan</h2><p>A timed route through the whole chapter, from first recall to the final line.</p></div>
         </div>
-
-        <h3>Definition:</h3>
-        <blockquote>
-          <strong>Opportunity Cost</strong> = <strong>Cost of the next best alternative foregone</strong><br>
-          The value of what you give up when you make a choice.
-        </blockquote>
-
-        <h3>Example: You have ₹10 – What do you do?</h3>
-        <pre>Option A: Watch a Movie (&#x20b9;10)
-Option B: Eat something  (&#x20b9;10)  &#x2190; You chose this</pre>
-
-        <blockquote><strong>Opportunity Cost</strong> = The <strong>enjoyment</strong> you would have got from watching the movie, which you <strong>forego</strong> (give up) by choosing to eat instead.</blockquote>
-
-        <h3>Key Point:</h3>
-        <blockquote>Whenever you <strong>choose</strong> something, you are <strong>sacrificing</strong> something else!</blockquote>
-      </section>
-
-      <hr>
-
-      <!-- 9. PPF -->
-      <section id="ppf" class="fade-in">
-        <h2>9. Production Possibility Frontier (PPF) / Production Possibility Curve (PPC)</h2>
-
-        <h3>What is PPF?</h3>
-        <blockquote><strong>PPF</strong> is a <strong>Graphical Representation</strong> that shows the <strong>possible combinations of two goods</strong> that can be produced with available resources and given technology.</blockquote>
-
-        <h3>Other Names (Important for Exams!):</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Name</th><th>Meaning</th></tr></thead>
-            <tbody>
-              <tr><td>Production Possibility Curve (PPC)</td><td>Same as PPF</td></tr>
-              <tr><td>Production Possibility Frontier (PPF)</td><td>This one</td></tr>
-              <tr><td>Production Possibility Boundary</td><td>Same concept</td></tr>
-              <tr><td><strong>Transformation Curve</strong></td><td>Same</td></tr>
-              <tr><td><strong>Transformation Boundary</strong></td><td>Same</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <blockquote>Just like one person can have multiple names (e.g. Bablu = CM = Chandramauli), PPF also has multiple names!</blockquote>
-
-        <h3>Assumptions of PPF:</h3>
-        <pre>&#x250c;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510
-&#x2502;            ASSUMPTIONS OF PPF              &#x2502;
-&#x251c;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2524
-&#x2502;                                          &#x2502;
-&#x2502;  1. Resources are FIXED                  &#x2502;
-&#x2502;     &#x2192; 10 kg flour = 10 kg only           &#x2502;
-&#x2502;                                          &#x2502;
-&#x2502;  2. Only TWO Goods are produced          &#x2502;
-&#x2502;     &#x2192; For easy understanding             &#x2502;
-&#x2502;                                          &#x2502;
-&#x2502;  3. Resources are FULLY utilized         &#x2502;
-&#x2502;     &#x2192; No waste, everything used          &#x2502;
-&#x2502;                                          &#x2502;
-&#x2502;  4. Technology is CONSTANT               &#x2502;
-&#x2502;     &#x2192; Neither improving nor declining    &#x2502;
-&#x2502;                                          &#x2502;
-&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;</pre>
-
-        <h3>PPF Graph:</h3>
-        <div class="img-wrap">
-          <img src="PPF_Curve.png" alt="PPF Curve showing the production possibility frontier between Guns and Butter">
-        </div>
-
-        <h3>PPF Schedule Example (Guns &amp; Butter):</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Possibility</th><th>Guns</th><th>Butter</th></tr></thead>
-            <tbody>
-              <tr><td>A</td><td>21</td><td>0</td></tr>
-              <tr><td>B</td><td>20</td><td>1</td></tr>
-              <tr><td>C</td><td>18</td><td>2</td></tr>
-              <tr><td>D</td><td>15</td><td>3</td></tr>
-              <tr><td>E</td><td>11</td><td>4</td></tr>
-              <tr><td>F</td><td>6</td><td>5</td></tr>
-              <tr><td>G</td><td>0</td><td>6</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <blockquote>As we keep <strong>decreasing</strong> Guns → <strong>Butter keeps increasing</strong>!</blockquote>
-      </section>
-
-      <hr>
-
-      <!-- 10. MOC / MRT -->
-      <section id="moc" class="fade-in">
-        <h2>10. Marginal Opportunity Cost (MOC) / Marginal Rate of Transformation (MRT)</h2>
-
-        <h3>Definition:</h3>
-        <blockquote><strong>MOC</strong> = Number of units of a commodity <strong>sacrificed</strong> to gain <strong>one additional unit</strong> of another commodity.</blockquote>
-
-        <h3>Formula:</h3>
-        <pre>                    Units of Good X sacrificed
-MRT (MOC) = &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
-                  Units of Good Y gained</pre>
-
-        <h3>Calculation from Schedule:</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Change</th><th>Guns Sacrificed</th><th>Butter Gained</th><th>MRT</th></tr></thead>
-            <tbody>
-              <tr><td>A → B</td><td>1 (21→20)</td><td>1 (0→1)</td><td>1/1 = 1</td></tr>
-              <tr><td>B → C</td><td>2 (20→18)</td><td>1 (1→2)</td><td>2/1 = 2</td></tr>
-              <tr><td>C → D</td><td>3 (18→15)</td><td>1 (2→3)</td><td>3/1 = 3</td></tr>
-              <tr><td>D → E</td><td>4 (15→11)</td><td>1 (3→4)</td><td>4/1 = 4</td></tr>
-              <tr><td>E → F</td><td>5 (11→6)</td><td>1 (4→5)</td><td>5/1 = 5</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <blockquote><strong>MRT is increasing</strong> → This is why PPF is <strong>Concave</strong> shaped!</blockquote>
-      </section>
-
-      <hr>
-
-      <!-- 11. Shape of PPF -->
-      <section id="shape-ppf" class="fade-in">
-        <h2>11. Shape of PPF – Why is it Concave?</h2>
-
-        <h3>Why is PPF <strong>Downward Sloping</strong>?</h3>
-        <blockquote>Because to increase quantity of one good, you <strong>must decrease</strong> the quantity of the other good → <strong>Inverse Relationship</strong></blockquote>
-
-        <h3>Why is PPF <strong>Concave</strong> (Bowed Outward)?</h3>
-        <blockquote>Because <strong>MRT increases</strong> (Increasing MRT) – to get each additional unit, you have to sacrifice more and more of the other good!</blockquote>
-
-        <h3>Shape vs MRT Relationship:</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>PPF Shape</th><th>MRT</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Concave</strong> (Bowed Outward)</td><td><strong>Increasing</strong> MRT</td></tr>
-              <tr><td><strong>Convex</strong> (Bowed Inward)</td><td><strong>Decreasing</strong> MRT</td></tr>
-              <tr><td><strong>Straight Line</strong></td><td><strong>Constant</strong> MRT</td></tr>
-            </tbody>
-          </table>
+        <div class="quick-block-body">
+          <div class="table-wrap" role="region" aria-label="15-minute revision plan for introduction to microeconomics" tabindex="0">
+            <table class="plan-table">
+              <thead><tr><th>Minutes</th><th>Do this</th></tr></thead>
+              <tbody>
+                <tr><td>0–4</td><td>Session 1: the 12 lines, key terms, the three central problems, full use vs growth</td></tr>
+                <tr><td>4–7</td><td>Session 1: opportunity cost and Meera's table; then Session 2: PPF definition, assumptions and schedule</td></tr>
+                <tr><td>7–11</td><td>Session 2: MRT and concavity, A/B/C points, shifts vs rotations, unemployment</td></tr>
+                <tr><td>11–15</td><td>Session 3: micro vs macro, positive vs normative, the 2×2 grid; then Rapid Fire</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Final line to remember:</strong> scarcity forces choice, every choice has an opportunity cost, and the PPF draws both. The two distinctions then tell you whether you are studying a part or the whole, and a fact or a value. Every question in this chapter is a version of that sentence.</p>
         </div>
       </section>
 
-      <hr>
-
-      <!-- 12. Attainable & Unattainable -->
-      <section id="attainable" class="fade-in">
-        <h2>12. Attainable &amp; Unattainable Combinations</h2>
-
-        <div class="img-wrap">
-          <img src="PPF_Attainable.svg" alt="PPF Attainable and Unattainable combinations diagram">
+      <div class="quick-cta">
+        <div>
+          <span class="quick-cta-kicker">Need the reasoning?</span>
+          <p>Every table in quick revision is built from the full notes.</p>
         </div>
+        <button class="mode-jump" type="button" data-mode-jump="notes">Read the full notes <span aria-hidden="true">→</span></button>
+      </div>
+      </div>
 
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Type</th><th>Location</th><th>Meaning</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Efficient</strong></td><td><strong>ON</strong> the PPF Curve</td><td>Resources fully utilized, no waste</td></tr>
-              <tr><td><strong>Inefficient</strong></td><td><strong>INSIDE</strong> the PPF Curve</td><td>Resources underutilized (unemployment/waste)</td></tr>
-              <tr><td><strong>Unattainable</strong></td><td><strong>OUTSIDE</strong> the PPF Curve</td><td>Not possible with current resources</td></tr>
-            </tbody>
-          </table>
-        </div>
+<nav class="pager" aria-label="Chapter navigation"><a class="pager-link next" href="Chapter-2-Consumer-Equilibrium.html"><span class="pager-label">Next chapter →</span><span class="pager-title">Chapter 2 · Consumer's Equilibrium</span></a></nav>
 
-        <h3>Remember:</h3>
-        <ul>
-          <li><strong>ON the curve</strong> = Best use of all resources (Optimum Utilization)</li>
-          <li><strong>INSIDE the curve</strong> = Resources are being wasted (Unemployment / Inefficiency)</li>
-          <li><strong>OUTSIDE the curve</strong> = Can be achieved in future if resources / technology increase</li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <!-- 13. Shift in PPF -->
-      <section id="shift" class="fade-in">
-        <h2>13. Shift in PPF (Change in BOTH Goods)</h2>
-
-        <div class="img-wrap">
-          <img src="PPF_Shift.svg" alt="Shift in PPF diagram showing rightward and leftward shifts">
-        </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Shift</th><th>Direction</th><th>Reason</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Rightward Shift</strong></td><td>Curve moves outward</td><td>Resources ↑ / Technology ↑</td></tr>
-              <tr><td><strong>Leftward Shift</strong></td><td>Curve moves inward</td><td>Resources ↓ / Technology ↓</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Causes of Rightward Shift (Economic Growth):</h3>
-        <ul>
-          <li>Increase in Resources (more Raw Material, Labour, Capital)</li>
-          <li>Technology Improvement (better machines &amp; methods)</li>
-          <li>Better Education &amp; Skill Development</li>
-        </ul>
-
-        <h3>Causes of Leftward Shift (Economic Decline):</h3>
-        <ul>
-          <li>Natural Disasters (Earthquake, Flood)</li>
-          <li>War</li>
-          <li>Technology Degradation</li>
-          <li>Decrease in Resources</li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <!-- 14. Rotation in PPF -->
-      <section id="rotation" class="fade-in">
-        <h2>14. Rotation in PPF (Change in ONLY ONE Good)</h2>
-
-        <div class="img-wrap">
-          <img src="PPF_Rotation.svg" alt="Rotation in PPF diagram showing rotation on X and Y axes">
-        </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Rotation</th><th>Effect</th><th>Reason</th></tr></thead>
-            <tbody>
-              <tr><td><strong>On X-Axis (Rightward)</strong></td><td>Good X ↑ increases</td><td>X's resources/technology improves</td></tr>
-              <tr><td><strong>On X-Axis (Leftward)</strong></td><td>Good X ↓ decreases</td><td>X's resources/technology degrades</td></tr>
-              <tr><td><strong>On Y-Axis (Upward)</strong></td><td>Good Y ↑ increases</td><td>Y's resources/technology improves</td></tr>
-              <tr><td><strong>On Y-Axis (Downward)</strong></td><td>Good Y ↓ decreases</td><td>Y's resources/technology degrades</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Shift vs Rotation – Key Difference:</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Shift</th><th>Rotation</th></tr></thead>
-            <tbody>
-              <tr><td><strong>BOTH</strong> goods' resources/technology change</td><td><strong>Only ONE</strong> good's resources/technology change</td></tr>
-              <tr><td>Entire curve moves as a whole</td><td>Only one side of the curve moves</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <hr>
-
-      <!-- 15. Summary -->
-      <section id="summary" class="fade-in">
-        <h2>Chapter Summary – At a Glance</h2>
-        <div class="table-wrap mermaid-wrap">
-          <pre class="mermaid">
-            mindmap
-              root((Chapter 1<br/>Introduction))
-                Economy
-                  System for work &amp; earning
-                Scarcity
-                  Limited Resources
-                  Unlimited Wants
-                  Alternative Uses
-                ::icon(fa fa-exclamation-triangle)
-                Economic Problem
-                  What to Produce
-                  How to Produce
-                  For Whom to Produce
-                ::icon(fa fa-scale-balanced)
-                Positive vs Normative
-                  Positive :: What Is
-                  Normative :: What Ought to Be
-                ::icon(fa fa-chart-simple)
-                Micro vs Macro
-                  Microeconomics :: Individual Units
-                  Macroeconomics :: Aggregate Economy
-                Opportunity Cost
-                  Next best alternative foregone
-                PPF / PPC
-                  Concave :: Increasing MRT
-                  Downward Sloping :: Inverse Relation
-                  Shift :: Both goods change
-                  Rotation :: One good changes
-          </pre>
-        </div>
-      </section>
-
-      <hr>
-
-      <!-- 16. Exam Questions -->
-      <section id="exam-questions" class="fade-in">
-        <h2>Important Exam Questions</h2>
-
-        <h3>Short Questions (2-3 Marks):</h3>
-        <ol>
-          <li><strong>Define Scarcity.</strong> Why does scarcity arise?</li>
-          <li><strong>What is Opportunity Cost?</strong> Give an example.</li>
-          <li><strong>Distinguish between Microeconomics and Macroeconomics.</strong></li>
-          <li><strong>What is Positive Economics?</strong> Give one example.</li>
-          <li><strong>What is Normative Economics?</strong> Give one example.</li>
-          <li><strong>Why is PPF downward sloping?</strong></li>
-          <li><strong>Why is PPF concave to the origin?</strong></li>
-          <li><strong>What is Marginal Opportunity Cost?</strong></li>
-        </ol>
-
-        <h3>Long Questions (4-6 Marks):</h3>
-        <ol>
-          <li><strong>Explain the three Central Problems of an Economy</strong> with examples.</li>
-          <li><strong>Distinguish between Positive and Normative Economics.</strong></li>
-          <li><strong>Explain PPF with the help of a schedule and diagram.</strong></li>
-          <li><strong>What is Shift and Rotation in PPF?</strong> Explain with diagrams.</li>
-          <li><strong>Explain the concept of Opportunity Cost and Marginal Rate of Transformation (MRT).</strong></li>
-          <li><strong>Differentiate between Microeconomics and Macroeconomics</strong> under different heads.</li>
-        </ol>
-
-        <h3>Numerical:</h3>
-        <ol>
-          <li>If to gain 1 unit of Good X, 2 units of Good Y are sacrificed, calculate MRT.</li>
-          <li>Draw a PPF schedule with 5 combinations showing increasing MRT.</li>
-        </ol>
-
-        <div class="callout">
-          <strong>&#x1f4a1; Tip:</strong> Always practice drawing graphs and solving numericals. In Economics, <strong>Diagram + Explanation = Full Marks!</strong>
-        </div>
-      </section>
-
-  <script id="chapter-terms-data" type="application/json">
-  [{"term":"Economy","definition":"A system that provides people the means to work and earn a living"},{"term":"Scarcity","definition":"Supply is limited but demand is unlimited; the mother of economics"},{"term":"Economic Problem","definition":"Problem arising from unlimited wants with scarce resources having alternative uses"},{"term":"Opportunity Cost","definition":"Cost of the next best alternative foregone"},{"term":"Production Possibility Frontier","definition":"Graph showing possible combinations of two goods with given resources and technology"},{"term":"Marginal Opportunity Cost","definition":"Number of units of a commodity sacrificed to gain one additional unit of another"},{"term":"Ceteris Paribus","definition":"All other things being equal; used to isolate one variable's effect"},{"term":"Positive Economics","definition":"Deals with what is; factual statements that can be verified"},{"term":"Normative Economics","definition":"Deals with what ought to be; involves value judgments"}]
-  </script>
-      <footer>
-        <p>Economics Notes &middot; Class 11 &middot; Chapter 1 — Introduction to Microeconomics</p>
+      <footer class="page-footer">
+        <p><strong>Chapter 1 · Introduction to Microeconomics</strong></p>
+        <p>Built from the Class 11 Microeconomics lecture notes and the standard NCERT treatment. Examples are closest real-world illustrations, not claims about exact market data.</p>
+        <p><a href="../index.html">← All subjects</a> <span>·</span> <a href="#main">Back to top</a></p>
       </footer>
-
     </main>
   </div>
+<button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false" aria-controls="toc">
+    <span aria-hidden="true">☰</span> Contents
+  </button>
 
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <div class="figure-lightbox" id="figureLightbox" hidden>
+    <div class="figure-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="figureLightboxTitle">
+      <div class="figure-lightbox__bar">
+        <p class="figure-lightbox__title" id="figureLightboxTitle">Figure<span>Swipe or scroll to explore. Use + and − to zoom.</span></p>
+        <div class="figure-lightbox__actions">
+          <button class="figure-lightbox__icon" type="button" data-lightbox-zoom-out aria-label="Zoom out" disabled>
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M20 20l-3.4-3.4"/></svg>
+          </button>
+          <button class="figure-lightbox__level" type="button" data-lightbox-level aria-label="Zoom 1×. Reset to fit.">1×</button>
+          <button class="figure-lightbox__icon" type="button" data-lightbox-zoom-in aria-label="Zoom in">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M11 8v6M20 20l-3.4-3.4"/></svg>
+          </button>
+          <button class="figure-lightbox__close" type="button" id="figureLightboxClose">Close</button>
+        </div>
+      </div>
+      <div class="figure-lightbox__scroll" id="figureLightboxScroll" tabindex="0" aria-label="Enlarged figure. Swipe, scroll or use the arrow keys to explore.">
+        <img id="figureLightboxImage" alt="" decoding="async">
+      </div>
+    </div>
+  </div>
+
+  <script src="../Retail/retail.js?v=20261030a"></script>
   <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'neutral',
-      themeVariables: {
-        fontFamily: 'Outfit, sans-serif',
-        primaryColor: '#e8f0ec',
-        primaryTextColor: '#1b1b1b',
-        primaryBorderColor: '#1a5e4a',
-        lineColor: '#1a5e4a',
-        secondaryColor: '#ffffff',
-        tertiaryColor: '#faf8f5',
-        fontSize: '14px'
-      },
-      mindmap: {
-        padding: 16,
-        nodeSpacing: 20,
-        rankSpacing: 24
+    (function () {
+      'use strict';
+      var figures = document.querySelectorAll('.chapter-figure');
+      var overlay = document.getElementById('figureLightbox');
+      if (!figures.length || !overlay) return;
+
+      var dialog = overlay.querySelector('.figure-lightbox__dialog');
+      var titleEl = document.getElementById('figureLightboxTitle');
+      var imgEl = document.getElementById('figureLightboxImage');
+      var scrollEl = document.getElementById('figureLightboxScroll');
+      var closeBtn = document.getElementById('figureLightboxClose');
+      var zoomInBtn = overlay.querySelector('[data-lightbox-zoom-in]');
+      var zoomOutBtn = overlay.querySelector('[data-lightbox-zoom-out]');
+      var levelBtn = overlay.querySelector('[data-lightbox-level]');
+      var SCALES = [1, 1.25, 1.5, 2, 2.5, 3];
+      var scaleIndex = 0;
+      var baseWidth = 0;
+      var lastFocus = null;
+      var isPhone = window.matchMedia('(max-width: 700px)');
+      var resizeFrame = 0;
+
+      function contentWidth() {
+        var style = window.getComputedStyle(scrollEl);
+        var padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+        return Math.max(240, scrollEl.clientWidth - padding);
       }
-    });
-  </script>
-  <script>
-    const tocToggle = document.getElementById('tocToggle');
-    const toc = document.getElementById('toc');
 
-    tocToggle.addEventListener('click', () => {
-      toc.classList.toggle('open');
-    });
+      function levelText() {
+        return SCALES[scaleIndex] + '×';
+      }
 
-    toc.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        toc.classList.remove('open');
+      function paintScale(preserveCentre) {
+        if (!baseWidth) baseWidth = contentWidth();
+        var oldWidth = imgEl.getBoundingClientRect().width || baseWidth;
+        var newWidth = Math.round(baseWidth * SCALES[scaleIndex]);
+        var centreX = 0;
+        var centreY = 0;
+        var ratio = 1;
+        if (preserveCentre) {
+          centreX = scrollEl.scrollLeft + scrollEl.clientWidth / 2;
+          centreY = scrollEl.scrollTop + scrollEl.clientHeight / 2;
+          ratio = newWidth / oldWidth;
+        }
+        imgEl.style.width = newWidth + 'px';
+        if (preserveCentre) {
+          scrollEl.scrollLeft = Math.max(0, centreX * ratio - scrollEl.clientWidth / 2);
+          scrollEl.scrollTop = Math.max(0, centreY * ratio - scrollEl.clientHeight / 2);
+        }
+        var label = levelText();
+        levelBtn.textContent = label;
+        levelBtn.setAttribute('aria-label', 'Zoom ' + label + '. Reset to fit.');
+        zoomOutBtn.disabled = scaleIndex === 0;
+        zoomInBtn.disabled = scaleIndex === SCALES.length - 1;
+      }
+
+      function setScale(index, preserveCentre) {
+        scaleIndex = Math.max(0, Math.min(SCALES.length - 1, index));
+        paintScale(preserveCentre);
+      }
+
+      function openLightbox(link, fig) {
+        var source = fig.querySelector('img');
+        var heading = fig.querySelector('figcaption strong');
+        var title = heading ? heading.textContent.trim() : (source.alt || 'Figure');
+
+        lastFocus = link;
+        titleEl.firstChild.nodeValue = title;
+        imgEl.src = source.currentSrc || source.src;
+        imgEl.alt = source.alt || '';
+        baseWidth = 0;
+        setScale(isPhone.matches ? 3 : 0, false);
+        overlay.hidden = false;
+        document.body.classList.add('figure-lightbox-open');
+        window.requestAnimationFrame(function () {
+          baseWidth = contentWidth();
+          paintScale(false);
+          scrollEl.scrollLeft = 0;
+          scrollEl.scrollTop = 0;
+          closeBtn.focus();
+        });
+      }
+
+      function closeLightbox() {
+        if (overlay.hidden) return;
+        overlay.hidden = true;
+        document.body.classList.remove('figure-lightbox-open');
+        if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+        lastFocus = null;
+      }
+
+      Array.prototype.forEach.call(figures, function (fig) {
+        var image = fig.querySelector('img');
+        if (!image || image.closest('.figure-zoom')) return;
+        var heading = fig.querySelector('figcaption strong');
+        var title = heading ? heading.textContent.trim() : (image.alt || 'figure');
+        var link = document.createElement('a');
+        link.className = 'figure-zoom';
+        link.href = image.getAttribute('src');
+        link.setAttribute('aria-label', 'Tap to enlarge ' + title);
+        image.parentNode.insertBefore(link, image);
+        link.appendChild(image);
+
+        var hint = document.createElement('span');
+        hint.className = 'figure-zoom__hint';
+        hint.setAttribute('aria-hidden', 'true');
+        hint.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H3v6M15 3h6v6M9 21H3v-6M21 15v6h-6"/></svg><span>Tap to enlarge</span>';
+        link.appendChild(hint);
+
+        link.addEventListener('click', function (event) {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          openLightbox(link, fig);
+        });
       });
-    });
 
-    const progressFill = document.getElementById('progressFill');
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressFill.style.width = progress + '%';
-    });
+      zoomInBtn.addEventListener('click', function () { setScale(scaleIndex + 1, true); });
+      zoomOutBtn.addEventListener('click', function () { setScale(scaleIndex - 1, true); });
+      levelBtn.addEventListener('click', function () { setScale(0, true); });
+      closeBtn.addEventListener('click', closeLightbox);
+      overlay.addEventListener('click', function (event) {
+        if (event.target === overlay) closeLightbox();
+      });
 
-    const sections = document.querySelectorAll('section[id]');
-    const tocLinks = document.querySelectorAll('.toc a');
-
-    function updateActiveLink() {
-      let current = '';
-      sections.forEach(section => {
-        const top = section.offsetTop - 120;
-        if (window.scrollY >= top) {
-          current = section.getAttribute('id');
+      document.addEventListener('keydown', function (event) {
+        if (overlay.hidden) return;
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeLightbox();
+          return;
+        }
+        if (event.key === 'Tab') {
+          var focusables = Array.prototype.slice.call(
+            dialog.querySelectorAll('button:not([disabled]), a[href], [tabindex="0"]')
+          );
+          if (!focusables.length) return;
+          var first = focusables[0];
+          var last = focusables[focusables.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+          return;
+        }
+        var step = 70;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+          event.preventDefault();
+          if (event.key === 'ArrowLeft') scrollEl.scrollLeft -= step;
+          if (event.key === 'ArrowRight') scrollEl.scrollLeft += step;
+          if (event.key === 'ArrowUp') scrollEl.scrollTop -= step;
+          if (event.key === 'ArrowDown') scrollEl.scrollTop += step;
         }
       });
-      tocLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
+
+      window.addEventListener('resize', function () {
+        if (overlay.hidden) return;
+        window.cancelAnimationFrame(resizeFrame);
+        resizeFrame = window.requestAnimationFrame(function () {
+          baseWidth = contentWidth();
+          paintScale(true);
+        });
       });
-    }
-
-    window.addEventListener('scroll', updateActiveLink);
-    updateActiveLink();
+    })();
   </script>
-
-
-  <script src="../assets/study-os.js"></script>
-<script src="../assets/toc-scrollspy.js"></script>
 </body>
 </html>
