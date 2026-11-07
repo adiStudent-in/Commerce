@@ -1,12 +1,18 @@
 /* ===== Study OS Service Worker ===== */
-/* Notes Hub — Class 11 Commerce PWA     */
-/* Version 1.0                           */
+/* Study OS - Class 11 Commerce PWA   */
+/* Version 1.1                        */
 
-var CACHE_NAME = 'study-os-v4';
+var CACHE_NAME = 'study-os-v5';
 var ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './notes.html',
+  './test.html',
+  './practice.html',
   './Syllabus-Tracker.html',
+  './manifest.json',
+  './assets/dashboard.css',
+  './assets/dashboard.js',
   './assets/study-os.css',
   './assets/study-os.js',
   'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap',
